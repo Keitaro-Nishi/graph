@@ -13,9 +13,11 @@
 Route::get ( '/', function () {
 	return view ( 'welcome' );
 } );
-Route::get ( '/hello_world/index', 'HelloWorldController@getIndex' );
-Route::get ( '/hello_world/login', 'HelloWorldController@getLogin' );
+	Route::get ( '/hello_world/index', 'HelloWorldController@getIndex' );
+	Route::get ( '/hello_world/login', 'HelloWorldController@getLogin' );
 
-Auth::routes();
+	Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+	Route::get('/home', 'HomeController@index')->name('home');
+
+
