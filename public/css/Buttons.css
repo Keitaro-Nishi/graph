@@ -1,1 +1,47 @@
+button.button5 {
+	/* ボタンサイズ指定 */
+	width: 400px;
+	height: 70px;
+	/* 中央 */
+	margin: 0px auto;
+	/* 文字サイズを1.4emに指定 */
+	font-size: 1.4em;
+	/* 文字の太さをboldに指定 */
+	font-weight: bold;
+	/* 縦方向に10px、
+     * 横方向に30pxの余白を指定 */
+	padding: 10px 30px;
+	/* 背景色を濃い青色に指定 */
+	background-color: #248;
+	/* 文字色を白色に指定 */
+	color: #fff;
+	/* ボーダーをなくす */
+	border-style: none;
+	/* ボタンの影の指定
+     * 影の横幅を2px
+     * 縦長を2px
+     * ぼかしを3px
+     * 広がりを1px
+     * 色を#666（グレー）に指定 */
+	box-shadow: 2px 2px 3px 1px #666;
+	-moz-box-shadow: 2px 2px 3px 1px #666;
+	-webkit-box-shadow: 2px 2px 3px 1px #666;
+}
+
+button.button5:hover {
+	/* 背景色を明るい青色に指定 */
+	background-color: #006699;
+	/* 文字色を白色に指定 */
+	color: #fff;
+}
+
+@media all and (-webkit-min-device-pixel-ratio:0)and (min-resolution: .001dpcm) {
+button.chrome{
+    margin-left: -4px;
+  }
+}
+
+::-webkit-full-page-media, _:future, :root button.Safari {
+    margin-left: -4px;
+}
 
