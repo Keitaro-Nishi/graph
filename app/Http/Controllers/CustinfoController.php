@@ -10,15 +10,15 @@ class CustinfoController extends Controller
 {
 	public function index(Request $request)
 	{
-		$users =DB::select('select * from users');
-		return view('users',['users'=>$users]);
+		$customers =DB::select('select * from users');
+		return view('Custinfo',['customers'=>$customers]);
 	}
 
 	public function delete(Request $request)
 	{
-		$deleteid = $request->deletecode;
-		DB::delete('delete from users WHERE id=?',[$deleteid]);
-		return redirect('/users');
+		$deleteno = $request->deletecode;
+		DB::delete('delete from custinfo WHERE no=?',[$deleteno]);
+		return redirect('/Custinfo');
 	}
 
 }

@@ -14,17 +14,23 @@
 	<thead>
 		<tr>
 			<th data-column-id="no" data-type="numeric" data-identifier="true"
-				data-width="3%" data-order="desc">id</th>
-			<th data-column-id="custid" data-width="7%">名前</th>
+				data-width="3%" data-order="desc">NO</th>
+			<th data-column-id="custid" data-width="10%">ユーザーID</th>
 			<th data-column-id="custname" data-width="10%">ユーザーID</th>
+			<th data-column-id="orgname" data-width="10%">組織名</th>
+			<th data-column-id="effect" data-width="5%">EFFECT</th>
+			<th data-column-id="role" data-width="5%">役割</th>
 		</tr>
 	</thead>
 	<tbody>
-		@foreach($users as $user)
+		@foreach($customers as $customer)
 		<tr>
-			<td>{{$user->id}}</td>
-			<td>{{$user->name}}</td>
-			<td>{{$user->userid}}</td>
+			<td>{{$customer->no}}</td>
+			<td>{{$customer->custid}}</td>
+			<td>{{$customer->custname}}</td>
+			<td>{{$customer->orgname}}</td>
+			<td>{{$customer->effect}}</td>
+			<td>{{$customer->role}}</td>
 		</tr>
 		@endforeach
 	</tbody>
