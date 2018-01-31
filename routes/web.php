@@ -21,3 +21,4 @@ Route::get ( '/', function () {
 	Route::get('/home', 'HomeController@index')->name('home');
 	Route::get('/Custinfo','CustinfoController@index');
 	Route::get('/ajax/{deletecode}','CustinfoController@delete');
+
