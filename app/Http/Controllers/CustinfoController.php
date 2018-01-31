@@ -10,7 +10,7 @@ class CustinfoController extends Controller
 {
 	public function index(Request $request)
 	{
-		$customers =DB::select('select * from users');
+		$customers =DB::select('select * from custinfo');
 		return view('Custinfo',['customers'=>$customers]);
 	}
 
