@@ -2040,3 +2040,4 @@
 
 $("[data-toggle=\"bootgrid\"]").bootgrid();
 })(jQuery, window);
+

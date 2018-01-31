@@ -19,5 +19,6 @@ Route::get ( '/', function () {
 	Auth::routes();
 
 	Route::get('/home', 'HomeController@index')->name('home');
-        Route::get('/users','UserController@index');
-        Route::get('/ajax/{deletecode}','UserdeleteController@index');
+	Route::get('/Custinfo','CustinfoController@index');
+	Route::get('/ajax/{deletecode}','CustinfoController@delete');
+
