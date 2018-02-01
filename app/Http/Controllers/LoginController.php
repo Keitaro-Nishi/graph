@@ -21,6 +21,7 @@ class LoginController extends Controller {
        $password = $request->loginpassword;
 
        $DBcustomer =DB::select('select custid from custinfo where custid = ?', [$custid]);
+       return view ('Menu');
        //error_log("★★★★★★★★★★★★★★★");
        //error_log($DBcustomer[0]);
        /*
