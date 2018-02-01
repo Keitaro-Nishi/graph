@@ -11,7 +11,7 @@
  * |
  */
 Route::get ( '/', function () {
-	return view ( 'Login' );
+	return view ( 'Menu' );
 } );
 
 Route::get ( '/Menu', function () {
@@ -28,5 +28,5 @@ Route::get ( '/Menu', function () {
 	Route::get('/ajax/{deletecode}','CustinfodeleteController@delete');
 	Route::get('/Custinfoadd','CustinfoaddController@add');
 	Route::post('/Custinfoadd','CustinfoaddController@insert');
-	Route::get('login','LoginController@index');
-	Route::post('login','LoginController@login');
+	Route::get('/login','LoginController@index');
+	Route::post('/login','LoginController@login');
