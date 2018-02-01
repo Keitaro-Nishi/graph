@@ -8,8 +8,12 @@ use Illuminate\Support\Facades\DB;
 class LoginController extends Controller {
 
 
-
 	public function index(Request $request) {
+		return view ('Login');
+	}
+
+
+	public function login(Request $request) {
 	   error_log(★★★★★★★★★★);
 	   $errorMessage ="";
        $custid = $request->custid;
