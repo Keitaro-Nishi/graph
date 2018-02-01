@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<head>
 <meta name="description" content="ユーザー登録">
 <title>ユーザー登録</title>
 <link href="css/common.css" rel="stylesheet" />
@@ -8,7 +9,9 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="js/jquery.bootgrid.js"></script>
-
+</head>
+<body>
+<div id="header"></div>
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -67,4 +70,11 @@
         </div>
     </div>
 </div>
+
+<script>
+$(function() {
+	$("#header").load("header.html");
+});
+</script>
+</body>
 </html>
