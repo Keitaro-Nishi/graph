@@ -29,10 +29,8 @@
                                 <input id="custid" type="text" class="form-control" name="custid"  required autofocus>
                             </div>
                         </div>
-
                         <div>
                             <label for="custname" class="col-md-4 control-label">ユーザー名</label>
-
                             <div class="col-md-6">
                                 <input id="custname" type="text" class="form-control" name="custname" required>
                             </div>
@@ -40,7 +38,6 @@
 
                         <div>
                             <label for="orgname" class="col-md-4 control-label">組織名</label>
-
                             <div class="col-md-6">
                                 <input id="orgname" type="text" class="form-control" name="orgname" required>
                             </div>
@@ -48,7 +45,6 @@
 
                         <div>
                             <label for="password" class="col-md-4 control-label">Password</label>
-
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control" name="password" required>
                                 <br>
