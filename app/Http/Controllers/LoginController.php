@@ -24,7 +24,7 @@ class LoginController extends Controller {
        error_log(★★★★★★★★★★);
        	session_regenerate_id ( true );
        	$_SESSION ["CUSTID"] = $custid;
-       	header ( "Location: Menu.blade.php" );
+       	//header ( "Location: Menu.blade.php" );
        	exit ();
        } else {
        	// 認証失敗
