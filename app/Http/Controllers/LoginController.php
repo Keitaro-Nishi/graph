@@ -19,25 +19,22 @@ class LoginController extends Controller {
        $custid = $request->custid;
        $password = $request->password;
 
-       return view ('Menu');
 
-       error_log($custid);
 
-       /*$DB_customers =DB::select('select * from custinfo where custid = ?', [$custid]);
-       error_log(★★★★★★★★★★);
+       $DB_customers =DB::select('select * from custinfo where custid = ?', [$custid]);
        $DB_custid = $DB_customers->custid;
        $DB_password = $DB_customers->password;
 
        if (password_verify ( $password, $DB_password)) {
-       error_log(★★★★★★★★★★);
        	session_regenerate_id ( true );
        	$_SESSION ["CUSTID"] = $custid;
+       	return view ('Menu');
        	//header ( "Location: Menu.blade.php" );
        	exit ();
        } else {
        	// 認証失敗
        	$errorMessage = "ユーザIDあるいはパスワードに誤りがあります。";
        }
-       */
+
 	}
 }
