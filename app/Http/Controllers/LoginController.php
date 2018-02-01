@@ -21,9 +21,9 @@ class LoginController extends Controller {
 
 
 
-       $DB_customers =DB::select('select * from custinfo where custid = ?', [$custid]);
-       $DB_custid = $DB_customers->custid;
-       $DB_password = $DB_customers->password;
+       $DBcustomers =DB::select('select * from custinfo where custid = ?', [$custid]);
+       $DBcustid = $DBcustomers->custid;
+       $DBpassword = $DBcustomers->password;
        return view ('Menu');
        /*if (password_verify ( $password, $DB_password)) {
        	session_regenerate_id ( true );
