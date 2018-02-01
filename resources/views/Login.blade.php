@@ -1,76 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="description" content="ユーザー登録">
-<title>ユーザー登録</title>
+<meta charset='utf-8'>
+<title>ログイン</title>
 <link href="css/common.css" rel="stylesheet" />
 <link href="css/bootstrap.css" rel="stylesheet" />
 <link href="css/jquery.bootgrid.css" rel="stylesheet" />
+<link href="css/Buttons.css" rel="stylesheet" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.js"></script>
-<script src="js/bootstrap.js"></script>
-<script src="js/jquery.bootgrid.js"></script>
 </head>
+
 <body>
-<div id="header"></div>
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading"></div>
+	<div id="header"></div>
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action＝'login'>
-                        {{ csrf_field() }}
+	<form method="POST" action＝Login'>
+	<input id="orgname" type="text" name="orgname" required>
+	<button type="submit">aaa</button>
+	</form>
 
-                        <div>
-                            <label for="custid" class="col-md-4 control-label">ユーザーID</label>
 
-                            <div class="col-md-6">
-                                <input id="custid" type="text" class="form-control" name="custid"  required autofocus>
-                            </div>
-                        </div>
-                        <div>
-                            <label for="custname" class="col-md-4 control-label">ユーザー名</label>
-                            <div class="col-md-6">
-                                <input id="custname" type="text" class="form-control" name="custname" required>
-                            </div>
-                        </div>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-md-push-3 col-md-6">
+				<div class="form-wrap">
+					<div class="text-center">
+						<h1>Login</h1>
+						<form class="center-block" method="POST" action＝'login'>
+							{{ csrf_field() }}
+							<input type="text" id ="custid" name="custid" class="form-control"
+								maxlength="20" placeholder="ユーザーID" required /><br>
+							<input type="password" id =password name="password" class="form-control"
+								maxlength="60" placeholder="パスワード" required /><br> <br>
+							<button type="submit" id="btn-login"
+								class="btn btn-primary btn-block">ログイン</button>
+							<br> <br>  <font size="4" color=#ff0000><b>
+							 <?php //echo $errorMessage; ?></b></font>
+						</form>
 
-                        <div>
-                            <label for="orgname" class="col-md-4 control-label">組織名</label>
-                            <div class="col-md-6">
-                                <input id="orgname" type="text" class="form-control" name="orgname" required>
-                            </div>
-                        </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-                        <div>
-                            <label for="password" class="col-md-4 control-label">Password</label>
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-                                <br>
-                            </div>
-                        </div>
 
-						<div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    登録
-                                </button>
-                            </div>
-						</div>
 
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-$(function() {
-	$("#header").load("header.html");
+	<script>
+$(function(){
+	$("#header").load("loginheader.html");
 });
 </script>
+
 </body>
 </html>
