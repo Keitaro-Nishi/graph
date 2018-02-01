@@ -14,35 +14,32 @@
 	<div id="header"></div>
 
 
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-12 col-md-push-3 col-md-6">
-					<div class="form-wrap">
-						<div class="text-center">
-							<h1>Login</h1>
-							<form method="post" class="center-block">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-md-push-3 col-md-6">
+				<div class="form-wrap">
+					<div class="text-center">
+						<h1>Login</h1>
+						<form method="post" class="center-block">
 							<input type="text" name="custid" class="form-control"
-								maxlength="20" placeholder="ユーザーID" pattern="^[0-9A-Za-z]+$"
-								required title="半角英数" /><br> <input type="password" name="password"
-								class="form-control" maxlength="60" placeholder="パスワード"
-							    required /><br>
-							<br>
+								maxlength="20" placeholder="ユーザーID" required /><br> <input
+								type="password" name="password" class="form-control"
+								maxlength="60" placeholder="パスワード" required /><br> <br>
 							<button type="submit" id="btn-login"
 								class="btn btn-primary btn-block" name="login">ログイン</button>
-							<br> <br>
-							<font size="4" color=#ff0000><b>
+							<br> <br> <font size="4" color=#ff0000><b>
 							 <?php //echo $errorMessage; ?></b></font>
-							</form>
+						</form>
 
-						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 
 
 
-<script>
+	<script>
 $(function(){
 	$("#header").load("loginheader.html");
 });
