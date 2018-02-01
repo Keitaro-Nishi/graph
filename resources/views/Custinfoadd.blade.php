@@ -1,4 +1,14 @@
-@section('content')
+<!DOCTYPE html>
+<html>
+<meta name="description" content="ユーザー登録">
+<title>ユーザー登録</title>
+<link href="css/common.css" rel="stylesheet" />
+<link href="css/bootstrap.css" rel="stylesheet" />
+<link href="css/jquery.bootgrid.css" rel="stylesheet" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/jquery.bootgrid.js"></script>
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -57,4 +67,4 @@
         </div>
     </div>
 </div>
-@endsection
+</html>
