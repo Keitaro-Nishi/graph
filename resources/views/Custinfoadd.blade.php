@@ -48,6 +48,7 @@
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control" name="password" required>
+                                <br>
                             </div>
                         </div>
 
