@@ -1,3 +1,6 @@
+<?php
+$errorMessage;
+?>
 <!DOCTYPE html>
 <html>
 <head>
