@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<head>
 <meta name="description" content="ユーザー情報">
 <title>ユーザー情報</title>
 <link href="css/common.css" rel="stylesheet" />
@@ -8,6 +9,8 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="js/jquery.bootgrid.js"></script>
+</head>
+<body>
 <div id="header"></div>
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
@@ -91,5 +94,6 @@
 				}
 			}
 </script>
+</body>
 </html>
 
