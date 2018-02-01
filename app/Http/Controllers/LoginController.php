@@ -15,7 +15,9 @@ class LoginController extends Controller {
        $custid = $request->custid;
        $password = bcrypt($request->password);
 
-       $DB_customers =DB::select('select * from custinfo where custid = ?', [$custid]);
+       error_log($custid);
+
+       /*$DB_customers =DB::select('select * from custinfo where custid = ?', [$custid]);
        error_log(★★★★★★★★★★);
        $DB_custid = $DB_customers->custid;
        $DB_password = $DB_customers->password;
@@ -30,5 +32,6 @@ class LoginController extends Controller {
        	// 認証失敗
        	$errorMessage = "ユーザIDあるいはパスワードに誤りがあります。";
        }
+       */
 	}
 }
