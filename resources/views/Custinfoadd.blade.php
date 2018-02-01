@@ -50,7 +50,7 @@
                                 <input id="password" type="password" class="form-control" name="password" required>
                             </div>
                         </div>
-
+						<br>
 
                         <div>
                             <div class="col-md-6 col-md-offset-4">
