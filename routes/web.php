@@ -28,5 +28,5 @@ Route::get ( '/Menu', function () {
 	Route::get('/ajax/{deletecode}','CustinfodeleteController@delete');
 	Route::get('/Custinfoadd','CustinfoaddController@add');
 	Route::post('/Custinfoadd','CustinfoaddController@insert');
-	Route::get('/Login','LoginController@index');
-	Route::post('/Login','LoginController@login');
+	//Route::get('/Login','LoginController@index');
+	Route::post('/Login','LoginController@logins');

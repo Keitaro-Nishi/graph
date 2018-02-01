@@ -13,7 +13,7 @@ class LoginController extends Controller {
 	}
 
 
-	public function login(Request $request) {
+	public function logins(Request $request) {
 	   error_log(★★★★★★★★★★);
 	   return view ('Menu');
 	   /*$errorMessage ="";
