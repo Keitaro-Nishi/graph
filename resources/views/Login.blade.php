@@ -20,7 +20,7 @@
 				<div class="form-wrap">
 					<div class="text-center">
 						<h1>Login</h1>
-						<form method="post" class="center-block" action＝'login'>
+						<form method="post" class="center-block" action＝'Login'>
 							<input type="text" id ="custid" name="custid" class="form-control"
 								maxlength="20" placeholder="ユーザーID" required /><br> <input
 								type="password" id =password name="password" class="form-control"
