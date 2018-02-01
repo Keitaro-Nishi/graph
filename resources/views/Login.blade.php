@@ -21,12 +21,13 @@
 					<div class="text-center">
 						<h1>Login</h1>
 						<form class="center-block" method="POST" action＝'Login'>
+							{{ csrf_field() }}
 							<input type="text" id ="custid" name="custid" class="form-control"
 								maxlength="20" placeholder="ユーザーID" required /><br>
 							<input type="password" id =password name="password" class="form-control"
 								maxlength="60" placeholder="パスワード" required /><br> <br>
 							<button type="submit" id="btn-login"
-								class="btn btn-primary btn-block" name="login">ログイン</button>
+								class="btn btn-primary btn-block">ログイン</button>
 							<br> <br> <!--  <font size="4" color=#ff0000>--><b>
 							 <?php //echo $errorMessage; ?></b></font>
 						</form>
