@@ -50,14 +50,14 @@
                                 <input id="password" type="password" class="form-control" name="password" required>
                             </div>
                         </div>
-						<br><div></div>
-                        <div>
+						<br>
+
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
                                     登録
                                 </button>
                             </div>
-                        </div>
+
 
                     </form>
                 </div>
