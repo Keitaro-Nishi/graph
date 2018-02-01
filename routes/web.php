@@ -14,6 +14,10 @@ Route::get ( '/', function () {
 	return view ( 'Login' );
 } );
 
+Route::get ( '/Menu', function () {
+	return view ( 'Menu' );
+} );
+
 	//Route::get ( '/hello_world/index', 'HelloWorldController@getIndex' );
 	//Route::get ( '/hello_world/login', 'HelloWorldController@getLogin' );
 
