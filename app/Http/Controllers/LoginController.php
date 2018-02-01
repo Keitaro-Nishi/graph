@@ -16,13 +16,13 @@ class LoginController extends Controller {
 	public function login(Request $request) {
 
 	   $errorMessage ="";
-	   $DBcustomer =[];
+	   //$DBcustomer =[];
        $custid = $request->logincustid;
        $password = $request->loginpassword;
 
        $DBcustomer =DB::select('select custid from custinfo where custid = ?', [$custid]);
-       error_log("★★★★★★★★★★★★★★★");
-       error_log($DBcustomer[0]);
+       //error_log("★★★★★★★★★★★★★★★");
+       //error_log($DBcustomer[0]);
        /*
        $DBcustid = $DBcustomers ->custid;
        $DBpassword = $DBcustomers ->password;
