@@ -19,12 +19,9 @@ class LoginController extends Controller {
        $custid = $request->logincustid;
        $password = $request->loginpassword;
 
-       //error_log("★★★★★★★★★★★★★★★");
-       //error_log($custid);
-
-       $DBcustomers =DB::select('select password from custinfo where custid = ?', [$custid]);
+       $DBcustomer =DB::select('select custid from custinfo where custid = ?', [$custid]);
        error_log("★★★★★★★★★★★★★★★");
-       error_log($DBcustomers);
+       error_log($DBcustomer);
        /*
        $DBcustid = $DBcustomers ->custid;
        $DBpassword = $DBcustomers ->password;
