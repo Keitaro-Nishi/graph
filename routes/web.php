@@ -11,7 +11,7 @@
  * |
  */
 Route::get ( '/', function () {
-	return view ( 'welcome' );
+	return view ( 'menu' );
 } );
 	Route::get ( '/hello_world/index', 'HelloWorldController@getIndex' );
 	Route::get ( '/hello_world/login', 'HelloWorldController@getLogin' );
