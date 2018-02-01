@@ -21,13 +21,16 @@ class LoginController extends Controller {
 
        error_log("★★★★★★★★★★★★★★★");
        error_log($custid);
-/*
+
        $DBcustomers =DB::select('select custid,password from custinfo where custid = ?', [$custid]);
+       error_log("★★★★★★★★★★★★★★★");
+       error_log($DBcustomers);
+       /*
        $DBcustid = $DBcustomers ->custid;
        $DBpassword = $DBcustomers ->password;
 
        return view ('Menu');
-       */
+
        /*if (password_verify ( $password, $DB_password)) {
        	session_regenerate_id ( true );
        	$_SESSION ["CUSTID"] = $custid;
