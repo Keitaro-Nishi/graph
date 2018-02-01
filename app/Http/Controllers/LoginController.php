@@ -30,7 +30,7 @@ class LoginController extends Controller {
        	$_SESSION ["CUSTID"] = $custid;
        	return view ('Menu');
        	//header ( "Location: Menu.blade.php" );
-       	exit ();
+       	//exit ();
        } else {
        	// 認証失敗
        	$errorMessage = "ユーザIDあるいはパスワードに誤りがあります。";
