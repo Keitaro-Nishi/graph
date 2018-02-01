@@ -27,7 +27,7 @@
 								maxlength="60" placeholder="パスワード" required /><br> <br>
 							<button type="submit" id="btn-login"
 								class="btn btn-primary btn-block" name="login">ログイン</button>
-							<br> <br> <font size="4" color=#ff0000><b>
+							<br> <br> <!--  <font size="4" color=#ff0000>--><b>
 							 <?php //echo $errorMessage; ?></b></font>
 						</form>
 
