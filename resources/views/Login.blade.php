@@ -13,11 +13,6 @@
 <body>
 	<div id="header"></div>
 
-	<form method="POST" action＝Login'>
-	<input id="orgname" type="text" name="orgname" required>
-	<button type="submit">aaa</button>
-	</form>
-
 
 	<div class="container">
 		<div class="row">
