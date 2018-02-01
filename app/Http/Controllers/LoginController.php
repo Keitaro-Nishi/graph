@@ -16,15 +16,17 @@ class LoginController extends Controller {
 	public function login(Request $request) {
 
 	   $errorMessage ="";
-	   //$DBcustomer =[][];
        $custid = $request->logincustid;
        $password = $request->loginpassword;
 
-       $DBcustomer =DB::select('select * from custinfo where custid = ?', [$custid]);
+       $DBcustomer =DB::select('select custid,password from custinfo where custid = ?', [$custid]);
        $DBcustid =$DBcustomer[0]->custid;
+       $DBpassword = $DBcustomer[1] ->password;
 
        error_log("★★★★★★★★★★★★★★★");
        error_log($DBcustid);
+       error_log($DBpassword);
+
        return view ('Menu');
        /*
        $DBcustid = $DBcustomers ->custid;
