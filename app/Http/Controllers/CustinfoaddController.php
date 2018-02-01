@@ -17,7 +17,7 @@ class CustinfoaddController extends Controller {
        $custid = $request->custid;
        $custname = $request->custname;
        $orgname = $request->orgname;
-       $password = $request->password;
+       $password = bcrypt($request->password);
 
 
        DB::insert('insert into custinfo (custid,custname,orgname,password) values (?,?,?,?)', [$custid, $custname,$orgname,$password]);
