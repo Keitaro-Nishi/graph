@@ -16,7 +16,7 @@ class LoginController extends Controller {
 	public function login(Request $request) {
 
 	   $errorMessage ="";
-	   $DBcustomer =[][];
+	   //$DBcustomer =[][];
        $custid = $request->logincustid;
        $password = $request->loginpassword;
 
