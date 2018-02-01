@@ -20,7 +20,7 @@ class CustinfoaddController extends Controller {
        $password = $request->password;
 
 
-       DB::insert('insert into custinfo (custid,custname,orgname,password) values (?,?,?,?)', ['{$custid}', '{$custname}','{$orgname}','{$password}']);
+       DB::insert('insert into custinfo (custid,custname,orgname,password) values (?,?,?,?)', [$custid, $custname,$orgname,$password]);
        return redirect('/Custinfo');
 	}
 }
