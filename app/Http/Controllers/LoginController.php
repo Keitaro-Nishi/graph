@@ -14,7 +14,7 @@ class LoginController extends Controller {
 
 
 	public function login(Request $request) {
-	   error_log(★★★★★★★★★★);
+	   error_log('★★★★★★★★★★');
 
 	   $custid = $request->custid;
 	   $custname = $request->custname;
