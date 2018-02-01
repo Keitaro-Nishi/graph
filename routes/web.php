@@ -14,14 +14,14 @@ Route::get ( '/', function () {
 	return view ( 'login' );
 } );
 
-	Route::get ( '/hello_world/index', 'HelloWorldController@getIndex' );
-	Route::get ( '/hello_world/login', 'HelloWorldController@getLogin' );
+	//Route::get ( '/hello_world/index', 'HelloWorldController@getIndex' );
+	//Route::get ( '/hello_world/login', 'HelloWorldController@getLogin' );
 
 	Auth::routes();
 
-	Route::get('/home', 'HomeController@index')->name('home');
+	//Route::get('/home', 'HomeController@index')->name('home');
 	Route::get('/Custinfo','CustinfoController@index');
 	Route::get('/ajax/{deletecode}','CustinfodeleteController@delete');
 	Route::get('/Custinfoadd','CustinfoaddController@add');
 	Route::post('/Custinfoadd','CustinfoaddController@insert');
-
+	Route::post('/login','LoginController@login');

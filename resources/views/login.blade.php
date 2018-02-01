@@ -20,10 +20,10 @@
 				<div class="form-wrap">
 					<div class="text-center">
 						<h1>Login</h1>
-						<form method="post" class="center-block">
-							<input type="text" name="custid" class="form-control"
+						<form method="post" class="center-block" action＝'login'>
+							<input type="text" id ="custid" name="custid" class="form-control"
 								maxlength="20" placeholder="ユーザーID" required /><br> <input
-								type="password" name="password" class="form-control"
+								type="password" id =password name="password" class="form-control"
 								maxlength="60" placeholder="パスワード" required /><br> <br>
 							<button type="submit" id="btn-login"
 								class="btn btn-primary btn-block" name="login">ログイン</button>
