@@ -28,11 +28,8 @@ class LoginController extends Controller {
        error_log($DBpassword);
 
        return view ('Menu');
-       /*
-       $DBcustid = $DBcustomers ->custid;
-       $DBpassword = $DBcustomers ->password;
 
-       return view ('Menu');
+
 
        /*if (password_verify ( $password, $DB_password)) {
        	session_regenerate_id ( true );
