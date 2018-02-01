@@ -19,7 +19,7 @@ class LoginController extends Controller {
 	   $custid = $request->custid;
 	   $custname = $request->custname;
 	   $orgname = $request->orgname;
-	   $password = bcrypt($request->password);
+	   $password = $request->password;
 
 	   return view ('Menu');
 	   /*$errorMessage ="";
