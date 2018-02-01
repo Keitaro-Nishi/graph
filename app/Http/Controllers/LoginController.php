@@ -16,16 +16,16 @@ class LoginController extends Controller {
 	public function login(Request $request) {
 
 	   $errorMessage ="";
-       $custid = $request->custid;
-       $password = $request->password;
+       $custid = $request->logincustid;
+       $password = $request->loginpassword;
 
 
 
        $DBcustomers =DB::select('select * from custinfo where custid = ?', [$custid]);
-       return view ('Menu');
-       //$DBcustid = $DBcustomers->custid;
-       //$DBpassword = $DBcustomers->password;
+       $DBcustid = $DBcustomers ->custid;
+       $DBpassword = $DBcustomers ->password;
 
+       return view ('Menu');
        /*if (password_verify ( $password, $DB_password)) {
        	session_regenerate_id ( true );
        	$_SESSION ["CUSTID"] = $custid;

@@ -22,9 +22,9 @@
 						<h1>Login</h1>
 						<form class="center-block" method="POST" action＝'login'>
 							{{ csrf_field() }}
-							<input type="text" id ="custid" name="custid" class="form-control"
+							<input type="text" id ="logincustid" name="logincustid" class="form-control"
 								maxlength="20" placeholder="ユーザーID" required /><br>
-							<input type="password" id =password name="password" class="form-control"
+							<input type="password" id =loginpassword name="loginpassword" class="form-control"
 								maxlength="60" placeholder="パスワード" required /><br> <br>
 							<button type="submit" id="btn-login"
 								class="btn btn-primary btn-block">ログイン</button>
