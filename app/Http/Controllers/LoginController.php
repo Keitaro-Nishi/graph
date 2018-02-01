@@ -24,8 +24,8 @@ class LoginController extends Controller {
        $DB_customers =DB::select('select * from custinfo where custid = ?', [$custid]);
        $DB_custid = $DB_customers->custid;
        $DB_password = $DB_customers->password;
-
-       if (password_verify ( $password, $DB_password)) {
+       return view ('Menu');
+       /*if (password_verify ( $password, $DB_password)) {
        	session_regenerate_id ( true );
        	$_SESSION ["CUSTID"] = $custid;
        	return view ('Menu');
@@ -35,6 +35,7 @@ class LoginController extends Controller {
        	// 認証失敗
        	$errorMessage = "ユーザIDあるいはパスワードに誤りがあります。";
        }
+       */
 
 	}
 }
