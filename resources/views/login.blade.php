@@ -1,6 +1,3 @@
-<?php
-$errorMessage;
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,7 +31,7 @@ $errorMessage;
 								class="btn btn-primary btn-block" name="login">ログイン</button>
 							<br> <br>
 							<font size="4" color=#ff0000><b>
-							<?php echo $errorMessage; ?></b></font>
+							 <?php //echo $errorMessage; ?></b></font>
 							</form>
 
 						</div>
