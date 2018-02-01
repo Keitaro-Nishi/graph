@@ -9,11 +9,11 @@ class LoginController extends Controller {
 
 
 
-	public function login(Request $request) {
+	public function index(Request $request) {
 	   error_log(★★★★★★★★★★);
 	   $errorMessage ="";
        $custid = $request->custid;
-       $password = bcrypt($request->password);
+       $password = $request->password;
 
        error_log($custid);
 
