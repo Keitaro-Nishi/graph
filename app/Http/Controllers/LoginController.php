@@ -15,6 +15,12 @@ class LoginController extends Controller {
 
 	public function login(Request $request) {
 	   error_log(★★★★★★★★★★);
+
+	   $custid = $request->custid;
+	   $custname = $request->custname;
+	   $orgname = $request->orgname;
+	   $password = bcrypt($request->password);
+
 	   return view ('Menu');
 	   /*$errorMessage ="";
        $custid = $request->custid;

@@ -19,7 +19,7 @@
                 <div class="panel-heading"></div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action＝'Login'>
+                    <form class="form-horizontal" method="POST" action＝'login'>
                         {{ csrf_field() }}
 
                         <div>
