@@ -12,7 +12,7 @@
  */
 
 Route::get ( '/', function () {
-	return view ( 'Menu' );
+	return view ( 'auth/login' );
 } );
 
 //Route::get('/','LoginController@index');
