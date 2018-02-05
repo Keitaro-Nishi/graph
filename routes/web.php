@@ -27,11 +27,11 @@ Route::get ( '/Menu', function () {
 	Auth::routes();
 
 	Route::get('/home', 'HomeController@index')->name('home');
-	/*
+
 	Route::get('/Custinfo','CustinfoController@index');
 	Route::get('/ajax/{deletecode}','CustinfodeleteController@delete');
 	Route::get('/Custinfoadd','CustinfoaddController@add');
 	Route::post('/Custinfoadd','CustinfoaddController@insert');
-	*/
+
 	//Route::get('/login','LoginController@index');
 	//Route::post('/login','LoginController@login');
