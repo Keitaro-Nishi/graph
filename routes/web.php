@@ -33,4 +33,3 @@ Route::get ( '/Menu', function () {
 	Route::post('/Custinfoadd','CustinfoaddController@insert');
 	//Route::get('/login','LoginController@index');
 	//Route::post('/login','LoginController@login');
-
