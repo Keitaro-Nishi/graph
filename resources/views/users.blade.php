@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html>
+<head>
 <meta name="description" content="ユーザー情報">
 <title>ユーザー情報</title>
 <link href="css/common.css" rel="stylesheet" />
@@ -9,23 +9,26 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="js/jquery.bootgrid.js"></script>
-
+</head>
+<body>
+<div id="header"></div>
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
-			<th data-column-id="no" data-type="numeric" data-identifier="true"
-				data-width="3%" data-order="desc">id</th>
-			<th data-column-id="custid" data-width="7%">名前</th>
-			<th data-column-id="custname" data-width="10%">ユーザーID</th>
+			<th data-column-id="userid" data-identifier="true" data-width="10%">ユーザーID</th>
+			<th data-column-id="name" data-width="10%">ユーザー名</th>
+			<th data-column-id="organization" data-width="10%">組織名</th>
+			<th data-column-id="role" data-width="3%">役割</th>
 		</tr>
 	</thead>
 	<tbody>
 		@foreach($users as $user)
 		<tr>
-			<td>{{$user->id}}</td>
-			<td>{{$user->name}}</td>
-			<td>{{$user->userid}}</td>
+			<td>{{$customer->userid}}</td>
+			<td>{{$customer->name}}</td>
+			<td>{{$customer->organization}}</td>
+			<td>{{$customer->role}}</td>
 		</tr>
 		@endforeach
 	</tbody>
@@ -33,14 +36,15 @@
 
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
+	<input type="button" class="btn btn-default" value="ユーザーの追加" onclick="location.href='useradd'">
 </div>
 
 <script>
-
 			var rowIds = [];
 
 
 			$(function() {
+				$("#header").load("header.html");
 				$("#grid-basic").bootgrid({
 					selection : true,
 					multiSelect : true,
@@ -48,19 +52,17 @@
 					keepSelection : true
 				}).on("selected.rs.jquery.bootgrid", function(e, rows) {
 					for (var i = 0; i < rows.length; i++) {
-						rowIds.push(rows[i].no);
+						rowIds.push(rows[i].userid);
 					}
 				}).on("deselected.rs.jquery.bootgrid", function(e, rows) {
 					for (var i = 0; i < rows.length; i++) {
 						rowIds.some(function(v, ii) {
-							if (v == rows[i].no)
+							if (v == rows[i].userid)
 								rowIds.splice(ii, 1);
 						});
 					}
 				});
 			});
-
-
 			function drow() {
 				if(rowIds.length == 0){
 					alert("削除する行を選択してください");
@@ -89,9 +91,7 @@
 					}
 				}
 			}
-
-
-
 </script>
+</body>
 </html>
 
