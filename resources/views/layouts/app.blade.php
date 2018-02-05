@@ -43,7 +43,7 @@
 						<!-- Authentication Links -->
 						@guest
 						<li><a href="{{ route('login') }}">Login</a></li>
-						<li><a href="{{ route('register') }}">Register</a></li>
+						<!-- <li><a href="{{ route('register') }}">Register</a></li> -->
 						@else
 						<li><a href="{{ route('register') }}">Register</a></li>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
