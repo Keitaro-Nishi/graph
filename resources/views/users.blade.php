@@ -25,10 +25,10 @@
 	<tbody>
 		@foreach($users as $user)
 		<tr>
-			<td>{{$customer->userid}}</td>
-			<td>{{$customer->name}}</td>
-			<td>{{$customer->organization}}</td>
-			<td>{{$customer->role}}</td>
+			<td>{{$user->userid}}</td>
+			<td>{{$user->name}}</td>
+			<td>{{$user->organization}}</td>
+			<td>{{$user->role}}</td>
 		</tr>
 		@endforeach
 	</tbody>
