@@ -53,7 +53,7 @@
 
 							<ul class="dropdown-menu">
 
-								<li><a href="{{ route('Custinfo') }}">一覧</a></li>
+								<!-- <li><a href="{{ route('Custinfo') }}">一覧</a></li> -->
 
 								<li><a href="{{ route('logout') }}"
 									onclick="event.preventDefault();
