@@ -11,7 +11,7 @@ class UserdeleteController extends Controller
 	public function index(Request $request)
 	{
 		$deleteid = $request->deletecode;
-		DB::delete('delete from users WHERE id=?',[$deleteid]);
+		DB::delete('delete from users WHERE userid=?',[$deleteid]);
 		return redirect('/users');
 	}
 }
