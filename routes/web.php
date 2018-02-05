@@ -27,9 +27,8 @@ Route::get ( '/Menu', function () {
 	Auth::routes();
 
 	Route::get('/home', 'HomeController@index')->name('home');
-	Route::get('/Custinfo','CustinfoController@index');
-	Route::get('/ajax/{deletecode}','CustinfodeleteController@delete');
-	Route::get('/Custinfoadd','CustinfoaddController@add');
-	Route::post('/Custinfoadd','CustinfoaddController@insert');
-	//Route::get('/login','LoginController@index');
-	//Route::post('/login','LoginController@login');
+	Route::get('/users','UserController@index');
+	Route::get('/ajax/{deletecode}','UserdeleteController@delete');
+	Route::get('/useradd','UseraddController@add');
+	Route::post('/useradd','UseraddController@insert');
+	
