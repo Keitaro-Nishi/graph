@@ -6,14 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 
-class CustinfoController extends Controller
+class CustinfodeleteController extends Controller
 {
-	public function index(Request $request)
-	{
-		$customers =DB::select('select * from custinfo');
-		return view('Custinfo',['customers'=>$customers]);
-	}
-
 	public function delete(Request $request)
 	{
 		$deleteno = $request->deletecode;
@@ -22,4 +16,3 @@ class CustinfoController extends Controller
 	}
 
 }
-

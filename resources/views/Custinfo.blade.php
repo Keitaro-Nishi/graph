@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<head>
 <meta name="description" content="ユーザー情報">
 <title>ユーザー情報</title>
 <link href="css/common.css" rel="stylesheet" />
@@ -8,7 +9,9 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="js/jquery.bootgrid.js"></script>
-
+</head>
+<body>
+<div id="header"></div>
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
 	<thead>
@@ -38,11 +41,13 @@
 
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
+	<input type="button" class="btn btn-default" value="ユーザーの追加" onclick="location.href='Custinfoadd'">
 </div>
 
 <script>
 			var rowIds = [];
 			$(function() {
+				$("#header").load("header.html");
 				$("#grid-basic").bootgrid({
 					selection : true,
 					multiSelect : true,
@@ -90,5 +95,6 @@
 				}
 			}
 </script>
+</body>
 </html>
 
