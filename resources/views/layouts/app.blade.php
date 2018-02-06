@@ -29,8 +29,7 @@
 					</button>
 
 					<!-- Branding Image -->
-					<a class="navbar-brand" href="{{ url('/login') }}"> {{
-						config('app.name', 'KKK') }} </a>
+					<a class="navbar-brand" href="{{ url('/login') }}">KKK</a>
 				</div>
 
 				<div class="collapse navbar-collapse" id="app-navbar-collapse">
