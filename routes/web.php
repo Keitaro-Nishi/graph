@@ -11,11 +11,9 @@
  * |
  */
 
-Route::get ( '/login', function () {
-	return view ( 'welcome' );
+Route::get ( '/', function () {
+	return view ( 'login' );
 } );
-
-// Route::get('/','UserdeleteController@delete');
 
 Route::get ( '/Menu', function () {
 	return view ( 'Menu' );
