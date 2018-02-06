@@ -32,3 +32,4 @@ Route::get ( '/', function () {
 	//Route::get('/ajax/{deletecode}','UserdeleteController@delete');
 	//Route::get('/useradd','UseraddController@add');
 	//Route::post('/useradd','UseraddController@insert');
+
