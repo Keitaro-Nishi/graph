@@ -28,7 +28,8 @@ Route::get ( '/Menu', function () {
 
 	Route::get('/home', 'HomeController@index')->name('home');
 	Route::get('/users','UserController@index');
-	Route::get('/ajax/{deletecode}','UserdeleteController@delete');
+	Route::get('/ajax/{deletecode}','UserController@delete');
+	//Route::get('/ajax/{deletecode}','UserdeleteController@delete');
 	//Route::get('/useradd','UseraddController@add');
 	//Route::post('/useradd','UseraddController@insert');
 
