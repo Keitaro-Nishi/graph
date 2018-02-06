@@ -11,7 +11,7 @@
  * |
  */
 
-Route::post('login', 'Auth\LoginController@login');
+Route::post('/', 'Auth\LoginController@login');
 
 Route::get ( '/Menu', function () {
 	return view ( 'Menu' );
