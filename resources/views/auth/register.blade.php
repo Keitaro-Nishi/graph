@@ -25,6 +25,7 @@
                             </div>
                         </div>
 
+						<!--
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
@@ -38,16 +39,31 @@
                                 @endif
                             </div>
                         </div>
+						 -->
 
                         <div class="form-group{{ $errors->has('userid') ? ' has-error' : '' }}">
                             <label for="userid" class="col-md-4 control-label">USERID</label>
 
                             <div class="col-md-6">
-                                <input id="userid" type="text" class="form-control" name="userid" value="{{ old('name') }}" required autofocus>
+                                <input id="userid" type="text" class="form-control" name="userid" value="{{ old('userid') }}" required >
 
                                 @if ($errors->has('userid'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('userid') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('orgnanization') ? ' has-error' : '' }}">
+                            <label for="orgnanization" class="col-md-4 control-label">組織名</label>
+
+                            <div class="col-md-6">
+                                <input id="orgnanization" type="text" class="form-control" name="orgnanization" value="{{ old('orgnanization') }}" required >
+
+                                @if ($errors->has('orgnanization'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('orgnanization') }}</strong>
                                     </span>
                                 @endif
                             </div>
