@@ -12,7 +12,7 @@ class UserdeleteController extends Controller
 	{
 		$deleteid = $request->deletecode;
 		//DB::delete('delete from users WHERE userid=?',[$deleteid]);
-		DB::delete('delete from users WHERE userid=?',["a"]);
+		DB::delete('delete from users WHERE userid=?',['あ']);
 		return redirect('/users');
 	}
 }
