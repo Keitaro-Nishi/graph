@@ -33,7 +33,11 @@ audio
 
 
 
+
+
 :not
+
+
 
 
 
@@ -52,6 +56,8 @@ controls
 
 
 
+
+
 ){
 display
 
@@ -60,7 +66,11 @@ display
 
 
 
+
+
 :
+
+
 
 
 
@@ -75,6 +85,8 @@ none
 
 
 
+
+
 ;
 height
 
@@ -83,7 +95,11 @@ height
 
 
 
+
+
 :
+
+
 
 
 
@@ -157,7 +173,11 @@ svg
 
 
 
+
+
 :not
+
+
 
 
 
@@ -174,8 +194,12 @@ svg
 
 
 
+
+
 ){
 overflow
+
+
 
 
 
@@ -190,7 +214,11 @@ overflow
 
 
 
+
+
 hidden
+
+
 
 
 
@@ -338,6 +366,7 @@ td, th {
 		page-break-after: avoid
 	}
 	.navbar {
+		coler: #000;
 		display: none
 	}
 	.btn>.caret, .dropup>.btn>.caret {
@@ -4104,7 +4133,11 @@ tbody.collapse.in {
 
 
 
+
+
 :not
+
+
 
 
 
@@ -4121,8 +4154,12 @@ tbody.collapse.in {
 
 
 
+
+
 )
 :not
+
+
 
 
 
@@ -4139,8 +4176,12 @@ tbody.collapse.in {
 
 
 
+
+
 )
 :not
+
+
 
 
 
@@ -4158,6 +4199,8 @@ tbody.collapse.in {
 
 
 
+
+
 ){
 border-radius
 
@@ -4166,7 +4209,11 @@ border-radius
 
 
 
+
+
 :
+
+
 
 
 
@@ -4189,6 +4236,8 @@ border-radius
 
 
 
+
+
 :first-child
 
 
@@ -4196,7 +4245,11 @@ border-radius
 
 
 
+
+
 :not
+
+
 
 
 
@@ -4213,8 +4266,12 @@ border-radius
 
 
 
+
+
 )
 :not
+
+
 
 
 
@@ -4231,6 +4288,8 @@ border-radius
 
 
 
+
+
 ){
 border-bottom-right-radius
 
@@ -4239,7 +4298,11 @@ border-bottom-right-radius
 
 
 
+
+
 :
+
+
 
 
 
@@ -4255,7 +4318,11 @@ border-top-right-radius
 
 
 
+
+
 :
+
+
 
 
 
@@ -4274,7 +4341,11 @@ border-top-right-radius
 
 
 
+
+
 :last-child
+
+
 
 
 
@@ -4289,8 +4360,12 @@ border-top-right-radius
 
 
 
+
+
 (
 :first-child
+
+
 
 
 
@@ -4308,7 +4383,11 @@ border-top-right-radius
 
 
 
+
+
 :not
+
+
 
 
 
@@ -4326,6 +4405,8 @@ border-top-right-radius
 
 
 
+
+
 ){
 border-bottom-left-radius
 
@@ -4334,7 +4415,11 @@ border-bottom-left-radius
 
 
 
+
+
 :
+
+
 
 
 
@@ -4350,7 +4435,11 @@ border-top-left-radius
 
 
 
+
+
 :
+
+
 
 
 
@@ -4455,7 +4544,11 @@ border-top-left-radius
 
 
 
+
+
 :not
+
+
 
 
 
@@ -4465,6 +4558,8 @@ border-top-left-radius
 
 (
 :first-child
+
+
 
 
 
@@ -4481,8 +4576,12 @@ border-top-left-radius
 
 
 
+
+
 (
 :last-child
+
+
 
 
 
@@ -4498,7 +4597,11 @@ border-radius
 
 
 
+
+
 :
+
+
 
 
 
@@ -4517,6 +4620,8 @@ border-radius
 
 
 
+
+
 :first-child
 
 
@@ -4524,7 +4629,11 @@ border-radius
 
 
 
+
+
 :not
+
+
 
 
 
@@ -4541,8 +4650,12 @@ border-radius
 
 
 
+
+
 ){
 border-top-right-radius
+
+
 
 
 
@@ -4557,8 +4670,12 @@ border-top-right-radius
 
 
 
+
+
 4
 px
+
+
 
 
 
@@ -4573,7 +4690,11 @@ border-top-left-radius
 
 
 
+
+
 :
+
+
 
 
 
@@ -4589,6 +4710,8 @@ px
 
 
 
+
+
 ;
 border-bottom-right-radius
 
@@ -4597,7 +4720,11 @@ border-bottom-right-radius
 
 
 
+
+
 :
+
+
 
 
 
@@ -4613,7 +4740,11 @@ border-bottom-left-radius
 
 
 
+
+
 :
+
+
 
 
 
@@ -4632,6 +4763,8 @@ border-bottom-left-radius
 
 
 
+
+
 :last-child
 
 
@@ -4639,7 +4772,11 @@ border-bottom-left-radius
 
 
 
+
+
 :not
+
+
 
 
 
@@ -4656,6 +4793,8 @@ border-bottom-left-radius
 
 
 
+
+
 ){
 border-top-right-radius
 
@@ -4664,7 +4803,11 @@ border-top-right-radius
 
 
 
+
+
 :
+
+
 
 
 
@@ -4680,7 +4823,11 @@ border-top-left-radius
 
 
 
+
+
 :
+
+
 
 
 
@@ -4696,7 +4843,11 @@ border-bottom-right-radius
 
 
 
+
+
 :
+
+
 
 
 
@@ -4706,6 +4857,8 @@ border-bottom-right-radius
 
 4
 px
+
+
 
 
 
@@ -4720,7 +4873,11 @@ border-bottom-left-radius
 
 
 
+
+
 :
+
+
 
 
 
@@ -4730,6 +4887,8 @@ border-bottom-left-radius
 
 4
 px
+
+
 
 
 
@@ -4821,7 +4980,11 @@ px
 
 
 
+
+
 :not
+
+
 
 
 
@@ -4838,6 +5001,8 @@ px
 
 
 
+
+
 )
 :not
 
@@ -4847,8 +5012,12 @@ px
 
 
 
+
+
 (
 :last-child
+
+
 
 
 
@@ -4864,7 +5033,11 @@ px
 
 
 
+
+
 :not
+
+
 
 
 
@@ -4881,6 +5054,8 @@ px
 
 
 
+
+
 )
 :not
 
@@ -4890,8 +5065,12 @@ px
 
 
 
+
+
 (
 :last-child
+
+
 
 
 
@@ -4908,6 +5087,8 @@ px
 
 
 
+
+
 .form-control
 
 
@@ -4915,7 +5096,11 @@ px
 
 
 
+
+
 :not
+
+
 
 
 
@@ -4933,8 +5118,12 @@ px
 
 
 
+
+
 )
 :not
+
+
 
 
 
@@ -4951,6 +5140,8 @@ px
 
 
 
+
+
 ){
 border-radius
 
@@ -4959,7 +5150,11 @@ border-radius
 
 
 
+
+
 :
+
+
 
 
 
@@ -5494,7 +5689,6 @@ border-radius
 }
 
 .navbar-form {
-	coler: #000;
 	margin: 7px -15px;
 	padding: 10px 15px;
 	border-top: 1px solid transparent;
