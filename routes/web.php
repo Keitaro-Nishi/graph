@@ -11,7 +11,7 @@
  * |
  */
 
-Route::redirect('/', '/login');
+Route::redirect('/', '/home');
 
 Route::get ( '/Menu', function () {
 	return view ( 'Menu' );
