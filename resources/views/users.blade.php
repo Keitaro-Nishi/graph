@@ -16,8 +16,8 @@
 	class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
-			<th data-column-id="userid" data-identifier="true" data-width="10%">ユーザーID</th>
 			<th data-column-id="name" data-width="10%">ユーザー名</th>
+			<th data-column-id="userid" data-identifier="true" data-width="10%">ユーザーID</th>
 			<th data-column-id="organization" data-width="10%">組織名</th>
 			<th data-column-id="role" data-width="3%">役割</th>
 		</tr>
@@ -25,8 +25,8 @@
 	<tbody>
 		@foreach($users as $user)
 		<tr>
-			<td>{{$user->userid}}</td>
 			<td>{{$user->name}}</td>
+			<td>{{$user->userid}}</td>
 			<td>{{$user->organization}}</td>
 			<td>{{$user->role}}</td>
 		</tr>
