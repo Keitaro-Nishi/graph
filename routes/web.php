@@ -11,7 +11,9 @@
  * |
  */
 
-Route::get('/', 'Auth\LoginController@showLoginForm')->name('/');
+Route::get ( '/', function () {
+	return view ( 'welcome' );
+} );
 
 Route::get ( '/Menu', function () {
 	return view ( 'Menu' );
