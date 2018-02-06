@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+/*namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\support\Facades\DB;
@@ -16,4 +16,5 @@ class UserdeleteController extends Controller
 		return redirect('/users');
 	}
 }
+*/
 
