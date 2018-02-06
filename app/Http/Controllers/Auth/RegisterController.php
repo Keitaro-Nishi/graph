@@ -59,10 +59,11 @@ class RegisterController extends Controller {
 	protected function create(array $data) {
 		return User::create ( [
 				'name' => $data ['name'],
-				'userid' => $data ['userid'], // 追加
+				'userid' => $data ['userid'],
 				'password' => bcrypt ( $data ['password'] ),
 				'organization' => $data ['organization'],
-				'role' => $data ['1']
+				'role' => '1',
+				'Reserve' => ''
 		] );
 	}
 }
