@@ -17,14 +17,14 @@ Route::get ( '/', function () {
 
 //Route::get('/','UserdeleteController@delete');
 
-Route::get ( '/Menu', function () {
-	return view ( 'Menu' );
-} );
+	Route::get ( '/Menu', function () {
+		return view ( 'Menu' );
+	} );
 
-	//Route::get ( '/hello_world/index', 'HelloWorldController@getIndex' );
-	//Route::get ( '/hello_world/login', 'HelloWorldController@getLogin' );
+		//Route::get ( '/hello_world/index', 'HelloWorldController@getIndex' );
+		//Route::get ( '/hello_world/login', 'HelloWorldController@getLogin' );
 
-	Auth::routes();
+		Auth::routes();
 
 	Route::get('/home', 'HomeController@index')->name('home');
 	Route::get('/users','UserController@index');
