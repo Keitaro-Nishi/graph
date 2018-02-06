@@ -47,7 +47,7 @@ class LoginController extends Controller {
 
 		$request->session ()->regenerate ();
 
-		return redirect ( '/redirect/path/to/after/regist/' );
+		return redirect ( '/login' );
 	}
 
 	public function username() {
