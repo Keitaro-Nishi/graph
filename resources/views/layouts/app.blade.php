@@ -27,9 +27,13 @@
 							class="icon-bar"></span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span>
 					</button>
-
+					@guest
 					<!-- Branding Image -->
 					<a class="navbar-brand" href="{{ url('/login') }}">KKK</a>
+					@else
+					<!-- Branding Image -->
+					<a class="navbar-brand" href="{{ url('/home') }}">KKK</a>
+					@endguest
 				</div>
 
 				<div class="collapse navbar-collapse" id="app-navbar-collapse">
