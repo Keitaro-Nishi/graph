@@ -36,7 +36,6 @@
 
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
-	<input type="button" class="btn btn-default" value="ユーザーの追加" onclick="location.href='useradd'">
 </div>
 
 <script>
