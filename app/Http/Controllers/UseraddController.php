@@ -21,7 +21,7 @@ class UseraddController extends Controller {
        $password = bcrypt($request->password);
 
 
-       DB::insert('insert into users (citycode,userid,name,email,organization,password,role,reserve) values (?,?,?,?,?,?,?,?)', ['',$userid,$name,'',$organization,$password,1,'']);
+       DB::insert('insert into users (userid,name,email,organization,password,role,reserve) values (?,?,?,?,?,?,?)', [$userid,$name,'',$organization,$password,1,'']);
        return redirect('/users');
 	}
 }
