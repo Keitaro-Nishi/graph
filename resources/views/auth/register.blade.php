@@ -55,15 +55,15 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('orgnanization') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('organization') ? ' has-error' : '' }}">
                             <label for="orgnanization" class="col-md-4 control-label">組織名</label>
 
                             <div class="col-md-6">
-                                <input id="orgnanization" type="text" class="form-control" name="orgnanization" value="{{ old('orgnanization') }}" required >
+                                <input id="organization" type="text" class="form-control" name="organization" value="{{ old('organization') }}" required >
 
-                                @if ($errors->has('orgnanization'))
+                                @if ($errors->has('organization'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('orgnanization') }}</strong>
+                                        <strong>{{ $errors->first('organization') }}</strong>
                                     </span>
                                 @endif
                             </div>
