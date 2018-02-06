@@ -19,27 +19,27 @@
                 <div class="panel-heading"></div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action＝'Custinfoadd'>
+                    <form class="form-horizontal" method="POST" action＝'useradd'>
                         {{ csrf_field() }}
 
                         <div>
-                            <label for="custid" class="col-md-4 control-label">ユーザーID</label>
+                            <label for="userid" class="col-md-4 control-label">ユーザーID</label>
 
                             <div class="col-md-6">
-                                <input id="custid" type="text" class="form-control" name="custid"  required autofocus>
+                                <input id="userid" type="text" class="form-control" name="userid"  required autofocus>
                             </div>
                         </div>
                         <div>
-                            <label for="custname" class="col-md-4 control-label">ユーザー名</label>
+                            <label for="name" class="col-md-4 control-label">ユーザー名</label>
                             <div class="col-md-6">
-                                <input id="custname" type="text" class="form-control" name="custname" required>
+                                <input id="name" type="text" class="form-control" name="name" required>
                             </div>
                         </div>
 
                         <div>
-                            <label for="orgname" class="col-md-4 control-label">組織名</label>
+                            <label for="organization" class="col-md-4 control-label">組織名</label>
                             <div class="col-md-6">
-                                <input id="orgname" type="text" class="form-control" name="orgname" required>
+                                <input id="organization" type="text" class="form-control" name="organization" required>
                             </div>
                         </div>
 
@@ -74,3 +74,4 @@ $(function() {
 </script>
 </body>
 </html>
+
