@@ -15,20 +15,17 @@ Route::get ( '/', function () {
 	return view ( 'welcome' );
 } );
 
-//Route::get('/','UserdeleteController@delete');
+// Route::get('/','UserdeleteController@delete');
 
-	Route::get ( '/Menu', function () {
-		return view ( 'Menu' );
-	} );
+Route::get ( '/Menu', function () {
+	return view ( 'Menu' );
+} );
 
-		//Route::get ( '/hello_world/index', 'HelloWorldController@getIndex' );
-		//Route::get ( '/hello_world/login', 'HelloWorldController@getLogin' );
+Auth::routes ();
 
-		Auth::routes();
-
-	Route::get('/home', 'HomeController@index')->name('home');
-	Route::get('/users','UserController@index');
-	Route::get('/ajax/{deletecode}','UserController@delete');
+Route::get ( '/home', 'HomeController@index' )->name ( 'home' );
+Route::get ( '/users', 'UserController@index' );
+Route::get ( '/ajax/{deletecode}', 'UserController@delete' );
 	//Route::get('/ajax/{deletecode}','UserdeleteController@delete');
 	//Route::get('/useradd','UseraddController@add');
 	//Route::post('/useradd','UseraddController@insert');
