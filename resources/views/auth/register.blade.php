@@ -65,7 +65,7 @@
                             <label for="organization" class="col-md-4 control-label">所属名</label>
 
                             <div class="col-md-6">
-                                <input id="organization" type="password" class="form-control" name="organization" required>
+                                <input id="organization" class="form-control" name="organization" required>
                             </div>
                         </div>
 
