@@ -11,7 +11,7 @@
  * |
  */
 
-Route::redirect('/', '/home');
+Route::post('login', 'Auth\LoginController@login');
 
 Route::get ( '/Menu', function () {
 	return view ( 'Menu' );
