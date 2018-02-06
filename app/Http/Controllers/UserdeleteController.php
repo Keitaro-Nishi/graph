@@ -8,7 +8,7 @@ use Illuminate\support\Facades\DB;
 
 class UserdeleteController extends Controller
 {
-	public function index(Request $request)
+	public function delete(Request $request)
 	{
 		$deleteid = $request->deletecode;
 		DB::delete('delete from users WHERE userid=?',[$deleteid]);
