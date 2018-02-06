@@ -12,7 +12,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
+                            <label for="name" class="col-md-4 control-label">ユーザー名</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
@@ -25,11 +25,25 @@
                             </div>
                         </div>
 
+						<!--
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+						 -->
+
                         <div class="form-group{{ $errors->has('userid') ? ' has-error' : '' }}">
-                            <label for="userid" class="col-md-4 control-label">USERID</label>
+                            <label for="userid" class="col-md-4 control-label">ユーザーID</label>
 
                             <div class="col-md-6">
-                                <input id="userid" type="text" class="form-control" name="userid" value="{{ old('name') }}" required autofocus>
+                                <input id="userid" type="text" class="form-control" name="userid" value="{{ old('userid') }}" required >
 
                                 @if ($errors->has('userid'))
                                     <span class="help-block">
@@ -39,11 +53,17 @@
                             </div>
                         </div>
 
-                       <div class="form-group{{ $errors->has('organization') ? ' has-error' : '' }}">
-                            <label for="organization" class="col-md-4 control-label">所属名</label>
+                        <div class="form-group{{ $errors->has('organization') ? ' has-error' : '' }}">
+                            <label for="orgnanization" class="col-md-4 control-label">組織名</label>
 
                             <div class="col-md-6">
-                                <input id="organization" class="form-control" name="organization" required>
+                                <input id="organization" type="text" class="form-control" name="organization" value="{{ old('organization') }}" required >
+
+                                @if ($errors->has('organization'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('organization') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
 
