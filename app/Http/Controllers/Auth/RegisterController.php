@@ -63,7 +63,7 @@ class RegisterController extends Controller {
 				'password' => bcrypt ( $data ['password'] ),
 				'organization' => $data ['organization'],
 				'role' => '1',
-				'Reserve' => ''
+				'reserve' => ''
 		] );
 	}
 }
