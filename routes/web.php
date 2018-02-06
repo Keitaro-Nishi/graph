@@ -15,7 +15,7 @@ Route::get ( '/', function () {
 	return view ( 'welcome' );
 } );
 
-	//Route::get('/','UserdeleteController@delete');
+//Route::get('/','UserdeleteController@delete');
 
 	Route::get ( '/Menu', function () {
 		return view ( 'Menu' );
