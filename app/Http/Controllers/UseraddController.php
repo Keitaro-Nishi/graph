@@ -15,7 +15,7 @@ class UseraddController extends Controller {
 
 	public function insert(Request $request) {
 
-	     $userid= $request->userid;
+	   $userid= $request->userid;
        $name= $request->name;
        $organization= $request->organization;
        $password = bcrypt($request->password);
