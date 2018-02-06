@@ -41,11 +41,6 @@
 					<!-- Right Side Of Navbar -->
 					<ul class="nav navbar-nav navbar-right">
 						<!-- Authentication Links -->
-						<!--
-						@guest
-						<li><a href="{{ route('register') }}">Register</a></li>
-						@else
-						-->
 						@auth
 						<li><a href="{{ route('register') }}">Register</a></li>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
