@@ -11,7 +11,6 @@
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 
-
 			@if (Auth::user()->role == 1 )
 				<div style="display: none">
 			@endif
