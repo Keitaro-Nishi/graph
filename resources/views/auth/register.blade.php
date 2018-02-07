@@ -11,11 +11,10 @@
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 
-						@auth
-						@if (Auth::user()->role->has('1'))
+
+						@if (Auth::role()=="1")
 						<div style="display: none">
 						@endif
-						@endauth
                         <div class="form-group{{ $errors->has('citycode') ? ' has-error' : '' }}">
                             <label for="citycode" class="col-md-4 control-label">市町村コード</label>
 
@@ -29,11 +28,10 @@
                                 @endif
                             </div>
                         </div>
-                        @auth
-                        @if (Auth::user()->role->has('1'))
+                        @if (Auth::role()=="1")
                         </div>
                         @endif
-                        @endauth
+
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">ユーザー名</label>
