@@ -5,11 +5,36 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+                <div class="panel-heading">ユーザー登録</div>
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
+
+
+						@if (Auth::user()->role == 0)
+						<div style="display: none">
+						@endif
+
+                        <div class="form-group{{ $errors->has('citycode') ? ' has-error' : '' }}">
+                            <label for="citycode" class="col-md-4 control-label">市町村コード</label>
+
+                            <div class="col-md-6">
+                                <input id="citycode" type="text" class="form-control" name="citycode" value="{{ old('citycode') }}" required >
+
+                                @if ($errors->has('citycode'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('citycode') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        @if (Auth::user()->role == 0)
+                        </div>
+                        @endif
+
+
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">ユーザー名</label>
@@ -68,7 +93,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
+                            <label for="password" class="col-md-4 control-label">パスワード</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control" name="password" required>
@@ -82,7 +107,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+                            <label for="password-confirm" class="col-md-4 control-label">パスワードの再入力</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
@@ -92,7 +117,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Register
+                                    登録
                                 </button>
                             </div>
                         </div>
