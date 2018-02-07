@@ -15,8 +15,6 @@
 						@if (Auth::user()->role == 0)
 						<div style="display: none">
 						@endif
-
-
                         <div class="form-group{{ $errors->has('citycode') ? ' has-error' : '' }}">
                             <label for="citycode" class="col-md-4 control-label">市町村コード</label>
 
@@ -30,7 +28,6 @@
                                 @endif
                             </div>
                         </div>
-
                         @if (Auth::user()->role == 1)
                         </div>
                         @endif
