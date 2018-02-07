@@ -8,11 +8,11 @@
 				<div class="panel-heading">Dashboard</div>
 
 				<div class="panel-body">
-					@if (Auth::user()->role == 0 )
-					<div>
-						<p>You are logged in!</p>
-					</div>
-					@endif
+					@if (session('status'))
+					<div class="alert alert-success">{{ session('status') }}</div>
+					@endif You are logged in!
+					<a class="navbar-brand" href="{{ url('/') }}"> {{
+						config('app.name', 'Laravel') }} </a>
 				</div>
 			</div>
 		</div>
