@@ -15,7 +15,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-    		'name', 'userid', 'password', 'organization', 'role', 'reserve'
+
+    		'citycode','name','userid','password','organization', 'role', 'email','reserve'
+
     ];
 
     /**
@@ -26,4 +28,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    protected $primaryKey = 'userid';
+    public $incrementing = false;
 }
