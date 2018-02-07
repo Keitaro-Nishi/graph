@@ -12,7 +12,7 @@
                         {{ csrf_field() }}
 
 
-						@if (Auth::user()->role == 0)
+						@if (Auth::user()->role == 1)
 						<div style="display: none">
 						@endif
                         <div class="form-group{{ $errors->has('citycode') ? ' has-error' : '' }}">
