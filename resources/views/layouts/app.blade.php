@@ -44,7 +44,7 @@
 					<ul class="nav navbar-nav navbar-right">
 						<!-- Authentication Links -->
 						@auth
-						@if (Auth::user()->role == 1)
+						@if (Auth::user()->role == 0)
 						<div style="display: none">
 						<li><a href="{{ route('register') }}">Register</a></li>
 						</div>
