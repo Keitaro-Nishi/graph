@@ -6,8 +6,8 @@
         <div class="col-md-8 col-md-offset-2">
 
 			<div class="form-wrap">
-			<div class="text-center">
-			<h1>Login</h1>
+				<div class="text-center">
+					<h1>Login</h1>
 
 				<div class="panel panel-default">
                 <div class="panel-body">
