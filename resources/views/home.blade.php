@@ -9,7 +9,7 @@
 
 				<div class="panel-body">
 					@if (Auth::user()->role == "1" )
-					<div class="alert alert-success">
+					<div>
 						<p>You are logged in!</p>
 					</div>
 					@endif
