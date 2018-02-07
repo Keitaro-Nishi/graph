@@ -44,7 +44,7 @@
 					<ul class="nav navbar-nav navbar-right">
 						<!-- Authentication Links -->
 						@auth
-						@if (Auth::user()->role == 0 or Auth::user()->role == 1)
+						@if (Auth::user()->role == 2 or Auth::user()->role == 3)
 						<li><a href="{{ route('register') }}">Register</a></li>
 						@endif
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
