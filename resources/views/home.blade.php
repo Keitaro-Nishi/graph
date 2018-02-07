@@ -8,7 +8,7 @@
 				<div class="panel-heading">Dashboard</div>
 
 				<div class="panel-body">
-					@if (Auth::name() == "0" )
+					@if (Auth::user()->role == "0" )
 					<div class="alert alert-success">
 						<p>You are logged in!</p>
 					</div>
