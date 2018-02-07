@@ -60,13 +60,12 @@ class RegisterController extends Controller {
 	 */
 	protected function create(array $data) {
 		return User::create ( [
+				'citycode' =>00001,
 				'name' => $data ['name'],
-				//'email' => $data ['email'],
 				'userid' => $data ['userid'],
 				'organization' => $data ['organization'],
 				'password' => bcrypt ( $data ['password'] ),
 				'role' => '1',
-				'reserve' => ''
 		] );
 	}
 }
