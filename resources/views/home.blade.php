@@ -8,7 +8,7 @@
 				<div class="panel-heading">Dashboard</div>
 
 				<div class="panel-body">
-					@if ($role == "0")
+					@if ({ Auth::user()->role } == "0")
 					<div class="alert alert-danger">
 						{{ session('status') }}
 					</div>
