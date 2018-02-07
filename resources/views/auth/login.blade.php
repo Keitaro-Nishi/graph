@@ -6,14 +6,14 @@
 				<h1>Login</h1>
 			</div>
 		</div>
-
-		<div class="panel panel-default">
-			<div class="col-xs-12 col-md-push-3 col-md-6">
+	<br>
+		<div class="col-xs-12 col-md-push-3 col-md-6">
+			<div class="panel panel-default">
 				<div class="panel-body">
 					<form class="form-horizontal" method="POST"
 						action="{{ route('login') }}">
 						{{ csrf_field() }}
-
+						<br>
 						<div class="form-group{{ $errors-> has('userid') ? ' has-error' : '' }}">
 							<label for="userid" class="col-md-4 control-label">User ID</label>
 
