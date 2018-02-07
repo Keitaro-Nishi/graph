@@ -12,7 +12,7 @@
                         {{ csrf_field() }}
 
 						@auth
-						@if (Auth::user()->role =="1")
+						@if (Auth::user()->role->has('1'))
 						<div style="display: none">
 						@endif
 						@endauth
@@ -30,7 +30,7 @@
                             </div>
                         </div>
                         @auth
-                        @if (Auth::user()->role =="1")
+                        @if (Auth::user()->role->has('1'))
                         </div>
                         @endif
                         @endauth
