@@ -366,7 +366,6 @@ td, th {
 		page-break-after: avoid
 	}
 	.navbar {
-		coler: #000;
 		display: none
 	}
 	.btn>.caret, .dropup>.btn>.caret {
