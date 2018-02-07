@@ -8,8 +8,8 @@
 				<div class="panel-heading">Dashboard</div>
 
 				<div class="panel-body">
-					@if ({{ Auth::user()->role }} == "0")
-					<div class="alert alert-danger">
+					@if (session('status'))
+					<div class="alert alert-success">
 						{{ session('status') }}
 					</div>
 					@endif You are logged in!
