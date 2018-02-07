@@ -45,7 +45,7 @@
 						<!-- Authentication Links -->
 						@auth
 
-						<li><a href="{{ route('register') }}">Register</a></li>
+						<a href="{{ route('register') }}">Register</a>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown" role="button" aria-expanded="false"
 							aria-haspopup="true"> {{ Auth::user()->name}}
