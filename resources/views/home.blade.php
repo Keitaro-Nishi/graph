@@ -8,7 +8,7 @@
 				<div class="panel-heading">Dashboard</div>
 
 				<div class="panel-body">
-					@if ($user == "0")
+					@if ($role == "0")
 					<div class="alert alert-danger">
 						{{ session('status') }}
 					</div>
