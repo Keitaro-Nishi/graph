@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">ユーザー登録</div>
+                <div class="panel-heading">Register</div>
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}">
@@ -20,7 +20,6 @@
 
                             <div class="col-md-6">
                                 <input id="citycode" type="text" class="form-control" name="citycode" value="{{ old('citycode') }}" required >
-
                                 @if ($errors->has('citycode'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('citycode') }}</strong>
