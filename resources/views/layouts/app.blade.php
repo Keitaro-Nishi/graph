@@ -44,11 +44,8 @@
 					<ul class="nav navbar-nav navbar-right">
 						<!-- Authentication Links -->
 						@auth
-						@if (Auth::user()->role == 0)
-						<div style="display: none">
+
 						<li><a href="{{ route('register') }}">Register</a></li>
-						</div>
-						@endif
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown" role="button" aria-expanded="false"
 							aria-haspopup="true"> {{ Auth::user()->name}}
