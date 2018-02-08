@@ -33,11 +33,13 @@
                         </div>
                         @endif
 
+						<!--
 						{{Auth::user()->citycode}}
 
 						<div class="form-group">
                                <li id="citycode" >{{Auth::user()->citycode}}</li>
                         </div>
+						-->
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">ユーザー名</label>
