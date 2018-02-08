@@ -68,8 +68,8 @@ class RegisterController extends Controller {
 	 */
 	protected function create(array $data) {
 		return User::create ( [
-				//'citycode' =>$data ['citycode'],
-				'citycode' => '55555',
+				'citycode' =>$data ['citycode'],
+				//'citycode' => '55555',
 				//'citycode' => DB::select('select role from users WHERE role=?',[0]),
 				'name' => $data ['name'],
 				'userid' => $data ['userid'],
