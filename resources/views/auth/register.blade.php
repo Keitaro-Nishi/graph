@@ -33,7 +33,6 @@
                         </div>
                         @endif
 
-
 						{{Auth::user()->citycode}}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
