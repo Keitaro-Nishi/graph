@@ -14,6 +14,7 @@
 
 						@if (Auth::user()->role == 1)
 						<div style="display: none">
+
 						@endif
                         <div class="form-group{{ $errors->has('citycode') ? ' has-error' : '' }}">
                             <label for="citycode" class="col-md-4 control-label">市町村コード</label>
@@ -27,11 +28,10 @@
                                 @endif
                             </div>
                         </div>
+
                         @if (Auth::user()->role == 1)
                         </div>
                         @endif
-
-
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">ユーザー名</label>
@@ -46,20 +46,6 @@
                                 @endif
                             </div>
                         </div>
-
-						<!--
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-						 -->
 
                         <div class="form-group{{ $errors->has('userid') ? ' has-error' : '' }}">
                             <label for="userid" class="col-md-4 control-label">ユーザーID</label>

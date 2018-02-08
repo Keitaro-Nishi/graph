@@ -15,6 +15,7 @@
 </head>
 <body>
 	<div id="app">
+		<!-- ヘッダーカラーチェンジ↓ https://torina.top/detail/172/ 参照 -->
 		<nav class="navbar navbar-default navbar-static-top navbar-inverse">
 			<div class="container">
 				<div class="navbar-header">
@@ -29,10 +30,10 @@
 					</button>
 					@guest
 					<!-- Branding Image -->
-					<a class="navbar-brand" href="{{ url('/login') }}">KKK</a>
+					<a class="navbar-brand" href="{{ url('/login') }}">ViewLog</a>
 					@else
 					<!-- Branding Image -->
-					<a class="navbar-brand" href="{{ url('/home') }}">KKK</a>
+					<a class="navbar-brand" href="{{ url('/home') }}">ViewLog</a>
 					@endguest
 				</div>
 				<div class="collapse navbar-collapse" id="app-navbar-collapse">

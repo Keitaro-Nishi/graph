@@ -11,6 +11,8 @@
 					@if (session('status'))
 					<div class="alert alert-success">{{ session('status') }}</div>
 					@endif You are logged in!
+					<a class="navbar-brand" href="{{ url('/') }}"> {{
+						config('app.name', 'Laravel') }} </a>
 				</div>
 			</div>
 		</div>
