@@ -73,8 +73,8 @@ class RegisterController extends Controller {
 
 
 
-				//'citycode' =>$data ['citycode'],
-				'citycode' =>Auth::user()->citycode,
+				'citycode' =>$data ['citycode'],
+				//'citycode' =>Auth::user()->citycode,
 				'name' => $data ['name'],
 				'userid' => $data ['userid'],
 				'organization' => $data ['organization'],
