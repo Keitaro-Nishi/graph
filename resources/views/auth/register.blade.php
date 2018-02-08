@@ -32,8 +32,9 @@
                         </div>
                         @endif
 
-
+						<div class="form-group">
 						<input type="hidden" id="citycode"  name="citycode" value="Auth::user()->citycode">
+						</div>
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">ユーザー名</label>
