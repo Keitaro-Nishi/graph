@@ -12,10 +12,9 @@
                         {{ csrf_field() }}
 
 
-						@if (Auth::user()->role === 0)
+						@if (Auth::user()->role === 1)
 						<div style="display: none">
-
-						@endif-->
+						@endif
                         <div class="form-group{{ $errors->has('citycode') ? ' has-error' : '' }}">
                             <label for="citycode" class="col-md-4 control-label">市町村コード</label>
 
@@ -29,7 +28,7 @@
                             </div>
                         </div>
 
-                        @if (Auth::user()->role == 0)
+                        @if (Auth::user()->role === 1)
                         </div>
                         @endif
 
