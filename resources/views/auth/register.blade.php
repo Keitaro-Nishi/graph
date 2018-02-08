@@ -36,7 +36,7 @@
 						{{Auth::user()->citycode}}
 
 						<div class="form-group">
-                               <input type="text" id="citycode"  class="form-control" name="citycode" value ="Auth::user()->citycode">
+                               <li id="citycode" >{{Auth::user()->citycode}}</li>
                         </div>
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
