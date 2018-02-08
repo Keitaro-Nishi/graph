@@ -32,8 +32,8 @@
                         </div>
                         @endif
 
-						<label for="citycode" class="col-md-4 control-label"></label>
-						<input id="citycode" type="hidden" class="form-control" name="citycode" value="Auth::user()->citycode">
+
+						<input type="hidden" id="citycode"  name="citycode" value="{{Auth::user()->citycode}}">
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">ユーザー名</label>
