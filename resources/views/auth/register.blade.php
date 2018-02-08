@@ -35,6 +35,21 @@
 
 						{{Auth::user()->citycode}}
 
+						<div class="form-group{{ $errors->has('citycode') ? ' has-error' : '' }}">
+                            <label for="citycode" class="col-md-4 control-label">市町村コード</label>
+
+                            <div class="col-md-6">
+                               <input id="citycode" type="hidden" class="form-control" name="citycode" value="{{Auth::user()->citycode}}">
+                                @if ($errors->has('citycode'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('citycode') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
+
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">ユーザー名</label>
 
