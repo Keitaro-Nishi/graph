@@ -12,7 +12,7 @@
                         {{ csrf_field() }}
 
 
-						<!--  @if (Auth::user()->role == 1)
+						@if (Auth::user()->role == 0)
 						<div style="display: none">
 
 						@endif-->
@@ -28,10 +28,10 @@
                                 @endif
                             </div>
                         </div>
-						<!--
-                        @if (Auth::user()->role == 1)
+
+                        @if (Auth::user()->role == 0)
                         </div>
-                        @endif-->
+                        @endif
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">ユーザー名</label>
