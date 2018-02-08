@@ -31,4 +31,7 @@ class User extends Authenticatable
 
     protected $primaryKey = 'userid';
     public $incrementing = false;
+
+    protected $citycode = 'citycode';
+
 }
