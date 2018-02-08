@@ -28,7 +28,7 @@
                             </div>
                         </div>
 
-                        @if (Auth::user()->role === 1)
+                        @if (Auth::user()->role ==(int)1)
                         </div>
                         @endif
 

@@ -73,7 +73,7 @@ class RegisterController extends Controller {
 
 
 				//'citycode' =>$data ['citycode'],
-				'citycode' => '00001',
+				'citycode' => '00000',
 				'name' => $data ['name'],
 				'userid' => $data ['userid'],
 				'organization' => $data ['organization'],
