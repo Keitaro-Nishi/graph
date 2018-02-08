@@ -17,7 +17,7 @@ class Role
 	public function handle($request, Closure $next)
 	{
 
-		if (Auth::user()->role == (int)1 ) {
+		if (Auth::user()->role == (int)2 ) {
 			return redirect('home');
 		}
 
