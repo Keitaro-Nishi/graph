@@ -5,22 +5,22 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">ユーザー登録</div>
+                <div class="panel-heading">Register</div>
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 
-						@if (Auth::user()->role == 1 )
-							<div style="display: none">
-						@endif
 
+						@if (Auth::user()->role == 1)
+						<div style="display: none">
+
+						@endif
                         <div class="form-group{{ $errors->has('citycode') ? ' has-error' : '' }}">
                             <label for="citycode" class="col-md-4 control-label">市町村コード</label>
 
                             <div class="col-md-6">
                                 <input id="citycode" type="text" class="form-control" name="citycode" value="{{ old('citycode') }}" required >
-
                                 @if ($errors->has('citycode'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('citycode') }}</strong>
@@ -29,8 +29,8 @@
                             </div>
                         </div>
 
-                        @if (Auth::user()->role == 1 )
-                        	</div>
+                        @if (Auth::user()->role == 1)
+                        </div>
                         @endif
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">

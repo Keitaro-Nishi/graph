@@ -36,7 +36,6 @@
 					<a class="navbar-brand" href="{{ url('/home') }}">ViewLog</a>
 					@endguest
 				</div>
-
 				<div class="collapse navbar-collapse" id="app-navbar-collapse">
 					<!-- Left Side Of Navbar -->
 					<ul class="nav navbar-nav">&nbsp;
@@ -46,7 +45,9 @@
 					<ul class="nav navbar-nav navbar-right">
 						<!-- Authentication Links -->
 						@auth
+						 @if (Auth::user()->role == 0 or Auth::user()->role == 1)
 						<li><a href="{{ route('register') }}">Register</a></li>
+						 @endif
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown" role="button" aria-expanded="false"
 							aria-haspopup="true"> {{ Auth::user()->name}}
@@ -69,7 +70,6 @@
 				</div>
 			</div>
 		</nav>
-
 		@yield('content')
 	</div>
 
