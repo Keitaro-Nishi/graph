@@ -37,7 +37,7 @@
 
 
 						<div class="form-group">
-                               <input type="hidden" id="citycode"  class="form-control" name="citycode" value="{{Auth::user()->citycode}}">
+                               <input type="hidden" id="citycode"  class="form-control" name="citycode" value="Auth::user()->citycode">
                         </div>
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
