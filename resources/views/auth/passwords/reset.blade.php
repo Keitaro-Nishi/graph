@@ -14,7 +14,7 @@
                         <input type="hidden" name="token" value="{{ $token }}">
 
                         <div class="form-group{{ $errors->has('userid') ? ' has-error' : '' }}">
-                            <label for="userid" class="col-md-4 control-label">E-Mail Address</label>
+                            <label for="userid" class="col-md-4 control-label">UserID</label>
 
                             <div class="col-md-6">
                                 <input id="userid" type="userid" class="form-control" name="userid" value="{{ $userid or old('userid') }}" required autofocus>
