@@ -36,7 +36,7 @@
 
 
 						<div class="form-group">
-                               <input type="hidden" id="citycode" value ="{{Auth::user()->citycode}}">
+                               <input type="text" id="citycode" value ="{{Auth::user()->citycode}}">
                         </div>
 
 
