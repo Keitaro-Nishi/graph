@@ -16,11 +16,12 @@
 						<div style="display: none">
 						@endif
 
+						@if (Auth::user()->role == (int)0 )
 							<div class="form-group{{ $errors->has('citycode') ? ' has-error' : '' }}">
 							<label for="citycode" class="col-md-4 control-label">市町村コード</label>
 
 								<div class="col-md-6">
-									<input id="citycode" type="text" class="form-control" name="citycode" value="{{ Auth::user()->citycode}}" required >
+									<input id="citycode" type="text" class="form-control" name="citycode" value="{{ old('citycode') }}" required autofocus>
 
 									@if ($errors->has('citycode'))
 										<span class="help-block">
@@ -29,6 +30,23 @@
 									@endif
 								</div>
 							</div>
+						@endif
+
+						@if (Auth::user()->role == (int)1 )
+							<div class="form-group{{ $errors->has('citycode') ? ' has-error' : '' }}">
+							<label for="citycode" class="col-md-4 control-label"></label>
+
+								<div class="col-md-6">
+									<input id="citycode" type="hidden" class="form-control" name="citycode" value="{{Auth::user()->citycode}}" required autofocus>
+
+									@if ($errors->has('citycode'))
+										<span class="help-block">
+												<strong>{{ $errors->first('citycode') }}</strong>
+										</span>
+									@endif
+								</div>
+							</div>
+						@endif
 
 						@if (Auth::user()->role == (int)1 )
 						</div>
@@ -38,7 +56,7 @@
 							<label for="name" class="col-md-4 control-label">ユーザー名</label>
 
 							<div class="col-md-6">
-								<input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+								<input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required>
 
  								@if ($errors->has('name'))
 									<span class="help-block">
@@ -49,10 +67,10 @@
 						</div>
 
 						<div class="form-group{{ $errors->has('userid') ? ' has-error' : '' }}">
-							<label for="userid" class="col-md-4 control-label">ユーザーID</label>
+							<label for="userid" class="col-md-4 control-label">組織名</label>
 
 							<div class="col-md-6">
-								<input id="userid" type="text" class="form-control" name="userid" value="{{ old('userid') }}" required >
+								<input id="userid" type="text" class="form-control" name="userid" value="{{ old('userid') }}" required>
 
 								@if ($errors->has('userid'))
 									<span class="help-block">
@@ -66,7 +84,7 @@
 							<label for="organization" class="col-md-4 control-label">ユーザーID</label>
 
 							<div class="col-md-6">
-								<input id="organization" type="text" class="form-control" name="organization" value="{{ old('organization') }}" required >
+								<input id="organization" type="text" class="form-control" name="organization" value="{{ old('organization') }}" required>
 
 								@if ($errors->has('organization'))
 									<span class="help-block">
