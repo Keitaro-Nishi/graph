@@ -18,6 +18,7 @@ Route::get ( '/Menu', function () {
 } );
 
 Auth::routes ();
+Route::get ( '/register', 'Auth\RegisterController@showRegistrationForm')->name('register')->middleware('role');
 
 Route::get ( '/home', 'HomeController@index' )->name ( 'home' );
 Route::get ( '/users', 'UserController@index' );
