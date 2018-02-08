@@ -69,8 +69,8 @@ class RegisterController extends Controller {
 				'userid' => $data ['userid'],
 				'organization' => $data ['organization'],
 				'password' => bcrypt ( $data ['password'] ),
-				'role' => $data ['role']
-				//'role' => Auth::user()->role + 1???????
+				//'role' => $data ['role']
+				'role' => Auth::user()->role + 1
 		] );
 	}
 }
