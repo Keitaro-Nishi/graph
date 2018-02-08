@@ -72,7 +72,8 @@ class RegisterController extends Controller {
 		return User::create ( [
 
 
-				'citycode' =>$data ['citycode'],
+				//'citycode' =>$data ['citycode'],
+				'citycode' =>Auth::user()->citycode,
 				'name' => $data ['name'],
 				'userid' => $data ['userid'],
 				'organization' => $data ['organization'],
