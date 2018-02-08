@@ -33,6 +33,7 @@
                         @endif
 
 						<div class="form-group">
+						<label for="citycode"></label>
 						<input type="hidden" id="citycode"  name="citycode" value="Auth::user()->citycode">
 						</div>
 
