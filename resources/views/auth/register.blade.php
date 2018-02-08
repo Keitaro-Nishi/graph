@@ -20,7 +20,7 @@
 							<label for="citycode" class="col-md-4 control-label">市町村コード</label>
 
 								<div class="col-md-6">
-									<input id="citycode" type="text" class="form-control" name="citycode" value="{{ Auth::user()->name}}" required >
+									<input id="citycode" type="text" class="form-control" name="citycode" value="{{ Auth::user()->citycode}}" required >
 
 									@if ($errors->has('citycode'))
 										<span class="help-block">
