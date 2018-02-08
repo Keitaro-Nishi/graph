@@ -70,10 +70,8 @@ class RegisterController extends Controller {
 
 		return User::create ( [
 
-				//$citycodes => DB::select('select role from users WHERE role=?',[0]),
 				//'citycode' =>$data ['citycode'],
 				'citycode' => '55555',
-				//'citycode' => $citycodes,
 				'name' => $data ['name'],
 				'userid' => $data ['userid'],
 				'organization' => $data ['organization'],
