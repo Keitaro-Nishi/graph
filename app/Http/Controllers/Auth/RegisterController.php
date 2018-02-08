@@ -71,13 +71,18 @@ class RegisterController extends Controller {
 
 		return User::create ( [
 
-				//'citycode' =>$data ['citycode'],
-				'citycode' => '00001',
+
+
+				'citycode' =>$data ['citycode'],
+	
 				'name' => $data ['name'],
 				'userid' => $data ['userid'],
 				'organization' => $data ['organization'],
 				'password' => bcrypt ( $data ['password'] ),
-				'role' => '1'
+
+				'role' => 1
+
+
 		] );
 	}
 }
