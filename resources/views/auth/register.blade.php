@@ -12,7 +12,7 @@
                         {{ csrf_field() }}
 
 
-						@if (Auth::user()->role == 0)
+						@if (Auth::user()->role === 0)
 						<div style="display: none">
 
 						@endif-->
