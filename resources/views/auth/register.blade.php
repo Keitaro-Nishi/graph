@@ -53,6 +53,22 @@
 						</div>
 						@endif
 
+
+						<div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">
+							<label for="role" class="col-md-4 control-label"></label>
+
+								<div class="col-md-6">
+									<input id="role" type="hidden" class="form-control" name="role" value="{{Auth::user()->role}}" required autofocus>
+
+									@if ($errors->has('citycode'))
+										<span class="help-block">
+												<strong>{{ $errors->first('role') }}</strong>
+										</span>
+									@endif
+								</div>
+						</div>
+
+
 						<div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
 							<label for="name" class="col-md-4 control-label">ユーザー名</label>
 
