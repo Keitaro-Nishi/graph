@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Carbon\Carbon;
+use App\User;
 
 class EventServiceProvider extends ServiceProvider
 {
