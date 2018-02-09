@@ -83,6 +83,20 @@
 							</div>
 						</div>
 
+						<div class="form-group{{ $errors->has('organization') ? ' has-error' : '' }}">
+							<label for="organization" class="col-md-4 control-label">ユーザーID</label>
+
+							<div class="col-md-6">
+								<input id="organization" type="text" class="form-control" name="organization" value="{{ old('organization') }}" required>
+
+								@if ($errors->has('organization'))
+									<span class="help-block">
+										<strong>{{ $errors->first('organization') }}</strong>
+									</span>
+								@endif
+							</div>
+						</div>
+
 						<div class="form-group{{ $errors->has('userid') ? ' has-error' : '' }}">
 							<label for="userid" class="col-md-4 control-label">組織名</label>
 
@@ -97,19 +111,7 @@
 							</div>
 						</div>
 
-						<div class="form-group{{ $errors->has('organization') ? ' has-error' : '' }}">
-							<label for="organization" class="col-md-4 control-label">ユーザーID</label>
 
-							<div class="col-md-6">
-								<input id="organization" type="text" class="form-control" name="organization" value="{{ old('organization') }}" required>
-
-								@if ($errors->has('organization'))
-									<span class="help-block">
-										<strong>{{ $errors->first('organization') }}</strong>
-									</span>
-								@endif
-							</div>
-						</div>
 
 						<div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
 							<label for="password" class="col-md-4 control-label">パスワード</label>
