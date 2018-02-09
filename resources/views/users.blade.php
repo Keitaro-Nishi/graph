@@ -10,9 +10,9 @@
 <script src="js/bootstrap.js"></script>
 <script src="js/jquery.bootgrid.js"></script>
 </head>
-<body>
-
 @extends('layouts.app')
+
+<body>
 
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
