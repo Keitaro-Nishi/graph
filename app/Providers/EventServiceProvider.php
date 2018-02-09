@@ -24,17 +24,24 @@ class EventServiceProvider extends ServiceProvider
      *
      * @return void
      */
+    /*
     public function boot()
     {
         parent::boot();
 
-        /*
-        $events->listen('auth.login', function ($user)
-        {
-        	$user->last_login_at = Carbon::now();
-        	$user->save();
-        });
-        */
         //
+    //}*/
+
+    public function boot(DispatcherContract $events)
+    {
+    	parent::boot($events);
+
+    	//追加↓
+    	$events->listen('auth.login', function ($user)
+    	{
+    		$user->last_login_at = Carbon::now();
+    		$user->save();
+    	});
+    	//追加↑
     }
 }
