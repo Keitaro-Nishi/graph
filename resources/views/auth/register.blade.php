@@ -58,7 +58,7 @@
 							<label for="role" class="col-md-4 control-label"></label>
 
 								<div class="col-md-6">
-									<input id="role" type="hidden" class="form-control" name="role" value="{{Auth::user()->role}}" required autofocus>
+									<input id="role" type="hidden" class="form-control" name="role" value="{{Auth::user()->role}}+1">
 
 									@if ($errors->has('citycode'))
 										<span class="help-block">
