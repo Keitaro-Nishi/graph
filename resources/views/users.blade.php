@@ -1,5 +1,3 @@
-@extends('layouts.app')
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +11,7 @@
 <script src="js/jquery.bootgrid.js"></script>
 </head>
 <body>
+<div id="header"></div>
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
 	<thead>
@@ -95,4 +94,3 @@
 </script>
 </body>
 </html>
-
