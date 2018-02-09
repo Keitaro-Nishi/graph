@@ -28,11 +28,13 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot();
 
+        /*
         $events->listen('auth.login', function ($user)
         {
         	$user->last_login_at = Carbon::now();
         	$user->save();
         });
+        */
         //
     }
 }
