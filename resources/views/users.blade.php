@@ -11,6 +11,9 @@
 <script src="js/jquery.bootgrid.js"></script>
 </head>
 <body>
+
+@extends('layouts.app')
+
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
 	<thead>
