@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<div id="header"></div>
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
 	<thead>
