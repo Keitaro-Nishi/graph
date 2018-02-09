@@ -18,6 +18,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\Event' => [
             'App\Listeners\EventListener',
         ],
+    	'Illuminate\Auth\Events\Login' => [
+    	   'App\Listeners\LogSuccessfulLogin',
+    	],
     ];
 
     /**
@@ -25,24 +28,13 @@ class EventServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    /*
+
     public function boot()
     {
         parent::boot();
 
         //
-    //}*/
-
-    public function boot()
-    {
-    	parent::boot();
-
-    	//追加↓
-    	$events->listen('auth.login', function ($user)
-    	{
-    		$user->last_login_at = Carbon::now();
-    		$user->save();
-    	});
-    	//追加↑
     }
+
+
 }
