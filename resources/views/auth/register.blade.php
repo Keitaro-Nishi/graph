@@ -12,6 +12,20 @@
 					<form class="form-horizontal" method="POST" action="{{ route('register') }}">
 					{{ csrf_field() }}
 
+						<div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">
+							<label for="role" class="col-md-4 control-label"></label>
+
+								<div class="col-md-6">
+									<input id="role" type="hidden" class="form-control" name="role" value="{{Auth::user()->role+1}}">
+
+									@if ($errors->has('citycode'))
+										<span class="help-block">
+												<strong>{{ $errors->first('role') }}</strong>
+										</span>
+									@endif
+								</div>
+						</div>
+
 						@if (Auth::user()->role == (int)1 )
 						<div style="display: none">
 						@endif
@@ -53,6 +67,7 @@
 						</div>
 						@endif
 
+
 						<div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
 							<label for="name" class="col-md-4 control-label">ユーザー名</label>
 
@@ -68,7 +83,7 @@
 						</div>
 
 						<div class="form-group{{ $errors->has('userid') ? ' has-error' : '' }}">
-							<label for="userid" class="col-md-4 control-label">組織名</label>
+							<label for="userid" class="col-md-4 control-label">ユーザーID</label>
 
 							<div class="col-md-6">
 								<input id="userid" type="text" class="form-control" name="userid" value="{{ old('userid') }}" required>
@@ -81,8 +96,9 @@
 							</div>
 						</div>
 
+
 						<div class="form-group{{ $errors->has('organization') ? ' has-error' : '' }}">
-							<label for="organization" class="col-md-4 control-label">ユーザーID</label>
+							<label for="organization" class="col-md-4 control-label">組織名</label>
 
 							<div class="col-md-6">
 								<input id="organization" type="text" class="form-control" name="organization" value="{{ old('organization') }}" required>
