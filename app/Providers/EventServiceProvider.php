@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use Carbon\Carbon;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -27,6 +28,11 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot();
 
+        $events->listen('auth.login', function ($user)
+        {
+        	$user->last_login_at = Carbon::now();
+        	$user->save();
+        });
         //
     }
 }
