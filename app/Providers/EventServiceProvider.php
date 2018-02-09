@@ -5,7 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Carbon\Carbon;
-use App\User;
+
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -18,8 +18,10 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\Event' => [
             'App\Listeners\EventListener',
         ],
-    	'Illuminate\Auth\Events\Login' => [
-    	   'App\Listeners\LogSuccessfulLogin',
+    	// ログイン時にイベントを発行
+    	'App\Events\Logined' => [
+    	// 最終ログインを記録するリスナー
+    	'App\Listeners\LastLoginListener',
     	],
     ];
 
