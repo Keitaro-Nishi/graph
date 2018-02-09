@@ -32,7 +32,7 @@ class EventServiceProvider extends ServiceProvider
         //
     //}*/
 
-    public function boot(DispatcherContract $events)
+    public function boot()
     {
     	parent::boot($events);
 
