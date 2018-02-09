@@ -33,9 +33,9 @@ class EventServiceProvider extends ServiceProvider
         //
     //}*/
 
-    public function boot(DispatcherContract $events)
+    public function boot()
     {
-    	parent::boot($events);
+    	parent::boot();
 
     	//追加↓
     	$events->listen('auth.login', function ($user)
