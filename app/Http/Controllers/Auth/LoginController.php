@@ -50,13 +50,14 @@ class LoginController extends Controller {
    	 }
 
 	public function logout(Request $request) {
+		
+		event(new Logouted());
+		
 		$this->guard ()->logout ();
 
 		$request->session ()->flush ();
 
-		$request->session ()->regenerate ();
-
-		event(new Logouted());
+		$request->session ()->regenerate ();	
 
 		return redirect ( '/login' );
 	}
