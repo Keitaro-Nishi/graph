@@ -39,8 +39,8 @@ class LastLoginListener
       */
 
     	$user = Auth::user();
-    	$date = date_format(Carbon::now(), 'd');
-    	$user->last_login_at = $date;
+    	$time = new Carbon(Carbon::now());
+    	$user->last_login_at = $time->__get('year');
     	$user->save();
     }
 }
