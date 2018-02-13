@@ -11,7 +11,6 @@
 <script src="js/jquery.bootgrid.js"></script>
 </head>
 <body>
-<div id="header"></div>
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
 	<thead>
@@ -42,7 +41,7 @@
 			var rowIds = [];
 
 			$(function() {
-				$("#header").load("header.html");
+				//$("#header").load("header.html");
 				$("#grid-basic").bootgrid({
 					selection : true,
 					multiSelect : true,
