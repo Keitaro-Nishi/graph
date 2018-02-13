@@ -50,7 +50,7 @@
 						 @endif
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown" role="button" aria-expanded="false"
-							aria-haspopup="true"> {{ Auth::user()->name}} {{ Auth::user()->last_login_at}}
+							aria-haspopup="true"> {{ Auth::user()->name}}
 							<span class="caret"></span>
 						</a>
 
@@ -67,6 +67,7 @@
 						</li>
 						@endauth
 					</ul>
+					{{ Auth::user()->last_login_at}}
 				</div>
 			</div>
 		</nav>
