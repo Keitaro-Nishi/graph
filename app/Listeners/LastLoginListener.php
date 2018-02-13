@@ -33,9 +33,15 @@ class LastLoginListener
      */
     public function handle(Logined $event)
     {
-
+		/*
       $user = Auth::user();
       $user->last_login_at = Carbon::now();
+      $user->save();
+      */
+
+      $user = Auth::user();
+      $day = new DateTime(Carbon::now());
+      $user->last_login_at = $day->format('Y年m月d日 H時i分s秒');
       $user->save();
 
     }
