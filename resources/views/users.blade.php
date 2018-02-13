@@ -20,8 +20,6 @@
 			<th data-column-id="userid" data-identifier="true" data-width="10%">ユーザーID</th>
 			<th data-column-id="organization" data-width="10%">組織名</th>
 			<th data-column-id="role" data-width="3%">役割</th>
-			<th data-column-id="last_login_at" data-width="7%">最終ログイン日時</th>
-			<th data-column-id="last_logout_at" data-width="7%">最終ログアウト日時</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -31,8 +29,6 @@
 			<td>{{$user->userid}}</td>
 			<td>{{$user->organization}}</td>
 			<td>{{$user->role}}</td>
-			<td>{{$user->last_login_at}}</td>
-			<td>{{$user->last_logout_at}}</td>
 		</tr>
 		@endforeach
 	</tbody>
