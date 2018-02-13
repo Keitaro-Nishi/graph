@@ -31,7 +31,7 @@
 			<td>{{$user->userid}}</td>
 			<td>{{$user->organization}}</td>
 			<td>{{$user->role}}</td>
-			<td>{{$user->last_login_at->format('Y-m-d')}}</td>
+			<td>{{$user->last_login_at}}</td>
 			<td>{{$user->last_logout_at}}</td>
 		</tr>
 		@endforeach
