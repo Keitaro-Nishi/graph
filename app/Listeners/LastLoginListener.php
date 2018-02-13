@@ -35,7 +35,7 @@ class LastLoginListener
     {
 
       $user = Auth::user();
-      $user->last_login_at = Carbon::now()->format('Y-m-d-h-i-s');
+      $user->last_login_at = Carbon::now();
       $user->save();
 
 		/*
