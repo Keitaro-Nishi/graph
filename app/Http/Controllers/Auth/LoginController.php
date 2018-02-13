@@ -51,19 +51,13 @@ class LoginController extends Controller {
 
    	 public function logout(Request $request) {
 
-   	    function authenticated(Request $request, $user)
-   	 	{
-   	 		// ログインイベントを発火させ最終ログイン日時を記録する
-   	 		event(new Logouted());
-   	 	}
-
 		$this->guard ()->logout ();
 
 		$request->session ()->flush ();
 
 		$request->session ()->regenerate ();
 
-		return redirect ( '/login' );
+		return redirect ( '/users' );
 	}
 
 	public function username() {
