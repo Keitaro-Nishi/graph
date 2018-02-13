@@ -39,7 +39,7 @@ class LastLoginListener
       */
 
     	$user = Auth::user();
-    	$date = date_format(Carbon::now(), 'Y-m-d');
+    	$date = date_format(Carbon::now(), 'd');
     	$user->last_login_at = $date;
     	$user->save();
     }
