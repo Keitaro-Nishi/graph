@@ -65,9 +65,9 @@
 								</li>
 							</ul>
 						</li>
+						<li><a>{{ Auth::user()->last_login_at}}</a></li>
 						@endauth
 					</ul>
-					<li><a>{{ Auth::user()->last_login_at}}</a></li>
 				</div>
 			</div>
 		</nav>
