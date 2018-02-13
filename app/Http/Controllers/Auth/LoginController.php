@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use App\Events\Logined;
+use App\Events\Logouted;
 
 class LoginController extends Controller {
 	/*
@@ -41,7 +42,7 @@ class LoginController extends Controller {
 	 * $this->middleware('guest')->except('logout');
 	 * }
 	 */
-	
+
 	 protected function authenticated(Request $request, $user)
     	{
         // ログインイベントを発火させ最終ログイン日時を記録する
@@ -54,6 +55,8 @@ class LoginController extends Controller {
 		$request->session ()->flush ();
 
 		$request->session ()->regenerate ();
+
+		event(new Logouted());
 
 		return redirect ( '/login' );
 	}
