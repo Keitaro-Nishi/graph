@@ -65,7 +65,7 @@
 								</li>
 							</ul>
 						</li>
-						<li><a>最終ログイン時間    {{ Auth::user()->last_login_at}}</a></li>
+						<li><a>最終ログイン時間 {{ Auth::user()->last_login_at->"Y/m/d" }}</a></li>
 						@endauth
 					</ul>
 				</div>
