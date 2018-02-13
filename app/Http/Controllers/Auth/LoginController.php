@@ -51,9 +51,9 @@ class LoginController extends Controller {
 
    	 public function logout(Request $request) {
 
-		$this->guard ()->logout ();
+   	 	event(new Logouted());
 
-		event(new Logouted());
+		$this->guard ()->logout ();
 
 		$request->session ()->flush ();
 

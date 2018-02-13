@@ -25,9 +25,9 @@ class EventServiceProvider extends ServiceProvider
     	],
     	// ログアウト時にイベントを発行
     	'App\Events\Logouted' => [
-    	// 最終ログインを記録するリスナー
+    	// 最終ログアウトを記録するリスナー
     	'App\Listeners\LastLogoutListener',
-    	],
+    	]
     ];
 
     /**
