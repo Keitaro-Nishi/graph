@@ -30,11 +30,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    protected $dates = [
-    		'last_login_at',
-    		'last_logout_at'
 
+    protected $dates = [
+    		'last_login_at'
 	];
+
 
     protected $primaryKey ='userid';
     public $incrementing = false;
