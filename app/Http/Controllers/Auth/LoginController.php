@@ -49,9 +49,13 @@ class LoginController extends Controller {
         event(new Logined());
    	 }
 
-   	 public function logout(Request $request, $user) {
+   	 public function logout(Request $request) {
 
-		event(new Logouted());
+   	    function authenticated(Request $request, $user)
+   	 	{
+   	 		// ログインイベントを発火させ最終ログイン日時を記録する
+   	 		event(new Logouted());
+   	 	}
 
 		$this->guard ()->logout ();
 
