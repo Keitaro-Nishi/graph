@@ -20,8 +20,8 @@
 			<th data-column-id="userid" data-identifier="true" data-width="10%">ユーザーID</th>
 			<th data-column-id="organization" data-width="10%">組織名</th>
 			<th data-column-id="role" data-width="3%">役割</th>
-			<th data-column-id="last_login_at" data-width="7%">最終ログイン時間</th>
-			<th data-column-id="last_logout_at" data-width="7%">最終ログアウト時間</th>
+			<th data-column-id="last_login_at" data-width="7%">最終ログイン日時</th>
+			<th data-column-id="last_logout_at" data-width="7%">最終ログアウト日時</th>
 		</tr>
 	</thead>
 	<tbody>
