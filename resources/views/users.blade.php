@@ -41,7 +41,6 @@
 <script>
 			var rowIds = [];
 
-
 			$(function() {
 				$("#header").load("header.html");
 				$("#grid-basic").bootgrid({
