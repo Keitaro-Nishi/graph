@@ -13,7 +13,7 @@
 <body>
 <div id="header"></div>
 <span  class="glyphicon glyphicon-log-in"></span>
-<table id="grid-basic"
+<table id="grid-basic2"
 	class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
