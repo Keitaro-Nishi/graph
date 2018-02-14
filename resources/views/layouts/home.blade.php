@@ -16,4 +16,4 @@
 		</div>
 	</div>
 </div>
-@endsection
+@show
