@@ -41,7 +41,7 @@
 				$("#header").load("header.html");
 				$("#grid-basic").bootgrid({
 					formatters: {
-				      "icon": function($column, $row) {
+				      "icon": function() {
 				       return "<span><class="glyphicon glyphicon-log-in"></span>";
 			        }
 
