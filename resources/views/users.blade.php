@@ -27,6 +27,4 @@
 </div>
 
 @endsection
-<!--
 @include('common._script')
--->
