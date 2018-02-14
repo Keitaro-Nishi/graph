@@ -28,4 +28,6 @@
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
 </div>
 @endsection
+<!--
 @include('common._script')
+ -->
