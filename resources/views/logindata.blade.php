@@ -32,10 +32,6 @@
 	</tbody>
 </table>
 
-<div class="container" align="center">
-	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
-</div>
-
 <script>
 			var rowIds = [];
 
@@ -60,36 +56,6 @@
 				});
 			});
 
-			function drow() {
-				if(rowIds.length == 0){
-					alert("削除する行を選択してください");
-					return;
-				}
-				var successFlg = true;
-				var myRet = confirm("選択行を削除しますか？");
-				if ( myRet == true ){
-					for (var i = 0; i < rowIds.length; i++){
-						$.ajax({
-							type: "GET",
-							url: 'ajax/'+ rowIds[i],
-						}).then(
-							function(){
-							},
-							function(){
-								successFlg = false;
-							}
-						);
-					}
-					if( successFlg == true){
-						alert("削除しました");
-						location.reload();
-					}else{
-						alert("削除できませんでした");
-					}
-				}
-			}
 </script>
 </body>
 </html>
-
-
