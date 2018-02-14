@@ -7,10 +7,15 @@
 <link href="css/bootstrap.css" rel="stylesheet" />
 <link href="css/jquery.bootgrid.css" rel="stylesheet" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.js"></script>
-<script src="js/bootstrap.js"></script>
-<script src="js/jquery.bootgrid.js"></script>
+<!-- <script src="js/bootstrap.js"></script> -->
+
 </head>
 <body>
+@extends('layouts.app')
+
+@section('content')
+<script src="js/jquery.bootgrid.js"></script>
+
 <div id="header"></div>
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
@@ -89,5 +94,6 @@
 				}
 			}
 </script>
+@endsection
 </body>
 </html>
