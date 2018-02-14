@@ -12,6 +12,8 @@
 </head>
 <body>
 @extends('layouts.app')
+
+@section('content')
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
 	<thead>
@@ -33,7 +35,7 @@
 		@endforeach
 	</tbody>
 </table>
-
+@endsection
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
 </div>
