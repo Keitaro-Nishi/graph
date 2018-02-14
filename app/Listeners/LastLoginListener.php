@@ -37,14 +37,6 @@ class LastLoginListener
     public function handle(Logined $event)
     {
 
-	/*
-    $user = Auth::user();
-    $userid = $user->userid;
-    $last_login_at = Carbon::now();
-
-    DB::insert('insert into logindata (userid,last_login_at) values (?,?)', [$userid,$last_login_at]);
-	*/
-
 	    $user = Auth::user();
 	    $logindata = new Logindata;
 	    $logindata->userid = $user->userid;
@@ -52,7 +44,6 @@ class LastLoginListener
 	    $logindata->time = Carbon::now();
 
 	    $logindata->save();
-
 
 
     }
