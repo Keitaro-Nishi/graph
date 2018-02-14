@@ -45,7 +45,6 @@ class LastLoginListener
 
     DB::insert('insert into logindata (userid,last_login_at) values (?,?)', [$userid,$last_login_at]);
 	*/
-
 	    //function store(Request $request)
 	    //{
 	    $user = Auth::user();
