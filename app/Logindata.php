@@ -11,7 +11,7 @@ class Logindata extends Model
 
 	protected $fillable = [
 
-			'id', 'userid','last_login_at','last_logout_at'
+			'id', 'userid','last_login_at'
 
 	];
 
