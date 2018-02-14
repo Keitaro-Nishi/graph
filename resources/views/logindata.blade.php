@@ -16,8 +16,9 @@
 	class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
-			<th data-column-id="id" data-identifier="true" data-width="10%" data-order="desc">NO</th>
+			<th data-column-id="id" data-identifier="true" data-width="5%" data-order="desc">NO</th>
 			<th data-column-id="userid" data-width="30%">ユーザーID</th>
+			<th data-column-id='icon'  data-width='5%' data-formatter='icon' data-sortable='false'></th>
 			<th data-column-id="classification" data-width="20%">分類</th>
 			<th data-column-id="time" data-width="40%">時間</th>
 		</tr>
@@ -27,8 +28,7 @@
 		<tr>
 			<td>{{$infomation->id}}</td>
 			<td>{{$infomation->userid}}</td>
-			<td><span><i class="glyphicon glyphicon-log-in"></i></span></td>
-			 <!--<td><span  class="glyphicon glyphicon-log-in"></span></td>  ログ参照 {{$infomation->classification}}-->
+			<td>{{$infomation->classification}}</td>
 			<td>{{$infomation->time}}</td>
 		</tr>
 		@endforeach
@@ -40,6 +40,10 @@
 			$(function() {
 				$("#header").load("header.html");
 				$("#grid-basic").bootgrid({
+					formatters: {
+				      "icon": function($column, $row) {
+				       return "<span><class="glyphicon glyphicon-log-in"></span>";
+			        }
 
 				});
 			});
