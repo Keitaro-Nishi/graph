@@ -16,7 +16,6 @@
 @section('content')
 <script src="js/jquery.bootgrid.js"></script>
 
-<div id="header"></div>
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
 	<thead>
