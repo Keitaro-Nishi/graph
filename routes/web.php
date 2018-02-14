@@ -13,10 +13,6 @@
 
 Route::get('/', function () { return redirect('/login'); });
 
-Route::get ( '/Menu', function () {
-	return view ( 'Menu' );
-} );
-
 Auth::routes ();
 Route::get ( '/register', 'Auth\RegisterController@showRegistrationForm')->name('register')->middleware('role');
 
