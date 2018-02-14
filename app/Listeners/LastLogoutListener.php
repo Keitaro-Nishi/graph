@@ -40,7 +40,7 @@ class LastLogoutListener
       $user = Auth::user();
       $logindata = new Logindata;
       $logindata->userid = $user->userid;
-      $logindata->classification = 'OUT';
+      $logindata->classification = 'ログアウト';
       $logindata->time = Carbon::now();
 
       $logindata->save();
