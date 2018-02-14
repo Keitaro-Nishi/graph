@@ -18,7 +18,7 @@ class Logindata extends Model
 	*/
 
 	protected $table = 'logindata';
-	protected $primaryKey ='id';
-	public $timestamps = false;
+	//protected $primaryKey ='id';
+	//public $timestamps = false;
     //
 }

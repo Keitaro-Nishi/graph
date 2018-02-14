@@ -10,14 +10,14 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use App\Logindata;
 use Illuminate\Http\Request;
-//use App\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
 
 /**
  * ログイン完了時に発火するイベントをキャッチするリスナークラス
  * Class LastLoginListener
  * @package App\Listeners
  */
-class LastLoginListener
+class LastLoginListener extends Controller
 {
     /**
      * Create the event listener.
@@ -45,15 +45,14 @@ class LastLoginListener
 
     DB::insert('insert into logindata (userid,last_login_at) values (?,?)', [$userid,$last_login_at]);
 	*/
-	    //function store(Request $request)
-	    //{
+
 	    $user = Auth::user();
 	    $logindata = new Logindata;
 	    $logindata->userid = $user->userid;
 	    $logindata->last_login_at = Carbon::now();
 
 	    $logindata->save();
-	    //}
+
 
     }
 }
