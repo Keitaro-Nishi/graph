@@ -18,7 +18,8 @@
 		<tr>
 			<th data-column-id="id" data-identifier="true" data-width="5%" data-order="desc">NO</th>
 			<th data-column-id="userid" data-width="15%">ユーザーID</th>
-			<th data-column-id="last_login_at" data-width="20%">時間</th>
+			<th data-column-id="classification" data-width="5%">分類</th>
+			<th data-column-id="time" data-width="20%">時間</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -26,7 +27,8 @@
 		<tr>
 			<td>{{$infomation->id}}</td>
 			<td>{{$infomation->userid}}</td>
-			<td>{{$infomation->last_login_at}}</td>
+			<td>{{$infomation->classification}}</td>
+			<td>{{$infomation->time}}</td>
 		</tr>
 		@endforeach
 	</tbody>
