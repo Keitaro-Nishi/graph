@@ -43,7 +43,7 @@
 				$("#grid-basic").bootgrid({
 					formatters: {
 				      "icon": function() {
-				       return "<span><class="glyphicon glyphicon-log-in"></span>";
+				       return "<class="glyphicon glyphicon-log-in">";
 			        }
 
 				});

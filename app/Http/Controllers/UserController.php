@@ -9,10 +9,11 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController
 {
-	public function __construct()
+	/*public function __construct()
 	{
 		$this->middleware('auth');
 	}
+	*/
 
 	public function index(Request $request)
 	{
