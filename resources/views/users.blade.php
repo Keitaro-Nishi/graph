@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<script src="js/jquery.bootgrid.js"></script>
 
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
@@ -28,7 +27,9 @@
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
 </div>
-
+@endsection
+@section('footer')
+<script src="js/jquery.bootgrid.js"></script>
 <script>
 			var rowIds = [];
 			$(function() {
