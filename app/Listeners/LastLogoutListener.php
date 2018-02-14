@@ -33,10 +33,17 @@ class LastLogoutListener
      */
     public function handle(Logouted $event)
     {
+      /*
       $user = Auth::user();
       $user->last_logout_at = Carbon::now();
       $user->save();
+      */
 
+      $user = Auth::user();
+      $userid = $user->userid;
+      $last_logout_at = Carbon::now();
+
+      DB::insert('insert into logindata (userid,last_logout_at) values (?,?)', [$userid,$last_logout_at]);
 
     }
 }
