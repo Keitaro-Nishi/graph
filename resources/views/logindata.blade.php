@@ -28,7 +28,7 @@
 		<tr>
 			<td>{{$infomation->id}}</td>
 			<td>{{$infomation->userid}}</td>
-			<td><span class="glyphicon glyphicon-list"></span></td>
+			<td><span class="glyphicon glyphicon-log-in"></span></td>
 			 <!--<td><span  class="glyphicon glyphicon-log-in"></span></td>  ログ参照 {{$infomation->classification}}-->
 			<td>{{$infomation->time}}</td>
 		</tr>
