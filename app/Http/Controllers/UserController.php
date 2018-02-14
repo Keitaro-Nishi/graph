@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\DB;
 
 class UserController
 {
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
+
 	public function index(Request $request)
 	{
 		$users =DB::select('select * from users');
