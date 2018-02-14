@@ -16,10 +16,10 @@
 	class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
-			<th data-column-id="id" data-identifier="true" data-width="3%" data-order="desc">NO</th>
-			<th data-column-id="userid" data-width="10%">ユーザーID</th>
-			<th data-column-id="last_login_at" data-width="10%">最終ログイン時間</th>
-			<th data-column-id="last_logout_at" data-width="10%">最終ログアウト時間</th>
+			<th data-column-id="id" data-identifier="true" data-width="5%" data-order="desc">NO</th>
+			<th data-column-id="userid" data-width="15%">ユーザーID</th>
+			<th data-column-id="last_login_at" data-width="20%">最終ログイン時間</th>
+			<th data-column-id="last_logout_at" data-width="20%">最終ログアウト時間</th>
 		</tr>
 	</thead>
 	<tbody>
