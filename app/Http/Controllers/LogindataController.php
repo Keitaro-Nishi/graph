@@ -11,13 +11,15 @@ class LogindataController
 {
 	public function index(Request $request)
 	{
-		/*
+
 		$logindata =DB::select('select * from logindata');
 		return view('logindata',['logindata'=>$logindata]);
-		*/
 
+
+		/*
 		$logindata = App\Logindata::all();
 		return view('logindata',['logindata'=>$logindata]);
+		*/
 	}
 
 }
