@@ -23,6 +23,7 @@ Route::get ( '/register', 'Auth\RegisterController@showRegistrationForm')->name(
 Route::get ( '/home', 'HomeController@index' )->name ( 'home' );
 Route::get ( '/users', 'UserController@index' );
 Route::get ( '/ajax/{deletecode}', 'UserController@delete' );
+Route::get ( '/logindata', 'LogindataController@index' );
 	//Route::get('/ajax/{deletecode}','UserdeleteController@delete');
 	//Route::get('/useradd','UseraddController@add');
 	//Route::post('/useradd','UseraddController@insert');
