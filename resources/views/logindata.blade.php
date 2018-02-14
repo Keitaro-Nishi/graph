@@ -28,6 +28,7 @@
 		<tr>
 			<td>{{$infomation->id}}</td>
 			<td>{{$infomation->userid}}</td>
+			<td></td>
 			<td>{{$infomation->classification}}</td>
 			<td>{{$infomation->time}}</td>
 		</tr>
@@ -42,7 +43,7 @@
 				$("#grid-basic").bootgrid({
 					formatters: {
 				      "icon": function() {
-				       return "<span><class="glyphicon glyphicon-log-in"></span>";
+				       return <span><class="glyphicon glyphicon-log-in"></span>;
 			        }
 
 				});
