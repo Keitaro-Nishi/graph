@@ -48,7 +48,7 @@
 						@auth
 						@if (Auth::user()->role == 0 or Auth::user()->role == 1)
 						<li><a href="{{ route('register') }}">Register</a></li>
-						 @endif
+						@endif
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown" role="button" aria-expanded="false"
 							aria-haspopup="true"> {{ Auth::user()->name}}
