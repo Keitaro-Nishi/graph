@@ -5,9 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class UserController
 {
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
+
 	public function index(Request $request)
 	{
 		//$users =DB::select('select * from users');
