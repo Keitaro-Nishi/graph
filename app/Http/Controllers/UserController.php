@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class UserController
 {
+
 	public function __construct()
 	{
 		$this->middleware('auth');
