@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+@parent
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
 	<thead>
