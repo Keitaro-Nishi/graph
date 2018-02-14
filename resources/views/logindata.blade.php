@@ -16,7 +16,7 @@
 	class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
-			<th data-column-id="id" data-identifier="true" data-width="3%">NO</th>
+			<th data-column-id="id" data-identifier="true" data-width="3%" data-order="desc">NO</th>
 			<th data-column-id="userid" data-width="10%">ユーザーID</th>
 			<th data-column-id="last_login_at" data-width="10%">最終ログイン時間</th>
 		</tr>
@@ -37,7 +37,7 @@
 			$(function() {
 				$("#header").load("header.html");
 				$("#grid-basic").bootgrid({
-					//selection : true
+
 				});
 			});
 
