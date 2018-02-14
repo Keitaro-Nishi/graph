@@ -18,7 +18,7 @@ class LogindataController
 
 
 		//$logindata = new Logindata;
-		$logindata = App\Logindata::all();
+		$logindata = Logindata::all();
 		return view('logindata',['logindata'=>$logindata]);
 
 	}
