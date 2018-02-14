@@ -27,7 +27,7 @@
 		<tr>
 			<td>{{$infomation->id}}</td>
 			<td>{{$infomation->userid}}</td>
-			<td><span class="glyphicon glyphicon-log-in"></span> <!--  ログ参照 {{$infomation->classification}}--></td>
+			<td><span  rel="icon" class="glyphicon glyphicon-log-in"></span> <!--  ログ参照 {{$infomation->classification}}--></td>
 			<td>{{$infomation->time}}</td>
 		</tr>
 		@endforeach
