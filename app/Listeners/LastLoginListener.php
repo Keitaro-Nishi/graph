@@ -46,7 +46,8 @@ class LastLoginListener
 
     $user = Auth::user();
     $logindata = Logindata::create();
-    $logindata->userid = $user->userid;
+    //$logindata->userid = $user->userid;
+    $logindata->userid = "すいかたろう";
     $logindata->last_login_at = Carbon::now();
 
     $logindata->save();
