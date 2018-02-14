@@ -33,9 +33,17 @@
 </table>
 
 <script>
+
 			$(function() {
 				$("#header").load("header.html");
+				$("#grid-basic").bootgrid({
+					selection : true,
+					multiSelect : true,
+					rowSelect : true,
+					keepSelection : true
+				});
 			});
+
 </script>
 </body>
 </html>
