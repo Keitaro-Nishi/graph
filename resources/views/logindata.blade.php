@@ -28,7 +28,7 @@
 		<tr>
 			<td>{{$infomation->id}}</td>
 			<td>{{$infomation->userid}}</td>
-			<td><span style="float:right;"><i class="glyphicon glyphicon-log-in"></i></span></td>
+			<td data-formatter="icons"></td>
 			<td>{{$infomation->classification}}</td>
 			<td>{{$infomation->time}}</td>
 		</tr>
@@ -41,12 +41,12 @@
 			$(function() {
 				$("#header").load("header.html");
 				$("#grid-basic").bootgrid({
-					/*
+
 					formatters: {
 				      "icons": function($column, $row) {
 				       return "<span class="glyphicon glyphicon-list"></span>";
 			        }
-			        */
+
 				});
 			});
 
