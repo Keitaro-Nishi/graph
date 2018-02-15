@@ -40,11 +40,11 @@
 			$(function() {
 				$("#header").load("header.html");
 				$("#grid-basic").bootgrid({
-					formatters: {
+					/*formatters: {
 				      "icon": function() {
 				       return "<class="glyphicon glyphicon-log-in">";
 			        }
-
+			        */
 				});
 			});
 
