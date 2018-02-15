@@ -46,13 +46,13 @@
 
 					formatters: {
 				      "icons": function($column, $row) {
-					    if($logindata->classification == "ログイン")
-						   {
+					    /*if($logindata->classification == "ログイン")
+						   {*/
 					       return "<span class='glyphicon glyphicon-log-in'></span>";
-						   }
+						   /*}
 					    if($logindata->classification == "ログアウト"){
 					       return "<span class='glyphicon glyphicon-log-out'></span>";
-					       }
+					       }*/
 			        	}
 					}
 
