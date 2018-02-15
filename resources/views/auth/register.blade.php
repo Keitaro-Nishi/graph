@@ -115,7 +115,7 @@
 								<input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
 							</div>
 						</div>
-
+					</form>
 						<div class="form-group" align="center">
 							<div class="col-md-6 col-md-offset-4">
 								<button type="submit" class="btn btn-primary">
@@ -123,7 +123,6 @@
 								</button>
 							</div>
 						</div>
-					</form>
 				</div>
 			</div>
 		</div>
