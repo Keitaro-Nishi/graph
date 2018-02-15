@@ -21,14 +21,20 @@
         jQuery("#list").jqGrid({
                         data: mydata,
             datatype: "local",
-            colNames:['NO', 'ユーザーID', '分類','時間'],
+            colNames:['NO', 'ユーザーID', '分類'],
             colModel:[
                 {name:'comp_code'},
                 {name:'comp_name'},
                 {name:'comp_kana'},
             ],
-            multiselect: false,
-            caption: 'ログイン時間'
+            ,caption: 'ログイン時間'    // テーブルにタイトルを付ける（アコーディオン式）
+                ,rownumber:true    // 行番号を表示
+                ,viewrecords: true    // フッターに行数を表示する
+                //,pager: '#pager1'    // ページャーを付ける（値はhtmlで指定したID名）
+                ,rowNum: 10    // 1ページに表示する行数
+                ,rowList: [5, 10, 50, 100, 500]    // 1ページに何行表示するか選ぶ時の選択肢
+                ,multiselect: true    // チェックボックスを付ける
+
         });
     });
     </script>
