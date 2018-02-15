@@ -3,8 +3,6 @@
 <head>
 <meta name="description" content="ログイン情報">
 <title>ログイン情報</title>
-<link rel="stylesheet" type="text/css"
-	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
 <link href="css/common.css" rel="stylesheet" />
 <link href="css/bootstrap.css" rel="stylesheet" />
 <link href="css/jquery.bootgrid.css" rel="stylesheet" />
@@ -46,7 +44,7 @@
 
 
 					formatters: {
-				      "icons": function($column, $row) {
+				      "icons": function() {
 				       return "<span class='glyphicon glyphicon-log-in'></span>";
 			        }
 
