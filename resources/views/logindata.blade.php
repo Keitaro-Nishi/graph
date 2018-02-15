@@ -12,7 +12,6 @@
 </head>
 <body>
 <div id="header"></div>
-<span class="glyphicon glyphicon-log-in"></span>
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
 
@@ -20,7 +19,7 @@
 		<tr>
 			<th data-column-id="id" data-identifier="true" data-width="5%" data-order="desc">NO</th>
 			<th data-column-id="userid" data-width="30%">ユーザーID</th>
-		    <th data-column-id="icon"  data-width="5%" data-formatter="icons" data-sortable="false">テスト</th>
+		    <th data-column-id="icon"  data-width="5%" data-formatter="icons" data-sortable="false"></th>
 			<th data-column-id="classification" data-width="20%">分類</th>
 			<th data-column-id="time" data-width="40%">時間</th>
 		</tr>
@@ -30,7 +29,7 @@
 		<tr>
 			<td>{{$infomation->id}}</td>
 			<td>{{$infomation->userid}}</td>
-
+			<td></td>
 			<td>{{$infomation->classification}}</td>
 			<td>{{$infomation->time}}</td>
 		</tr>
@@ -44,7 +43,6 @@
 			$(function() {
 				$("#header").load("header.html");
 				$("#grid-basic").bootgrid({
-
 
 					formatters: {
 				      "icons": function($column, $row) {
