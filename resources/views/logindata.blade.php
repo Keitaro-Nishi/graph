@@ -20,7 +20,7 @@
 			<th data-column-id="userid" data-width="30%">ユーザーID</th>
 			<th data-column-id="classification" data-width="20%">分類</th>
 			<th data-column-id="time" data-width="40%">時間</th>
-			<th data-column-id="icon"  data-width="5%" data-formatter="icons" data-sortable="false"></th>
+			<th data-column-id="icon"  data-width="5%" data-formatter='icons' data-sortable="false"></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -40,14 +40,14 @@
 			$(function() {
 				$("#header").load("header.html");
 				$("#grid-basic").bootgrid({
-					selection: false,
+					selection: false
 					/*multiSelect: true,
 					rowSelect: true,
 				    keepSelection: true*/
-					/*formatters: {
+					formatters: {
 				      "icons": function($column, $row) {
 				       return "<input type='button' value='詳細'>";
-			        }*/
+			        }
 
 				});
 			});
