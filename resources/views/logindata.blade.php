@@ -12,9 +12,10 @@
 </head>
 <body>
 <div id="header"></div>
+<span style="float:right;"><i class="glyphicon glyphicon-log-in"></i></span>
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
-	<span class='glyphicon glyphicon-log-in'></span>
+
 	<thead>
 		<tr>
 			<th data-column-id="id" data-identifier="true" data-width="5%" data-order="desc">NO</th>
