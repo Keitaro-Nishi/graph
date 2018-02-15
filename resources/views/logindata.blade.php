@@ -43,11 +43,11 @@
 					selection: true,
 					multiSelect: true,
 					rowSelect: true,
-				    keepSelection: true,
-					formatters: {
+				    keepSelection: true
+					/*formatters: {
 				      "icons": function($column, $row) {
 				       return "<input type='button' value='詳細'>";
-			        }
+			        }*/
 
 				});
 			});
