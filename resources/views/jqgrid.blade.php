@@ -6,6 +6,7 @@
     <link type="text/css" media="screen" href="css/jquery-ui.min.css" rel="stylesheet" />
     <link type="text/css" media="screen" href="css/ui.jqgrid.css" rel="stylesheet" />
     <script type="text/javascript" src="js/jquery-1.11.0.min.js" ></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js" ></script>
     <script type="text/javascript" src="js/jquery.jqGrid.min.js" ></script>
     <script type="text/javascript" src="js/grid.locale-ja.js" ></script>
 
@@ -27,14 +28,8 @@
                 {name:'comp_name'},
                 {name:'comp_kana'},
             ],
-            ,caption: 'ログイン時間'    // テーブルにタイトルを付ける（アコーディオン式）
-                ,rownumber:true    // 行番号を表示
-                ,viewrecords: true    // フッターに行数を表示する
-                //,pager: '#pager1'    // ページャーを付ける（値はhtmlで指定したID名）
-                ,rowNum: 10    // 1ページに表示する行数
-                ,rowList: [5, 10, 50, 100, 500]    // 1ページに何行表示するか選ぶ時の選択肢
-                ,multiselect: true    // チェックボックスを付ける
-
+            multiselect: true,
+            caption: 'ログイン時間'
         });
     });
     </script>
