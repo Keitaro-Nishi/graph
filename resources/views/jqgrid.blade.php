@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-    <link type="text/css" media="screen" href="css/jquery-ui.min.css" rel="stylesheet" />
+    <link type="text/css" media="screen" href="css/jquery-ui.css" rel="stylesheet" />
     <link type="text/css" media="screen" href="css/ui.jqgrid.css" rel="stylesheet" />
     <script type="text/javascript" src="js/jquery-1.11.0.min.js" ></script>
     <script type="text/javascript" src="js/jquery-ui.min.js" ></script>
