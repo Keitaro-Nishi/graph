@@ -13,7 +13,7 @@ class jqgridController extends Controller
     	$tests =DB::select('select * from test');
     	header('Content-Type: application/json');
     	echo json_encode( $tests );
-    	//exit;
+    	exit;
         return view('jqgrid');
     }
 }
