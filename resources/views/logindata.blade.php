@@ -20,10 +20,10 @@
 			<th data-column-id="id" data-identifier="true" data-width="5%" data-order="desc">NO</th>
 			<th data-column-id="userid" data-width="30%">ユーザーID</th>
 
-			@if ($logindata->classification == 'ログイン' )
+			@if ($logindata->classification == "ログイン" )
 		    <th data-column-id="loginicon"  data-width="5%" data-formatter="loginicons" data-sortable="false"></th>
 			@endif
-			@if ($logindata->classification == 'ログアウト' )
+			@if ($logindata->classification == "ログアウト" )
 		    <th data-column-id="logouticon"  data-width="5%" data-formatter="logouticons" data-sortable="false"></th>
 			@endif
 
