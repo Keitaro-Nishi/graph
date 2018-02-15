@@ -40,6 +40,10 @@
 			$(function() {
 				$("#header").load("header.html");
 				$("#grid-basic").bootgrid({
+					selection: true,
+					multiSelect: true,
+					rowSelect: true,
+				    keepSelection: true
 					/*formatters: {
 				      "icon": function() {
 				       return "<class="glyphicon glyphicon-log-in">";
