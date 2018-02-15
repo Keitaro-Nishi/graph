@@ -22,11 +22,11 @@
 
 			@foreach($logindata as $infomation)
 
-			@if ($infomation->classification == ログイン )
+			@if ($infomation->classification == 'ログイン' )
 		    <th data-column-id="icon1"  data-width="5%" data-formatter="icons1" data-sortable="false"></th>
 		    @endif
 
-		    @if ($infomation->classification == ログアウト )
+		    @if ($infomation->classification == 'ログアウト' )
 		    <th data-column-id="icon2"  data-width="5%" data-formatter="icons2" data-sortable="false"></th>
 		    @endif
 
