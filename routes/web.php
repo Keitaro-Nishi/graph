@@ -17,7 +17,7 @@ Auth::routes ();
 Route::get ( '/register', 'Auth\RegisterController@showRegistrationForm')->name('register')->middleware('role');
 
 Route::get ( '/home', 'HomeController@index' )->name ( 'home' );
-Route::get ( '/users', 'UserController@index' )->name ( 'users' )->middleware('auth');;
+Route::get ( '/users', 'UserController@index' )->name ( 'users' )->middleware('auth');
 Route::get ( '/ajax/{deletecode}', 'UserController@delete' );
 	//Route::get('/ajax/{deletecode}','UserdeleteController@delete');
 	//Route::get('/useradd','UseraddController@add');
