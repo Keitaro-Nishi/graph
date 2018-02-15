@@ -18,9 +18,9 @@
 		<tr>
 			<th data-column-id="id" data-identifier="true" data-width="5%" data-order="desc">NO</th>
 			<th data-column-id="userid" data-width="30%">ユーザーID</th>
+			<th data-column-id="icon"  data-width="5%" data-formatter="icons" data-sortable="false">テスト</th>
 			<th data-column-id="classification" data-width="20%">分類</th>
 			<th data-column-id="time" data-width="40%">時間</th>
-			<th data-column-id="icon"  data-width="5%" data-formatter="icons" data-sortable="false">テスト</th>
 		</tr>
 	</thead>
 	<tbody>
