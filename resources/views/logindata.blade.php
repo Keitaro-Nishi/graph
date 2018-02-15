@@ -19,7 +19,14 @@
 		<tr>
 			<th data-column-id="id" data-identifier="true" data-width="5%" data-order="desc">NO</th>
 			<th data-column-id="userid" data-width="30%">ユーザーID</th>
-		    <th data-column-id="icon"  data-width="5%" data-formatter="icons" data-sortable="false"></th>
+
+			@if ($logindata->classification == 'ログイン' )
+		    <th data-column-id="loginicon"  data-width="5%" data-formatter="loginicons" data-sortable="false"></th>
+			@endif
+			@if ($logindata->classification == 'ログアウト' )
+		    <th data-column-id="logouticon"  data-width="5%" data-formatter="logouticons" data-sortable="false"></th>
+			@endif
+
 			<th data-column-id="classification" data-width="20%">分類</th>
 			<th data-column-id="time" data-width="40%">時間</th>
 		</tr>
@@ -45,8 +52,11 @@
 				$("#grid-basic").bootgrid({
 
 					formatters: {
-				      "icons": function($column, $row) {
+				      "loginicons": function($column, $row) {
 				       return "<span class='glyphicon glyphicon-log-in'></span>";
+			        	}
+				      "logouticons": function($column, $row) {
+				       return "<span class='glyphicon glyphicon-log-out'></span>";
 			        	}
 					}
 
