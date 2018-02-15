@@ -33,6 +33,7 @@
 			<td>{{$infomation->time}}</td>
 		</tr>
 		@endforeach
+		<span class='glyphicon glyphicon-log-in'></span>
 	</tbody>
 </table>
 
