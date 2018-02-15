@@ -40,8 +40,8 @@
 			$(function() {
 				$("#header").load("header.html");
 				$("#grid-basic").bootgrid({
-					selection: false
-					/*multiSelect: true,
+					/*selection: false
+					multiSelect: true,
 					rowSelect: true,
 				    keepSelection: true*/
 					formatters: {
