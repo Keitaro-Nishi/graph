@@ -44,12 +44,12 @@
 				$("#header").load("header.html");
 				$("#grid-basic").bootgrid({
 
-					/*
+
 					formatters: {
 				      "icons": function($column, $row) {
 				       return "<span class="glyphicon glyphicon-list"></span>";
 			        }
-			        */
+
 
 				});
 			});
