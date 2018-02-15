@@ -12,7 +12,7 @@
 </head>
 <body>
 <div id="header"></div>
-<span style="float:right;"><i class="glyphicon glyphicon-log-in"></i></span>
+<span class="glyphicon glyphicon-log-in"></span>
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
 
