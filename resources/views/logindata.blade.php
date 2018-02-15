@@ -14,6 +14,7 @@
 <div id="header"></div>
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
+	<span class='glyphicon glyphicon-log-in'></span>
 	<thead>
 		<tr>
 			<th data-column-id="id" data-identifier="true" data-width="5%" data-order="desc">NO</th>
@@ -33,7 +34,7 @@
 			<td>{{$infomation->time}}</td>
 		</tr>
 		@endforeach
-		<span class='glyphicon glyphicon-log-in'></span>
+
 	</tbody>
 </table>
 
