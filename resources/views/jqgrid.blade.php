@@ -21,14 +21,14 @@
         jQuery("#list").jqGrid({
                         data: mydata,
             datatype: "local",
-            colNames:['コード', '会社名', 'カナ'],
+            colNames:['NO', 'ユーザーID', '分類','時間'],
             colModel:[
                 {name:'comp_code'},
                 {name:'comp_name'},
                 {name:'comp_kana'},
             ],
             multiselect: false,
-            caption: '会社一覧'
+            caption: 'ログイン時間'
         });
     });
     </script>
