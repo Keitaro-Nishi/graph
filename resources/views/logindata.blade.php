@@ -46,7 +46,7 @@
 				    keepSelection: true*/
 					formatters: {
 				      "icons": function($column, $row) {
-				       return "<input type='button' value='詳細'>";
+				       return "<span class="glyphicon glyphicon-list"></span>";
 			        }
 
 				});
