@@ -117,8 +117,8 @@
 						</div>
 
 						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="btn btn-primary" align="center">
+							<div class="col-md-6 col-md-offset-4" align="center">
+								<button type="submit" class="btn btn-primary">
 									登録
 								</button>
 							</div>
