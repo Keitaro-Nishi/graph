@@ -18,7 +18,7 @@
     	({
                      url: "jqgridController.php",
                      datatype: "json",
-                     type: "POST",
+                     mtype: "POST",
                      colNames:['ID', '名前', '価格'],
                      colModel:[ {name:"id"},
                                 {name:"name"},
