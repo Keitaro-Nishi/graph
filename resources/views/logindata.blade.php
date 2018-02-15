@@ -40,10 +40,10 @@
 			$(function() {
 				$("#header").load("header.html");
 				$("#grid-basic").bootgrid({
-					selection: true,
-					multiSelect: true,
+					selection: false,
+					/*multiSelect: true,
 					rowSelect: true,
-				    keepSelection: true
+				    keepSelection: true*/
 					/*formatters: {
 				      "icons": function($column, $row) {
 				       return "<input type='button' value='詳細'>";
