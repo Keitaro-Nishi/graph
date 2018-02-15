@@ -30,6 +30,7 @@
 			<td>{{$infomation->userid}}</td>
 			<td>{{$infomation->classification}}</td>
 			<td>{{$infomation->time}}</td>
+			<td></td>
 		</tr>
 		@endforeach
 	</tbody>
