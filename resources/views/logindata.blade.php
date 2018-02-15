@@ -28,7 +28,7 @@
 		<tr>
 			<td>{{$infomation->id}}</td>
 			<td>{{$infomation->userid}}</td>
-			<!--  <td></td>-->
+			<td></td>
 			<td>{{$infomation->classification}}</td>
 			<td>{{$infomation->time}}</td>
 		</tr>
