@@ -43,12 +43,12 @@
 					selection: true,
 					multiSelect: true,
 					rowSelect: true,
-				    keepSelection: true
-					/*formatters: {
+				    keepSelection: true,
+					formatters: {
 				      "icon": function() {
-				       return "<class="glyphicon glyphicon-log-in">";
+				       return "<class='glyphicon glyphicon-log-in'>";
 			        }
-			        */
+
 				});
 			});
 
