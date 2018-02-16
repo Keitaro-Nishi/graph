@@ -25,8 +25,8 @@ class UserController
 	public function delete(Request $request)
 	{
 		$deleteid = $request->deletecode;
-		$user = App\User::find($deleteid);
-		$user->delete();
+		$deleteuser = User::find($deleteid);
+		$deleteuser->delete();
 		//DB::delete('delete from users WHERE userid=?',[$deleteid]);
 		return redirect('/users');
 	}
