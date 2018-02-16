@@ -19,20 +19,7 @@
 		<tr>
 			<th data-column-id="id" data-identifier="true" data-width="5%" data-order="desc">NO</th>
 			<th data-column-id="userid" data-width="30%">ユーザーID</th>
-
-
-		    <!--  @foreach($logindata as $infomation)
-
-			@if ($infomation->classification == (string)'ログイン' )-->
-		    <th data-column-id="icon"  data-width="5%" data-formatter="icons" data-sortable="false"></th>
-		    <!--  @endif
-
-		    @if ($infomation->classification == (string)'ログアウト')
-		    <th data-column-id="icon2"  data-width="5%" data-formatter="icons2" data-sortable="false"></th>
-		    @endif
-
-		    @endforeach-->
-
+			<th data-column-id="icon"  data-width="5%" data-formatter="icons" data-sortable="false"></th>
 			<th data-column-id="classification" data-width="20%">分類</th>
 			<th data-column-id="time" data-width="40%">時間</th>
 		</tr>
@@ -56,7 +43,6 @@
 			$(function() {
 				$("#header").load("header.html");
 				$("#grid-basic").bootgrid({
-
 
 					formatters: {
 				      "icons": function($column, $row) {
