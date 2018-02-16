@@ -45,9 +45,16 @@
 				$("#grid-basic").bootgrid({
 
 					formatters: {
-				      "icons": function($column, $row) {
-						         //return "<span class='glyphicon glyphicon-log-in'></span>";
-						         return "<span class='glyphicon glyphicon-log-out'></span>";
+				      //"icons": function($column, $row) {
+				      "icons": function(e, rows) {
+							    	 for (var i = 0; i < rows.length; i++){
+							  	         if(rows[i].classification =="ログイン"){
+								         	return "<span class='glyphicon glyphicon-log-in'></span>";
+							  	         }
+							  	         if(rows[i].classification =="ログアウト")
+								         	return "<span class='glyphicon glyphicon-log-out'></span>";
+							    	 	 }
+							    	 }
 								}
 					}
 
