@@ -23,10 +23,13 @@
                      colNames:['価格'],
                      colModel:[ //{name:"id"},
                                 //{name:"name"},
-                                {'価格':"price"}
+                                {name:"price"}
                      ]
 				    multiselect: true,
-				    caption: 'テスト'
+				    caption: 'テスト',
+				    'loadError' : function (xhr, status, error){
+				    alert(error);
+				    }
 
         });
      });
