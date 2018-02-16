@@ -21,7 +21,7 @@
 <body>
 	<div id="app">
 		<!-- ヘッダーカラーチェンジ↓ https://torina.top/detail/172/ 参照 -->
-		<nav class="navbar navbar-default navbar-static-top navbar-receive">
+		<nav class="navbar navbar-default navbar-static-top navbar-inverse">
 			<div class="container">
 				<div class="navbar-header">
 
