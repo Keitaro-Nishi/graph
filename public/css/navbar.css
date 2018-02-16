@@ -1,0 +1,5 @@
+/* navbar 全体の背景色とボーダーカラー */
+navbar.navbar-default {
+	background-color: #65baad;
+	border-color: #3e6962;
+}
