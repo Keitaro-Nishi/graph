@@ -15,7 +15,13 @@
     {
 
         jQuery("#list").jqGrid({
-            multiselect: true
+        	colNames:['NO', 'ユーザーID', '分類','時間'],
+        	colModel:[
+        		{{$infomation->id}}
+    			{{$infomation->userid}}
+    			{{$infomation->classification}}
+    			{{$infomation->time}}
+            ],
         });
     });
     </script>
@@ -23,26 +29,6 @@
 </head>
 <body>
 <table id="list">
-
-	<thead>
-		<tr>
-			<th>NO</th>
-			<th>ユーザーID</th>
-			<th>分類</th>
-			<th>時間</th>
-		</tr>
-	</thead>
-	<tbody>
-		@foreach($logindata as $infomation)
-		<tr>
-			<td>{{$infomation->id}}</td>
-			<td>{{$infomation->userid}}</td>
-			<td>{{$infomation->classification}}</td>
-			<td>{{$infomation->time}}</td>
-		</tr>
-		@endforeach
-
-	</tbody>
 </table>
 </body>
 </html>
