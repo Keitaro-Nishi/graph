@@ -48,7 +48,7 @@
 					rowSelect: true,
 					formatters: {
 				      "icons": function($column, $row) {
-				    	  			function(e, rows){
+
 								    	 for (var i = 0; i < rows.length; i++){
 								  	         if(rows[i].classification =="ログイン"){
 									         	return "<span class='glyphicon glyphicon-log-in'></span>";
@@ -57,7 +57,7 @@
 									         	return "<span class='glyphicon glyphicon-log-out'></span>";
 								    	 	 }
 								    	 }
-				     				}
+
 								}
 					}
 
