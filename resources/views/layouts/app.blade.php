@@ -11,7 +11,6 @@
 <title>{{ config('app.name', 'Laravel') }}</title>
 
 <!-- Styles -->
-<link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 <!-- Script -->
@@ -22,7 +21,7 @@
 <body>
 	<div id="app">
 		<!-- ヘッダーカラーチェンジ↓ https://torina.top/detail/172/ 参照 -->
-		<nav class="navbar navbar-default navbar-static-top">
+		<nav class="navbar navbar-default navbar-static-top navbar-receive">
 			<div class="container">
 				<div class="navbar-header">
 
