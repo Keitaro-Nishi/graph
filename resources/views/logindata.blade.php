@@ -40,6 +40,10 @@
 
 <script>
 
+			var tr = $("table tr");//全行を取得
+			var rowCount =tr.length;
+			alert(rowCount);
+
 			$(function() {
 				$("#header").load("header.html");
 				$("#grid-basic").bootgrid({
@@ -48,11 +52,7 @@
 					rowSelect: true,
 					formatters: {
 				      "icons": function($column, $row) {
-				    	  		var tr = $("table tr");//全行を取得
-				    	  		var rowCount =tr.length;
-				    	  		//console.log();
-				    	  		alert(rowCount);
-				    	  		//console.log(rowCount);
+
 				    	  		return "<span class='glyphicon glyphicon-log-in'></span>";
 
 								    	 /*for (var i = 0; i < rows.length; i++){
