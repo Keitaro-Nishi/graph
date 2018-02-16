@@ -29,7 +29,6 @@
 </div>
 @endsection
 @section('footer')
-<script src="js/jquery.bootgrid.js"></script>
 <script>
 			var rowIds = [];
 			$(function() {

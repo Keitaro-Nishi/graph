@@ -13,6 +13,9 @@
 <!-- Styles -->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+<!-- Script -->
+<script src="js/jquery.bootgrid.js"></script>
+
 </head>
 <body>
 	<div id="app">
