@@ -57,6 +57,7 @@
 				$("#header").load("header.html");
 				$("#grid-basic").bootgrid({
 
+					/*
 					formatters: {
 				      "icons1": function($column, $row) {
 						         return "<span class='glyphicon glyphicon-log-in'></span>";
@@ -65,6 +66,7 @@
 							     return "<span class='glyphicon glyphicon-log-out'></span>";
 					        	}
 					}
+					*/
 
 
 				});
