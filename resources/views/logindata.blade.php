@@ -52,7 +52,7 @@
 							  	         if(rows[i].classification =="ログイン"){
 								         	return "<span class='glyphicon glyphicon-log-in'></span>";
 							  	         }
-							  	         if(rows[i].classification =="ログアウト")
+							  	         if(rows[i].classification =="ログアウト"){
 								         	return "<span class='glyphicon glyphicon-log-out'></span>";
 							    	 	 }
 							    	 }
