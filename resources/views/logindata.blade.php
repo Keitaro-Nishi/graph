@@ -21,17 +21,17 @@
 			<th data-column-id="userid" data-width="30%">ユーザーID</th>
 
 			<!--
-		    @foreach($logindata as $infomation)
+		    @foreach($logindata as $infomation)-->
 
-			@if ($infomation->classification == "ログイン" )
+			@if ($logindata->classification ==(string)"ログイン" )
 		    <th data-column-id="icon1"  data-width="5%" data-formatter="icons1" data-sortable="false"></th>
 		    @endif
 
-		    @if ($infomation->classification == "ログアウト" )
+		    @if ($logindata->classification ==(string)"ログアウト")
 		    <th data-column-id="icon2"  data-width="5%" data-formatter="icons2" data-sortable="false"></th>
 		    @endif
 
-		    @endforeach
+		    <!--  >@endforeach
 		    -->
 			<th data-column-id="classification" data-width="20%">分類</th>
 			<th data-column-id="time" data-width="40%">時間</th>
@@ -42,7 +42,7 @@
 		<tr>
 			<td>{{$infomation->id}}</td>
 			<td>{{$infomation->userid}}</td>
-			<!-- <td></td>-->
+			 <td></td>
 			<td>{{$infomation->classification}}</td>
 			<td>{{$infomation->time}}</td>
 		</tr>
@@ -57,7 +57,7 @@
 				$("#header").load("header.html");
 				$("#grid-basic").bootgrid({
 
-					/*
+
 					formatters: {
 				      "icons1": function($column, $row) {
 						         return "<span class='glyphicon glyphicon-log-in'></span>";
@@ -66,7 +66,7 @@
 							     return "<span class='glyphicon glyphicon-log-out'></span>";
 					        	}
 					}
-					*/
+
 
 
 				});
