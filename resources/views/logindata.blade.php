@@ -24,7 +24,7 @@
 		    <!--  @foreach($logindata as $infomation)
 
 			@if ($infomation->classification == (string)'ログイン' )-->
-		    <th data-column-id="icon1"  data-width="5%" data-formatter="icons1" data-sortable="false"></th>
+		    <th data-column-id="icon"  data-width="5%" data-formatter="icons" data-sortable="false"></th>
 		    <!--  @endif
 
 		    @if ($infomation->classification == (string)'ログアウト')
@@ -59,7 +59,7 @@
 
 
 					formatters: {
-				      "icons1": function($column, $row) {
+				      "icons": function($column, $row) {
 						         return "<span class='glyphicon glyphicon-log-in'></span>";
 								}
 					  /*"icons2": function($column, $row) {
