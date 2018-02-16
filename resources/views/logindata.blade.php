@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="description" content="ログイン情報">
+<meta charset="UTF-8">
 <title>ログイン情報</title>
 <link type="text/css" media="screen" href="css/jquery-ui.css" rel="stylesheet" />
     <link type="text/css" media="screen" href="css/ui.jqgrid.css" rel="stylesheet" />
