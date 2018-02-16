@@ -23,7 +23,7 @@
                      colNames:['価格'],
                      colModel:[ //{name:"id"},
                                 //{name:"name"},
-                                {name:"price"}
+                                {'価格':"price"}
                      ]
 				    multiselect: true,
 				    caption: 'テスト'
