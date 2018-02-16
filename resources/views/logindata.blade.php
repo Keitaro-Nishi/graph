@@ -20,19 +20,19 @@
 			<th data-column-id="id" data-identifier="true" data-width="5%" data-order="desc">NO</th>
 			<th data-column-id="userid" data-width="30%">ユーザーID</th>
 
-			<!--
-		    @foreach($logindata as $infomation)-->
 
-			@if ($logindata->classification ==(string)"ログイン" )
+		    @foreach($logindata as $infomation)
+
+			@if ($infomation->classification ==(string)"ログイン" )
 		    <th data-column-id="icon1"  data-width="5%" data-formatter="icons1" data-sortable="false"></th>
 		    @endif
 
-		    @if ($logindata->classification ==(string)"ログアウト")
+		    @if ($infomation->classification ==(string)"ログアウト")
 		    <th data-column-id="icon2"  data-width="5%" data-formatter="icons2" data-sortable="false"></th>
 		    @endif
 
-		    <!--  >@endforeach
-		    -->
+		    @endforeach
+
 			<th data-column-id="classification" data-width="20%">分類</th>
 			<th data-column-id="time" data-width="40%">時間</th>
 		</tr>
