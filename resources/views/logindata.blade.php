@@ -3,34 +3,32 @@
 <head>
 <meta name="description" content="ログイン情報">
 <title>ログイン情報</title>
-<link href="css/common.css" rel="stylesheet" />
-<link href="css/bootstrap.css" rel="stylesheet" />
-<link href="css/jquery.bootgrid.css" rel="stylesheet" />
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.js"></script>
-<script src="js/bootstrap.js"></script>
-<script src="js/jquery.bootgrid.js"></script>
+<link type="text/css" media="screen" href="css/jquery-ui.css" rel="stylesheet" />
+    <link type="text/css" media="screen" href="css/ui.jqgrid.css" rel="stylesheet" />
+    <script type="text/javascript" src="js/jquery-1.11.0.min.js" ></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js" ></script>
+    <script type="text/javascript" src="js/jquery.jqGrid.min.js" ></script>
+    <script type="text/javascript" src="js/grid.locale-ja.js" ></script>
+
+    <script type="text/javascript">
+    jQuery(document).ready(function()
+    {
+
+        jQuery("#list").jqGrid({
+            multiselect: true
+        });
+    });
+    </script>
+
 </head>
 <body>
 <div id="header"></div>
-<table id="grid-basic"
-	class="table table-condensed table-hover table-striped">
+<table id="list">
 
 	<thead>
 		<tr>
 			<th data-column-id="id" data-identifier="true" data-width="5%" data-order="desc">NO</th>
 			<th data-column-id="userid" data-width="30%">ユーザーID</th>
-
-		    @foreach($logindata as $infomation)
-
-			@if ($infomation->classification == "ログイン" )
-		    <th data-column-id="icon1"  data-width="5%" data-formatter="icons1" data-sortable="false"></th>
-		    @endif
-
-		    @if ($infomation->classification == "ログアウト" )
-		    <th data-column-id="icon2"  data-width="5%" data-formatter="icons2" data-sortable="false"></th>
-		    @endif
-
-		    @endforeach
 			<th data-column-id="classification" data-width="20%">分類</th>
 			<th data-column-id="time" data-width="40%">時間</th>
 		</tr>
@@ -40,7 +38,6 @@
 		<tr>
 			<td>{{$infomation->id}}</td>
 			<td>{{$infomation->userid}}</td>
-			<td></td>
 			<td>{{$infomation->classification}}</td>
 			<td>{{$infomation->time}}</td>
 		</tr>
@@ -48,26 +45,5 @@
 
 	</tbody>
 </table>
-
-<script>
-
-			$(function() {
-				$("#header").load("header.html");
-				$("#grid-basic").bootgrid({
-
-					formatters: {
-				      "icons1": function($column, $row) {
-						         return "<span class='glyphicon glyphicon-log-in'></span>";
-								}
-					  "icons2": function($column, $row) {
-							     return "<span class='glyphicon glyphicon-log-out'></span>";
-					        	}
-					}
-
-
-				});
-			});
-
-</script>
 </body>
 </html>
