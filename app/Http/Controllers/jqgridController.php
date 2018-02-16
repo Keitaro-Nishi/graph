@@ -12,10 +12,10 @@ class jqgridController extends Controller
 
     	//$tests =DB::select('select * from test');
     	//$id =DB::select('select id from test');
-    	$name =DB::select('select name from test');
-    	//$price =DB::select('select price from test');
+    	//$name =DB::select('select name from test');
+    	$price =DB::select('select price from test');
     	header("Content-Type: application/json charset=utf-8");
-        echo json_encode( $name );
+        echo json_encode( $price );
 
 
         return view('jqgrid');

@@ -20,10 +20,10 @@
                      datatype: "json",
                      mtype: "POST",
                      //colNames:['ID', '名前', '価格'],
-                     colNames:['名前'],
+                     colNames:['価格'],
                      colModel:[ //{name:"id"},
-                                {name:"name"},
-                                //{name:"price"}
+                                //{name:"name"},
+                                {name:"price"}
                      ]
 				    multiselect: true,
 				    caption: 'テスト'
