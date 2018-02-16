@@ -49,7 +49,8 @@
 					formatters: {
 				      "icons": function($column, $row) {
 				    	  		//var rowCount = $('#myTable tr').length;
-				    	  		console.log(★★★★★★★★★);
+				    	  		//console.log();
+				    	  		alert("★★★★★★★★★");
 				    	  		//console.log(rowCount);
 				    	  		return "<span class='glyphicon glyphicon-log-in'></span>";
 
