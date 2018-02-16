@@ -43,14 +43,16 @@
 			$(function() {
 				$("#header").load("header.html");
 				$("#grid-basic").bootgrid({
-
+					selection: true,
+					multiSelect: true,
+					rowSelect: true,
 					formatters: {
-				      "icons": function($column, $row) {
-							    	 for (var i = 0; i < $row.length; i++){
-							  	         if($row[i].classification =="ログイン"){
+				      "icons": function(e, rows) {
+							    	 for (var i = 0; i < rows.length; i++){
+							  	         if(rows[i].classification =="ログイン"){
 								         	return "<span class='glyphicon glyphicon-log-in'></span>";
 							  	         }
-							  	         if($row[i].classification =="ログアウト")
+							  	         if(rows[i].classification =="ログアウト")
 								         	return "<span class='glyphicon glyphicon-log-out'></span>";
 							    	 	 }
 							    	 }
