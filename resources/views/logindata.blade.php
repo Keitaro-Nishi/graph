@@ -47,12 +47,12 @@
 					multiSelect: true,
 					rowSelect: true,
 					formatters: {
-				      "icons": function(e, rows) {
-							    	 for (var i = 0; i < rows.length; i++){
-							  	         if(rows[i].classification =="ログイン"){
+				      "icons": function($column, $row) {
+							    	 for (var i = 0; i < $row.length; i++){
+							  	         if($row[i].classification =="ログイン"){
 								         	return "<span class='glyphicon glyphicon-log-in'></span>";
 							  	         }
-							  	         if(rows[i].classification =="ログアウト"){
+							  	         if($row[i].classification =="ログアウト"){
 								         	return "<span class='glyphicon glyphicon-log-out'></span>";
 							    	 	 }
 							    	 }
