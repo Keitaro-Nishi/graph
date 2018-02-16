@@ -16,7 +16,7 @@ class jqgridController extends Controller
     	$price =DB::select('select price from test');
     	header("Content-Type: application/json charset=utf-8");
         echo json_encode( $price );
-		exit;
+
 
         return view('jqgrid');
     }
