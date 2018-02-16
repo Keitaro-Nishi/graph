@@ -27,10 +27,10 @@
 
 	<thead>
 		<tr>
-			<th data-column-id="id" data-identifier="true" data-width="5%" data-order="desc">NO</th>
-			<th data-column-id="userid" data-width="30%">ユーザーID</th>
-			<th data-column-id="classification" data-width="20%">分類</th>
-			<th data-column-id="time" data-width="40%">時間</th>
+			<th>NO</th>
+			<th>ユーザーID</th>
+			<th>分類</th>
+			<th>時間</th>
 		</tr>
 	</thead>
 	<tbody>
