@@ -48,7 +48,8 @@
 					rowSelect: true,
 					formatters: {
 				      "icons": function($column, $row) {
-				    	  		var rowCount = $('#myTable tr').length;
+				    	  		var tr = $("table tr");//全行を取得
+				    	  		var rowCount =tr.length;
 				    	  		//console.log();
 				    	  		alert(rowCount);
 				    	  		//console.log(rowCount);
