@@ -1,3 +1,5 @@
+@extends('layouts.app')
+
 @section('content')
 
 <table id="grid-basic"
