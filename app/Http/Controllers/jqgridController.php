@@ -10,18 +10,11 @@ class jqgridController extends Controller
     public function index()
     {
 
-    	//$tests =DB::select('select * from test');
-    	//$id =DB::select('select id from test');
-    	//$name =DB::select('select name from test');
-    	$json_data = array();
-    	$price =DB::select('select price from test');
+    	$tests =DB::select('select * from test');
+    	//return Response::json($tests);
 
-    	$json_data[0] = $price;
-
-    	header("Content-Type: application/json charset=utf-8");
-    	echo json_encode( $json_data);
-
-
+    	//header("Content-Type: application/json charset=utf-8");
+    	//echo json_encode( $json_data);
 
         return view('jqgrid');
     }

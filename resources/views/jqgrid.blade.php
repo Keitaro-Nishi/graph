@@ -17,6 +17,7 @@
 
     	jQuery("#list").jqGrid
     	({
+
                      url: "jqgridController.php",
                      datatype: "json",
                      type: "POST",
