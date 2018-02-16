@@ -17,12 +17,12 @@
         jQuery("#list").jqGrid({
         	colNames:['NO', 'ユーザーID', '分類','時間'],
         	colModel:[
-        		@foreach($logindata as $infomation)
-        		{{$infomation->id}}
-    			{{$infomation->userid}}
-    			{{$infomation->classification}}
-    			{{$infomation->time}}
-    			@endforeach
+
+        		{{$logindata->id}}
+    			{{$logindata->userid}}
+    			{{$logindata->classification}}
+    			{{$logindata->time}}
+
             ],
         });
     });
