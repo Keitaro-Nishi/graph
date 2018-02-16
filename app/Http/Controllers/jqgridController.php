@@ -17,7 +17,8 @@ class jqgridController extends Controller
     	header("Content-Type: application/json charset=utf-8");
         echo json_encode( $price );
 
+        exit;
 
-        return view('jqgrid');
+        //return view('jqgrid');
     }
 }
