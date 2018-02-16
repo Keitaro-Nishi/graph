@@ -42,6 +42,7 @@
 
 			var tr = $("table tr");//全行を取得
 			var rowCount =tr.length;
+			alert(rowCount);
 
 
 			$(function() {
@@ -52,7 +53,7 @@
 					rowSelect: true,
 					formatters: {
 				      "icons": function($column, $row) {
-				    	       alert(rowCount);
+
 				    	  		return "<span class='glyphicon glyphicon-log-in'></span>";
 
 								    	 /*for (var i = 0; i < rows.length; i++){
