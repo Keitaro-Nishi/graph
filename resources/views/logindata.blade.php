@@ -21,17 +21,17 @@
 			<th data-column-id="userid" data-width="30%">ユーザーID</th>
 
 
-		    @foreach($logindata as $infomation)
+		    <!--  @foreach($logindata as $infomation)
 
-			@if ($infomation->classification == (string)'ログイン' )
+			@if ($infomation->classification == (string)'ログイン' )-->
 		    <th data-column-id="icon1"  data-width="5%" data-formatter="icons1" data-sortable="false"></th>
-		    @endif
+		    <!--  @endif
 
 		    @if ($infomation->classification == (string)'ログアウト')
 		    <th data-column-id="icon2"  data-width="5%" data-formatter="icons2" data-sortable="false"></th>
 		    @endif
 
-		    @endforeach
+		    @endforeach-->
 
 			<th data-column-id="classification" data-width="20%">分類</th>
 			<th data-column-id="time" data-width="40%">時間</th>
@@ -62,9 +62,9 @@
 				      "icons1": function($column, $row) {
 						         return "<span class='glyphicon glyphicon-log-in'></span>";
 								}
-					  "icons2": function($column, $row) {
+					  /*"icons2": function($column, $row) {
 							     return "<span class='glyphicon glyphicon-log-out'></span>";
-					        	}
+					        	}*/
 					}
 
 
