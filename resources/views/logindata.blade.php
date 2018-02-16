@@ -22,7 +22,6 @@
 
 </head>
 <body>
-<div id="header"></div>
 <table id="list">
 
 	<thead>
