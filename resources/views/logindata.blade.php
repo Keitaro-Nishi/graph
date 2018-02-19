@@ -49,9 +49,10 @@
 			$(function() {
 				$("#header").load("header.html");
 				$("#grid-basic").bootgrid({
-					selection: true,
+					/*selection: true,
 					multiSelect: true,
 					rowSelect: true
+					*/
 					//formatters: {
 				      //"icons": function($column, $row) {
 
