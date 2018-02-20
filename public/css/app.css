@@ -5824,7 +5824,7 @@ border-radius
 }
 
 .navbar-default .navbar-brand {
-	color: #777
+	color: #fff
 }
 
 .navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover
@@ -5834,7 +5834,7 @@ border-radius
 }
 
 .navbar-default .navbar-nav>li>a, .navbar-default .navbar-text {
-	color: #777
+	color: #fff
 }
 
 .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover
@@ -5845,7 +5845,7 @@ border-radius
 
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus,
 	.navbar-default .navbar-nav>.active>a:hover {
-	color: #555;
+	color: #000080;
 	background-color: #eee
 }
 
