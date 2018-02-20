@@ -19,6 +19,8 @@ class OpinionController
 	public function delete(Request $request)
 	{
 		$DeleteNo = $request->deleteopinion;
+		error_log(★★★★★★★★);
+		error_log($DeleteNo);
 		DB::delete('delete from opinion WHERE no=?',[$DeleteNo]);
 		//$DeleteOpinion = Opinion::find($DeleteNo);
 		//$DeleteOpinion->delete();

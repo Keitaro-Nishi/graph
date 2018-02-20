@@ -96,7 +96,6 @@
 				var successFlg = true;
 				var myRet = confirm("選択行を削除しますか？");
 				if ( myRet == true ){
-					alert(rowIds[0]);
 					for (var i = 0; i < rowIds.length; i++){
 						$.ajax({
 							type: "GET",
