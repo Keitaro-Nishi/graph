@@ -24,12 +24,12 @@ class UserController
 
 	public function delete(Request $request)
 	{
-		/*
+
 		$deleteid = $request->deletecode;
 		$deleteuser = User::find($deleteid);
 		$deleteuser->delete();
-		*/
-		DB::delete('delete from opinion WHERE no=?',[2]);
+
+
 		//DB::delete('delete from users WHERE userid=?',[$deleteid]);
 		return redirect('/users');
 	}
