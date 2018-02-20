@@ -5829,7 +5829,7 @@ border-radius
 
 .navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover
 	{
-	color: #5e5d5d;
+	color: #000080;
 	background-color: transparent
 }
 
@@ -5839,7 +5839,7 @@ border-radius
 
 .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover
 	{
-	color: #333;
+	color: #000080;
 	background-color: transparent
 }
 
@@ -5874,8 +5874,8 @@ border-radius
 
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus,
 	.navbar-default .navbar-nav>.open>a:hover {
-	background-color: #eee;
-	color: #555
+	background-color: #fff;
+	color: #000080
 }
 
 @media ( max-width :767px) {
@@ -5890,8 +5890,8 @@ border-radius
 	.navbar-default .navbar-nav .open .dropdown-menu>.active>a,
 		.navbar-default .navbar-nav .open .dropdown-menu>.active>a:focus,
 		.navbar-default .navbar-nav .open .dropdown-menu>.active>a:hover {
-		color: #555;
-		background-color: #eee
+		color: #000080;
+		background-color: #fff
 	}
 	.navbar-default .navbar-nav .open .dropdown-menu>.disabled>a,
 		.navbar-default .navbar-nav .open .dropdown-menu>.disabled>a:focus,
