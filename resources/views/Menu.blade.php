@@ -18,7 +18,4 @@ $(function() {
 
 });
 </script>
-</body>
-</html>
-
 @endsection
