@@ -95,7 +95,7 @@
 
 						$.ajax({
 							type: "GET",
-							url:'opinion/'+ rowIds[i],
+							url: 'opinion/'+ rowIds[i],
 						}).then(
 							function(){
 							},
