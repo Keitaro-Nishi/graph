@@ -93,9 +93,8 @@
 				if ( myRet == true ){
 					for (var i = 0; i < rowIds.length; i++){
 						$.ajax({
-							type: "POST",
-							url: "OpinionController.php",
-							data: "no=" + rowIds[i],
+							type: "GET",
+							url: 'ajax/'+ rowIds[i]
 						}).then(
 							function(){
 							},
