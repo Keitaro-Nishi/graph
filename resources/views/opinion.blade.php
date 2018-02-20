@@ -95,7 +95,7 @@
 						alert(rowIds[i])
 						$.ajax({
 							type: "GET",
-							url: 'ajax/'+ rowIds[i]
+							url: 'opinionajax/rowIds[i]'
 						}).then(
 							function(){
 							},
