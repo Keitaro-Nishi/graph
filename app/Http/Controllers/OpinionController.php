@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Opinion;
-
+use Illuminate\Support\Facades\DB;
 
 class OpinionController
 {
@@ -21,7 +21,7 @@ class OpinionController
 		$deleteNo = $request->deleteno;
 		error_log("★★★★★★★");
 		error_log($deleteNo);
-		DB::delete('delete from opinion WHERE no=?',[$deleteNo]);
+		//DB::delete('delete from opinion WHERE no=?',[$deleteNo]);
 		/*
 		$deleteno = $request->deletecode;
 		//DB::delete('delete from opinion WHERE no=?',[$deleteno]);
