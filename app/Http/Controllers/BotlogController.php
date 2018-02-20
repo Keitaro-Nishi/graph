@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
+
 class BotlogController
 {
 	/*public function __construct()
@@ -16,15 +17,16 @@ class BotlogController
 
 	public function index(Request $request)
 	{
-		$botlogs =DB::select('select * from botlog');
+		//$botlogs =DB::select('select * from botlog');
+		$botlogs = Botlog::all();
 		return view('botlog',['botlogs'=>$botlogs]);
 	}
 
 	public function delete(Request $request)
 	{
 		$deleteno = $request->deleteno;
-		//$deletebotlog = DB::select('select * from botlog');
-		DB::delete('delete from botlog WHERE no=?',[$deleteno]);
+		$deletebotlog = Botlog::find($deleteno);
+		$deletebotlog->delete();
 		return redirect('/botlog');
 	}
 
