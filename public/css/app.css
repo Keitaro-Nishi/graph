@@ -5845,7 +5845,7 @@ border-radius
 
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus,
 	.navbar-default .navbar-nav>.active>a:hover {
-	color: #000080;
+	color: #fff;
 	background-color: #eee
 }
 
