@@ -12,7 +12,9 @@
 
 <!-- Styles -->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+<link href="{{ asset('css/common.css') }}" rel="stylesheet" />
+<link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" />
+<link href="{{ asset('css/jquery.bootgrid.css') }}" rel="stylesheet" />
 </head>
 <body>
 	<div id="app">
@@ -74,6 +76,7 @@
 	</div>
 
 	<!-- Scripts -->
+	<script src="{{ asset('js/app.js') }}"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.js"></script>
 	<script src="js/bootstrap.js"></script>
 	<script src="js/jquery.bootgrid.js"></script>
