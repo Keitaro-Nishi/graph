@@ -26,7 +26,7 @@
                <th data-column-id='disgust' data-type='numeric' data-width='9%'>嫌悪</th>
                <th data-column-id='anger' data-type='numeric' data-width='9%'>怒り</th>
                <th data-column-id='opinion'  data-width='30%'>ご意見</th>
-               <!-- <th data-column-id='detail'  data-width='5%' data-formatter='details' data-sortable='false'></th> -->
+               <th data-column-id='detail'  data-width='5%' data-formatter='details' data-sortable='false'></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -48,7 +48,7 @@
 			<td>{{$opinion->disgust}}</td>
 			<td>{{$opinion->anger}}</td>
 			<td>{{$opinion->opinion}}</td>
-			<!--  <td></td> -->
+			<td></td>
 
 		</tr>
 		@endforeach
