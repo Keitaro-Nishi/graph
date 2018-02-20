@@ -11,7 +11,6 @@ class UpdateUsersTable extends Migration {
 	public function up() {
 		Schema::table ( 'users', function (Blueprint $table) {
 			$table->string ( 'userid' )->unique ()->after ( 'email' );
-			$table->string ( 'city_code' )->unique ()->after ( 'userid' );
 		} );
 	}
 
