@@ -19,7 +19,7 @@ class OpinionController
 	public function delete(Request $request)
 	{
 		$DeleteNo = $request->deleteopinion;
-		$DeleteOpinion = Opinion::find($deleteno);
+		$DeleteOpinion = Opinion::find($DeleteNo);
 		$DeleteOpinion->delete();
 		return redirect('/opinion');
 	}
