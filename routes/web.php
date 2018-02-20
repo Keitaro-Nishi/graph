@@ -22,7 +22,7 @@ Route::get ( '/register', 'Auth\RegisterController@showRegistrationForm')->name(
 
 Route::get ( '/home', 'HomeController@index' )->name ( 'home' );
 Route::get ( '/users', 'UserController@index' );
-Route::get ( '/ajax/{deletecode}', 'UserController@delete' );
+//Route::get ( '/ajax/{deletecode}', 'UserController@delete' );
 Route::get ( '/logindata', 'LogindataController@index' );
 Route::get ( '/jqgrid', 'jqgridController@index' );
 Route::get ( '/opinion', 'OpinionController@index' );
