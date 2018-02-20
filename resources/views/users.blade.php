@@ -1,7 +1,17 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="description" content="ユーザー情報">
+<title>ユーザー情報</title>
+<link href="css/common.css" rel="stylesheet" />
+<link href="css/bootstrap.css" rel="stylesheet" />
+<link href="css/jquery.bootgrid.css" rel="stylesheet" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.js"></script>
+<script src="js/bootstrap.js"></script>
 
-@section('content')
-
+</head>
+<body>
+<div id="header"></div>
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
 	<thead>
@@ -28,11 +38,10 @@
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
 </div>
 
-<script src="{{ asset('js/jquery.bootgrid.js') }}"></script>
-
 <script>
 			var rowIds = [];
 			$(function() {
+				$("#header").load("header.html");
 				$("#grid-basic").bootgrid({
 					selection : true,
 					multiSelect : true,
@@ -80,4 +89,5 @@
 				}
 			}
 </script>
-@endsection
+</body>
+</html>
