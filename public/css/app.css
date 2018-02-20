@@ -5865,7 +5865,7 @@ border-radius
 }
 
 .navbar-default .navbar-toggle .icon-bar {
-	background-color: #fff
+	background-color: #888
 }
 
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
@@ -5880,7 +5880,7 @@ border-radius
 
 @media ( max-width :767px) {
 	.navbar-default .navbar-nav .open .dropdown-menu>li>a {
-		color: #777
+		color: #fff
 	}
 	.navbar-default .navbar-nav .open .dropdown-menu>li>a:focus,
 		.navbar-default .navbar-nav .open .dropdown-menu>li>a:hover {
