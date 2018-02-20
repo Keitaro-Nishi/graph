@@ -34,9 +34,9 @@
 		<tr>
 			<td>{{$opinion->no}}</td>
 			<td>{{$opinion->date}}</td>
-			@if ($opinion->role == '1' )
+			@if ($opinion->sex == '1' )
 			<td>男</td>
-			@elseif ($opinion->role == '2' )
+			@elseif ($opinion->sex == '2' )
 			<td>女</td>
 			@else
 			<td>登録なし</td>
