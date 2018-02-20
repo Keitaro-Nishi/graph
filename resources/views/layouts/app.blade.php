@@ -15,6 +15,7 @@
 <link href="{{ asset('css/Buttons.css') }}" rel="stylesheet">
 
 <!-- Scripts -->
+<script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/jquery.bootgrid.js') }}"></script>
 
 </head>
@@ -76,8 +77,5 @@
 		</nav>
 		@yield('content')
 	</div>
-
-	<!-- Scripts -->
-	<script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
