@@ -117,7 +117,7 @@
 						</div>
 					</form>
 
-					<div class="panel-footer" align="center">
+					<div class="panel-footer">
 						<!-- <div class="col-md-6 col-md-offset-4">-->
 							<button type="submit" class="btn btn-primary">
 								登録
