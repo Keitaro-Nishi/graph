@@ -19,6 +19,6 @@ Route::get ( '/register', 'Auth\RegisterController@showRegistrationForm')->name(
 Route::get ( '/home', 'HomeController@index' )->name ( 'home' );
 Route::get ( '/users', 'UserController@index' )->name ( 'users' )->middleware('auth');
 Route::get ( '/ajax/{deletecode}', 'UserController@delete' );
-	//Route::get('/ajax/{deletecode}','UserdeleteController@delete');
+Route::get ( '/Menu', function () { return view ( 'Menu' ); } );
 	//Route::get('/useradd','UseraddController@add');
 	//Route::post('/useradd','UseraddController@insert');
