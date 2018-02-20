@@ -21,7 +21,7 @@ Auth::routes ();
 Route::get ( '/register', 'Auth\RegisterController@showRegistrationForm')->name('register')->middleware('role');
 
 Route::get ( '/home', 'HomeController@index' )->name ( 'home' );
-Route::get ( '/users', 'UserController@index' );
+//Route::get ( '/users', 'UserController@index' );
 //Route::get ( '/ajax/{deletecode}', 'UserController@delete' );
 Route::get ( '/logindata', 'LogindataController@index' );
 Route::get ( '/jqgrid', 'jqgridController@index' );
