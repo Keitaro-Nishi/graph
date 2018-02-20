@@ -22,12 +22,11 @@ class OpinionController
 		error_log("★★★★★★★");
 		error_log($deleteNo);
 		//DB::delete('delete from opinion WHERE no=?',[$deleteNo]);
-		/*
-		$deleteno = $request->deletecode;
-		//DB::delete('delete from opinion WHERE no=?',[$deleteno]);
-		$deleteopinion = Opinion::find($deleteno);
+
+
+		$deleteopinion = Opinion::find($deleteNo);
 		$deleteopinion->delete();
-		*/
+
 		return redirect('/opinion');
 	}
 
