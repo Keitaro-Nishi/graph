@@ -2,7 +2,8 @@
 
 @section('content')
 
-<table id="grid-basic" class="table table-condensed table-hover table-striped">
+<table id="grid-basic"
+	class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
 			<th data-column-id="name" data-width="10%">ユーザー名</th>
