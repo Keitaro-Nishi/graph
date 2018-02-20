@@ -92,6 +92,7 @@
 				var myRet = confirm("選択行を削除しますか？");
 				if ( myRet == true ){
 					for (var i = 0; i < rowIds.length; i++){
+						alert(rowIds[i])
 						$.ajax({
 							type: "GET",
 							url: 'ajax/'+ rowIds[i]
