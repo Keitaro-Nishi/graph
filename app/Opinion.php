@@ -18,6 +18,7 @@ class Opinion extends Model
 	*/
 
 
+	protected $primaryKey ='no';
 	protected $table = 'opinion';
 
 }
