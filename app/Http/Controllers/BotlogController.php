@@ -24,7 +24,7 @@ class BotlogController
 	{
 		$deleteno = $request->deleteno;
 		//$deletebotlog = DB::select('select * from botlog');
-		DB::delete('delete from botlog WHERE no=?',[$deleteid]);
+		DB::delete('delete from botlog WHERE no=?',[$deleteno]);
 		return redirect('/botlog');
 	}
 
