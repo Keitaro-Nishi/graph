@@ -25,6 +25,8 @@ Route::get ( '/users', 'UserController@index' );
 Route::get ( '/ajax/{deletecode}', 'UserController@delete' );
 Route::get ( '/logindata', 'LogindataController@index' );
 Route::get ( '/jqgrid', 'jqgridController@index' );
+Route::get ( '/botlog', 'BotlogController@index' );
+Route::get ( '/ajax/{deleteno}', 'BotlogController@delete' );
 	//Route::get('/ajax/{deletecode}','UserdeleteController@delete');
 	//Route::get('/useradd','UseraddController@add');
 	//Route::post('/useradd','UseraddController@insert');
