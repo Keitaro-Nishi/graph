@@ -20,6 +20,7 @@ class Opinion extends Model
 
 
 	protected $primaryKey =['citycode','id'];
+	public $incrementing = false;
 	protected $table = 'opinion';
 
 }
