@@ -17,7 +17,7 @@
 
 	<thead>
 		<tr>
-			<th data-column-id="userid" data-width="30%">ユーザーID</th>
+			<th data-column-id="name" data-width="30%">ユーザー</th>
 			<!--  <th data-column-id="icon"  data-width="5%" data-formatter="icons" data-sortable="false"></th>-->
 			<th data-column-id="classification" data-width="20%">分類</th>
 			<th data-column-id="time" data-width="40%">時間</th>
