@@ -1,23 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="description" content="ログイン情報">
-<title>ログイン情報</title>
-<link href="css/common.css" rel="stylesheet" />
-<link href="css/bootstrap.css" rel="stylesheet" />
-<link href="css/jquery.bootgrid.css" rel="stylesheet" />
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.js"></script>
-<script src="js/bootstrap.js"></script>
-<script src="js/jquery.bootgrid.js"></script>
-</head>
-<body>
-<div id="header"></div>
+@extends('layouts.app')
+
+@section('content')
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
 
 	<thead>
 		<tr>
-			<th data-column-id="userid" data-width="30%">ユーザーID</th>
+			<th data-column-id="userid" data-width="30%">ユーザー</th>
 			<!--  <th data-column-id="icon"  data-width="5%" data-formatter="icons" data-sortable="false"></th>-->
 			<th data-column-id="classification" data-width="20%">分類</th>
 			<th data-column-id="time" data-width="40%">時間</th>
@@ -71,5 +60,4 @@
 			});
 
 </script>
-</body>
-</html>
+@endsection

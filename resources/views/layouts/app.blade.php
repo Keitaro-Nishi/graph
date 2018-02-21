@@ -11,6 +11,7 @@
 <title>{{ config('app.name', 'Laravel') }}</title>
 
 <!-- Styles -->
+<link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <link href="{{ asset('css/Buttons.css') }}" rel="stylesheet">
 <link href="{{ asset('css/jquery.bootgrid.css') }}" rel="stylesheet">
