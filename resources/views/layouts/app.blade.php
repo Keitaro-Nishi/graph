@@ -8,7 +8,7 @@
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<title>{{ config('app.name', 'ViewLog') }}</title>
+<title>ViewLog</title>
 
 <!-- Styles -->
 <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
