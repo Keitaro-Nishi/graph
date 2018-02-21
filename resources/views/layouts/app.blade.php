@@ -8,7 +8,7 @@
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<title>{{ config('app.name', 'Laravel') }}</title>
+<title>{{ config('app.name', 'ViewLog') }}</title>
 
 <!-- Styles -->
 <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
@@ -59,7 +59,7 @@
 							</a>
 							<ul class="dropdown-menu">
 								@if (Auth::user()->role == 0 or Auth::user()->role == 1)
-								<li><a href="{{ route('users') }}">Users</a></li>
+								<li><a href="{{ route('users') }}">ユーザー管理</a></li>
 								<li><a href="{{ route('register') }}">Register</a></li>
 								@endif
 							</ul>
