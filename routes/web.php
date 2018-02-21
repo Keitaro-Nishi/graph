@@ -20,7 +20,7 @@ Route::get ( '/home', 'HomeController@index' )->name ( 'home' );
 Route::get ( '/users', 'UserController@index' )->name ( 'users' )->middleware('auth');
 Route::get ( '/ajax/{deletecode}', 'UserController@delete' );
 
-Route::get ( '/botlog', 'botlogController@index' )->name ( 'botlog' );
+Route::get ( '/botlog', 'BotlogController@index' )->name ( 'botlog' );
 
 Route::get ( '/logindata', 'LogindataController@index' );
 Route::get ( '/jqgrid', 'jqgridController@index' );
