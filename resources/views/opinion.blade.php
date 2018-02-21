@@ -17,40 +17,33 @@
 	class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
-			   <th data-column-id='no' data-type='numeric' data-identifier='true' data-width='3%'>No</th>
-			   <th data-column-id='date' data-width='7%'>日時</th>
-               <th data-column-id='sex'  data-width='5%'>性別</th>
-               <th data-column-id='age'  data-width='5%'>年齢</th>
+			   <th data-column-id='id' data-type='numeric' data-identifier='true' data-width='3%'>ID</th>
+			   <th data-column-id='userid' data-width='7%'>ユーザーID</th>
+               <th data-column-id='time'  data-width='10%'>日時</th>
+               <th data-column-id='opinion'  data-width='30%'>ご意見</th>
                <th data-column-id='sadness' data-type='numeric' data-width='9%'>悲しみ</th>
                <th data-column-id='joy' data-type='numeric' data-width='9%'>喜び</th>
                <th data-column-id='fear' data-type='numeric' data-width='9%'>恐れ</th>
                <th data-column-id='disgust' data-type='numeric' data-width='9%'>嫌悪</th>
                <th data-column-id='anger' data-type='numeric' data-width='9%'>怒り</th>
-               <th data-column-id='opinion'  data-width='30%'>ご意見</th>
+               <th data-column-id='checked'  data-width='5%'>チェック</th>
                <th data-column-id='detail'  data-width='5%' data-formatter='details' data-sortable='false'></th>
 		</tr>
 	</thead>
 	<tbody>
 		@foreach($opinions as $opinion)
 		<tr>
-			<td>{{$opinion->no}}</td>
-			<td>{{$opinion->date}}</td>
-			@if ($opinion->sex == '1' )
-			<td>男</td>
-			@elseif ($opinion->sex == '2' )
-			<td>女</td>
-			@else
-			<td>登録なし</td>
-			@endif
-			<td>{{$opinion->age}}</td>
+			<td>{{$opinion->id}}</td>
+			<td>{{$opinion->userid}}</td>
+			<td>{{$opinion->time}}</td>
+			<td>{{$opinion->opinion}}</td>
 			<td>{{$opinion->sadness}}</td>
 			<td>{{$opinion->joy}}</td>
 			<td>{{$opinion->fear}}</td>
 			<td>{{$opinion->disgust}}</td>
 			<td>{{$opinion->anger}}</td>
-			<td>{{$opinion->opinion}}</td>
+			<td>{{$opinion->checked}}</td>
 			<td></td>
-
 		</tr>
 		@endforeach
 	</tbody>
@@ -61,7 +54,7 @@
 	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog" value="モーダル表示" />
 </div>
 </div>
-
+<!--
 <div class="modal" id="shosaiDialog"  tabindex="-1">
 	<div class="modal-dialog">
 		<div class="modal-content" style="width:740px; margin-left: -20px;">
@@ -74,27 +67,27 @@
 			<div class="modal-body">
 				<form class="form-horizontal">
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_date">No</label>
+						<label class="col-sm-2 control-label" for="dia_id">ID</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="dia_no" readonly>
+							<input type="text" class="form-control" id="dia_id" readonly>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_date">日時</label>
+						<label class="col-sm-2 control-label" for="dia_userid">ユーザーID</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="dia_date" readonly>
+							<input type="text" class="form-control" id="dia_userid" readonly>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_sex">性別</label>
+						<label class="col-sm-2 control-label" for="dia_time">日時</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="dia_sex" readonly>
+							<input type="text" class="form-control" id="dia_time" readonly>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_age">年齢</label>
+						<label class="col-sm-2 control-label" for="dia_opinion">ご意見</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="dia_age" readonly>
+							<textarea class="form-control" id="dia_opinion" rows='5' readonly></textarea>
 						</div>
 					</div>
 					<div class="form-group">
@@ -121,12 +114,7 @@
 							<input type="text" class="form-control" id="dia_anger" readonly>
 						</div>
 					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_opinion">ご意見</label>
-						<div class="col-sm-10">
-							<textarea class="form-control" id="dia_opinion" rows='5' readonly></textarea>
-						</div>
-					</div>
+
 				</form>
 			</div>
 			<div class="modal-footer">
@@ -137,7 +125,7 @@
 		</div>
 	</div>
 </div>
-
+-->
 <script>
 			var rowIds = [];
 			var dbvalue = [];
@@ -152,17 +140,17 @@
 					keepSelection : true,
 				    formatters: {
 				        "details": function($column, $row) {
-				        	return "<input type='button' class='btn btn-default' value='詳細' onclick='detailwin("  + $row.no + ")'> ";
+				        	return "<input type='button' class='btn btn-default' value='詳細' onclick='detailwin("  + $row.id + ")'> ";
 			             }
 				    }
 				}).on("selected.rs.jquery.bootgrid", function(e, rows) {
 					for (var i = 0; i < rows.length; i++) {
-						rowIds.push(rows[i].no);
+						rowIds.push(rows[i].id);
 					}
 				}).on("deselected.rs.jquery.bootgrid", function(e, rows) {
 					for (var i = 0; i < rows.length; i++) {
 						rowIds.some(function(v, ii) {
-							if (v == rows[i].no)
+							if (v == rows[i].id)
 								rowIds.splice(ii, 1);
 						});
 					}
@@ -199,6 +187,7 @@
 				}
 			}
 
+			/*
 			function detailwin(value){
 				document.getElementById("btn_modal").click();
 				for (var i = 0; i < dbvalue.length; i++){
@@ -248,6 +237,7 @@
 					document.getElementById("snext").disabled = "";
 				}
 			}
+			*/
 </script>
 </body>
 </html>
