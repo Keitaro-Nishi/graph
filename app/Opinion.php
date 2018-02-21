@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Opinion extends Model
 {
 
-	use CompositePrimaryKeyTrait;
+	//use CompositePrimaryKeyTrait;
 
 
 	/*protected $fillable = [
@@ -19,7 +19,8 @@ class Opinion extends Model
 	*/
 
 
-	protected $primaryKey =['citycode','id'];
+	//protected $primaryKey =['citycode','id'];
+	protected $primaryKey ='id';
 	public $incrementing = false;
 	protected $table = 'opinion';
 
