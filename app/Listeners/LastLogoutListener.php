@@ -35,6 +35,7 @@ class LastLogoutListener
 
       $user = Auth::user();
       $logindata = new Logindata;
+
       $logindata->citycode = $user->citycode;
       $logindata->userid = $user->userid;
       $logindata->classification = 'ログアウト';
