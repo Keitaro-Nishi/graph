@@ -59,6 +59,7 @@
 							</a>
 							<ul class="dropdown-menu">
 								@if (Auth::user()->role == 0 or Auth::user()->role == 1)
+								<li><a href="{{ route('users') }}">Users</a></li>
 								<li><a href="{{ route('register') }}">Register</a></li>
 								@endif
 							</ul>
@@ -71,7 +72,6 @@
 						</a>
 
 							<ul class="dropdown-menu">
-								<li><a href="{{ route('users') }}">Users</a></li>
 								<li><a href="{{ route('logout') }}"
 									onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"> Logout </a>
