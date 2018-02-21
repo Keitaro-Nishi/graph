@@ -36,7 +36,7 @@ class LastLoginListener
 	    $user = Auth::user();
 	    $logindata = new Logindata;
 	    $logindata->userid = $user->userid;
-	    $logindata->classification = 'ログイン';
+	    $logindata->classification = 'login';
 	    $logindata->time = Carbon::now();
 
 	    $logindata->save();

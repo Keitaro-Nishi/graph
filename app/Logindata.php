@@ -15,5 +15,5 @@ class Logindata extends Model
 	];
 
 	protected $table = 'logindata';
-
+	public $timestamps = false;
 }
