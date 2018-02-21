@@ -3,13 +3,9 @@
 namespace App\Listeners;
 
 use App\Events\Logined;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\DB;
 use App\Logindata;
-
 
 /**
  * ログイン完了時に発火するイベントをキャッチするリスナークラス
@@ -44,7 +40,6 @@ class LastLoginListener
 	    $logindata->time = Carbon::now();
 
 	    $logindata->save();
-
 
     }
 }
