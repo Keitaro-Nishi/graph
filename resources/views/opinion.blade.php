@@ -195,26 +195,22 @@
 				modal_mod(shosai_idx);
 			}
 
-			/*
+
 			function modal_mod(index){
-				document.getElementById('dia_no').value  = dbvalue[index][0];
-				var idate = dbvalue[index][1].substr(0,4) + "/" + dbvalue[index][1].substr(4,2) + "/" + dbvalue[index][1].substr(6,2) + " " + dbvalue[index][1].substr(8,2) + ":" + dbvalue[index][1].substr(10,2);
-				document.getElementById('dia_date').value = idate;
-				var sex = "";
-				if(dbvalue[index][2] == 1){
-				    sex = "男性";
-				}
-				if(dbvalue[index][2] == 2){
-				    sex = "女性";
-				}
-				document.getElementById('dia_sex').value  = sex;
-				document.getElementById('dia_age').value  = dbvalue[index][3];
-				document.getElementById('dia_sadness').value  = dbvalue[index][5];
-				document.getElementById('dia_joy').value  = dbvalue[index][6];
-				document.getElementById('dia_fear').value  = dbvalue[index][7];
-				document.getElementById('dia_disgust').value  = dbvalue[index][8];
-				document.getElementById('dia_anger').value  = dbvalue[index][9];
-				document.getElementById('dia_opinion').innerHTML  = dbvalue[index][4];
+				document.getElementById('dia_id').value  = dbvalue[index][0];
+				document.getElementById('dia_userid').value  = dbvalue[index][1];
+				document.getElementById('dia_time').value  = dbvalue[index][2];
+				document.getElementById('dia_opinion').innerHTML  = dbvalue[index][3];
+				document.getElementById('dia_sadness').value  = dbvalue[index][4];
+				document.getElementById('dia_joy').value  = dbvalue[index][5];
+				document.getElementById('dia_fear').value  = dbvalue[index][6];
+				document.getElementById('dia_disgust').value  = dbvalue[index][7];
+				document.getElementById('dia_anger').value  = dbvalue[index][8];
+
+				//var idate = dbvalue[index][1].substr(0,4) + "/" + dbvalue[index][1].substr(4,2) + "/" + dbvalue[index][1].substr(6,2) + " " + dbvalue[index][1].substr(8,2) + ":" + dbvalue[index][1].substr(10,2);
+				//document.getElementById('dia_date').value = idate;
+
+
 				if(index == 0){
 					document.getElementById("sback").disabled = "true";
 				}else{
@@ -226,6 +222,6 @@
 					document.getElementById("snext").disabled = "";
 				}
 			}
-			*/
+
 </script>
 @endsection
