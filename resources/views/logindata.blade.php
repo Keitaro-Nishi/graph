@@ -26,7 +26,7 @@
 	<tbody>
 		@foreach($logindata as $infomation)
 		<tr>
-			<td>{{$infomation->userid}}</td>
+			<td>{{$infomation->name}}</td>
 			 <!--  <td></td> -->
 			<td>{{$infomation->classification}}</td>
 			<td>{{$infomation->time}}</td>
