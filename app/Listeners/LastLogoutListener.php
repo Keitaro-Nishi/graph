@@ -36,7 +36,6 @@ class LastLogoutListener
     public function handle(Logouted $event)
     {
 
-
       $user = Auth::user();
       $logindata = new Logindata;
       $logindata->userid = $user->userid;
@@ -47,4 +46,3 @@ class LastLogoutListener
 
     }
 }
-
