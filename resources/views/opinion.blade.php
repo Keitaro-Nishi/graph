@@ -175,7 +175,7 @@
 				}
 			}
 
-			/*
+
 			function detailwin(value){
 				document.getElementById("btn_modal").click();
 				for (var i = 0; i < dbvalue.length; i++){
@@ -195,6 +195,7 @@
 				modal_mod(shosai_idx);
 			}
 
+			/*
 			function modal_mod(index){
 				document.getElementById('dia_no').value  = dbvalue[index][0];
 				var idate = dbvalue[index][1].substr(0,4) + "/" + dbvalue[index][1].substr(4,2) + "/" + dbvalue[index][1].substr(6,2) + " " + dbvalue[index][1].substr(8,2) + ":" + dbvalue[index][1].substr(10,2);
