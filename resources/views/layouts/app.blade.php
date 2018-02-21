@@ -57,7 +57,7 @@
 						@endif
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown" role="button" aria-expanded="false"
-							aria-haspopup="true"> {{ Auth::user()->name}}
+							aria-haspopup="true" class="glyphicon glyphicon-user">
 							<span class="caret"></span>
 						</a>
 
@@ -65,7 +65,7 @@
 								<li><a href="{{ route('users') }}">Users</a></li>
 								<li><a href="{{ route('logout') }}"
 									onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();" class="glyphicon glyphicon-user"></a>
+                                                     document.getElementById('logout-form').submit();"> Logout </a>
 
 									<form id="logout-form" action="{{ route('logout') }}"
 										method="POST" style="display: none;">{{ csrf_field() }}</form>
