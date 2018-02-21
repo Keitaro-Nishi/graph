@@ -1,18 +1,6 @@
+@extends('layouts.app')
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="description" content="ユーザー情報">
-<title>ユーザー情報</title>
-<link href="css/common.css" rel="stylesheet" />
-<link href="css/bootstrap.css" rel="stylesheet" />
-<link href="css/jquery.bootgrid.css" rel="stylesheet" />
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.js"></script>
-<script src="js/bootstrap.js"></script>
-<script src="js/jquery.bootgrid.js"></script>
-</head>
-<body>
-
+@section('content')
 <div id="header"></div>
 
 <table id="grid-basic"
