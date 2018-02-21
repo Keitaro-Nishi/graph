@@ -27,6 +27,3 @@ Route::get ('/opinion/{deleteno}','OpinionController@delete');
 	//Route::get('/ajax/{deletecode}','UserdeleteController@delete');
 
 Route::get ( '/Menu', function () { return view ( 'Menu' ); } );
-
-	//Route::get('/useradd','UseraddController@add');
-	//Route::post('/useradd','UseraddController@insert');

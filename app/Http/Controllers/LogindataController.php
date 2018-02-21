@@ -14,5 +14,4 @@ class LogindataController
 		return view('logindata',['logindata'=>$logindata]);
 
 	}
-
 }
