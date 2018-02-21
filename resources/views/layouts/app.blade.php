@@ -12,11 +12,18 @@
 
 <!-- Styles -->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<link href="{{ asset('css/Buttons.css') }}" rel="stylesheet">
+<link href="{{ asset('css/jquery.bootgrid.css') }}" rel="stylesheet">
+
+<!-- Scripts -->
+<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/jquery.bootgrid.js') }}"></script>
+
 </head>
 <body>
 	<div id="app">
 		<!-- ヘッダーカラーチェンジ↓ https://torina.top/detail/172/ 参照 -->
-		<nav class="navbar navbar-default navbar-static-top navbar-inverse">
+		<nav class="navbar navbar-default navbar-static-top">
 			<div class="container">
 				<div class="navbar-header">
 
@@ -45,9 +52,9 @@
 					<ul class="nav navbar-nav navbar-right">
 						<!-- Authentication Links -->
 						@auth
-						 @if (Auth::user()->role == 0 or Auth::user()->role == 1)
+						@if (Auth::user()->role == 0 or Auth::user()->role == 1)
 						<li><a href="{{ route('register') }}">Register</a></li>
-						 @endif
+						@endif
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown" role="button" aria-expanded="false"
 							aria-haspopup="true"> {{ Auth::user()->name}}
@@ -55,7 +62,7 @@
 						</a>
 
 							<ul class="dropdown-menu">
-
+								<li><a href="{{ route('users') }}">Users</a></li>
 								<li><a href="{{ route('logout') }}"
 									onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"> Logout </a>
@@ -66,14 +73,10 @@
 							</ul>
 						</li>
 						@endauth
-					</ul>
 				</div>
 			</div>
 		</nav>
 		@yield('content')
 	</div>
-
-	<!-- Scripts -->
-	<script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

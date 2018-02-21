@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,14 +14,15 @@
 <body>
 
 <div id="header"></div>
+
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
-			<th data-column-id="name" data-width="10%">ユーザー名</th>
-			<th data-column-id="userid" data-identifier="true" data-width="10%">ユーザーID</th>
-			<th data-column-id="organization" data-width="10%">組織名</th>
-			<th data-column-id="role" data-width="3%">役割</th>
+			<th data-column-id="name">ユーザー名</th>
+			<th data-column-id="userid" data-identifier="true">ユーザーID</th>
+			<th data-column-id="organization">組織名</th>
+			<th data-column-id="role">役割</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -42,9 +44,7 @@
 <script>
 
 			var rowIds = [];
-
 			$(function() {
-				$("#header").load("header.html");
 				$("#grid-basic").bootgrid({
 					selection : true,
 					multiSelect : true,
@@ -63,7 +63,6 @@
 					}
 				});
 			});
-
 			function drow() {
 				if(rowIds.length == 0){
 					alert("削除する行を選択してください");
@@ -94,6 +93,4 @@
 			}
 
 </script>
-</body>
-</html>
-
+@endsection
