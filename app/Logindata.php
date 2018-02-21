@@ -10,7 +10,7 @@ class Logindata extends Model
 
 	protected $fillable = [
 
-			'id', 'userid','classification','time'
+			'citycode', 'id', 'userid', 'classification', 'time'
 
 	];
 
