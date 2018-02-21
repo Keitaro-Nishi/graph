@@ -17,7 +17,6 @@
 
 	<thead>
 		<tr>
-			<th data-column-id="id" data-identifier="true" data-width="5%" data-order="desc">NO</th>
 			<th data-column-id="userid" data-width="30%">ユーザーID</th>
 			<!--  <th data-column-id="icon"  data-width="5%" data-formatter="icons" data-sortable="false"></th>-->
 			<th data-column-id="classification" data-width="20%">分類</th>
@@ -27,7 +26,6 @@
 	<tbody>
 		@foreach($logindata as $infomation)
 		<tr>
-			<td>{{$infomation->id}}</td>
 			<td>{{$infomation->userid}}</td>
 			 <!--  <td></td> -->
 			<td>{{$infomation->classification}}</td>
@@ -69,9 +67,6 @@
 
 								//}
 					//}
-
-
-
 				});
 			});
 
