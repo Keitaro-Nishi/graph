@@ -23,6 +23,11 @@ class EventServiceProvider extends ServiceProvider
     	// 最終ログインを記録するリスナー
     	'App\Listeners\LastLoginListener',
     	],
+    	// ログアウト時にイベントを発行
+    	'App\Events\Logouted' => [
+    	// 最終ログアウトを記録するリスナー
+    	'App\Listeners\LastLogoutListener',
+    	]
     ];
 
     /**

@@ -2,7 +2,7 @@
 
 namespace App\Listeners;
 
-use App\Events\Logined;
+use App\Events\Logouted;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Auth;
@@ -10,13 +10,12 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use App\Logindata;
 
-
 /**
- * ログイン完了時に発火するイベントをキャッチするリスナークラス
+ * ログアウト完了時に発火するイベントをキャッチするリスナークラス
  * Class LastLoginListener
  * @package App\Listeners
  */
-class LastLoginListener
+class LastLogoutListener
 {
     /**
      * Create the event listener.
@@ -34,17 +33,18 @@ class LastLoginListener
      * @param  Logined  $event
      * @return void
      */
-    public function handle(Logined $event)
+    public function handle(Logouted $event)
     {
 
-	    $user = Auth::user();
-	    $logindata = new Logindata;
-	    $logindata->userid = $user->userid;
-	    $logindata->classification = 'ログイン';
-	    $logindata->time = Carbon::now();
 
-	    $logindata->save();
+      $user = Auth::user();
+      $logindata = new Logindata;
+      $logindata->userid = $user->userid;
+      $logindata->classification = 'ログアウト';
+      $logindata->time = Carbon::now();
 
+      $logindata->save();
 
     }
 }
+

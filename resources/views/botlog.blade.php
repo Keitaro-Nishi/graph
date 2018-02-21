@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="description" content="ユーザー情報">
-<title>ユーザー情報</title>
+<meta name="description" content="チャットボットログ">
+<title>チャットボットログ</title>
 <link href="css/common.css" rel="stylesheet" />
 <link href="css/bootstrap.css" rel="stylesheet" />
 <link href="css/jquery.bootgrid.css" rel="stylesheet" />
@@ -12,26 +11,28 @@
 <script src="js/jquery.bootgrid.js"></script>
 </head>
 <body>
-
 <div id="header"></div>
-
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
-			<th data-column-id="name">ユーザー名</th>
-			<th data-column-id="userid" data-identifier="true">ユーザーID</th>
-			<th data-column-id="organization">組織名</th>
-			<th data-column-id="role">役割</th>
+			<th data-column-id="no" data-type="numeric" data-identifier="true" data-width="3%">NO</th>
+			<th data-column-id="day" data-width="7%">日時</th>
+			<th data-column-id="user" data-width="20%">ユーザーID</th>
+			<th data-column-id="que"  data-width="32%">質問内容</th>
+            <th data-column-id="ans"  data-width="32%">回答内容</th>
+            <!--  <th data-column-id="detail"  data-width="6%" data-formatter="details" data-sortable="false"></th>-->
 		</tr>
 	</thead>
 	<tbody>
-		@foreach($users as $user)
+		@foreach($botlogs as $botlog)
 		<tr>
-			<td>{{$user->name}}</td>
-			<td>{{$user->userid}}</td>
-			<td>{{$user->organization}}</td>
-			<td>{{$user->role}}</td>
+			<td>{{$botlog->no}}</td>
+			<td>{{$botlog->day}}</td>
+			<td>{{$botlog->user}}</td>
+			<td>{{$botlog->que}}</td>
+			<td>{{$botlog->ans}}</td>
+			<!--  <td></td>-->
 		</tr>
 		@endforeach
 	</tbody>
@@ -42,27 +43,34 @@
 </div>
 
 <script>
-
 			var rowIds = [];
+
 			$(function() {
+				$("#header").load("header.html");
 				$("#grid-basic").bootgrid({
 					selection : true,
 					multiSelect : true,
 					rowSelect : true,
-					keepSelection : true
+					keepSelection : true,
+					/*formatters: {
+				        "details": function($column, $row) {
+				        	return "<input type='button' value='詳細' onclick='detailwin("  + $row.no + ")'> ";
+			             }
+				    }*/
 				}).on("selected.rs.jquery.bootgrid", function(e, rows) {
 					for (var i = 0; i < rows.length; i++) {
-						rowIds.push(rows[i].userid);
+						rowIds.push(rows[i].no);
 					}
 				}).on("deselected.rs.jquery.bootgrid", function(e, rows) {
 					for (var i = 0; i < rows.length; i++) {
 						rowIds.some(function(v, ii) {
-							if (v == rows[i].userid)
+							if (v == rows[i].no)
 								rowIds.splice(ii, 1);
 						});
 					}
 				});
 			});
+
 			function drow() {
 				if(rowIds.length == 0){
 					alert("削除する行を選択してください");
@@ -91,6 +99,8 @@
 					}
 				}
 			}
-
 </script>
-@endsection
+</body>
+</html>
+
+

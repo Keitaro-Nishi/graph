@@ -30,6 +30,9 @@ class User extends Authenticatable
         'password'
     ];
 
+
+
+
     protected $primaryKey ='userid';
     public $incrementing = false;
 }
