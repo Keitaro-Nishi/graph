@@ -2,24 +2,19 @@
 
 @section('content')
 
-	<div th:replace="fragments/layout :: header"></div>
-	<div align="center">
-	<br>
-	<br>
-	<br>
-	<br>
-		<button onclick="location.href='/logview'" class="button5" type="submit">チャットボットログ</button>
-		<br>
-		<br>
-		<br>
-		<button onclick="location.href='/logview'" class="button5" type="submit">フォトログ</button>
-		<br>
-		<br>
-		<br>
-		<button onclick="location.href='/logview'" class="button5" type="submit">ランキング</button>
-		<br>
-		<br>
-		<br>
-		<button onclick="location.href='/Account'" class="button5 chrome Safari" type="submit">アカウント管理</button>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="panel panel-default">
+				<div class="panel-heading">Dashboard</div>
+
+				<div class="panel-body">
+					@if (session('status'))
+					<div class="alert alert-success">{{ session('status') }}</div>
+					@endif You are logged in!
+				</div>
+			</div>
+		</div>
 	</div>
+</div>
 @endsection
