@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class UserController
 {
+
 	public function index(Request $request)
 	{
 		$users =DB::select('select * from users');

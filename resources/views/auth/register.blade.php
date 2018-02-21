@@ -96,10 +96,8 @@
 							</div>
 						</div>
 
-
 						<div class="form-group{{ $errors->has('organization') ? ' has-error' : '' }}">
-							<label for="organization" class="col-md-4 control-label">組織名</label>
-
+							<label for="organization" class="col-md-4 control-label">所属名</label>
 							<div class="col-md-6">
 								<input id="organization" type="text" class="form-control" name="organization" value="{{ old('organization') }}" required>
 
@@ -132,15 +130,15 @@
 								<input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
 							</div>
 						</div>
-
-						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="btn btn-primary">
-									登録
-								</button>
-							</div>
-						</div>
 					</form>
+
+					<div class="panel-footer" align="center">
+						<!-- <div class="col-md-6 col-md-offset-4">-->
+							<button type="submit" class="btn btn-primary">
+								登録
+							</button>
+						<!-- </div>-->
+					</div>
 				</div>
 			</div>
 		</div>
