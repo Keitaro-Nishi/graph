@@ -69,9 +69,6 @@
 								<li><a href="{{ route('register') }}">セッション情報</a></li>
 								<li><a href="{{ route('register') }}">コード管理</a></li>
 								<li><a href="{{ route('register') }}">市町村パラメタ</a></li>
-								<li><a href="{{ route('users') }}">ユーザー管理</a></li>
-								<li><a href="{{ route('register') }}">ログイン情報</a></li>
-								<li><a href="{{ route('register') }}">Register</a></li>
 								@endif
 							</ul>
 						</li>
@@ -83,6 +80,11 @@
 						</a>
 
 							<ul class="dropdown-menu">
+								@if (Auth::user()->role == 0 or Auth::user()->role == 1)
+								<li><a href="{{ route('users') }}">ユーザー管理</a></li>
+								<li><a href="{{ route('register') }}">ログイン情報</a></li>
+								<li><a href="{{ route('register') }}">Register</a></li>
+								@endif
 								<li><a href="{{ route('logout') }}"
 									onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"> Logout </a>
