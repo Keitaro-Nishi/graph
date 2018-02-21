@@ -22,7 +22,7 @@
 	<tbody>
 		@foreach($opinions as $opinion)
 		<tr>
-			<td></td>
+			<td>{{$opinion->id}}</td>
 			<td>{{$opinion->userid}}</td>
 			<td>{{$opinion->time}}</td>
 			<td>{{$opinion->opinion}}</td>
