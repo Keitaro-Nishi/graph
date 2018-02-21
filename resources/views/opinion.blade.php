@@ -5,8 +5,7 @@
 	class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
-
-			   <th data-column-id='id' data-type='numeric' data-identifier='true' data-width='3%'>ID</th>
+			   <!--  <th data-column-id='id' data-type='numeric' data-identifier='true' data-width='3%'>ID</th>-->
 			   <th data-column-id='userid' data-width='7%'>ユーザーID</th>
                <th data-column-id='time'  data-width='10%'>日時</th>
                <th data-column-id='opinion'  data-width='30%'>ご意見</th>
@@ -22,7 +21,7 @@
 	<tbody>
 		@foreach($opinions as $opinion)
 		<tr>
-			<td>{{$opinion->id}}</td>
+			<!--  <td>{{$opinion->id}}</td>-->
 			<td>{{$opinion->userid}}</td>
 			<td>{{$opinion->time}}</td>
 			<td>{{$opinion->opinion}}</td>
@@ -129,17 +128,17 @@
 					keepSelection : true,
 				    formatters: {
 				        "details": function($column, $row) {
-				        	return "<input type='button' class='btn btn-default' value='詳細' onclick='detailwin("  + $row.id + ")'> ";
+				        	return "<input type='button' class='btn btn-default' value='詳細' onclick='detailwin("  + $row.userid + ")'> ";
 			             }
 				    }
 				}).on("selected.rs.jquery.bootgrid", function(e, rows) {
 					for (var i = 0; i < rows.length; i++) {
-						rowIds.push(rows[i].id);
+						rowIds.push(rows[i].userid);
 					}
 				}).on("deselected.rs.jquery.bootgrid", function(e, rows) {
 					for (var i = 0; i < rows.length; i++) {
 						rowIds.some(function(v, ii) {
-							if (v == rows[i].id)
+							if (v == rows[i].userid)
 								rowIds.splice(ii, 1);
 						});
 					}
