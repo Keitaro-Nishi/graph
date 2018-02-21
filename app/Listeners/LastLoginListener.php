@@ -14,34 +14,34 @@ use App\Logindata;
  */
 class LastLoginListener
 {
-    /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
+	/**
+	 * Create the event listener.
+	 *
+	 * @return void
+	 */
+	public function __construct()
+	{
+		//
+	}
 
-    /**
-     * Handle the event.
-     *
-     * @param  Logined  $event
-     * @return void
-     */
-    public function handle(Logined $event)
-    {
+	/**
+	 * Handle the event.
+	 *
+	 * @param  Logined  $event
+	 * @return void
+	 */
+	public function handle(Logined $event)
+	{
 
-	    $user = Auth::user();
-	    $logindata = new Logindata;
+		$user = Auth::user();
+		$logindata = new Logindata;
 
-	    $logindata->citycode = $user->citycode;
-	    $logindata->userid = $user->userid;
-	    $logindata->classification = 'login';
-	    $logindata->time = Carbon::now();
+		$logindata->citycode = $user->citycode;
+		$logindata->userid = $user->userid;
+		$logindata->classification = 'Login';
+		$logindata->time = Carbon::now();
 
-	    $logindata->save();
+		$logindata->save();
 
-    }
+	}
 }
