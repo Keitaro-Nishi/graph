@@ -21,10 +21,10 @@ class OpinionController
 		$deleteNo = $request->deleteno;
 		error_log("★★★★★★★");
 		error_log($deleteNo);
-		DB::delete('delete from opinion WHERE id=?',[$deleteNo]);
+		//DB::delete('delete from opinion WHERE id=?',[$deleteNo]);
 
-		//$deleteopinion = Opinion::find($deleteNo);
-		//$deleteopinion->delete();
+		$deleteopinion = Opinion::find($deleteNo);
+		$deleteopinion->delete();
 
 		return redirect('/opinion');
 	}
