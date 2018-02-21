@@ -55,7 +55,7 @@
 						@auth
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-								<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+								<span class="caret">Menu</span>
 							</a>
 							<ul class="dropdown-menu">
 								@if (Auth::user()->role == 0 or Auth::user()->role == 1)
