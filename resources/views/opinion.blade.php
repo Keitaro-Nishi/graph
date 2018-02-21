@@ -5,8 +5,7 @@
 	class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
-			   <th data-column-id='id' data-type='numeric' data-identifier='true' data-width='3%'>ID</th>
-			   <th data-column-id='userid' data-width='7%'>ユーザーID</th>
+			   <th data-column-id='userid' data-width='10%'>ユーザーID</th>
                <th data-column-id='time'  data-width='10%'>日時</th>
                <th data-column-id='opinion'  data-width='30%'>ご意見</th>
                <th data-column-id='sadness' data-type='numeric' data-width='9%'>悲しみ</th>
@@ -21,7 +20,6 @@
 	<tbody>
 		@foreach($opinions as $opinion)
 		<tr>
-			<td>{{$opinion->id}}</td>
 			<td>{{$opinion->userid}}</td>
 			<td>{{$opinion->time}}</td>
 			<td>{{$opinion->opinion}}</td>
@@ -54,12 +52,6 @@
 			</div>
 			<div class="modal-body">
 				<form class="form-horizontal">
-					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_id">ID</label>
-						<div class="col-sm-10">
-							<input type="text" class="form-control" id="dia_id" readonly>
-						</div>
-					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_userid">ユーザーID</label>
 						<div class="col-sm-10">
@@ -197,7 +189,7 @@
 
 
 			function modal_mod(index){
-				document.getElementById('dia_id').value  = dbvalue[index][0];
+				//document.getElementById('dia_id').value  = dbvalue[index][0];
 				document.getElementById('dia_userid').value  = dbvalue[index][1];
 				document.getElementById('dia_time').value  = dbvalue[index][2];
 				document.getElementById('dia_opinion').innerHTML  = dbvalue[index][3];
