@@ -77,6 +77,5 @@
 					}
 				}
 			}
-
 </script>
 @endsection
