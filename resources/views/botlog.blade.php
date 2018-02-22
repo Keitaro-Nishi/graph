@@ -8,8 +8,9 @@
 			<th data-column-id="no" data-type="numeric" data-identifier="true" data-width="4%">NO</th>
 			<th data-column-id="time" data-width="10%">日時</th>
 			<th data-column-id="userid" data-width="10%">ユーザーID</th>
-			<th data-column-id="contents"  data-width="38%">質問内容</th>
-            <th data-column-id="return"  data-width="38%">回答内容</th>
+			<th data-column-id="contents"  data-width="35%">質問内容</th>
+            <th data-column-id="return"  data-width="35%">回答内容</th>
+            <th data-column-id='detail'  data-width='6%' data-formatter='details' data-sortable='false'></th>
 		</tr>
 	</thead>
 	<tbody>
