@@ -13,8 +13,8 @@ class OpinionController
 
 		$opinions = Opinion::all();
 
-		error_log("★★★★★★★");
-		error_log($opinions[0]);
+		//error_log("★★★★★★★");
+		//error_log($opinions[0]);
 
 		//$opinion_json = json_encode($opinions);
 		return view('opinion',['opinions'=>$opinions]);

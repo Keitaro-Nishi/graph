@@ -119,11 +119,9 @@
 			var rowIds = [];
 			var dbvalue = [];
 			var shosai_idx = 0;
-			var js_var = [];
+
 
 			$(function() {
-				//js_var = $('#php2jquery').val();
-				js_var = <?php echo json_encode($opinions); ?>;
 
 				//$("#header").load("header.html");
 				$("#grid-basic").bootgrid({
@@ -152,9 +150,6 @@
 
 
 			function drow() {
-				console.log(JSON.stringify(js_var[0]));
-				alert(js_var[0]);
-
 				/*
 				if(rowIds.length == 0){
 					alert("削除する行を選択してください");
