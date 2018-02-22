@@ -14,7 +14,7 @@
 Route::get('/', function () { return redirect('/login'); });
 
 Auth::routes ();
-Route::get ( '/register', 'Auth\RegisterController@showRegistrationForm')->name('register')->middleware('role');
+Route::get ( '/register', 'Auth\RegisterController@showRegistrationForm' )->name('register')->middleware('role');
 
 Route::get ( '/home', 'HomeController@index' )->name ( 'home' )->middleware('auth');
 
