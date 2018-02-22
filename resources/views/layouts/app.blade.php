@@ -11,6 +11,7 @@
 <title>ViewLog</title>
 
 <!-- Styles -->
+<link href="{{ asset('css/common.css') }}" rel="stylesheet">
 <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <link href="{{ asset('css/Buttons.css') }}" rel="stylesheet">
