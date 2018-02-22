@@ -13,6 +13,7 @@
 		</tr>
 	</thead>
 	<tbody>
+
 		@foreach($logindata as $infomation)
 		<tr>
 			<td>{{$infomation->userid}}</td>

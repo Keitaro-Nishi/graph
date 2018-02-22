@@ -129,15 +129,16 @@
 								<input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
 							</div>
 						</div>
-					</form>
 
-					<div class="panel-footer" align="center">
-						<!-- <div class="col-md-6 col-md-offset-4">-->
+
+					<!--  <div class="panel-footer" align="center">-->
+						<div class="col-md-6 col-md-offset-4">
 							<button type="submit" class="btn btn-primary">
 								登録
 							</button>
-						<!-- </div>-->
-					</div>
+						</div>
+					<!-- </div> -->
+					</form>
 				</div>
 			</div>
 		</div>
