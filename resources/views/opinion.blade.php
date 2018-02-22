@@ -123,9 +123,9 @@
 			var shosai_idx = 0;
 			var js_var = [];
 
-			js_var = $('#php2jquery').val();
-
 			$(function() {
+				js_var = $('#php2jquery').val();
+
 				//$("#header").load("header.html");
 				$("#grid-basic").bootgrid({
 					selection : true,
@@ -153,7 +153,7 @@
 
 
 			function drow() {
-				alert(js_var[1]);
+				alert(js_var[0]);
 
 				/*
 				if(rowIds.length == 0){
@@ -185,7 +185,7 @@
 				}*/
 			}
 
-
+			/*
 			function detailwin(value){
 				document.getElementById("btn_modal").click();
 				for (var i = 0; i < dbvalue.length; i++){
@@ -195,6 +195,7 @@
 					}
 				}
 			}
+			*/
 
 			function shosai_back(){
 				shosai_idx = shosai_idx - 1;
