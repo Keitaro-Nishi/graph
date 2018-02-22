@@ -37,8 +37,6 @@
 	</tbody>
 </table>
 
-<!--  <input id="php2jquery" type="hidden" value= {$opinions} name="php2jquery">-->
-<input id="php2jquery" type="hidden" value="$opinions" name="php2jquery">
 
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
@@ -124,7 +122,8 @@
 			var js_var = [];
 
 			$(function() {
-				js_var = $('#php2jquery').val();
+				//js_var = $('#php2jquery').val();
+				js_var = <?php echo json_encode($opinions); ?>;
 
 				//$("#header").load("header.html");
 				$("#grid-basic").bootgrid({
