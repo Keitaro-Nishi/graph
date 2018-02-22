@@ -119,8 +119,8 @@
 			var dbvalue = [];
 			var shosai_idx = 0;
 
-			var js_array = [];
-			js_array = JSON.parse('<?php echo $opinion_json; ?>');
+			//var js_array = JSON.parse('<?php echo $opinion_json; ?>');
+			var js_array = <?php echo $opinion_json; ?>;
 
 			$(function() {
 				//$("#header").load("header.html");
