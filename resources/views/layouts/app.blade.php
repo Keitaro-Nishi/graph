@@ -8,9 +8,10 @@
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<title>{{ config('app.name', 'Laravel') }}</title>
+<title>ViewLog</title>
 
 <!-- Styles -->
+<link href="{{ asset('css/common.css') }}" rel="stylesheet">
 <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <link href="{{ asset('css/Buttons.css') }}" rel="stylesheet">
@@ -53,17 +54,38 @@
 					<ul class="nav navbar-nav navbar-right">
 						<!-- Authentication Links -->
 						@auth
-						@if (Auth::user()->role == 0 or Auth::user()->role == 1)
-						<li><a href="{{ route('register') }}">Register</a></li>
-						@endif
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">Menu
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="{{ route('botlog') }}">ログ参照</a></li>
+								<li><a href="{{ route('register') }}">画像ログ参照</a></li>
+								<li><a href="{{ route('register') }}">施設情報</a></li>
+								<li><a href="{{ route('register') }}">施設ジャンル</a></li>
+								<li><a href="{{ route('register') }}">ご意見ログ</a></li>
+								<li><a href="{{ route('register') }}">属性情報</a></li>
+								<li><a href="{{ route('register') }}">メッセージ管理</a></li>
+								@if (Auth::user()->role == 0 or Auth::user()->role == 1)
+								<li><a href="{{ route('register') }}">セッション情報</a></li>
+								<li><a href="{{ route('register') }}">コード管理</a></li>
+								<li><a href="{{ route('register') }}">市町村パラメタ</a></li>
+								@endif
+							</ul>
+						</li>
+
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown" role="button" aria-expanded="false"
 							aria-haspopup="true">
-							<span class="glyphicon glyphicon-user"></span>
+							<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 						</a>
 
 							<ul class="dropdown-menu">
-								<li><a href="{{ route('users') }}">Users</a></li>
+								@if (Auth::user()->role == 0 or Auth::user()->role == 1)
+								<li><a href="{{ route('users') }}">ユーザー管理</a></li>
+								<li><a href="{{ route('register') }}">ログイン情報</a></li>
+								<li><a href="{{ route('register') }}">Register</a></li>
+								@endif
 								<li><a href="{{ route('logout') }}"
 									onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"> Logout </a>

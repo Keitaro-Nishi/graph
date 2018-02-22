@@ -38,7 +38,7 @@ class LastLogoutListener
 
 		$logindata->citycode = $user->citycode;
 		$logindata->userid = $user->userid;
-		$logindata->classification = 'Logout';
+		$logindata->classification = 'ログアウト';
 		$logindata->time = Carbon::now();
 
 		$logindata->save();
