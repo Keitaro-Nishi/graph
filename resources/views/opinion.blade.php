@@ -37,7 +37,7 @@
 	</tbody>
 </table>
 
-<input id="php2jquery" type="hidden" value="AAAA" name="php2jquery">
+<input id="php2jquery" type="hidden" value= $opinions[0] name="php2jquery">
 
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
