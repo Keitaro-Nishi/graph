@@ -152,6 +152,7 @@
 
 
 			function drow() {
+				console.log(JSON.stringify(js_var[0]));
 				alert(js_var[0]);
 
 				/*
