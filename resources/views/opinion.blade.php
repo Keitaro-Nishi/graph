@@ -150,7 +150,7 @@
 			});
 
 			function drow() {
-				alert(js_array[0][1]);
+				//alert(js_array[0][1]);
 				alert($opinions[0]);
 				/*
 				if(rowIds.length == 0){
