@@ -89,6 +89,7 @@
 				}
 			}
 </script>
+<!--
 		<div class="container" align="center">
 			<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
 			<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog" value="モーダル表示" />
@@ -151,7 +152,7 @@ var rowIds = [];
 var dbvalue = [];
 var shosai_idx = 0;
 $(function() {
-	dbvalue = <?php echo json_encode($dbvalue); ?>;
+	dbvalue = ?php echo json_encode($dbvalue); ?>;
 	var h = $(window).height();
 	$('#wrap').css('display','none');
 	$('#loader-bg ,#loader').height(h).css('display','block');
@@ -251,5 +252,5 @@ function modal_mod(index){
 	}
 }
 </script>
-</script>
+-->
 @endsection
