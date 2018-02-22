@@ -23,6 +23,6 @@ Route::get ( '/ajax/{deletecode}', 'UserController@delete' );
 Route::get ( '/botlog', 'BotlogController@index' )->name ( 'botlog' )->middleware('auth');
 
 Route::get ( '/logindata', 'LogindataController@index' )->name ( 'logindata' );
-Route::get ( '/opinion', 'OpinionController@index' );
+Route::get ( '/opinion', 'OpinionController@index' )->name ( 'opinion' );
 Route::get ( '/opinion/{deleteno}','OpinionController@delete' );
 	//Route::get('/ajax/{deletecode}','UserdeleteController@delete');
