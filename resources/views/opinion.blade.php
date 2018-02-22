@@ -37,6 +37,8 @@
 	</tbody>
 </table>
 
+<input id="php2jquery" type="hidden" value="AAAA" name="php2jquery">
+
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
 	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog" value="モーダル表示" />
@@ -120,7 +122,7 @@
 			var shosai_idx = 0;
 
 			//var sample ='<?php echo $opinions; ?>';
-
+			var js_var = $('#php2jquery').val();
 
 			$(function() {
 				//$("#header").load("header.html");
@@ -149,7 +151,7 @@
 			});
 
 			function drow() {
-
+				alert(js_var);
 
 				/*
 				if(rowIds.length == 0){
