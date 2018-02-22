@@ -18,10 +18,8 @@ Route::get ( '/register', 'Auth\RegisterController@showRegistrationForm')->name(
 
 Route::get ( '/home', 'HomeController@index' )->name ( 'home' );
 Route::get ( '/users', 'UserController@index' )->name ( 'users' )->middleware('auth');
-Route::get ( '/ajax/{deletecode}', 'UserController@delete' );
-
+Route::get ( '/users/{deletecode}', 'UserController@delete' );
 Route::get ( '/botlog', 'BotlogController@index' )->name ( 'botlog' )->middleware('auth');
-
 Route::get ( '/logindata', 'LogindataController@index' )->name ( 'logindata' );
 Route::get ( '/opinion', 'OpinionController@index' )->name ( 'opinion' );
 Route::get ( '/opinion/{deleteno}','OpinionController@delete' );
