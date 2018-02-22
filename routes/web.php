@@ -23,7 +23,7 @@ Route::get ( '/users/{deletecode}', 'UserController@delete' );
 
 Route::get ( '/botlog', 'BotlogController@index' )->name ( 'botlog' )->middleware('auth');
 
-Route::get ( '/logindata', 'LogindataController@index' )->name ( 'logindata' )->middleware('role');
-
 Route::get ( '/opinion', 'OpinionController@index' )->name ( 'opinion' )->middleware('auth');
 Route::get ( '/opinion/{deleteno}','OpinionController@delete' );
+
+Route::get ( '/logindata', 'LogindataController@index' )->name ( 'logindata' )->middleware('role');
