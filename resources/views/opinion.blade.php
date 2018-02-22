@@ -153,7 +153,7 @@
 			});
 
 			function drow() {
-				alert(js_array[0]);
+				alert(js_array[0][1]);
 				/*
 				if(rowIds.length == 0){
 					alert("削除する行を選択してください");
