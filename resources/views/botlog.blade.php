@@ -88,5 +88,57 @@
 					}
 				}
 			}
+
+			<div class="modal" id="shosaiDialog"  tabindex="-1">
+			<div class="modal-dialog">
+				<div class="modal-content" style="width:740px; margin-left: -20px;">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="modal-label">詳細</h4>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal">
+							<div class="form-group">
+								<label class="col-sm-2 control-label" for="dia_date">No</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="dia_no" readonly>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label" for="dia_date">日時</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="dia_date" readonly>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label" for="dia_user">ユーザーＩＤ</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="dia_user" readonly>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label" for="dia_que">質問内容</label>
+								<div class="col-sm-10">
+									<textarea class="form-control" id="dia_que" rows='10' readonly></textarea>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label" for="dia_ans">回答内容</label>
+								<div class="col-sm-10">
+									<textarea class="form-control" id="dia_ans" rows='10' readonly></textarea>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button id="sback" type="button" class="btn btn-default" onclick="shosai_back()">＜＜前へ</button>
+						<button id="snext" type="button" class="btn btn-default" onclick="shosai_next()">次へ＞＞</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+					</div>
+				</div>
+			</div>
+		</div>
 </script>
 @endsection
