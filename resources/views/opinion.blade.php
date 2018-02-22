@@ -54,7 +54,7 @@
 			</div>
 			<div class="modal-body">
 				<form class="form-horizontal">
-					<div class="form-group" style="display:none">
+					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_id">ID</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="dia_id" readonly>
@@ -119,6 +119,9 @@
 			var dbvalue = [];
 			var shosai_idx = 0;
 
+			var js_array = [];
+			js_array = JSON.parse('<?php echo $opinion_json; ?>');
+
 			$(function() {
 				//$("#header").load("header.html");
 				$("#grid-basic").bootgrid({
@@ -146,6 +149,8 @@
 			});
 
 			function drow() {
+				alert(js_array[0]);
+				/*
 				if(rowIds.length == 0){
 					alert("削除する行を選択してください");
 					return;
@@ -172,7 +177,7 @@
 					}else{
 						alert("削除できませんでした");
 					}
-				}
+				}*/
 			}
 
 
