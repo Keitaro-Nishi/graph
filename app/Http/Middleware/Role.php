@@ -20,9 +20,6 @@ class Role
 		if (Auth::user()->role == (int)2 ) {
 			return redirect('home');
 		}
-		else if (Auth::user()->role == null ) {
-			return redirect('login');
-		}
 
 		return $next($request);
 	}

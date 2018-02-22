@@ -10,20 +10,24 @@
  * | contains the "web" middleware group. Now create something great!
  * |
  */
-
-Route::get('/', function () { return redirect('/login'); });
+Route::get ( '/', function () {
+	return redirect ( '/login' );
+} );
 
 Auth::routes ();
-Route::get ( '/register', 'Auth\RegisterController@showRegistrationForm' )->name('register')->middleware('role');
 
-Route::get ( '/home', 'HomeController@index' )->name ( 'home' )->middleware('auth');
+Route::middleware(['auth', 'role'])->group(function () {
+	Route::get ( '/register', 'Auth\RegisterController@showRegistrationForm' )->name('register');
 
-Route::get ( '/users', 'UserController@index' )->name ( 'users' )->middleware('auth');
-Route::get ( '/users/{deletecode}', 'UserController@delete' );
+	Route::get ( '/home', 'HomeController@index' )->name ( 'home' );
 
-Route::get ( '/botlog', 'BotlogController@index' )->name ( 'botlog' )->middleware('auth');
+	Route::get ( '/users', 'UserController@index' )->name ( 'users' );
+	Route::get ( '/users/{deletecode}', 'UserController@delete' );
 
-Route::get ( '/opinion', 'OpinionController@index' )->name ( 'opinion' )->middleware('auth');
-Route::get ( '/opinion/{deleteno}','OpinionController@delete' );
+	Route::get ( '/botlog', 'BotlogController@index' )->name ( 'botlog' );
 
-Route::get ( '/logindata', 'LogindataController@index' )->name ( 'logindata' )->middleware('role');
+	Route::get ( '/opinion', 'OpinionController@index' )->name ( 'opinion' );
+	Route::get ( '/opinion/{deleteno}','OpinionController@delete' );
+
+	Route::get ( '/logindata', 'LogindataController@index' )->name ( 'logindata' );
+});
