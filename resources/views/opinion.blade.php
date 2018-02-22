@@ -119,7 +119,7 @@
 			var dbvalue = [];
 			var shosai_idx = 0;
 
-			var sample='<?php echo $opinions; ?>';
+			var sample ='<?php echo $opinions; ?>';
 
 
 			$(function() {
@@ -149,7 +149,7 @@
 			});
 
 			function drow() {
-				alert(sample[0]);
+				alert(sample[0][1]);
 
 				/*
 				if(rowIds.length == 0){
