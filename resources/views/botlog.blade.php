@@ -6,10 +6,10 @@
 	<thead>
 		<tr>
 			<th data-column-id="no" data-type="numeric" data-identifier="true" data-width="3%">NO</th>
-			<th data-column-id="day" data-width="7%">日時</th>
-			<th data-column-id="user" data-width="20%">ユーザーID</th>
-			<th data-column-id="que"  data-width="32%">質問内容</th>
-            <th data-column-id="ans"  data-width="32%">回答内容</th>
+			<th data-column-id="time" data-width="7%">日時</th>
+			<th data-column-id="userid" data-width="20%">ユーザーID</th>
+			<th data-column-id="contents"  data-width="32%">質問内容</th>
+            <th data-column-id="return"  data-width="32%">回答内容</th>
             <!--  <th data-column-id="detail"  data-width="6%" data-formatter="details" data-sortable="false"></th>-->
 		</tr>
 	</thead>
@@ -17,10 +17,10 @@
 		@foreach($botlogs as $botlog)
 		<tr>
 			<td>{{$botlog->no}}</td>
-			<td>{{$botlog->day}}</td>
-			<td>{{$botlog->user}}</td>
-			<td>{{$botlog->que}}</td>
-			<td>{{$botlog->ans}}</td>
+			<td>{{$botlog->time}}</td>
+			<td>{{$botlog->userid}}</td>
+			<td>{{$botlog->contents}}</td>
+			<td>{{$botlog->return}}</td>
 			<!--  <td></td>-->
 		</tr>
 		@endforeach
