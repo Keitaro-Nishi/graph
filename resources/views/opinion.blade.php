@@ -119,8 +119,7 @@
 			var dbvalue = [];
 			var shosai_idx = 0;
 
-			var js_array = [];
-			js_array = <?php echo json_encode ($opinions); ?>
+			var sample='<?php echo $opinions; ?>';
 
 
 			$(function() {
@@ -150,8 +149,8 @@
 			});
 
 			function drow() {
-				//alert(js_array[0][1]);
-				alert($opinions[0]);
+				alert(sample[0]);
+
 				/*
 				if(rowIds.length == 0){
 					alert("削除する行を選択してください");
