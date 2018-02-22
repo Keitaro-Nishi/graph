@@ -14,6 +14,7 @@ use App\Logindata;
  */
 class LastLoginListener
 {
+
 	/**
 	 * Create the event listener.
 	 *
