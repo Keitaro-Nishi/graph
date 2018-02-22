@@ -1,37 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="description" content="チャットボットログ">
-<title>チャットボットログ</title>
-<link href="css/common.css" rel="stylesheet" />
-<link href="css/bootstrap.css" rel="stylesheet" />
-<link href="css/jquery.bootgrid.css" rel="stylesheet" />
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.js"></script>
-<script src="js/bootstrap.js"></script>
-<script src="js/jquery.bootgrid.js"></script>
-</head>
-<body>
-<div id="header"></div>
+@extends('layouts.app')
+
+@section('content')
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
-			<th data-column-id="no" data-type="numeric" data-identifier="true" data-width="3%">NO</th>
-			<th data-column-id="day" data-width="7%">日時</th>
-			<th data-column-id="user" data-width="20%">ユーザーID</th>
-			<th data-column-id="que"  data-width="32%">質問内容</th>
-            <th data-column-id="ans"  data-width="32%">回答内容</th>
-            <!--  <th data-column-id="detail"  data-width="6%" data-formatter="details" data-sortable="false"></th>-->
+			<th data-column-id="no" data-type="numeric" data-identifier="true" data-width="4%">NO</th>
+			<th data-column-id="time" data-width="10%">日時</th>
+			<th data-column-id="userid" data-width="10%">ユーザーID</th>
+			<th data-column-id="contents"  data-width="35%">質問内容</th>
+            <th data-column-id="return"  data-width="35%">回答内容</th>
+            <th data-column-id='detail'  data-width='6%' data-formatter='details' data-sortable='false'></th>
 		</tr>
 	</thead>
 	<tbody>
 		@foreach($botlogs as $botlog)
 		<tr>
 			<td>{{$botlog->no}}</td>
-			<td>{{$botlog->day}}</td>
-			<td>{{$botlog->user}}</td>
-			<td>{{$botlog->que}}</td>
-			<td>{{$botlog->ans}}</td>
+			<td>{{$botlog->time}}</td>
+			<td>{{$botlog->userid}}</td>
+			<td>{{$botlog->contents}}</td>
+			<td>{{$botlog->return}}</td>
 			<!--  <td></td>-->
 		</tr>
 		@endforeach
@@ -100,7 +89,4 @@
 				}
 			}
 </script>
-</body>
-</html>
-
-
+@endsection
