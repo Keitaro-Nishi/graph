@@ -37,7 +37,8 @@
 	</tbody>
 </table>
 
-<input id="php2jquery" type="hidden" value= "$opinions" name="php2jquery">
+<!--  <input id="php2jquery" type="hidden" value= {$opinions} name="php2jquery">-->
+<input id="php2jquery" type="hidden" name="_token" value="<?php echo opinions(); ?>" name="php2jquery">
 
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
@@ -122,7 +123,7 @@
 			var shosai_idx = 0;
 			var js_var = [];
 
-			//var sample ='<?php echo $opinions; ?>';
+
 			js_var = $('#php2jquery').val();
 
 			$(function() {
