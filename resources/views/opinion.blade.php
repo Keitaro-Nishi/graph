@@ -37,7 +37,7 @@
 	</tbody>
 </table>
 
-<input id="php2jquery" type="hidden" value= $opinions[0] name="php2jquery">
+<input id="php2jquery" type="hidden" value= "$opinions" name="php2jquery">
 
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
@@ -120,9 +120,10 @@
 			var rowIds = [];
 			var dbvalue = [];
 			var shosai_idx = 0;
+			var js_var = [];
 
 			//var sample ='<?php echo $opinions; ?>';
-			var js_var = $('#php2jquery').val();
+			js_var = $('#php2jquery').val();
 
 			$(function() {
 				//$("#header").load("header.html");
@@ -151,7 +152,7 @@
 			});
 
 			function drow() {
-				alert(js_var);
+				alert(js_var[0]);
 
 				/*
 				if(rowIds.length == 0){
