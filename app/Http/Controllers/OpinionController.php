@@ -12,7 +12,7 @@ class OpinionController
 	{
 
 		$opinions = Opinion::all();
-		$opinion_json = json_encode($opinions);
+		//$opinion_json = json_encode($opinions);
 		return view('opinion',['opinions'=>$opinions]);
 
 	}

@@ -119,10 +119,14 @@
 			var dbvalue = [];
 			var shosai_idx = 0;
 
-			//var js_array = JSON.parse('<?php echo $opinion_json; ?>');
-			var js_array = <?php echo $opinion_json; ?>;
+			var js_array = [];
+
+
 
 			$(function() {
+
+				js_array = <?php echo json_encode ($opinions); ?>
+
 				//$("#header").load("header.html");
 				$("#grid-basic").bootgrid({
 					selection : true,
