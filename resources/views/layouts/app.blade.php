@@ -82,7 +82,7 @@
 							<ul class="dropdown-menu">
 								@if (Auth::user()->role == 0 or Auth::user()->role == 1)
 								<li><a href="{{ route('users') }}">ユーザー管理</a></li>
-								<li><a href="{{ route('logindata') }}">ログイン情報</a></li>
+								<li><a href="{{ route('users') }}">ログイン情報</a></li>
 								<li><a href="{{ route('register') }}">Register</a></li>
 								@endif
 								<li><a href="{{ route('logout') }}"
