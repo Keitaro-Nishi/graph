@@ -1,60 +1,43 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="description" content="市政へのご意見">
-<title>市政へのご意見</title>
-<link href="css/common.css" rel="stylesheet" />
-<link href="css/bootstrap.css" rel="stylesheet" />
-<link href="css/jquery.bootgrid.css" rel="stylesheet" />
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.js"></script>
-<script src="js/bootstrap.js"></script>
-<script src="js/jquery.bootgrid.js"></script>
-</head>
-<body>
-<div id="wrap" style="display:none">
-<div id="header"></div>
+@extends('layouts.app')
+
+@section('content')
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
-			   <th data-column-id='no' data-type='numeric' data-identifier='true' data-width='3%'>No</th>
-			   <th data-column-id='date' data-width='7%'>日時</th>
-               <th data-column-id='sex'  data-width='5%'>性別</th>
-               <th data-column-id='age'  data-width='5%'>年齢</th>
+			   <th data-column-id='id' data-type='numeric' data-identifier='true' data-width='3%'>NO</th>
+			   <th data-column-id='userid' data-width='7%'>ユーザーID</th>
+               <th data-column-id='time'  data-width='10%'>日時</th>
+               <th data-column-id='opinion'  data-width='30%'>ご意見</th>
                <th data-column-id='sadness' data-type='numeric' data-width='9%'>悲しみ</th>
                <th data-column-id='joy' data-type='numeric' data-width='9%'>喜び</th>
                <th data-column-id='fear' data-type='numeric' data-width='9%'>恐れ</th>
                <th data-column-id='disgust' data-type='numeric' data-width='9%'>嫌悪</th>
                <th data-column-id='anger' data-type='numeric' data-width='9%'>怒り</th>
-               <th data-column-id='opinion'  data-width='30%'>ご意見</th>
+               <th data-column-id='checked'  data-width='5%'>チェック</th>
                <th data-column-id='detail'  data-width='5%' data-formatter='details' data-sortable='false'></th>
 		</tr>
 	</thead>
 	<tbody>
 		@foreach($opinions as $opinion)
 		<tr>
-			<td>{{$opinion->no}}</td>
-			<td>{{$opinion->date}}</td>
-			@if ($opinion->sex == '1' )
-			<td>男</td>
-			@elseif ($opinion->sex == '2' )
-			<td>女</td>
-			@else
-			<td>登録なし</td>
-			@endif
-			<td>{{$opinion->age}}</td>
+			<td>{{$opinion->id}}</td>
+			<td>{{$opinion->userid}}</td>
+			<td>{{$opinion->time}}</td>
+			<td>{{$opinion->opinion}}</td>
 			<td>{{$opinion->sadness}}</td>
 			<td>{{$opinion->joy}}</td>
 			<td>{{$opinion->fear}}</td>
 			<td>{{$opinion->disgust}}</td>
 			<td>{{$opinion->anger}}</td>
-			<td>{{$opinion->opinion}}</td>
+			<td>{{$opinion->checked}}</td>
 			<td></td>
-
 		</tr>
 		@endforeach
 	</tbody>
 </table>
+
+<input id="php2jquery" type="hidden" value= "$opinions" name="php2jquery">
 
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
@@ -74,27 +57,27 @@
 			<div class="modal-body">
 				<form class="form-horizontal">
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_date">No</label>
+						<label class="col-sm-2 control-label" for="dia_id">ID</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="dia_no" readonly>
+							<input type="text" class="form-control" id="dia_id" readonly>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_date">日時</label>
+						<label class="col-sm-2 control-label" for="dia_userid">ユーザーID</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="dia_date" readonly>
+							<input type="text" class="form-control" id="dia_userid" readonly>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_sex">性別</label>
+						<label class="col-sm-2 control-label" for="dia_time">日時</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="dia_sex" readonly>
+							<input type="text" class="form-control" id="dia_time" readonly>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_age">年齢</label>
+						<label class="col-sm-2 control-label" for="dia_opinion">ご意見</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="dia_age" readonly>
+							<textarea class="form-control" id="dia_opinion" rows='5' readonly></textarea>
 						</div>
 					</div>
 					<div class="form-group">
@@ -121,12 +104,7 @@
 							<input type="text" class="form-control" id="dia_anger" readonly>
 						</div>
 					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_opinion">ご意見</label>
-						<div class="col-sm-10">
-							<textarea class="form-control" id="dia_opinion" rows='5' readonly></textarea>
-						</div>
-					</div>
+
 				</form>
 			</div>
 			<div class="modal-footer">
@@ -142,9 +120,13 @@
 			var rowIds = [];
 			var dbvalue = [];
 			var shosai_idx = 0;
+			var js_var = [];
+
+			//var sample ='<?php echo $opinions; ?>';
+			js_var = $('#php2jquery').val();
 
 			$(function() {
-				$("#header").load("header.html");
+				//$("#header").load("header.html");
 				$("#grid-basic").bootgrid({
 					selection : true,
 					multiSelect : true,
@@ -152,17 +134,17 @@
 					keepSelection : true,
 				    formatters: {
 				        "details": function($column, $row) {
-				        	return "<input type='button' class='btn btn-default' value='詳細' onclick='detailwin("  + $row.no + ")'> ";
+				        	return "<input type='button' class='btn btn-default' value='詳細' onclick='detailwin("  + $row.id + ")'> ";
 			             }
 				    }
 				}).on("selected.rs.jquery.bootgrid", function(e, rows) {
 					for (var i = 0; i < rows.length; i++) {
-						rowIds.push(rows[i].no);
+						rowIds.push(rows[i].id);
 					}
 				}).on("deselected.rs.jquery.bootgrid", function(e, rows) {
 					for (var i = 0; i < rows.length; i++) {
 						rowIds.some(function(v, ii) {
-							if (v == rows[i].no)
+							if (v == rows[i].id)
 								rowIds.splice(ii, 1);
 						});
 					}
@@ -170,6 +152,9 @@
 			});
 
 			function drow() {
+				alert(js_var[0]);
+
+				/*
 				if(rowIds.length == 0){
 					alert("削除する行を選択してください");
 					return;
@@ -196,8 +181,9 @@
 					}else{
 						alert("削除できませんでした");
 					}
-				}
+				}*/
 			}
+
 
 			function detailwin(value){
 				document.getElementById("btn_modal").click();
@@ -218,25 +204,19 @@
 				modal_mod(shosai_idx);
 			}
 
+
 			function modal_mod(index){
-				document.getElementById('dia_no').value  = dbvalue[index][0];
-				var idate = dbvalue[index][1].substr(0,4) + "/" + dbvalue[index][1].substr(4,2) + "/" + dbvalue[index][1].substr(6,2) + " " + dbvalue[index][1].substr(8,2) + ":" + dbvalue[index][1].substr(10,2);
-				document.getElementById('dia_date').value = idate;
-				var sex = "";
-				if(dbvalue[index][2] == 1){
-				    sex = "男性";
-				}
-				if(dbvalue[index][2] == 2){
-				    sex = "女性";
-				}
-				document.getElementById('dia_sex').value  = sex;
-				document.getElementById('dia_age').value  = dbvalue[index][3];
-				document.getElementById('dia_sadness').value  = dbvalue[index][5];
-				document.getElementById('dia_joy').value  = dbvalue[index][6];
-				document.getElementById('dia_fear').value  = dbvalue[index][7];
-				document.getElementById('dia_disgust').value  = dbvalue[index][8];
-				document.getElementById('dia_anger').value  = dbvalue[index][9];
-				document.getElementById('dia_opinion').innerHTML  = dbvalue[index][4];
+				document.getElementById('dia_id').value  = dbvalue[index][0];
+				document.getElementById('dia_userid').value  = dbvalue[index][1];
+				var idate = dbvalue[index][2].substr(0,4) + "/" + dbvalue[index][2].substr(4,2) + "/" + dbvalue[index][2].substr(6,2) + " " + dbvalue[index][2].substr(8,2) + ":" + dbvalue[index][2].substr(10,2);
+				document.getElementById('dia_time').value = idate;
+
+				document.getElementById('dia_sadness').value  = dbvalue[index][4];
+				document.getElementById('dia_joy').value  = dbvalue[index][5];
+				document.getElementById('dia_fear').value  = dbvalue[index][6];
+				document.getElementById('dia_disgust').value  = dbvalue[index][7];
+				document.getElementById('dia_anger').value  = dbvalue[index][8];
+				document.getElementById('dia_opinion').innerHTML  = dbvalue[index][3];
 				if(index == 0){
 					document.getElementById("sback").disabled = "true";
 				}else{
@@ -248,6 +228,6 @@
 					document.getElementById("snext").disabled = "";
 				}
 			}
+
 </script>
-</body>
-</html>
+@endsection
