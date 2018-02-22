@@ -153,7 +153,7 @@
 
 
 			function drow() {
-				alert(js_var[0]);
+				alert(js_var);
 
 				/*
 				if(rowIds.length == 0){
