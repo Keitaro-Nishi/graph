@@ -6,7 +6,7 @@
 	<thead>
 		<tr>
 			<th data-column-id="no" data-type="numeric" data-identifier="true" data-width="3%">NO</th>
-			<th data-column-id="time" data-width="7%">日時</th>
+			<th data-column-id="time" data-width="10%">日時</th>
 			<th data-column-id="userid" data-width="20%">ユーザーID</th>
 			<th data-column-id="contents"  data-width="32%">質問内容</th>
             <th data-column-id="return"  data-width="32%">回答内容</th>
