@@ -48,8 +48,8 @@
 				<h4 class="modal-title" id="modal-label">詳細</h4>
 			</div>
 			<div class="modal-body">
-				<form class="form-horizontal">
 				@foreach($opinions as $opinion)
+				<form class="form-horizontal">
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_id">ID</label>
 						<div class="col-sm-10">
@@ -98,8 +98,9 @@
 							<input type="text" class="form-control" id="dia_anger" value = "{{$opinion->anger}}" readonly>
 						</div>
 					</div>
-				@endforeach
+
 				</form>
+				@endforeach
 			</div>
 			<div class="modal-footer">
 				<button id="sback" type="button" class="btn btn-default" onclick="shosai_back()">＜＜前へ</button>
