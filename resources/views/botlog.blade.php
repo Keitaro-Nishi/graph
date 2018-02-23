@@ -28,7 +28,7 @@
 
 <div class="modal" id="shosaiDialog" tabindex="-1">
 	<div class="modal-dialog">
-		<div class="modal-content" style="width: 740px; margin-left: -20px;">
+		<div class="modal-content" style="width: 740px;">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal">
 					<span aria-hidden="true">&times;</span>
