@@ -33,7 +33,7 @@
 			<td>{{$opinion->checked}}</td>
 			<td></td>
 		</tr>
-
+		@endforeach
 	</tbody>
 </table>
 
@@ -49,6 +49,7 @@
 			</div>
 			<div class="modal-body">
 				<form class="form-horizontal">
+				@foreach($opinions as $opinion)
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_id">ID</label>
 						<div class="col-sm-10">
