@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<table id="grid-basic"
-	class="table table-condensed table-hover table-striped">
+<table id="grid-basic" class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
 			<th data-column-id="no" data-type="numeric" data-identifier="true" data-width="4%">NO</th>
@@ -145,6 +144,7 @@
 					}
 				}
 			}
+
 			function detailwin(value){
 				document.getElementById("btn_modal").click();
 				for (var i = 0; i < dbvalue.length; i++){
