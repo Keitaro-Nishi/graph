@@ -33,10 +33,11 @@
 			<td>{{$opinion->checked}}</td>
 			<td></td>
 		</tr>
-
+		@endforeach
 	</tbody>
 </table>
 
+@foreach($opinions as $opinion)
 <div class="modal" id="shosaiDialog"  tabindex="-1">
 	<div class="modal-dialog">
 		<div class="modal-content" style="width:740px; margin-left: -20px;">
