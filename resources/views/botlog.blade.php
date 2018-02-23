@@ -20,7 +20,7 @@
 			<td>{{$botlog->userid}}</td>
 			<td>{{$botlog->contents}}</td>
 			<td>{{$botlog->return}}</td>
-			<!--  <td></td>-->
+			<td></td>
 		</tr>
 	</tbody>
 </table>
