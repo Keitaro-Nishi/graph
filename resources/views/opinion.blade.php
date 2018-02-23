@@ -117,7 +117,7 @@
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
 </div>
-@endsection
+
 <script>
 			var rowIds = [];
 			var dbvalue = [];
@@ -221,3 +221,4 @@
 				}
 			}*/
 </script>
+@endsection
