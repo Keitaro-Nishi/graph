@@ -39,51 +39,33 @@
 			<div class="modal-body">
 				<form class="form-horizontal">
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_id">ID</label>
+						<label class="col-sm-2 control-label" for="dia_id">No</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="dia_id" value ="{{$opinion->id}}" readonly>
+							<input type="text" class="form-control" id="dia_id" value ="{{$botlog->no}}" readonly>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_userid">ユーザーID</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="dia_userid" value ="{{$opinion->userid}}" readonly>
+							<input type="text" class="form-control" id="dia_userid" value ="{{$botlog->userid}}" readonly>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_time">日時</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="dia_time" value ="{{$opinion->time}}" readonly>
+							<input type="text" class="form-control" id="dia_time" value ="{{$botlog->time}}" readonly>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_opinion">ご意見</label>
+						<label class="col-sm-2 control-label" for="dia_opinion">質問</label>
 						<div class="col-sm-10">
-							<textarea class="form-control" id="dia_opinion"  value = "{{$opinion->opinion}}" rows='5' readonly></textarea>
+							<textarea class="form-control" id="dia_opinion" value ="{{$botlog->contents}}" rows='5' readonly></textarea>
 						</div>
 					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_sadness">悲しみ</label>
-						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_sadness"  value = "{{$opinion->sadness}}" readonly>
-						</div>
-						<label class="col-sm-2 control-label" for="dia_joy">喜び</label>
-						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_joy" value = "{{$opinion->joy}}" readonly>
-						</div>
-						<label class="col-sm-2 control-label" for="dia_fear">恐れ</label>
-						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_fear" value = "{{$opinion->fear}}" readonly>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_disgust">嫌悪</label>
-						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_disgust" value = "{{$opinion->disgust}}" readonly>
-						</div>
-						<label class="col-sm-2 control-label" for="dia_anger">怒り</label>
-						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_anger" value = "{{$opinion->anger}}" readonly>
+										<div class="form-group">
+						<label class="col-sm-2 control-label" for="dia_opinion">回答</label>
+						<div class="col-sm-10">
+							<textarea class="form-control" id="dia_opinion" value ="{{$botlog->return}}" rows='5' readonly></textarea>
 						</div>
 					</div>
 				@endforeach
