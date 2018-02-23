@@ -58,7 +58,7 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_contents">質問</label>
 						<div class="col-sm-10">
-							<textarea class="form-control" id="dia_contents" value="{{$botlog->contents}}" rows='5' readonly></textarea>
+							<textarea class="form-control" id="dia_contents" rows='5' readonly>{{$botlog->contents}}</textarea>
 						</div>
 					</div>
 					<div class="form-group">
