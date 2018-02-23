@@ -3,7 +3,7 @@
 @section('content')
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
-
+	<thead>
 		<tr>
 			   <th data-column-id='id' data-type='numeric' data-identifier='true' data-width='3%'>NO</th>
 			   <th data-column-id='userid' data-width='7%'>ユーザーID</th>
@@ -17,7 +17,8 @@
                <th data-column-id='checked'  data-width='5%'>チェック</th>
                <th data-column-id='detail'  data-width='5%' data-formatter='details' data-sortable='false'></th>
 		</tr>
-
+	</thead>
+	<tbody>
 		@foreach($opinions as $opinion)
 		<tr>
 			<td>{{$opinion->id}}</td>
@@ -33,7 +34,7 @@
 			<td></td>
 		</tr>
 		@endforeach
-
+	</tbody>
 </table>
 
 
@@ -41,7 +42,7 @@
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
 	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog" value="モーダル表示" />
 </div>
-</div>
+
 
 
 <div class="modal" id="shosaiDialog"  tabindex="-1">
