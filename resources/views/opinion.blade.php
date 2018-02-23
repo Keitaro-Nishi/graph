@@ -9,13 +9,15 @@
 			   <th data-column-id='userid' data-width='7%'>ユーザーID</th>
                <th data-column-id='time'  data-width='10%'>日時</th>
                <th data-column-id='opinion'  data-width='30%'>ご意見</th>
-               <th data-column-id='sadness' data-type='numeric' data-width='9%'>悲しみ</th>
+               <th>テスト</th>
+
+               <!--  <th data-column-id='sadness' data-type='numeric' data-width='9%'>悲しみ</th>
                <th data-column-id='joy' data-type='numeric' data-width='9%'>喜び</th>
                <th data-column-id='fear' data-type='numeric' data-width='9%'>恐れ</th>
                <th data-column-id='disgust' data-type='numeric' data-width='9%'>嫌悪</th>
                <th data-column-id='anger' data-type='numeric' data-width='9%'>怒り</th>
                <th data-column-id='checked'  data-width='5%'>チェック</th>
-               <th data-column-id='detail'  data-width='5%' data-formatter='details' data-sortable='false'></th>
+               <th data-column-id='detail'  data-width='5%' data-formatter='details' data-sortable='false'></th>-->
 		</tr>
 	</thead>
 	<tbody>
@@ -25,7 +27,34 @@
 			<td>{{$opinion->userid}}</td>
 			<td>{{$opinion->time}}</td>
 			<td>{{$opinion->opinion}}</td>
-			<td>{{$opinion->sadness}}</td>
+			<td><a href="#" data-toggle="modal" data-target="#deleteModal{{$opinion->id}}"><span class="glyphicon glyphicon-remove"></span>削除</a></td>
+		</tr>
+			<div class="modal fade" id="deleteModal{{$opinion->id}}">
+
+			 <div class="modal-dialog">
+
+			 <div class="modal-content">
+
+			 <div class="modal-header">
+
+			 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+			 <h4 class="modal-title alert alert-danger">『{{$opinion->userid}}』の削除</h4>
+
+			 </div>
+
+			 <div class="modal-body">
+
+			 <p>本当に削除してもいいですか</p>
+
+			 </div>
+			 </div><!-- /.modal-content -->
+			 </div><!-- /.modal-dialog -->
+			 </div><!-- /.modal -->
+			 @endforeach
+
+
+			<!--  <td>{{$opinion->sadness}}</td>
 			<td>{{$opinion->joy}}</td>
 			<td>{{$opinion->fear}}</td>
 			<td>{{$opinion->disgust}}</td>
@@ -33,14 +62,14 @@
 			<td>{{$opinion->checked}}</td>
 			<td></td>
 		</tr>
-		@endforeach
+		@endforeach-->
 	</tbody>
 </table>
 
 
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
-	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog" value="モーダル表示" />
+	<!--  <input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog" value="モーダル表示" />-->
 </div>
 </div>
 
