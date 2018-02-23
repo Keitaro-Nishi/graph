@@ -1,12 +1,13 @@
-@extends('layouts.app') @section('content')
+@extends('layouts.app')
+
+@section('content')
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
-			<th data-column-id="no" data-type="numeric" data-identifier="true"
-				data-width="4%">NO</th>
-			<th data-column-id="time" data-width="10%">日時</th>
+			<th data-column-id="no" data-type="numeric" data-identifier="true" data-width="4%">NO</th>
 			<th data-column-id="userid" data-width="10%">ユーザーID</th>
+			<th data-column-id="time" data-width="10%">日時</th>
 			<th data-column-id="contents" data-width="35%">質問内容</th>
 			<th data-column-id="return" data-width="35%">回答内容</th>
 			<th data-column-id='detail' data-width='6%' data-formatter='details' data-sortable='false'></th>
@@ -16,8 +17,8 @@
 		@foreach($botlogs as $botlog)
 		<tr>
 			<td>{{$botlog->no}}</td>
-			<td>{{$botlog->time}}</td>
 			<td>{{$botlog->userid}}</td>
+			<td>{{$botlog->time}}</td>
 			<td>{{$botlog->contents}}</td>
 			<td>{{$botlog->return}}</td>
 			<td></td>
