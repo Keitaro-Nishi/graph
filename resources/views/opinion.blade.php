@@ -98,7 +98,6 @@
 							<input type="text" class="form-control" id="dia_anger" value = "{{$opinion->anger}}" readonly>
 						</div>
 					</div>
-
 				</form>
 				@endforeach
 			</div>
