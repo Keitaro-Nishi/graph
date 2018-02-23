@@ -23,6 +23,7 @@
 			<td>{{$botlog->return}}</td>
 			<td></td>
 		</tr>
+		@endforeach
 	</tbody>
 </table>
 
@@ -37,6 +38,7 @@
 			</div>
 			<div class="modal-body">
 				<form class="form-horizontal">
+				@foreach($botlogs as $botlog)
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_id">No</label>
 						<div class="col-sm-10">
