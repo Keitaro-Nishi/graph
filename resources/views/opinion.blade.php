@@ -33,11 +33,11 @@
 			<td>{{$opinion->checked}}</td>
 			<td></td>
 		</tr>
-		@endforeach
+
 	</tbody>
 </table>
 
-@foreach($opinions as $opinion)
+
 <div class="modal" id="shosaiDialog"  tabindex="-1">
 	<div class="modal-dialog">
 		<div class="modal-content" style="width:740px; margin-left: -20px;">
@@ -70,7 +70,7 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_opinion">ご意見</label>
 						<div class="col-sm-10">
-							<textarea class="form-control" id="dia_opinion"  value = "{{$opinion->opinion}}" rows='5' readonly></textarea>
+							<textarea class="form-control" id="dia_opinion" rows='5' readonly>{{$opinion->opinion}}</textarea>
 						</div>
 					</div>
 					<div class="form-group">
@@ -97,7 +97,7 @@
 							<input type="text" class="form-control" id="dia_anger" value = "{{$opinion->anger}}" readonly>
 						</div>
 					</div>
-
+				@endforeach
 				</form>
 			</div>
 			<div class="modal-footer">
@@ -108,7 +108,7 @@
 		</div>
 	</div>
 </div>
-@endforeach
+
 
 <div class="container" align="center">
 	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog" value="モーダル表示" />
