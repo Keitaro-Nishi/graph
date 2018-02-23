@@ -97,7 +97,7 @@
 							<input type="text" class="form-control" id="dia_anger" value = "{{$opinion->anger}}" readonly>
 						</div>
 					</div>
-				@endforeach
+
 				</form>
 			</div>
 			<div class="modal-footer">
@@ -109,10 +109,13 @@
 	</div>
 </div>
 
+<div class="container" align="center">
+	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog" value="モーダル表示" />
+</div>
+@endforeach
 
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
-	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog" value="モーダル表示" />
 </div>
 
 <script>
