@@ -28,7 +28,7 @@
 
 <div class="modal" id="shosaiDialog" tabindex="-1">
 	<div class="modal-dialog">
-		<div class="modal-content" style="width: 740px;">
+		<div class="modal-content" style="width: 740px; margin-left: -20px;">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal">
 					<span aria-hidden="true">&times;</span>
@@ -82,14 +82,14 @@
 </div>
 
 <div class="container" align="center">
-	<input id="btn_del" type="button" class="btn btn-default"
-		value="選択行の削除" onclick="drow()"> <input id="btn_modal" type="button"
-		style="display: none" data-toggle="modal" data-target="#shosaiDialog"
-		value="モーダル表示" />
+	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
+	<input id="btn_modal" type="button" style="display: none" data-toggle="modal" data-target="#shosaiDialog" value="モーダル表示" />
 </div>
 
 <script>
 			var rowIds = [];
+			var dbvalue = [];
+			var shosai_idx = 0;
 
 			$(function() {
 				$("#header").load("header.html");
