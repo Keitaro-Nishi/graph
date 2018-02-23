@@ -51,49 +51,49 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_id">ID</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" value ="{{$opinion->id}}" readonly>
+							<input type="text" class="form-control" id="dia_id" value ="{{$opinion->id}}" readonly>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_userid">ユーザーID</label>
 						<div class="col-sm-10">
-							{{$opinion->userid}}
+							<input type="text" class="form-control" id="dia_userid" value ="{{$opinion->userid}}" readonly>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_time">日時</label>
 						<div class="col-sm-10">
-							{{$opinion->time}}
+							<input type="text" class="form-control" id="dia_time" value ="{{$opinion->time}}" readonly>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_opinion">ご意見</label>
 						<div class="col-sm-10">
-							{{$opinion->opinion}}
+							<textarea class="form-control" id="dia_opinion"  value = "{{$opinion->opinion}}" rows='5' readonly></textarea>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_sadness">悲しみ</label>
 						<div class="col-sm-2">
-							{{$opinion->sadness}}
+							<input type="text" class="form-control" id="dia_sadness"  value = "{{$opinion->sadness}}" readonly>
 						</div>
 						<label class="col-sm-2 control-label" for="dia_joy">喜び</label>
 						<div class="col-sm-2">
-							{{$opinion->joy}}
+							<input type="text" class="form-control" id="dia_joy" value = "{{$opinion->joy}}" readonly>
 						</div>
 						<label class="col-sm-2 control-label" for="dia_fear">恐れ</label>
 						<div class="col-sm-2">
-							{{$opinion->fear}}
+							<input type="text" class="form-control" id="dia_fear" value = "{{$opinion->fear}}" readonly>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_disgust">嫌悪</label>
 						<div class="col-sm-2">
-							{{$opinion->disgust}}
+							<input type="text" class="form-control" id="dia_disgust" value = "{{$opinion->disgust}}" readonly>
 						</div>
 						<label class="col-sm-2 control-label" for="dia_anger">怒り</label>
 						<div class="col-sm-2">
-							{{$opinion->anger}}
+							<input type="text" class="form-control" id="dia_anger" value = "{{$opinion->anger}}" readonly>
 						</div>
 					</div>
 				@endforeach
@@ -192,6 +192,7 @@
 				shosai_idx = shosai_idx + 1;
 				modal_mod(shosai_idx);
 			}
+			/*
 			function modal_mod(index){
 				document.getElementById('dia_id').value  = dbvalue[index][0];
 				document.getElementById('dia_userid').value  = dbvalue[index][1];
@@ -213,6 +214,6 @@
 				}else{
 					document.getElementById("snext").disabled = "";
 				}
-			}
+			}*/
 </script>
 @endsection
