@@ -51,7 +51,7 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_id">ID</label>
 						<div class="col-sm-10">
-							{{$opinion->id}}
+							<input type="text" class="form-control" value ="{{$opinion->id}}" readonly>
 						</div>
 					</div>
 					<div class="form-group">
