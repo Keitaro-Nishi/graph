@@ -1,16 +1,16 @@
-@extends('layouts.app')
-
-@section('content')
+@extends('layouts.app') @section('content')
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
-			<th data-column-id="no" data-type="numeric" data-identifier="true" data-width="4%">NO</th>
+			<th data-column-id="no" data-type="numeric" data-identifier="true"
+				data-width="4%">NO</th>
 			<th data-column-id="time" data-width="10%">日時</th>
 			<th data-column-id="userid" data-width="10%">ユーザーID</th>
-			<th data-column-id="contents"  data-width="35%">質問内容</th>
-            <th data-column-id="return"  data-width="35%">回答内容</th>
-            <th data-column-id='detail'  data-width='6%' data-formatter='details' data-sortable='false'></th>
+			<th data-column-id="contents" data-width="35%">質問内容</th>
+			<th data-column-id="return" data-width="35%">回答内容</th>
+			<th data-column-id='detail' data-width='6%' data-formatter='details'
+				data-sortable='false'></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -27,9 +27,9 @@
 	</tbody>
 </table>
 
-<div class="modal" id="shosaiDialog"  tabindex="-1">
+<div class="modal" id="shosaiDialog" tabindex="-1">
 	<div class="modal-dialog">
-		<div class="modal-content" style="width:740px; margin-left: -20px;">
+		<div class="modal-content" style="width: 740px; margin-left: -20px;">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal">
 					<span aria-hidden="true">&times;</span>
@@ -41,39 +41,46 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_id">No</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="dia_id" value ="{{$botlog->no}}" readonly>
+							<input type="text" class="form-control" id="dia_id"
+								value="{{$botlog->no}}" readonly>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_userid">ユーザーID</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="dia_userid" value ="{{$botlog->userid}}" readonly>
+							<input type="text" class="form-control" id="dia_userid"
+								value="{{$botlog->userid}}" readonly>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_time">日時</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="dia_time" value ="{{$botlog->time}}" readonly>
+							<input type="text" class="form-control" id="dia_time"
+								value="{{$botlog->time}}" readonly>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_opinion">質問</label>
 						<div class="col-sm-10">
-							<textarea class="form-control" id="dia_opinion" value ="{{$botlog->contents}}" rows='5' readonly></textarea>
+							<textarea class="form-control" id="dia_opinion"
+								value="{{$botlog->contents}}" rows='5' readonly></textarea>
 						</div>
 					</div>
-										<div class="form-group">
+					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_opinion">回答</label>
 						<div class="col-sm-10">
-							<textarea class="form-control" id="dia_opinion" value ="{{$botlog->return}}" rows='5' readonly></textarea>
+							<textarea class="form-control" id="dia_opinion"
+								value="{{$botlog->return}}" rows='5' readonly></textarea>
 						</div>
 					</div>
-				@endforeach
+					@endforeach
 				</form>
 			</div>
 			<div class="modal-footer">
-				<button id="sback" type="button" class="btn btn-default" onclick="shosai_back()">＜＜前へ</button>
-				<button id="snext" type="button" class="btn btn-default" onclick="shosai_next()">次へ＞＞</button>
+				<button id="sback" type="button" class="btn btn-default"
+					onclick="shosai_back()">＜＜前へ</button>
+				<button id="snext" type="button" class="btn btn-default"
+					onclick="shosai_next()">次へ＞＞</button>
 				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
 			</div>
 		</div>
@@ -81,8 +88,10 @@
 </div>
 
 <div class="container" align="center">
-	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
-<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog" value="モーダル表示" />
+	<input id="btn_del" type="button" class="btn btn-default"
+		value="選択行の削除" onclick="drow()"> <input id="btn_modal" type="button"
+		style="display: none" data-toggle="modal" data-target="#shosaiDialog"
+		value="モーダル表示" />
 </div>
 
 <script>
