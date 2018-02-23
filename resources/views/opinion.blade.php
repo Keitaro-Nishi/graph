@@ -57,22 +57,12 @@
 
  </div>
 
-<!--
+
  <div class="modal-footer">
-
-
-
-
-
  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
- <input type="submit" class="btn btn-danger" value="削除">
-
-
-
-
  </div>
--->
+
+
  </div><!-- /.modal-content -->
 
  </div><!-- /.modal-dialog -->
@@ -82,10 +72,5 @@
  @endforeach
 
  </table>
-
-
-
 </div>
-
 @endsection
-
