@@ -108,11 +108,11 @@
 		</div>
 	</div>
 </div>
+@endforeach
 
 <div class="container" align="center">
 	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog" value="モーダル表示" />
 </div>
-@endforeach
 
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
@@ -151,7 +151,6 @@
 			});
 			function drow() {
 
-
 				if(rowIds.length == 0){
 					alert("削除する行を選択してください");
 					return;
@@ -179,6 +178,7 @@
 					}
 				}
 			}
+			/*
 			function detailwin(value){
 				document.getElementById("btn_modal").click();
 				for (var i = 0; i < dbvalue.length; i++){
@@ -196,7 +196,7 @@
 				shosai_idx = shosai_idx + 1;
 				modal_mod(shosai_idx);
 			}
-			/*
+
 			function modal_mod(index){
 				document.getElementById('dia_id').value  = dbvalue[index][0];
 				document.getElementById('dia_userid').value  = dbvalue[index][1];
