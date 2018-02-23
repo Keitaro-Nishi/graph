@@ -5,37 +5,43 @@
 
  <h2>コレクション一覧</h2>
 
- <table class="table table-striped">
+ <table id="grid-basic"
+	class="table table-condensed table-hover table-striped">
 
  <tr>
 
- <th>ID</th>
-
- <th>Code</th>
-
- <th>説明</th>
-
- <th>処理</th>
+ <th>NO</th>
+ <th>ユーザーID</th>
+ <th>日時</th>
+ <th>ご意見</th>
+ <th>悲しみ</th>
+ <th>喜び</th>
+ <th>恐れ</th>
+ <th>嫌悪</th>
+ <th>怒り</th>
+ <th>チェック</th>
+ <th>詳細</th>
 
  </tr>
 
  @foreach($opinions as $opinion)
 
  <tr>
-
  <td>{{$opinion->id}}</td>
-
  <td>{{$opinion->userid}}</td>
-
  <td>{{$opinion->time}}</td>
-
+ <td>{{$opinion->opinion}}</td>
+ <td>{{$opinion->sadness}}</td>
+ <td>{{$opinion->joy}}</td>
+ <td>{{$opinion->fear}}</td>
+ <td>{{$opinion->disgust}}</td>
+ <td>{{$opinion->anger}}</td>
+ <td>{{$opinion->checked}}</td>
  <td>
-
  <a href="#" data-toggle="modal" data-target="#deleteModal{{$opinion->id}}"><span class="glyphicon glyphicon-remove"></span>削除</a>
-
  </td>
-
  </tr>
+
 
  <div class="modal fade" id="deleteModal{{$opinion->id}}">
 
