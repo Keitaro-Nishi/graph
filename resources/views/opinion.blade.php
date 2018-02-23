@@ -51,7 +51,7 @@
 			 </div><!-- /.modal-content -->
 			 </div><!-- /.modal-dialog -->
 			 </div><!-- /.modal -->
-			 @endforeach
+		@endforeach
 
 
 			<!--  <td>{{$opinion->sadness}}</td>
@@ -61,8 +61,8 @@
 			<td>{{$opinion->anger}}</td>
 			<td>{{$opinion->checked}}</td>
 			<td></td>
-		</tr>
-		@endforeach-->
+		</tr>-->
+
 	</tbody>
 </table>
 
