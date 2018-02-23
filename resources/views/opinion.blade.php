@@ -57,9 +57,10 @@
 
  </div>
 
+<!--
  <div class="modal-footer">
 
- {!! Form::open(['url'=>'opinions/delete']) !!}
+   {!! Form::open(['url'=>'opinions/delete']) !!}
 
  {!! Form::hidden('id',$opinion->id) !!}
 
@@ -68,6 +69,7 @@
  <input type="submit" class="btn btn-danger" value="削除">
 
  {!! Form::close() !!}
+-->
 
  </div>
 
