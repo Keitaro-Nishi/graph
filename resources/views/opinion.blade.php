@@ -33,17 +33,9 @@
 			<td>{{$opinion->checked}}</td>
 			<td></td>
 		</tr>
-		@endforeach
+
 	</tbody>
 </table>
-
-
-<div class="container" align="center">
-	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
-	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog" value="モーダル表示" />
-</div>
-
-
 
 <div class="modal" id="shosaiDialog"  tabindex="-1">
 	<div class="modal-dialog">
@@ -59,52 +51,52 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_id">ID</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="dia_id" readonly>
+							『{{$opinion->id}}』
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_userid">ユーザーID</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="dia_userid" readonly>
+							『{{$opinion->userid}}』
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_time">日時</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="dia_time" readonly>
+							『{{$opinion->time}}』
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_opinion">ご意見</label>
 						<div class="col-sm-10">
-							<textarea class="form-control" id="dia_opinion" rows='5' readonly></textarea>
+							『{{$opinion->opinion}}』
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_sadness">悲しみ</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_sadness" readonly>
+							『{{$opinion->sadness}}』
 						</div>
 						<label class="col-sm-2 control-label" for="dia_joy">喜び</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_joy" readonly>
+							『{{$opinion->joy}}』
 						</div>
 						<label class="col-sm-2 control-label" for="dia_fear">恐れ</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_fear" readonly>
+							『{{$opinion->fear}}』
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_disgust">嫌悪</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_disgust" readonly>
+							『{{$opinion->disgust}}』
 						</div>
 						<label class="col-sm-2 control-label" for="dia_anger">怒り</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_anger" readonly>
+							『{{$opinion->anger}}』
 						</div>
 					</div>
-
+				@endforeach
 				</form>
 			</div>
 			<div class="modal-footer">
@@ -114,6 +106,12 @@
 			</div>
 		</div>
 	</div>
+</div>
+
+
+<div class="container" align="center">
+	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
+	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog" value="モーダル表示" />
 </div>
 
 <script>
