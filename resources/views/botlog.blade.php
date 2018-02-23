@@ -58,13 +58,13 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_contents">質問</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="dia_contents" value="{{$botlog->contents}}" readonly></input>
+							<input type="text" class="form-control" id="dia_contents" value="{{$botlog->contents}}" row="5" readonly></input>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_return">回答</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="dia_return" value="{{$botlog->return}}" readonly></input>
+							<input type="text" class="form-control" id="dia_return" value="{{$botlog->return}}" row="5" readonly></input>
 						</div>
 					</div>
 					@endforeach
