@@ -37,7 +37,7 @@
 	</tbody>
 </table>
 
-
+@foreach($opinions as $opinion)
 <div class="modal" id="shosaiDialog"  tabindex="-1">
 	<div class="modal-dialog">
 		<div class="modal-content" style="width:740px; margin-left: -20px;">
@@ -48,7 +48,7 @@
 				<h4 class="modal-title" id="modal-label">詳細</h4>
 			</div>
 			<div class="modal-body">
-				@foreach($opinions as $opinion)
+
 				<form class="form-horizontal">
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_id">ID</label>
@@ -99,7 +99,6 @@
 						</div>
 					</div>
 				</form>
-				@endforeach
 			</div>
 			<div class="modal-footer">
 				<button id="sback" type="button" class="btn btn-default" onclick="shosai_back()">＜＜前へ</button>
@@ -109,7 +108,7 @@
 		</div>
 	</div>
 </div>
-
+@endforeach
 
 <div class="container" align="center">
 	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog" value="モーダル表示" />
