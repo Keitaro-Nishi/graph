@@ -69,10 +69,10 @@
  <input type="submit" class="btn btn-danger" value="削除">
 
  {!! Form::close() !!}
--->
+
 
  </div>
-
+-->
  </div><!-- /.modal-content -->
 
  </div><!-- /.modal-dialog -->
