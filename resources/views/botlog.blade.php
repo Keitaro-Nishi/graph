@@ -37,7 +37,6 @@
 				<h4 class="modal-title" id="modal-label">詳細</h4>
 			</div>
 			<div class="modal-body">
-			@foreach($botlogs as $botlog)
 				<form class="form-horizontal">
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_id">No</label>
@@ -70,7 +69,6 @@
 						</div>
 					</div>
 				</form>
-				@endforeach
 			</div>
 			<div class="modal-footer">
 				<button id="sback" type="button" class="btn btn-default"
