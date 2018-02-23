@@ -98,11 +98,11 @@
 					multiSelect : true,
 					rowSelect : true,
 					keepSelection : true,
-					/*formatters: {
+					formatters: {
 				        "details": function($column, $row) {
 				        	return "<input type='button' value='詳細' onclick='detailwin("  + $row.no + ")'> ";
 			             }
-				    }*/
+				    }
 				}).on("selected.rs.jquery.bootgrid", function(e, rows) {
 					for (var i = 0; i < rows.length; i++) {
 						rowIds.push(rows[i].no);
