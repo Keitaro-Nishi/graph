@@ -64,7 +64,7 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_return">回答</label>
 						<div class="col-sm-10">
-							<textarea class="form-control" id="dia_return" value="{{$botlog->return}}" rows='5' readonly></textarea>
+							<textarea class="form-control" id="dia_return" rows='5' readonly>{{$botlog->return}}</textarea>
 						</div>
 					</div>
 					@endforeach
