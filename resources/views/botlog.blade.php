@@ -37,8 +37,8 @@
 				<h4 class="modal-title" id="modal-label">詳細</h4>
 			</div>
 			<div class="modal-body">
+			@foreach($botlogs as $botlog)
 				<form class="form-horizontal">
-				@foreach($botlogs as $botlog)
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_id">No</label>
 						<div class="col-sm-10">
@@ -69,8 +69,8 @@
 							<textarea class="form-control" id="dia_return" rows='5' readonly>{{$botlog->return}}</textarea>
 						</div>
 					</div>
-					@endforeach
 				</form>
+				@endforeach
 			</div>
 			<div class="modal-footer">
 				<button id="sback" type="button" class="btn btn-default"
