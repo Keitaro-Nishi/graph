@@ -5,9 +5,11 @@
 @stop
 
 @section('content')
+<div class="container">
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
-	<select class="form-control" id="codesel" onChange="codeselChange()">
+	{{Auth::user()->name}}
+	<select class="form-control" id="codesel" onChange="codeselChange()" width="200px">
 				<option value="0" selected>分類</option>
 	</select>
 	<thead>
@@ -33,6 +35,7 @@
 		@endforeach
 	</tbody>
 </table>
+</div>
 
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
