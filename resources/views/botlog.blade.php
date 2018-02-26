@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+チャットボットログ
+@stop
+
 @section('content')
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
