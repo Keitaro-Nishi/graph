@@ -29,5 +29,11 @@ Route::middleware(['auth'])->group(function () {
 	Route::get ( '/opinion', 'OpinionController@index' )->name ( 'opinion' );
 	Route::get ( '/opinion/{deleteno}','OpinionController@delete' );
 
+	Route::get ( '/botlog', 'BotlogController@index' )->name ( 'botlog' );
+	Route::get ( '/botlog/{deleteno}','BotlogController@delete' );
+
+	Route::get ( '/facility', 'FacilityController@index' )->name ( 'facility' );
+	Route::get ( '/facility/{deleteno}','FacilityController@delete' );
+
 	Route::get ( '/logindata', 'LogindataController@index' )->name ( 'logindata' )->middleware('role');
 });
