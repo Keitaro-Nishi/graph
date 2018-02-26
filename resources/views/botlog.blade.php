@@ -127,7 +127,7 @@
 					for (var i = 0; i < rowIds.length; i++){
 						$.ajax({
 							type: "GET",
-							url: 'botlog/'+ rowIds[i],
+							url: 'ajax/'+ rowIds[i],
 						}).then(
 							function(){
 							},

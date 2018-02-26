@@ -10,8 +10,8 @@ class FacilityController
 
 	public function index(Request $request)
 	{
-		$botlogs = Facility::all();
-		return view('facility',['facilitys'=>$botlogs]);
+		$facilitys= Facility::all();
+		return view('facility',['facilitys'=>$facilitys]);
 	}
 
 	public function delete(Request $request)
