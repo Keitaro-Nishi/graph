@@ -13,7 +13,7 @@ class CodeManageController
 	{
 		$cityCD = Auth::user()->citycode;
 		//$botlogs = Botlog::all();
-		$botlogs = Botlog::where('citycode', '=' , $cityCD);
+		$botlogs = Botlog::where('citycode', $cityCD)->get();
 		return view('codemanage',['botlogs'=>$botlogs,'name'=>$cityCD]);
 
 	}
