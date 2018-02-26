@@ -10,7 +10,7 @@ class BotlogController
 
 	public function index(Request $request)
 	{
-		$botlogs = DB::table('botlog')->where('citycode', 'Auth::user()->citycode');
+		$botlogs = Botlog::table('botlog')->where('citycode', 'Auth::user()->citycode');
 		return view('botlog',['botlogs'=>$botlogs]);
 	}
 
