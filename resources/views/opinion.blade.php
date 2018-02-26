@@ -15,7 +15,7 @@
                <th data-column-id='disgust' data-type='numeric' data-width='9%'>嫌悪</th>
                <th data-column-id='anger' data-type='numeric' data-width='9%'>怒り</th>
                <th data-column-id='checked'  data-width='5%'>チェック</th>
-               <th data-column-id='detail'  data-width='5%' data-formatter='details' data-sortable='false'></th>
+               <th data-column-id='detail'  data-width='5%'></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -33,6 +33,7 @@
 			<td>{{$opinion->checked}}</td>
 			<td><a href="#" data-toggle="modal" data-target="#detailModal{{$opinion->id}}">詳細</a></td>
 		</tr>
+
 		<div class="modal" id="#detailModal{{$opinion->id}}">
 		<div class="modal-dialog">
 		<div class="modal-content" style="width:740px; margin-left: -20px;">
@@ -100,8 +101,8 @@
 		</div>
 	</div>
 </div>
+@endforeach
 	</tbody>
-		@endforeach
 </table>
 
 
