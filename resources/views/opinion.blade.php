@@ -133,7 +133,7 @@
 					keepSelection : true,
 				    formatters: {
 				        "details": function($column, $row) {
-				        	return "<input type='button' class='btn btn-default' value='詳細' onclick='detailwin("  + $row.id + ")'> ";
+				        	return "<input type='button' class='btn btn-default' value='詳細' onclick='detailwin()'> ";
 			             }
 				    }
 				}).on("selected.rs.jquery.bootgrid", function(e, rows) {
@@ -179,14 +179,14 @@
 				}
 			}
 
-			function detailwin(value){
+			function detailwin(){
 				document.getElementById("btn_modal").click();
-				for (var i = 0; i < dbvalue.length; i++){
+				/*for (var i = 0; i < dbvalue.length; i++){
 					if(dbvalue[i][0] == value){
 						shosai_idx = i;
 						modal_mod(i);
 					}
-				}
+				}*/
 			}
 			/*
 			function shosai_back(){
