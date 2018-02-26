@@ -156,7 +156,8 @@
 			});
 			function drow() {
 
-				alert(dbvalue[0];)
+				//alert(dbvalue[0];)
+				alert("こんにちは");
 				/*
 				if(rowIds.length == 0){
 					alert("削除する行を選択してください");
