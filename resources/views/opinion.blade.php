@@ -15,7 +15,7 @@
                <th data-column-id='disgust' data-type='numeric' data-width='9%'>嫌悪</th>
                <th data-column-id='anger' data-type='numeric' data-width='9%'>怒り</th>
                <th data-column-id='checked'  data-width='5%'>チェック</th>
-               <th data-column-id='detail'  data-width='5%'></th>
+               <th data-column-id='detail'  data-width='5%' data-formatter='details' data-sortable='false'></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -31,11 +31,15 @@
 			<td>{{$opinion->disgust}}</td>
 			<td>{{$opinion->anger}}</td>
 			<td>{{$opinion->checked}}</td>
-			<td><a href="#" data-toggle="modal" data-target="#detailModal{{$opinion->id}}">詳細</a></td>
+			<td></td>
 		</tr>
+		@endforeach
+	</tbody>
+</table>
 
-		<div class="modal fade" id="#detailModal{{$opinion->id}}">
-		<div class="modal-dialog">
+@foreach($opinions as $opinion)
+<div class="modal" id="shosaiDialog"  tabindex="-1">
+	<div class="modal-dialog">
 		<div class="modal-content" style="width:740px; margin-left: -20px;">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal">
@@ -43,7 +47,8 @@
 				</button>
 				<h4 class="modal-title" id="modal-label">詳細</h4>
 			</div>
-		<div class="modal-body">
+			<div class="modal-body">
+
 				<form class="form-horizontal">
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_id">ID</label>
@@ -96,22 +101,18 @@
 				</form>
 			</div>
 			<div class="modal-footer">
+				<button id="sback" type="button" class="btn btn-default" onclick="shosai_back()">＜＜前へ</button>
+				<button id="snext" type="button" class="btn btn-default" onclick="shosai_next()">次へ＞＞</button>
 				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
 			</div>
 		</div>
 	</div>
 </div>
 @endforeach
-	</tbody>
-</table>
 
-
-
-
-<!--
 <div class="container" align="center">
 	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog" value="モーダル表示" />
-</div>-->
+</div>
 
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
@@ -129,12 +130,12 @@
 					selection : true,
 					multiSelect : true,
 					rowSelect : true,
-					keepSelection : true/*,
+					keepSelection : true,
 				    formatters: {
 				        "details": function($column, $row) {
-				        	return "<input type='button' class='btn btn-default' value='詳細' onclick='detailwin()'> ";
+				        	return "<input type='button' class='btn btn-default' value='詳細' onclick='detailwin("  + $row.id + ")'> ";
 			             }
-				    }*/
+				    }
 				}).on("selected.rs.jquery.bootgrid", function(e, rows) {
 					for (var i = 0; i < rows.length; i++) {
 						rowIds.push(rows[i].id);
@@ -178,8 +179,7 @@
 				}
 			}
 
-			/*
-			function detailwin(){
+			function detailwin(value){
 				document.getElementById("btn_modal").click();
 				for (var i = 0; i < dbvalue.length; i++){
 					if(dbvalue[i][0] == value){
@@ -187,7 +187,7 @@
 						modal_mod(i);
 					}
 				}
-			}*/
+			}
 			/*
 			function shosai_back(){
 				shosai_idx = shosai_idx - 1;
