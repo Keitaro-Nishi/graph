@@ -12,7 +12,9 @@ class OpinionController
 	{
 
 		$opinions = Opinion::all();
-
+		$test =[];
+		$test = $opinions;
+		$jsonTest=json_encode($test);
 		//error_log("★★★★★★★");
 		//error_log($opinions[0]);
 
