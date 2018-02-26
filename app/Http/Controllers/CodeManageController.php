@@ -11,7 +11,8 @@ class CodeManageController
 	public function index(Request $request)
 	{
 		$botlogs = Botlog::all();
-		return view('codemanage',['botlogs'=>$botlogs]);
+		$name = Auth::user()->name;
+		return view('codemanage',['botlogs'=>$botlogs,'name'=>$name]);
 
 	}
 

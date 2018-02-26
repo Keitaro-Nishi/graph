@@ -8,7 +8,7 @@
 <div class="container">
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
-	{{Auth::user()->name}}
+	{{$name}}
 	<select class="form-control" id="codesel" onChange="codeselChange()" width="200px">
 				<option value="0" selected>分類</option>
 	</select>
