@@ -11,7 +11,7 @@ class CodeManageController
 	public function index(Request $request)
 	{
 		$botlogs = Botlog::all();
-		return view('botlog',['botlogs'=>$botlogs]);
+		return view('codemanage',['botlogs'=>$botlogs]);
 
 	}
 
