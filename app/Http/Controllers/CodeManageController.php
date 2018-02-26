@@ -14,7 +14,7 @@ class CodeManageController
 		$cityCD = Auth::user()->citycode;
 		//$botlogs = Botlog::all();
 		$botlogs = Botlog::where('citycode', '=' , $cityCD);
-		return view('codemanage',['botlogs'=>$botlogs,'name'=>$name]);
+		return view('codemanage',['botlogs'=>$botlogs,'name'=>$cityCD]);
 
 	}
 
