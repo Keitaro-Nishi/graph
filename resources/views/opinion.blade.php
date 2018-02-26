@@ -126,7 +126,6 @@
 			var rowIds = [];
 			var dbvalue = [];
 			var shosai_idx = 0;
-				 //dbvalue = document.getElementById("test");
 
 
 			$(function() {
@@ -155,9 +154,6 @@
 			});
 			function drow() {
 
-				//alert(dbvalue[0];)
-
-				/*
 				if(rowIds.length == 0){
 					alert("削除する行を選択してください");
 					return;
@@ -183,7 +179,7 @@
 					}else{
 						alert("削除できませんでした");
 					}
-				}*/
+				}
 			}
 
 			function detailwin(value){
