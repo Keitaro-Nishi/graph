@@ -1,10 +1,9 @@
 var rowIds = [];
 var dbvalue = [];
 var shosai_idx = 0;
-/*var test = [];
-test = JSON.parse(‘<?php echo  $jsonTest; ?>’);
-var test2 = test[0];
-*/
+var js_array = JSON.parse('<?php echo $php_json; ?>');
+
+
 			$(function() {
 				$("#grid-basic").bootgrid({
 					selection : true,
