@@ -25,4 +25,6 @@ Route::get ( '/botlog', 'BotlogController@index' )->name ( 'botlog' )->middlewar
 Route::get ( '/logindata', 'LogindataController@index' )->name ( 'logindata' );
 Route::get ( '/opinion', 'OpinionController@index' )->name ( 'opinion' );
 Route::get ( '/opinion/{deleteno}','OpinionController@delete' );
+
+Route::get ( '/codemanage', 'CodeManageController@index')->name('codemanage')->middleware('role');
 	//Route::get('/ajax/{deletecode}','UserdeleteController@delete');
