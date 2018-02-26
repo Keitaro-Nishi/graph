@@ -14,6 +14,14 @@ class FacilityController
 		return view('facility',['facilitys'=>$facilitys]);
 	}
 
+	public function insert(Request $request)
+	{
+
+
+
+		return redirect('/facility');
+	}
+
 	public function delete(Request $request)
 	{
 

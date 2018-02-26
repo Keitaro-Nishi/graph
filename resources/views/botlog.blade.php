@@ -152,6 +152,7 @@
 					}
 				}
 			}
+
 			function shosai_back(){
 				shosai_idx = shosai_idx - 1;
 				modal_mod(shosai_idx);
@@ -160,6 +161,7 @@
 				shosai_idx = shosai_idx + 1;
 				modal_mod(shosai_idx);
 			}
+
 			/*
 			function modal_mod(index){
 				document.getElementById('dia_id').value  = dbvalue[index][0];
