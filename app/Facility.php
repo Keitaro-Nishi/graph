@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Botlog extends Model
+class Facility extends Model
 {
 	/**
 	 * The attributes that are mass assignable.
