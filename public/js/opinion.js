@@ -1,6 +1,6 @@
 var rowIds = [];
-			var dbvalue = [];
-			var shosai_idx = 0;
+var dbvalue = [];
+var shosai_idx = 0;
 
 
 			$(function() {
