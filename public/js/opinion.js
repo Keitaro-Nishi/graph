@@ -30,7 +30,7 @@ var js_array = JSON.parse('<?php echo $php_json; ?>');
 			});
 			function drow() {
 
-				alert("おはよう");
+				alert(js_array[0]);
 				/*
 				if(rowIds.length == 0){
 					alert("削除する行を選択してください");
