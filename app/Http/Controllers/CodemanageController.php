@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Botlog;
 
-class BotlogController
+class CodemanageController
 {
 
 	public function index(Request $request)
