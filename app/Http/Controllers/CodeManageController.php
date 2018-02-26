@@ -12,7 +12,7 @@ class CodeManageController
 	public function index(Request $request)
 	{
 		$botlogs = Botlog::all();
-		$name = Auth::user();
+		$name = Auth::user()->citycode;
 		return view('codemanage',['botlogs'=>$botlogs,'name'=>$name]);
 
 	}
