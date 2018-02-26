@@ -1,10 +1,10 @@
 var rowIds = [];
 var dbvalue = [];
 var shosai_idx = 0;
-var test = [];
+/*var test = [];
 test = JSON.parse(‘<?php echo  $jsonTest; ?>’);
 var test2 = test[0];
-
+*/
 			$(function() {
 				$("#grid-basic").bootgrid({
 					selection : true,
@@ -31,7 +31,7 @@ var test2 = test[0];
 			});
 			function drow() {
 
-				alert(test2);
+				alert("おはよう");
 				/*
 				if(rowIds.length == 0){
 					alert("削除する行を選択してください");
