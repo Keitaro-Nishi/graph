@@ -118,7 +118,7 @@
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
 </div>
 
-<div disable="none">
+<div>
 <input id="test" type="hidden" value = "{{$opinion}}">
 </div>
 
