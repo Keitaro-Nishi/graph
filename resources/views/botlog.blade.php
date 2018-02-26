@@ -91,7 +91,6 @@
 			var shosai_idx = 0;
 
 			$(function() {
-				$("#header").load("header.html");
 				$("#grid-basic").bootgrid({
 					selection : true,
 					multiSelect : true,

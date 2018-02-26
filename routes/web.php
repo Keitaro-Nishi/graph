@@ -24,8 +24,6 @@ Route::middleware(['auth'])->group(function () {
 	Route::get ( '/users', 'UserController@index' )->name ( 'users' );
 	Route::get ( '/users/{deletecode}', 'UserController@delete' );
 
-	Route::get ( '/botlog', 'BotlogController@index' )->name ( 'botlog' );
-
 	Route::get ( '/opinion', 'OpinionController@index' )->name ( 'opinion' );
 	Route::get ( '/opinion/{deleteno}','OpinionController@delete' );
 

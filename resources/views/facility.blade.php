@@ -156,7 +156,7 @@
 					for (var i = 0; i < rowIds.length; i++){
 						$.ajax({
 							type: "GET",
-							url: 'ajax/'+ rowIds[i],
+							url: 'facility/'+ rowIds[i],
 						}).then(
 							function(){
 							},
