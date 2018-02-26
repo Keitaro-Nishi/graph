@@ -9,7 +9,7 @@
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
 	{{$name}}
-	<select class="form-control" id="codesel" onChange="codeselChange()" width="200px">
+	<select class="form-control" id="codesel" onChange="codeselChange()" width="200">
 				<option value="0" selected>分類</option>
 	</select>
 	<thead>
