@@ -126,7 +126,8 @@
 			var rowIds = [];
 			var dbvalue = [];
 			var shosai_idx = 0;
-				 dbvalue = document.getElementById("test");
+				dbvalue[0] ="a";
+				 //dbvalue = document.getElementById("test");
 
 
 			$(function() {
