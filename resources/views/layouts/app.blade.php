@@ -8,7 +8,11 @@
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<title>ViewLog</title>
+<title>
+	@section('title')
+	行政システム
+	@show
+</title>
 
 <!-- Styles -->
 <link href="{{ asset('css/common.css') }}" rel="stylesheet">
@@ -38,10 +42,10 @@
 					</button>
 					@guest
 					<!-- Branding Image -->
-					<a class="navbar-brand" href="{{ url('/login') }}">ViewLog</a>
+					<a class="navbar-brand" href="{{ url('/login') }}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
 					@else
 					<!-- Branding Image -->
-					<a class="navbar-brand" href="{{ url('/home') }}">ViewLog</a>
+					<a class="navbar-brand" href="{{ url('/home') }}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
 					@endguest
 				</div>
 				<div class="collapse navbar-collapse" id="app-navbar-collapse">
