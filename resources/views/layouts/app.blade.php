@@ -71,7 +71,7 @@
 								<li><a href="{{ route('register') }}">メッセージ管理</a></li>
 								@if (Auth::user()->role == 0 or Auth::user()->role == 1)
 								<li><a href="{{ route('register') }}">セッション情報</a></li>
-								<li><a href="{{ route('register') }}">コード管理</a></li>
+								<li><a href="{{ route('codemanage') }}">コード管理</a></li>
 								<li><a href="{{ route('register') }}">市町村パラメタ</a></li>
 								@endif
 							</ul>
