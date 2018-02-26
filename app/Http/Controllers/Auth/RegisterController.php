@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller {
 	/*
@@ -33,9 +34,12 @@ class RegisterController extends Controller {
 	 *
 	 * @return void
 	 */
+
 	public function __construct() {
-		$this->middleware ( 'guest' );
+		$this->middleware ( 'auth' );
+		//$this->middleware ( 'guest' );
 	}
+
 
 	/**
 	 * Get a validator for an incoming registration request.
@@ -45,8 +49,11 @@ class RegisterController extends Controller {
 	 */
 	protected function validator(array $data) {
 		return Validator::make ( $data, [
+
+				'citycode' => 'required|string',
 				'name' => 'required|string|max:255',
-				'email' => 'required|string|email|max:255|unique:users',
+				'userid' => 'required|string|max:255|unique:users',
+				'organization' => 'required|string|max:255',
 				'password' => 'required|string|min:6|confirmed'
 		] );
 	}
@@ -58,11 +65,16 @@ class RegisterController extends Controller {
 	 * @return \App\User
 	 */
 	protected function create(array $data) {
+
 		return User::create ( [
+
+				'citycode' =>$data ['citycode'],
 				'name' => $data ['name'],
-				'email' => $data ['email'],
-				'userid' => $data ['userid'], // 追加
-				'password' => bcrypt ( $data ['password'] )
+				'userid' => $data ['userid'],
+				'organization' => $data ['organization'],
+				'password' => bcrypt ( $data ['password'] ),
+				'role' => $data ['role']
+
 		] );
 	}
 }

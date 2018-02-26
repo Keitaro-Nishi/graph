@@ -8,10 +8,19 @@
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<title>{{ config('app.name', 'Laravel') }}</title>
+<title>ViewLog</title>
 
 <!-- Styles -->
+<link href="{{ asset('css/common.css') }}" rel="stylesheet">
+<link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<link href="{{ asset('css/Buttons.css') }}" rel="stylesheet">
+<link href="{{ asset('css/jquery.bootgrid.css') }}" rel="stylesheet">
+
+<!-- Scripts -->
+<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/jquery.bootgrid.js') }}"></script>
+
 </head>
 <body>
 	<div id="app">
@@ -27,12 +36,14 @@
 							class="icon-bar"></span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span>
 					</button>
-
+					@guest
 					<!-- Branding Image -->
-					<a class="navbar-brand" href="{{ url('/') }}"> {{
-						config('app.name', 'Laravel') }} </a>
+					<a class="navbar-brand" href="{{ url('/login') }}">ViewLog</a>
+					@else
+					<!-- Branding Image -->
+					<a class="navbar-brand" href="{{ url('/home') }}">ViewLog</a>
+					@endguest
 				</div>
-
 				<div class="collapse navbar-collapse" id="app-navbar-collapse">
 					<!-- Left Side Of Navbar -->
 					<ul class="nav navbar-nav">&nbsp;
@@ -41,38 +52,53 @@
 					<!-- Right Side Of Navbar -->
 					<ul class="nav navbar-nav navbar-right">
 						<!-- Authentication Links -->
-						@guest
-						<li><a href="{{ route('login') }}">Login</a></li>
-						<li><a href="{{ route('register') }}">Register</a></li>
-						@else
-						<li><a href="{{ route('register') }}">Register</a></li>
+						@auth
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">Menu
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="{{ route('botlog') }}">ログ参照</a></li>
+								<li><a href="{{ route('register') }}">画像ログ参照</a></li>
+								<li><a href="{{ route('register') }}">施設情報</a></li>
+								<li><a href="{{ route('register') }}">施設ジャンル</a></li>
+								<li><a href="{{ route('botlog') }}">ご意見ログ</a></li>
+								<li><a href="{{ route('register') }}">属性情報</a></li>
+								<li><a href="{{ route('register') }}">メッセージ管理</a></li>
+								@if (Auth::user()->role == 0 or Auth::user()->role == 1)
+								<li><a href="{{ route('register') }}">セッション情報</a></li>
+								<li><a href="{{ route('register') }}">コード管理</a></li>
+								<li><a href="{{ route('register') }}">市町村パラメタ</a></li>
+								@endif
+							</ul>
+						</li>
+
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown" role="button" aria-expanded="false"
-							aria-haspopup="true"> {{ Auth::user()->name }} <span
-								class="caret"></span>
+							aria-haspopup="true">
+							<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 						</a>
 
 							<ul class="dropdown-menu">
-
+								@if (Auth::user()->role == 0 or Auth::user()->role == 1)
+								<li><a href="{{ route('users') }}">ユーザー管理</a></li>
+								<li><a href="{{ route('logindata') }}">ログイン情報</a></li>
+								<li><a href="{{ route('register') }}">Register</a></li>
+								@endif
 								<li><a href="{{ route('logout') }}"
 									onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-										Logout </a>
+                                                     document.getElementById('logout-form').submit();"> Logout </a>
 
 									<form id="logout-form" action="{{ route('logout') }}"
 										method="POST" style="display: none;">{{ csrf_field() }}</form>
 								</li>
-							</ul></li>
-						@endguest
-					</ul>
+							</ul>
+						</li>
+						@endauth
 				</div>
 			</div>
 		</nav>
-
 		@yield('content')
 	</div>
-
-	<!-- Scripts -->
-	<script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
