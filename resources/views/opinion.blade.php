@@ -31,14 +31,7 @@
 			<td>{{$opinion->disgust}}</td>
 			<td>{{$opinion->anger}}</td>
 			<td>{{$opinion->checked}}</td>
-			<td></td>
-		</tr>
-		@endforeach
-	</tbody>
-</table>
-
-@foreach($opinions as $opinion)
-<div class="modal" id="shosaiDialog"  tabindex="-1">
+			<td><div class="modal" id="shosaiDialog"  tabindex="-1">
 	<div class="modal-dialog">
 		<div class="modal-content" style="width:740px; margin-left: -20px;">
 			<div class="modal-header">
@@ -107,8 +100,12 @@
 			</div>
 		</div>
 	</div>
-</div>
-@endforeach
+</div></td>
+		</tr>
+		@endforeach
+	</tbody>
+</table>
+
 
 <div class="container" align="center">
 	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog" value="モーダル表示" />
