@@ -31,7 +31,7 @@
 			<td>{{$opinion->disgust}}</td>
 			<td>{{$opinion->anger}}</td>
 			<td>{{$opinion->checked}}</td>
-			<td><a href="#" data-toggle="modal" data-target="#detailModal{{$opinion->id}}">詳細</a></td>
+			<td><a href="#" data-toggle="modal" data-target="#detailModal{{$opinion->id}}"><span class="glyphicon glyphicon-remove"></span>詳細</a></td>
 		</tr>
 
 		<div class="modal" id="#detailModal{{$opinion->id}}">
