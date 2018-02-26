@@ -10,7 +10,7 @@
 
 <title>
 	@section('title')
-	行政システム
+	行政システム1
 	@show
 </title>
 
