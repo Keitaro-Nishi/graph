@@ -14,7 +14,7 @@ class BotlogController
 		$cityCD = Auth::user()->citycode;
 		//$botlogs = Botlog::all();
 		$botlogs = Botlog::where('citycode', $cityCD)->get();
-		return view('codemanage',['botlogs'=>$botlogs,'name'=>$cityCD]);
+		return view('botlog',['botlogs'=>$botlogs,'name'=>$cityCD]);
 	}
 
 	public function delete(Request $request)
