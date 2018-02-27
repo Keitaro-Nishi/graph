@@ -26,8 +26,8 @@ class FacilityController
 	{
 
 		$deleteno = $request->deleteno;
-		$deletebotlog = Facility::find($deleteno);
-		$deletebotlog->delete();
+		$deletefacility = Facility::find($deleteno);
+		$deletefacility->delete();
 
 		return redirect('/facility');
 	}
