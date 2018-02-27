@@ -38,39 +38,39 @@
 					@else
 					<div class="form-group" style="display:none">
 					@endif
-						<label class="col-sm-4 control-label" for="dia_citycode">市町村コード</label>
-						<div class="col-sm-8">
+						<label class="col-sm-3 control-label" for="dia_citycode">市町村コード</label>
+						<div class="col-sm-9">
 							<input type="text" class="form-control" id="dia_citycode" value="" required autofocus>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-4 control-label" for="dia_userid">ユーザーＩＤ</label>
-						<div class="col-sm-8">
+						<label class="col-sm-3 control-label" for="dia_userid">ユーザーＩＤ</label>
+						<div class="col-sm-9">
 							<input type="text" class="form-control" id="dia_userid" value="" required>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-4 control-label" for="dia_name">ユーザー名</label>
-						<div class="col-sm-8">
+						<label class="col-sm-3 control-label" for="dia_name">ユーザー名</label>
+						<div class="col-sm-9">
 							<input type="text" class="form-control" id="dia_name" value="" required>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-4 control-label" for="dia_organization">所属</label>
-						<div class="col-sm-8">
+						<label class="col-sm-3 control-label" for="dia_organization">所属</label>
+						<div class="col-sm-9">
 							<select class="form-control" id="dia_organization" >
 							</select>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-4 control-label" for="dia_password">パスワード</label>
-						<div class="col-sm-8">
+						<label class="col-sm-3 control-label" for="dia_password">パスワード</label>
+						<div class="col-sm-9">
 							<input type="text" class="form-control" id="dia_password" value="" required>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-4 control-label" for="dia_password_confirmation">パスワード再入力</label>
-						<div class="col-sm-8">
+						<label class="col-sm-3 control-label" for="dia_password_confirmation">パスワード再入力</label>
+						<div class="col-sm-9">
 							<input type="text" class="form-control" id="dia_password_confirmation" value="" required>
 						</div>
 					</div>
@@ -86,7 +86,7 @@
 
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
-	<input id="btn_del" type="button" class="btn btn-default" value="ユーザー登録" onclick="insert()">
+	<input id="btn_ins" type="button" class="btn btn-default" value="ユーザー登録" onclick="insert()">
 	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog"/>
 </div>
 <script src="{{ asset('js/users.js') }}"></script>
