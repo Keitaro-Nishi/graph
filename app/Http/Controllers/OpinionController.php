@@ -11,8 +11,7 @@ class OpinionController
 	public function index(Request $request)
 	{
 
-		$opinions = Opinion::all();
-		$php_json = json_encode($opinions);
+	$opinions = Opinion::all();
 
 		return view('opinion',['opinions'=>$opinions]);
 		//return view('opinion')->with('opinions', $opinions);
