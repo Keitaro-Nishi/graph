@@ -129,23 +129,24 @@ function drow() {
 	var successFlg = true;
 	var myRet = confirm("選択行を削除しますか？");
 	if ( myRet == true ){
-		$.ajax({
-			type: "POST",
-			url: "shisetsudel.php",
-			data:{
-				"id" : rowIds
-			}
-		}).done(function (response) {
-			result = JSON.parse(response);
-			if(result == "OK"){
-				alert("削除しました");
-				location.reload();
-			}else{
-				alert("削除できませんでした");
-			}
-	    }).fail(function () {
-	        alert("削除できませんでした");
-	    });
+		for (var i = 0; i < rowIds.length; i++){
+			$.ajax({
+				type: "GET",
+				url: 'facility/'+ rowIds[i],
+			}).then(
+				function(){
+				},
+				function(){
+					successFlg = false;
+				}
+			);
+		}
+		if( successFlg == true){
+			alert("削除しました");
+			location.reload();
+		}else{
+			alert("削除できませんでした");
+		}
 	}
 }
 </script>
