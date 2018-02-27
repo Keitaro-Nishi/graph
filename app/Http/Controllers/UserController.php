@@ -37,7 +37,7 @@ class UserController
 		$deleteuser = User::find($deleteid);
 		$deleteuser->delete();
 		*/
-		//error_log("★★★★★★★★★★★★★update★★★★★★★★★★★★★★★");
+		error_log("★★★★★★★★★★★★★update★★★★★★★★★★★★★★★".$request->name);
 
 		return redirect('/users');
 	}
