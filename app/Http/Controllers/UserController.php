@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\User;
 
 class UserController
@@ -10,7 +11,12 @@ class UserController
 
 	public function index(Request $request)
 	{
-		$users = User::all();
+		$cityCD = Auth::user()->citycode;
+		if($cityCD = "00000"){
+			$users = User::all();
+		}else{
+			$users = User::all();
+		}
 		return view('users',['users'=>$users]);
 	}
 
