@@ -15,8 +15,7 @@
 			<th data-column-id="lng">経度</th>
 			<th data-column-id="imageurl">画像URL</th>
 			<th data-column-id="url">詳細URL</th>
-			<th data-column-id='detail' data-formatter='details'
-				data-sortable='false'></th>
+			<th data-column-id='detail' data-formatter='details' data-sortable='false'></th>
 		</tr>
 	</thead>
 	<tbody>
