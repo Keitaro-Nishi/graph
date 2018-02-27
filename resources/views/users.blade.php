@@ -78,6 +78,7 @@
 							<input type="text" class="form-control" id="dia_password_confirmation" name="password_confirmation" value="" required>
 						</div>
 					</div>
+					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 					<div class="text-right" >
 						<button type="submit" class="btn btn-primary">登録</button>
 						<button id="dia_close" type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
