@@ -15,12 +15,22 @@ class UserController
 		if($cityCD = "00000"){
 			$users = User::all();
 		}else{
-			$users = User::all();
+			$users= User::where('citycode', $cityCD)->get();
 		}
 		return view('users',['users'=>$users]);
 	}
 
 	public function delete(Request $request)
+	{
+
+		$deleteid = $request->deletecode;
+		$deleteuser = User::find($deleteid);
+		$deleteuser->delete();
+
+		return redirect('/users');
+	}
+
+	public function update(Request $request)
 	{
 
 		$deleteid = $request->deletecode;
