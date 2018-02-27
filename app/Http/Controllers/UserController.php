@@ -43,6 +43,7 @@ class UserController
 		return redirect('/users');
 	}
 
+	/*
 	protected function validator(array $data) {
 		error_log("★★★★★★★★★★★★★validator★★★★★★★★★★★★★★★");
 		return Validator::make ( $data, [
@@ -54,5 +55,6 @@ class UserController
 				'password' => 'required|string|min:6|confirmed'
 		] );
 	}
+	*/
 
 }
