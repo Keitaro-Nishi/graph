@@ -39,11 +39,9 @@
 <!-- botlog 29~81 -->
 
 <div class="container" align="center">
-	<input id="btn_del" type="button" class="btn btn-default"
-		value="選択行の削除" onclick="drow()"> <input id="btn_ins" type="button"
-		class="btn btn-default" value="施設の追加" onclick="irow()"> <input
-		id="btn_modal" type="button" style="display: none" data-toggle="modal"
-		data-target="#shosaiDialog" value="モーダル表示" />
+	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
+	<input id="btn_ins" type="button" class="btn btn-default" value="施設の追加" onclick="irow()">
+	<input id="btn_modal" type="button" style="display: none" data-toggle="modal" data-target="#shosaiDialog" value="モーダル表示" />
 </div>
 
 <!-- 登録Modal -->
