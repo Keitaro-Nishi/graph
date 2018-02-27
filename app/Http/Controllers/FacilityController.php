@@ -25,8 +25,8 @@ class FacilityController
 	public function delete(Request $request)
 	{
 
-		$deleteno = $request->deleteno;
-		$deletefacility = Facility::find($deleteno);
+		$deleteid = $request->deleteid;
+		$deletefacility = Facility::find($deleteid);
 		$deletefacility->delete();
 
 		return redirect('/facility');
