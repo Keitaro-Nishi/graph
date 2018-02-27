@@ -92,7 +92,6 @@
 	</div>
 </div>
 
-
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
 	<input id="btn_ins" type="button" class="btn btn-default" value="施設の追加" onclick="irow()">
