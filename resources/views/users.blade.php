@@ -38,46 +38,45 @@
 					@else
 					<div class="form-group" style="display:none">
 					@endif
-						<label class="col-sm-4 control-label" for="dia_citycode">市町村コード</label>
-						<div class="col-sm-8">
+						<label class="col-sm-3 control-label" for="dia_citycode">市町村コード</label>
+						<div class="col-sm-9">
 							<input type="text" class="form-control" id="dia_citycode" value="" required autofocus>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-4 control-label" for="dia_userid">ユーザーＩＤ</label>
-						<div class="col-sm-8">
+						<label class="col-sm-3 control-label" for="dia_userid">ユーザーＩＤ</label>
+						<div class="col-sm-9">
 							<input type="text" class="form-control" id="dia_userid" value="" required>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-4 control-label" for="dia_name">ユーザー名</label>
-						<div class="col-sm-8">
+						<label class="col-sm-3 control-label" for="dia_name">ユーザー名</label>
+						<div class="col-sm-9">
 							<input type="text" class="form-control" id="dia_name" value="" required>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-4 control-label" for="dia_organization">所属</label>
-						<div class="col-sm-8">
+						<label class="col-sm-3 control-label" for="dia_organization">所属</label>
+						<div class="col-sm-9">
 							<select class="form-control" id="dia_organization">
 							</select>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-4 control-label" for="dia_password">パスワード</label>
-						<div class="col-sm-8">
+						<label class="col-sm-3 control-label" for="dia_password">パスワード</label>
+						<div class="col-sm-9">
 							<input type="text" class="form-control" id="dia_password" value="" required>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-4 control-label" for="dia_password-confirm">パスワード再入力</label>
-						<div class="col-sm-8">
+						<label class="col-sm-3 control-label" for="dia_password-confirm">パスワード再入力</label>
+						<div class="col-sm-9">
 							<input type="text" class="form-control" id="dia_password-confirm" value="" required>
 						</div>
 					</div>
-					<div class="col-sm-6 col-sm-offset-4">
-						<button type="submit" class="btn btn-primary">
-							登録
-						</button>
+					<div class="form-group" align="right">
+						<button type="submit" class="btn btn-primary">登録</button>
+						<button id="dia_close" type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
 					</div>
 				</form>
 			</div>
