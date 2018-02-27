@@ -62,13 +62,13 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_contents">質問</label>
 						<div class="col-sm-10">
-							<textarea class="form-control" id="dia_contents" rows='5' readonly>{{$botlog->contents}}</textarea>
+							<textarea class="form-control" id="dia_contents" rows='5' readonly></textarea>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_return">回答</label>
 						<div class="col-sm-10">
-							<textarea class="form-control" id="dia_return" rows='5' readonly>{{$botlog->return}}</textarea>
+							<textarea class="form-control" id="dia_return" rows='5' readonly></textarea>
 						</div>
 					</div>
 				</form>
