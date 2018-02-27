@@ -38,23 +38,6 @@
 
 <!-- botlog 29~81 -->
 
-
-<?php
-	//ジャンル情報検索
-	$result = pg_query("SELECT * FROM genre WHERE bunrui = 1");
-	while ($row = pg_fetch_row($result)) {
-		$j1value = $j1value + array($row[1] => $row[4]);
-	}
-	foreach($j1value as $key => $value){
-		$result = pg_query("SELECT * FROM genre WHERE bunrui = 2 AND gid1 = {$key}");
-		$arr = array();
-		while ($row = pg_fetch_row($result)) {
-			$arr = $arr + array($row[2] => $row[4]);
-		}
-		$j2value = $j2value + array($key => $arr);
-	}
-?>
-
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default"
 		value="選択行の削除" onclick="drow()"> <input id="btn_ins" type="button"
