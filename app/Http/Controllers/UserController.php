@@ -39,7 +39,7 @@ class UserController
 		$deleteuser->delete();
 		*/
 		$input = \Request::all();
-		error_log("★★★★★★★★★★★★★update★★★★★★★★★★★★★★★".$input->input->name);
+		error_log("★★★★★★★★★★★★★update★★★★★★★★★★★★★★★".$input);
 
 		return redirect('/users');
 	}
