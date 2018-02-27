@@ -66,6 +66,8 @@ class RegisterController extends Controller {
 	 */
 	protected function create(array $data) {
 
+		$Authrole = Auth::user()->role;
+
 		return User::create ( [
 
 				'citycode' =>$data ['citycode'],
@@ -73,7 +75,7 @@ class RegisterController extends Controller {
 				'userid' => $data ['userid'],
 				'organization' => $data ['organization'],
 				'password' => bcrypt ( $data ['password'] ),
-				'role' => $data ['role']
+				'role' => $Authrole +1
 
 		] );
 	}
