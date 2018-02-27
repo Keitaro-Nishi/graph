@@ -121,6 +121,30 @@
 </div>
 
 <script>
+$(function() {
+	$("#grid-basic").bootgrid({
+		selection : true,
+		multiSelect : true,
+		keepSelection : true,
+		formatters: {
+	        "details": function($column, $row) {
+	        	return "<input type='button' value='詳細' onclick='detailwin("  + $row.no + ")'> ";
+             }
+	    }
+	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
+		for (var i = 0; i < rows.length; i++) {
+			rowIds.push(rows[i].no);
+		}
+	}).on("deselected.rs.jquery.bootgrid", function(e, rows) {
+		for (var i = 0; i < rows.length; i++) {
+			rowIds.some(function(v, ii) {
+				if (v == rows[i].no)
+					rowIds.splice(ii, 1);
+			});
+		}
+	});
+});
+
 function drow() {
 	if(rowIds.length == 0){
 		alert("削除する行を選択してください");
