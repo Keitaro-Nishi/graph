@@ -44,31 +44,31 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_id">No</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="dia_id" value="{{$botlog->no}}" readonly>
+							<input type="text" class="form-control" id="dia_id" value="" readonly>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_userid">ユーザーID</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="dia_userid" value="{{$botlog->userid}}" readonly>
+							<input type="text" class="form-control" id="dia_userid" value="" readonly>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_time">日時</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="dia_time" value="{{$botlog->time}}" readonly>
+							<input type="text" class="form-control" id="dia_time" value="" readonly>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_contents">質問</label>
 						<div class="col-sm-10">
-							<textarea class="form-control" id="dia_contents" rows='5' readonly>{{$botlog->contents}}</textarea>
+							<textarea class="form-control" id="dia_contents" rows='5' readonly></textarea>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_return">回答</label>
 						<div class="col-sm-10">
-							<textarea class="form-control" id="dia_return" rows='5' readonly>{{$botlog->return}}</textarea>
+							<textarea class="form-control" id="dia_return" rows='5' readonly></textarea>
 						</div>
 					</div>
 				</form>
