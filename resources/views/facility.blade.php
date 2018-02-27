@@ -39,6 +39,60 @@
 </table>
 
 <!-- botlog 29~81 -->
+<div class="modal" id="shosaiDialog" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content" style="width: 740px; margin-left: -20px;">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="modal-label">詳細</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal">
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="dia_id">No</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="dia_id" value="{{$botlog->no}}" readonly>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="dia_userid">ユーザーID</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="dia_userid" value="{{$botlog->userid}}" readonly>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="dia_time">日時</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="dia_time" value="{{$botlog->time}}" readonly>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="dia_contents">質問</label>
+						<div class="col-sm-10">
+							<textarea class="form-control" id="dia_contents" rows='5' readonly>{{$botlog->contents}}</textarea>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="dia_return">回答</label>
+						<div class="col-sm-10">
+							<textarea class="form-control" id="dia_return" rows='5' readonly>{{$botlog->return}}</textarea>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button id="sback" type="button" class="btn btn-default"
+					onclick="shosai_back()">＜＜前へ</button>
+				<button id="snext" type="button" class="btn btn-default"
+					onclick="shosai_next()">次へ＞＞</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+
 
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
