@@ -35,44 +35,46 @@
 				<form class="form-horizontal" method="POST" action="{{ route('users') }}">
 					@if (Auth::user()->role == (int)0 )
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_citycode">市町村コード</label>
-						<div class="col-sm-10">
+					@else
+					<div class="form-group" style="display:none">
+					@endif
+						<label class="col-sm-4 control-label" for="dia_citycode">市町村コード</label>
+						<div class="col-sm-8">
 							<input type="text" class="form-control" id="dia_citycode" value="" required autofocus>
 						</div>
 					</div>
-					@endif
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_userid">ユーザーＩＤ</label>
-						<div class="col-sm-10">
+						<label class="col-sm-4 control-label" for="dia_userid">ユーザーＩＤ</label>
+						<div class="col-sm-8">
 							<input type="text" class="form-control" id="dia_userid" value="" required>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_name">ユーザー名</label>
-						<div class="col-sm-10">
+						<label class="col-sm-4 control-label" for="dia_name">ユーザー名</label>
+						<div class="col-sm-8">
 							<input type="text" class="form-control" id="dia_name" value="" required>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_organization">所属</label>
-						<div class="col-sm-10">
+						<label class="col-sm-4 control-label" for="dia_organization">所属</label>
+						<div class="col-sm-8">
 							<select class="form-control" id="dia_organization">
 							</select>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_password">パスワード</label>
-						<div class="col-sm-10">
+						<label class="col-sm-4 control-label" for="dia_password">パスワード</label>
+						<div class="col-sm-8">
 							<input type="text" class="form-control" id="dia_password" value="" required>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_password-confirm">パスワード再入力</label>
-						<div class="col-sm-10">
+						<label class="col-sm-4 control-label" for="dia_password-confirm">パスワード再入力</label>
+						<div class="col-sm-8">
 							<input type="text" class="form-control" id="dia_password-confirm" value="" required>
 						</div>
 					</div>
-					<div class="col-md-6 col-md-offset-4">
+					<div class="col-sm-6 col-sm-offset-4">
 						<button type="submit" class="btn btn-primary">
 							登録
 						</button>
