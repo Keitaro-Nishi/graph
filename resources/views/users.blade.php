@@ -60,7 +60,7 @@
 					for (var i = 0; i < rowIds.length; i++){
 						$.ajax({
 							type: "GET",
-							url: 'ajax/'+ rowIds[i],
+							url: 'users/'+ rowIds[i],
 						}).then(
 							function(){
 							},

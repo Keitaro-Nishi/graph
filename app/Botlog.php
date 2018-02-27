@@ -22,8 +22,6 @@ class Botlog extends Model
      *
      * @var array
      */
-    protected $hidden = [
-    ];
 
     protected $primaryKey ='no';
     public $incrementing = FALSE;
