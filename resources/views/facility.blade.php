@@ -174,4 +174,5 @@ function drow() {
 	    });
 	}
 }
+</script>
 @endsection
