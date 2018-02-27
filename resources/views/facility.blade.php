@@ -140,65 +140,13 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" onclick="update()">更新</button>
-				<button id="dia_close" type="button" class="btn btn-default"
-					data-dismiss="modal">閉じる</button>
+				<button id="dia_close" type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
 			</div>
 		</div>
 	</div>
 </div>
 
 <script>
-var rowIds = [];
-var modID = "";
-$(function() {
-	var h = $(window).height();
-	$('#wrap').css('display','none');
-	$('#loader-bg ,#loader').height(h).css('display','block');
-	$("#header").load("header.html");
-	$("#grid-basic").bootgrid({
-		selection: true,
-		multiSelect: true,
-	    keepSelection: true,
-	    formatters: {
-	        "mods": function($column, $row) {
-	        	return "<input type='button' class='btn btn-default' value='修正' onclick='modwin("  + $row.id + ",\"" + $row.meisho + "\",\"" + $row.jusho + "\",\"" + $row.tel + "\",\"" + $row.genre1 + "\",\"" + $row.genre2 + "\",\"" + $row.lat + "\",\"" + $row.lng + "\",\"" + $row.iurl + "\",\"" + $row.url + "\")' > ";
-             }
-	    }
-	}).on("selected.rs.jquery.bootgrid", function(e, rows)
-	{
-	    for (var i = 0; i < rows.length; i++)
-	    {
-	        rowIds.push(rows[i].id);
-	    }
-	    //alert("Select: " + rowIds.join(","));
-	}).on("deselected.rs.jquery.bootgrid", function(e, rows)
-	{
-	    for (var i = 0; i < rows.length; i++)
-	    {
-	    	rowIds.some(function(v, ii){
-	    	    if (v==rows[i].id) rowIds.splice(ii,1);
-	    	});
-	        //rowIds.push(rows[i].no);
-	    }
-	    //alert("Deselect: " + rowIds.join(","));
-	});
-	//ジャンルの設定
-	var j1value = <?php echo json_encode($j1value); ?>;
-	var select = document.getElementById('dia_j1');
-	for( var key in j1value ) {
-		var option = document.createElement('option');
-		option.setAttribute('value', key);
-		var text = document.createTextNode(j1value[key]);
-		option.appendChild(text);
-		select.appendChild(option);
-	}
-	j1change();
-});
-$(window).load(function () { //全ての読み込みが完了したら実行
-	  $('#loader-bg').delay(900).fadeOut(800);
-	  $('#loader').delay(600).fadeOut(300);
-	  $('#wrap').css('display', 'block');
-});
 function drow() {
 	if(rowIds.length == 0){
 		alert("削除する行を選択してください");
@@ -226,115 +174,4 @@ function drow() {
 	    });
 	}
 }
-function modwin(id,meisho,jusho,tel,genre1,genre2,lat,lng,iurl,url){
-	document.getElementById('modal-label').innerHTML  = "施設情報修正";
-	modID = id;
-	initmodal();
-	document.getElementById('dia_meisho').value = meisho;
-	document.getElementById('dia_jusho').value = jusho;
-	document.getElementById('dia_tel').value = tel;
-	var options = document.getElementById('dia_j1').options;
-	for(var i = 0; i < options.length; i++){
-		if(options[i].text === genre1){
-			options[i].selected = true;
-			break;
-		};
-	};
-	j1change();
-	var options = document.getElementById('dia_j2').options;
-	for(var i = 0; i < options.length; i++){
-		if(options[i].text === genre2){
-			options[i].selected = true;
-			break;
-		};
-	};
-	document.getElementById('dia_latlng').value = lat + "," + lng;
-	document.getElementById('dia_iurl').value = iurl;
-	document.getElementById('dia_url').value = url;
-	document.getElementById("btn_modal").click();
-}
-function irow(){
-	document.getElementById('modal-label').innerHTML  = "施設情報追加";
-	modID = "";
-	initmodal();
-	document.getElementById("btn_modal").click();
-}
-//ダイアログ初期化
-function initmodal(){
-	document.getElementById('dia_meisho').value = "";
-	document.getElementById('dia_jusho').value = "";
-	document.getElementById('dia_tel').value = "";
-	document.getElementById('dia_j1').selectedIndex = 0;
-	j1change();
-	document.getElementById('dia_latlng').value = "";
-	document.getElementById('dia_iurl').value = "";
-	document.getElementById('dia_url').value = "";
-}
-//更新
-function update(){
-	var meisho = document.getElementById('dia_meisho').value;
-	var jusho = document.getElementById('dia_jusho').value;
-	var tel = document.getElementById('dia_tel').value;
-	var j1 = document.getElementById('dia_j1').value;
-	var j2 = document.getElementById('dia_j2').value;
-	var latlng = document.getElementById('dia_latlng').value;
-	var arrayOfStrings = latlng.split(",");
-	var lat = arrayOfStrings[0];
-	var lng = arrayOfStrings[1];
-	var iurl = document.getElementById('dia_iurl').value;
-	var url = document.getElementById('dia_url').value;
-	$.ajax({
-		type: "POST",
-		url: "shisetsuup.php",
-		data: {
-			"id" : modID,
-			"meisho" : meisho,
-			"jusho" : jusho,
-			"tel" : tel,
-			"j1" : j1,
-			"j2" : j2,
-			"lat" : lat,
-			"lng" : lng,
-			"iurl" : iurl,
-			"url" : url
-		}
-	}).done(function (response) {
-		result = JSON.parse(response);
-		if(result == "OK"){
-			alert("更新しました");
-			location.reload();
-		}else{
-			alert("更新できませんでした");
-		}
-    }).fail(function () {
-        alert("更新できませんでした");
-    });
-}
-//ジャンル選択
-function j1change(){
-	var select = document.getElementById('dia_j2');
-	while (0 < select.childNodes.length) {
-		select.removeChild(select.childNodes[0]);
-	}
-	var j2value = <?php echo json_encode($j2value); ?>;
-	var janru = j2value[document.getElementById('dia_j1').value];
-	for( var key in janru ) {
-		var option = document.createElement('option');
-		option.setAttribute('value', key);
-		var text = document.createTextNode(janru[key]);
-		option.appendChild(text);
-		select.appendChild(option);
-	}
-}
-//地図の確認
-function map(){
-	latlng = document.getElementById('dia_latlng').value;
-	window.open( "http://maps.google.com/maps?q=" + latlng + "+(ココ)", '_blank');
-}
-//画像の確認
-function image(){
-	imageurl = document.getElementById('dia_iurl').value;
-	window.open( imageurl, '_blank');
-}
-</script>
 @endsection
