@@ -44,41 +44,41 @@
 					@endif
 						<label class="col-sm-3 control-label" for="dia_citycode">市町村コード</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" id="dia_citycode" value="" required autofocus>
+							<input type="text" class="form-control" id="dia_citycode" name="citycode" value="" required autofocus>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-3 control-label" for="dia_userid">ユーザーＩＤ</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" id="dia_userid" value="" required>
+							<input type="text" class="form-control" id="dia_userid" name="userid" value="" required>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-3 control-label" for="dia_name">ユーザー名</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" id="dia_name" value="" required>
+							<input type="text" class="form-control" id="dia_name" name="name" value="" required>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-3 control-label" for="dia_organization">所属</label>
 						<div class="col-sm-9">
-							<select class="form-control" id="dia_organization" >
+							<select class="form-control" id="dia_organization" name="organization">
 							</select>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-3 control-label" for="dia_password">パスワード</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" id="dia_password" value="" required>
+							<input type="text" class="form-control" id="dia_password" name="password" value="" required>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-3 control-label" for="dia_password_confirmation">パスワード再入力</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" id="dia_password_confirmation" value="" required>
+							<input type="text" class="form-control" id="dia_password_confirmation" name="password_confirmation" value="" required>
 						</div>
 					</div>
-					<div class="form-group" align="right" >
+					<div class="text-right" >
 						<button type="submit" class="btn btn-primary">登録</button>
 						<button id="dia_close" type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
 					</div>

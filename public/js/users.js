@@ -48,12 +48,9 @@ function drow() {
 }
 
 function insert(){
-	alert("ダイアログ表示1");
 	document.getElementById('modal-label').innerHTML  = "ユーザー登録";
 	initmodal();
-	alert("ダイアログ表示2");
 	document.getElementById("btn_modal").click();
-	alert("ダイアログ表示3");
 }
 
 //ダイアログ初期化
@@ -63,5 +60,5 @@ function initmodal(){
 	document.getElementById('dia_name').value = "";
 	document.getElementById('dia_organization').selectedIndex = 0;
 	document.getElementById('dia_password').value = "";
-	document.getElementById('dia_password-confirm').value = "";
+	document.getElementById('dia_password_confirmation').value = "";
 }
