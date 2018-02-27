@@ -14,8 +14,8 @@ class OpinionController
 		$opinions = Opinion::all();
 		$php_json = json_encode($opinions);
 
-		//return view('opinion',['opinions'=>$opinions]);
-		return view('opinion')->with('opinions', $opinions);
+		return view('opinion',['opinions'=>$opinions]);
+		//return view('opinion')->with('opinions', $opinions);
 
 	}
 

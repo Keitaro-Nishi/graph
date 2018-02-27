@@ -118,10 +118,7 @@
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
 </div>
 
-<div type="hidden"
-     id="php-val"
-     style="display:none;"
-     data-val="<?=htmlspecialchars($opinions, ENT_QUOTES, 'UTF-8')?>"></div>
+
 <script type="text/javascript" src="js/opinion.js"></script>
 
 @endsection
