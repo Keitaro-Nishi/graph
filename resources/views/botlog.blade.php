@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+チャットボットログ
+@stop
+
 @section('content')
 <table id="grid-basic" class="table table-condensed table-hover table-striped">
 	<thead>
@@ -89,7 +93,6 @@
 			var rowIds = [];
 			var dbvalue = [];
 			var shosai_idx = 0;
-
 			$(function() {
 				$("#grid-basic").bootgrid({
 					selection : true,
@@ -113,7 +116,6 @@
 					}
 				});
 			});
-
 			function drow() {
 				if(rowIds.length == 0){
 					alert("削除する行を選択してください");
@@ -142,7 +144,6 @@
 					}
 				}
 			}
-
 			function detailwin(value){
 				document.getElementById("btn_modal").click();
 				for (var i = 0; i < dbvalue.length; i++){
@@ -152,7 +153,6 @@
 					}
 				}
 			}
-
 			function shosai_back(){
 				shosai_idx = shosai_idx - 1;
 				modal_mod(shosai_idx);
@@ -161,7 +161,6 @@
 				shosai_idx = shosai_idx + 1;
 				modal_mod(shosai_idx);
 			}
-
 			/*
 			function modal_mod(index){
 				document.getElementById('dia_id').value  = dbvalue[index][0];
