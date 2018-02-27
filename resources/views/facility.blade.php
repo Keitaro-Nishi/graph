@@ -1,4 +1,6 @@
-@extends('layouts.app') @section('content')
+@extends('layouts.app')
+
+@section('content')
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
 	<thead>
@@ -121,6 +123,9 @@
 </div>
 
 <script>
+var rowIds = [];
+var dbvalue = [];
+var shosai_idx = 0;
 $(function() {
 	$("#grid-basic").bootgrid({
 		selection : true,
@@ -128,7 +133,7 @@ $(function() {
 		keepSelection : true,
 		formatters: {
 	        "details": function($column, $row) {
-	        	return "<input type='button' value='詳細' onclick='detailwin("  + $row.no + ")'> ";
+	        	return "<input type='button' value='詳細' onclick='detailwin("  + $row.id + ")'> ";
              }
 	    }
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
