@@ -23,8 +23,8 @@ Route::middleware(['auth'])->group(function () {
 
 	Route::get ( '/users', 'UserController@index' )->name ( 'users' );
 	Route::delete ( '/users/{deletecode}', 'UserController@delete' );
-	Route::get ( '/users/{data}', 'UserController@update' );
-	Route::post ( '/users/{data}', 'UserController@update' );
+	//Route::get ( '/users/{data}', 'UserController@update' );
+	Route::post ( '/users', 'UserController@update' );
 
 	Route::get ( '/opinion', 'OpinionController@index' )->name ( 'opinion' );
 	Route::get ( '/opinion/{deleteno}','OpinionController@delete' );

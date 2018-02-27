@@ -30,14 +30,16 @@ class UserController
 		return redirect('/users');
 	}
 
-	public function update(Request $request)
+	//public function update(Request $request)
+	public function update()
 	{
 		/*
 		$deleteid = $request->deletecode;
 		$deleteuser = User::find($deleteid);
 		$deleteuser->delete();
 		*/
-		error_log("★★★★★★★★★★★★★update★★★★★★★★★★★★★★★".$request->name);
+		$input = \Request::all();
+		error_log("★★★★★★★★★★★★★update★★★★★★★★★★★★★★★".$input->name);
 
 		return redirect('/users');
 	}
