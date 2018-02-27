@@ -11,8 +11,8 @@ class BotlogController
 
 	public function index(Request $request)
 	{
-		//$botlogs = Botlog::all();
-		$botlogs = Botlog::all()->where('citycode', 'Auth::user()->citycode');
+		$botlogs = Botlog::all();
+		//$botlogs = Botlog::all()->where('citycode', 'Auth::user()->citycode');
 		return view('botlog',['botlogs'=>$botlogs]);
 	}
 
