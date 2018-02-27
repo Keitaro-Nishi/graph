@@ -4,17 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Botlog;
+use Illuminate\Support\Facades\Auth;
 
 class BotlogController
 {
 
 	public function index(Request $request)
 	{
-		$botlogs = Botlog::all();
-		$test = Auth::user()->citycode;
-
-		error_log("★★★★★★★");
-		error_log($test);
+		//$botlogs = Botlog::all();
+		$botlogs = Botlog::where('citycode', $cityCD)->get();
 		return view('botlog',['botlogs'=>$botlogs]);
 	}
 
