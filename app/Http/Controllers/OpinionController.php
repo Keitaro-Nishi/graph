@@ -15,11 +15,13 @@ class OpinionController
 		$Authrole = Auth::user()->role;
 		$cityCD = Auth::user()->citycode;
 
-		if($Authrole = 0){
+		error_log($Authrole);
+
+		if($Authrole == 0){
 			$opinions = Opinion::all();
 			return view('opinion')->with('opinions', $opinions);
 		}
-		if($Authrole = 1){
+		if($Authrole == 1){
 			$opinions= Opinion::where('citycode', $cityCD)->get();
 			return view('opinion')->with('opinions', $opinions);
 		}
