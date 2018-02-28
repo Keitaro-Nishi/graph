@@ -1,10 +1,16 @@
 var rowIds = [];
+var dbvalue = [];
+var shosai_idx = 0;
 $(function() {
 	$("#grid-basic").bootgrid({
 		selection : true,
 		multiSelect : true,
-		rowSelect : true,
-		keepSelection : true
+		keepSelection : true,
+		formatters: {
+			"details": function($column, $row) {
+				return "<input type='button' value='詳細' onclick='detailwin("  + $row.id + ")'> ";
+			}
+		}
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
 		for (var i = 0; i < rows.length; i++) {
 			rowIds.push(rows[i].id);
@@ -17,22 +23,23 @@ $(function() {
 			});
 		}
 	});
-
-	//ジャンルの設定
-	/*
-	var genre1value = <?php echo json_encode($genre1value); ?>;
-	var select = document.getElementById('dia_genre1');
-
-	for( var key in genre1value ) {
-		var option = document.createElement('option');
-		option.setAttribute('value', key);
-		var text = document.createTextNode(genre1value[key]);
-		option.appendChild(text);
-		select.appendChild(option);
-	}
-	genre1change();
-	*/
 });
+/*
+//ジャンルの設定
+var genre1value = <?php echo json_encode($genre1value); ?>;
+var select = document.getElementById('dia_genre1');
+
+for( var key in genre1value ) {
+	var option = document.createElement('option');
+	option.setAttribute('value', key);
+	var text = document.createTextNode(genre1value[key]);
+	option.appendChild(text);
+	select.appendChild(option);
+}
+genre1change();
+}
+*/
+
 function drow() {
 	if(rowIds.length == 0){
 		alert("削除する行を選択してください");
@@ -46,11 +53,11 @@ function drow() {
 				type: "DELETE",
 				url: facility/'+ rowIds[i],
 			}).then(
-				function(){
-				},
-				function(){
-					successFlg = false;
-				}
+					function(){
+					},
+					function(){
+						successFlg = false;
+					}
 			);
 		}
 		if( successFlg == true){
@@ -90,4 +97,4 @@ function image(){
 	imageurl = document.getElementById('dia_iurl').value;
 	window.open( imageurl, '_blank');
 }
-*/
+ */
