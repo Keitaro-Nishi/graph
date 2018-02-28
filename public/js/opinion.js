@@ -68,10 +68,10 @@ dbvalue = JSON.parse(opinion);
 			function detailwin(value){
 				document.getElementById("btn_modal").click();
 				for (var i = 0; i < dbvalue.length; i++){
-					//if(dbvalue[i][0] == value){
+					if(dbvalue[i]["id"] == value){
 						shosai_idx = i;
 						modal_mod(i);
-					//}
+					}
 				}
 			}
 
