@@ -13,7 +13,7 @@ class FacilityController
 		$facilitys= Facility::all();
 		return view('facility',['facilitys'=>$facilitys]);
 	}
-/*
+
 	public function update(Request $request)
 	{
 
@@ -21,7 +21,7 @@ class FacilityController
 
 		return redirect('/facility');
 	}
-*/
+
 	public function delete(Request $request)
 	{
 
