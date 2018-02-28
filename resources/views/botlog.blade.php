@@ -29,7 +29,7 @@
 		@endforeach
 	</tbody>
 </table>
-
+<!--
 <div class="modal" id="shosaiDialog" tabindex="-1">
 	<div class="modal-dialog">
 		<div class="modal-content" style="width: 740px; margin-left: -20px;">
@@ -83,7 +83,7 @@
 		</div>
 	</div>
 </div>
-
+ -->
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
 	<input id="btn_modal" type="button" style="display: none" data-toggle="modal" data-target="#shosaiDialog" value="モーダル表示" />
@@ -144,7 +144,7 @@
 					}
 				}
 			}
-
+/*
 			function detailwin(value){
 				document.getElementById("btn_modal").click();
 				for (var i = 0; i < dbvalue.length; i++){
@@ -162,7 +162,7 @@
 				shosai_idx = shosai_idx + 1;
 				modal_mod(shosai_idx);
 			}
-			/*
+
 			function modal_mod(index){
 				document.getElementById('dia_id').value  = dbvalue[index][0];
 				document.getElementById('dia_userid').value  = dbvalue[index][1];
