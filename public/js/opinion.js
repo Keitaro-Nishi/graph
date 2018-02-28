@@ -81,6 +81,7 @@ dbvalue = JSON.parse(opinion);
 				modal_mod(shosai_idx);
 			}
 
+
 			function modal_mod(index){
      			document.getElementById('dia_userid').value  = dbvalue[index]["userid"];
 				document.getElementById('dia_time').value = dbvalue[index]["time"];
