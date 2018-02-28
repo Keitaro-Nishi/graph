@@ -50,7 +50,7 @@ function drow() {
 
 function insert() {
 	document.getElementById("modal-label").innerHTML  = "施設登録";
-	initmodal();
+	//initmodal();
 	document.getElementById("btn_modal").click();
 }
 
