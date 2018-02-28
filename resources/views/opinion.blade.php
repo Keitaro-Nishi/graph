@@ -121,7 +121,7 @@
 
 
 <div>
-<input id="a" type= "text" value = '{{ $opinions }}'>
+<input id="opinion" type= "hidden" value = '{{ $opinions }}'>
 </div>
 
 

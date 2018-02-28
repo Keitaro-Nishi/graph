@@ -1,11 +1,11 @@
 var rowIds = [];
-var dbvalue = [];
 var shosai_idx = 0;
-var test = [];
-     test= document.getElementById('a').value;
 
-var sample = [];
-	sample = JSON.parse(test)
+var dbvalue = [];
+	dbvalue= document.getElementById('opinion').value;
+
+var opinion = [];
+	 opinion = JSON.parse(dbvalue);
 
 
 
@@ -35,7 +35,7 @@ var sample = [];
 			});
 			function drow() {
 
-				alert(sample[0]["citycode"]);
+				alert(opinion[0]["citycode"]);
 				/*
 				if(rowIds.length == 0){
 					alert("削除する行を選択してください");
