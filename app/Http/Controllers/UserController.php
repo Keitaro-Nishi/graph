@@ -94,8 +94,7 @@ class UserController
 		$result = $user->save();
 		error_log("★★★★★★★★★★★★★update★★★★★★★★★★★★★★★".$result);
 
-		//return Response::json("OK");
-		return ["OK"];
+		return Response::json("OK");
 	}
 
 }
