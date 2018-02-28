@@ -35,7 +35,7 @@ var sample = [];
 			});
 			function drow() {
 
-				alert(sample[0]);
+				alert(sample[0]["citycode"]);
 				/*
 				if(rowIds.length == 0){
 					alert("削除する行を選択してください");
