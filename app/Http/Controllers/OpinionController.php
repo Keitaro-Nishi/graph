@@ -29,9 +29,6 @@ class OpinionController
 	public function delete(Request $request)
 	{
 		$deleteNo = $request->deleteno;
-		//error_log("★★★★★★★");
-		//error_log($deleteNo);
-
 		$deleteopinion = Opinion::find($deleteNo);
 		$deleteopinion->delete();
 
