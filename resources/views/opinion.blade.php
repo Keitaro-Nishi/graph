@@ -119,11 +119,11 @@
 </div>
 
 
-@foreach($opinions as $opinion)
+<!--  @foreach($opinions as $opinion)@endforeach-->
 <div>
-<input id="a" type= "hidden" value = '{{$opinion}}'>
+<input id="a" type= "hidden" value = '{{$opinions}}'>
 </div>
-@endforeach
+
 
 <script type="text/javascript" src="js/opinion.js"></script>
 
