@@ -115,6 +115,10 @@
 	<input id="btn_ins" type="button" class="btn btn-default" value="施設登録" onclick="insert()">
 	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog"/>
 </div>
+@else
+<div class="container" align="center">
+	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
+</div>
 @endif
 <script src="{{ asset('js/facility.js') }}"></script>
 
