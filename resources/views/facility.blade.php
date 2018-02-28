@@ -87,10 +87,10 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_iurl">画像ＵＲＬ</label>
+						<label class="col-sm-2 control-label" for="dia_imageurl">画像ＵＲＬ</label>
 						<div class="col-sm-10">
-							<input id="dia_iurl" class="form-control" maxlength="300" placeholder="https://www.yyy.zzz.jpg">
-							<input type="button" class="btn btn-default" style="display:inline;" onclick="image()" value="画像の確認" style="width: 100px;"/>
+							<input id="dia_imageurlurl" class="form-control" maxlength="300" placeholder="https://www.yyy.zzz.jpg">
+							<input type="button" class="btn btn-default" style="display:inline; width: 100px;" onclick="image()" value="画像の確認"/>
 							※必ずhttpsから始まるURLを指定してください
 						</div>
 					</div>
@@ -116,6 +116,6 @@
 	<input id="btn_ins" type="button" class="btn btn-default" value="施設登録" onclick="insert()">
 	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog"/>
 </div>
-<script src="{{ asset('js/users.js') }}"></script>
+<script src="{{ asset('js/facility.js') }}"></script>
 
 @endsection
