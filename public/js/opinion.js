@@ -34,6 +34,8 @@ dbvalue = JSON.parse(opinion);
 
 			function drow() {
 
+				alert(dbvalue[0]["userid"]);
+
 				if(rowIds.length == 0){
 					alert("削除する行を選択してください");
 					return;
@@ -91,7 +93,7 @@ dbvalue = JSON.parse(opinion);
 				document.getElementById('dia_disgust').value  = dbvalue[index]["disgust"];
 				document.getElementById('dia_anger').value  = dbvalue[index]["anger"];
 				document.getElementById('dia_checked').value  = dbvalue[index]["checked"];
-				document.getElementById('dia_opinion').innerHTML  = dbvalue[0]["opinion"];
+				document.getElementById('dia_opinion').innerHTML  = dbvalue[index]["opinion"];
 				if(index == 0){
 					document.getElementById("sback").disabled = "true";
 				}else{
