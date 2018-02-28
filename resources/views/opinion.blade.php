@@ -119,7 +119,7 @@
 </div>
 
 <div>
-<input id="a" type= "hidden" value = '12345'>
+<input id="a" type= "hidden" value = '$opinions'>
 </div>
 
 <script type="text/javascript" src="js/opinion.js"></script>

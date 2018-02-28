@@ -1,7 +1,8 @@
 var rowIds = [];
 var dbvalue = [];
 var shosai_idx = 0;
-var	 test= document.getElementById('a').value;
+var test = [];
+	 test= document.getElementById('a').value;
 
 
 
@@ -32,7 +33,7 @@ var	 test= document.getElementById('a').value;
 			});
 			function drow() {
 
-				alert(test);
+				alert(test[0]);
 				/*
 				if(rowIds.length == 0){
 					alert("削除する行を選択してください");
