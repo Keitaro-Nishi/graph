@@ -14,7 +14,7 @@ class FacilityController
 		return view('facility',['facilitys'=>$facilitys]);
 	}
 /*
-	public function insert(Request $request)
+	public function update(Request $request)
 	{
 
 
