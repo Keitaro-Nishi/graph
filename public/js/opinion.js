@@ -1,11 +1,8 @@
 var rowIds = [];
 var shosai_idx = 0;
-
 var opinion = [];
-	opinion= document.getElementById('opinion').value;
-
 var dbvalue = [];
-	dbvalue = JSON.parse(opinion);
+
 
 
 
@@ -84,6 +81,9 @@ var dbvalue = [];
 			}
 
 			function modal_mod(index){
+				opinion= document.getElementById('opinion').value;
+				dbvalue = JSON.parse(opinion);
+
 				document.getElementById('dia_userid').value  = dbvalue[index]["userid"];
 				document.getElementById('dia_time').value = dbvalue[index]["time"];
 				document.getElementById('dia_sadness').value  = dbvalue[index]["sadness"];
