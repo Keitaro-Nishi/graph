@@ -19,6 +19,7 @@ $(function() {
 	});
 
 	//ジャンルの設定
+	/*
 	var genre1value = <?php echo json_encode($genre1value); ?>;
 	var select = document.getElementById('dia_genre1');
 
@@ -30,7 +31,7 @@ $(function() {
 		select.appendChild(option);
 	}
 	genre1change();
-
+	*/
 });
 function drow() {
 	if(rowIds.length == 0){
@@ -60,7 +61,7 @@ function drow() {
 		}
 	}
 }
-
+/*
 function insert(){
 	document.getElementById('modal-label').innerHTML  = "施設登録";
 	initmodal();
@@ -89,3 +90,4 @@ function image(){
 	imageurl = document.getElementById('dia_iurl').value;
 	window.open( imageurl, '_blank');
 }
+*/
