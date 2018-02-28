@@ -17,6 +17,18 @@ $(function() {
 			});
 		}
 	});
+	//ジャンルの設定
+	var genre1value = <?php echo json_encode($genre1value); ?>;
+	var select = document.getElementById('dia_genre1');
+	for( var key in genre1value ) {
+		var option = document.createElement('option');
+		option.setAttribute('value', key);
+		var text = document.createTextNode(genre1value[key]);
+		option.appendChild(text);
+		select.appendChild(option);
+	}
+	genre1change();
+});
 });
 
 function drow() {
@@ -32,11 +44,11 @@ function drow() {
 				type: "DELETE",
 				url: 'facility/'+ rowIds[i],
 			}).then(
-				function(){
-				},
-				function(){
-					successFlg = false;
-				}
+					function(){
+					},
+					function(){
+						successFlg = false;
+					}
 			);
 		}
 		if( successFlg == true){
@@ -54,21 +66,22 @@ function insert() {
 	document.getElementById("btn_modal").click();
 }
 
-/*
-//ジャンルの設定
-var genre1value = <?php echo json_encode($genre1value); ?>;
-var select = document.getElementById('dia_genre1');
-
-for( var key in genre1value ) {
-	var option = document.createElement('option');
-	option.setAttribute('value', key);
-	var text = document.createTextNode(genre1value[key]);
-	option.appendChild(text);
-	select.appendChild(option);
+//ジャンル選択
+function genre1change(){
+	var select = document.getElementById('dia_genre2');
+	while (0 < select.childNodes.length) {
+		select.removeChild(select.childNodes[0]);
+	}
+	var genre2value = <?php echo json_encode($genre2value); ?>;
+	var janru = genre2value[document.getElementById('dia_genre1').value];
+	for( var key in janru ) {
+		var option = document.createElement('option');
+		option.setAttribute('value', key);
+		var text = document.createTextNode(janru[key]);
+		option.appendChild(text);
+		select.appendChild(option);
+	}
 }
-genre1change();
-}
-*/
 
 //地図の確認
 function map(){
