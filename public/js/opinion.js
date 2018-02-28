@@ -13,7 +13,7 @@ var dbvalue = [];
 				$("#grid-basic").bootgrid({
 					selection : true,
 					multiSelect : true,
-					rowSelect : true,
+					rowSelect : false,
 					keepSelection : true,
 				    formatters: {
 				        "details": function($column, $row) {
@@ -83,7 +83,6 @@ var dbvalue = [];
 			}
 
 			function modal_mod(index){
-				document.getElementById('dia_id').value  = dbvalue[index]["id"];
 				document.getElementById('dia_userid').value  = dbvalue[index]["userid"];
 				document.getElementById('dia_time').value = dbvalue[index]["time"];
 				document.getElementById('dia_opinion').innerHTML  = dbvalue[index]["opinion"];
