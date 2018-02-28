@@ -116,4 +116,5 @@
 	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog"/>
 </div>
 <script src="{{ asset('js/facility.js') }}"></script>
+
 @endsection
