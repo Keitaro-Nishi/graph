@@ -5,7 +5,7 @@
 	class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
-			   <th data-column-id='id' data-type='numeric' data-identifier='true' data-width='3%'>NO</th>
+			   <div class="hide"><th data-column-id='id' data-type='numeric' data-identifier='true' data-width='3%'></th></div>
 			   <th data-column-id='userid' data-width='7%'>ユーザーID</th>
                <th data-column-id='time'  data-width='10%'>日時</th>
                <th data-column-id='opinion'  data-width='30%'>ご意見</th>
@@ -21,7 +21,7 @@
 	<tbody>
 		@foreach($opinions as $opinion)
 		<tr>
-			<td>{{$opinion->id}}</td>
+			<div class="hide"><td>{{$opinion->id}}</td></div>
 			<td>{{$opinion->userid}}</td>
 			<td>{{$opinion->time}}</td>
 			<td>{{$opinion->opinion}}</td>
