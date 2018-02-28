@@ -58,7 +58,7 @@ class UserController
 		//所属
 		$user->organization= $input["organization"];
 		//パスワード
-		$user->password= $input["password"];
+		$user->password= bcrypt($input["password"]);
 		//email
 		$user->email= "";
 		//予備
