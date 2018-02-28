@@ -54,7 +54,7 @@ function insert() {
 	document.getElementById("btn_modal").click();
 }
 
-/*
+
 //ジャンルの設定
 var genre1value = <?php echo json_encode($genre1value); ?>;
 var select = document.getElementById('dia_genre1');
@@ -68,8 +68,6 @@ for( var key in genre1value ) {
 }
 genre1change();
 }
-*/
-
 
 //地図の確認
 function map(){
@@ -81,7 +79,7 @@ function image(){
 	imageurl = document.getElementById('dia_iurl').value;
 	window.open( imageurl, '_blank');
 }
-/*
+
 //ダイアログ初期化
 function initmodal(){
 	document.getElementById('dia_meisho').value = "";
@@ -93,4 +91,3 @@ function initmodal(){
 	document.getElementById('dia_imageurl').value = "";
 	document.getElementById('dia_url').value = "";
 }
-*/
