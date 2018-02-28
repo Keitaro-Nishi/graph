@@ -35,6 +35,7 @@ class UserController
 	{
 		$input = \Request::all();
 
+		error_log("★★★★★★★★★★★★★update★★★★★★★★★★★★★★★".$input["organization"]);
 		/*
 		$request->validate([
 			'citycode' => 'required|string',
@@ -56,10 +57,9 @@ class UserController
 
 		if($validator->fails())
 		{
+			error_log("★★★★★★★★★★★★★validat★★★★★★★★★★★★★★★");
 			return response()->json($validator->errors());
 		}
-
-		error_log("★★★★★★★★★★★★★update★★★★★★★★★★★★★★★".$input["organization"]);
 
 		$user = new User;
 		$cityCD = Auth::user()->citycode;
