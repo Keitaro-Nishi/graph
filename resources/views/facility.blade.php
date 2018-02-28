@@ -65,16 +65,16 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_j1">ジャンル１</label>
+						<label class="col-sm-2 control-label" for="dia_genre1">ジャンル１</label>
 						<div class="col-sm-10">
-							<select class="form-control" id="dia_j1"  onChange="j1change()">
+							<select class="form-control" id="dia_genre1"  onChange="genre1change()">
 							</select>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_j2">ジャンル２</label>
+						<label class="col-sm-2 control-label" for="dia_genre2">ジャンル２</label>
 						<div class="col-sm-10">
-							<select class="form-control" id="dia_j2">
+							<select class="form-control" id="dia_genre2">
 							</select>
 						</div>
 					</div>
