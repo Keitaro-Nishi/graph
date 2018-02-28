@@ -25,7 +25,7 @@ class FacilityController
 	public function delete(Request $request)
 	{
 
-		$deleteid = $request->deleteid;
+		$deleteid = $request->deletecode;
 		$deletefacility = Facility::find($deleteid);
 		$deletefacility->delete();
 
