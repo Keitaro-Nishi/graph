@@ -18,7 +18,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		@foreach($facilitys as $facility)
+		@foreach($facilities as $facility)
 		<tr>
 			<td>{{$facility->id}}</td>
 			<td>{{$facility->meisho}}</td>

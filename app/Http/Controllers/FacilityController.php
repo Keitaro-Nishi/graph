@@ -14,7 +14,7 @@ class FacilityController
 		if($cityCD = "00000"){
 			$facilities = Facility::all();
 		}else{
-			$users= Facility::where('citycode', $cityCD)->get();
+			$facilities= Facility::where('citycode', $cityCD)->get();
 		}
 		return view('facility',['facilities'=>$facilities]);
 	}
