@@ -78,7 +78,8 @@ function update(){
 	var _token = document.getElementById('_token').value;
 	$.ajax({
 		type: "POST",
-		url: "/user",
+		//url: "/user",
+		dataType: "JSON",
 		data: {
 			"citycode" : citycode,
 			"userid" : userid,
