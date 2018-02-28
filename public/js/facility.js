@@ -1,3 +1,7 @@
+//ジャンル
+$j1value = array();
+$j2value = array();
+
 var rowIds = [];
 $(function() {
 	$("#grid-basic").bootgrid({
@@ -17,7 +21,7 @@ $(function() {
 			});
 		}
 	});
-/*
+	/*
 	//ジャンルの設定
 	var genre1value = <?php echo json_encode($genre1value); ?>;
 	var select = document.getElementById('dia_genre1');
@@ -29,7 +33,7 @@ $(function() {
 		select.appendChild(option);
 	}
 	genre1change();
-*/
+	 */
 });
 
 function drow() {
@@ -83,7 +87,7 @@ function genre1change(){
 		select.appendChild(option);
 	}
 }
-*/
+ */
 //地図の確認
 function map(){
 	latlng = document.getElementById('dia_latlng').value;

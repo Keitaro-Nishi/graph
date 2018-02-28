@@ -68,6 +68,7 @@
 						<label class="col-sm-2 control-label" for="dia_genre1">ジャンル１</label>
 						<div class="col-sm-10">
 							<select class="form-control" id="dia_genre1"  onChange="genre1change()">
+								<option value=0>ジャンル無し</option>
 							</select>
 						</div>
 					</div>
@@ -75,6 +76,7 @@
 						<label class="col-sm-2 control-label" for="dia_genre2">ジャンル２</label>
 						<div class="col-sm-10">
 							<select class="form-control" id="dia_genre2">
+								<option value=0>ジャンル無し</option>
 							</select>
 						</div>
 					</div>
