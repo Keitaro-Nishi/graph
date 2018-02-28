@@ -1,8 +1,8 @@
 var rowIds = [];
 var dbvalue = [];
 var shosai_idx = 0;
-var a = [];
-	 a = document.getElementById( 'a' ).title;
+//var a = [];
+var	 a = document.getElementById( 'a' );
 
 
 
