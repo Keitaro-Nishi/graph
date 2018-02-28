@@ -82,6 +82,9 @@ dbvalue = JSON.parse(opinion);
 			}
 
 			function modal_mod(index){
+				alert(dbvalue[0]["userid"]);
+				alert(dbvalue[index]["userid"]);
+
 				document.getElementById('dia_userid').value  = dbvalue[index]["userid"];
 				document.getElementById('dia_time').value = dbvalue[index]["time"];
 				document.getElementById('dia_sadness').value  = dbvalue[index]["sadness"];
