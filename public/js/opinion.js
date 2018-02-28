@@ -34,8 +34,8 @@ var dbvalue = [];
 				});
 			});
 			function drow() {
-				alert(dbvalue[2]["userid"]);
-				/*
+				//alert(dbvalue[2]["userid"]);
+
 				if(rowIds.length == 0){
 					alert("削除する行を選択してください");
 					return;
@@ -61,16 +61,16 @@ var dbvalue = [];
 					}else{
 						alert("削除できませんでした");
 					}
-				}*/
+				}
 			}
 
-			/*
+
 			function detailwin(value){
 				document.getElementById("btn_modal").click();
 				for (var i = 0; i < dbvalue.length; i++){
 					if(dbvalue[i][0] == value){
 						shosai_idx = i;
-						modal_mod(i);
+						modal_mod(2);
 					}
 				}
 			}
@@ -104,4 +104,4 @@ var dbvalue = [];
 				}else{
 					document.getElementById("snext").disabled = "";
 				}
-			}*/
+			}
