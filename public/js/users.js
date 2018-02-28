@@ -55,7 +55,9 @@ function insert(){
 
 //ダイアログ初期化
 function initmodal(){
-	document.getElementById('dia_citycode').value = "";
+	if(document.getElementById('dia_citycode')){
+		document.getElementById('dia_citycode').value = "";
+	}
 	document.getElementById('dia_userid').value = "";
 	document.getElementById('dia_name').value = "";
 	document.getElementById('dia_organization').selectedIndex = 0;

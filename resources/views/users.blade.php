@@ -39,14 +39,12 @@
 				<form class="form-horizontal" method="POST" action="{{ route('users') }}">
 					@if (Auth::user()->role == (int)0 )
 					<div class="form-group">
-					@else
-					<div class="form-group" style="display:none">
-					@endif
 						<label class="col-sm-3 control-label" for="dia_citycode">市町村コード</label>
 						<div class="col-sm-9">
 							<input type="text" class="form-control" id="dia_citycode" name="citycode" value="" required autofocus>
 						</div>
 					</div>
+					@endif
 					<div class="form-group">
 						<label class="col-sm-3 control-label" for="dia_userid">ユーザーＩＤ</label>
 						<div class="col-sm-9">
