@@ -66,7 +66,7 @@ function initmodal(){
 }
 
 function update(){
-	var citycode = "";
+	var citycode = "00000";
 	if(document.getElementById('dia_citycode')){
 		citycode = document.getElementById('dia_citycode').value;
 	}
@@ -96,9 +96,9 @@ function update(){
 			location.reload();
 		}else{
 			alert(result);
-			alert("更新できませんでした");
+			alert("1更新できませんでした");
 		}
     }).fail(function () {
-        alert("更新できませんでした");
+        alert("2更新できませんでした");
     });
 }
