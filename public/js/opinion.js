@@ -2,7 +2,7 @@ var rowIds = [];
 var dbvalue = [];
 var shosai_idx = 0;
 var test = [];
-    test= document.getElementById('a').value;
+     test= document.getElementById('a').value;
 
 
 
