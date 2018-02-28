@@ -65,7 +65,7 @@ function insert() {
 	initmodal();
 	document.getElementById("btn_modal").click();
 }
-
+/*
 //ジャンル選択
 function genre1change(){
 	var select = document.getElementById('dia_genre2');
@@ -82,7 +82,7 @@ function genre1change(){
 		select.appendChild(option);
 	}
 }
-
+*/
 //地図の確認
 function map(){
 	latlng = document.getElementById('dia_latlng').value;
