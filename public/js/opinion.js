@@ -2,7 +2,8 @@ var rowIds = [];
 var dbvalue = [];
 var shosai_idx = 0;
 var $script = $('#script');
-var test = JSON.parse($script.attr('data-json-test'));
+var test = [];
+test = JSON.parse($script.attr('data-json-test'));
 
 
 
@@ -32,7 +33,7 @@ var test = JSON.parse($script.attr('data-json-test'));
 			});
 			function drow() {
 
-				alert(test);
+				alert(test[0]);
 				/*
 				if(rowIds.length == 0){
 					alert("削除する行を選択してください");
