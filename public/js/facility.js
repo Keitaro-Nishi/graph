@@ -4,7 +4,7 @@ $(function() {
 		selection : true,
 		multiSelect : true,
 		rowSelect : true,
-		keepSelection : true
+		//keepSelection : true
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
 		for (var i = 0; i < rows.length; i++) {
 			rowIds.push(rows[i].id);
