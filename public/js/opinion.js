@@ -11,7 +11,7 @@ dbvalue = JSON.parse(opinion);
 				$("#grid-basic").bootgrid({
 					selection : true,
 					multiSelect : true,
-					rowSelect : false,
+					rowSelect : true,
 					keepSelection : true,
 				    formatters: {
 				        "details": function($column, $row) {
