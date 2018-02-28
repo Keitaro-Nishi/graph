@@ -64,3 +64,39 @@ function initmodal(){
 	document.getElementById('dia_password').value = "";
 	document.getElementById('dia_password_confirmation').value = "";
 }
+
+function update(){
+	var citycode = "";
+	if(document.getElementById('dia_citycode')){
+		citycode = document.getElementById('dia_citycode').value;
+	}
+	var userid = document.getElementById('dia_userid').value;
+	var name = document.getElementById('dia_name').value;
+	var organization = document.getElementById('dia_organization').value;
+	var password = document.getElementById('dia_password').value;
+	var password_confirmation = document.getElementById('dia_password_confirmation').value;
+	var _token = document.getElementById('_token').value;
+	$.ajax({
+		type: "POST",
+		url: "/user",
+		data: {
+			"citycode" : citycode,
+			"userid" : userid,
+			"name" : name,
+			"organization" : organization,
+			"password" : password,
+			"password_confirmation" : password_confirmation,
+			"_token" : _token
+		}
+	}).done(function (response) {
+		result = JSON.parse(response);
+		if(result == "OK"){
+			alert("更新しました");
+			location.reload();
+		}else{
+			alert("更新できませんでした");
+		}
+    }).fail(function () {
+        alert("更新できませんでした");
+    });
+}

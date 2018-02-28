@@ -36,7 +36,7 @@
 				<h4 class="modal-title" id="modal-label">ユーザー登録</h4>
 			</div>
 			<div class="modal-body">
-				<form class="form-horizontal" method="POST" action="{{ route('users') }}">
+				<form class="form-horizontal">
 					@if (Auth::user()->role == (int)0 )
 					<div class="form-group">
 						<label class="col-sm-3 control-label" for="dia_citycode">市町村コード</label>
@@ -77,9 +77,9 @@
 							<input type="password" class="form-control" id="dia_password_confirmation" name="password_confirmation" value="" required>
 						</div>
 					</div>
-					<input type="hidden" name="_token" value="{{ csrf_token() }}">
+					<input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
 					<div class="text-right" >
-						<button type="submit" class="btn btn-primary">登録</button>
+						<button type="button" class="btn btn-primary" onclick="update()">登録</button>
 						<button id="dia_close" type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
 					</div>
 				</form>
