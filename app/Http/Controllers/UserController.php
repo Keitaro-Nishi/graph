@@ -30,12 +30,12 @@ class UserController
 		return redirect('/users');
 	}
 
-	//public function update(Request $request)
-	public function update()
+	public function update(Request $request)
+	//public function update()
 	{
 		$input = \Request::all();
 
-		$input->validate([
+		$request->validate([
 			'citycode' => 'required|string',
 			'name' => 'required|string|max:255',
 			'userid' => 'required|string|max:255|unique:users',
