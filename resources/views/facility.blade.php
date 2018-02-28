@@ -116,61 +116,6 @@
 	<input id="btn_ins" type="button" class="btn btn-default" value="施設登録" onclick="insert()">
 	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog"/>
 </div>
-<!-- script src="{{ asset('js/facility.js') }}"></script -->
-<script>
-			var rowIds = [];
-			var dbvalue = [];
-			var shosai_idx = 0;
-			$(function() {
-				$("#grid-basic").bootgrid({
-					selection : true,
-					multiSelect : true,
-					keepSelection : true,
-					formatters: {
-				        "details": function($column, $row) {
-				        	return "<input type='button' value='詳細' onclick='detailwin("  + $row.no + ")'> ";
-			             }
-				    }
-				}).on("selected.rs.jquery.bootgrid", function(e, rows) {
-					for (var i = 0; i < rows.length; i++) {
-						rowIds.push(rows[i].no);
-					}
-				}).on("deselected.rs.jquery.bootgrid", function(e, rows) {
-					for (var i = 0; i < rows.length; i++) {
-						rowIds.some(function(v, ii) {
-							if (v == rows[i].no)
-								rowIds.splice(ii, 1);
-						});
-					}
-				});
-			});
-			function drow() {
-				if(rowIds.length == 0){
-					alert("削除する行を選択してください");
-					return;
-				}
-				var successFlg = true;
-				var myRet = confirm("選択行を削除しますか？");
-				if ( myRet == true ){
-					for (var i = 0; i < rowIds.length; i++){
-						$.ajax({
-							type: "GET",
-							url: 'botlog/'+ rowIds[i],
-						}).then(
-							function(){
-							},
-							function(){
-								successFlg = false;
-							}
-						);
-					}
-					if( successFlg == true){
-						alert("削除しました");
-						location.reload();
-					}else{
-						alert("削除できませんでした");
-					}
-				}
-			}
-</script>
+<script src="{{ asset('js/facility.js') }}"></script>
+
 @endsection
