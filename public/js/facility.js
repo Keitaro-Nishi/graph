@@ -54,7 +54,7 @@ function insert() {
 	document.getElementById("btn_modal").click();
 }
 
-
+/*
 //ジャンルの設定
 var genre1value = <?php echo json_encode($genre1value); ?>;
 var select = document.getElementById('dia_genre1');
@@ -68,6 +68,7 @@ for( var key in genre1value ) {
 }
 genre1change();
 }
+*/
 
 //地図の確認
 function map(){
