@@ -50,7 +50,7 @@ function drow() {
 	if ( myRet == true ){
 		for (var i = 0; i < rowIds.length; i++){
 			$.ajax({
-				type: "DELETE",
+				type: "GET",
 				url: facility/'+ rowIds[i],
 			}).then(
 					function(){
