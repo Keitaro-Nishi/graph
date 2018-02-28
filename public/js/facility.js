@@ -81,7 +81,7 @@ function image(){
 	imageurl = document.getElementById('dia_iurl').value;
 	window.open( imageurl, '_blank');
 }
-
+/*
 //ダイアログ初期化
 function initmodal(){
 	document.getElementById('dia_meisho').value = "";
@@ -93,3 +93,4 @@ function initmodal(){
 	document.getElementById('dia_imageurl').value = "";
 	document.getElementById('dia_url').value = "";
 }
+*/
