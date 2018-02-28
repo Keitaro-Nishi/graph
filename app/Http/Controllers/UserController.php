@@ -12,7 +12,7 @@ class UserController
 	public function index(Request $request)
 	{
 		$cityCD = Auth::user()->citycode;
-		if($cityCD = "00000"){
+		if($cityCD == "00000"){
 			$users = User::all();
 		}else{
 			$users= User::where('citycode', $cityCD)->get();
@@ -40,7 +40,7 @@ class UserController
 		$user = new User;
 		$cityCD = Auth::user()->citycode;
 		//市町村コード
-		if($cityCD = "00000"){
+		if($cityCD == "00000"){
 			$user->citycode= $input["citycode"];
 		}else{
 			$user->citycode= $cityCD;
@@ -50,7 +50,7 @@ class UserController
 		//名前
 		$user->name= $input["name"];
 		//権限
-		if($cityCD = "00000"){
+		if($cityCD == "00000"){
 			$user->role= (int)1;
 		}else{
 			$user->role= (int)2;
