@@ -48,7 +48,7 @@ function drow() {
 	}
 }
 
-function insert(){
+function insert() {
 	document.getElementById('modal-label').innerHTML  = "施設登録";
 	initmodal();
 	document.getElementById("btn_modal").click();
