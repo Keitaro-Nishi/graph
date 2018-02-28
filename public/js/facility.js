@@ -45,13 +45,13 @@ function drow() {
 		for (var i = 0; i < rowIds.length; i++){
 			$.ajax({
 				type: "DELETE",
-				url: facility/'+ rowIds[i],
+				url: 'facility/'+ rowIds[i],
 			}).then(
-					function(){
-					},
-					function(){
-						successFlg = false;
-					}
+				function(){
+				},
+				function(){
+					successFlg = false;
+				}
 			);
 		}
 		if( successFlg == true){
