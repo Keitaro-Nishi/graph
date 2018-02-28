@@ -98,11 +98,11 @@ function image(){
 //ダイアログ初期化
 function initmodal(){
 	document.getElementById('dia_meisho').value = "";
-	document.getElementById('dia_jusho').value = "";
+/*	document.getElementById('dia_jusho').value = "";
 	document.getElementById('dia_tel').value = "";
 	document.getElementById('dia_genre1').selectedIndex = 0;
 	genre1change();
 	document.getElementById('dia_latlng').value = "";
 	document.getElementById('dia_imageurl').value = "";
-	document.getElementById('dia_url').value = "";
+	document.getElementById('dia_url').value = "";*/
 }
