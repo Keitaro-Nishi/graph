@@ -118,7 +118,7 @@
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
 </div>
 
-<div id="a" foo="123" />
+<div id="a" title="123" />
 <script type="text/javascript" src="js/opinion.js"></script>
 
 @endsection
