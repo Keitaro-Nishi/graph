@@ -7,7 +7,7 @@ $(function() {
 		keepSelection : true
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
 		for (var i = 0; i < rows.length; i++) {
-			rowIds.push(rows[i]id);
+			rowIds.push(rows[i].id);
 		}
 	}).on("deselected.rs.jquery.bootgrid", function(e, rows) {
 		for (var i = 0; i < rows.length; i++) {
