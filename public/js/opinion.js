@@ -20,12 +20,12 @@ dbvalue = JSON.parse(opinion);
 				    }
 				}).on("selected.rs.jquery.bootgrid", function(e, rows) {
 					for (var i = 0; i < rows.length; i++) {
-						rowIds.push(rows[i].id);
+						rowIds.push(rows[i].userid);
 					}
 				}).on("deselected.rs.jquery.bootgrid", function(e, rows) {
 					for (var i = 0; i < rows.length; i++) {
 						rowIds.some(function(v, ii) {
-							if (v == rows[i].id)
+							if (v == rows[i].userid)
 								rowIds.splice(ii, 1);
 						});
 					}
