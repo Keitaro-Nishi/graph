@@ -20,15 +20,15 @@ class OpinionController
 
 		if($Authrole == 0){
 			$opinions = Opinion::all();
-			return view('opinion')->with('opinions', $opinions);
+			//return view('opinion')->with('opinions', $opinions);
 		}
-		if($Authrole == 1){
+		if($Authrole == 1 or $Authrole == 2){
 			$opinions= Opinion::where('citycode', $cityCD)->get();
-			return view('opinion')->with('opinions', $opinions);
+			//return view('opinion')->with('opinions', $opinions);
 		}
 
 	//return view('opinion',['opinions'=>$opinions]);
-	//return view('opinion')->with('opinions', $opinions);
+	return view('opinion')->with('opinions', $opinions);
 	}
 
 	public function delete(Request $request)
