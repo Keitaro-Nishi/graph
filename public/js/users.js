@@ -91,14 +91,15 @@ function update(){
 		}
 	}).done(function (response) {
 		result = JSON.parse(response);
+		alert(result);
 		if(result == "OK"){
 			alert("更新しました");
 			location.reload();
 		}else{
-			alert(result);
 			alert("1更新できませんでした");
 		}
     }).fail(function () {
+    	alert(result);
         alert("2更新できませんでした");
     });
 }
