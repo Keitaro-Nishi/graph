@@ -69,13 +69,13 @@
 					<div class="form-group">
 						<label class="col-sm-3 control-label" for="dia_password">パスワード</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" id="dia_password" name="password" value="" required>
+							<input type="password" class="form-control" id="dia_password" name="password" value="" required>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-3 control-label" for="dia_password_confirmation">パスワード再入力</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" id="dia_password_confirmation" name="password_confirmation" value="" required>
+							<input type="password" class="form-control" id="dia_password_confirmation" name="password_confirmation" value="" required>
 						</div>
 					</div>
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
