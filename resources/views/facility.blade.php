@@ -45,7 +45,7 @@
 				<h4 class="modal-title" id="modal-label">施設登録</h4>
 			</div>
 			<div class="modal-body">
-				<form class="form-horizontal" method="POST" action="{{ route('facility') }}>
+				<form class="form-horizontal" method="POST" action="{{ route('facility') }}">
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_meisho">施設名称</label>
 						<div class="col-sm-10">
