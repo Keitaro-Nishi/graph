@@ -34,7 +34,6 @@ var dbvalue = [];
 				});
 			});
 			function drow() {
-				//alert(dbvalue[2]["userid"]);
 
 				if(rowIds.length == 0){
 					alert("削除する行を選択してください");
@@ -70,7 +69,7 @@ var dbvalue = [];
 				for (var i = 0; i < dbvalue.length; i++){
 					if(dbvalue[i][0] == value){
 						shosai_idx = i;
-						modal_mod(2);
+						modal_mod(i);
 					}
 				}
 			}

@@ -43,8 +43,6 @@
 
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
-</div>
-<div class="container" align="center">
 	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog" value="モーダル表示" />
 </div>
 
@@ -86,11 +84,11 @@
 						</div>
 						<label class="col-sm-2 control-label" for="dia_joy">喜び</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_joy"  readonly>
+							<input type="text" class="form-control" id="dia_joy" readonly>
 						</div>
 						<label class="col-sm-2 control-label" for="dia_fear">恐れ</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_fear"  readonly>
+							<input type="text" class="form-control" id="dia_fear" readonly>
 						</div>
 					</div>
 					<div class="form-group">
