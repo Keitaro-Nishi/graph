@@ -34,7 +34,7 @@ var sample = [];
 			});
 			function drow() {
 
-				alert(test[0]);
+				alert(test[1]);
 				/*
 				if(rowIds.length == 0){
 					alert("削除する行を選択してください");
