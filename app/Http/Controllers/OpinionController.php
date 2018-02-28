@@ -15,20 +15,15 @@ class OpinionController
 		$Authrole = Auth::user()->role;
 		$cityCD = Auth::user()->citycode;
 
-		error_log("★★★★★★★");
-		error_log($Authrole);
-
 		if($Authrole == 0){
 			$opinions = Opinion::all();
-
 		}
 		if($Authrole == 1 or $Authrole == 2){
 			$opinions= Opinion::where('citycode', $cityCD)->get();
-
 		}
 
-	//return view('opinion',['opinions'=>$opinions]);
-	return view('opinion')->with('opinions', $opinions);
+		//return view('opinion',['opinions'=>$opinions]);
+		return view('opinion')->with('opinions', $opinions);
 	}
 
 	public function delete(Request $request)
@@ -36,7 +31,6 @@ class OpinionController
 		$deleteNo = $request->deleteno;
 		//error_log("★★★★★★★");
 		//error_log($deleteNo);
-		//DB::delete('delete from opinion WHERE id=?',[$deleteNo]);
 
 		$deleteopinion = Opinion::find($deleteNo);
 		$deleteopinion->delete();
