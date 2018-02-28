@@ -34,7 +34,8 @@ var dbvalue = [];
 				});
 			});
 			function drow() {
-
+				alert(dbvalue[0]["userid"]);
+				/*
 				if(rowIds.length == 0){
 					alert("削除する行を選択してください");
 					return;
@@ -60,7 +61,7 @@ var dbvalue = [];
 					}else{
 						alert("削除できませんでした");
 					}
-				}
+				}*/
 			}
 
 			function detailwin(value){
@@ -83,7 +84,7 @@ var dbvalue = [];
 			}
 
 			function modal_mod(index){
-				document.getElementById('dia_userid').value  = dbvalue[0]["citycode"];
+				document.getElementById('dia_userid').value  = dbvalue[index]["userid"];
 				document.getElementById('dia_time').value = dbvalue[index]["time"];
 				document.getElementById('dia_opinion').innerHTML  = dbvalue[index]["opinion"];
 				document.getElementById('dia_sadness').value  = dbvalue[index]["sadness"];
