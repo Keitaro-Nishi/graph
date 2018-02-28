@@ -15,8 +15,8 @@ class OpinionController
 	//error_log("★★★★★★★");
 	//error_log($opinions[0]);
 
-		return view('opinion',['opinions'=>$opinions]);
-		//return view('opinion')->with('opinions', $opinions);
+		//return view('opinion',['opinions'=>$opinions]);
+		return view('opinion')->with('opinions', $opinions);
 
 	}
 
