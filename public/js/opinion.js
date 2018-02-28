@@ -34,7 +34,7 @@ dbvalue = JSON.parse(opinion);
 
 			function drow() {
 
-				alert(dbvalue[0]["userid"]);
+				alert(dbvalue[0][2]);
 
 				if(rowIds.length == 0){
 					alert("削除する行を選択してください");
@@ -71,7 +71,6 @@ dbvalue = JSON.parse(opinion);
 					if(dbvalue[i][0] == value){
 						shosai_idx = i;
 						modal_mod(i);
-						alert(i);
 					}
 				}
 			}
