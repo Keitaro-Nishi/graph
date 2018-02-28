@@ -34,7 +34,7 @@ var dbvalue = [];
 				});
 			});
 			function drow() {
-				alert(dbvalue[0]["userid"]);
+				alert(dbvalue[2]["userid"]);
 				/*
 				if(rowIds.length == 0){
 					alert("削除する行を選択してください");
