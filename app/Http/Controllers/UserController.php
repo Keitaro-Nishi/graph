@@ -35,6 +35,14 @@ class UserController
 	{
 		$input = \Request::all();
 
+		$input->validate([
+			'citycode' => 'required|string',
+			'name' => 'required|string|max:255',
+			'userid' => 'required|string|max:255|unique:users',
+			'organization' => 'required|string|max:255',
+			'password' => 'required|string|min:6|confirmed'
+		]);
+
 		error_log("★★★★★★★★★★★★★update★★★★★★★★★★★★★★★".$input["organization"]);
 
 		$user = new User;
