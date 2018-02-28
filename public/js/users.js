@@ -95,6 +95,7 @@ function update(){
 			alert("更新しました");
 			location.reload();
 		}else{
+			alert(result);
 			alert("更新できませんでした");
 		}
     }).fail(function () {

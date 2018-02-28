@@ -44,6 +44,20 @@ class UserController
 			'password' => 'required|string|min:6|confirmed'
 		]);
 		*/
+		$rules = [
+			'citycode' => 'required|string',
+			'name' => 'required|string|max:255',
+			'userid' => 'required|string|max:255|unique:users',
+			'organization' => 'required|string|max:255',
+			'password' => 'required|string|min:6|confirmed'
+		];
+
+		$validator = Validator::make($input,$rules);
+
+		if($validator->fails())
+		{
+			return response()->json($validator->errors());
+		}
 
 		error_log("★★★★★★★★★★★★★update★★★★★★★★★★★★★★★".$input["organization"]);
 
@@ -77,7 +91,7 @@ class UserController
 		$result = $user->save();
 		error_log("★★★★★★★★★★★★★update★★★★★★★★★★★★★★★".$result);
 
-		return redirect('/users');
+		return response()->json("OK");
 	}
 
 }
