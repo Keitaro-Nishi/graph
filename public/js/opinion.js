@@ -14,17 +14,17 @@ dbvalue = JSON.parse(opinion);
 					keepSelection : true,
 				    formatters: {
 				        "details": function($column, $row) {
-				        	return "<input type='button' class='btn btn-default' value='詳細' onclick='detailwin("  + $row.userid + ")'> ";
+				        	return "<input type='button' class='btn btn-default' value='詳細' onclick='detailwin("  + $row.id + ")'> ";
 			             }
 				    }
 				}).on("selected.rs.jquery.bootgrid", function(e, rows) {
 					for (var i = 0; i < rows.length; i++) {
-						rowIds.push(rows[i].userid);
+						rowIds.push(rows[i].id);
 					}
 				}).on("deselected.rs.jquery.bootgrid", function(e, rows) {
 					for (var i = 0; i < rows.length; i++) {
 						rowIds.some(function(v, ii) {
-							if (v == rows[i].userid)
+							if (v == rows[i].id)
 								rowIds.splice(ii, 1);
 						});
 					}
@@ -65,7 +65,7 @@ dbvalue = JSON.parse(opinion);
 			function detailwin(value){
 				document.getElementById("btn_modal").click();
 				for (var i = 0; i < dbvalue.length; i++){
-					if(dbvalue[i]["userid"] == value){
+					if(dbvalue[i]["id"] == value){
 						shosai_idx = i;
 						modal_mod(i);
 					}
