@@ -83,7 +83,7 @@ var dbvalue = [];
 			}
 
 			function modal_mod(index){
-				document.getElementById('dia_userid').value  = dbvalue[index]["userid"];
+				document.getElementById('dia_userid').value  = dbvalue[0]["userid"];
 				document.getElementById('dia_time').value = dbvalue[index]["time"];
 				document.getElementById('dia_opinion').innerHTML  = dbvalue[index]["opinion"];
 				document.getElementById('dia_sadness').value  = dbvalue[index]["sadness"];
