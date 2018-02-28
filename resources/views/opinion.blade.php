@@ -121,7 +121,7 @@
 
 @foreach($opinions as $opinion)
 <div>
-<input id="a" type= "hidden" value = '{{$opinion->userid}}'>
+<input id="a" type= "hidden" value = '{{$opinion->id}}'>
 </div>
 @endforeach
 
