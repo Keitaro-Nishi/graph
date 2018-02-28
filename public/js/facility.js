@@ -69,6 +69,17 @@ function insert(){
 	document.getElementById("btn_modal").click();
 }
 
+//地図の確認
+function map(){
+	latlng = document.getElementById('dia_latlng').value;
+	window.open( "http://maps.google.com/maps?q=" + latlng + "+(ココ)", '_blank');
+}
+//画像の確認
+function image(){
+	imageurl = document.getElementById('dia_iurl').value;
+	window.open( imageurl, '_blank');
+}
+
 //ダイアログ初期化
 function initmodal(){
 	document.getElementById('dia_meisho').value = "";
@@ -79,15 +90,4 @@ function initmodal(){
 	document.getElementById('dia_latlng').value = "";
 	document.getElementById('dia_imageurl').value = "";
 	document.getElementById('dia_url').value = "";
-}
-
-//地図の確認
-function map(){
-	latlng = document.getElementById('dia_latlng').value;
-	window.open( "http://maps.google.com/maps?q=" + latlng + "+(ココ)", '_blank');
-}
-//画像の確認
-function image(){
-	imageurl = document.getElementById('dia_iurl').value;
-	window.open( imageurl, '_blank');
 }
