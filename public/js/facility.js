@@ -1,7 +1,7 @@
 var rowIds = [];
 $(function() {
 	$("#grid-basic").bootgrid({
-		selection : true,
+		selection : false,
 		multiSelect : true,
 		rowSelect : true,
 		keepSelection : true
@@ -18,21 +18,6 @@ $(function() {
 		}
 	});
 });
-/*
-//ジャンルの設定
-var genre1value = <?php echo json_encode($genre1value); ?>;
-var select = document.getElementById('dia_genre1');
-
-for( var key in genre1value ) {
-	var option = document.createElement('option');
-	option.setAttribute('value', key);
-	var text = document.createTextNode(genre1value[key]);
-	option.appendChild(text);
-	select.appendChild(option);
-}
-genre1change();
-}
-*/
 
 function drow() {
 	if(rowIds.length == 0){
@@ -68,6 +53,23 @@ function insert(){
 	initmodal();
 	document.getElementById("btn_modal").click();
 }
+
+/*
+//ジャンルの設定
+var genre1value = <?php echo json_encode($genre1value); ?>;
+var select = document.getElementById('dia_genre1');
+
+for( var key in genre1value ) {
+	var option = document.createElement('option');
+	option.setAttribute('value', key);
+	var text = document.createTextNode(genre1value[key]);
+	option.appendChild(text);
+	select.appendChild(option);
+}
+genre1change();
+}
+*/
+
 
 //地図の確認
 function map(){
