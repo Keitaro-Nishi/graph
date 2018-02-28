@@ -11,12 +11,19 @@ class OpinionController
 	public function index(Request $request)
 	{
 
-	$opinions = Opinion::all();
-	error_log("★★★★★★★");
-	error_log($opinions[0]);
+	$Authrole = Auth::user()->role;
+	$cityCD = Auth::user()->citycode;
 
-		//return view('opinion',['opinions'=>$opinions]);
-		return view('opinion')->with('opinions', $opinions);
+	if($Authrole = 0){
+		$opinions = Opinion::all();
+	}elseif($Authrole = 1){
+		$opinions= Opinion::where('citycode', $cityCD)->get();
+	}
+
+
+
+	//return view('opinion',['opinions'=>$opinions]);
+	return view('opinion')->with('opinions', $opinions);
 
 	}
 
