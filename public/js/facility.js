@@ -1,7 +1,7 @@
 var rowIds = [];
 $(function() {
 	$("#grid-basic").bootgrid({
-		selection : false,
+		selection : true,
 		multiSelect : true,
 		rowSelect : true,
 		keepSelection : true
