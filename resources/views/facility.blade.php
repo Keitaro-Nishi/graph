@@ -88,7 +88,7 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_imageurl">画像ＵＲＬ</label>
 						<div class="col-sm-10">
-							<input id="dia_imageurlurl" class="form-control" maxlength="300" placeholder="https://www.yyy.zzz.jpg">
+							<input id="dia_imageurl" class="form-control" maxlength="300" placeholder="https://www.yyy.zzz.jpg">
 							<input type="button" class="btn btn-default" style="display:inline; width: 100px;" onclick="image()" value="画像の確認"/>
 							※必ずhttpsから始まるURLを指定してください
 						</div>
