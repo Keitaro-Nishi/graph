@@ -1,1 +1,36 @@
+<?php
 
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Genre;
+use Illuminate\Support\Facades\Auth;
+
+class GenreController
+{
+	public function index(Request $request)
+	{
+
+		$Authrole = Auth::user()->role;
+		$cityCD = Auth::user()->citycode;
+
+		if($Authrole == 0){
+			$genres = Genre::all();
+		}
+		if($Authrole == 1 or $Authrole == 2){
+			$genres= Genre::where('citycode', $cityCD)->get();
+		}
+
+		return view('genre')->with('genres', $genres);
+	}
+
+	public function delete(Request $request)
+	{
+		$deleteNo = $request->deleteno;
+		$deletegenre = Genre::find($deleteNo);
+		$deletegenre->delete();
+
+		return redirect('/genre');
+	}
+
+}
