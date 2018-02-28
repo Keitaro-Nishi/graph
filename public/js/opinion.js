@@ -33,7 +33,7 @@ test = JSON.parse($script.attr('data-json-test'));
 			});
 			function drow() {
 
-				alert(test[0]);
+				alert(test[0][0]);
 				/*
 				if(rowIds.length == 0){
 					alert("削除する行を選択してください");
