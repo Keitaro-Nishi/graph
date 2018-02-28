@@ -109,8 +109,7 @@
 		</div>
 	</div>
 </div>
-@if (Auth::user()->citycode == 00000)
-@else
+@if (Auth::user()->citycode != 00000)
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
 	<input id="btn_ins" type="button" class="btn btn-default" value="施設登録" onclick="insert()">
