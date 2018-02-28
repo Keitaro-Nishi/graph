@@ -1,7 +1,8 @@
+/*
 //ジャンル
 $j1value = array();
 $j2value = array();
-
+*/
 var rowIds = [];
 $(function() {
 	$("#grid-basic").bootgrid({
