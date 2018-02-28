@@ -62,7 +62,7 @@ function drow() {
 		}
 	}
 }
-/*
+
 function insert(){
 	document.getElementById('modal-label').innerHTML  = "施設登録";
 	initmodal();
@@ -91,4 +91,3 @@ function image(){
 	imageurl = document.getElementById('dia_iurl').value;
 	window.open( imageurl, '_blank');
 }
- */
