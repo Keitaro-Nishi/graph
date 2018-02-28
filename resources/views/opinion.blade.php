@@ -118,9 +118,12 @@
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
 </div>
 
+
+@foreach($opinions as $opinion)
 <div>
-<input id="a" type= "hidden" value = '$opinions'>
+<input id="a" type= "hidden" value = '{{$opinion->id}}'>
 </div>
+@endforeach
 
 <script type="text/javascript" src="js/opinion.js"></script>
 
