@@ -10,8 +10,13 @@ class FacilityController
 
 	public function index(Request $request)
 	{
-		$facilitys= Facility::all();
-		return view('facility',['facilitys'=>$facilitys]);
+		$cityCD = Auth::user()->citycode;
+		if($cityCD = "00000"){
+			$facilities = Facility::all();
+		}else{
+			$users= Facility::where('citycode', $cityCD)->get();
+		}
+		return view('facility',['facilities'=>$facilities]);
 	}
 
 	public function update(Request $request)
