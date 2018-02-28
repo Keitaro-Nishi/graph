@@ -24,8 +24,7 @@ class FacilityController
 	{
 
 
-
-		return redirect('/facility');
+		return redirect ( '/facility' );
 	}
 
 	public function delete(Request $request)
