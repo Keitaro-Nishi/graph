@@ -14,7 +14,7 @@ dbvalue = JSON.parse(opinion);
 					keepSelection : true,
 				    formatters: {
 				        "details": function($column, $row) {
-				        	return "<input type='button' class='btn btn-default' value='詳細' onclick='detailwin("  + $row.id + ")'> ";
+				        	return "<input type='button' class='btn btn-default' value='詳細' onclick='detailwin("  + $row.userid + ")'> ";
 			             }
 				    }
 				}).on("selected.rs.jquery.bootgrid", function(e, rows) {
@@ -65,7 +65,7 @@ dbvalue = JSON.parse(opinion);
 			function detailwin(value){
 				document.getElementById("btn_modal").click();
 				for (var i = 0; i < dbvalue.length; i++){
-					if(dbvalue[i]["id"] == value){
+					if(dbvalue[i]["userid"] == value){
 						shosai_idx = i;
 						modal_mod(i);
 					}
