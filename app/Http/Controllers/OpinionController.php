@@ -16,8 +16,8 @@ class OpinionController
 	//error_log($opinions[0]);
 
 		//return view('opinion',['opinions'=>$opinions]);
-		//return view('opinion')->with('opinions', $opinions);
-		return view('opinion',compact('opinions'));
+		return view('opinion')->with('opinions', $opinions);
+
 	}
 
 	public function delete(Request $request)
