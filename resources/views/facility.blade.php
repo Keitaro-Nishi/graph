@@ -115,6 +115,7 @@
 	<input id="btn_ins" type="button" class="btn btn-default" value="施設登録" onclick="insert()">
 	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog"/>
 </div>
-<script src="{{ asset('js/facility.js') }}"></script>
 @endif
+<script src="{{ asset('js/facility.js') }}"></script>
+
 @endsection
