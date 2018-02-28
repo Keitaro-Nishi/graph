@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\User;
@@ -59,7 +60,8 @@ class UserController
 		if($validator->fails())
 		{
 			error_log("★★★★★★★★★★★★★validat★★★★★★★★★★★★★★★");
-			return response()->json($validator->errors());
+			//return Response::json($validator->errors());
+			return $validator->errors();
 		}
 
 		$user = new User;
@@ -92,7 +94,8 @@ class UserController
 		$result = $user->save();
 		error_log("★★★★★★★★★★★★★update★★★★★★★★★★★★★★★".$result);
 
-		return response()->json("OK");
+		//return Response::json("OK");
+		return ["OK"];
 	}
 
 }
