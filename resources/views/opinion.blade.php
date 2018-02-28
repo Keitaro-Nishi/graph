@@ -114,6 +114,5 @@
 	</div>
 </div>
 
-
-<script type="text/javascript" src="js/opinion.js"></script>
+<script src="{{ asset('js/opinion.js') }}"></script>
 @endsection
