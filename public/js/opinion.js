@@ -1,7 +1,7 @@
 var rowIds = [];
 var dbvalue = [];
 var shosai_idx = 0;
-var sample = JSON.parse('<?php echo $sample; ?>');
+var test = JSON.parse('<?php echo $sample; ?>');
 
 
 			$(function() {
@@ -30,7 +30,7 @@ var sample = JSON.parse('<?php echo $sample; ?>');
 			});
 			function drow() {
 
-				alert(sample);
+				alert(test);
 				/*
 				if(rowIds.length == 0){
 					alert("削除する行を選択してください");
