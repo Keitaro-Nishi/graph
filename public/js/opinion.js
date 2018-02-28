@@ -60,7 +60,7 @@ var dbvalue = [];
 					}else{
 						alert("削除できませんでした");
 					}
-				}*/
+				}
 			}
 
 			function detailwin(value){
