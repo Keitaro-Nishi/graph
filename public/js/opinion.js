@@ -3,8 +3,9 @@ var dbvalue = [];
 var shosai_idx = 0;
 var test = [];
      test= document.getElementById('a').value;
+
 var sample = [];
-     sample= [1,2];
+	sample = JSON.parse(test)
 
 
 
@@ -34,7 +35,7 @@ var sample = [];
 			});
 			function drow() {
 
-				alert(test[0]);
+				alert(sample[0]);
 				/*
 				if(rowIds.length == 0){
 					alert("削除する行を選択してください");
