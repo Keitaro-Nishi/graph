@@ -12,8 +12,7 @@ class OpinionController
 	{
 
 	$opinions = Opinion::all();
-	$sample ="こんにちは";
-	$php_json = json_encode($sample);
+	//$sample ="こんにちは";
 
 		return view('opinion',['opinions'=>$opinions]);
 		//return view('opinion')->with('opinions', $opinions);

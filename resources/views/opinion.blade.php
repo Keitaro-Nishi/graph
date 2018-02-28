@@ -118,7 +118,7 @@
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
 </div>
 
-
+<script id="script" src="js/opinion.js" data-json-test ='<?php echo json_encode($opinions)?>'></script>
 <script type="text/javascript" src="js/opinion.js"></script>
 
 @endsection

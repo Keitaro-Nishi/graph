@@ -1,8 +1,9 @@
 var rowIds = [];
 var dbvalue = [];
 var shosai_idx = 0;
-var test = 1
-//var test = JSON.parse('<?php echo $sample; ?>');
+var $script = $('#script');
+var test = JSON.parse($script.attr('data-json-test'));
+
 
 
 			$(function() {
