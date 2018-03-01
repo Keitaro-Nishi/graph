@@ -9,19 +9,20 @@
 	class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
+			<th data-column-id="citycode" data-visible="false"></th>
 			<th data-column-id="name">ユーザー名</th>
 			<th data-column-id="userid" data-identifier="true">ユーザーID</th>
 			<th data-column-id="organization">組織名</th>
-			<th data-column-id="role">役割</th>
+			<th data-column-id='detail'  data-width='6%' data-formatter='details' data-sortable='false'></th>
 		</tr>
 	</thead>
 	<tbody>
 		@foreach($users as $user)
 		<tr>
+			<td>{{$user->citycode}}</td>
 			<td>{{$user->name}}</td>
 			<td>{{$user->userid}}</td>
 			<td>{{$user->organization}}</td>
-			<td>{{$user->role}}</td>
 		</tr>
 		@endforeach
 	</tbody>
@@ -93,7 +94,6 @@
 	<input id="btn_ins" type="button" class="btn btn-default" value="ユーザー登録" onclick="insert()">
 	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog"/>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
 <script src="{{ asset('js/users.js') }}"></script>
 
 @endsection

@@ -3,8 +3,12 @@ $(function() {
 	$("#grid-basic").bootgrid({
 		selection : true,
 		multiSelect : true,
-		rowSelect : true,
-		keepSelection : true
+		keepSelection : true,
+		formatters: {
+	        "details": function($column, $row) {
+	        	return "<input type='button' class='btn btn-default' value='修正' onclick='update("  + $row + ")' > ";
+             }
+	    }
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
 		for (var i = 0; i < rows.length; i++) {
 			rowIds.push(rows[i].userid);
@@ -45,6 +49,15 @@ function drow() {
 			alert("削除できませんでした");
 		}
 	}
+}
+
+function update(row){
+	alert(row.no);
+	/*
+	document.getElementById('modal-label').innerHTML  = "ユーザー登録";
+	initmodal();
+	document.getElementById("btn_modal").click();
+	*/
 }
 
 function insert(){
