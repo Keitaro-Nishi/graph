@@ -3,7 +3,7 @@ $(function() {
 	$("#grid-basic").bootgrid({
 		selection : true,
 		multiSelect : true,
-		keepSelection : true
+		keepSelection : true,
 		columnSelection : false,
 		/*
 	    formatters: {
