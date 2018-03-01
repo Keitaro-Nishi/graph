@@ -27,6 +27,7 @@ class GenreController
 		return view('genre',compact('genres', 'result','result2'));
 	}
 
+
 	public function delete(Request $request)
 	{
 		$deleteNo = $request->deleteno;
@@ -34,6 +35,14 @@ class GenreController
 		$deletegenre->delete();
 
 		return redirect('/genre');
+	}
+
+
+	public function init(Request $request)
+	{
+		$j1value= Genre::where('bunrui', 1)->get();
+
+
 	}
 
 }
