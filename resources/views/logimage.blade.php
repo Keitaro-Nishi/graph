@@ -13,6 +13,7 @@
 	class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
+			<th data-column-id='no'>No</th>
 			<th data-column-id='time'>日時</th>
 			<th data-column-id='userid'>ユーザーID</th>
 			<th data-column-id='image'>送信画像</th>
@@ -23,6 +24,7 @@
 	<tbody>
 		@foreach($logimages as $logimage)
 		<tr>
+			<td>{{$logimage->no}}</td>
 			<td>{{$logimage->time}}</td>
 			<td>{{$logimage->userid}}</td>
 			<td>{{$logimage->image}}</td>
@@ -39,6 +41,7 @@
 		<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#image_Modal" value="モーダル表示" />
 	</div>
 </div>
+<!--
 <div class="modal" id="image_Modal" tabindex="-1">
 	<div class="modal-dialog">
 		<div class="modal-content" id="dia_cont">
@@ -52,6 +55,7 @@
 		</div>
 	</div>
 </div>
+-->
 <script src="{{ asset('js/logimage.js') }}"></script>
 
 @endsection
