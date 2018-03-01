@@ -29,7 +29,7 @@ class GenreController
 			//error_log(genreID);
 		}
 
-		return view('genre',compact('genres','genregid1','result','result2'));
+		return view('genre',compact('genres','result','result2'));
 	}
 
 
