@@ -31,7 +31,6 @@
 		<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#image_Modal" value="モーダル表示" />
 	</div>
 </div>
-<!--
 <div class="modal" id="image_Modal" tabindex="-1">
 	<div class="modal-dialog">
 		<div class="modal-content" id="dia_cont">
@@ -45,7 +44,6 @@
 		</div>
 	</div>
 </div>
--->
 <script src="{{ asset('js/logimage.js') }}"></script>
 
 @endsection
