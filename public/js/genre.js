@@ -5,17 +5,13 @@ var meishoOld = "";
 var uiKbn = 0;
 var gid2 = 0;
 $(function() {
-	var h = $(window).height();
-	$('#wrap').css('display','none');
-	$('#loader-bg ,#loader').height(h).css('display','block');
-	$("#header").load("header.html");
 	$("#grid-basic").bootgrid({
 		selection: true,
 		multiSelect: true,
 	    keepSelection: true,
 	    formatters: {
 	        "mods": function($column, $row) {
-	        	return "<input type='button' class='btn btn-default' value='修正' onclick='modwin("  + $row.no + ",\"" + $row.gid1 + "\",\"" + $row.gid2 + "\",\"" + $row.g1 + "\",\"" + $row.g2 + "\")' > ";
+	        	return "<input type='button' class='btn btn-default' value='修正' onclick='modwin(\"" + $row.gid1 + "\",\"" + $row.gid2 + "\",\"" + $row.gid3 + "\")' > ";
              }
 	    }
 	}).on("selected.rs.jquery.bootgrid", function(e, rows)
@@ -55,14 +51,7 @@ $(function() {
 		select.appendChild(option);
 	}
 });
-$(window).load(function () { //全ての読み込みが完了したら実行
-	  $('#loader-bg').delay(900).fadeOut(800);
-	  $('#loader').delay(600).fadeOut(300);
-	  $('#wrap').css('display', 'block');
-	  //$('#btn_del').css('display', 'block');
-	  //$('#btn_ins').css('display', 'block');
-	  //$('#btn_mod').css('display', 'block');
-});
+
 function drow() {
 	if(rowIds.length == 0){
 		alert("削除する行を選択してください");

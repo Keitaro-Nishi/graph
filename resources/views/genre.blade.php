@@ -21,9 +21,9 @@
 			@else
 			<td>小分類</td>
 			@endif
-			<td>{{$genre->git1}}</td>
-			<td>{{$genre->git2}}</td>
-			<td>{{$genre->git3}}</td>
+			<td>{{$genre->gid1}}</td>
+			<td>{{$genre->gid2}}</td>
+			<td>{{$genre->gid3}}</td>
 			<td>{{$genre->meisho}}</td>
 			<td></td>
 		</tr>
