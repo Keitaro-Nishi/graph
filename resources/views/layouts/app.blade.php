@@ -63,7 +63,7 @@
 							</a>
 							<ul class="dropdown-menu">
 								<li><a href="{{ route('botlog') }}">ログ参照</a></li>
-								<li><a href="{{ route('register') }}">画像ログ参照</a></li>
+								<li><a href="{{ route('logimage') }}">画像ログ参照</a></li>
 								<li><a href="{{ route('register') }}">施設情報</a></li>
 								<li><a href="{{ route('register') }}">施設ジャンル</a></li>
 								<li><a href="{{ route('opinion') }}">ご意見ログ</a></li>
