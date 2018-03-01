@@ -54,7 +54,7 @@
 					<div class="form-group">
 						<label class="col-sm-3 control-label" for="dia_name">ユーザー名</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" id="dia_name" name="name" value="" required>
+							<input type="text" class="form-control" id="dia_name" name="username" value="" required>
 						</div>
 					</div>
 					<div class="form-group">

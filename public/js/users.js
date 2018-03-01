@@ -96,8 +96,10 @@ function update(){
 			bootbox.alert({
 				message: "更新しました",
 				size: 'small'
+				callback: function () {
+					location.reload();
+				}
 			});
-			location.reload();
 		}else{
 			var mes = "";
 			for (var item in response) {

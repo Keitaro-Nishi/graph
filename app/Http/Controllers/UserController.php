@@ -49,7 +49,7 @@ class UserController
 		*/
 		$rules = [
 			'citycode' => 'required|string',
-			'name' => 'required|string|max:255',
+			'username' => 'required|string|max:255',
 			'userid' => 'required|string|max:255|unique:users',
 			'organization' => 'required|string|max:255',
 			'password' => 'required|string|min:6|confirmed'
@@ -78,7 +78,7 @@ class UserController
 		//ユーザーＩＤ
 		$user->userid= $input["userid"];
 		//名前
-		$user->name= $input["name"];
+		$user->name= $input["username"];
 		//権限
 		if($cityCD == "00000"){
 			$user->role= (int)1;
