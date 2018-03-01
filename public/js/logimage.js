@@ -5,6 +5,17 @@ $(function() {
 		multiSelect : true,
 		//rowSelect : true,
 		keepSelection : true
+	    formatters: {
+	        "image": function($column, $row) {
+	              return "<img class='table-img' src='' />";
+	         },
+	        "zoom": function($column, $row) {
+                  //return "<button type=\"button\" class=\"btn btn-xs btn-default command-edit\" data-row-id=\"" + $row.no + "\">画像拡大</button> ";
+	        	//return "<Form><input type='button' value='画像拡大' onClick='window.open('" + getimage.php?id=$row.no + "','test','width=250,height=100,');'></Form> ";
+	        	//return "<Form><input type='button' value='画像拡大' onclick='imgwin()'></Form> ";
+	        	return "<input type='button' class='btn btn-default' value='画像拡大' onclick=''> ";
+             }
+	    }
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
 		for (var i = 0; i < rows.length; i++) {
 			rowIds.push(rows[i].no);
@@ -46,4 +57,28 @@ function drow() {
 			alert("削除できませんでした");
 		}
 	}
+}
+
+function imgwin(imgno,bunrui,kakushin){
+	var oimg = new Image();
+	oimg.src = "getimage.php?id=" + imgno;
+	var img = document.getElementById("dia_image");
+	img.width = oimg.width;
+	img.height = oimg.height;
+	document.getElementById('dia_kaku').innerHTML  = "分類：" + bunrui + "　　確信度：" + kakushin;
+	img.src = "getimage.php?id=" + imgno;
+	var img = document.getElementById("dia_image");
+	if(img.width > 600){
+		var orgWidth  = img.width;
+		var orgHeight = img.height;
+		img.width = 600;
+		img.height = orgHeight * (img.width / orgWidth);
+	}
+	var imgwidth = img.width + 40;
+	if(imgwidth < 600){
+		imgwidth = 600;
+	}
+	var imgmar = img.width / 2;
+	document.getElementById('dia_cont').style.width = imgwidth + "px";
+	document.getElementById("btn_modal").click();
 }
