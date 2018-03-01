@@ -1,14 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<div id="loader-bg">
-  <div id="loader">
-    <img src="img/loading.gif" width="80" height="80" alt="Now Loading..." />
-    <p>Now Loading...</p>
-  </div>
-</div>
-<div id="wrap">
-
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
 	<thead>
