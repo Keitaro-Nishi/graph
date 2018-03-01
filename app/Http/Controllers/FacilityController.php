@@ -23,7 +23,7 @@ class FacilityController
 
 	public function update(Request $request)
 	{
-		/*
+
 		$input = \Request::all();
 		error_log("★★★★★★★★★★★★★update★★★★★★★★★★★★★★★".$input["meisho"]);
 
@@ -78,8 +78,8 @@ class FacilityController
 		//URL
 		$facility->genre3= $input["url"];
 
-		$facility = DB::insert('insert into facility (citycode, meisho, jusho, tel, genre1, genre2, genre3, lat, lng, imageurl, url, geom) values (?,?,?,?,?,?,?,?,?,?,?,?)',[$input["citycode"]]);
-*/
+		$facility = DB::insert('insert into facility (citycode, meisho, jusho, tel, genre1, genre2, genre3, lat, lng, imageurl, url, geom) values (?,?,?,?,?,?,?,?,?,?,?,?)',[$input["citycode"],$facility->meisho]);
+
 		return redirect ( '/facility' );
 	}
 
