@@ -92,9 +92,9 @@ function update(){
 	}).done(function (response) {
 		alert("1-1");
 		console.log(response);
-		alert(response.toString());
-		result = "";
-		result = JSON.parse(response);
+		alert(response.status);
+		//result = "";
+		//result = JSON.parse(response);
 		alert("1-2");
 		alert(result.status);
 		if(result == "OK"){
