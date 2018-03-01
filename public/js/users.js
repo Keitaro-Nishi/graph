@@ -6,7 +6,7 @@ $(function() {
 		keepSelection : true,
 		formatters: {
 	        "details": function($column, $row) {
-	        	return "<input type='button' class='btn btn-default' value='修正' onclick='update("  + $row + ")' > ";
+	        	return "<input type='button' class='btn btn-default' value='修正' onclick='update("  + $row.toString() + ")' > ";
              }
 	    }
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
