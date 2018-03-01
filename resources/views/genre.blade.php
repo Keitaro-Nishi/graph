@@ -47,7 +47,7 @@
 </div>
 
 <div>
-<input id="result" type= "text" value = '{{ $resultmeisho }}'>
+<input id="result" type= "text" value = '{{ $result2 }}'>
 </div>
 
 <div class="modal" id="shosaiDialog"  tabindex="-1">
