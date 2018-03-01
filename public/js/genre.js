@@ -11,14 +11,14 @@ $(function() {
 	    keepSelection: true,
 	    formatters: {
 	        "mods": function($column, $row) {
-	        	return "<input type='button' class='btn btn-default' value='修正' onclick='modwin(\"" + $row.gid1 + "\",\"" + $row.gid2 + "\",\"" + $row.gid3 + "\")' > ";
+	        	return "<input type='button' class='btn btn-default' value='修正' onclick='modwin(\"" + $row.gid1 + "\",\"" + $row.gid2 + "\",\"" + $row.g1 + "\",\"" + $row.g2 + "\")' > ";
              }
 	    }
 	}).on("selected.rs.jquery.bootgrid", function(e, rows)
 	{
 		for (var i = 0; i < rows.length; i++)
 	    {
-	        rowIds.push(rows[i].no);
+	        //rowIds.push(rows[i].no);
 	        rowgid1.push(rows[i].gid1);
 	        rowgid2.push(rows[i].gid2);
 	        //alert("rowgid1:" + rows[i].gid1 + " rowgid2:" + rows[i].gid2);

@@ -13,12 +13,14 @@ class GenreController
 
 		$Authrole = Auth::user()->role;
 		$cityCD = Auth::user()->citycode;
-		/*
-		$result = Genre::where('bunrui',1)->where('gid1', 1)->get();
-		$resultmeisho = $result->meisho;
+		$result = Genre::where('bunrui', 1)->get();
 
 		error_log("★★★★★★★");
 		error_log($result[0]);
+
+		/*
+		$result2 = Genre::where('bunrui',1)->where('gid1', 1)->get();
+		$resultmeisho = $result->meisho;
 		*/
 
 		if($cityCD == "00000"){
