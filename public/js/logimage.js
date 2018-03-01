@@ -58,7 +58,7 @@ function drow() {
 		}
 	}
 }
-
+/*
 function imgwin(imgno,bunrui,kakushin){
 	var oimg = new Image();
 	oimg.src = "getimage.php?id=" + imgno;
@@ -82,3 +82,4 @@ function imgwin(imgno,bunrui,kakushin){
 	document.getElementById('dia_cont').style.width = imgwidth + "px";
 	document.getElementById("btn_modal").click();
 }
+*/
