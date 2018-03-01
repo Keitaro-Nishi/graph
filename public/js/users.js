@@ -90,7 +90,9 @@ function update(){
 			"_token" : _token
 		}
 	}).done(function (response) {
+		alert("1-1");
 		result = JSON.parse(response);
+		alert("1-2");
 		alert(result);
 		if(result == "OK"){
 			alert("更新しました");
@@ -99,6 +101,7 @@ function update(){
 			alert("1更新できませんでした");
 		}
     }).fail(function () {
+    	alert("2-1");
     	alert(result);
         alert("2更新できませんでした");
     });
