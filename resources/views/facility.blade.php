@@ -24,8 +24,8 @@
 			<td>{{$facility->meisho}}</td>
 			<td>{{$facility->jusho}}</td>
 			<td>{{$facility->tel}}</td>
-			<td>{{$facility->genre1}}</td>
-			<td>{{$facility->genre2}}</td>
+			<td>{{$facility->Lgenre}}</td>
+			<td>{{$facility->Mgenre}}</td>
 			<td>{{$facility->lat}}</td>
 			<td>{{$facility->lng}}</td>
 			<td>{{$facility->imageurl}}</td>

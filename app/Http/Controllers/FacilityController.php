@@ -20,7 +20,7 @@ class FacilityController
 		}
 		return view('facility',['facilities'=>$facilities]);
 	}
-/*
+
 	public function update(Request $request)
 	{
 		$input = \Request::all();
@@ -46,7 +46,7 @@ class FacilityController
 		{
 			return $validator->errors();
 		}
-
+/*
 		$facility = new Facility;
 		$cityCD = Auth::user()->citycode;
 
@@ -69,26 +69,19 @@ class FacilityController
 		//ジャンル3
 		$facility->genre3= $input["genre3"];
 		//緯度
-
+		$facility->lng= $input["lng"];
 		//経度
-
+		$facility->lat= $input["lat"];
 		//画像URL
 		$facility->imageurl= $input["imageurl"];
 		//URL
 		$facility->genre3= $input["url"];
-
-		$result = $facility->save();
-
-		if($result == "1"){
-			return \Response::json(['status' => 'OK']);
-		}else{
-			return \Response::json(['status' => 'NG']);
-		}
+*/
+		$facility = DB::insert('insert into facility (citycode, meisho, jusho, tel, genre1, genre2, genre3, lat, lng, imageurl, url, geom) values (?,?,?,?,?,?,?,?,?,?,?,?)',[$input["citycode"]]);
 
 		return redirect ( '/facility' );
 	}
 
-	*/
 	public function delete(Request $request)
 	{
 
