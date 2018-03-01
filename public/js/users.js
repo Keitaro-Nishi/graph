@@ -92,7 +92,7 @@ function update(){
 	}).done(function (response) {
 		alert("1-1");
 		console.log(response);
-		alert(response.status);
+		alert(response.password);
 		//result = "";
 		//result = JSON.parse(response);
 		alert("1-2");
