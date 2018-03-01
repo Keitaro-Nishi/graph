@@ -7,7 +7,7 @@
     <p>Now Loading...</p>
   </div>
 </div>
-<div id="wrap" style="display:none">
+<div id="wrap">
 
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
