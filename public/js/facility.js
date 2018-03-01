@@ -143,7 +143,7 @@ function initmodal(){
 	document.getElementById('dia_imageurl').value = "";
 	document.getElementById('dia_url').value = "";
 }
-/*
+
 function INSERT(){
 	var citycode = "00000";
 	if(document.getElementById('dia_citycode')){
@@ -169,10 +169,14 @@ function INSERT(){
 			"citycode" : citycode,
 			"meisho" : meisho,
 			"jusho" : jusho,
-			"" : organization,
-			"password" : password,
-			"password_confirmation" : password_confirmation,
-			"_token" : _token
+			"tel" : tel,
+			"genre1" : genre1,
+			"genre2" : genre2,
+			"genre3" : genre3,
+			"lat" : lat,
+			"lng" : lng,
+			"imageurl" : imageurl,
+			"url" : url
 		}
 	}).done(function (response) {
 		if(response.status == "OK"){
@@ -208,4 +212,3 @@ function INSERT(){
 		});
     });
 }
-*/
