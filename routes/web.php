@@ -14,9 +14,9 @@ Route::get ( '/', function () {
 	return redirect ( '/login' );
 } );
 
-Route::middleware(['auth'])->group(function () {
-	Auth::routes ();
+Auth::routes ();
 
+Route::middleware(['auth'])->group(function () {
 	Route::get ( '/register', 'Auth\RegisterController@showRegistrationForm' )->name('register')->middleware('role');
 
 	Route::get ( '/home', 'HomeController@index' )->name ( 'home' );
@@ -36,7 +36,7 @@ Route::middleware(['auth'])->group(function () {
 	Route::get ( '/facility', 'FacilityController@index' )->name ( 'facility' );
 	Route::get ( '/facility/{deleteid}','FacilityController@delete' );
 
-	Route::get('/linepush',function(){
+	Route::get ( '/linepush',function(){
 		return view('linepush');
 	})->name ( 'linepush' );
 
