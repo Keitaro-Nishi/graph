@@ -17,7 +17,7 @@ class GenreController
 		$result2 = Genre::where('bunrui',1)->where('gid1', 1)->get();
 
 
-		$resultmeisho = $result2->meisho;
+		$resultmeisho = $result2()->meisho;
 
 
 		if($cityCD == "00000"){
