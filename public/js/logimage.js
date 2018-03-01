@@ -5,17 +5,9 @@ $(function() {
 		multiSelect : true,
 		//rowSelect : true,
 		keepSelection : true
-	    formatters: {
-	        "image": function($column, $row) {
-	              return "<img class='table-img' src='' />";
-	         },
-	        "zoom": function($column, $row) {
-                  //return "<button type=\"button\" class=\"btn btn-xs btn-default command-edit\" data-row-id=\"" + $row.no + "\">画像拡大</button> ";
-	        	//return "<Form><input type='button' value='画像拡大' onClick='window.open('" + getimage.php?id=$row.no + "','test','width=250,height=100,');'></Form> ";
-	        	//return "<Form><input type='button' value='画像拡大' onclick='imgwin()'></Form> ";
-	        	return "<input type='button' class='btn btn-default' value='画像拡大' onclick=''> ";
-             }
-	    }
+		formatters: {
+			/**/
+		}
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
 		for (var i = 0; i < rows.length; i++) {
 			rowIds.push(rows[i].no);
@@ -82,4 +74,4 @@ function imgwin(imgno,bunrui,kakushin){
 	document.getElementById('dia_cont').style.width = imgwidth + "px";
 	document.getElementById("btn_modal").click();
 }
-*/
+ */
