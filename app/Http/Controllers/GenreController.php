@@ -17,8 +17,8 @@ class GenreController
 		$result2 = Genre::where('bunrui',1)->where('gid1', 1)->get();
 
 
-		/*$resultmeisho = $result->meisho;
-		*/
+		$resultmeisho = $result2->meisho;
+
 
 		if($cityCD == "00000"){
 			$genres = Genre::all();
@@ -27,7 +27,7 @@ class GenreController
 		}
 
 		//return view('genre')->with('genres', $genres);
-		return view('genre',compact('genres', 'result2'));
+		return view('genre',compact('genres', 'resultmeisho'));
 	}
 
 	public function delete(Request $request)
