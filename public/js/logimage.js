@@ -1,5 +1,24 @@
 var rowIds = [];
 $(function() {
+	$("#grid-basic").bootgrid({
+		selection : true,
+		multiSelect : true,
+		rowSelect : true,
+		keepSelection : true
+	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
+		for (var i = 0; i < rows.length; i++) {
+			rowIds.push(rows[i].userid);
+		}
+	}).on("deselected.rs.jquery.bootgrid", function(e, rows) {
+		for (var i = 0; i < rows.length; i++) {
+			rowIds.some(function(v, ii) {
+				if (v == rows[i].userid)
+					rowIds.splice(ii, 1);
+			});
+		}
+	});
+});
+/*
 	var h = $(window).height();
 	$('#wrap').css('display','none');
 	$('#loader-bg ,#loader').height(h).css('display','block');
@@ -39,7 +58,6 @@ $(function() {
 	});
 });
 
-/*
 $(window).load(function () { //全ての読み込みが完了したら実行
 	  $('#loader-bg').delay(900).fadeOut(800);
 	  $('#loader').delay(600).fadeOut(300);

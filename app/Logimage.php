@@ -18,6 +18,6 @@ class Logimage extends Model
 
 	protected $primaryKey ='no';
 	public $incrementing = true;
-	protected $table = 'opinion';
+	protected $table = 'logimage';
 
 }
