@@ -8,6 +8,7 @@ $(function() {
 	$("#grid-basic").bootgrid({
 		selection: true,
 		multiSelect: true,
+		columnSelection : false,
 	    keepSelection: true/*,
 	    formatters: {
 	        "mods": function($column, $row) {

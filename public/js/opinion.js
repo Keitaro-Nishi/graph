@@ -11,6 +11,7 @@ dbvalue = JSON.parse(opinion);
 					selection : true,
 					multiSelect : true,
 					rowSelect : false,
+					columnSelection : false,
 					keepSelection : true,
 				    formatters: {
 				        "details": function($column, $row) {
