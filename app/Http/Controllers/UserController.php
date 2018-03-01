@@ -61,8 +61,8 @@ class UserController
 		{
 			error_log("★★★★★★★★★★★★★validat★★★★★★★★★★★★★★★".$validator->errors());
 			//return Response::json($validator->errors());
-			//return Response::json(['status' => 'NG']);
-			return $validator->errors();
+			return Response::json(['status' => 'NG']);
+			//return $validator->errors();
 		}
 
 		$user = new User;
