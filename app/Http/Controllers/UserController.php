@@ -95,7 +95,7 @@ class UserController
 		error_log("★★★★★★★★★★★★★result★★★★★★★★★★★★★★★".$result);
 
 		//return Response::json(array("OK"));
-		return response()->json(["OK"]);
+		return response()->json(['status' => 'OK']);
 		error_log("★★★★★★★★★★★★★end★★★★★★★★★★★★★★★");
 	}
 
