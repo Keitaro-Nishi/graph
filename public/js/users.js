@@ -95,7 +95,7 @@ function update(){
 		if(response.status == "OK"){
 			bootbox.alert({
 				message: "更新しました",
-				size: 'small'
+				size: 'small',
 				callback: function () {
 					location.reload();
 				}
