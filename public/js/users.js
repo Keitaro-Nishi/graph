@@ -71,7 +71,7 @@ function update(){
 		citycode = document.getElementById('dia_citycode').value;
 	}
 	var userid = document.getElementById('dia_userid').value;
-	var name = document.getElementById('dia_name').value;
+	var username = document.getElementById('dia_name').value;
 	var organization = document.getElementById('dia_organization').value;
 	var password = document.getElementById('dia_password').value;
 	var password_confirmation = document.getElementById('dia_password_confirmation').value;
@@ -83,7 +83,7 @@ function update(){
 		data: {
 			"citycode" : citycode,
 			"userid" : userid,
-			"name" : name,
+			"username" : username,
 			"organization" : organization,
 			"password" : password,
 			"password_confirmation" : password_confirmation,
