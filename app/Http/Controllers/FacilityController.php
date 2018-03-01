@@ -1,9 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+
+
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use App\Facility;
 
 class FacilityController
@@ -39,14 +43,14 @@ class FacilityController
 				'url' => 'required|string',
 				'geom' => 'required|geometry'
 		];
-/*
+
 		$validator = Validator::make($input,$rules);
 
 		if($validator->fails())
 		{
 			return $validator->errors();
 		}
-*/
+
 		$facility = new Facility;
 		$cityCD = Auth::user()->citycode;
 
@@ -57,7 +61,7 @@ class FacilityController
 			$facility->citycode= $cityCD;
 		}
 		//名称
-		//$facility->meisho= $input["meisho"];
+		$facility->meisho= $input["meisho"];
 		//住所
 		$facility->jusho= $input["jusho"];
 		//電話番号
