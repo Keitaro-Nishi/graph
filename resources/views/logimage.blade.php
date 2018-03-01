@@ -5,7 +5,7 @@
 	class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
-			<th data-column-id='time'>日時</th>
+			<th data-column-id='time' data-identifier="true">日時</th>
 			<th data-column-id='userid'>ユーザーID</th>
 			<th data-column-id='image'>送信画像</th>
 			<th data-column-id='class'>分類</th>
