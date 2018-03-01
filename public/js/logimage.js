@@ -4,13 +4,13 @@
 	    keepSelection: true,
 	    formatters: {
 	        "image": function($column, $row) {
-	              return "<img class='table-img' src='getimage.php?id=" + $row.no + "' />";
+	              //return "<img class='table-img' src='getimage.php?id=" + $row.no + "' />";
 	         },
 	        "zoom": function($column, $row) {
                   //return "<button type=\"button\" class=\"btn btn-xs btn-default command-edit\" data-row-id=\"" + $row.no + "\">画像拡大</button> ";
 	        	//return "<Form><input type='button' value='画像拡大' onClick='window.open('" + getimage.php?id=$row.no + "','test','width=250,height=100,');'></Form> ";
 	        	//return "<Form><input type='button' value='画像拡大' onclick='imgwin()'></Form> ";
-	        	return "<input type='button' class='btn btn-default' value='画像拡大' onclick='imgwin("  + $row.no + ",\"" + $row.cls + "\"," + $row.scr + ")'> ";
+	        	//return "<input type='button' class='btn btn-default' value='画像拡大' onclick='imgwin("  + $row.no + ",\"" + $row.cls + "\"," + $row.scr + ")'> ";
              }
 	    }
 	}).on("selected.rs.jquery.bootgrid", function(e, rows)
