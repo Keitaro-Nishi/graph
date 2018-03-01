@@ -25,7 +25,6 @@ class FacilityController
 	{
 
 		$input = \Request::all();
-		error_log("★★★★★★★★★★★★★update★★★★★★★★★★★★★★★".$input[""]);
 
 		$rules = [
 				'citycode' => 'required|string',
