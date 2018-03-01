@@ -16,23 +16,18 @@
 			<th data-column-id='time'>日時</th>
 			<th data-column-id='userid'>ユーザーID</th>
 			<th data-column-id='imageurl'>送信画像</th>
-			<th data-column-id='imageurl'>分類</th>
-			<th data-column-id='imageurl'>確信度</th>
+			<th data-column-id='class'>分類</th>
+			<th data-column-id='score'>確信度</th>
 		</tr>
 	</thead>
 	<tbody>
-		@foreach($opinions as $opinion)
+		@foreach($logimages as $logimage)
 		<tr>
-			<td>{{$opinion->id}}</td>
-			<td>{{$opinion->userid}}</td>
-			<td>{{$opinion->time}}</td>
-			<td>{{$opinion->opinion}}</td>
-			<td>{{$opinion->sadness}}</td>
-			<td>{{$opinion->joy}}</td>
-			<td>{{$opinion->fear}}</td>
-			<td>{{$opinion->disgust}}</td>
-			<td>{{$opinion->anger}}</td>
-			<td>{{$opinion->checked}}</td>
+			<td>{{$logimage->time}}</td>
+			<td>{{$logimage->userid}}</td>
+			<td>{{$logimage->imageurl}}</td>
+			<td>{{$logimage->class}}</td>
+			<td>{{$logimage->score}}</td>
 			<td></td>
 		</tr>
 		@endforeach
