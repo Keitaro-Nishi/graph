@@ -15,9 +15,6 @@ class GenreController
 		$cityCD = Auth::user()->citycode;
 		$result = Genre::where('bunrui', 1)->get();
 
-		error_log("★★★★★★★");
-		error_log($result);
-
 		/*
 		$result2 = Genre::where('bunrui',1)->where('gid1', 1)->get();
 		$resultmeisho = $result->meisho;
@@ -27,11 +24,10 @@ class GenreController
 			$genres = Genre::all();
 		}else{
 			$genres= Genre::where('citycode', $cityCD)->get();
-			error_log("○○○○○○○");
-			error_log($genres);
 		}
 
-		return view('genre')->with('genres', $genres);
+		//return view('genre')->with('genres', $genres);
+		return view('genre',compact('genres', 'result'));
 	}
 
 	public function delete(Request $request)
