@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
 	<p>大分類</p>
-	<select id="g1" class="form-control" onChange="g1change()" style="width: 600px;">
+	<select class="form-control" style="width: 600px;">
 	@foreach($results as $result)
 	{{$result->meisho}}
 	@endforeach
