@@ -12,18 +12,21 @@ class BotlogController
 	public function index(Request $request)
 	{
 		//$botlogs = Botlog::all();
-
 		//$cityCD = Auth::user()->citycode;
-
 		//$cityCode = Auth::user()->citycode;
 		//$botlogs = Botlog::where('citycode', $cityCode)->get();
 		//$botlogs = Botlog::where('citycode', $citycode)->get();
 
 		$cityCD = Auth::user()->citycode;
-		//$botlogs = Botlog::all();
 
+		if($cityCD == "00000"){
+		$botlogs = Botlog::all();
+		}else{
 		$botlogs = Botlog::where('citycode', $cityCD)->get();
+		}
+
 		return view('botlog',['botlogs'=>$botlogs]);
+
 	}
 
 	public function delete(Request $request)
