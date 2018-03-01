@@ -30,6 +30,9 @@ Route::middleware(['auth'])->group(function () {
 	Route::get ( '/botlog', 'BotlogController@index' )->name ( 'botlog' );
 	Route::get ( '/botlog/{deleteno}','BotlogController@delete' );
 
+	Route::get ( '/logimage', 'LogimageController@index' )->name ( 'logimage' );
+	Route::get ( '/logimage/{deleteno}','LogimageController@delete' );
+
 	Route::get ( '/facility', 'FacilityController@index' )->name ( 'facility' );
 	Route::get ( '/facility/{deleteid}','FacilityController@delete' );
 
