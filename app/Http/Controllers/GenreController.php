@@ -25,13 +25,15 @@ class GenreController
 			$genregid1 = array();
 			$genres= Genre::where('citycode', $cityCD)->orderBy('gid1', 'ASC')->orderBy('gid2', 'ASC')->get();
 			$genregid1 = DB::table('genre')->select('gid1')->get();
+			$genregid2= DB::table('genre')->select('meisho')->where('bunrui',1)->where('gid1', $genregid1)->get();
 
-			$test = json_encode($genregid1);
+
+			$test = json_encode($genregid2);
 			error_log("★★★★★★★");
 			error_log($test);
 		}
 
-		return view('genre',compact('genres','result','result2','genregid1'));
+		return view('genre',compact('genres','result','result2','test'));
 	}
 
 
