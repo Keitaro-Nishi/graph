@@ -7,7 +7,7 @@ $(function() {
 		columnSelection : false,
 		formatters: {
 	        "details": function($column, $row) {
-	        	return "<input type='button' class='btn btn-default' value='修正' onclick='update("  + $row.citycode + ")' > ";
+	        	return "<input type='button' class='btn btn-default' value='修正' onclick='detail("  + $row.citycode + ")' > ";
              }
 	    }
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
@@ -52,7 +52,7 @@ function drow() {
 	}
 }
 
-function update(row){
+function detail(row){
 	console.log(row);
 	alert(row);
 	/*
