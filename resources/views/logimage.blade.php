@@ -15,7 +15,7 @@
 		<tr>
 			<th data-column-id='time'>日時</th>
 			<th data-column-id='userid'>ユーザーID</th>
-			<th data-column-id='imageurl'>送信画像</th>
+			<th data-column-id='image'>送信画像</th>
 			<th data-column-id='class'>分類</th>
 			<th data-column-id='score'>確信度</th>
 		</tr>
@@ -25,7 +25,7 @@
 		<tr>
 			<td>{{$logimage->time}}</td>
 			<td>{{$logimage->userid}}</td>
-			<td>{{$logimage->imageurl}}</td>
+			<td>{{$logimage->image}}</td>
 			<td>{{$logimage->class}}</td>
 			<td>{{$logimage->score}}</td>
 			<td></td>
