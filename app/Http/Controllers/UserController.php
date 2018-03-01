@@ -60,11 +60,11 @@ class UserController
 		if($validator->fails())
 		{
 			error_log("★★★★★★★★★★★★★validat★★★★★★★★★★★★★★★".$validator->errors());
-			return Response::json($validator->errors());
+			//return Response::json(['error' =>$validator->errors()]);
 			//return \Response::json(['status' => 'NG']);
 			//$res = json_encode(array('status' => 'NG'));
 			//return $res;
-			//return $validator->errors();
+			return $validator->errors();
 		}
 
 		$user = new User;
