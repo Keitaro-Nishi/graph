@@ -96,16 +96,14 @@ function update(){
 		//result = "";
 		//result = JSON.parse(response);
 		alert("1-2");
-		alert(result.status);
-		if(result == "OK"){
+		alert(response.status);
+		if(response.status == "OK"){
 			alert("更新しました");
 			location.reload();
 		}else{
 			alert("1更新できませんでした");
 		}
     }).fail(function () {
-    	alert("2-1");
-    	alert(result);
-        alert("2更新できませんでした");
+        alert("更新できませんでした");
     });
 }

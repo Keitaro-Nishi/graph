@@ -99,7 +99,7 @@ class UserController
 
 		//return Response::json(['status' => 'OK']);
 		//return response()->json(['status' => 'OK']);
-		return "OK";
+		return \Response::json(['status' => 'OK']);
 		error_log("★★★★★★★★★★★★★end★★★★★★★★★★★★★★★");
 	}
 
