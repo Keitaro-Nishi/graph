@@ -12,6 +12,7 @@ class FacilityController
 	public function index(Request $request)
 	{
 		$cityCD = Auth::user()->citycode;
+
 		if($cityCD = "00000"){
 			$facilities = Facility::all();
 		}else{
@@ -19,14 +20,75 @@ class FacilityController
 		}
 		return view('facility',['facilities'=>$facilities]);
 	}
-
-	public function update()
+/*
+	public function update(Request $request)
 	{
+		$input = \Request::all();
+		error_log("★★★★★★★★★★★★★update★★★★★★★★★★★★★★★".$input["meisho"]);
 
+		$rules = [
+				'citycode' => 'required|string',
+				'id' => 'required|integer|unique:fasirities',
+				'meisho' => 'required|string|max:255|',
+				'jusho' => 'required|string|max:255',
+				'tel' => 'required|string|max:14',
+				'genre1' => 'required|integer',
+				'genre2' => 'required|integer',
+				'genre3' => 'integer',
+				'imageurl' => 'required|string',
+				'url' => 'required|string',
+				'geom' => 'required|geometry'
+		];
+
+		$validator = Validator::make($input,$rules);
+
+		if($validator->fails())
+		{
+			return $validator->errors();
+		}
+
+		$facility = new Facility;
+		$cityCD = Auth::user()->citycode;
+
+		//市町村コード
+		if($cityCD == "00000"){
+			$facility->citycode= $input["citycode"];
+		}else{
+			$facility->citycode= $cityCD;
+		}
+		//名称
+		$facility->meisho= $input["meisho"];
+		//住所
+		$facility->jusho= $input["jusho"];
+		//電話番号
+		$facility->tel= $input["tel"];
+		//ジャンル1
+		$facility->genre1= $input["genre1"];
+		//ジャンル2
+		$facility->genre2= $input["genre2"];
+		//ジャンル3
+		$facility->genre3= $input["genre3"];
+		//緯度
+
+		//経度
+
+		//画像URL
+		$facility->imageurl= $input["imageurl"];
+		//URL
+		$facility->genre3= $input["url"];
+
+		$result = $facility->save();
+
+		if($result == "1"){
+			return \Response::json(['status' => 'OK']);
+		}else{
+			return \Response::json(['status' => 'NG']);
+		}
 
 		return redirect ( '/facility' );
 	}
 
+	*/
 	public function delete(Request $request)
 	{
 
