@@ -92,9 +92,11 @@ class UserController
 		$user->reserve= "";
 
 		$result = $user->save();
-		error_log("★★★★★★★★★★★★★update★★★★★★★★★★★★★★★".$result);
+		error_log("★★★★★★★★★★★★★result★★★★★★★★★★★★★★★".$result);
 
-		return Response::json(array("OK"));
+		//return Response::json(array("OK"));
+		return response()->json(["OK"]);
+		error_log("★★★★★★★★★★★★★end★★★★★★★★★★★★★★★");
 	}
 
 }
