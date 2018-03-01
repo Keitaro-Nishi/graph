@@ -92,18 +92,26 @@ function update(){
 	}).done(function (response) {
 		alert("1-1");
 		console.log(response);
-		alert(response.password);
-		//result = "";
-		//result = JSON.parse(response);
-		alert("1-2");
-		alert(response.status);
 		if(response.status == "OK"){
-			alert("更新しました");
+			bootbox.alert({
+				message: "更新しました",
+				size: 'small'
+			});
 			location.reload();
 		}else{
-			alert("1更新できませんでした");
+			var mes = "";
+			for (var item in response) {
+			    mes = mes + response[item][0] + "<br>"
+			}
+			bootbox.alert({
+				message: mes,
+				size: 'small'
+			});
 		}
     }).fail(function () {
-        alert("更新できませんでした");
+    	bootbox.alert({
+			message: "更新できませんでした",
+			size: 'small'
+		});
     });
 }

@@ -93,6 +93,7 @@
 	<input id="btn_ins" type="button" class="btn btn-default" value="ユーザー登録" onclick="insert()">
 	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog"/>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
 <script src="{{ asset('js/users.js') }}"></script>
 
 @endsection
