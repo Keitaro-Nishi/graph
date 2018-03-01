@@ -13,7 +13,6 @@
 	class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
-			<th data-column-id='no'>No</th>
 			<th data-column-id='time'>日時</th>
 			<th data-column-id='userid'>ユーザーID</th>
 			<th data-column-id='image'>送信画像</th>
@@ -24,7 +23,6 @@
 	<tbody>
 		@foreach($logimages as $logimage)
 		<tr>
-			<td>{{$logimage->no}}</td>
 			<td>{{$logimage->time}}</td>
 			<td>{{$logimage->userid}}</td>
 			<td>{{$logimage->image}}</td>

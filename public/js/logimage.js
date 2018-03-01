@@ -1,23 +1,43 @@
-var rowIds = [];
-$(function() {
 	$("#grid-basic").bootgrid({
-		selection : true,
-		multiSelect : true,
-		//rowSelect : true,
-		keepSelection : true
-	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
-		for (var i = 0; i < rows.length; i++) {
-			rowIds.push(rows[i].no);
-		}
-	}).on("deselected.rs.jquery.bootgrid", function(e, rows) {
-		for (var i = 0; i < rows.length; i++) {
-			rowIds.some(function(v, ii) {
-				if (v == rows[i].no)
-					rowIds.splice(ii, 1);
-			});
-		}
+		selection: true,
+		multiSelect: true,
+	    keepSelection: true,
+	    formatters: {
+	    	/*
+	    }
+	        "image": function($column, $row) {
+	              return "<img class='table-img' src='getimage.php?id=" + $row.no + "' />";
+	         },
+	        "zoom": function($column, $row) {
+                  //return "<button type=\"button\" class=\"btn btn-xs btn-default command-edit\" data-row-id=\"" + $row.no + "\">画像拡大</button> ";
+	        	//return "<Form><input type='button' value='画像拡大' onClick='window.open('" + getimage.php?id=$row.no + "','test','width=250,height=100,');'></Form> ";
+	        	//return "<Form><input type='button' value='画像拡大' onclick='imgwin()'></Form> ";
+	        	return "<input type='button' class='btn btn-default' value='画像拡大' onclick='imgwin("  + $row.no + ",\"" + $row.cls + "\"," + $row.scr + ")'> ";
+             */
+	    	 "details": function($column, $row) {
+		        	return "<input type='button' class='btn btn-default' value='詳細' onclick='detailwin("  + $row.no + ")'> ";
+             }
+	    }
+	}).on("selected.rs.jquery.bootgrid", function(e, rows)
+	{
+	    for (var i = 0; i < rows.length; i++)
+	    {
+	        rowIds.push(rows[i].no);
+	    }
+	    //alert("Select: " + rowIds.join(","));
+	}).on("deselected.rs.jquery.bootgrid", function(e, rows)
+	{
+	    for (var i = 0; i < rows.length; i++)
+	    {
+	    	rowIds.some(function(v, ii){
+	    	    if (v==rows[i].no) rowIds.splice(ii,1);
+	    	});
+	        //rowIds.push(rows[i].no);
+	    }
+	    //alert("Deselect: " + rowIds.join(","));
 	});
 });
+
 /*
 	var h = $(window).height();
 	$('#wrap').css('display','none');
