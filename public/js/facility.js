@@ -143,7 +143,7 @@ function initmodal(){
 	document.getElementById('dia_imageurl').value = "";
 	document.getElementById('dia_url').value = "";
 }
-
+/*
 function INSERT(){
 	var citycode = "00000";
 	if(document.getElementById('dia_citycode')){
@@ -208,3 +208,4 @@ function INSERT(){
 		});
     });
 }
+*/
