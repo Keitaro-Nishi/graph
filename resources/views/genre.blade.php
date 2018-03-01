@@ -48,7 +48,7 @@
 
 
 <div>
-<input id="result" type= "text" value = '{{ $genreID }}'>
+<input id="result" type= "text" value = '{{ $genregid1 }}'>
 </div>
 
 <div class="modal" id="shosaiDialog"  tabindex="-1">
