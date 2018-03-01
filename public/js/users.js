@@ -94,7 +94,7 @@ function update(){
 		result = "";
 		//result = JSON.parse(response);
 		alert("1-2");
-		alert(result);
+		alert(response);
 		if(result == "OK"){
 			alert("更新しました");
 			location.reload();
