@@ -8,7 +8,7 @@
 			   <th data-column-id='bunrui' >分類</th>
                <th data-column-id='g1'  >大分類名称</th>
                <th data-column-id='g2'  >小分類名称</th>
-               <th data-column-id='gid1'>分類ID1</th>
+               <th data-column-id='gid1' data-order='desc'>分類ID1</th>
                <th data-column-id='gid2'>分類ID2</th>
                <th data-column-id='mod'  data-width='7%' data-formatter='mods' data-sortable='false'></th>
 		</tr>
