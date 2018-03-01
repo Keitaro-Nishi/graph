@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Facility;
 
@@ -10,16 +11,28 @@ class FacilityController
 
 	public function index(Request $request)
 	{
-		$facilitys= Facility::all();
-		return view('facility',['facilitys'=>$facilitys]);
+		$cityCD = Auth::user()->citycode;
+		if($cityCD = "00000"){
+			$facilities = Facility::all();
+		}else{
+			$facilities= Facility::where('citycode', $cityCD)->get();
+		}
+		return view('facility',['facilities'=>$facilities]);
+	}
+
+	public function update()
+	{
+
+
+		return redirect ( '/facility' );
 	}
 
 	public function delete(Request $request)
 	{
 
-		$deleteno = $request->deleteno;
-		$deletebotlog = Facility::find($deleteno);
-		$deletebotlog->delete();
+		$deleteid = $request->deleteid;
+		$deletefacility = Facility::find($deleteid);
+		$deletefacility->delete();
 
 		return redirect('/facility');
 	}

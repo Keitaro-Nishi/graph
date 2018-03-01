@@ -93,7 +93,6 @@
 			var rowIds = [];
 			var dbvalue = [];
 			var shosai_idx = 0;
-
 			$(function() {
 				$("#grid-basic").bootgrid({
 					selection : true,
@@ -117,7 +116,6 @@
 					}
 				});
 			});
-
 			function drow() {
 				if(rowIds.length == 0){
 					alert("削除する行を選択してください");
