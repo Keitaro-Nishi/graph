@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Genre;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class GenreController
 {
@@ -22,12 +23,12 @@ class GenreController
 			$genres = Genre::all();
 		}else{
 			$genres= Genre::where('citycode', $cityCD)->orderBy('gid1', 'ASC')->orderBy('gid2', 'ASC')->get();
-			$genreID = genres()->gid1;
+			$genregid1 = DB::select('select gid1 from genre');
 			//error_log("★★★★★★★");
 			//error_log(genreID);
 		}
 
-		return view('genre',compact('genres','genreID','result','result2'));
+		return view('genre',compact('genres','genregid1','result','result2'));
 	}
 
 
