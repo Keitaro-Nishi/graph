@@ -65,7 +65,7 @@
 								<li><a href="{{ route('botlog') }}">ログ参照</a></li>
 								<li><a href="{{ route('register') }}">画像ログ参照</a></li>
 								<li><a href="{{ route('register') }}">施設情報</a></li>
-								<li><a href="{{ route('register') }}">施設ジャンル</a></li>
+								<li><a href="{{ route('genre') }}">施設ジャンル</a></li>
 								<li><a href="{{ route('opinion') }}">ご意見ログ</a></li>
 								<li><a href="{{ route('register') }}">属性情報</a></li>
 								<li><a href="{{ route('register') }}">メッセージ管理</a></li>
