@@ -46,7 +46,9 @@
 	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog" value="モーダル表示" />
 </div>
 
-
+<div>
+<input id="opinion" type= "text" value = '{{ $genregid1 }}'>
+</div>
 
 <div class="modal" id="shosaiDialog"  tabindex="-1">
 	<div class="modal-dialog">
