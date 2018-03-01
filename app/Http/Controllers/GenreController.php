@@ -27,6 +27,7 @@ class GenreController
 			$genres = Genre::all();
 		}else{
 			$genres= Genre::where('citycode', $cityCD)->get();
+			error_log($genres[0]);
 		}
 
 		return view('genre')->with('genres', $genres);
