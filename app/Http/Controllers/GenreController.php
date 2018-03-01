@@ -27,7 +27,7 @@ class GenreController
 			error_log(genreID);
 		}
 
-		return view('genre',compact('genres', 'result','result2'));
+		return view('genre',compact('genres','genreID','result','result2'));
 	}
 
 

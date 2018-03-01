@@ -46,10 +46,10 @@
 	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog" value="モーダル表示" />
 </div>
 
-<!--
+
 <div>
-<input id="result" type= "text" value = '{{ $result2 }}'>
-</div>-->
+<input id="result" type= "text" value = '{{ $genreID }}'>
+</div>
 
 <div class="modal" id="shosaiDialog"  tabindex="-1">
 	<div class="modal-dialog">
