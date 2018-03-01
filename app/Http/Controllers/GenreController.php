@@ -25,8 +25,8 @@ class GenreController
 
 			$genres= Genre::where('citycode', $cityCD)->orderBy('gid1', 'ASC')->orderBy('gid2', 'ASC')->get();
 			$genregid1 = DB::select('select gid1 from genre');
-			error_log("★★★★★★★");
-			error_log($genregid1[0]);
+			//error_log("★★★★★★★");
+			//error_log($genregid1[0]);
 		}
 
 		return view('genre',compact('genres','result','result2','genregid1'));
