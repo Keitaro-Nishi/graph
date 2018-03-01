@@ -204,7 +204,7 @@ function update(){
 }
 
 function intent(){
-	window.location.href = "./genreint.php";
+	window.location.href = "./genreint.blade.php";
 }
 function entity(){
 	window.location.href = "./genreent.php";

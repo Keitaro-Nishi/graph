@@ -4,6 +4,9 @@
 <div class="container">
 	<p>大分類</p>
 	<select id="g1" class="form-control" onChange="g1change()" style="width: 600px;">
+	@foreach($results as $result)
+	{{$result->meisho}}
+	@endforeach
 	</select>
 	<br>
 	<table id='grid-basic' class='table table-sm'>
@@ -38,5 +41,5 @@
 	</div>
 </div>
 
-<script src="{{ asset('js/genreint.js') }}"></script>
+<!--  <script src="{{ asset('js/genreint.js') }}"></script>-->
 @endsection

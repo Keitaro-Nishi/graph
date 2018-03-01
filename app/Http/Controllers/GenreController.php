@@ -40,8 +40,8 @@ class GenreController
 
 	public function init(Request $request)
 	{
-		$j1value= Genre::where('bunrui', 1)->get();
-
+		$results= Genre::where('bunrui', 1)->get();
+		return view('genreinit',compact('results'));
 
 	}
 
