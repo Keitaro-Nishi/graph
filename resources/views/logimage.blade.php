@@ -52,3 +52,6 @@
 		</div>
 	</div>
 </div>
+<script src="{{ asset('js/logimage.js') }}"></script>
+
+@endsection
