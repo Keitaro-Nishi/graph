@@ -37,7 +37,7 @@ Route::middleware(['auth'])->group(function () {
 	Route::get ( '/facility/{deleteid}','FacilityController@delete' );
 
 	Route::get ( '/linepush',function(){
-		return view('linepush');
+		return view( 'linepush' );
 	})->name ( 'linepush' );
 
 	Route::get ( '/logindata', 'LogindataController@index' )->name ( 'logindata' )->middleware('role');
