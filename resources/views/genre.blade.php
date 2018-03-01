@@ -27,7 +27,7 @@
 			<td></td>
 			@endif
 			@if($genre->bunrui == 1)
-			<td>"-"</td>
+			<td>-</td>
 			@else
 			<td>{{$genre->meisho}}</td>
 			@endif
