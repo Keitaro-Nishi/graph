@@ -22,7 +22,7 @@ class GenreController
 			//$genres = Genre::all();
 			$genres = Genre::all();
 		}else{
-			$genres= Genre::where('citycode', $cityCD)->orderBy('gid1', 'desc')->orderBy('gid2', 'desc')->get();
+			$genres= Genre::where('citycode', $cityCD)->orderBy('gid1', 'ASC')->orderBy('gid2', 'ASC')->get();
 		}
 
 		return view('genre',compact('genres', 'result','result2'));
