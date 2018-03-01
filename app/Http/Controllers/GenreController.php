@@ -14,8 +14,8 @@ class GenreController
 		$Authrole = Auth::user()->role;
 		$cityCD = Auth::user()->citycode;
 		$result = Genre::where('bunrui', 1)->get();
-		$result2 = Genre::where('bunrui',1)->where('gid1', 1)->get('meisho');
-
+		$result2 = Genre::where('bunrui',1)->where('gid1', 1)->get();
+		$meishou = $result2->meisho;
 
 		//$result2 = resultbunrui()->meisho;
 
