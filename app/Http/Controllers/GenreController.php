@@ -24,7 +24,7 @@ class GenreController
 		}else{
 			$genregid1 = array();
 			$genres= Genre::where('citycode', $cityCD)->orderBy('gid1', 'ASC')->orderBy('gid2', 'ASC')->get();
-			$genregid1 = DB::select('select gid1 from genre WHERE gid1=?',[2]);
+			$genregid1 = DB::select('select gid1 from genre');
 			$test = $genregid1[0];
 			error_log("★★★★★★★");
 			error_log($test);
