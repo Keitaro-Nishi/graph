@@ -92,9 +92,9 @@ function update(){
 	}).done(function (response) {
 		alert("1-1");
 		result = "";
-		//result = JSON.parse(response);
+		result = JSON.parse(response);
 		alert("1-2");
-		alert(response);
+		alert(result.status);
 		if(result == "OK"){
 			alert("更新しました");
 			location.reload();
