@@ -1,6 +1,9 @@
 <?php
+
 namespace App;
+
 use Illuminate\Database\Eloquent\Model;
+
 class CodeManage extends Model
 {
     /**
@@ -9,8 +12,11 @@ class CodeManage extends Model
      * @var array
      */
     protected $fillable = [
+
     		'citycode', 'no', 'time', 'sender', 'type', 'userid', 'contents', 'return',
+
     ];
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -18,7 +24,8 @@ class CodeManage extends Model
      */
     protected $hidden = [
     ];
-    protected $primaryKey ='no';
+
+protected $primaryKey ='no';
     public $incrementing = FALSE;
     protected $table = 'botlog';
 }

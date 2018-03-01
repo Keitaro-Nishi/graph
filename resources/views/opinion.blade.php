@@ -37,14 +37,7 @@
 	</tbody>
 </table>
 
-<input id="php2jquery" type="hidden" value= "$opinions" name="php2jquery">
-
-<div class="container" align="center">
-	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
-	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog" value="モーダル表示" />
-</div>
-</div>
-
+@foreach($opinions as $opinion)
 <div class="modal" id="shosaiDialog"  tabindex="-1">
 	<div class="modal-dialog">
 		<div class="modal-content" style="width:740px; margin-left: -20px;">
@@ -55,56 +48,56 @@
 				<h4 class="modal-title" id="modal-label">詳細</h4>
 			</div>
 			<div class="modal-body">
+
 				<form class="form-horizontal">
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_id">ID</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="dia_id" readonly>
+							<input type="text" class="form-control" id="dia_id" value ="{{$opinion->id}}" readonly>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_userid">ユーザーID</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="dia_userid" readonly>
+							<input type="text" class="form-control" id="dia_userid" value ="{{$opinion->userid}}" readonly>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_time">日時</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="dia_time" readonly>
+							<input type="text" class="form-control" id="dia_time" value ="{{$opinion->time}}" readonly>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_opinion">ご意見</label>
 						<div class="col-sm-10">
-							<textarea class="form-control" id="dia_opinion" rows='5' readonly></textarea>
+							<textarea class="form-control" id="dia_opinion" rows='5' readonly>{{$opinion->opinion}}</textarea>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_sadness">悲しみ</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_sadness" readonly>
+							<input type="text" class="form-control" id="dia_sadness"  value = "{{$opinion->sadness}}" readonly>
 						</div>
 						<label class="col-sm-2 control-label" for="dia_joy">喜び</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_joy" readonly>
+							<input type="text" class="form-control" id="dia_joy" value = "{{$opinion->joy}}" readonly>
 						</div>
 						<label class="col-sm-2 control-label" for="dia_fear">恐れ</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_fear" readonly>
+							<input type="text" class="form-control" id="dia_fear" value = "{{$opinion->fear}}" readonly>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_disgust">嫌悪</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_disgust" readonly>
+							<input type="text" class="form-control" id="dia_disgust" value = "{{$opinion->disgust}}" readonly>
 						</div>
 						<label class="col-sm-2 control-label" for="dia_anger">怒り</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_anger" readonly>
+							<input type="text" class="form-control" id="dia_anger" value = "{{$opinion->anger}}" readonly>
 						</div>
 					</div>
-
 				</form>
 			</div>
 			<div class="modal-footer">
@@ -115,119 +108,20 @@
 		</div>
 	</div>
 </div>
+@endforeach
 
-<script>
-			var rowIds = [];
-			var dbvalue = [];
-			var shosai_idx = 0;
-			var js_var = [];
+<div class="container" align="center">
+	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog" value="モーダル表示" />
+</div>
 
-			//var sample ='<?php echo $opinions; ?>';
-			js_var = $('#php2jquery').val();
+<div class="container" align="center">
+	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
+</div>
 
-			$(function() {
-				//$("#header").load("header.html");
-				$("#grid-basic").bootgrid({
-					selection : true,
-					multiSelect : true,
-					rowSelect : true,
-					keepSelection : true,
-				    formatters: {
-				        "details": function($column, $row) {
-				        	return "<input type='button' class='btn btn-default' value='詳細' onclick='detailwin("  + $row.id + ")'> ";
-			             }
-				    }
-				}).on("selected.rs.jquery.bootgrid", function(e, rows) {
-					for (var i = 0; i < rows.length; i++) {
-						rowIds.push(rows[i].id);
-					}
-				}).on("deselected.rs.jquery.bootgrid", function(e, rows) {
-					for (var i = 0; i < rows.length; i++) {
-						rowIds.some(function(v, ii) {
-							if (v == rows[i].id)
-								rowIds.splice(ii, 1);
-						});
-					}
-				});
-			});
+<div type="hidden"
+     id="php-val"
+     style="display:none;"
+     data-val="<?=htmlspecialchars($opinions, ENT_QUOTES, 'UTF-8')?>"></div>
+<script type="text/javascript" src="js/opinion.js"></script>
 
-			function drow() {
-				alert(js_var[0]);
-
-				/*
-				if(rowIds.length == 0){
-					alert("削除する行を選択してください");
-					return;
-				}
-				var successFlg = true;
-				var myRet = confirm("選択行を削除しますか？");
-				if ( myRet == true ){
-					for (var i = 0; i < rowIds.length; i++){
-
-						$.ajax({
-							type: "GET",
-							url: 'opinion/'+ rowIds[i],
-						}).then(
-							function(){
-							},
-							function(){
-								successFlg = false;
-							}
-						);
-					}
-					if( successFlg == true){
-						alert("削除しました");
-						location.reload();
-					}else{
-						alert("削除できませんでした");
-					}
-				}*/
-			}
-
-
-			function detailwin(value){
-				document.getElementById("btn_modal").click();
-				for (var i = 0; i < dbvalue.length; i++){
-					if(dbvalue[i][0] == value){
-						shosai_idx = i;
-						modal_mod(i);
-					}
-				}
-			}
-
-			function shosai_back(){
-				shosai_idx = shosai_idx - 1;
-				modal_mod(shosai_idx);
-			}
-			function shosai_next(){
-				shosai_idx = shosai_idx + 1;
-				modal_mod(shosai_idx);
-			}
-
-
-			function modal_mod(index){
-				document.getElementById('dia_id').value  = dbvalue[index][0];
-				document.getElementById('dia_userid').value  = dbvalue[index][1];
-				var idate = dbvalue[index][2].substr(0,4) + "/" + dbvalue[index][2].substr(4,2) + "/" + dbvalue[index][2].substr(6,2) + " " + dbvalue[index][2].substr(8,2) + ":" + dbvalue[index][2].substr(10,2);
-				document.getElementById('dia_time').value = idate;
-
-				document.getElementById('dia_sadness').value  = dbvalue[index][4];
-				document.getElementById('dia_joy').value  = dbvalue[index][5];
-				document.getElementById('dia_fear').value  = dbvalue[index][6];
-				document.getElementById('dia_disgust').value  = dbvalue[index][7];
-				document.getElementById('dia_anger').value  = dbvalue[index][8];
-				document.getElementById('dia_opinion').innerHTML  = dbvalue[index][3];
-				if(index == 0){
-					document.getElementById("sback").disabled = "true";
-				}else{
-					document.getElementById("sback").disabled = "";
-				}
-				if(index == dbvalue.length - 1){
-					document.getElementById("snext").disabled = "true";
-				}else{
-					document.getElementById("snext").disabled = "";
-				}
-			}
-
-</script>
 @endsection

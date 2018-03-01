@@ -8,7 +8,11 @@
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<title>ViewLog</title>
+<title>
+	@section('title')
+	ログイン
+	@show
+</title>
 
 <!-- Styles -->
 <link href="{{ asset('css/common.css') }}" rel="stylesheet">
@@ -38,10 +42,10 @@
 					</button>
 					@guest
 					<!-- Branding Image -->
-					<a class="navbar-brand" href="{{ url('/login') }}">ViewLog</a>
+					<a class="navbar-brand" href="{{ url('/login') }}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
 					@else
 					<!-- Branding Image -->
-					<a class="navbar-brand" href="{{ url('/home') }}">ViewLog</a>
+					<a class="navbar-brand" href="{{ url('/home') }}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
 					@endguest
 				</div>
 				<div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -67,7 +71,7 @@
 								<li><a href="{{ route('register') }}">メッセージ管理</a></li>
 								@if (Auth::user()->role == 0 or Auth::user()->role == 1)
 								<li><a href="{{ route('register') }}">セッション情報</a></li>
-								<li><a href="{{ route('register') }}">コード管理</a></li>
+								<li><a href="{{ route('codemanage') }}">コード管理</a></li>
 								<li><a href="{{ route('register') }}">市町村パラメタ</a></li>
 								@endif
 							</ul>

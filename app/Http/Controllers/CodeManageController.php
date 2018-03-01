@@ -5,17 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Botlog;
-use Illuminate\Support\Facades\Auth;
 
-class BotlogController
+class CodeManageController
 {
 
 	public function index(Request $request)
 	{
 		$cityCD = Auth::user()->citycode;
-
+		//$botlogs = Botlog::all();
 		$botlogs = Botlog::where('citycode', $cityCD)->get();
-		return view('botlog',['botlogs'=>$botlogs]);
+		return view('codemanage',['botlogs'=>$botlogs,'name'=>$cityCD]);
 
 	}
 
