@@ -5,6 +5,11 @@ $(function() {
 		multiSelect : true,
 		//rowSelect : true,
 		keepSelection : true
+	    formatters: {
+	        "mods": function($column, $row) {
+	        	return "<input type='button' class='btn btn-default' value='修正' onclick='modwin("  + $row.id + ",\"" + $row.meisho + "\",\"" + $row.jusho + "\",\"" + $row.tel + "\",\"" + $row.genre1 + "\",\"" + $row.genre2 + "\",\"" + $row.lat + "\",\"" + $row.lng + "\",\"" + $row.imageurl + "\",\"" + $row.url + "\")' > ";
+             }
+	    }
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
 		for (var i = 0; i < rows.length; i++) {
 			rowIds.push(rows[i].id);
@@ -61,6 +66,36 @@ function drow() {
 	}
 }
 
+	/*  施設情報修正  */
+/*
+function modwin(id,meisho,jusho,tel,genre1,genre2,lat,lng,imageurl,url){
+	document.getElementById('modal-label').innerHTML  = "施設情報修正";
+	modID = id;
+	initmodal();
+	document.getElementById('dia_meisho').value = meisho;
+	document.getElementById('dia_jusho').value = jusho;
+	document.getElementById('dia_tel').value = tel;
+	var options = document.getElementById('dia_genre1').options;
+	for(var i = 0; i < options.length; i++){
+		if(options[i].text === genre1){
+			options[i].selected = true;
+			break;
+		};
+	};
+	genre1change();
+	var options = document.getElementById('dia_genre2').options;
+	for(var i = 0; i < options.length; i++){
+		if(options[i].text === genre2){
+			options[i].selected = true;
+			break;
+		};
+	};
+	document.getElementById('dia_latlng').value = lat + "," + lng;
+	document.getElementById('dia_imageurl').value = imageurl;
+	document.getElementById('dia_url').value = url;
+	document.getElementById("btn_modal").click();
+}
+*/
 function insert() {
 	document.getElementById("modal-label").innerHTML  = "施設登録";
 	initmodal();
@@ -91,7 +126,7 @@ function map(){
 }
 //画像の確認
 function image(){
-	imageurl = document.getElementById('dia_iurl').value;
+	imageurl = document.getElementById('dia_imageurl').value;
 	window.open( imageurl, '_blank');
 }
 
