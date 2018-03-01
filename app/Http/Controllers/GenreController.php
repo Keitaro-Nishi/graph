@@ -20,7 +20,7 @@ class GenreController
 
 		if($cityCD == "00000"){
 			//$genres = Genre::all();
-			$genres = Genre::all()->orderBy('gid1', 'desc')->get();
+			$genres = Genre::all()->orderBy('gid1', 'desc');
 		}else{
 			$genres= Genre::where('citycode', $cityCD)->orderBy('gid1', 'desc')->get();
 		}
