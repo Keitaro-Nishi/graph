@@ -35,6 +35,7 @@ Route::middleware(['auth'])->group(function () {
 
 	Route::get ( '/facility', 'FacilityController@index' )->name ( 'facility' );
 	Route::get ( '/facility/{deleteid}','FacilityController@delete' );
+	Route::post ( '/facility', 'FacilityController@update' );
 
 	Route::get ( '/linepush',function(){
 		return view( 'linepush' );
