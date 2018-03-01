@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
 	<p>大分類</p>
-	<select class="form-control" style="width: 600px;">
+	<select class="form-control" onChange="g1change()"  style="width: 600px;">
 	@foreach($results as $result)
 	<option value="1">{{$result->meisho}}</option>
 	@endforeach
@@ -42,5 +42,5 @@
 	</div>
 </div>
 
-<!--  <script src="{{ asset('js/genreint.js') }}"></script>-->
+<script src="{{ asset('js/genreinit.js') }}"></script>
 @endsection

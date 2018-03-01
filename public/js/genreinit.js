@@ -12,6 +12,7 @@ var wtable = document.getElementById('grid-basic');
 $(function(){
 
 	//ジャンルの設定
+	/*
 	var j1value = <?php echo json_encode($j1value); ?>;
 	var select = document.getElementById('g1');
 	for( var key in j1value ) {
@@ -20,7 +21,7 @@ $(function(){
 		var text = document.createTextNode(j1value[key]);
 		option.appendChild(text);
 		select.appendChild(option);
-	}
+	}*/
 	//テーブル追加
 	getwtint();
 	/*
