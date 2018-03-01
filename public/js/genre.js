@@ -8,12 +8,12 @@ $(function() {
 	$("#grid-basic").bootgrid({
 		selection: true,
 		multiSelect: true,
-	    keepSelection: true,
+	    keepSelection: true/*,
 	    formatters: {
 	        "mods": function($column, $row) {
 	        	return "<input type='button' class='btn btn-default' value='修正' onclick='modwin(\"" + $row.gid1 + "\",\"" + $row.gid2 + "\",\"" + $row.g1 + "\",\"" + $row.g2 + "\")' > ";
              }
-	    }
+	    }*/
 	}).on("selected.rs.jquery.bootgrid", function(e, rows)
 	{
 		for (var i = 0; i < rows.length; i++)
@@ -29,8 +29,8 @@ $(function() {
 	    for (var i = 0; i < rows.length; i++)
 	    {
 	    	for (var ii = 0; ii < rowIds.length; ii++){
-		    	if(rowIds[ii] == rows[i].no){
-		    		rowIds.splice(ii,1);
+		    	//if(rowIds[ii] == rows[i].no){
+		    		//rowIds.splice(ii,1);
 		    		rowgid1.splice(ii,1);
 		    		rowgid2.splice(ii,1);
 		    		break;
@@ -40,6 +40,8 @@ $(function() {
 	    }
 	    //alert("Deselect: " + rowIds.join(","));
 	});
+
+	/*
 	//ジャンルの設定
 	var j1value = <?php echo json_encode($j1value); ?>;
 	var select = document.getElementById('dia_g1');
@@ -51,7 +53,7 @@ $(function() {
 		select.appendChild(option);
 	}
 });
-
+*/
 function drow() {
 	if(rowIds.length == 0){
 		alert("削除する行を選択してください");
