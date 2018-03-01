@@ -14,10 +14,10 @@ class GenreController
 		$Authrole = Auth::user()->role;
 		$cityCD = Auth::user()->citycode;
 		$result = Genre::where('bunrui', 1)->get();
-		$resultbunrui = Genre::where('bunrui',1)->where('gid1', 1)->get();
+		$result2 = Genre::where('bunrui',1)->where('gid1', 1)->get('meisho');
 
 
-		$result2 = resultbunrui()->meisho;
+		//$result2 = resultbunrui()->meisho;
 
 
 		if($cityCD == "00000"){
