@@ -91,7 +91,8 @@ function update(){
 		}
 	}).done(function (response) {
 		alert("1-1");
-		result = JSON.parse(response);
+		result = "";
+		//result = JSON.parse(response);
 		alert("1-2");
 		alert(result);
 		if(result == "OK"){
