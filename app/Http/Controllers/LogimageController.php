@@ -9,13 +9,13 @@ class LogimageController
 {
 	public function index(Request $request)
 	{
-
-		$logimages = Logimage::all();
-		$php_json = json_encode($logimages);
-
-		//return view('logimage',['logimage'=>$logimage]);
-		return view('logimage')->with('logimages', $logimages);
-
+		$cityCD = Auth::user()->citycode;
+		if($cityCD = "00000"){
+			$logimages = Logimage::all();
+		}else{
+			$logimages= Logimage::where('citycode', $cityCD)->get();
+		}
+		return view('logimage',['logimages'=>$logimages]);
 	}
 
 	public function delete(Request $request)
