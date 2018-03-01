@@ -60,7 +60,8 @@ class UserController
 		if($validator->fails())
 		{
 			error_log("★★★★★★★★★★★★★validat★★★★★★★★★★★★★★★".$validator->errors());
-			return Response::json($validator->errors());
+			//return Response::json($validator->errors());
+			return Response::json(['status' => 'NG']);
 			//return $validator->errors();
 		}
 
@@ -94,8 +95,8 @@ class UserController
 		$result = $user->save();
 		error_log("★★★★★★★★★★★★★result★★★★★★★★★★★★★★★".$result);
 
-		//return Response::json(array("OK"));
-		return response()->json(['status' => 'OK']);
+		return Response::json(['status' => 'OK']);
+		//return response()->json(['status' => 'OK']);
 		error_log("★★★★★★★★★★★★★end★★★★★★★★★★★★★★★");
 	}
 
