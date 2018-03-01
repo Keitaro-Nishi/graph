@@ -5,11 +5,11 @@
 	class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
-			   <th data-column-id='bunrui'>分類</th>
+			   <th data-column-id='bunrui' >分類</th>
+               <th data-column-id='g1'  >大分類名称</th>
+               <th data-column-id='g2'  >小分類名称</th>
                <th data-column-id='gid1'>分類ID1</th>
                <th data-column-id='gid2'>分類ID2</th>
-               <th data-column-id='gid3'>分類ID3</th>
-               <th data-column-id='meisho'>名称</th>
                <th data-column-id='mod'  data-width='7%' data-formatter='mods' data-sortable='false'></th>
 		</tr>
 	</thead>
@@ -21,11 +21,18 @@
 			@else
 			<td>小分類</td>
 			@endif
+			@if($genre->bunrui == 1)
+			<td>{{$genre->meisho}}</td>
+			@else
+			<td></td>
+			@endif
+			@if($genre->bunrui == 1)
+			<td>"-"</td>
+			@else
+			<td>{{$genre->meisho}}</td>
+			@endif
 			<td>{{$genre->gid1}}</td>
 			<td>{{$genre->gid2}}</td>
-			<td>{{$genre->gid3}}</td>
-			<td>{{$genre->meisho}}</td>
-			<td></td>
 		</tr>
 		@endforeach
 	</tbody>
