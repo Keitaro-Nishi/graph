@@ -23,7 +23,7 @@ class Genre extends Model
 
 
 	//protected $primaryKey =['citycode','id'];
-	protected $primaryKey = ['git1', 'git2','git3'];
+	protected $primaryKey = ['gid1', 'gid2','gid3'];
 	public $incrementing = false;
 	protected $table = 'genre';
 
