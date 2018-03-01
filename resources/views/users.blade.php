@@ -9,7 +9,7 @@
 	class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
-			<th data-column-id="citycode" data-visible="false"></th>
+			<th data-column-id="citycode" style="display:none;"></th>
 			<th data-column-id="name">ユーザー名</th>
 			<th data-column-id="userid" data-identifier="true">ユーザーID</th>
 			<th data-column-id="organization">組織名</th>

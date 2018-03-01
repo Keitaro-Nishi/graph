@@ -52,7 +52,7 @@ function drow() {
 }
 
 function update(row){
-	alert(row.no);
+	alert(row);
 	/*
 	document.getElementById('modal-label').innerHTML  = "ユーザー登録";
 	initmodal();
