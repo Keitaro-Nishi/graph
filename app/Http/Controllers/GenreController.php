@@ -22,9 +22,9 @@ class GenreController
 			$genres = Genre::all();
 		}else{
 			$genres= Genre::where('citycode', $cityCD)->orderBy('gid1', 'ASC')->orderBy('gid2', 'ASC')->get();
-			$genreID =$genres->gid1;
-			error_log("★★★★★★★");
-			error_log(genreID);
+			$genreID = genres()->gid1;
+			//error_log("★★★★★★★");
+			//error_log(genreID);
 		}
 
 		return view('genre',compact('genres','genreID','result','result2'));
