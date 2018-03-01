@@ -78,7 +78,6 @@ function update(){
 	var _token = document.getElementById('_token').value;
 	$.ajax({
 		type: "POST",
-		//url: "/user",
 		dataType: "JSON",
 		data: {
 			"citycode" : citycode,
@@ -90,8 +89,6 @@ function update(){
 			"_token" : _token
 		}
 	}).done(function (response) {
-		alert("1-1");
-		console.log(response);
 		if(response.status == "OK"){
 			bootbox.alert({
 				message: "更新しました",
@@ -100,10 +97,18 @@ function update(){
 					location.reload();
 				}
 			});
+		}else if(response.status == "NG"){
+			bootbox.alert({
+				message: "更新できませんでした",
+				size: 'small'
+			});
 		}else{
 			var mes = "";
 			for (var item in response) {
-			    mes = mes + response[item][0] + "<br>"
+				if(mes != ""){
+					mes = mes + "<br>";
+				}
+			    mes = mes + response[item][0];
 			}
 			bootbox.alert({
 				message: mes,

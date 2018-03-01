@@ -37,16 +37,6 @@ class UserController
 	{
 		$input = \Request::all();
 
-		error_log("★★★★★★★★★★★★★update★★★★★★★★★★★★★★★".$input["organization"]);
-		/*
-		$request->validate([
-			'citycode' => 'required|string',
-			'name' => 'required|string|max:255',
-			'userid' => 'required|string|max:255|unique:users',
-			'organization' => 'required|string|max:255',
-			'password' => 'required|string|min:6|confirmed'
-		]);
-		*/
 		$rules = [
 			'citycode' => 'required|string',
 			'username' => 'required|string|max:255',
@@ -59,11 +49,6 @@ class UserController
 
 		if($validator->fails())
 		{
-			error_log("★★★★★★★★★★★★★validat★★★★★★★★★★★★★★★".$validator->errors());
-			//return Response::json(['error' =>$validator->errors()]);
-			//return \Response::json(['status' => 'NG']);
-			//$res = json_encode(array('status' => 'NG'));
-			//return $res;
 			return $validator->errors();
 		}
 
@@ -95,12 +80,12 @@ class UserController
 		$user->reserve= "";
 
 		$result = $user->save();
-		error_log("★★★★★★★★★★★★★result★★★★★★★★★★★★★★★".$result);
 
-		//return Response::json(['status' => 'OK']);
-		//return response()->json(['status' => 'OK']);
-		return \Response::json(['status' => 'OK']);
-		error_log("★★★★★★★★★★★★★end★★★★★★★★★★★★★★★");
+		if($result == "1"){
+			return \Response::json(['status' => 'OK']);
+		}else{
+			return \Response::json(['status' => 'NG']);
+		}
 	}
 
 }
