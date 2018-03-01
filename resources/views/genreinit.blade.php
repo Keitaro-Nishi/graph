@@ -5,8 +5,9 @@
 	<p>大分類</p>
 	<select class="form-control" style="width: 600px;">
 	@foreach($results as $result)
-	{{$result->meisho}}
+	<option value="0">{{$result->meisho}}</option>
 	@endforeach
+
 	</select>
 	<br>
 	<table id='grid-basic' class='table table-sm'>
