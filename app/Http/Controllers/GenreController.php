@@ -28,7 +28,7 @@ class GenreController
 
 			$test = json_encode($genregid1);
 			error_log("★★★★★★★");
-			error_log($test[0]["gid1"]);
+			error_log($test);
 		}
 
 		return view('genre',compact('genres','result','result2','genregid1'));
