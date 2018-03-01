@@ -3,8 +3,8 @@ $(function() {
 	$("#grid-basic").bootgrid({
 		selection : true,
 		multiSelect : true,
-		//rowSelect : true,
 		keepSelection : true
+		columnSelection : false,
 		/*
 	    formatters: {
 	        "mods": function($column, $row) {
@@ -142,4 +142,69 @@ function initmodal(){
 	document.getElementById('dia_latlng').value = "";
 	document.getElementById('dia_imageurl').value = "";
 	document.getElementById('dia_url').value = "";
+}
+
+function INSERT(){
+	var citycode = "00000";
+	if(document.getElementById('dia_citycode')){
+		citycode = document.getElementById('dia_citycode').value;
+	}
+	var meisho = document.getElementById('dia_meisho').value;
+	var jusho = document.getElementById('dia_jusho').value;
+	var tel = document.getElementById('dia_tel').value;
+	var genre1 = document.getElementById('dia_genre1').value;
+	var genre2 = document.getElementById('dia_genre2').value;
+	var genre3 = document.getElementById('dia_genre3').value;
+	var latlng = document.getElementById('dia_latlng').value;
+	var arrayOfStrings = latlng.split(",");
+	var lat = arrayOfStrings[0];
+	var lng = arrayOfStrings[1];
+	var imageurl = document.getElementById('dia_imageurl').value;
+	var url = document.getElementById('dia_url').value;
+
+	$.ajax({
+		type: "POST",
+		dataType: "JSON",
+		data: {
+			"citycode" : citycode,
+			"meisho" : meisho,
+			"jusho" : jusho,
+			"" : organization,
+			"password" : password,
+			"password_confirmation" : password_confirmation,
+			"_token" : _token
+		}
+	}).done(function (response) {
+		if(response.status == "OK"){
+			bootbox.alert({
+				message: "更新しました",
+				size: 'small',
+				callback: function () {
+					location.reload();
+				}
+			});
+		}else if(response.status == "NG"){
+			bootbox.alert({
+				message: "更新できませんでした",
+				size: 'small'
+			});
+		}else{
+			var mes = "";
+			for (var item in response) {
+				if(mes != ""){
+					mes = mes + "<br>";
+				}
+			    mes = mes + response[item][0];
+			}
+			bootbox.alert({
+				message: mes,
+				size: 'small'
+			});
+		}
+    }).fail(function () {
+    	bootbox.alert({
+			message: "更新できませんでした",
+			size: 'small'
+		});
+    });
 }
