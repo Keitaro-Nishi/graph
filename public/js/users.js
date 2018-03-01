@@ -7,7 +7,7 @@ $(function() {
 		columnSelection : false,
 		formatters: {
 	        "details": function($column, $row) {
-	        	return "<input type='button' class='btn btn-default' value='修正' onclick='detail("  + $row.citycode + ")' > ";
+	        	return "<input type='button' class='btn btn-default' value='修正' onclick='detail(" $row.name + ",\"" + $row.userid + ",\"" + $row.organization + ",\"" + $row.citycode + ",\"" + $row.password + ")' > ";
              }
 	    }
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
@@ -52,14 +52,19 @@ function drow() {
 	}
 }
 
-function detail(row){
-	console.log(row);
-	alert(row);
-	/*
-	document.getElementById('modal-label').innerHTML  = "ユーザー登録";
-	initmodal();
+function detail(name,userid,organization,citycode,password){
+	document.getElementById('modal-label').innerHTML  = "ユーザー情報修正";
+	if(document.getElementById('dia_citycode')){
+		document.getElementById('dia_citycode').value = citycode;
+		document.getElementById('dia_citycode').disabled = true;
+	}
+	document.getElementById('dia_userid').value = userid;
+	document.getElementById('dia_userid').disabled = true;
+	document.getElementById('dia_name').value = name;
+	//document.getElementById('dia_organization').selectedIndex = 0;
+	document.getElementById('dia_password').value = password;
+	document.getElementById('dia_password_confirmation').value = password;
 	document.getElementById("btn_modal").click();
-	*/
 }
 
 function insert(){
@@ -72,8 +77,10 @@ function insert(){
 function initmodal(){
 	if(document.getElementById('dia_citycode')){
 		document.getElementById('dia_citycode').value = "";
+		document.getElementById('dia_citycode').disabled = false;
 	}
 	document.getElementById('dia_userid').value = "";
+	document.getElementById('dia_userid').disabled = false;
 	document.getElementById('dia_name').value = "";
 	document.getElementById('dia_organization').selectedIndex = 0;
 	document.getElementById('dia_password').value = "";

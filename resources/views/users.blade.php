@@ -9,20 +9,22 @@
 	class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
-			<th data-column-id="citycode" data-visible="false"></th>
 			<th data-column-id="name">ユーザー名</th>
 			<th data-column-id="userid" data-identifier="true">ユーザーID</th>
 			<th data-column-id="organization">組織名</th>
+			<th data-column-id="citycode" data-visible="false"></th>
+			<th data-column-id="password" data-visible="false"></th>
 			<th data-column-id='detail'  data-width='6%' data-formatter='details' data-sortable='false'></th>
 		</tr>
 	</thead>
 	<tbody>
 		@foreach($users as $user)
 		<tr>
-			<td>{{$user->citycode}}</td>
 			<td>{{$user->name}}</td>
 			<td>{{$user->userid}}</td>
 			<td>{{$user->organization}}</td>
+			<td>{{$user->citycode}}</td>
+			<td>{{$user->password}}</td>
 		</tr>
 		@endforeach
 	</tbody>
