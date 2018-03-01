@@ -16,7 +16,7 @@ class GenreController
 		$result = Genre::where('bunrui', 1)->get();
 
 		error_log("★★★★★★★");
-		error_log($result[0]);
+		error_log($result);
 
 		/*
 		$result2 = Genre::where('bunrui',1)->where('gid1', 1)->get();
@@ -27,7 +27,8 @@ class GenreController
 			$genres = Genre::all();
 		}else{
 			$genres= Genre::where('citycode', $cityCD)->get();
-			error_log($genres[0]);
+			error_log("○○○○○○○");
+			error_log($genres);
 		}
 
 		return view('genre')->with('genres', $genres);
