@@ -24,7 +24,6 @@ class GenreController
 			$genres= Genre::where('citycode', $cityCD)->get();
 		}
 
-		//return view('genre')->with('genres', $genres);
 		return view('genre',compact('genres', 'result','result2'));
 	}
 
