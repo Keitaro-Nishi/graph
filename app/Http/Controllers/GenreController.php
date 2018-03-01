@@ -33,7 +33,7 @@ class GenreController
 			error_log($test);
 		}
 
-		return view('genre',compact('genres','result','result2','test'));
+		return view('genre',compact('genres','result','result2','genregid2'));
 	}
 
 
