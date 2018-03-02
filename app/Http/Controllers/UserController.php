@@ -10,6 +10,7 @@ use App\User;
 
 class UserController
 {
+	private $requestall;
 
 	public function index(Request $request)
 	{
@@ -34,10 +35,15 @@ class UserController
 	}
 	*/
 
-	public function update(Request $request)
-	//public function update()
+	public  function request(){
+		$this->requestall = \Request::all();
+		update();
+	}
+
+	public function update()
 	{
-		$input = \Request::all();
+		//$input = \Request::all();
+		$input = $this->requestall;
 
 		$rules = [ 'citycode' => 'required|string'];
 
