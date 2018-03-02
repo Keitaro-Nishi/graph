@@ -71,8 +71,9 @@ class FacilityController
 		$imageurl = $input["imageurl"];
 		//URL
 		$url = $input["url"];
+
 		error_log("?????????????????".$meisho."?????????????????");
-		$result= DB::insert('insert into facility (citycode, id, meisho, jusho, tel, genre1, genre2, genre3, lat, lng, imageurl, url) values (?,?,?,?,?,?,?,?,?,?,?)',
+		$result= DB::insert('insert into facility (citycode, id, meisho, jusho, tel, genre1, genre2, genre3, lat, lng, imageurl, url) values (?,?,?,?,?,?,?,?,?,?,?,?)',
 				[$citycode, 2, $meisho, $jusho, $tel, $genre1, $genre2, 0, $lat, $lng, $imageurl, $url]);
 
 		if($result == "1"){
