@@ -67,6 +67,7 @@ class FacilityController {
 		 * $url = $input["url"];
 		 */
 
+		$facility = new Facility;
 		$cityCD = Auth::user ()->citycode;
 		 //市町村コード
 		$facility->citycode= $cityCD;
