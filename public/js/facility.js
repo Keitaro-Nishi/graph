@@ -167,8 +167,6 @@ function update(){
 			"jusho" : jusho,
 			"tel" : tel,
 			"genre1" : genre1,
-			"genre2" : genre2,
-			"genre3" : genre3,
 			"lat" : lat,
 			"lng" : lng,
 			"imageurl" : imageurl,
