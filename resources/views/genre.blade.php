@@ -24,9 +24,7 @@
 			@if($genre->bunrui == 1)
 			<td>{{$genre->meisho}}</td>
 			@else
-			@foreach($genregid2 as $genre2)
-			<td>{{$genre2->meisho}}</td>
-			@endforeach
+			<td></td>
 			@endif
 			@if($genre->bunrui == 1)
 			<td>-</td>
@@ -48,7 +46,9 @@
 	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog" value="モーダル表示" />
 </div>
 
-
+<div>
+<input id="opinion" type= "text" value = '{{ $genregid2 }}'>
+</div>
 
 <div class="modal" id="shosaiDialog"  tabindex="-1">
 	<div class="modal-dialog">
