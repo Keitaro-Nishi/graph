@@ -55,8 +55,21 @@ class GenreController
 						'gid1'=>$gid1,
 						'gid2'=>$gid2,
 				];
+
+				function fArray_merge( $aOld, $aNew ){
+					foreach($aNew as $sKey=>$mValue){
+						if ( isset($aOld[$sKey]) && is_array($mValue) && is_array($aOld[$sKey])){
+							$aOld[$sKey] = fArray_merge($aOld[$sKey], $mValue);
+						} else {
+							$aOld[$sKey] = $mValue;
+						}
+					}
+					return($aOld);
+				}
 				//$genrearray2= array_merge($genrearray, $genrearray2);
-				$genrearray2 = $genrearray2 + $genrearray;
+				//$genrearray2 = $genrearray2 + $genrearray;
+
+				$genrearray2 = fArray_merge( $genrearray, $genrearray2);
 			}
 
 			/*

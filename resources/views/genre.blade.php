@@ -16,7 +16,11 @@
 	<tbody>
 		@foreach($genrearray2 as $genrearray)
 		<tr>
-			<td></td>
+			@if($genre->bunrui == 1)
+			<td>大分類</td>
+			@else
+			<td>小分類</td>
+			@endif
 			<td>{{$genrearray->daibunrui}}</td>
 			<td>{{$genrearray->shoubunrui}}</td>
 			<td>{{$genrearray->gid1}}</td>
