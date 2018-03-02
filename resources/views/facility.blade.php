@@ -8,7 +8,7 @@
 <table id="grid-basic" class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
-			<th data-column-id="id" data-identifier="true" style="display:none">ID</th>
+			<th data-column-id="id" data-identifier="true" data-visible="false">ID</th>
 			<th data-column-id="meisho">名称</th>
 			<th data-column-id="jusho">住所</th>
 			<th data-column-id="tel">電話番号</th>
