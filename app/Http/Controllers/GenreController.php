@@ -33,6 +33,8 @@ class GenreController
 
 			error_log("○○○○○○○");
 			error_log(print_r($genregid1,true));
+			error_log("★★★★★★★");
+			error_log($genregid1[0]["gid1"]);
 
 			/*
 			for ($i = 0; $i< count($array); $i++) {
