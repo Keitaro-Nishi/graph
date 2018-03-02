@@ -28,8 +28,8 @@ class GenreController
 
 			foreach ($genregid1 as $value) {
 				$row = $value->gid1;
-				error_log("●●●●●●●");
-				error_log($row);
+				//error_log("●●●●●●●");
+				//error_log($row);
 				$genregid2 = DB::table('genre')->select('meisho')->where('bunrui',1)->where('gid1',$row)->get();
 				foreach ($genregid2 as $value2) {
 					$row2 = $value2->meisho;
@@ -39,10 +39,8 @@ class GenreController
 				}
 			}
 
-			error_log($genrearray[0]);
-			error_log($genrearray[1]);
-			error_log($genrearray[2]);
-			error_log($genrearray[3]);
+			error_log("★★★★★★★");
+			error_log(print_r($genrearray,true));
 
 
 
