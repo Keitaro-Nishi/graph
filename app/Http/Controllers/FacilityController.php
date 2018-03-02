@@ -107,7 +107,7 @@ class FacilityController {
 				'tel' => $input ["tel"],
 				'genre1' => $input ["genre1"],
 				'genre2' => $input ["genre2"],
-				'genre3' => $input ["genre3"],
+				'genre3' => 0,
 				'lat' => $input ["lat"],
 				'lng' => $input ["lng"],
 				'imageurl' => $input ["imageurl"],
