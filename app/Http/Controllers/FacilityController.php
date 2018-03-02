@@ -99,7 +99,7 @@ class FacilityController {
 		$result = Facility::create($facility);
 */
 		error_log("?????????????????".$citycode."?????????????????");
-		$result = Facility::create([
+/*		$result = Facility::create([
 				'citycode' => $citycode,
 				'meisho' => $meisho,
 				'jusho' => $jusho,
@@ -112,7 +112,20 @@ class FacilityController {
 				'imageurl' => $imageurl,
 				'url' => $url
 		]);
-
+*/
+		$result = DB::table('facility')->insertGetId([
+				'citycode' => $citycode,
+				'meisho' => $meisho,
+				'jusho' => $jusho,
+				'tel' => $tel,
+				'genre1' => $genre1,
+				'genre2' => $genre2,
+				'genre3' => $genre3,
+				'lat' => $lat,
+				'lng' => $lng,
+				'imageurl' => $imageurl,
+				'url' => $url
+		]);
 		error_log("?????????????????".$result."?????????????????");
 
 		if ($result == "1") {
