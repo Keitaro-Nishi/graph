@@ -51,30 +51,30 @@ class FacilityController
 
 		$facility = new Facility;
 		$cityCD = Auth::user()->citycode;
-/*
+
 		//市町村コード
-		$facility->citycode= $cityCD;
+		$citycode = $cityCD;
 		//名称
-		$facility->meisho= $input["meisho"];
+		$meisho = $input["meisho"];
 		//住所
-		$facility->jusho= $input["jusho"];
+		$jusho = $input["jusho"];
 		//電話番号
-		$facility->tel= $input["tel"];
+		$tel = $input["tel"];
 		//ジャンル1
-		$facility->genre1= $input["genre1"];
+		$genre1 = $input["genre1"];
 		//ジャンル2
-		$facility->genre2= $input["genre2"];
+		$genre2 = $input["genre2"];
 		//ジャンル3
-		$facility->genre3= "";
+		$genre3 = "";
 		//経度
-		$facility->lat= $input["lat"];
+		$lat = $input["lat"];
 		//緯度
-		$facility->lng= $input["lng"];
+		$lng = $input["lng"];
 		//画像URL
-		$facility->imageurl= $input["imageurl"];
+		$imageurl = $input["imageurl"];
 		//URL
-		$facility->genre3= $input["url"];
-*/
+		$url = $input["url"];
+
 		$facility = DB::insert('insert into facility (citycode, meisho, jusho, tel, genre1, genre2, genre3, lat, lng, imageurl, url, geom) values (?,?,?,?,?,?,?,?,?,?,?,?)',[$cityCD,0,0,0,0,0,0,0,0,0,0,0]);
 
 		//return redirect ( '/facility' );
