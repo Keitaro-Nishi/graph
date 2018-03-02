@@ -29,8 +29,8 @@ class FacilityController
 	{
 
 		$input = \Request::all();
-		error_log("★★★★★★★★★★★★★update★★★★★★★★★★★★★★★".$input["meisho"]);
-/*
+		error_log("?????????????????".$input["meisho"]."?????????????????");
+
 		$rules = [
 				'meisho' => 'string|max:255',
 				'jusho' => 'string|max:255',
@@ -49,7 +49,7 @@ class FacilityController
 		{
 			return $validator->errors();
 		}
-*/
+
 
 		//市町村コード
 		$citycode = Auth::user()->citycode;
