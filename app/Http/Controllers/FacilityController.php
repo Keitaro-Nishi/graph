@@ -29,7 +29,7 @@ class FacilityController
 	{
 
 		$input = \Request::all();
-		error_log("★★★★★★★★★★★★★update★★★★★★★★★★★★★★★".$input["meisho"]);
+		error_log("★★★★★★★★★★★★★update★★★★★★★★★★★★★★★".$input["_token"]);
 /*
 		$rules = [
 				'meisho' => 'string|max:255',
