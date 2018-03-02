@@ -30,7 +30,7 @@ class GenreController
 				$row = $value->gid1;
 				error_log("●●●●●●●");
 				error_log($row);
-				$genregid2= $genregid2 + DB::table('genre')->select('meisho')->where('bunrui',1)->where('gid1',$row)->get();
+				$genregid2 = DB::table('genre')->select('meisho')->where('bunrui',1)->where('gid1',$row)->get();
 			}
 
 			foreach ($genregid2 as $value2) {
