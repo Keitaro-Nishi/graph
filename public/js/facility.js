@@ -121,16 +121,6 @@ function genre1change(){
 	}
 }
  */
-//地図の確認
-function map(){
-	latlng = document.getElementById('dia_latlng').value;
-	window.open( "http://maps.google.com/maps?q=" + latlng + "+(ココ)", '_blank');
-}
-//画像の確認
-function image(){
-	imageurl = document.getElementById('dia_imageurl').value;
-	window.open( imageurl, '_blank');
-}
 
 //ダイアログ初期化
 function initmodal(){
@@ -207,4 +197,14 @@ function update(){
 			size: 'small'
 		});
     });
+}
+//地図の確認
+function map(){
+	latlng = document.getElementById('dia_latlng').value;
+	window.open( "http://maps.google.com/maps?q=" + latlng + "+(ココ)", '_blank');
+}
+//画像の確認
+function image(){
+	imageurl = document.getElementById('dia_imageurl').value;
+	window.open( imageurl, '_blank');
 }
