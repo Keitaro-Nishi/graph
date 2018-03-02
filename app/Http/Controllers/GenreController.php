@@ -43,7 +43,7 @@ class GenreController
 			}
 			//error_log(print_r($genres,true));
 
-			/*
+
 			foreach ($genres as $value1) {
 				$citycode = $value1->citycode;
 				$bunrui = $value1->bunrui;
@@ -51,13 +51,15 @@ class GenreController
 				$gid2 = $value1->gid2;
 				$gid3 = $value1->gid3;
 				$meisho = $value1->meisho;
-				array_push($genrearray, $citycode);
-				array_push($genrearray, $bunrui);
-				array_push($genrearray, $gid1);
-				array_push($genrearray, $gid2);
-				array_push($genrearray, $gid3);
-				array_push($genrearray, $meisho);
-			}*/
+				$genrearray= [
+						'citycode'=>$citycode,
+						'bunrui'=>$bunrui,
+						'gid1'=>$gid1,
+						'gid2'=>$gid2,
+						'gid3'=>$gid3,
+						'meisho'=>$meisho
+				];
+			}
 
 		}
 		error_log("●●●●●●●");
