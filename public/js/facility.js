@@ -146,7 +146,7 @@ function update(){
 		type: "POST",
 		dataType: "JSON",
 		data: {
-			//"id" : id,
+			"id" : id,
 			"meisho" : meisho,
 			"jusho" : jusho,
 			"tel" : tel,
