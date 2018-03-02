@@ -144,7 +144,7 @@ function initmodal(){
 	document.getElementById('dia_url').value = "";
 }
 
-function up(){
+function update(){
 
 	var meisho = document.getElementById('dia_meisho').value;
 	var jusho = document.getElementById('dia_jusho').value;
