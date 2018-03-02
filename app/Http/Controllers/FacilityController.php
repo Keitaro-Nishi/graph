@@ -74,10 +74,14 @@ class FacilityController
 		//URL
 		$url = $input["url"];
 
-		$facility = DB::insert('insert into facility (citycode, meisho, jusho, tel, genre1, genre2, genre3, lat, lng, imageurl, url) values (?,?,?,?,?,?,?,?,?,?,?)',
+		$result= DB::insert('insert into facility (citycode, meisho, jusho, tel, genre1, genre2, genre3, lat, lng, imageurl, url) values (?,?,?,?,?,?,?,?,?,?,?)',
 				[$citycode, $meisho, $jusho, $tel, $genre1, $genre2, $genre3, $lat, $lng, $imageurl, $url]);
 
-		//return redirect ( '/facility' );
+		if($result == "1"){
+			return \Response::json(['status' => 'OK']);
+		}else{
+			return \Response::json(['status' => 'NG']);
+		}
 	}
 
 	public function delete(Request $request)
