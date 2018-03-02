@@ -83,7 +83,7 @@ class UserController
 		//所属
 		$user->organization= $input["organization"];
 		//パスワード
-		if($input["citycode"]){
+		if($input["passreset"] == "true"){
 			$user->password= bcrypt($input["password"]);
 		}
 		//email
