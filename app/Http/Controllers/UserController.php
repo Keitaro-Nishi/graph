@@ -22,6 +22,7 @@ class UserController
 		return view('users',['users'=>$users]);
 	}
 
+	/*
 	public function delete(Request $request)
 	{
 
@@ -31,6 +32,7 @@ class UserController
 
 		return redirect('/users');
 	}
+	*/
 
 	public function update(Request $request)
 	//public function update()
