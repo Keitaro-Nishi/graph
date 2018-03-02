@@ -171,7 +171,8 @@ function update(){
 			"lat" : lat,
 			"lng" : lng,
 			"imageurl" : imageurl,
-			"url" : url
+			"url" : url,
+			"_token" : _token
 		}
 	}).done(function (response) {
 		if(response.status == "OK"){

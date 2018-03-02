@@ -103,6 +103,7 @@
 							<input id="dia_url" class="form-control" maxlength="300" name="url" placeholder="http://www.yyy.zzz.html">
 						</div>
 					</div>
+					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 					<div class="text-right" >
 						<button type="button" class="btn btn-primary" onclick="update()">登録</button>
 						<button id="dia_close" type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
