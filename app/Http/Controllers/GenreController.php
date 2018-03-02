@@ -28,13 +28,11 @@ class GenreController
 			$genregid1 = DB::table('genre')->select('gid1')->get();
 			$array = (array)$genregid1;
 
-			//error_log("★★★★★★★");
-			//error_log($array[0]);
 
 
 			for ($i = 0; $i< count($array); $i++) {
 				$row = $array[$i][0];
-				$genregid2= DB::table('genre')->select('meisho')->where('bunrui',1)->where('gid1', $row)->get();
+				$genregid2= DB::table('genre')->select('meisho')->where('bunrui',1)->where('gid1',$row)->get();
 			}
 
 			error_log("○○○○○○○");
