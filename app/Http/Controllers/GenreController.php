@@ -17,7 +17,7 @@ class GenreController
 		//$result = Genre::where('bunrui', 1)->get();
 		//$result2 = Genre::where('bunrui',1)->where('gid1', 1)->get();
 		$genrearray= array();
-		$genrearray2= array();
+		$genrearrays= array();
 
 
 		if($cityCD == "00000"){
@@ -59,7 +59,7 @@ class GenreController
 				//$genrearray2= array_merge($genrearray, $genrearray2);
 				//$genrearray2 = $genrearray2 + $genrearray;
 
-				array_push($genrearray2, $genrearray);
+				array_push($genrearrays, $genrearray);
 			}
 
 			/*
@@ -82,8 +82,8 @@ class GenreController
 
 		}
 		//error_log("●●●●●●●");
-		error_log(print_r($genrearray2,true));
-		return view('genre',compact('genrearray2'));
+		error_log(print_r($genrearrays,true));
+		return view('genre',compact('genrearrays'));
 	}
 
 
