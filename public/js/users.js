@@ -69,9 +69,10 @@ function drow() {
 	    callback: function (result) {
 	        if(result){
 	        	$.ajax({
-	    			type: "DELETE",
+	    			type: "POST",
 	    			data:{
-	    				"userids" : rowIds
+	    				"userids" : rowIds,
+	    				_method : "DELETE"
 	    			}
 	    		}).done(function (response) {
 	    			if(response.status == "OK"){
