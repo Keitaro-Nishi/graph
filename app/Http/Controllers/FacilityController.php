@@ -81,8 +81,6 @@ class FacilityController
 		}else{
 			return \Response::json(['status' => 'NG']);
 		}
-
-		//return \Response::json(['status' => 'OK']);
 	}
 
 	public function delete(Request $request)
