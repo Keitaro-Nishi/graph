@@ -29,7 +29,7 @@ class GenreController
 
 			for ($i = 0; $i< count($genregid1); $i++) {
 				$row = $genregid1[$i];
-				$genregid2= $genregid2 + DB::table('genre')->select('meisho')->where('bunrui',1)->where('gid1', $row)->get();
+				$genregid2= DB::table('genre')->select('meisho')->where('bunrui',1)->where('gid1', $row)->get();
 			}
 
 
