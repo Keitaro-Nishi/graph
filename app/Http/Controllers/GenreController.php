@@ -14,8 +14,8 @@ class GenreController
 
 		$Authrole = Auth::user()->role;
 		$cityCD = Auth::user()->citycode;
-		$result = Genre::where('bunrui', 1)->get();
-		$result2 = Genre::where('bunrui',1)->where('gid1', 1)->get();
+		//$result = Genre::where('bunrui', 1)->get();
+		//$result2 = Genre::where('bunrui',1)->where('gid1', 1)->get();
 
 
 
@@ -27,18 +27,22 @@ class GenreController
 			$genres= Genre::where('citycode', $cityCD)->orderBy('gid1', 'ASC')->orderBy('gid2', 'ASC')->get();
 			$genregid1 = DB::table('genre')->select('gid1')->get();
 
+
+			error_log("★★★★★★★");
+			error_log($genregid1);
+
+			/*
 			for ($i = 0; $i< count($genregid1); $i++) {
 				$row = $genregid1[$i];
 				$genregid2= DB::table('genre')->select('meisho')->where('bunrui',1)->where('gid1', $row)->get();
-			}
+			}*/
 
 
-			$test = json_encode($genregid2);
-			error_log("★★★★★★★");
-			error_log($test);
+			//$test = json_encode($genregid2);
+
 		}
 
-		return view('genre',compact('genres','result','result2','test'));
+		return view('genre',compact('genres'));
 	}
 
 
