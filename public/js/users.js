@@ -53,7 +53,7 @@ function drow() {
 	}
 }
 
-function detail(name,userid,organization,citycode,password){
+function detail(name,userid,organization,citycode){
 	document.getElementById('modal-label').innerHTML  = "ユーザー情報修正";
 	/*
 	if(document.getElementById('dia_citycode')){
