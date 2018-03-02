@@ -39,6 +39,7 @@ class GenreController
 				error_log($value->gid1);
 				$row = $value->gid1;
 				$genregid2= DB::table('genre')->select('meisho')->where('bunrui',1)->where('gid1',$row)->get();
+				error_log(print_r($genregid2,true));
 			}
 
 
