@@ -90,8 +90,20 @@ function initmodal(){
 	document.getElementById('dia_userid').disabled = false;
 	document.getElementById('dia_name').value = "";
 	document.getElementById('dia_organization').selectedIndex = 0;
+	document.getElementById('dia_password').disabled = false;
+	document.getElementById('dia_password_confirmation').disabled = false;
 	document.getElementById('dia_password').value = "";
 	document.getElementById('dia_password_confirmation').value = "";
+}
+
+function passresck(){
+	if(document.getElementById('dia_passresck').checked){
+		document.getElementById('dia_password').disabled = false;
+		document.getElementById('dia_password_confirmation').disabled = false;
+	}else{
+		document.getElementById('dia_password').disabled = true;
+		document.getElementById('dia_password_confirmation').disabled = true;
+	}
 }
 
 function update(){
