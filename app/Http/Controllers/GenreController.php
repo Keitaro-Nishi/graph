@@ -22,45 +22,20 @@ class GenreController
 		if($cityCD == "00000"){
 			$genres = Genre::all();
 		}else{
-			//$genregid1 = array();
-			//$genregid2 = array();
-			//$array = array();
 			$genres= Genre::where('citycode', $cityCD)->orderBy('gid1', 'ASC')->orderBy('gid2', 'ASC')->get();
-			//$genregid1 = DB::table('genre')->select('gid1')->get();
-			//$array = (array)$genregid1;
-
 			$genregid1 = DB::table('genre')->select('gid1')->get();
 
-			//error_log("○○○○○○○");
-			//error_log(print_r($genregid1,true));
-
 			foreach ($genregid1 as $value) {
-				error_log($value->gid1);
 				$row = $value->gid1;
 				$genregid2= DB::table('genre')->select('meisho')->where('bunrui',1)->where('gid1',$row)->get();
 			}
 
-			error_log("★★★★★★★");
-			error_log(print_r($genregid2,true));
-
-
-			/*
-			for ($i = 0; $i< count($array); $i++) {
-				//$row = array();
-				$row = $array[$i];
-				$genregid2= DB::table('genre')->select('meisho')->where('bunrui',1)->where('gid1',$row)->get();
-			}
-
-			error_log("○○○○○○○");
-			error_log($genregid2);
-			*/
-
-
-			//$test = json_encode($genregid2);
+			//error_log("★★★★★★★");
+			//error_log(print_r($genregid2,true));
 
 		}
 
-		return view('genre',compact('genres'));
+		return view('genre',compact('genres','$genregid2'));
 	}
 
 
