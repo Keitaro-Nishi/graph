@@ -42,7 +42,7 @@ class FacilityController {
 		if ($validator->fails ()) {
 			return $validator->errors ();
 		}
-/*
+
 //insert
 		//市町村コード
 		$citycode = Auth::user()->citycode;
@@ -66,7 +66,7 @@ class FacilityController {
 		$imageurl = $input["imageurl"];
 		//URL
 		$url = $input["url"];
-*/
+
 //save
 /*
 		$facility = new Facility;
@@ -102,16 +102,16 @@ class FacilityController {
 		error_log("?????????????????".$cityCD."?????????????????");
 		$result = Facility::create([
 				'citycode' => $cityCD,
-				'meisho' => $input ["meisho"],
-				'jusho' => $input ["jusho"],
-				'tel' => $input ["tel"],
-				'genre1' => $input ["genre1"],
-				'genre2' => $input ["genre2"],
+				'meisho' => $meisho,
+				'jusho' => $jusho,
+				'tel' => $tel,
+				'genre1' => $genre1,
+				'genre2' => $genre2,
 				'genre3' => 0,
-				'lat' => $input ["lat"],
-				'lng' => $input ["lng"],
-				'imageurl' => $input ["imageurl"],
-				'url' => $input ["url"]
+				'lat' => $lat,
+				'lng' => $lng,
+				'imageurl' => $imageurl,
+				'url' => $url
 		]);
 
 		error_log("?????????????????".$result."?????????????????");
