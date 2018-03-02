@@ -16,7 +16,7 @@ class Genre extends Model
 	}
 	*/
 
-	//public $test;
+	public $daibunrui;
 	/*protected $fillable = [
 
 	'citycode', 'no', 'time', 'sex', 'age', 'opinion', 'sadness', 'joy', 'fear', 'disgust', 'anger', 'checked'

@@ -35,7 +35,8 @@ class GenreController
 					$row2 = $value2->meisho;
 					//error_log("★★★★★★★");
 					//error_log($row2);
-					array_push($genrearray->daibunrui, $row2);
+					//array_push($genrearray, $row2);
+					array_push($genres->daibunrui, $row2);
 				}
 			}
 
