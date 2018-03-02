@@ -47,7 +47,7 @@ class FacilityController
 		{
 			return $validator->errors();
 		}
-
+/*
 		//市町村コード
 		$citycode = Auth::user()->citycode;
 		//名称
@@ -70,10 +70,10 @@ class FacilityController
 		$imageurl = $input["imageurl"];
 		//URL
 		$url = $input["url"];
+*/
 
-		/*
 		 //市町村コード
-		 $facility->citycode= = Auth::user()->citycode;
+		 $facility->citycode= Auth::user()->citycode;
 		 //名称
 		 $facility->meisho= $input["meisho"];
 		 //住所
@@ -94,11 +94,16 @@ class FacilityController
 		 $facility->imageurl= $input["imageurl"];
 		 //URL
 		 $facility->genre3= $input["url"];
-		 */
 
+/*
 		error_log("?????????????????".$citycode."?????????????????");
+*/
 
+		$result = $facility->save();
+
+/*
 		$result= Facility::insert('INSERT INTO facility (citycode) VALUES (?)', [$citycode]);
+*/
 
 		if($result == "1"){
 			return \Response::json(['status' => 'OK']);
