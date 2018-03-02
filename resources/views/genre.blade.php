@@ -14,21 +14,17 @@
 		</tr>
 	</thead>
 	<tbody>
-		@foreach($genres as $genre)
+		@foreach($genrearray2 as $genrearray)
 		<tr>
-			@if($genre->bunrui == 1)
+			@if($genrearray->bunrui == 1)
 			<td>大分類</td>
 			@else
 			<td>小分類</td>
 			@endif
-			<td></td>
-			@if($genre->bunrui == 1)
-			<td>-</td>
-			@else
-			<td>{{$genre->meisho}}</td>
-			@endif
-			<td>{{$genre->gid1}}</td>
-			<td>{{$genre->gid2}}</td>
+			<td>{{$genrearray->daibunrui}}</td>
+			<td>{{$genrearray->shoubunrui}}</td>
+			<td>{{$genrearray->gid1}}</td>
+			<td>{{$genrearray->gid2}}</td>
 		</tr>
 		@endforeach
 	</tbody>

@@ -17,7 +17,7 @@ class GenreController
 		//$result = Genre::where('bunrui', 1)->get();
 		//$result2 = Genre::where('bunrui',1)->where('gid1', 1)->get();
 		$genrearray= array();
-
+		$genrearray2= array();
 
 
 		if($cityCD == "00000"){
@@ -26,6 +26,42 @@ class GenreController
 			$genres= Genre::where('citycode', $cityCD)->orderBy('gid1', 'ASC')->orderBy('gid2', 'ASC')->get();
 			$genregid1 = DB::table('genre')->select('gid1')->where('citycode', $cityCD)->get();
 
+			foreach ($genres as $value1) {
+				$bunrui = $value1->bunrui;
+				$daibunrui ='';
+				$shoubunrui = '';
+				$gid1 = $value1->gid1;
+				$gid2 = $value1->gid2;
+				$meisho = $value1->meisho;
+
+				if($bunrui == 1){
+					$daibunrui = $meisho;
+				}else{
+					$shoubunrui = '-';
+				}
+
+				if($bunrui == 2){
+					$result = DB::table('genre')->select('meisho')->where('bunrui',1)->where('gid1',$gid1)->get();
+						foreach ($result as $result2) {
+							$daibunrui= $result2->meisho;
+							break;
+						}
+				}else{
+					$shoubunrui = $meisho;
+				}
+
+				$genrearray= [
+						'bunrui'=>$bunrui,
+						'daibunrui'=>$daibunrui,
+						'shoubunrui'=>$shoubunrui,
+						'gid1'=>$gid1,
+						'gid2'=>$gid2,
+				];
+				$genrearray2= array_merge($genrearray, $genrearray2);
+				//$genrearray2 = $genrearray2 + $genrearray;
+			}
+
+			/*
 			foreach ($genregid1 as $value) {
 				$row = $value->gid1;
 				//error_log("●●●●●●●");
@@ -40,31 +76,16 @@ class GenreController
 							'daibunrui'=>$row2
 					];
 				}
-			}
+			}*/
 			//error_log(print_r($genres,true));
 
 
-			foreach ($genres as $value1) {
-				$citycode = $value1->citycode;
-				$bunrui = $value1->bunrui;
-				$gid1 = $value1->gid1;
-				$gid2 = $value1->gid2;
-				$gid3 = $value1->gid3;
-				$meisho = $value1->meisho;
-				$genrearray= [
-						'citycode'=>$citycode,
-						'bunrui'=>$bunrui,
-						'gid1'=>$gid1,
-						'gid2'=>$gid2,
-						'gid3'=>$gid3,
-						'meisho'=>$meisho
-				];
-			}
+
 
 		}
-		error_log("●●●●●●●");
-		error_log(print_r($genrearray,true));
-		return view('genre',compact('genres'));
+		//error_log("●●●●●●●");
+		//error_log(print_r($genrearray,true));
+		return view('genre',compact('genrearray2'));
 	}
 
 
