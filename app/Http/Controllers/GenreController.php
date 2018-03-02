@@ -36,12 +36,10 @@ class GenreController
 					//error_log("★★★★★★★");
 					//error_log($row2);
 					$genrearray = $genrearray + $row2;
-					error_log($genrearray[0]);
-					error_log($genrearray[1]);
-					error_log($genrearray[2]);
-					error_log($genrearray[3]);
 				}
 			}
+
+			error_log($genrearray[0]);
 
 
 
