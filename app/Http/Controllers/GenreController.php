@@ -28,8 +28,8 @@ class GenreController
 
 			foreach ($genres as $value1) {
 				$bunrui = $value1->bunrui;
-				$daibunrui ='';
-				$shoubunrui = '';
+				$daibunrui;
+				$shoubunrui;
 				$gid1 = $value1->gid1;
 				$gid2 = $value1->gid2;
 				$meisho = $value1->meisho;
@@ -44,7 +44,6 @@ class GenreController
 					$shoubunrui = $meisho;
 						foreach ($result as $result2) {
 							$daibunrui= $result2->meisho;
-							break;
 						}
 				}
 
