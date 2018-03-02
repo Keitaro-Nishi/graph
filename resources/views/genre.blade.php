@@ -21,9 +21,9 @@
 			@else
 			<td>小分類</td>
 			@endif
-
-			<td>{{$genrearray[0]}}</td>
-
+			@for ($i = 0; $i < $genrearray.length; $i++)
+			<td>{{$genrearray[i]}}</td>
+			@endfor
 			@if($genre->bunrui == 1)
 			<td>-</td>
 			@else
