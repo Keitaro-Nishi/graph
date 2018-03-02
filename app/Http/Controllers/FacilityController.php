@@ -22,6 +22,7 @@ class FacilityController {
 				'facilities' => $facilities
 		] );
 	}
+
 	public function update(Request $request) {
 		$input = \Request::all ();
 		error_log ( "?????????????????" . $input ["meisho"] . "?????????????????" );
@@ -43,7 +44,11 @@ class FacilityController {
 			return $validator->errors ();
 		}
 
-//insert
+		//if($id != ""){
+		//insert
+		//ID
+		$id = $input["id"];
+		error_log("?????????????????".$id."?????????????????");
 		//市町村コード
 		$citycode = Auth::user()->citycode;
 		//名称
@@ -67,52 +72,8 @@ class FacilityController {
 		//URL
 		$url = $input["url"];
 
-//save
-/*
-		$facility = new Facility;
-		$cityCD = Auth::user ()->citycode;
-		//市町村コード
-		$facility->citycode= $cityCD;
-		//名称
-		$facility->meisho = $input ["meisho"];
-		// 住所
-		$facility->jusho = $input ["jusho"];
-		// 電話番号
-		$facility->tel = $input ["tel"];
-		// ジャンル1
-		$facility->genre1 = $input ["genre1"];
-		// ジャンル2
-		$facility->genre2 = $input ["genre2"];
-		// ジャンル3
-		$facility->genre3 = 0;
-		// 経度
-		$facility->lat = $input ["lat"];
-		// 緯度
-		$facility->lng = $input ["lng"];
-		// 画像URL
-		$facility->imageurl = $input ["imageurl"];
-		// URL
-		$facility->url = $input ["url"];
-
-		error_log("?????????????????".$facility->citycode."?????????????????");
-
-		$result = Facility::create($facility);
-*/
 		error_log("?????????????????".$citycode."?????????????????");
-/*		$result = Facility::create([
-				'citycode' => $citycode,
-				'meisho' => $meisho,
-				'jusho' => $jusho,
-				'tel' => $tel,
-				'genre1' => $genre1,
-				'genre2' => $genre2,
-				'genre3' => $genre3,
-				'lat' => $lat,
-				'lng' => $lng,
-				'imageurl' => $imageurl,
-				'url' => $url
-		]);
-*/
+
 		$result = DB::table('facility')->insertGetId([
 				'citycode' => $citycode,
 				'meisho' => $meisho,
