@@ -10,7 +10,7 @@ class Genre extends Model
 
 	//use CompositePrimaryKeyTrait;
 
-
+	public $test = "テスト";
 	/*protected $fillable = [
 
 	'citycode', 'no', 'time', 'sex', 'age', 'opinion', 'sadness', 'joy', 'fear', 'disgust', 'anger', 'checked'
