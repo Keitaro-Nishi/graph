@@ -31,13 +31,11 @@ class GenreController
 				error_log("●●●●●●●");
 				error_log($row);
 				$genregid2 = DB::table('genre')->select('meisho')->where('bunrui',1)->where('gid1',$row)->get();
-			}
-
-			foreach ($genregid2 as $value2) {
-				$row2 = $value2->meisho;
+				$row2 = $genregid2->meisho;
 				error_log("★★★★★★★★");
 				error_log($row2);
 			}
+
 
 
 		}
