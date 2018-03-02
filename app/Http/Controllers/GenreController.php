@@ -54,8 +54,8 @@ class GenreController
 						'gid1'=>$gid1,
 						'gid2'=>$gid2,
 				];
-				$genrearray2= array_merge($genrearray, $genrearray2);
-				//$genrearray2 = $genrearray2 + $genrearray;
+				//$genrearray2= array_merge($genrearray, $genrearray2);
+				$genrearray2 = $genrearray2 + $genrearray;
 			}
 
 			/*
