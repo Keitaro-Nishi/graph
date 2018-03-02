@@ -10,10 +10,10 @@ class Genre extends Model
 
 	//use CompositePrimaryKeyTrait;
 
-	public $test;
-	protected $casts = [
-			'tests' => 'array',
-	];
+	public function getFirstNameAttribute($value)
+	{
+		return ucfirst($value);
+	}
 	/*protected $fillable = [
 
 	'citycode', 'no', 'time', 'sex', 'age', 'opinion', 'sadness', 'joy', 'fear', 'disgust', 'anger', 'checked'
