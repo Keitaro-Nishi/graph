@@ -49,11 +49,11 @@ class FacilityController
 			return $validator->errors();
 		}
 */
-		$facility = new Facility;
-		$cityCD = Auth::user()->citycode;
 
+		$citycode = new citycode;
+		$meisho = new meisho;
 		//市町村コード
-		$citycode = $cityCD;
+		$citycode = Auth::user()->citycode;
 		//名称
 		$meisho = $input["meisho"];
 		//住所
@@ -76,7 +76,7 @@ class FacilityController
 		$url = $input["url"];
 
 		$facility = DB::insert('insert into facility (citycode, meisho, jusho, tel, genre1, genre2, genre3, lat, lng, imageurl, url, geom) values (?,?,?,?,?,?,?,?,?,?,?,?)',
-				[$cityCD, $meisho, $jusho, $tel, $genre1, $genre2, $genre3, $lat, $lng, $imageurl, $url, ST_GeomFromText('POINT({$lat} {$lng})',4326)]);
+				[$citycode, $meisho, $jusho, $tel, $genre1, $genre2, $genre3, $lat, $lng, $imageurl, $url, ST_GeomFromText('POINT({$lat} {$lng})',4326)]);
 
 		//return redirect ( '/facility' );
 	}
