@@ -15,7 +15,7 @@ class UserController
 	{
 		$cityCD = Auth::user()->citycode;
 		if($cityCD == "00000"){
-			$users = User::where('role', '<' ,int(2))->get();
+			$users = User::where('role', '<' ,(int)2)->get();
 		}else{
 			$users= User::where('citycode', $cityCD)->get();
 		}
