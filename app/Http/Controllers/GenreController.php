@@ -26,8 +26,10 @@ class GenreController
 			$genregid2 = array();
 			$genres= Genre::where('citycode', $cityCD)->orderBy('gid1', 'ASC')->orderBy('gid2', 'ASC')->get();
 			$genregid1 = DB::table('genre')->select('gid1')->get();
-			$sample = 1;
-			$genregid2= DB::table('genre')->select('meisho')->where('bunrui',1)->where('gid1', $sample)->get();
+
+			for ($i = 0; $i< count($genregid1); $i++) {
+				$genregid2= DB::table('genre')->select('meisho')->where('bunrui',1)->where('gid1', $genregid1)->get();
+			}
 
 
 			$test = json_encode($genregid2);
