@@ -36,16 +36,17 @@ class GenreController
 					//error_log("★★★★★★★");
 					//error_log($row2);
 					//array_push($genrearray, $row2);
-					array_push($genres, $row2);
+					$genrearray = (array)$genres;
+					array_push($genrearray, $row2);
 				}
 			}
 
 			error_log("●●●●●●●");
-			error_log(print_r($genres,true));
-			//error_log(print_r($genrearray,true));
+			//error_log(print_r($genres,true));
+			error_log(print_r($genrearray,true));
 
 		}
-		return view('genre',compact('genres'));
+		return view('genre',compact('genrearray'));
 	}
 
 
