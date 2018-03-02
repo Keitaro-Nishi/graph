@@ -153,6 +153,7 @@ function update(){
 	var lng = arrayOfStrings[1];
 	var imageurl = document.getElementById('dia_imageurl').value;
 	var url = document.getElementById('dia_url').value;
+	var _token = document.getElementById('_token').value;
 
 	console.log(lat);
 
@@ -169,7 +170,7 @@ function update(){
 			"lng" : lng,
 			"imageurl" : imageurl,
 			"url" : url,
-			//"_token" : _token
+			"_token" : _token
 		}
 	}).done(function (response) {
 		if(response.status == "OK"){
