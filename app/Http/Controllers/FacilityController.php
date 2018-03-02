@@ -31,17 +31,17 @@ class FacilityController
 		$input = \Request::all();
 
 		$rules = [
-				'citycode' => 'required|string',
-				'id' => 'required|integer|unique:fasirities',
-				'meisho' => 'required|string|max:255|',
-				'jusho' => 'required|string|max:255',
-				'tel' => 'required|string|max:14',
-				'genre1' => 'required|integer',
-				'genre2' => 'required|integer',
+				'citycode' => 'string',
+				'id' => 'integer|unique:fasirities',
+				'meisho' => 'string|max:255|',
+				'jusho' => 'string|max:255',
+				'tel' => 'string|max:14',
+				'genre1' => 'integer',
+				'genre2' => 'integer',
 				'genre3' => 'integer',
-				'imageurl' => 'required|string',
-				'url' => 'required|string',
-				'geom' => 'required|geometry'
+				'imageurl' => 'string',
+				'url' => 'string',
+				'geom' => 'geometry'
 		];
 
 		$validator = Validator::make($input,$rules);
@@ -81,7 +81,7 @@ class FacilityController
 		//URL
 		$facility->genre3= $input["url"];
 
-		$facility = DB::insert('insert into facility (citycode, meisho, jusho, tel, genre1, genre2, genre3, lat, lng, imageurl, url, geom) values (?,?,?,?,?,?,?,?,?,?,?,?)');
+		$facility = DB::insert('insert into facility (citycode, meisho, jusho, tel, genre1, genre2, genre3, lat, lng, imageurl, url, geom) values (?,?,?,?,?,?,?,?,?,?,?,?)',[00000]);
 
 		//return redirect ( '/facility' );
 	}
