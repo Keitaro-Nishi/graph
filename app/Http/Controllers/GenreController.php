@@ -35,10 +35,10 @@ class GenreController
 
 			$test = json_encode($genregid2);
 			error_log("★★★★★★★");
-			error_log($genregid2);
+			error_log($test);
 		}
 
-		return view('genre',compact('genres','result','result2','genregid2'));
+		return view('genre',compact('genres','result','result2','test'));
 	}
 
 
