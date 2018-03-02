@@ -16,7 +16,7 @@
 	<tbody>
 		@foreach($genrearray2 as $genrearray)
 		<tr>
-			@if($genre->bunrui == 1)
+			@if($genrearray->bunrui == 1)
 			<td>大分類</td>
 			@else
 			<td>小分類</td>
