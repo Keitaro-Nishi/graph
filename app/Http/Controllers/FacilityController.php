@@ -29,7 +29,7 @@ class FacilityController
 	{
 
 		$input = \Request::all();
-
+/*
 		$rules = [
 				'meisho' => 'string|max:255',
 				'jusho' => 'string|max:255',
@@ -48,7 +48,7 @@ class FacilityController
 		{
 			return $validator->errors();
 		}
-
+*/
 		$facility = new Facility;
 		$cityCD = Auth::user()->citycode;
 
