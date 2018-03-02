@@ -15,7 +15,8 @@ class Genre extends Model
 		return ucfirst($value);
 	}
 	*/
-	public $test;
+
+	//public $test;
 	/*protected $fillable = [
 
 	'citycode', 'no', 'time', 'sex', 'age', 'opinion', 'sadness', 'joy', 'fear', 'disgust', 'anger', 'checked'

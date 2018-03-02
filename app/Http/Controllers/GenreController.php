@@ -19,15 +19,12 @@ class GenreController
 		$genrearray= array();
 
 
-		if($cityCD == "00000"){
-			$genre = new Genre;
-			$genre->test= 'テスト';
-			$genres = Genre::all();
 
+		if($cityCD == "00000"){
+			$genres = Genre::all();
 		}else{
 			$genres= Genre::where('citycode', $cityCD)->orderBy('gid1', 'ASC')->orderBy('gid2', 'ASC')->get();
 			$genregid1 = DB::table('genre')->select('gid1')->where('citycode', $cityCD)->get();
-
 
 			foreach ($genregid1 as $value) {
 				$row = $value->gid1;
@@ -38,7 +35,7 @@ class GenreController
 					$row2 = $value2->meisho;
 					//error_log("★★★★★★★");
 					//error_log($row2);
-					array_push($genrearray, $row2);
+					array_push($genrearray->daibunrui, $row2);
 				}
 			}
 
@@ -46,7 +43,6 @@ class GenreController
 			error_log(print_r($genrearray,true));
 
 		}
-
 		return view('genre',compact('genres','genrearray'));
 	}
 
