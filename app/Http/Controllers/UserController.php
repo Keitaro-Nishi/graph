@@ -40,9 +40,10 @@ class UserController
 		$rules = [
 			'citycode' => 'required|string',
 			'username' => 'required|string|max:255',
-			'organization' => 'required|string|max:255',
+			'organization' => 'required|string|max:255'
 		];
 
+		error_log("★★★★★★★★★★★★passreset★★★★★★★★★★★★★★★★" + $input["userid"]);
 		error_log("★★★★★★★★★★★★passreset★★★★★★★★★★★★★★★★" + $input["passreset"]);
 
 		if($input["updateKbn"]){
