@@ -36,18 +36,16 @@ class GenreController
 
 				if($bunrui == 1){
 					$daibunrui = $meisho;
-				}else{
 					$shoubunrui = '-';
 				}
 
 				if($bunrui == 2){
 					$result = DB::table('genre')->select('meisho')->where('bunrui',1)->where('gid1',$gid1)->get();
+					$shoubunrui = $meisho;
 						foreach ($result as $result2) {
 							$daibunrui= $result2->meisho;
 							break;
 						}
-				}else{
-					$shoubunrui = $meisho;
 				}
 
 				$genrearray= [
