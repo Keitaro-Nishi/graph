@@ -34,8 +34,11 @@ class GenreController
 			error_log("○○○○○○○");
 			error_log(print_r($genregid1,true));
 			error_log("★★★★★★★");
-			$array = (array)$genregid1;
-			error_log(print_r($array,true));
+
+			foreach ($genregid1 as $value) {
+				error_log($value->gid1);
+			}
+
 
 			/*
 			for ($i = 0; $i< count($array); $i++) {
