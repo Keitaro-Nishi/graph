@@ -29,18 +29,19 @@ class GenreController
 			//$genregid1 = DB::table('genre')->select('gid1')->get();
 			//$array = (array)$genregid1;
 
-			$genregid1 = DB::select('select gid1 from genre');
+			$genregid1 = DB::table('genre')->select('gid1')->get();
 
-			error_log("○○○○○○○");
-			error_log(print_r($genregid1,true));
-			error_log("★★★★★★★");
+			//error_log("○○○○○○○");
+			//error_log(print_r($genregid1,true));
 
 			foreach ($genregid1 as $value) {
 				error_log($value->gid1);
 				$row = $value->gid1;
 				$genregid2= DB::table('genre')->select('meisho')->where('bunrui',1)->where('gid1',$row)->get();
-				error_log(print_r($genregid2,true));
 			}
+
+			error_log("★★★★★★★");
+			error_log(print_r($genregid2,true));
 
 
 			/*
