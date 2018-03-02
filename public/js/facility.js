@@ -69,7 +69,7 @@ function drow() {
 }
 
 /*  施設情報修正  */
-/*
+
 function modwin(id,meisho,jusho,tel,genre1,genre2,lat,lng,imageurl,url){
 	document.getElementById('modal-label').innerHTML  = "施設情報修正";
 	modID = id;
@@ -97,7 +97,7 @@ function modwin(id,meisho,jusho,tel,genre1,genre2,lat,lng,imageurl,url){
 	document.getElementById('dia_url').value = url;
 	document.getElementById("btn_modal").click();
 }
- */
+
 function insert() {
 
 	console.log('insert');
