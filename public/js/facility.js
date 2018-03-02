@@ -174,37 +174,5 @@ function update(){
 			"imageurl" : imageurl,
 			"url" : url
 		}
-	}).done(function (response) {
-		if(response.status == "OK"){
-			bootbox.alert({
-				message: "更新しました",
-				size: 'small',
-				callback: function () {
-					location.reload();
-				}
-			});
-		}else if(response.status == "NG"){
-			bootbox.alert({
-				message: "更新できませんでした",
-				size: 'small'
-			});
-		}else{
-			var mes = "";
-			for (var item in response) {
-				if(mes != ""){
-					mes = mes + "<br>";
-				}
-			    mes = mes + response[item][0];
-			}
-			bootbox.alert({
-				message: mes,
-				size: 'small'
-			});
-		}
-    }).fail(function () {
-    	bootbox.alert({
-			message: "更新できませんでした",
-			size: 'small'
-		});
-    });
+	});
 }
