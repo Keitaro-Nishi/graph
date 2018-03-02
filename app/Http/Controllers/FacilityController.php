@@ -50,8 +50,6 @@ class FacilityController
 		}
 */
 
-		$citycode = new citycode;
-		$meisho = new meisho;
 		//市町村コード
 		$citycode = Auth::user()->citycode;
 		//名称
