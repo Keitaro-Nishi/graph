@@ -47,7 +47,6 @@ class GenreController
 						}
 				}
 
-
 				$genrearray= [
 						'bunrui'=>$bunrui,
 						'daibunrui'=>$daibunrui,
