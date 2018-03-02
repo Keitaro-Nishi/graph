@@ -128,6 +128,7 @@ function update(){
 
 	console.log('??????????????????????????????????');
 
+	var id = document.getElementById('dia_id').value;
 	var meisho = document.getElementById('dia_meisho').value;
 	var jusho = document.getElementById('dia_jusho').value;
 	var tel = document.getElementById('dia_tel').value;
@@ -147,6 +148,7 @@ function update(){
 		type: "POST",
 		dataType: "JSON",
 		data: {
+			"id" : id,
 			"meisho" : meisho,
 			"jusho" : jusho,
 			"tel" : tel,
