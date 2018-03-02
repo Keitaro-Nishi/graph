@@ -45,7 +45,7 @@ class FacilityController {
 
 //insert
 		//市町村コード
-		$citycode = Auth::user()->citycode;
+		//$citycode = Auth::user()->citycode;
 		//名称
 		$meisho = $input["meisho"];
 		//住所
@@ -107,7 +107,7 @@ class FacilityController {
 				'tel' => $tel,
 				'genre1' => $genre1,
 				'genre2' => $genre2,
-				'genre3' => 0,
+				'genre3' => $genre3,
 				'lat' => $lat,
 				'lng' => $lng,
 				'imageurl' => $imageurl,
