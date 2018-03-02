@@ -37,20 +37,18 @@ class UserController
 	{
 		$input = \Request::all();
 
-		$rules = [
-			'citycode' => 'required|string',
-			'username' => 'required|string|max:255',
-			'organization' => 'required|string|max:255'
-		];
-
-		error_log("★★★★★★★★★★★★passreset★★★★★★★★★★★★★★★★".$input["userid"]);
-		error_log("★★★★★★★★★★★★passreset★★★★★★★★★★★★★★★★".$input["passreset"]);
+		$rules = [ 'citycode' => 'required|string'];
 
 		if($input["updateKbn"] == "true"){
 			$rules = $rules + ['userid' => 'required|string|max:255'];
 		}else{
 			$rules = $rules + ['userid' => 'required|string|max:255|unique:users'];
 		}
+
+		$rules = $rules + [
+			'username' => 'required|string|max:255',
+			'organization' => 'required|string|max:255'
+		];
 
 		if($input["passreset"] == "true"){
 			$rules = $rules + ['password' => 'required|string|min:6|confirmed'];
