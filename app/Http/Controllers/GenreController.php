@@ -76,9 +76,6 @@ class GenreController
 			}*/
 			//error_log(print_r($genres,true));
 
-
-
-
 		}
 		//error_log("●●●●●●●");
 		error_log(print_r($genrearray2,true));
