@@ -70,9 +70,10 @@ function drow() {
 	        if(result){
 	        	$.ajax({
 	    			type: "POST",
+	    			dataType: "JSON",
 	    			data:{
+	    				"param" : "delete",
 	    				"userids" : rowIds,
-	    				_method : "DELETE"
 	    			}
 	    		}).done(function (response) {
 	    			if(response.status == "OK"){
@@ -171,6 +172,7 @@ function update(){
 		type: "POST",
 		dataType: "JSON",
 		data: {
+			"param" : "update",
 			"updateKbn" : updateKbn,
 			"citycode" : citycode,
 			"userid" : userid,

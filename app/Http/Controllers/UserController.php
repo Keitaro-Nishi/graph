@@ -37,15 +37,18 @@ class UserController
 
 	public  function request(){
 		$this->requestall = \Request::all();
-		return $this->update();
+		if($this->requestall["param"] == "update"){
+			return $this->update();
+		}elseif ($this->requestall["param"] == "delete"){
+			return $this->delete();
+		}else{
+			return \Response::json(['status' => 'NG']);
+		}
 	}
 
 	public function update()
 	{
-		//$input = \Request::all();
-		error_log("★★★★★★★★★★★★★update★★★★★★★★★★★★★★★");
 		$input = $this->requestall;
-		error_log("★★★★★★★★★★★★★request★★★★★★★★★★★★★★★".$input["userid"]);
 
 		$rules = [ 'citycode' => 'required|string'];
 
@@ -113,7 +116,7 @@ class UserController
 	public function delete()
 	{
 		error_log("★★★★★★★★★★★★★delete1★★★★★★★★★★★★★★★");
-		$input = \Request::all();
+		$input = $this->requestall;
 		error_log("★★★★★★★★★★★★★delete2★★★★★★★★★★★★★★★");
 		return \Response::json(['status' => 'OK']);
 	}
