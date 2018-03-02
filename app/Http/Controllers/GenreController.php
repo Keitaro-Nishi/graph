@@ -31,11 +31,14 @@ class GenreController
 			error_log("★★★★★★★");
 			error_log($genregid1);
 
-			/*
+
 			for ($i = 0; $i< count($genregid1); $i++) {
-				$row = $genregid1[$i];
+				$row = $genregid1[$i]["gid1"];
 				$genregid2= DB::table('genre')->select('meisho')->where('bunrui',1)->where('gid1', $row)->get();
-			}*/
+			}
+
+			error_log("○○○○○○○");
+			error_log($genregid2);
 
 
 			//$test = json_encode($genregid2);
