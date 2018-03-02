@@ -37,7 +37,7 @@ class UserController
 
 	public  function request(){
 		$this->requestall = \Request::all();
-		$this->update();
+		return $this->update();
 	}
 
 	public function update()
