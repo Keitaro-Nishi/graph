@@ -55,7 +55,7 @@ function drow() {
 
 function detail(name,userid,organization,citycode){
 	document.getElementById('modal-label').innerHTML  = "ユーザー情報修正";
-	/*
+	initmodal();
 	if(document.getElementById('dia_citycode')){
 		document.getElementById('dia_citycode').value = citycode;
 		document.getElementById('dia_citycode').disabled = true;
@@ -64,9 +64,10 @@ function detail(name,userid,organization,citycode){
 	document.getElementById('dia_userid').disabled = true;
 	document.getElementById('dia_name').value = name;
 	//document.getElementById('dia_organization').selectedIndex = 0;
-	document.getElementById('dia_password').value = password;
-	document.getElementById('dia_password_confirmation').value = password;
-	*/
+	document.getElementById('dia_passres').style.display="block";
+	document.getElementById('dia_passresck').checked = false;
+	document.getElementById('dia_password').disabled = true;
+	document.getElementById('dia_password_confirmation').disabled = true;
 	document.getElementById("btn_modal").click();
 
 }
@@ -74,6 +75,8 @@ function detail(name,userid,organization,citycode){
 function insert(){
 	document.getElementById('modal-label').innerHTML  = "ユーザー登録";
 	initmodal();
+	document.getElementById('dia_passresck').checked = true;
+	document.getElementById('dia_passres').style.display="none";
 	document.getElementById("btn_modal").click();
 }
 
