@@ -145,10 +145,7 @@ function initmodal(){
 }
 
 function INSERT(){
-	var citycode = "00000";
-	if(document.getElementById('dia_citycode')){
-		citycode = document.getElementById('dia_citycode').value;
-	}
+
 	var meisho = document.getElementById('dia_meisho').value;
 	var jusho = document.getElementById('dia_jusho').value;
 	var tel = document.getElementById('dia_tel').value;
