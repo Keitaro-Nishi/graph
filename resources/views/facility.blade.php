@@ -1,11 +1,14 @@
 @extends('layouts.app')
 
+@section('title')
+施設管理
+@stop
+
 @section('content')
 <table id="grid-basic" class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
-			<th data-column-id="id" data-type="numeric" data-identifier="true">ID</th>
-			<th data-column-id="meisho">名称</th>
+			<th data-column-id="meisho" data-identifier="true">名称</th>
 			<th data-column-id="jusho">住所</th>
 			<th data-column-id="tel">電話番号</th>
 			<th data-column-id="genre1">ジャンル１</th>
@@ -20,7 +23,6 @@
 	<tbody>
 		@foreach($facilities as $facility)
 		<tr>
-			<td>{{$facility->id}}</td>
 			<td>{{$facility->meisho}}</td>
 			<td>{{$facility->jusho}}</td>
 			<td>{{$facility->tel}}</td>
@@ -83,14 +85,14 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_latlng">緯度・経度</label>
 						<div class="col-sm-10">
-							<input id="dia_latlng" class="form-control" maxlength="33" placeholder="999.99999,999.99999">
+							<input id="dia_latlng" class="form-control" maxlength="33" name="latlng" placeholder="999.99999,999.99999">
 							<input type="button" class="btn btn-default" style="display:inline;" onclick="map()" value="地図の確認" style="width: 100px;"/>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_imageurl">画像ＵＲＬ</label>
 						<div class="col-sm-10">
-							<input id="dia_imageurl" class="form-control" maxlength="300" placeholder="https://www.yyy.zzz.jpg">
+							<input id="dia_imageurl" class="form-control" name="imageurl" maxlength="300" placeholder="https://www.yyy.zzz.jpg">
 							<input type="button" class="btn btn-default" style="display:inline; width: 100px;" onclick="image()" value="画像の確認"/>
 							※必ずhttpsから始まるURLを指定してください
 						</div>
@@ -98,7 +100,7 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_url">詳細ＵＲＬ</label>
 						<div class="col-sm-10">
-							<input id="dia_url" class="form-control" maxlength="300" placeholder="http://www.yyy.zzz.html">
+							<input id="dia_url" class="form-control" maxlength="300" name="url" placeholder="http://www.yyy.zzz.html">
 						</div>
 					</div>
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
