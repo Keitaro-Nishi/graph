@@ -29,7 +29,7 @@ class GenreController
 			$array = (array)$genregid1;
 
 			error_log("★★★★★★★");
-			error_log($array[0][0]);
+			error_log($array[0]);
 
 
 			for ($i = 0; $i< count($array); $i++) {
