@@ -31,7 +31,7 @@ class FacilityController
 		error_log("?????????????????".$input["meisho"]."?????????????????");
 
 		$rules = [
-				'meisho' => 'string|max:255',
+				'meisho' => 'string|max:255|',
 				'jusho' => 'string|max:255',
 				'tel' => 'string|max:14',
 				'genre1' => 'integer',
@@ -73,17 +73,16 @@ class FacilityController
 		$url = $input["url"];
 
 		error_log("?????????????????".$meisho."?????????????????");
-		/*
-		$result= DB::insert('insert into facility (citycode, id, meisho, jusho, tel, genre1, genre2, genre3, lat, lng, imageurl, url) values (?,?,?,?,?,?,?,?,?,?,?,?)',
-				['{$citycode}', 2, '{$meisho}', '{$jusho}', '{$tel}', '{$genre1}', '{$genre2}', 0, '{$lat}', '{$lng}', '{$imageurl}', '{$url}']);
+
+		$result= DB::statement('INSERT INTO facility (citycode) VALUES (?), ('['{$citycode}']);
 
 		if($result == "1"){
 			return \Response::json(['status' => 'OK']);
 		}else{
 			return \Response::json(['status' => 'NG']);
 		}
-		*/
-		return \Response::json(['status' => 'OK']);
+
+		//return \Response::json(['status' => 'OK']);
 	}
 
 	public function delete(Request $request)
