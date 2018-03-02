@@ -74,7 +74,7 @@ class FacilityController
 
 		error_log("?????????????????".$meisho."?????????????????");
 
-		$result= DB::insert('INSERT INTO facility (citycode) VALUES (?)', ['{$citycode}']);
+		$result= DB::statement('INSERT INTO facility (citycode) VALUES (?)', ['{$citycode}']);
 
 		if($result == "1"){
 			return \Response::json(['status' => 'OK']);
