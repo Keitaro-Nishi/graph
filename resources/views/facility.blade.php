@@ -23,6 +23,7 @@
 	<tbody>
 		@foreach($facilities as $facility)
 		<tr>
+			<td>{{$facility->id}}</td>
 			<td>{{$facility->meisho}}</td>
 			<td>{{$facility->jusho}}</td>
 			<td>{{$facility->tel}}</td>
