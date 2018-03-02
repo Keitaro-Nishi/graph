@@ -8,7 +8,7 @@
 <table id="grid-basic" class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
-			<th data-column-id="id" data-identifier="true">ID</th>
+			<th data-column-id="id" data-identifier="true" style="display:none">ID</th>
 			<th data-column-id="meisho">名称</th>
 			<th data-column-id="jusho">住所</th>
 			<th data-column-id="tel">電話番号</th>
@@ -50,7 +50,7 @@
 			</div>
 			<div class="modal-body">
 				<form class="form-horizontal">
-					<div class="form-group"  display:none>
+					<div class="form-group"  style="display:none">
 						<label class="col-sm-2 control-label" for="dia_id">id</label>
 						<div class="col-sm-10">
 							<input id="dia_id" class="form-control" name="id" value="">
