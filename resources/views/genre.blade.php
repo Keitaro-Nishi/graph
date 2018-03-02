@@ -47,9 +47,6 @@
 </div>
 
 
-<div>
-<!--  <input id="opiniona" type= "text" value = '{{ $test }}'>-->
-</div>
 
 <div class="modal" id="shosaiDialog"  tabindex="-1">
 	<div class="modal-dialog">
