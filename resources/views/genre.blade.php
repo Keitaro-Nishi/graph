@@ -9,6 +9,7 @@
 		</tr>
 		<tr>
                <th data-column-id='g1'  >大分類名称</th>
+        </tr>
         <tr>
                <th data-column-id='g2'  >小分類名称</th>
                <th data-column-id='gid1'>分類ID1</th>
