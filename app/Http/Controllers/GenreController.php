@@ -20,8 +20,8 @@ class GenreController
 
 
 		if($cityCD == "00000"){
-			//$genre = new Genre;
-			$genre->first_name= 'テスト';
+			$genre = new Genre;
+			$genre->test= 'テスト';
 			$genres = Genre::all();
 
 		}else{
