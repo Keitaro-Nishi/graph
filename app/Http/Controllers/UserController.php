@@ -43,16 +43,16 @@ class UserController
 			'organization' => 'required|string|max:255'
 		];
 
-		error_log("★★★★★★★★★★★★passreset★★★★★★★★★★★★★★★★" + $input["userid"]);
-		error_log("★★★★★★★★★★★★passreset★★★★★★★★★★★★★★★★" + $input["passreset"]);
+		error_log("★★★★★★★★★★★★passreset★★★★★★★★★★★★★★★★".$input["userid"]);
+		error_log("★★★★★★★★★★★★passreset★★★★★★★★★★★★★★★★".$input["passreset"]);
 
-		if($input["updateKbn"]){
+		if($input["updateKbn"] == "true"){
 			$rules = $rules + ['userid' => 'required|string|max:255'];
 		}else{
 			$rules = $rules + ['userid' => 'required|string|max:255|unique:users'];
 		}
 
-		if($input["passreset"]){
+		if($input["passreset"] == "true"){
 			$rules = $rules + ['password' => 'required|string|min:6|confirmed'];
 		}
 
