@@ -35,7 +35,7 @@ class GenreController
 
 		}
 
-		return view('genre',compact('genres','$genregid2'));
+		return view('genre',compact('genres','genregid2'));
 	}
 
 
