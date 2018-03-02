@@ -48,7 +48,6 @@ class FacilityController
 			return $validator->errors();
 		}
 
-
 		//市町村コード
 		$citycode = Auth::user()->citycode;
 		//名称
@@ -71,6 +70,31 @@ class FacilityController
 		$imageurl = $input["imageurl"];
 		//URL
 		$url = $input["url"];
+
+		/*
+		 //市町村コード
+		 $facility->citycode= = Auth::user()->citycode;
+		 //名称
+		 $facility->meisho= $input["meisho"];
+		 //住所
+		 $facility->jusho= $input["jusho"];
+		 //電話番号
+		 $facility->tel= $input["tel"];
+		 //ジャンル1
+		 $facility->genre1= $input["genre1"];
+		 //ジャンル2
+		 $facility->genre2= $input["genre2"];
+		 //ジャンル3
+		 $facility->genre3= "";
+		 //経度
+		 $facility->lat= $input["lat"];
+		 //緯度
+		 $facility->lng= $input["lng"];
+		 //画像URL
+		 $facility->imageurl= $input["imageurl"];
+		 //URL
+		 $facility->genre3= $input["url"];
+		 */
 
 		error_log("?????????????????".$citycode."?????????????????");
 
