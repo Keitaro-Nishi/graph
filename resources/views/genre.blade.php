@@ -6,11 +6,7 @@
 	<thead>
 		<tr>
 			   <th data-column-id='bunrui' >分類</th>
-		</tr>
-		<tr>
                <th data-column-id='g1'  >大分類名称</th>
-        </tr>
-        <tr>
                <th data-column-id='g2'  >小分類名称</th>
                <th data-column-id='gid1'>分類ID1</th>
                <th data-column-id='gid2'>分類ID2</th>
@@ -25,15 +21,7 @@
 			@else
 			<td>小分類</td>
 			@endif
-		</tr>
-		@endforeach
-		@for ($i = 0; $i < 4; $i++)
-		<tr>
-			<td>{{$genrearray[$i]}}</td>
-		</tr>
-		@endfor
-		@foreach($genres as $genre)
-		<tr>
+			<td>{{$genrearray[3]}}</td>
 			@if($genre->bunrui == 1)
 			<td>-</td>
 			@else
