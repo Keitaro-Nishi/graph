@@ -84,7 +84,7 @@ class GenreController
 
 		}
 		//error_log("●●●●●●●");
-		//error_log(print_r($genrearray,true));
+		error_log(print_r($genrearray2,true));
 		return view('genre',compact('genrearray2'));
 	}
 
