@@ -11,7 +11,7 @@ $(function() {
 	        	return "<input type='button' class='btn btn-default' value='修正' onclick='modwin("  + $row.id + ",\"" + $row.meisho + "\",\"" + $row.jusho + "\",\"" + $row.tel + "\",\"" + $row.genre1 + "\",\"" + $row.genre2 + "\",\"" + $row.lat + "\",\"" + $row.lng + "\",\"" + $row.imageurl + "\",\"" + $row.url + "\")' > ";
              }
 	    }
-	    */
+		 */
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
 		for (var i = 0; i < rows.length; i++) {
 			rowIds.push(rows[i].id);
@@ -68,7 +68,7 @@ function drow() {
 	}
 }
 
-	/*  施設情報修正  */
+/*  施設情報修正  */
 /*
 function modwin(id,meisho,jusho,tel,genre1,genre2,lat,lng,imageurl,url){
 	document.getElementById('modal-label').innerHTML  = "施設情報修正";
@@ -97,7 +97,7 @@ function modwin(id,meisho,jusho,tel,genre1,genre2,lat,lng,imageurl,url){
 	document.getElementById('dia_url').value = url;
 	document.getElementById("btn_modal").click();
 }
-*/
+ */
 function insert() {
 
 	console.log('insert');
@@ -154,7 +154,7 @@ function update(){
 	var imageurl = document.getElementById('dia_imageurl').value;
 	var url = document.getElementById('dia_url').value;
 
-	console.log(meisho);
+	console.log(lat);
 
 	$.ajax({
 		type: "POST",
@@ -191,19 +191,19 @@ function update(){
 				if(mes != ""){
 					mes = mes + "<br>";
 				}
-			    mes = mes + response[item][0];
+				mes = mes + response[item][0];
 			}
 			bootbox.alert({
 				message: mes,
 				size: 'small'
 			});
 		}
-    }).fail(function () {
-    	bootbox.alert({
+	}).fail(function () {
+		bootbox.alert({
 			message: "更新できませんでした",
 			size: 'small'
 		});
-    });
+	});
 }
 //地図の確認
 function map(){
