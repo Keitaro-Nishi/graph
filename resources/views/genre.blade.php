@@ -14,16 +14,16 @@
 		</tr>
 	</thead>
 	<tbody>
+		@foreach($genres as $genre)
 		<tr>
-			@foreach($genres as $genre)
 			@if($genre->bunrui == 1)
 			<td>大分類</td>
 			@else
 			<td>小分類</td>
 			@endif
-			@endforeach
+
 			<td>{{$genrearray[0]}}</td>
-			@foreach($genres as $genre)
+
 			@if($genre->bunrui == 1)
 			<td>-</td>
 			@else
@@ -31,8 +31,8 @@
 			@endif
 			<td>{{$genre->gid1}}</td>
 			<td>{{$genre->gid2}}</td>
-			@endforeach
 		</tr>
+		@endforeach
 	</tbody>
 </table>
 
