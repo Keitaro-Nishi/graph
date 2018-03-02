@@ -1,4 +1,5 @@
 var rowIds = [];
+var updateKbn = false;
 $(function() {
 	$("#grid-basic").bootgrid({
 		selection : true,
@@ -54,6 +55,7 @@ function drow() {
 }
 
 function detail(name,userid,organization,citycode){
+	updateKbn = true;
 	document.getElementById('modal-label').innerHTML  = "ユーザー情報修正";
 	initmodal();
 	if(document.getElementById('dia_citycode')){
@@ -73,6 +75,7 @@ function detail(name,userid,organization,citycode){
 }
 
 function insert(){
+	updateKbn = false;
 	document.getElementById('modal-label').innerHTML  = "ユーザー登録";
 	initmodal();
 	document.getElementById('dia_passresck').checked = true;
@@ -122,6 +125,7 @@ function update(){
 		type: "POST",
 		dataType: "JSON",
 		data: {
+			"updateKbn" : updateKbn,
 			"citycode" : citycode,
 			"userid" : userid,
 			"username" : username,
