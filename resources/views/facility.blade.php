@@ -48,7 +48,7 @@
 			</div>
 			<div class="modal-body">
 				<form class="form-horizontal">
-					<div class="form-group" hidden>
+					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_id">id</label>
 						<div class="col-sm-10">
 							<input id="dia_id" class="form-control" name="id" value="">
