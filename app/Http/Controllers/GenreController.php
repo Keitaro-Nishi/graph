@@ -36,6 +36,7 @@ class GenreController
 					error_log("★★★★★★★");
 					error_log($row2);
 					$genrearray = $genrearray + array($row2);
+					break;
 				}
 			}
 
