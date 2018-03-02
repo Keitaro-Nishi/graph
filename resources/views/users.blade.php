@@ -69,7 +69,7 @@
 					<div class="form-group" id="dia_passres">
 						<label class="col-sm-3 control-label" for="dia_passresck">パスワード再設定</label>
 						<div class="col-sm-9">
-							<input type="checkbox" class="form-check-input" id="dia_passresck" name="passresck" onclick="passresck()">
+							<input type="checkbox" class="form-check-input" id="dia_passresck" name="passresck" onclick="preset()">
 							<label class="form-check-label" for="dia_passresck">再設定</label>
 						</div>
 					</div>

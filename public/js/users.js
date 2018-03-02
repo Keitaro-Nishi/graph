@@ -96,7 +96,7 @@ function initmodal(){
 	document.getElementById('dia_password_confirmation').value = "";
 }
 
-function passresck(){
+function preset(){
 	if(document.getElementById('dia_passresck').checked){
 		document.getElementById('dia_password').disabled = false;
 		document.getElementById('dia_password_confirmation').disabled = false;
