@@ -114,6 +114,7 @@ function update(){
 	var userid = document.getElementById('dia_userid').value;
 	var username = document.getElementById('dia_name').value;
 	var organization = document.getElementById('dia_organization').value;
+	var passreset = document.getElementById('dia_passresck').checked
 	var password = document.getElementById('dia_password').value;
 	var password_confirmation = document.getElementById('dia_password_confirmation').value;
 	var _token = document.getElementById('_token').value;
@@ -125,6 +126,7 @@ function update(){
 			"userid" : userid,
 			"username" : username,
 			"organization" : organization,
+			"passreset" : passreset,
 			"password" : password,
 			"password_confirmation" : password_confirmation,
 			"_token" : _token

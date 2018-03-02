@@ -42,8 +42,11 @@ class UserController
 			'username' => 'required|string|max:255',
 			'userid' => 'required|string|max:255|unique:users',
 			'organization' => 'required|string|max:255',
-			'password' => 'required|string|min:6|confirmed'
 		];
+
+		if($input["citycode"]){
+			$rules = $rules + ['password' => 'required|string|min:6|confirmed'];
+		}
 
 		$validator = Validator::make($input,$rules);
 
@@ -52,7 +55,8 @@ class UserController
 			return $validator->errors();
 		}
 
-		$user = new User;
+		//$user = new User;
+		$user = User::firstOrNew(['userid' => $input["userid"]]);
 		$cityCD = Auth::user()->citycode;
 		//市町村コード
 		if($cityCD == "00000"){
@@ -73,7 +77,9 @@ class UserController
 		//所属
 		$user->organization= $input["organization"];
 		//パスワード
-		$user->password= bcrypt($input["password"]);
+		if($input["citycode"]){
+			$user->password= bcrypt($input["password"]);
+		}
 		//email
 		$user->email= "";
 		//予備
