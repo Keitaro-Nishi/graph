@@ -29,11 +29,8 @@ class GenreController
 			$genregid1 = DB::table('genre')->select('gid1')->get();
 			$array = (array)$genregid1;
 
-			for ($i = 0; $i< count($array); $i++) {
-
-				error_log($array[$i]);
-
-			}
+			error_log("○○○○○○○");
+			error_log(print_r($array,true));
 
 			/*
 			for ($i = 0; $i< count($array); $i++) {
@@ -45,6 +42,7 @@ class GenreController
 			error_log("○○○○○○○");
 			error_log($genregid2);
 			*/
+
 
 			//$test = json_encode($genregid2);
 
