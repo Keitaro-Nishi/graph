@@ -166,7 +166,6 @@ function INSERT(){
 		type: "POST",
 		dataType: "JSON",
 		data: {
-			"citycode" : citycode,
 			"meisho" : meisho,
 			"jusho" : jusho,
 			"tel" : tel,
