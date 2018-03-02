@@ -71,11 +71,11 @@ class FacilityController
 		//ジャンル2
 		$facility->genre2= $input["genre2"];
 		//ジャンル3
-		$facility->genre3= $input["genre3"];
-		//緯度
-		$facility->lng= $input["lng"];
+		$facility->genre3= "";
 		//経度
 		$facility->lat= $input["lat"];
+		//緯度
+		$facility->lng= $input["lng"];
 		//画像URL
 		$facility->imageurl= $input["imageurl"];
 		//URL
