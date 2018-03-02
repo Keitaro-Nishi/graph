@@ -24,7 +24,7 @@ class Facility extends Model
 	 * @var array
 	 */
 
-	protected $primaryKey = ['citycode'];
+	protected $primaryKey = ['citycode', 'id'];
 	public $incrementing = false;
 	protected $table = 'facility';
 }
