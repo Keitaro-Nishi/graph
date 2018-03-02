@@ -28,6 +28,8 @@ class GenreController
 
 			foreach ($genregid1 as $value) {
 				$row = $value->gid1;
+				error_log("●●●●●●●");
+				error_log($row);
 				$genregid2= DB::table('genre')->select('meisho')->where('bunrui',1)->where('gid1',$row)->get();
 			}
 
