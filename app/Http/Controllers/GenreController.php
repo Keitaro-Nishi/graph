@@ -23,11 +23,11 @@ class GenreController
 			$genres = Genre::all();
 		}else{
 			$genres= Genre::where('citycode', $cityCD)->orderBy('gid1', 'ASC')->orderBy('gid2', 'ASC')->get();
-			$genregid1 = DB::table('genre')->select('gid1')->get();
+			$genregid1 = DB::table('genre')->select('gid1')->where('citycode', $cityCD)->orderBy('gid1', 'ASC')->get();
 
 			foreach ($genregid1 as $value) {
 				$row = $value->gid1;
-				$genregid2= DB::table('genre')->select('meisho')->where('citycode', $cityCD)->where('bunrui',1)->where('gid1',$row)->get();
+				$genregid2= DB::table('genre')->select('meisho')->where('bunrui',1)->where('gid1',$row)->get();
 			}
 
 			//error_log("★★★★★★★");
