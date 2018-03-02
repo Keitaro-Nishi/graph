@@ -42,11 +42,9 @@ class GenreController
 			error_log("●●●●●●●");
 			error_log(print_r($genrearray,true));
 
-
-
 		}
 
-		return view('genre',compact('genres'));
+		return view('genre',compact('genres','genrearray'));
 	}
 
 

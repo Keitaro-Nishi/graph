@@ -21,11 +21,7 @@
 			@else
 			<td>小分類</td>
 			@endif
-			@if($genre->bunrui == 1)
-			<td>{{$genre->meisho}}</td>
-			@else
-			<td></td>
-			@endif
+			<td>{{$genrearray[0]}}</td>
 			@if($genre->bunrui == 1)
 			<td>-</td>
 			@else
