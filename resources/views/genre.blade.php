@@ -21,9 +21,7 @@
 			@else
 			<td>小分類</td>
 			@endif
-			<!--  @foreach($genrearray as $genrear)-->
 			<td>{{$genrearray[0]}}</td>
-			<!--@endforeach-->
 			@if($genre->bunrui == 1)
 			<td>-</td>
 			@else
