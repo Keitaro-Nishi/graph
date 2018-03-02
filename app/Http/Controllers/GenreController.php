@@ -16,7 +16,7 @@ class GenreController
 		$cityCD = Auth::user()->citycode;
 		//$result = Genre::where('bunrui', 1)->get();
 		//$result2 = Genre::where('bunrui',1)->where('gid1', 1)->get();
-
+		$genrearray= array();
 
 
 		if($cityCD == "00000"){
@@ -31,8 +31,12 @@ class GenreController
 				error_log("●●●●●●●");
 				error_log($row);
 				$genregid2 = DB::table('genre')->select('meisho')->where('bunrui',1)->where('gid1',$row)->get();
-				error_log("★★★★★★★★");
-				error_log($genregid2->meisho);
+				foreach ($genregid2 as $value2) {
+					$row2 = $value2->meisho;
+					error_log("★★★★★★★");
+					error_log($row2);
+					//$genrearray = $genrearray + $row2;
+				}
 			}
 
 
