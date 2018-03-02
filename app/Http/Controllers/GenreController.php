@@ -31,16 +31,15 @@ class GenreController
 				error_log("●●●●●●●");
 				error_log($row);
 				$genregid2 = DB::table('genre')->select('meisho')->where('bunrui',1)->where('gid1',$row)->get();
-				/*$row2 = $genregid2->meisho;
 				error_log("★★★★★★★★");
-				error_log($row2);*/
+				error_log($genregid2->meisho);
 			}
 
 
 
 		}
 
-		return view('genre',compact('genres','genregid2'));
+		return view('genre',compact('genres'));
 	}
 
 
