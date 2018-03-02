@@ -151,7 +151,6 @@ function update(){
 	var tel = document.getElementById('dia_tel').value;
 	var genre1 = document.getElementById('dia_genre1').value;
 	var genre2 = document.getElementById('dia_genre2').value;
-	var genre3 = document.getElementById('dia_genre3').value;
 	var latlng = document.getElementById('dia_latlng').value;
 	var arrayOfStrings = latlng.split(",");
 	var lat = arrayOfStrings[0];
