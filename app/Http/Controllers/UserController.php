@@ -36,7 +36,9 @@ class UserController
 	*/
 
 	public  function request(){
+		error_log("★★★★★★★★★★★★★request★★★★★★★★★★★★★★★");
 		$this->requestall = \Request::all();
+		error_log("★★★★★★★★★★★★★request★★★★★★★★★★★★★★★".$this->requestall["userid"]);
 		update();
 	}
 
