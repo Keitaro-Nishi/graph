@@ -18,7 +18,7 @@ class GenreController
 		//$result2 = Genre::where('bunrui',1)->where('gid1', 1)->get();
 		$genrearray= array();
 		$genrearrays= array();
-
+		//$genrearrays = new Genre;
 
 		if($cityCD == "00000"){
 			//$genres = Genre::all();
@@ -84,7 +84,7 @@ class GenreController
 		error_log("●●●●●●●");
 		error_log(print_r($genrearrays,true));
 		//return view('genre',compact('genrearrays'));
-		return view('genre',['genrearrays'=>$genrearrays]);
+		return view('genre',compact('genrearrays'));
 	}
 
 
