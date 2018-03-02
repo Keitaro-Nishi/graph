@@ -73,7 +73,7 @@ function modwin(id,meisho,jusho,tel,genre1,genre2,lat,lng,imageurl,url){
 	document.getElementById('modal-label').innerHTML  = "施設情報修正";
 	modID = id;
 	initmodal();
-	//document.getElementById('dia_id').value = id;
+	document.getElementById('dia_id').value = id;
 	document.getElementById('dia_meisho').value = meisho;
 	document.getElementById('dia_jusho').value = jusho;
 	document.getElementById('dia_tel').value = tel;
