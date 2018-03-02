@@ -35,16 +35,29 @@ class GenreController
 					$row2 = $value2->meisho;
 					//error_log("★★★★★★★");
 					//error_log($row2);
-					//array_push($genrearray, $row2);
-					$genres->daibunrui = $row2;
+					array_push($genrearray, $row2);
 				}
 			}
-
-			//error_log("●●●●●●●");
 			//error_log(print_r($genres,true));
-			//error_log(print_r($genrearray,true));
-			error_log(json_decode($genres));
+
+			foreach ($genres as $value1) {
+				$citycode = $value1->citycode;
+				$bunrui = $value1->bunrui;
+				$gid1 = $value1->gid1;
+				$gid2 = $value1->gid2;
+				$gid3 = $value1->gid3;
+				$meisho = $value1->meisho;
+				array_push($genrearray, $citycode);
+				array_push($genrearray, $bunrui);
+				array_push($genrearray, $gid1);
+				array_push($genrearray, $gid2);
+				array_push($genrearray, $gid3);
+				array_push($genrearray, $meisho);
+			}
+
 		}
+		error_log("●●●●●●●");
+		error_log(print_r($genrearray,true));
 		return view('genre',compact('genres'));
 	}
 
