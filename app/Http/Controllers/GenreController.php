@@ -33,10 +33,9 @@ class GenreController
 				$genregid2 = DB::table('genre')->select('meisho')->where('bunrui',1)->where('gid1',$row)->get();
 				foreach ($genregid2 as $value2) {
 					$row2 = $value2->meisho;
-					error_log("★★★★★★★");
-					error_log($row2);
-					$genrearray = $genrearray + array($row2);
-					break;
+					//error_log("★★★★★★★");
+					//error_log($row2);
+					array_push($genrearray, $row2);
 				}
 			}
 
