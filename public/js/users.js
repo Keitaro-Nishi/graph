@@ -7,7 +7,7 @@ $(function() {
 		columnSelection : false,
 		formatters: {
 	        "details": function($column, $row) {
-	        	return "<input type='button' class='btn btn-default' value='修正' onclick='detail(\"" $row.name + "\",\"" + $row.userid + "\",\"" + $row.organization + "\",\"" + $row.citycode + "\")' > ";
+	        	return "<input type='button' class='btn btn-default' value='修正' onclick='detail(\"" + $row.name + "\",\"" + $row.userid + "\",\"" + $row.organization + "\",\"" + $row.citycode + "\")' > ";
 	        	//return "<input type='button' class='btn btn-default' value='修正' onclick='detail('1','1','1','1','1')' > ";
              }
 	    }
