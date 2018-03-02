@@ -31,8 +31,6 @@ class FacilityController
 		$input = \Request::all();
 
 		$rules = [
-				'citycode' => 'string',
-				'id' => 'integer|unique:fasirities',
 				'meisho' => 'string|max:255|',
 				'jusho' => 'string|max:255',
 				'tel' => 'string|max:14',
