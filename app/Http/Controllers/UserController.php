@@ -100,4 +100,12 @@ class UserController
 		}
 	}
 
+	public function delete()
+	{
+		error_log("★★★★★★★★★★★★★delete1★★★★★★★★★★★★★★★");
+		$input = \Request::all();
+		error_log("★★★★★★★★★★★★★delete2★★★★★★★★★★★★★★★");
+		return \Response::json(['status' => 'OK']);
+	}
+
 }

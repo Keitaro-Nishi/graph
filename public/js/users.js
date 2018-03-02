@@ -27,10 +27,13 @@ $(function() {
 });
 function drow() {
 	if(rowIds.length == 0){
-		alert("削除する行を選択してください");
+		bootbox.alert({
+			message: "削除する行を選択してください",
+			size: 'small'
+		});
 		return;
 	}
-	var successFlg = true;
+	/*
 	var myRet = confirm("選択行を削除しますか？");
 	if ( myRet == true ){
 		for (var i = 0; i < rowIds.length; i++){
@@ -51,7 +54,49 @@ function drow() {
 		}else{
 			alert("削除できませんでした");
 		}
-	}
+	}*/
+
+	bootbox.confirm({
+	    message: "選択行を削除しますか？",
+	    buttons: {
+	    	confirm: {
+	            label: '<i class="fa fa-check"></i> はい'
+	        },
+	        cancel: {
+	            label: '<i class="fa fa-times"></i> いいえ'
+	        }
+	    },
+	    callback: function (result) {
+	        if(result){
+	        	$.ajax({
+	    			type: "DELETE",
+	    			data:{
+	    				"userids" : rowIds
+	    			}
+	    		}).done(function (response) {
+	    			if(response.status == "OK"){
+	    				bootbox.alert({
+	    					message: "削除しました",
+	    					size: 'small',
+	    					callback: function () {
+	    						location.reload();
+	    					}
+	    				});
+	    			}else{
+	    				bootbox.alert({
+		    				message: "1削除できませんでした",
+		    				size: 'small'
+		    			});
+	    			}
+	    	    }).fail(function () {
+	    	    	bootbox.alert({
+	    				message: "2削除できませんでした",
+	    				size: 'small'
+	    			});
+	    	    });
+	        }
+	    }
+	});
 }
 
 function detail(name,userid,organization,citycode){
