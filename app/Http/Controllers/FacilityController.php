@@ -39,7 +39,6 @@ class FacilityController
 				'genre3' => 'integer',
 				'imageurl' => 'string',
 				'url' => 'string',
-				'geom' => 'geometry'
 		];
 
 		$validator = Validator::make($input,$rules);
