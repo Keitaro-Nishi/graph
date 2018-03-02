@@ -45,29 +45,29 @@
 				<h4 class="modal-title" id="modal-label">施設登録</h4>
 			</div>
 			<div class="modal-body">
-				<form class="form-horizontal" method="POST" action="{{ route('facility') }}">
+				<form class="form-horizontal">
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_meisho">施設名称</label>
 						<div class="col-sm-10">
-							<input id="dia_meisho" class="form-control" maxlength="40" placeholder="行政公園">
+							<input id="dia_meisho" class="form-control" maxlength="40" name="meisho" placeholder="行政公園">
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_jusho">住所</label>
 						<div class="col-sm-10">
-							<input id="dia_jusho" class="form-control" maxlength="128" placeholder="行政市行政1-1-1">
+							<input id="dia_jusho" class="form-control" maxlength="128" name="jusho" placeholder="行政市行政1-1-1">
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_tel">電話番号</label>
 						<div class="col-sm-10">
-							<input id="dia_tel" class="form-control" type="tel" maxlength="14" placeholder="000-000-0000">
+							<input id="dia_tel" class="form-control" type="tel" name="tel" maxlength="14" placeholder="000-000-0000">
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_genre1">ジャンル１</label>
 						<div class="col-sm-10">
-							<select class="form-control" id="dia_genre1"  onChange="genre1change()">
+							<select class="form-control" id="dia_genre1" name="genre1">
 								<option value=0>ジャンル無し</option>
 							</select>
 						</div>
@@ -75,7 +75,7 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_genre2">ジャンル２</label>
 						<div class="col-sm-10">
-							<select class="form-control" id="dia_genre2">
+							<select class="form-control" id="dia_genre2" name="genre2">
 								<option value=0>ジャンル無し</option>
 							</select>
 						</div>
