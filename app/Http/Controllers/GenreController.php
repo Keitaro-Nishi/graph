@@ -33,6 +33,7 @@ class GenreController
 
 			foreach ($genregid2 as $value2) {
 				$row2 = $value2->meisho;
+				error_log("★★★★★★★★");
 				error_log($row2);
 			}
 
