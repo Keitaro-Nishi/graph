@@ -75,7 +75,8 @@ class FacilityController
 		//URL
 		$url = $input["url"];
 
-		$facility = DB::insert('insert into facility (citycode, meisho, jusho, tel, genre1, genre2, genre3, lat, lng, imageurl, url, geom) values (?,?,?,?,?,?,?,?,?,?,?,?)',[$cityCD,0,0,0,0,0,0,0,0,0,0,0]);
+		$facility = DB::insert('insert into facility (citycode, meisho, jusho, tel, genre1, genre2, genre3, lat, lng, imageurl, url, geom) values (?,?,?,?,?,?,?,?,?,?,?,?)',
+				[$cityCD, $meisho, $jusho, $tel, $genre1, $genre2, $genre3, $lat, $lng, $imageurl, $url, ST_GeomFromText('POINT({$lat} {$lng})',4326)]);
 
 		//return redirect ( '/facility' );
 	}
