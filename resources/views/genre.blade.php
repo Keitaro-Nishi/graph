@@ -14,7 +14,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		@foreach($genrearrays as $genrearray)
+		@foreach($jsons as $genrearray)
 		<tr>
 			@if($genrearray->bunrui == 1)
 			<td>大分類</td>

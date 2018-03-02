@@ -83,7 +83,9 @@ class GenreController
 		}
 		//error_log("●●●●●●●");
 		error_log(print_r($genrearrays,true));
-		return view('genre',['genrearrays'=>$genrearrays]);
+		$jsons = json_encode( $genrearrays) ;
+		return view('genre',['jsons'=>$jsons]);
+		//return view('genre',['genrearrays'=>$genrearrays]);
 	}
 
 
