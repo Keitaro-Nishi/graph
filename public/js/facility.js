@@ -85,7 +85,6 @@ function modwin(id,meisho,jusho,tel,genre1,genre2,lat,lng,imageurl,url){
 }
 
 function insert() {
-
 	console.log('insert');
 
 	document.getElementById("modal-label").innerHTML  = "施設登録";
