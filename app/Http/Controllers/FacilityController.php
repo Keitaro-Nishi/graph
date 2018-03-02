@@ -124,11 +124,12 @@ class FacilityController {
 				'lat' => $lat,
 				'lng' => $lng,
 				'imageurl' => $imageurl,
-				'url' => $url
+				'url' => $url,
+
 		]);
 		error_log("?????????????????".$result."?????????????????");
 
-		if ($result == "1") {
+		if ($result == "2") {
 			return \Response::json ( [
 					'status' => 'OK'
 			] );
