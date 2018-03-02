@@ -24,7 +24,9 @@
 			@if($genre->bunrui == 1)
 			<td>{{$genre->meisho}}</td>
 			@else
-			<td></td>
+			@foreach($genregid2 as $genre2)
+			<td>{{$genre2->meisho}}</td>
+			@endforeach
 			@endif
 			@if($genre->bunrui == 1)
 			<td>-</td>
