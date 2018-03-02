@@ -35,13 +35,11 @@ class GenreController
 					$row2 = $value2->meisho;
 					//error_log("★★★★★★★");
 					//error_log($row2);
-					$genrearray = $genrearray + $row2;
+					$genrearray = $row2;
 				}
 			}
 
 			error_log($genrearray[0]);
-
-
 
 		}
 
