@@ -26,11 +26,13 @@ class GenreController
 			//$genregid2 = array();
 			//$array = array();
 			$genres= Genre::where('citycode', $cityCD)->orderBy('gid1', 'ASC')->orderBy('gid2', 'ASC')->get();
-			$genregid1 = DB::table('genre')->select('gid1')->get();
-			$array = (array)$genregid1;
+			//$genregid1 = DB::table('genre')->select('gid1')->get();
+			//$array = (array)$genregid1;
+
+			$genregid1 = DB::select('select gid1 from genre');
 
 			error_log("○○○○○○○");
-			error_log(print_r($array,true));
+			error_log(print_r($genregid1,true));
 
 			/*
 			for ($i = 0; $i< count($array); $i++) {
