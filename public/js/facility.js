@@ -174,5 +174,5 @@ function update(){
 			"imageurl" : imageurl,
 			"url" : url
 		}
-	});
+	})
 }
