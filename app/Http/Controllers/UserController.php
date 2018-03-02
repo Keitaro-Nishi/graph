@@ -36,16 +36,16 @@ class UserController
 	*/
 
 	public  function request(){
-		error_log("★★★★★★★★★★★★★request★★★★★★★★★★★★★★★");
 		$this->requestall = \Request::all();
-		error_log("★★★★★★★★★★★★★request★★★★★★★★★★★★★★★".$this->requestall["userid"]);
 		update();
 	}
 
 	public function update()
 	{
 		//$input = \Request::all();
+		error_log("★★★★★★★★★★★★★update★★★★★★★★★★★★★★★");
 		$input = $this->requestall;
+		error_log("★★★★★★★★★★★★★request★★★★★★★★★★★★★★★".$input["userid"]);
 
 		$rules = [ 'citycode' => 'required|string'];
 
