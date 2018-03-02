@@ -7,8 +7,8 @@ $(function() {
 		columnSelection : false,
 		formatters: {
 	        "details": function($column, $row) {
-	        	//return "<input type='button' class='btn btn-default' value='修正' onclick='detail(\"" $row.name + "\",\"" + $row.userid + "\",\"" + $row.organization + "\",\"" + $row.citycode + "\",\"" + $row.password + "\")' > ";
-	        	return "<input type='button' class='btn btn-default' value='修正' onclick='detail('1','1','1','1','1')' > ";
+	        	return "<input type='button' class='btn btn-default' value='修正' onclick='detail(\"" $row.name + "\",\"" + $row.userid + "\",\"" + $row.organization + "\",\"" + $row.citycode + "\")' > ";
+	        	//return "<input type='button' class='btn btn-default' value='修正' onclick='detail('1','1','1','1','1')' > ";
              }
 	    }
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
@@ -55,6 +55,7 @@ function drow() {
 
 function detail(name,userid,organization,citycode,password){
 	document.getElementById('modal-label').innerHTML  = "ユーザー情報修正";
+	/*
 	if(document.getElementById('dia_citycode')){
 		document.getElementById('dia_citycode').value = citycode;
 		document.getElementById('dia_citycode').disabled = true;
@@ -65,7 +66,9 @@ function detail(name,userid,organization,citycode,password){
 	//document.getElementById('dia_organization').selectedIndex = 0;
 	document.getElementById('dia_password').value = password;
 	document.getElementById('dia_password_confirmation').value = password;
+	*/
 	document.getElementById("btn_modal").click();
+
 }
 
 function insert(){
