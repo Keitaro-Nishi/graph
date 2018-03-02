@@ -9,26 +9,22 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Facility;
 
-class FacilityController
-{
+class FacilityController {
+	public function index(Request $request) {
+		$cityCD = Auth::user ()->citycode;
 
-	public function index(Request $request)
-	{
-		$cityCD = Auth::user()->citycode;
-
-		if($cityCD = "00000"){
-			$facilities = Facility::all();
-		}else{
-			$facilities= Facility::where('citycode', $cityCD)->get();
+		if ($cityCD = "00000") {
+			$facilities = Facility::all ();
+		} else {
+			$facilities = Facility::where ( 'citycode', $cityCD )->get ();
 		}
-		return view('facility',['facilities'=>$facilities]);
+		return view ( 'facility', [
+				'facilities' => $facilities
+		] );
 	}
-
-	public function update(Request $request)
-	{
-
-		$input = \Request::all();
-		error_log("?????????????????".$input["meisho"]."?????????????????");
+	public function update(Request $request) {
+		$input = \Request::all ();
+		error_log ( "?????????????????" . $input ["meisho"] . "?????????????????" );
 
 		$rules = [
 				'meisho' => 'string|max:255|',
@@ -38,88 +34,88 @@ class FacilityController
 				'genre2' => 'integer',
 				'genre3' => 'integer',
 				'imageurl' => 'string',
-				'url' => 'string',
+				'url' => 'string'
 		];
 
-		$validator = Validator::make($input,$rules);
+		$validator = Validator::make ( $input, $rules );
 
-		if($validator->fails())
-		{
-			return $validator->errors();
+		if ($validator->fails ()) {
+			return $validator->errors ();
 		}
-/*
-		//市町村コード
-		$citycode = Auth::user()->citycode;
-		//名称
-		$meisho = $input["meisho"];
-		//住所
-		$jusho = $input["jusho"];
-		//電話番号
-		$tel = $input["tel"];
-		//ジャンル1
-		$genre1 = $input["genre1"];
-		//ジャンル2
-		$genre2 = $input["genre2"];
-		//ジャンル3
-		$genre3 = "";
-		//経度
-		$lat = $input["lat"];
-		//緯度
-		$lng = $input["lng"];
-		//画像URL
-		$imageurl = $input["imageurl"];
-		//URL
-		$url = $input["url"];
-*/
+		/*
+		 * //市町村コード
+		 * $citycode = Auth::user()->citycode;
+		 * //名称
+		 * $meisho = $input["meisho"];
+		 * //住所
+		 * $jusho = $input["jusho"];
+		 * //電話番号
+		 * $tel = $input["tel"];
+		 * //ジャンル1
+		 * $genre1 = $input["genre1"];
+		 * //ジャンル2
+		 * $genre2 = $input["genre2"];
+		 * //ジャンル3
+		 * $genre3 = "";
+		 * //経度
+		 * $lat = $input["lat"];
+		 * //緯度
+		 * $lng = $input["lng"];
+		 * //画像URL
+		 * $imageurl = $input["imageurl"];
+		 * //URL
+		 * $url = $input["url"];
+		 */
 
+		$cityCD = Auth::user ()->citycode;
 		 //市町村コード
-		 $facility->citycode= Auth::user()->citycode;
+		$facility->citycode= $cityCD;
 		 //名称
-		 $facility->meisho= $input["meisho"];
-		 //住所
-		 $facility->jusho= $input["jusho"];
-		 //電話番号
-		 $facility->tel= $input["tel"];
-		 //ジャンル1
-		 $facility->genre1= $input["genre1"];
-		 //ジャンル2
-		 $facility->genre2= $input["genre2"];
-		 //ジャンル3
-		 $facility->genre3= "";
-		 //経度
-		 $facility->lat= $input["lat"];
-		 //緯度
-		 $facility->lng= $input["lng"];
-		 //画像URL
-		 $facility->imageurl= $input["imageurl"];
-		 //URL
-		 $facility->url= $input["url"];
+		 $facility->meisho = $input ["meisho"];
+		// 住所
+		$facility->jusho = $input ["jusho"];
+		// 電話番号
+		$facility->tel = $input ["tel"];
+		// ジャンル1
+		$facility->genre1 = $input ["genre1"];
+		// ジャンル2
+		$facility->genre2 = $input ["genre2"];
+		// ジャンル3
+		$facility->genre3 = "";
+		// 経度
+		$facility->lat = $input ["lat"];
+		// 緯度
+		$facility->lng = $input ["lng"];
+		// 画像URL
+		$facility->imageurl = $input ["imageurl"];
+		// URL
+		$facility->url = $input ["url"];
 
-/*
-		error_log("?????????????????".$citycode."?????????????????");
-*/
+		/*
+		 * error_log("?????????????????".$citycode."?????????????????");
+		 */
 
-		$result = $facility->save();
+		$result = $facility->save ();
 
-/*
-		$result= Facility::insert('INSERT INTO facility (citycode) VALUES (?)', [$citycode]);
-*/
+		/*
+		 * $result= Facility::insert('INSERT INTO facility (citycode) VALUES (?)', [$citycode]);
+		 */
 
-		if($result == "1"){
-			return \Response::json(['status' => 'OK']);
-		}else{
-			return \Response::json(['status' => 'NG']);
+		if ($result == "1") {
+			return \Response::json ( [
+					'status' => 'OK'
+			] );
+		} else {
+			return \Response::json ( [
+					'status' => 'NG'
+			] );
 		}
 	}
-
-	public function delete(Request $request)
-	{
-
+	public function delete(Request $request) {
 		$deleteid = $request->deleteid;
-		$deletefacility = Facility::find($deleteid);
-		$deletefacility->delete();
+		$deletefacility = Facility::find ( $deleteid );
+		$deletefacility->delete ();
 
-		return redirect('/facility');
+		return redirect ( '/facility' );
 	}
-
 }
