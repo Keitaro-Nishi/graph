@@ -99,8 +99,8 @@ function modwin(id,meisho,jusho,tel,genre1,genre2,lat,lng,imageurl,url){
 }
 */
 function insert() {
-	var number = 3;
-	console.log(number);
+
+	systemout.p
 
 	document.getElementById("modal-label").innerHTML  = "施設登録";
 	initmodal();
@@ -167,7 +167,7 @@ function update(){
 			"lng" : lng,
 			"imageurl" : imageurl,
 			"url" : url,
-			"_token" : _token
+			//"_token" : _token
 		}
 	}).done(function (response) {
 		if(response.status == "OK"){
