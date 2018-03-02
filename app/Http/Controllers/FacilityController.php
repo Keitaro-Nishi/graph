@@ -129,7 +129,6 @@ class FacilityController {
 		$deleteid = $request->deleteid;
 		$deletefacility = Facility::find ( $deleteid );
 		$deletefacility->delete ();
-
 		return redirect ( '/facility' );
 	}
 }
