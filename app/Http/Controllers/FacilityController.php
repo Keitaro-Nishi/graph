@@ -53,11 +53,7 @@ class FacilityController
 		$cityCD = Auth::user()->citycode;
 
 		//市町村コード
-		if($cityCD == "00000"){
-			$facility->citycode= $input["citycode"];
-		}else{
-			$facility->citycode= $cityCD;
-		}
+		$facility->citycode= $cityCD;
 		//名称
 		$facility->meisho= $input["meisho"];
 		//住所
