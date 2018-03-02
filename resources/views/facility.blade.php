@@ -51,19 +51,19 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_meisho">施設名称</label>
 						<div class="col-sm-10">
-							<input id="dia_meisho" class="form-control" maxlength="40" name="meisho" placeholder="行政公園">
+							<input id="dia_meisho" class="form-control" maxlength="40" name="meisho" value="" placeholder="行政公園">
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_jusho">住所</label>
 						<div class="col-sm-10">
-							<input id="dia_jusho" class="form-control" maxlength="128" name="jusho" placeholder="行政市行政1-1-1">
+							<input id="dia_jusho" class="form-control" maxlength="128" name="jusho" value="" placeholder="行政市行政1-1-1">
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_tel">電話番号</label>
 						<div class="col-sm-10">
-							<input id="dia_tel" class="form-control" type="tel" name="tel" maxlength="14" placeholder="000-000-0000">
+							<input id="dia_tel" class="form-control" type="tel" name="tel" value="" maxlength="14" placeholder="000-000-0000">
 						</div>
 					</div>
 					<div class="form-group">
@@ -85,14 +85,14 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_latlng">緯度・経度</label>
 						<div class="col-sm-10">
-							<input id="dia_latlng" class="form-control" maxlength="33" name="latlng" placeholder="999.99999,999.99999">
+							<input id="dia_latlng" class="form-control" maxlength="33" name="latlng" value="" placeholder="999.99999,999.99999">
 							<input type="button" class="btn btn-default" style="display:inline;" onclick="map()" value="地図の確認" style="width: 100px;"/>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_imageurl">画像ＵＲＬ</label>
 						<div class="col-sm-10">
-							<input id="dia_imageurl" class="form-control" name="imageurl" maxlength="300" placeholder="https://www.yyy.zzz.jpg">
+							<input id="dia_imageurl" class="form-control" name="imageurl" value="" maxlength="300" placeholder="https://www.yyy.zzz.jpg">
 							<input type="button" class="btn btn-default" style="display:inline; width: 100px;" onclick="image()" value="画像の確認"/>
 							※必ずhttpsから始まるURLを指定してください
 						</div>
@@ -100,7 +100,7 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_url">詳細ＵＲＬ</label>
 						<div class="col-sm-10">
-							<input id="dia_url" class="form-control" maxlength="300" name="url" placeholder="http://www.yyy.zzz.html">
+							<input id="dia_url" class="form-control" maxlength="300" name="url" value="" placeholder="http://www.yyy.zzz.html">
 						</div>
 					</div>
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">

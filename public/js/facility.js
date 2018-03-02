@@ -141,7 +141,7 @@ function initmodal(){
 function update(){
 
 	console.log('??????????????????????????????????');
-	console.log(dia_meisho);
+
 	var meisho = document.getElementById('dia_meisho').value;
 	var jusho = document.getElementById('dia_jusho').value;
 	var tel = document.getElementById('dia_tel').value;
@@ -153,6 +153,8 @@ function update(){
 	var lng = arrayOfStrings[1];
 	var imageurl = document.getElementById('dia_imageurl').value;
 	var url = document.getElementById('dia_url').value;
+
+	console.log(meisho);
 
 	$.ajax({
 		type: "POST",
