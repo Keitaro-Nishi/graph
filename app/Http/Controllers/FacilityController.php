@@ -57,7 +57,7 @@ class FacilityController {
 		//ジャンル2
 		$genre2 = $input["genre2"];
 		//ジャンル3
-		$genre3 = "";
+		$genre3 = 0;
 		//経度
 		$lat = $input["lat"];
 		//緯度
