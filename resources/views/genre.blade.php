@@ -21,7 +21,7 @@
 			@else
 			<td>小分類</td>
 			@endif
-			<td>{{$genre->daibunrui}}</td>
+			<td></td>
 			@if($genre->bunrui == 1)
 			<td>-</td>
 			@else

@@ -35,11 +35,15 @@ class GenreController
 					$row2 = $value2->meisho;
 					//error_log("★★★★★★★");
 					//error_log($row2);
-					array_push($genrearray, $row2);
+					//array_push($genrearray, $row2);
+					$genrearray= [
+							'daibunrui'=>$row2
+					];
 				}
 			}
 			//error_log(print_r($genres,true));
 
+			/*
 			foreach ($genres as $value1) {
 				$citycode = $value1->citycode;
 				$bunrui = $value1->bunrui;
@@ -53,7 +57,7 @@ class GenreController
 				array_push($genrearray, $gid2);
 				array_push($genrearray, $gid3);
 				array_push($genrearray, $meisho);
-			}
+			}*/
 
 		}
 		error_log("●●●●●●●");
