@@ -93,8 +93,30 @@ class GenreController
 		return view('genre',compact('genrelists'));
 	}
 
+	public  function request(){
+		$this->requestall = \Request::all();
+		if ($this->requestall["param"] == "delete"){
+			return $this->delete();
+		}else{
+			return \Response::json(['status' => 'NG']);
+		}
+	}
 
 
+	public function delete()
+	{
+		$input = $this->requestall;
+
+		//User::destroy($input["userids"]);
+		/*
+		 foreach ($input["userids"] as $userid) {
+		 error_log("★★★★★★★★★★★★★delete2★★★★★★★★★★★★★★★".$userid);
+		 }
+		 */
+		return \Response::json(['status' => 'OK']);
+	}
+
+/*
 	public function delete(Request $request)
 	{
 		//$deleteNo = array();
@@ -111,7 +133,7 @@ class GenreController
 
 		return redirect('/genre');
 	}
-
+*/
 
 	public function init(Request $request)
 	{
