@@ -37,9 +37,14 @@ Route::middleware(['auth'])->group(function () {
 	Route::get ( '/facility/{deleteid}','FacilityController@delete' );
 	Route::post ( '/facility', 'FacilityController@update' );
 
+
+	Route::get ( '/genre', 'GenreController@index' )->name ( 'genre' );
+	Route::get ( '/genreinit', 'GenreController@init' )->name ( 'genreinit' );
+
 	Route::get ( '/linepush',function(){
 		return view( 'linepush' );
 	})->name ( 'linepush' );
+
 
 	Route::get ( '/logindata', 'LogindataController@index' )->name ( 'logindata' )->middleware('role');
 });
