@@ -106,7 +106,7 @@ class FacilityController {
 	public function delete()
 	{
 		$input = $this->requestall;
-		Facility::destroy($input["id"]);
+		Facility::destroy($input["ids"]);
 		return \Response::json(['status' => 'OK']);
 	}
 }
