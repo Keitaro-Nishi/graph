@@ -25,8 +25,10 @@ $(function() {
 	});
 
 	//テーブル操作
+	var tabledata = @json($codes);
+	alert(tabledata);
 	document.getElementById('codesel').selectedIndex = 0;
-	codeselChange();
+	//codeselChange();
 });
 
 function codeselChange(){
