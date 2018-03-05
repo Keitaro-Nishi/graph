@@ -39,7 +39,7 @@
 		@endforeach
 	</tbody>
 </table>
-
+<!--
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
 	<input id="btn_ins" type="button" class="btn btn-default" value="ジャンルの追加" onclick="irow()">
@@ -47,7 +47,7 @@
 	<input id="btn_int" type="button" class="btn btn-default" value="類義語追加" onclick="entity()">
 	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog" value="モーダル表示" />
 </div>
-
+-->
 <!--
 <div class="modal" id="shosaiDialog"  tabindex="-1">
 	<div class="modal-dialog">
