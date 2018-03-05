@@ -25,7 +25,7 @@ $(function() {
 	});
 
 	//テーブル操作
-	var tabledata = @json($arry);
+	var tabledata = <?php echo json_encode($arry); ?>;
 	alert(tabledata);
 	document.getElementById('codesel').selectedIndex = 0;
 	//codeselChange();
