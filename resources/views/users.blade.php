@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+ユーザー管理
+@stop
+
 @section('content')
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
@@ -22,60 +26,73 @@
 		@endforeach
 	</tbody>
 </table>
+<div class="modal" id="shosaiDialog" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content" style="width: 740px; margin-left: -20px;">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="modal-label">ユーザー登録</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal">
+					@if (Auth::user()->role == (int)0 )
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="dia_citycode">市町村コード</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="dia_citycode" name="citycode" value="" required autofocus>
+						</div>
+					</div>
+					@endif
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="dia_userid">ユーザーＩＤ</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="dia_userid" name="userid" value="" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="dia_name">ユーザー名</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="dia_name" name="name" value="" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="dia_organization">所属</label>
+						<div class="col-sm-9">
+							<select class="form-control" id="dia_organization" name="organization">
+								<option value=0>所属なし</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="dia_password">パスワード</label>
+						<div class="col-sm-9">
+							<input type="password" class="form-control" id="dia_password" name="password" value="" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="dia_password_confirmation">パスワード再入力</label>
+						<div class="col-sm-9">
+							<input type="password" class="form-control" id="dia_password_confirmation" name="password_confirmation" value="" required>
+						</div>
+					</div>
+					<input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
+					<div class="text-right" >
+						<button type="button" class="btn btn-primary" onclick="update()">登録</button>
+						<button id="dia_close" type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
 
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
+	<input id="btn_ins" type="button" class="btn btn-default" value="ユーザー登録" onclick="insert()">
+	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog"/>
 </div>
+<script src="{{ asset('js/users.js') }}"></script>
 
-<script>
-
-			var rowIds = [];
-			$(function() {
-				$("#grid-basic").bootgrid({
-					selection : true,
-					multiSelect : true,
-					rowSelect : true,
-					keepSelection : true
-				}).on("selected.rs.jquery.bootgrid", function(e, rows) {
-					for (var i = 0; i < rows.length; i++) {
-						rowIds.push(rows[i].userid);
-					}
-				}).on("deselected.rs.jquery.bootgrid", function(e, rows) {
-					for (var i = 0; i < rows.length; i++) {
-						rowIds.some(function(v, ii) {
-							if (v == rows[i].userid)
-								rowIds.splice(ii, 1);
-						});
-					}
-				});
-			});
-			function drow() {
-				if(rowIds.length == 0){
-					alert("削除する行を選択してください");
-					return;
-				}
-				var successFlg = true;
-				var myRet = confirm("選択行を削除しますか？");
-				if ( myRet == true ){
-					for (var i = 0; i < rowIds.length; i++){
-						$.ajax({
-							type: "GET",
-							url: 'users/'+ rowIds[i],
-						}).then(
-							function(){
-							},
-							function(){
-								successFlg = false;
-							}
-						);
-					}
-					if( successFlg == true){
-						alert("削除しました");
-						location.reload();
-					}else{
-						alert("削除できませんでした");
-					}
-				}
-			}
-</script>
 @endsection
