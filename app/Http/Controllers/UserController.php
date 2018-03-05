@@ -111,9 +111,13 @@ class UserController
 
 	public function delete()
 	{
-		error_log("★★★★★★★★★★★★★delete1★★★★★★★★★★★★★★★");
 		$input = $this->requestall;
-		error_log("★★★★★★★★★★★★★delete2★★★★★★★★★★★★★★★".$input["userids"][0]);
+		User::destroy($input["userids"]);
+		/*
+		foreach ($input["userids"] as $userid) {
+			error_log("★★★★★★★★★★★★★delete2★★★★★★★★★★★★★★★".$userid);
+		}
+		*/
 		return \Response::json(['status' => 'OK']);
 	}
 
