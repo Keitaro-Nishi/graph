@@ -30,24 +30,24 @@ $(function() {
 });
 
 function codeselChange(){
-	// 選択した値を取得
     var select_val = $('#codesel option:selected').val();
     alert(select_val);
 
-    // tbodyのtr数回 処理をする
-    $.each($("#grid-basic tbody tr"), function (index, element) {
-
-    	alert(element);
-
-        var row_text = $(element).code1;
-
-        if (row_text == select_val) {
-            $(element).css("display", "table-row");
-        } else {
-            $(element).css("display", "none");
+    $('#grid-basic').find('tr').hide().each(function(){
+        var tr = $(this);
+        alert($(this).find('td')[1].text());
+        if($(this).find('td')[1].text() == select_val){
+        	tr.show();
         }
-
+        /*
+        $(this).find('td').each(function(){
+            if ($(this)[].text().match(regExp)) {
+                tr.show();
+            }
+        })
+        */
     });
+
 }
 
 function drow() {
