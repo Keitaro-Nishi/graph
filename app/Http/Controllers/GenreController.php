@@ -106,9 +106,9 @@ class GenreController
 	{
 		$input = $this->requestall;
 		//User::destroy($input["userids"]);
-
+		error_log("★★★★★★");
 		 foreach ($input["ids"] as $id) {
-		 error_log("★★★★★★");
+		 //error_log("★★★★★★");
 		 error_log($id);
 		 //error_log("★★★★★★★★★★★★★delete2★★★★★★★★★★★★★★★".$userid);
 		 }
