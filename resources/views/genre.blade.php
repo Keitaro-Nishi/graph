@@ -5,6 +5,9 @@
 	class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
+			   @if (Auth::user()->citycode == "00000")
+			   <th data-column-id='citycode' >市町村コード</th>
+			   @endif
 			   <th data-column-id='bunrui' >分類</th>
                <th data-column-id='g1'  >大分類名称</th>
                <th data-column-id='g2'  >小分類名称</th>
@@ -16,6 +19,9 @@
 	<tbody>
 		@foreach($genrelists as $genrelist)
 		<tr>
+			@if (Auth::user()->citycode == "00000")
+			<td>{{$genrelist['citycode']}}</td>
+			@endif
 			@if($genrelist['bunrui'] == 1)
 			<td>大分類</td>
 			@else

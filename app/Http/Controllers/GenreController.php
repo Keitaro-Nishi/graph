@@ -23,6 +23,7 @@ class GenreController
 			$genres = Genre::all();
 
 			foreach ($genres as $genre) {
+				$citycode = $genre->citycode;
 				$bunrui = $genre->bunrui;
 				$daibunrui;
 				$shoubunrui;
@@ -42,6 +43,7 @@ class GenreController
 				}
 
 				$genrelist= [
+						'citycode'=>$citycode,
 						'bunrui'=>$bunrui,
 						'daibunrui'=>$daibunrui,
 						'shoubunrui'=>$shoubunrui,
