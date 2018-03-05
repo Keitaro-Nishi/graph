@@ -19,8 +19,8 @@ class FacilityController {
 			return view('facility',['facilities' => $facilities]);
 		} else {
 			$facilities = Facility::where ( 'citycode', $cityCD )->get ();
-			$genreL = Genre::where ( 'citycode', $cityCD )->where ( 'bunrui', ( int ) 1 )->get ();
-			return view('facility',['facilities' => $facilities, 'genreL' => $genreL]);
+			$genrel = Genre::where ( 'citycode', $cityCD )->where ( 'bunrui', ( int ) 1 )->get ();
+			return view('facility',['facilities' => $facilities, 'genrel' => $genrel]);
 		}
 	}
 	public function request() {

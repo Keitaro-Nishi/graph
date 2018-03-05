@@ -79,7 +79,7 @@
 					</div>
 					<div class="form-group">
 						<select class="form-control" id="codesel" onChange="codeselChange()">
-						@foreach($genreL as $value)
+						@foreach($genrel as $value)
 							<option value="{{$value->bunrui}}" selected>{{$value->meisho}}</option>
 						@endforeach
 						</select>
