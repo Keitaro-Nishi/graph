@@ -52,7 +52,6 @@ class GenreController
 
 				array_push($genrelists, $genrelist);
 			}
-
 		}else{
 			$genres= Genre::where('citycode', $cityCD)->orderBy('gid1', 'ASC')->orderBy('gid2', 'ASC')->get();
 			$genregid1 = DB::table('genre')->select('gid1')->where('citycode', $cityCD)->get();
