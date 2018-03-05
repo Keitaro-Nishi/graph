@@ -9,6 +9,7 @@ $(function() {
 	$("#grid-basic").bootgrid({
 		selection: true,
 		multiSelect: true,
+		rowSelect : true,
 		columnSelection : false,
 	    keepSelection: true/*,
 	    formatters: {
