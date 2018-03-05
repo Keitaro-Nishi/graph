@@ -48,4 +48,5 @@ Route::middleware ( [
 	Route::get ( '/codemanage', 'CodeManageController@index' )->name ( 'codemanage' )->middleware ( 'role' );
 
 	Route::get ( '/logindata', 'LogindataController@index' )->name ( 'logindata' )->middleware ( 'role' );
+
 } );
