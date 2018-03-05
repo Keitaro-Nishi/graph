@@ -68,8 +68,8 @@ class FacilityController {
 		// URL
 		$url = $input ["url"];
 
-		error_log ( "?????????????????" . $citycode . "?????????????????" );
 		if ($input ["id"] == null) {
+			//新規登録
 			$result = DB::table ( 'facility' )->insertGetId ( [
 					'citycode' => $citycode,
 					'meisho' => $meisho,
@@ -85,7 +85,7 @@ class FacilityController {
 					'geom' => \DB::raw ( "public.ST_GeomFromText('POINT({$lat} {$lng})',4326)" )
 			] );
 		}else{
-			error_log ( "?????????????????" . $id . "?????????????????" );
+			//編集
 			$result = DB::table ( 'facility' )
 			->where('id', $id)
 			->update([
@@ -103,8 +103,7 @@ class FacilityController {
 					'geom' => \DB::raw ( "public.ST_GeomFromText('POINT({$lat} {$lng})',4326)" )
 					] );
 		}
-		error_log ( "?????????????????" . $result . "?????????????????" );
-
+		/*
 		if ($result == "2") {
 			return \Response::json ( [
 					'status' => 'OK'
@@ -114,6 +113,7 @@ class FacilityController {
 					'status' => 'NG'
 			] );
 		}
+		*/
 	}
 	public function delete(Request $request) {
 		$deleteid = $request->deleteid;

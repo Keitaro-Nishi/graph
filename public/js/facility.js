@@ -68,7 +68,6 @@ function drow() {
 }
 
 /*  施設情報修正  */
-
 function modwin(id,meisho,jusho,tel,genre1,genre2,lat,lng,imageurl,url){
 	document.getElementById('modal-label').innerHTML  = "施設情報修正";
 	modID = id;
