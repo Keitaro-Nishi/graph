@@ -4,10 +4,18 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Opinion extends Model
+class Genre extends Model
 {
 
+
 	//use CompositePrimaryKeyTrait;
+
+	/*public function getFirstNameAttribute($value)
+	{
+		return ucfirst($value);
+	}
+	*/
+
 
 	/*protected $fillable = [
 
@@ -17,8 +25,8 @@ class Opinion extends Model
 	*/
 
 	//protected $primaryKey =['citycode','id'];
-	protected $primaryKey ='id';
+	protected $primaryKey = ['gid1', 'gid2','gid3'];
 	public $incrementing = false;
-	protected $table = 'opinion';
+	protected $table = 'genre';
 
 }

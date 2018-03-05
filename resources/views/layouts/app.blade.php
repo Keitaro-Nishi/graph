@@ -64,12 +64,12 @@
 							</a>
 							<ul class="dropdown-menu">
 								<li><a href="{{ route('botlog') }}">ログ参照</a></li>
-								<li><a href="{{ route('register') }}">画像ログ参照</a></li>
-								<li><a href="{{ route('register') }}">施設情報</a></li>
-								<li><a href="{{ route('register') }}">施設ジャンル</a></li>
+								<li><a href="{{ route('logimage') }}">画像ログ参照</a></li>
+								<li><a href="{{ route('facility') }}">施設情報</a></li>
+								<li><a href="{{ route('genre') }}">施設ジャンル</a></li>
 								<li><a href="{{ route('opinion') }}">ご意見ログ</a></li>
 								<li><a href="{{ route('register') }}">属性情報</a></li>
-								<li><a href="{{ route('register') }}">メッセージ管理</a></li>
+								<li><a href="{{ route('linepush') }}">メッセージ管理</a></li>
 								@if (Auth::user()->role == 0 or Auth::user()->role == 1)
 								<li><a href="{{ route('register') }}">セッション情報</a></li>
 								<li><a href="{{ route('codemanage') }}">コード管理</a></li>
