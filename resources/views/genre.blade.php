@@ -18,7 +18,7 @@
 	<tbody>
 		@foreach($genrelists as $genrelist)
 		<tr>
-			<td>{{$genrelist['gid1']}}":"{{$genrelist['gid2']}}</td>
+			<td>{{$genrelist['gid1'] ":" $genrelist['gid2']}}</td>
 			<td>{{$genrelist['citycode']}}</td>
 			@if($genrelist['bunrui'] == 1)
 			<td>大分類</td>
