@@ -11,7 +11,8 @@ $(function() {
 		multiSelect: true,
 		rowSelect : true,
 		columnSelection : false,
-	    keepSelection: true/*,
+	    keepSelection: true
+	    /*,
 	    formatters: {
 	        "mods": function($column, $row) {
 	        	return "<input type='button' class='btn btn-default' value='修正' onclick='modwin(\"" + $row.gid1 + "\",\"" + $row.gid2 + "\",\"" + $row.g1 + "\",\"" + $row.g2 + "\")' > ";
@@ -44,18 +45,6 @@ $(function() {
 	    //alert("Deselect: " + rowIds.join(","));
 	});
 });
-	/*
-	//ジャンルの設定
-	var j1value = <?php echo json_encode($j1value); ?>;
-	var select = document.getElementById('dia_g1');
-	for( var key in j1value ) {
-		var option = document.createElement('option');
-		option.setAttribute('value', key);
-		var text = document.createTextNode(j1value[key]);
-		option.appendChild(text);
-		select.appendChild(option);
-	}*/
-
 
 /*
 function drow() {
