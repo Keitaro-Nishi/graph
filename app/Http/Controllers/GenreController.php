@@ -20,7 +20,8 @@ class GenreController
 
 
 		if($cityCD == "00000"){
-			$genres = Genre::all();
+			//$genres = Genre::all();
+			$genres = Genre::all()->orderBy('citycode', 'ASC');
 
 			foreach ($genres as $genre) {
 				$citycode = $genre->citycode;
