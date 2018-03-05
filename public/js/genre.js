@@ -10,6 +10,7 @@ $(function() {
 		selection : true,
 		multiSelect : true,
 		rowSelect : true,
+		columnSelection : false,
 	    keepSelection: true
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
 		for (var i = 0; i < rows.length; i++) {
