@@ -5,7 +5,7 @@
 	class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
-			   <th data-column-id='no' data-identifier='true' data-width='3%' data-visible="false"></th>
+			   <th data-column-id='no'  data-width='3%'></th>
 			   @if (Auth::user()->citycode == "00000")
 			   <th data-column-id='citycode' data-width='20%' >市町村コード</th>
 			   @else
