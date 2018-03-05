@@ -15,7 +15,7 @@ class GenreController
 		$Authrole = Auth::user()->role;
 		$cityCD = Auth::user()->citycode;
 
-		$genrearray= array();
+		$genrelist= array();
 		$genrelists= array();
 
 
@@ -44,7 +44,7 @@ class GenreController
 					$daibunrui= $result->meisho;
 				}
 
-				$genrearray= [
+				$genrelist= [
 						'bunrui'=>$bunrui,
 						'daibunrui'=>$daibunrui,
 						'shoubunrui'=>$shoubunrui,
@@ -52,13 +52,13 @@ class GenreController
 						'gid2'=>$gid2,
 				];
 
-				array_push($genrelists, $genrearray);
+				array_push($genrelists, $genrelist);
 			}
 
 		}
 		error_log(print_r($genres,true));
 		error_log("●●●●●●●");
-		//error_log(print_r($genrearrays,true));
+		error_log(print_r($genrelists,true));
 		return view('genre',compact('genrelists'));
 	}
 
