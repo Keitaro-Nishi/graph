@@ -21,15 +21,14 @@ class GenreController
 
 		if($cityCD == "00000"){
 			$genres = Genre::all();
-			//$genregid1 = DB::table('genre')->select('gid1')->where('citycode', $cityCD)->get();
 
-			foreach ($genres as $value) {
-				$bunrui = $value->bunrui;
+			foreach ($genres as $genre) {
+				$bunrui = $genre->bunrui;
 				$daibunrui;
 				$shoubunrui;
-				$gid1 = $value->gid1;
-				$gid2 = $value->gid2;
-				$meisho = $value->meisho;
+				$gid1 = $genre->gid1;
+				$gid2 = $genre->gid2;
+				$meisho = $genre->meisho;
 
 				if($bunrui == 1){
 					$daibunrui = $meisho;
@@ -57,13 +56,13 @@ class GenreController
 			$genres= Genre::where('citycode', $cityCD)->orderBy('gid1', 'ASC')->orderBy('gid2', 'ASC')->get();
 			$genregid1 = DB::table('genre')->select('gid1')->where('citycode', $cityCD)->get();
 
-			foreach ($genres as $value) {
-				$bunrui = $value->bunrui;
+			foreach ($genres as $genre) {
+				$bunrui = $genre->bunrui;
 				$daibunrui;
 				$shoubunrui;
-				$gid1 = $value->gid1;
-				$gid2 = $value->gid2;
-				$meisho = $value->meisho;
+				$gid1 = $genre->gid1;
+				$gid2 = $genre->gid2;
+				$meisho = $genre->meisho;
 
 				if($bunrui == 1){
 					$daibunrui = $meisho;
