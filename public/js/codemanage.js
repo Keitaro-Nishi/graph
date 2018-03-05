@@ -25,7 +25,7 @@ $(function() {
 	});
 
 	//テーブル操作
-	//alert("開始");
+	alert("開始");
 	//var tabledata = <?php echo json_encode($arry); ?>;
 	//alert(tabledata[0]);
 	document.getElementById('codesel').selectedIndex = 0;
