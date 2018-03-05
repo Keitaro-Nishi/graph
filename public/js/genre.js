@@ -19,7 +19,7 @@ $(function() {
 	{
 		for (var i = 0; i < rows.length; i++)
 	    {
-	        //rowIds.push(rows[i].no);
+	        rowIds.push(rows[i].citycode);
 	        rowgid1.push(rows[i].gid1);
 	        rowgid2.push(rows[i].gid2);
 	        //alert("rowgid1:" + rows[i].gid1 + " rowgid2:" + rows[i].gid2);
@@ -30,8 +30,8 @@ $(function() {
 	    for (var i = 0; i < rows.length; i++)
 	    {
 	    	for (var ii = 0; ii < rowIds.length; ii++){
-		    	//if(rowIds[ii] == rows[i].no){
-		    		//rowIds.splice(ii,1);
+		    	if(rowIds[ii] == rows[i].citycode){
+		    		rowIds.splice(ii,1);
 		    		rowgid1.splice(ii,1);
 		    		rowgid2.splice(ii,1);
 		    		break;
@@ -52,9 +52,10 @@ $(function() {
 		var text = document.createTextNode(j1value[key]);
 		option.appendChild(text);
 		select.appendChild(option);
-	}
+	}*/
 });
-*/
+
+/*
 function drow() {
 	if(rowIds.length == 0){
 		alert("削除する行を選択してください");
@@ -212,4 +213,4 @@ function intent(){
 function entity(){
 	window.location.href = "./genreent.php";
 }
-
+*/
