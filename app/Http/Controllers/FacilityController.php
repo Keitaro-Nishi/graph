@@ -15,47 +15,48 @@ class FacilityController {
 		$cityCD = Auth::user ()->citycode;
 
 		if ($cityCD = "00000") {
-			$facilities = Facility::all ();/*->orderBy('citycode', 'ASC')*/
+			$facilities = Facility::all (); /* ->orderBy('citycode', 'ASC') */
 
-			foreach ($facilities as $facility) {
+			foreach ( $facilities as $facility ) {
 
-			$meisho = $facility->meisho;
-			$jusho = $facility->jusho;
-			$tel = $facility->tel;
-			$genreL;
-			$genreM;
-			$lat = $facility->lat;
-			$lng = $facility->lng;
-			$imageurl = $facility->imageurl;
-			$url = $facility->url;
+				$citycode = $facility->citycode;
+				$meisho = $facility->meisho;
+				$jusho = $facility->jusho;
+				$tel = $facility->tel;
+				$genreL;
+				$genreM;
+				$lat = $facility->lat;
+				$lng = $facility->lng;
+				$imageurl = $facility->imageurl;
+				$url = $facility->url;
 
-			$genre1 = $facility->genre1;
-			$genre2 = $facility->genre2;
+				$genre1 = $facility->genre1;
+				$genre2 = $facility->genre2;
 
-			$bunruiL = DB::table('genre')->select('meisho')->where('bunrui',1)->where('gid1',$genre1)->first();
-			$genreL = $bunruiL;
-			$bunruiM = DB::table('genre')->select('meisho')->where('bunrui',1)->where('gid1',$genre1)->first();
-			$genreM = $bunruiM;
+				$bunruiL = DB::table ( 'genre' )->select ( 'meisho' )->where ( 'bunrui', 1 )->where ( 'gid1', $genre1 )->where ( 'citycode', $citycode )->first ();
+				$genreL = $bunruiL;
+				$bunruiM = DB::table ( 'genre' )->select ( 'meisho' )->where ( 'bunrui', 1 )->where ( 'gid1', $genre1 )->where ( 'citycode', $citycode )->first ();
+				$genreM = $bunruiM;
 
-			$genrelist= [
-					'meisho'=>$meisho,
-					'jusho'=>$jusho,
-					'tel'=>$tel,
-					'genreL' =>$genreL,
-					'genreM' =>$genreM,
-					'lat'=>$lat,
-					'lng'=>$lng,
-					'imageurl'=>$imageurl,
-					'url'=>$url,
-			];
-			array_push($facilitylists, $facilitylist);
+				$facilitylist = [
+						'citycode' => $citycode,
+						'meisho' => $meisho,
+						'jusho' => $jusho,
+						'tel' => $tel,
+						'genreL' => $genreL,
+						'genreM' => $genreM,
+						'lat' => $lat,
+						'lng' => $lng,
+						'imageurl' => $imageurl,
+						'url' => $url
+				];
+				array_push ( $facilitylists, $facilitylist );
 			}
 		} else {
 			$facilities = Facility::where ( 'citycode', $cityCD )->get ();
 		}
-		return view('facility',compact('facilitylists'));
+		return view ( 'facility', compact ( 'facilitylists' ) );
 	}
-
 	public function update(Request $request) {
 		$input = \Request::all ();
 
@@ -102,7 +103,7 @@ class FacilityController {
 		$url = $input ["url"];
 
 		if ($input ["id"] == null) {
-			//新規登録
+			// 新規登録
 			$result = DB::table ( 'facility' )->insertGetId ( [
 					'citycode' => $citycode,
 					'meisho' => $meisho,
@@ -117,11 +118,9 @@ class FacilityController {
 					'url' => $url,
 					'geom' => \DB::raw ( "public.ST_GeomFromText('POINT({$lat} {$lng})',4326)" )
 			] );
-		}else{
-			//編集
-			$result = DB::table ( 'facility' )
-			->where('id', $id)
-			->update([
+		} else {
+			// 編集
+			$result = DB::table ( 'facility' )->where ( 'id', $id )->update ( [
 					'citycode' => $citycode,
 					'meisho' => $meisho,
 					'jusho' => $jusho,
@@ -134,7 +133,7 @@ class FacilityController {
 					'imageurl' => $imageurl,
 					'url' => $url,
 					'geom' => \DB::raw ( "public.ST_GeomFromText('POINT({$lat} {$lng})',4326)" )
-					] );
+			] );
 		}
 	}
 	public function delete(Request $request) {
