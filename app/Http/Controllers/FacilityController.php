@@ -118,8 +118,7 @@ class FacilityController {
 	public function delete() {
 		$input = $this->requestall;
 		$ids =  $input ["ids"] ;
-		error_log ($ids);
-		//DB::table('facility')->where('votes', '<', 100)->delete();
+		DB::table('facility')->where('id', $ids)->delete();
 		return \Response::json ( [
 				'status' => 'OK'
 		] );
