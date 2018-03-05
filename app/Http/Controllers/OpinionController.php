@@ -4,26 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Opinion;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+
 
 class OpinionController
 {
 	public function index(Request $request)
 	{
 
+
 		$Authrole = Auth::user()->role;
 		$cityCD = Auth::user()->citycode;
-
-		if($Authrole == 0){
+		if($cityCD = "00000"){
 			$opinions = Opinion::all();
-		}
-		if($Authrole == 1 or $Authrole == 2){
+		}else{
 			$opinions= Opinion::where('citycode', $cityCD)->get();
 		}
+		return view('opinion',['opinions'=>$opinions]);
 
-		//return view('opinion',['opinions'=>$opinions]);
-		return view('opinion')->with('opinions', $opinions);
 	}
 
 	public function delete(Request $request)

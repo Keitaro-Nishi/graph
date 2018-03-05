@@ -1,10 +1,14 @@
 @extends('layouts.app')
 
+@section('title')
+施設管理
+@stop
+
 @section('content')
 <table id="grid-basic" class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
-			<th data-column-id="id" data-type="numeric" data-identifier="true">ID</th>
+			<th data-column-id="id" data-identifier="true" data-visible="false">ID</th>
 			<th data-column-id="meisho">名称</th>
 			<th data-column-id="jusho">住所</th>
 			<th data-column-id="tel">電話番号</th>
@@ -14,11 +18,11 @@
 			<th data-column-id="lng">経度</th>
 			<th data-column-id="imageurl">画像URL</th>
 			<th data-column-id="url">詳細URL</th>
-			<th data-column-id='detail' data-formatter='details' data-sortable='false'></th>
+			<th data-column-id='detail' data-formatter='mods' data-sortable='false'></th>
 		</tr>
 	</thead>
 	<tbody>
-		@foreach($facilitys as $facility)
+		@foreach($facilities as $facility)
 		<tr>
 			<td>{{$facility->id}}</td>
 			<td>{{$facility->meisho}}</td>
@@ -35,16 +39,6 @@
 		@endforeach
 	</tbody>
 </table>
-
-<!-- botlog 29~81 -->
-
-<div class="container" align="center">
-	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
-	<input id="btn_ins" type="button" class="btn btn-default" value="施設の追加" onclick="irow()">
-	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog" value="モーダル表示" />
-</div>
-
-<!-- 登録Modal -->
 <div class="modal" id="shosaiDialog"  tabindex="-1">
 	<div class="modal-dialog">
 		<div class="modal-content" style="width:740px; margin-left: -20px;">
@@ -56,122 +50,88 @@
 			</div>
 			<div class="modal-body">
 				<form class="form-horizontal">
+					<div class="form-group"  style="display:none">
+						<label class="col-sm-2 control-label" for="dia_id">id</label>
+						<div class="col-sm-10">
+							<input id="dia_id" class="form-control" name="id" value="">
+						</div>
+					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_meisho">施設名称</label>
 						<div class="col-sm-10">
-							<input id="dia_meisho" class="form-control" maxlength="40" placeholder="行政公園">
+							<input id="dia_meisho" class="form-control" maxlength="40" name="meisho" value="" placeholder="行政公園">
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_jusho">住所</label>
 						<div class="col-sm-10">
-							<input id="dia_jusho" class="form-control" maxlength="128" placeholder="行政市行政1-1-1">
+							<input id="dia_jusho" class="form-control" maxlength="128" name="jusho" value="" placeholder="行政市行政1-1-1">
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_tel">電話番号</label>
 						<div class="col-sm-10">
-							<input id="dia_tel" class="form-control" type="tel" maxlength="14" placeholder="000-000-0000">
+							<input id="dia_tel" class="form-control" type="tel" name="tel" value="" maxlength="14" placeholder="000-000-0000">
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_j1">ジャンル１</label>
+						<label class="col-sm-2 control-label" for="dia_genre1">ジャンル１</label>
 						<div class="col-sm-10">
-							<select class="form-control" id="dia_j1"  onChange="j1change()">
+							<select class="form-control" id="dia_genre1" name="genre1">
+								<option value=0>ジャンル無し</option>
 							</select>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_j2">ジャンル２</label>
+						<label class="col-sm-2 control-label" for="dia_genre2">ジャンル２</label>
 						<div class="col-sm-10">
-							<select class="form-control" id="dia_j2">
+							<select class="form-control" id="dia_genre2" name="genre2">
+								<option value=0>ジャンル無し</option>
 							</select>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_latlng">緯度・経度</label>
 						<div class="col-sm-10">
-							<input id="dia_latlng" class="form-control" maxlength="33" placeholder="999.99999,999.99999">
+							<input id="dia_latlng" class="form-control" maxlength="33" name="latlng" value="" placeholder="999.99999,999.99999">
 							<input type="button" class="btn btn-default" style="display:inline;" onclick="map()" value="地図の確認" style="width: 100px;"/>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_iurl">画像ＵＲＬ</label>
+						<label class="col-sm-2 control-label" for="dia_imageurl">画像ＵＲＬ</label>
 						<div class="col-sm-10">
-							<input id="dia_iurl" class="form-control" maxlength="300" placeholder="https://www.yyy.zzz.jpg">
-							<input type="button" class="btn btn-default" style="display:inline;" onclick="image()" value="画像の確認" style="width: 100px;"/>
+							<input id="dia_imageurl" class="form-control" name="imageurl" value="" maxlength="300" placeholder="https://www.yyy.zzz.jpg">
+							<input type="button" class="btn btn-default" style="display:inline; width: 100px;" onclick="image()" value="画像の確認"/>
 							※必ずhttpsから始まるURLを指定してください
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_url">詳細ＵＲＬ</label>
 						<div class="col-sm-10">
-							<input id="dia_url" class="form-control" maxlength="300" placeholder="http://www.yyy.zzz.html">
+							<input id="dia_url" class="form-control" maxlength="300" name="url" value="" placeholder="http://www.yyy.zzz.html">
 						</div>
 					</div>
+					<input type="hidden" id="_token" name="_token" value="{{ csrf_token() }}">
+					<div class="text-right" >
+						<button type="button" class="btn btn-primary" onclick="update()">登録</button>
+						<button id="dia_close" type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+					</div>
 				</form>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" onclick="update()">更新</button>
-				<button id="dia_close" type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
 			</div>
 		</div>
 	</div>
 </div>
+@if (Auth::user()->citycode != 00000)
+<div class="container" align="center">
+	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
+	<input id="btn_ins" type="button" class="btn btn-default" value="施設登録" onclick="insert()">
+	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog"/>
+</div>
+@else
+<div class="container" align="center">
+	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
+</div>
+@endif
+<script src="{{ asset('js/facility.js') }}"></script>
 
-<script>
-			var rowIds = [];
-			$(function() {
-				$("#grid-basic").bootgrid({
-					selection : true,
-					multiSelect : true,
-					rowSelect : true,
-					keepSelection : true,
-					/*formatters: {
-				        "details": function($column, $row) {
-				        	return "<input type='button' value='詳細' onclick='detailwin("  + $row.no + ")'> ";
-			             }
-				    }*/
-				}).on("selected.rs.jquery.bootgrid", function(e, rows) {
-					for (var i = 0; i < rows.length; i++) {
-						rowIds.push(rows[i].no);
-					}
-				}).on("deselected.rs.jquery.bootgrid", function(e, rows) {
-					for (var i = 0; i < rows.length; i++) {
-						rowIds.some(function(v, ii) {
-							if (v == rows[i].no)
-								rowIds.splice(ii, 1);
-						});
-					}
-				});
-			});
-			function drow() {
-				if(rowIds.length == 0){
-					alert("削除する行を選択してください");
-					return;
-				}
-				var successFlg = true;
-				var myRet = confirm("選択行を削除しますか？");
-				if ( myRet == true ){
-					for (var i = 0; i < rowIds.length; i++){
-						$.ajax({
-							type: "GET",
-							url: 'facility/'+ rowIds[i],
-						}).then(
-							function(){
-							},
-							function(){
-								successFlg = false;
-							}
-						);
-					}
-					if( successFlg == true){
-						alert("削除しました");
-						location.reload();
-					}else{
-						alert("削除できませんでした");
-					}
-				}
-			}
-</script>
 @endsection

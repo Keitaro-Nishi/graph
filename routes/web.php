@@ -30,11 +30,22 @@ Route::middleware(['auth'])->group(function () {
 	Route::get ( '/botlog', 'BotlogController@index' )->name ( 'botlog' );
 	Route::get ( '/botlog/{deleteno}','BotlogController@delete' );
 
+	Route::get ( '/logimage', 'LogimageController@index' )->name ( 'logimage' );
+	Route::get ( '/logimage/{deleteno}','LogimageController@delete' );
+
 	Route::get ( '/facility', 'FacilityController@index' )->name ( 'facility' );
-	Route::get ( '/facility/{deleteno}','FacilityController@delete' );
+	Route::get ( '/facility/{deleteid}','FacilityController@delete' );
+	Route::post ( '/facility', 'FacilityController@update' );
+
 
 	Route::get ( '/genre', 'GenreController@index' )->name ( 'genre' );
 	Route::get ( '/genreinit', 'GenreController@init' )->name ( 'genreinit' );
+
+	Route::get ( '/linepush',function(){
+		return view( 'linepush' );
+	})->name ( 'linepush' );
+
+
 	Route::get ( '/logindata', 'LogindataController@index' )->name ( 'logindata' )->middleware('role');
 });
 
