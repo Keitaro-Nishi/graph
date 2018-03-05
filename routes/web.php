@@ -16,9 +16,7 @@ Route::get ( '/', function () {
 
 Auth::routes ();
 
-Route::middleware ( [
-		'auth'
-] )->group ( function () {
+Route::middleware(['auth'])->group(function () {
 	Route::get ( '/register', 'Auth\RegisterController@showRegistrationForm' )->name ( 'register' )->middleware ( 'role' );
 
 	Route::get ( '/home', 'HomeController@index' )->name ( 'home' );
