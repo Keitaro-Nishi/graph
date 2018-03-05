@@ -81,8 +81,8 @@ function drow() {
 	    },
 	    callback: function (result) {
 	        if(result){
-	        	console.log('_token');
 	        	var _token = document.getElementById('_token').value;
+	        	console.log(_token);
 	        	$.ajax({
 	    			type: "POST",
 	    			dataType: "JSON",
