@@ -76,7 +76,7 @@ function drow() {
 	if ( myRet == true ){
 		$.ajax({
 			type: "GET",
-			url: 'genre/'+ idarray,
+			url: 'genre/'+ idarray[],
 			/*data: {
 				"id" : idarray
 			}*/
