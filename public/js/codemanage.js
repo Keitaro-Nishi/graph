@@ -25,7 +25,7 @@ $(function() {
 	});
 
 	//テーブル操作
-	var tabledata = @json($codes);
+	var tabledata = @json($arry);
 	alert(tabledata);
 	document.getElementById('codesel').selectedIndex = 0;
 	//codeselChange();
