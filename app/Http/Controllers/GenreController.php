@@ -36,9 +36,9 @@ class GenreController
 				}
 
 				if($bunrui == 2){
-					$result = DB::table('genre')->select('meisho')->where('bunrui',1)->where('gid1',$gid1)->first();
+					$bunruidata = DB::table('genre')->select('meisho')->where('bunrui',1)->where('gid1',$gid1)->first();
 					$shoubunrui = $meisho;
-					$daibunrui= $result->meisho;
+					$daibunrui= $bunruidata->meisho;
 				}
 
 				$genrelist= [
@@ -70,9 +70,9 @@ class GenreController
 				}
 
 				if($bunrui == 2){
-					$result = DB::table('genre')->select('meisho')->where('bunrui',1)->where('gid1',$gid1)->first();
+					$bunruidata= DB::table('genre')->select('meisho')->where('bunrui',1)->where('gid1',$gid1)->first();
 					$shoubunrui = $meisho;
-					$daibunrui= $result->meisho;
+					$daibunrui= $bunruidata->meisho;
 				}
 
 				$genrelist= [
