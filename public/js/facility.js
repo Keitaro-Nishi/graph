@@ -190,6 +190,7 @@ function update(){
 		type: "POST",
 		dataType: "JSON",
 		data: {
+			"param" : "update",
 			"id" : id,
 			"meisho" : meisho,
 			"jusho" : jusho,

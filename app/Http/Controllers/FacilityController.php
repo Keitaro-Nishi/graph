@@ -22,6 +22,18 @@ class FacilityController {
 				'facilities' => $facilities
 		] );
 	}
+
+	public  function request(){
+		$this->requestall = \Request::all();
+		if($this->requestall["param"] == "update"){
+			return $this->update();
+		}elseif ($this->requestall["param"] == "delete"){
+			return $this->delete();
+		}else{
+			return \Response::json(['status' => 'NG']);
+		}
+	}
+
 	public function update(Request $request) {
 		$input = \Request::all ();
 		error_log ( "?????????????????" . $input ["meisho"] . "?????????????????" );
