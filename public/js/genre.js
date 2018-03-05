@@ -20,7 +20,7 @@ $(function() {
 	        rowcitycode.push(rows[i].citycode);
 	        rowgid1.push(rows[i].gid1);
 	        rowgid2.push(rows[i].gid2);
-	        alert("rowIds:" + rows[i].no + "rowcitycode:" + rows[i].citycode + "rowgid1:" + rows[i].gid1 + " rowgid2:" + rows[i].gid2);
+	        //alert("rowIds:" + rows[i].no + "rowcitycode:" + rows[i].citycode + "rowgid1:" + rows[i].gid1 + " rowgid2:" + rows[i].gid2);
 	    }
 	}).on("deselected.rs.jquery.bootgrid", function(e, rows) {
 		for (var i = 0; i < rows.length; i++)
@@ -40,7 +40,10 @@ $(function() {
 
 
 function drow() {
-	//alert()
+	alert(rowIds);
+	alert(rowcitycode);
+	alert(rowgid1);
+	alert(rowgid2);
 
 	/*
 	if(rowIds.length == 0){
