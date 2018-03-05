@@ -9,13 +9,13 @@ class OpinionController
 {
 	public function index(Request $request)
 	{
-
-		$opinions = Opinion::all();
-		$php_json = json_encode($opinions);
-
-		//return view('opinion',['opinions'=>$opinions]);
-		return view('opinion')->with('opinions', $opinions);
-
+		$cityCD = Auth::user()->citycode;
+		if($cityCD = "00000"){
+			$opinions = Opinion::all();
+		}else{
+			$opinions= Opinion::where('citycode', $cityCD)->get();
+		}
+		return view('opinion',['opinions'=>$opinions]);
 	}
 
 	public function delete(Request $request)

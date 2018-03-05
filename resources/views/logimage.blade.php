@@ -1,21 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<div id="loader-bg">
-  <div id="loader">
-    <img src="img/loading.gif" width="80" height="80" alt="Now Loading..." />
-    <p>Now Loading...</p>
-  </div>
-</div>
-<div id="wrap" style="display:none">
-
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
-			<th data-column-id='time'>日時</th>
+			<th data-column-id='time' data-identifier="true">日時</th>
 			<th data-column-id='userid'>ユーザーID</th>
-			<th data-column-id='imageurl'>送信画像</th>
+			<th data-column-id='image'>送信画像</th>
 			<th data-column-id='class'>分類</th>
 			<th data-column-id='score'>確信度</th>
 		</tr>
@@ -25,7 +17,7 @@
 		<tr>
 			<td>{{$logimage->time}}</td>
 			<td>{{$logimage->userid}}</td>
-			<td>{{$logimage->imageurl}}</td>
+			<td>{{$logimage->image}}</td>
 			<td>{{$logimage->class}}</td>
 			<td>{{$logimage->score}}</td>
 			<td></td>
@@ -52,3 +44,6 @@
 		</div>
 	</div>
 </div>
+<script src="{{ asset('js/logimage.js') }}"></script>
+
+@endsection

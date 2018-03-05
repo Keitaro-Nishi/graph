@@ -1,10 +1,14 @@
 @extends('layouts.app')
 
+@section('title')
+施設管理
+@stop
+
 @section('content')
 <table id="grid-basic" class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
-			<th data-column-id="id" data-type="numeric" data-identifier="true">ID</th>
+			<th data-column-id="id" data-identifier="true" data-visible="false">ID</th>
 			<th data-column-id="meisho">名称</th>
 			<th data-column-id="jusho">住所</th>
 			<th data-column-id="tel">電話番号</th>
@@ -14,7 +18,7 @@
 			<th data-column-id="lng">経度</th>
 			<th data-column-id="imageurl">画像URL</th>
 			<th data-column-id="url">詳細URL</th>
-			<th data-column-id='detail' data-formatter='details' data-sortable='false'></th>
+			<th data-column-id='detail' data-formatter='mods' data-sortable='false'></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -45,29 +49,35 @@
 				<h4 class="modal-title" id="modal-label">施設登録</h4>
 			</div>
 			<div class="modal-body">
-				<form class="form-horizontal" method="POST" action="{{ route('facility') }}">
+				<form class="form-horizontal">
+					<div class="form-group"  style="display:none">
+						<label class="col-sm-2 control-label" for="dia_id">id</label>
+						<div class="col-sm-10">
+							<input id="dia_id" class="form-control" name="id" value="">
+						</div>
+					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_meisho">施設名称</label>
 						<div class="col-sm-10">
-							<input id="dia_meisho" class="form-control" maxlength="40" placeholder="行政公園">
+							<input id="dia_meisho" class="form-control" maxlength="40" name="meisho" value="" placeholder="行政公園">
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_jusho">住所</label>
 						<div class="col-sm-10">
-							<input id="dia_jusho" class="form-control" maxlength="128" placeholder="行政市行政1-1-1">
+							<input id="dia_jusho" class="form-control" maxlength="128" name="jusho" value="" placeholder="行政市行政1-1-1">
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_tel">電話番号</label>
 						<div class="col-sm-10">
-							<input id="dia_tel" class="form-control" type="tel" maxlength="14" placeholder="000-000-0000">
+							<input id="dia_tel" class="form-control" type="tel" name="tel" value="" maxlength="14" placeholder="000-000-0000">
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_genre1">ジャンル１</label>
 						<div class="col-sm-10">
-							<select class="form-control" id="dia_genre1"  onChange="genre1change()">
+							<select class="form-control" id="dia_genre1" name="genre1">
 								<option value=0>ジャンル無し</option>
 							</select>
 						</div>
@@ -75,7 +85,7 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_genre2">ジャンル２</label>
 						<div class="col-sm-10">
-							<select class="form-control" id="dia_genre2">
+							<select class="form-control" id="dia_genre2" name="genre2">
 								<option value=0>ジャンル無し</option>
 							</select>
 						</div>
@@ -83,14 +93,14 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_latlng">緯度・経度</label>
 						<div class="col-sm-10">
-							<input id="dia_latlng" class="form-control" maxlength="33" placeholder="999.99999,999.99999">
+							<input id="dia_latlng" class="form-control" maxlength="33" name="latlng" value="" placeholder="999.99999,999.99999">
 							<input type="button" class="btn btn-default" style="display:inline;" onclick="map()" value="地図の確認" style="width: 100px;"/>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_imageurl">画像ＵＲＬ</label>
 						<div class="col-sm-10">
-							<input id="dia_imageurl" class="form-control" maxlength="300" placeholder="https://www.yyy.zzz.jpg">
+							<input id="dia_imageurl" class="form-control" name="imageurl" value="" maxlength="300" placeholder="https://www.yyy.zzz.jpg">
 							<input type="button" class="btn btn-default" style="display:inline; width: 100px;" onclick="image()" value="画像の確認"/>
 							※必ずhttpsから始まるURLを指定してください
 						</div>
@@ -98,12 +108,12 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_url">詳細ＵＲＬ</label>
 						<div class="col-sm-10">
-							<input id="dia_url" class="form-control" maxlength="300" placeholder="http://www.yyy.zzz.html">
+							<input id="dia_url" class="form-control" maxlength="300" name="url" value="" placeholder="http://www.yyy.zzz.html">
 						</div>
 					</div>
-					<input type="hidden" name="_token" value="{{ csrf_token() }}">
+					<input type="hidden" id="_token" name="_token" value="{{ csrf_token() }}">
 					<div class="text-right" >
-						<button type="submit" class="btn btn-primary">登録</button>
+						<button type="button" class="btn btn-primary" onclick="update()">登録</button>
 						<button id="dia_close" type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
 					</div>
 				</form>
