@@ -102,7 +102,7 @@ function drow() {
 	    			}
 	    	    }).fail(function () {
 	    	    	bootbox.alert({
-	    				message: "2削除できませんでした",
+	    				message: "削除できませんでした",
 	    				size: 'small'
 	    			});
 	    	    });
