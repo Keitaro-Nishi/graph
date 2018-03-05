@@ -4,6 +4,7 @@ var rowgid2 = [];
 var meishoOld = "";
 var uiKbn = 0;
 var gid2 = 0;
+
 $(function() {
 	$("#grid-basic").bootgrid({
 		selection: true,
@@ -41,7 +42,7 @@ $(function() {
 	    }
 	    //alert("Deselect: " + rowIds.join(","));
 	});
-
+});
 	/*
 	//ジャンルの設定
 	var j1value = <?php echo json_encode($j1value); ?>;
@@ -53,7 +54,7 @@ $(function() {
 		option.appendChild(text);
 		select.appendChild(option);
 	}*/
-});
+
 
 /*
 function drow() {
