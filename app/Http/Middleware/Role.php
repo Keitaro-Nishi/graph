@@ -18,6 +18,7 @@ class Role
 	{
 
 		if (Auth::user()->role == (int)2 ) {
+			error_log("★★★★★★★★★★★★redirect★★★★★★★★★★★★★★★★".Auth::user()->role);
 			return redirect('home');
 		}
 
