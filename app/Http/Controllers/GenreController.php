@@ -64,6 +64,7 @@ class GenreController
 				$gid2 = $genre->gid2;
 				$meisho = $genre->meisho;
 
+
 				if($bunrui == 1){
 					$daibunrui = $meisho;
 					$shoubunrui = '-';
