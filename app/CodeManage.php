@@ -23,6 +23,7 @@ class CodeManage extends Model
      * @var array
      */
     protected $hidden = [
+
     ];
 
 protected $primaryKey ='no';

@@ -28,6 +28,7 @@ class CodeManageController
 		}else{
 			return \Response::json(['status' => 'NG']);
 		}
+
 	}
 
 	public function update()

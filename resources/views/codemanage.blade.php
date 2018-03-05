@@ -46,6 +46,5 @@
 	<input id="btn_ins" type="button" class="btn btn-default" value="ユーザー登録" onclick="insert()">
 	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog"/>
 </div>
-
 <script src="{{ asset('js/codemanage.js') }}"></script>
 @endsection

@@ -27,7 +27,10 @@ $(function() {
 
 function drow() {
 	if(rowIds.length == 0){
-		alert("削除する行を選択してください");
+		bootbox.alert({
+			message: "削除する行を選択してください",
+			size: 'small'
+		});
 		return;
 	}
 	var successFlg = true;
