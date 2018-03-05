@@ -36,7 +36,7 @@ Route::middleware ( [
 	Route::get ( '/logimage/{deleteno}', 'LogimageController@delete' );
 
 	Route::get ( '/facility', 'FacilityController@index' )->name ( 'facility' );
-	Route::post ( '/facility', 'FacilityController@request' );
+	Route::post ( '/facility', 'FacilityController@update' );
 
 	Route::get ( '/genre', 'GenreController@index' )->name ( 'genre' );
 	Route::get ( '/genreinit', 'GenreController@init' )->name ( 'genreinit' );
