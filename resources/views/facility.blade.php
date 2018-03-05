@@ -12,8 +12,8 @@
 			<th data-column-id="meisho">名称</th>
 			<th data-column-id="jusho">住所</th>
 			<th data-column-id="tel">電話番号</th>
-			<th data-column-id="genre1">ジャンル１</th>
-			<th data-column-id="genre2">ジャンル2</th>
+			<th data-column-id="genreL">ジャンル１</th>
+			<th data-column-id="genreM">ジャンル2</th>
 			<th data-column-id="lat">緯度</th>
 			<th data-column-id="lng">経度</th>
 			<th data-column-id="imageurl">画像URL</th>
@@ -22,18 +22,21 @@
 		</tr>
 	</thead>
 	<tbody>
-		@foreach($facilities as $facility)
+		@foreach($facilitylists as $facilitylist)
 		<tr>
-			<td>{{$facility->id}}</td>
-			<td>{{$facility->meisho}}</td>
-			<td>{{$facility->jusho}}</td>
-			<td>{{$facility->tel}}</td>
-			<td>{{$facility->genre1}}</td>
-			<td>{{$facility->genre2}}</td>
-			<td>{{$facility->lat}}</td>
-			<td>{{$facility->lng}}</td>
-			<td>{{$facility->imageurl}}</td>
-			<td>{{$facility->url}}</td>
+			<td>{{$facilitylist['id']}}</td>
+			@if (Auth::user()->citycode == "00000")
+			<td>{{$facilitylist['citycode']}}</td>
+			@endif
+			<td>{{$facilitylist['meisho']}}</td>
+			<td>{{$facilitylist['jusho']}}</td>
+			<td>{{$facilitylist['tel']}}</td>
+			<td>{{$facilitylist['genreL']}}</td>
+			<td>{{$facilitylist['genreM']}}</td>
+			<td>{{$facilitylist['lat']}}</td>
+			<td>{{$facilitylist['lng']}}</td>
+			<td>{{$facilitylist['imageurl']}}</td>
+			<td>{{$facilitylist['url']}}</td>
 			<td></td>
 		</tr>
 		@endforeach
