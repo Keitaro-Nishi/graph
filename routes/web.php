@@ -43,5 +43,14 @@ Route::middleware(['auth'])->group(function () {
 		return view( 'linepush' );
 	})->name ( 'linepush' );
 
+
 	Route::get ( '/logindata', 'LogindataController@index' )->name ( 'logindata' )->middleware('role');
 });
+
+Route::get ( '/logindata', 'LogindataController@index' )->name ( 'logindata' );
+Route::get ( '/opinion', 'OpinionController@index' )->name ( 'opinion' );
+Route::get ( '/opinion/{deleteno}','OpinionController@delete' );
+
+Route::get ( '/codemanage', 'CodeManageController@index')->name('codemanage')->middleware('role');
+	//Route::get('/ajax/{deletecode}','UserdeleteController@delete');
+
