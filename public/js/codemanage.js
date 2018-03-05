@@ -8,7 +8,7 @@ $(function() {
 		columnSelection : false,
 		formatters: {
 	        "details": function($column, $row) {
-	        	return "<input type='button' value='修正' onclick='detailwin("  + $row.code12 + ")'> ";
+	        	return "<input type='button' class='btn btn-default' value='修正' onclick='detailwin("  + $row.code12 + ")'> ";
              }
 	    }
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
