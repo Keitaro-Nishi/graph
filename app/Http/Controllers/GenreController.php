@@ -98,8 +98,8 @@ class GenreController
 	public function delete(Request $request)
 	{
 		//$deleteNo = array();
-		$deleteNo = $request->id;
-		foreach($id as $delid){
+		$idarrays = $request->idarray;
+		foreach($idarrays as $delid){
 			$aos = explode(".", $delid);
 			$gid1 = $aos[0];
 			$gid2 = $aos[1];
