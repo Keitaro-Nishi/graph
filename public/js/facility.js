@@ -40,22 +40,25 @@ $(function() {
 
 function drow() {
 	if(rowIds.length == 0){
-		alert("削除する行を選択してください");
+		bootbox.alert({
+			message: "削除する行を選択してください",
+			size: 'small'
+		});
 		return;
 	}
-	var successFlg = true;
+	/*
 	var myRet = confirm("選択行を削除しますか？");
 	if ( myRet == true ){
 		for (var i = 0; i < rowIds.length; i++){
 			$.ajax({
 				type: "DELETE",
-				url: 'facility/'+ rowIds[i],
+				url: 'users/'+ rowIds[i],
 			}).then(
-					function(){
-					},
-					function(){
-						successFlg = false;
-					}
+				function(){
+				},
+				function(){
+					successFlg = false;
+				}
 			);
 		}
 		if( successFlg == true){
@@ -64,7 +67,48 @@ function drow() {
 		}else{
 			alert("削除できませんでした");
 		}
-	}
+	}*/
+
+	bootbox.confirm({
+	    message: "選択行を削除しますか？",
+	    buttons: {
+	    	confirm: {
+	            label: '<i class="fa fa-check"></i> はい'
+	        },
+	        cancel: {
+	            label: '<i class="fa fa-times"></i> いいえ'
+	        }
+	    },
+	    callback: function (result) {
+	        if(result){
+	        	var _token = document.getElementById('_token').value;
+	        	$.ajax({
+	    			type: "POST",
+	    			dataType: "JSON",
+	    			data:{
+	    				"param" : "delete",
+	    				"userids" : rowIds,
+	    				"_token" : _token
+	    			}
+	    		}).done(function (response) {
+	    			if(response.status == "OK"){
+	    				bootbox.alert({
+	    					message: "削除しました",
+	    					size: 'small',
+	    					callback: function () {
+	    						location.reload();
+	    					}
+	    				});
+	    			}
+	    	    }).fail(function () {
+	    	    	bootbox.alert({
+	    				message: "2削除できませんでした",
+	    				size: 'small'
+	    			});
+	    	    });
+	        }
+	    }
+	});
 }
 
 /*  施設情報修正  */

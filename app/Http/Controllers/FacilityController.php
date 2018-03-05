@@ -103,10 +103,10 @@ class FacilityController {
 		}
 		error_log ( "?????????????????" . $result . "?????????????????" );
 	}
-	public function delete(Request $request) {
-		$deleteid = $request->deleteid;
-		$deletefacility = Facility::find ( $deleteid );
-		$deletefacility->delete ();
-		return redirect ( '/facility' );
+	public function delete()
+	{
+		$input = $this->requestall;
+		Facility::destroy($input["ids"]);
+		return \Response::json(['status' => 'OK']);
 	}
 }
