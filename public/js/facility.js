@@ -166,11 +166,6 @@ function update(){
 					location.reload();
 				}
 			});
-		}else if(response.status == "NG"){
-			bootbox.alert({
-				message: "更新できませんでした",
-				size: 'small'
-			});
 		}else{
 			var mes = "";
 			for (var item in response) {

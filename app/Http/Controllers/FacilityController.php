@@ -7,6 +7,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use App\Genre;
 use App\Facility;
 
 class FacilityController {
@@ -14,17 +15,49 @@ class FacilityController {
 		$cityCD = Auth::user ()->citycode;
 
 		if ($cityCD = "00000") {
-			$facilities = Facility::all ();
+			$facilities = Facility::all ();/*->orderBy('citycode', 'ASC')*/
+
+			foreach ($facilities as $facility) {
+
+			$meisho = $facility->meisho;
+			$jusho = $facility->jusho;
+			$tel = $facility->tel;
+			$genreL;
+			$genreM;
+			$lat = $facility->lat;
+			$lng = $facility->lng;
+			$imageurl = $facility->imageurl;
+			$url = $facility->url;
+
+			$genre1 = $facility->genre1;
+			$genre2 = $facility->genre2;
+
+			$bunruiL = DB::table('genre')->select('meisho')->where('bunrui',1)->where('gid1',$genre1)->first();
+			$genreL = $bunruiL;
+			$bunruiM = DB::table('genre')->select('meisho')->where('bunrui',1)->where('gid1',$genre1)->first();
+			$genreM = $bunruiM;
+
+			$genrelist= [
+					'meisho'=>$meisho,
+					'jusho'=>$jusho,
+					'tel'=>$tel,
+					'genreL' =>$genreL,
+					'genreM' =>$genreM,
+					'lat'=>$lat,
+					'lng'=>$lng,
+					'imageurl'=>$imageurl,
+					'url'=>$url,
+			];
+			array_push($facilitylists, $facilitylist);
+			}
 		} else {
 			$facilities = Facility::where ( 'citycode', $cityCD )->get ();
 		}
-		return view ( 'facility', [
-				'facilities' => $facilities
-		] );
+		return view('facility',compact('facilitylists'));
 	}
+
 	public function update(Request $request) {
 		$input = \Request::all ();
-		error_log ( "?????????????????" . $input ["meisho"] . "?????????????????" );
 
 		$rules = [
 				'meisho' => 'string|max:255',
@@ -103,17 +136,6 @@ class FacilityController {
 					'geom' => \DB::raw ( "public.ST_GeomFromText('POINT({$lat} {$lng})',4326)" )
 					] );
 		}
-		/*
-		if ($result == "2") {
-			return \Response::json ( [
-					'status' => 'OK'
-			] );
-		} else {
-			return \Response::json ( [
-					'status' => 'NG'
-			] );
-		}
-		*/
 	}
 	public function delete(Request $request) {
 		$deleteid = $request->deleteid;
