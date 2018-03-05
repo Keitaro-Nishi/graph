@@ -48,44 +48,45 @@ function drow() {
 	}
 
 	bootbox.confirm({
-	    message: "選択行を削除しますか？",
-	    buttons: {
-	    	confirm: {
-	            label: '<i class="fa fa-check"></i> はい'
-	        },
-	        cancel: {
-	            label: '<i class="fa fa-times"></i> いいえ'
-	        }
-	    },
-	    callback: function (result) {
-	        if(result){
-	        	var _token = document.getElementById('_token').value;
-	        	$.ajax({
-	    			type: "POST",
-	    			dataType: "JSON",
-	    			data:{
-	    				"param" : "delete",
-	    				"ids" : rowIds,
-	    				"_token" : _token
-	    			}
-	    		}).done(function (response) {
-	    			if(response.status == "OK"){
-	    				bootbox.alert({
-	    					message: "削除しました",
-	    					size: 'small',
-	    					callback: function () {
-	    						location.reload();
-	    					}
-	    				});
-	    			}
-	    	    }).fail(function () {
-	    	    	bootbox.alert({
-	    				message: "削除できませんでした",
-	    				size: 'small'
-	    			});
-	    	    });
-	        }
-	    }
+		message: "選択行を削除しますか？",
+		buttons: {
+			confirm: {
+				label: '<i class="fa fa-check"></i> はい'
+			},
+			cancel: {
+				label: '<i class="fa fa-times"></i> いいえ'
+			}
+		},
+		callback: function (result) {
+			if(result){
+				var _token = document.getElementById('_token').value;
+				$.ajax({
+					type: "POST",
+					dataType: "JSON",
+					data:{
+						"param" : "delete",
+						"ids" : rowIds,
+						"_token" : _token
+					}
+
+				}).done(function (response) {
+					if(response.status == "OK"){
+						bootbox.alert({
+							message: "削除しました",
+							size: 'small',
+							callback: function () {
+								location.reload();
+							}
+						});
+					}
+				}).fail(function () {
+					bootbox.alert({
+						message: "削除できませんでした",
+						size: 'small'
+					});
+				});
+			}
+		}
 	});
 }
 
@@ -181,7 +182,7 @@ function update(){
 			"_token" : _token
 		}
 	}).done(function (response) {
-		if(response.status == "OK"){
+		if(response.status == ""){
 			bootbox.alert({
 				message: "更新しました",
 				size: 'small',

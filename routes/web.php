@@ -16,9 +16,7 @@ Route::get ( '/', function () {
 
 Auth::routes ();
 
-Route::middleware ( [
-		'auth'
-] )->group ( function () {
+Route::middleware(['auth'])->group(function () {
 	Route::get ( '/register', 'Auth\RegisterController@showRegistrationForm' )->name ( 'register' )->middleware ( 'role' );
 
 	Route::get ( '/home', 'HomeController@index' )->name ( 'home' );
@@ -48,5 +46,4 @@ Route::middleware ( [
 	Route::get ( '/codemanage', 'CodeManageController@index' )->name ( 'codemanage' )->middleware ( 'role' );
 
 	Route::get ( '/logindata', 'LogindataController@index' )->name ( 'logindata' )->middleware ( 'role' );
-
 } );
