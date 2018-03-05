@@ -36,7 +36,6 @@ class FacilityController {
 
 	public function update() {
 		$input = \Request::all ();
-		error_log ( "?????????????????" . $input ["meisho"] . "?????????????????" );
 
 		$rules = [
 				'meisho' => 'string|max:255',
@@ -79,8 +78,6 @@ class FacilityController {
 		$imageurl = $input ["imageurl"];
 		// URL
 		$url = $input ["url"];
-
-		error_log ( "?????????????????" . $citycode . "?????????????????" );
 		if ($input ["id"] == null) {
 			$result = DB::table ( 'facility' )->insertGetId ( [
 					'citycode' => $citycode,
@@ -97,7 +94,6 @@ class FacilityController {
 					'geom' => \DB::raw ( "public.ST_GeomFromText('POINT({$lat} {$lng})',4326)" )
 			] );
 		} else {
-			error_log ( "?????????????????" . $id . "?????????????????" );
 			$result = DB::table ( 'facility' )->where ( 'id', $id )->update ( [
 					'citycode' => $citycode,
 					'meisho' => $meisho,
@@ -118,7 +114,7 @@ class FacilityController {
 	public function delete() {
 		$input = $this->requestall;
 		$ids =  $input ["ids"] ;
-		//$sql = DB::table('facility')->where('id', $ids)->delete();
+		$sql = DB::table('facility')->where('id', $ids)->delete();
 		return \Response::json ( [
 				'status' => 'OK'
 		] );
