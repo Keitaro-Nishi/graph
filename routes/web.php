@@ -44,7 +44,6 @@ Route::middleware(['auth'])->group(function () {
 		return view( 'linepush' );
 	})->name ( 'linepush' );
 
-
 	Route::get ( '/logindata', 'LogindataController@index' )->name ( 'logindata' )->middleware('role');
 
 	Route::get ( '/codemanage', 'CodeManageController@index')->name('codemanage')->middleware('role');
