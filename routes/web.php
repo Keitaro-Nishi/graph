@@ -39,7 +39,7 @@ Route::middleware(['auth'])->group(function () {
 
 
 	Route::get ( '/genre', 'GenreController@index' )->name ( 'genre' );
-	Route::get ( '/genre/{id}','GenreController@delete');
+	Route::get ( '/genre/{idarray}','GenreController@delete');
 	Route::get ( '/genreinit', 'GenreController@init' )->name ( 'genreinit' );
 
 	Route::get ( '/linepush',function(){
