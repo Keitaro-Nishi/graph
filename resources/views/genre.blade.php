@@ -6,9 +6,9 @@
 	<thead>
 		<tr>
 			   @if (Auth::user()->citycode == "00000")
-			   <th data-column-id='citycode' data-type="numeric"  data-width='20%' >市町村コード</th>
+			   <th data-column-id='citycode' data-identifier='true'   data-width='20%' >市町村コード</th>
 			   @else
-			   <th data-column-id='citycode' data-type="numeric"  data-width='20%' data-visible="false"></th>
+			   <th data-column-id='citycode' data-identifier='true'  data-width='20%' data-visible="false"></th>
 			   @endif
 			   <th data-column-id='bunrui' data-width='5%' >分類</th>
                <th data-column-id='g1' data-width='20%' >大分類名称</th>
