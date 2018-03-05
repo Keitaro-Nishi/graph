@@ -40,16 +40,16 @@ $(function() {
 
 
 function drow() {
-	alert(rowIds);
-	alert(rowcitycode);
-	alert(rowgid1);
-	alert(rowgid2);
 
-	/*
+
 	if(rowIds.length == 0){
-		alert("削除する行を選択してください");
+		bootbox.alert({
+			message: "削除する行を選択してください",
+			size: 'small'
+		});
 		return;
 	}
+
 	//大分類が選択されている場合、小分類を削除する
 	var idarray = [];
 	var g1array = [];
@@ -69,6 +69,50 @@ function drow() {
 			}
 		}
 	});
+
+
+	bootbox.confirm({
+	    message: "選択行を削除しますか？\n※大分類を削除すると関連する小分類も削除されます",
+	    buttons: {
+	    	confirm: {
+	            label: '<i class="fa fa-check"></i> はい'
+	        },
+	        cancel: {
+	            label: '<i class="fa fa-times"></i> いいえ'
+	        }
+	    },
+	    callback: function (result) {
+	        if(result){
+	        	var _token = document.getElementById('_token').value;
+	        	$.ajax({
+	    			type: "POST",
+	    			dataType: "JSON",
+	    			data:{
+	    				"param" : "delete",
+	    				"ids"    : idarray
+	    				//"_token" : _token
+	    			}
+	    		}).done(function (response) {
+	    			if(response.status == "OK"){
+	    				bootbox.alert({
+	    					message: "削除しました",
+	    					size: 'small',
+	    					callback: function () {
+	    						location.reload();
+	    					}
+	    				});
+	    			}
+	    	    }).fail(function () {
+	    	    	bootbox.alert({
+	    				message: "2削除できませんでした",
+	    				size: 'small'
+	    			});
+	    	    });
+	        }
+	    }
+	});
+}
+	/*
 	var myRet = false;
 	if(g1array.length > 0){
 		myRet = confirm("選択行を削除しますか？\n※大分類を削除すると関連する小分類も削除されます");
@@ -78,8 +122,9 @@ function drow() {
 	if ( myRet == true ){
 		$.ajax({
 			type: "POST",
-			url: "genredel.php",
+			dataType: "JSON",
 			data: {
+				"param" : "delete",
 				"id" : idarray
 			}
 		}).done(function (response) {
@@ -93,6 +138,6 @@ function drow() {
 		}).fail(function () {
 			alert("削除できませんでした");
 		});
-	}
-	*/
-}
+	}*/
+
+
