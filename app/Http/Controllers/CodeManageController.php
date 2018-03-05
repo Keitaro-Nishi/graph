@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
-use App\Botlog;
+use Illuminate\Support\Facades\Validator;
+use App\Code;
 
 class CodeManageController
 {
@@ -12,20 +14,94 @@ class CodeManageController
 	public function index(Request $request)
 	{
 		$cityCD = Auth::user()->citycode;
-		//$botlogs = Botlog::all();
-		$botlogs = Botlog::where('citycode', $cityCD)->get();
-		return view('codemanage',['botlogs'=>$botlogs]);
-
+		$codes= Code::where('citycode', $cityCD)->get();
+		$bunrui = Code::where('citycode', $cityCD)->where('code1', (int)0)->get();
+		return view('codemanage',['codes'=>$codes,'bunrui'=>$bunrui]);
 	}
 
-	public function delete(Request $request)
+	public  function request(){
+		$this->requestall = \Request::all();
+		if($this->requestall["param"] == "update"){
+			return $this->update();
+		}elseif ($this->requestall["param"] == "delete"){
+			return $this->delete();
+		}else{
+			return \Response::json(['status' => 'NG']);
+		}
+	}
+
+	public function update()
 	{
+		/*
+		$input = $this->requestall;
 
-		$deleteno = $request->deleteno;
-		$deletebotlog = Botlog::find($deleteno);
-		$deletebotlog->delete();
+		$rules = [ 'citycode' => 'required|string'];
 
-		return redirect('/botlog');
+		if($input["updateKbn"] == "true"){
+			$rules = $rules + ['userid' => 'required|string|max:255'];
+		}else{
+			$rules = $rules + ['userid' => 'required|string|max:255|unique:users'];
+		}
+
+		$rules = $rules + [
+				'username' => 'required|string|max:255',
+				'organization' => 'required|string|max:255'
+		];
+
+		if($input["passreset"] == "true"){
+			$rules = $rules + ['password' => 'required|string|min:6|confirmed'];
+		}
+
+		$validator = Validator::make($input,$rules);
+
+		if($validator->fails())
+		{
+			return $validator->errors();
+		}
+
+		//$user = new User;
+		$user = User::firstOrNew(['userid' => $input["userid"]]);
+		$cityCD = Auth::user()->citycode;
+		//市町村コード
+		if($cityCD == "00000"){
+			$user->citycode= $input["citycode"];
+		}else{
+			$user->citycode= $cityCD;
+		}
+		//ユーザーＩＤ
+		$user->userid= $input["userid"];
+		//名前
+		$user->name= $input["username"];
+		//権限
+		if($cityCD == "00000"){
+			$user->role= (int)1;
+		}else{
+			$user->role= (int)2;
+		}
+		//所属
+		$user->organization= $input["organization"];
+		//パスワード
+		if($input["passreset"] == "true"){
+			$user->password= bcrypt($input["password"]);
+		}
+		//email
+		$user->email= "";
+		//予備
+		$user->reserve= "";
+
+		$result = $user->save();
+
+		return \Response::json(['status' => 'OK']);
+		*/
+	}
+
+	public function delete()
+	{
+		/*
+		$input = $this->requestall;
+		User::destroy($input["userids"]);
+		return \Response::json(['status' => 'OK']);
+		*/
 	}
 
 }

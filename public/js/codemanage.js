@@ -4,21 +4,21 @@ $(function() {
 	$("#grid-basic").bootgrid({
 		selection : true,
 		multiSelect : true,
-		rowSelect : true,
 		keepSelection : true,
-		/*formatters: {
+		columnSelection : false,
+		formatters: {
 	        "details": function($column, $row) {
-	        	return "<input type='button' value='�ڍ�' onclick='detailwin("  + $row.no + ")'> ";
+	        	return "<input type='button' value='修正' onclick='detailwin("  + $row.code12 + ")'> ";
              }
-	    }*/
+	    }
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
 		for (var i = 0; i < rows.length; i++) {
-			rowIds.push(rows[i].no);
+			rowIds.push(rows[i].code12);
 		}
 	}).on("deselected.rs.jquery.bootgrid", function(e, rows) {
 		for (var i = 0; i < rows.length; i++) {
 			rowIds.some(function(v, ii) {
-				if (v == rows[i].no)
+				if (v == rows[i].code12)
 					rowIds.splice(ii, 1);
 			});
 		}

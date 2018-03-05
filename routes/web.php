@@ -21,8 +21,8 @@ Route::middleware(['auth'])->group(function () {
 
 	Route::get ( '/home', 'HomeController@index' )->name ( 'home' );
 
-	Route::get ( '/users', 'UserController@index' )->name ( 'users' );
-	Route::post ( '/users', 'UserController@request' );
+	Route::get ( '/users', 'UserController@index' )->name ( 'users' )->middleware('role');
+	Route::post ( '/users', 'UserController@request' )->middleware('role');
 
 	Route::get ( '/opinion', 'OpinionController@index' )->name ( 'opinion' );
 	Route::get ( '/opinion/{deleteno}','OpinionController@delete' );
@@ -35,12 +35,7 @@ Route::middleware(['auth'])->group(function () {
 
 
 	Route::get ( '/logindata', 'LogindataController@index' )->name ( 'logindata' )->middleware('role');
+
+	Route::get ( '/codemanage', 'CodeManageController@index')->name('codemanage')->middleware('role');
+	Route::post ( '/codemanage', 'CodeManageController@request')->name('codemanage')->middleware('role');
 });
-
-Route::get ( '/logindata', 'LogindataController@index' )->name ( 'logindata' );
-Route::get ( '/opinion', 'OpinionController@index' )->name ( 'opinion' );
-Route::get ( '/opinion/{deleteno}','OpinionController@delete' );
-
-Route::get ( '/codemanage', 'CodeManageController@index')->name('codemanage')->middleware('role');
-	//Route::get('/ajax/{deletecode}','UserdeleteController@delete');
-
