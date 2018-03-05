@@ -70,7 +70,7 @@ function drow() {
 	});
 
 	bootbox.confirm({
-	    message: "選択行を削除しますか？",
+	    message: "選択行を削除しますか？\n※大分類を削除すると関連する小分類も削除されます",
 	    buttons: {
 	    	confirm: {
 	            label: '<i class="fa fa-check"></i> はい'
