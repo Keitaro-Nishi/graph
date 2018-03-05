@@ -45,7 +45,9 @@ Route::middleware(['auth'])->group(function () {
 	})->name ( 'linepush' );
 	Route::get ( '/logindata', 'LogindataController@index' )->name ( 'logindata' )->middleware('role');
 
-	Route::get ( '/codemanage', 'CodeManageController@index')->name('codemanage')->middleware('role');
-	Route::post ( '/codemanage', 'CodeManageController@request')->name('codemanage')->middleware('role');
+	//Route::get ( '/codemanage', 'CodeManageController@index')->name('codemanage')->middleware('role');
+	//Route::post ( '/codemanage', 'CodeManageController@request')->name('codemanage')->middleware('role');
+	Route::get ( '/codemanage', 'CodeManageController@index')->name('codemanage');
+	Route::post ( '/codemanage', 'CodeManageController@request')->name('codemanage');
 
 });
