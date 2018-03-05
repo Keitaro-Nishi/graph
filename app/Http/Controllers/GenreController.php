@@ -115,11 +115,8 @@ class GenreController
 			$aos = explode(".", $iddata);
 			$gid1 = $aos[0];
 			$gid2 = $aos[1];
-		 	/*error_log("★★★★★★★★★★★★★");
-		 	error_log($gid1);
-		 	error_log($gid2);
-		 	*/
 			DB::table('genre')->where('citycode',$cityCD)->where('gid1',$gid1)->where('gid2',$gid2)->delete();
+
 			if($gid2 == 0){
 				DB::table('genre')->where('citycode',$cityCD)->where('gid1',$gid1)->delete();
 			}
