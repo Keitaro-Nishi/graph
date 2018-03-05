@@ -83,14 +83,14 @@ function drow() {
 	    },
 	    callback: function (result) {
 	        if(result){
-	        	var _token = document.getElementById('_token').value;
+	        	//var _token = document.getElementById('_token').value;
 	        	$.ajax({
 	    			type: "POST",
 	    			dataType: "JSON",
 	    			data:{
 	    				"param" : "delete",
 	    				"ids"    : idarray
-	    				"_token" : _token
+	    				//"_token" : _token
 	    			}
 	    		}).done(function (response) {
 	    			if(response.status == "OK"){
