@@ -82,7 +82,7 @@ function drow() {
 		callback: function (result) {
 			if(result){
 				var _token = document.getElementById('_token').value;
-				console.log(_token);
+				console.log(ids);
 				$.ajax({
 					type: "POST",
 					dataType: "JSON",
@@ -91,7 +91,6 @@ function drow() {
 						"ids" : rowIds,
 						"_token" : _token
 					}
-				console.log(ids);
 				}).done(function (response) {
 					if(response.status == "OK"){
 						bootbox.alert({
