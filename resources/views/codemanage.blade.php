@@ -8,7 +8,7 @@
 <div class="container">
 <select class="form-control" id="codesel" onChange="codeselChange()" width="200">
 		@foreach($bunrui as $value)
-			<option value={{$value->code2}} selected>{{$value->meisho}}</option>
+			<option value="0" selected>{{$value->meisho}}</option>
 		@endforeach
 </select>
 <table id="grid-basic"
