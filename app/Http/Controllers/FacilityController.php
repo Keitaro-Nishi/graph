@@ -40,7 +40,7 @@ class FacilityController {
 				$bunruiM = DB::table ( 'genre' )->select ( 'meisho' )->where ( 'bunrui', 2 )->where ( 'gid2', $genre2 )->first ();
 				$genreM = $bunruiM;
 
-				error_log("☆☆☆☆☆☆☆☆",$facility->genre2,"☆☆☆☆☆☆☆☆");
+				error_log("☆☆☆☆☆☆☆☆",$genre2,"☆☆☆☆☆☆☆☆");
 
 				$facilitylist = [
 						'citycode' => $citycode,
