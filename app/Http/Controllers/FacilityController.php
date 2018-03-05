@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Facility;
+use App\Genre;
 
 class FacilityController {
 	public function index(Request $request) {
@@ -15,25 +16,25 @@ class FacilityController {
 
 		if ($cityCD = "00000") {
 			$facilities = Facility::all ();
+			return view('facility',['facilities' => $facilities]);
 		} else {
 			$facilities = Facility::where ( 'citycode', $cityCD )->get ();
-		}
-		return view ( 'facility', [
-				'facilities' => $facilities
-		] );
-	}
-
-	public  function request(){
-		$this->requestall = \Request::all();
-		if($this->requestall["param"] == "update"){
-			return $this->update();
-		} elseif ($this->requestall["param"] == "delete"){
-			return $this->delete();
-		} else{
-			return \Response::json(['status' => 'NG']);
+			$genre1 = Genre::where ( 'citycode', $cityCD )->where ( 'code1', ( int ) 0 )->get ();
+			return view('facility',['facilities' => $facilities, 'enre1' => $genre1]);
 		}
 	}
-
+	public function request() {
+		$this->requestall = \Request::all ();
+		if ($this->requestall ["param"] == "update") {
+			return $this->update ();
+		} elseif ($this->requestall ["param"] == "delete") {
+			return $this->delete ();
+		} else {
+			return \Response::json ( [
+					'status' => 'NG'
+			] );
+		}
+	}
 	public function update() {
 		$input = \Request::all ();
 
@@ -113,10 +114,12 @@ class FacilityController {
 
 	public function delete() {
 		$input = $this->requestall;
-		$ids =  $input ["ids"] ;
-		$sql = DB::table('facility')->where('id', $ids)->delete();
-		return \Response::json ( [
-				'status' => 'OK'
-		] );
+		$ids = $input ["ids"];
+		$cityCD = Auth::user ()->citycode;
+
+		foreach ( $ids as $id ) {
+			DB::table ( 'facility' )->where ( 'citycode', $cityCD )->where ( 'id', $ids )->delete ();
+		}
+		return \Response::json(['status' => 'OK']);
 	}
 }
