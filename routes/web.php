@@ -16,8 +16,10 @@ Route::get ( '/', function () {
 
 Auth::routes ();
 
-Route::middleware(['auth'])->group(function () {
-	Route::get ( '/register', 'Auth\RegisterController@showRegistrationForm' )->name('register')->middleware('role');
+Route::middleware ( [
+		'auth'
+] )->group ( function () {
+	Route::get ( '/register', 'Auth\RegisterController@showRegistrationForm' )->name ( 'register' )->middleware ( 'role' );
 
 	Route::get ( '/home', 'HomeController@index' )->name ( 'home' );
 
@@ -25,13 +27,13 @@ Route::middleware(['auth'])->group(function () {
 	Route::get ( '/users/{deletecode}', 'UserController@delete' );
 
 	Route::get ( '/opinion', 'OpinionController@index' )->name ( 'opinion' );
-	Route::get ( '/opinion/{deleteno}','OpinionController@delete' );
+	Route::get ( '/opinion/{deleteno}', 'OpinionController@delete' );
 
 	Route::get ( '/botlog', 'BotlogController@index' )->name ( 'botlog' );
-	Route::get ( '/botlog/{deleteno}','BotlogController@delete' );
+	Route::get ( '/botlog/{deleteno}', 'BotlogController@delete' );
 
 	Route::get ( '/logimage', 'LogimageController@index' )->name ( 'logimage' );
-	Route::get ( '/logimage/{deleteno}','LogimageController@delete' );
+	Route::get ( '/logimage/{deleteno}', 'LogimageController@delete' );
 
 	Route::get ( '/facility', 'FacilityController@index' )->name ( 'facility' );
 	Route::post ( '/facility', 'FacilityController@request' );
@@ -39,18 +41,11 @@ Route::middleware(['auth'])->group(function () {
 	Route::get ( '/genre', 'GenreController@index' )->name ( 'genre' );
 	Route::get ( '/genreinit', 'GenreController@init' )->name ( 'genreinit' );
 
-	Route::get ( '/linepush',function(){
-		return view( 'linepush' );
-	})->name ( 'linepush' );
+	Route::get ( '/linepush', function () {
+		return view ( 'linepush' );
+	} )->name ( 'linepush' );
 
+	Route::get ( '/codemanage', 'CodeManageController@index' )->name ( 'codemanage' )->middleware ( 'role' );
 
-	Route::get ( '/logindata', 'LogindataController@index' )->name ( 'logindata' )->middleware('role');
-});
-
-Route::get ( '/logindata', 'LogindataController@index' )->name ( 'logindata' );
-Route::get ( '/opinion', 'OpinionController@index' )->name ( 'opinion' );
-Route::get ( '/opinion/{deleteno}','OpinionController@delete' );
-
-Route::get ( '/codemanage', 'CodeManageController@index')->name('codemanage')->middleware('role');
-	//Route::get('/ajax/{deletecode}','UserdeleteController@delete');
-
+	Route::get ( '/logindata', 'LogindataController@index' )->name ( 'logindata' )->middleware ( 'role' );
+} );
