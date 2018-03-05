@@ -109,8 +109,6 @@ class GenreController
 		$idsdata = $input["ids"];
 		$cityCD = Auth::user()->citycode;
 
-		//User::destroy($input["userids"]);
-
 		foreach ($idsdata as $iddata) {
 			$aos = explode(".", $iddata);
 			$gid1 = $aos[0];
@@ -125,24 +123,6 @@ class GenreController
 		return \Response::json(['status' => 'OK']);
 	}
 
-/*
-	public function delete(Request $request)
-	{
-		//$deleteNo = array();
-		$idarrays = $request->idarray;
-		foreach($idarrays as $delid){
-			$aos = explode(".", $delid);
-			$gid1 = $aos[0];
-			$gid2 = $aos[1];
-			error_log("★★★★★★★");
-			error_log($gid1);
-		}
-		//$deletegenre = Genre::find($deleteNo);
-		//$deletegenre->delete();
-
-		return redirect('/genre');
-	}
-*/
 
 	public function init(Request $request)
 	{
