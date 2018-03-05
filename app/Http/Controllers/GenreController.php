@@ -18,7 +18,7 @@ class GenreController
 		$genrelists= array();
 
 
-		if($cityCD == "00000"){
+		/*if($cityCD == "00000"){
 			$genres = DB::table('genre')->orderBy('citycode', 'ASC')->orderBy('gid1', 'ASC')->orderBy('gid2', 'ASC')->get();
 
 			foreach ($genres as $genre) {
@@ -52,7 +52,7 @@ class GenreController
 
 				array_push($genrelists, $genrelist);
 			}
-		}else{
+		}else{*/
 			$genres= Genre::where('citycode', $cityCD)->orderBy('gid1', 'ASC')->orderBy('gid2', 'ASC')->get();
 			$genregid1 = DB::table('genre')->select('gid1')->where('citycode', $cityCD)->get();
 
@@ -89,7 +89,7 @@ class GenreController
 				array_push($genrelists, $genrelist);
 			}
 
-		}
+		//}
 		return view('genre',compact('genrelists'));
 	}
 

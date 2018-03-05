@@ -5,12 +5,8 @@
 	class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
-			   <th data-column-id='no'  data-width='3%'></th>
-			   @if (Auth::user()->citycode == "00000")
-			   <th data-column-id='citycode' data-width='20%' >市町村コード</th>
-			   @else
+			   <th data-column-id='no' data-identifier='true' data-width='3%'></th>
 			   <th data-column-id='citycode' data-width='20%' data-visible="false"></th>
-			   @endif
 			   <th data-column-id='bunrui' data-width='5%' >分類</th>
                <th data-column-id='g1' data-width='20%' >大分類名称</th>
                <th data-column-id='g2' data-width='20%' >小分類名称</th>
@@ -23,11 +19,7 @@
 		@foreach($genrelists as $genrelist)
 		<tr>
 			<td>{{$genrelist['gid1'].$genrelist['gid2']}}</td>
-			@if (Auth::user()->citycode == "00000")
 			<td>{{$genrelist['citycode']}}</td>
-			@else
-			<td>{{$genrelist['citycode']}}</td>
-			@endif
 			@if($genrelist['bunrui'] == 1)
 			<td>大分類</td>
 			@else
