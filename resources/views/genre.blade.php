@@ -5,7 +5,7 @@
 	class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
-			   <th data-column-id='no' data-identifier='true' data-width='3%'></th>
+			   <th data-column-id='no' data-identifier='true' data-width='3%' data-visible="false"></th>
 			   <th data-column-id='citycode' data-width='20%' data-visible="false"></th>
 			   <th data-column-id='bunrui' data-width='5%' >分類</th>
                <th data-column-id='g1' data-width='20%' >大分類名称</th>
