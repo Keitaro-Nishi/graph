@@ -6,9 +6,9 @@
 
 @section('content')
 <div class="container">
-<select class="form-control" id="codesel" onChange="codeselChange()" width="200">
+<select class="col-sm-3 form-control" id="codesel" onChange="codeselChange()">
 		@foreach($bunrui as $value)
-			<option value="0" selected>{{$value->meisho}}</option>
+			<option value="{{$value->code2}}" selected>{{$value->meisho}}</option>
 		@endforeach
 </select>
 <table id="grid-basic"
