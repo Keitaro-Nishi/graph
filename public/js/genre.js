@@ -7,8 +7,8 @@ var gid2 = 0;
 
 $(function() {
 	$("#grid-basic").bootgrid({
-		selection: true,
-		multiSelect: true,
+		selection : true,
+		multiSelect : true,
 		rowSelect : true,
 		columnSelection : false,
 	    keepSelection: true
