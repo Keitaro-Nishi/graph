@@ -20,7 +20,6 @@ class GenreController
 
 
 		if($cityCD == "00000"){
-			//$genres = Genre::all();
 			$genres = DB::table('genre')->orderBy('citycode', 'ASC')->orderBy('gid1', 'ASC')->orderBy('gid2', 'ASC')->get();
 
 			foreach ($genres as $genre) {
@@ -90,9 +89,6 @@ class GenreController
 			}
 
 		}
-		error_log(print_r($genres,true));
-		error_log("●●●●●●●");
-		error_log(print_r($genrelists,true));
 		return view('genre',compact('genrelists'));
 	}
 
