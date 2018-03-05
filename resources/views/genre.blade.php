@@ -7,8 +7,6 @@
 		<tr>
 			   @if (Auth::user()->citycode == "00000")
 			   <th data-column-id='citycode' >市町村コード</th>
-			   @else
-			   <th data-column-id='citycode2' data-visible="false"></th>
 			   @endif
 			   <th data-column-id='bunrui' >分類</th>
                <th data-column-id='g1'  >大分類名称</th>
@@ -22,8 +20,6 @@
 		@foreach($genrelists as $genrelist)
 		<tr>
 			@if (Auth::user()->citycode == "00000")
-			<td>{{$genrelist['citycode']}}</td>
-			@else
 			<td>{{$genrelist['citycode']}}</td>
 			@endif
 			@if($genrelist['bunrui'] == 1)
