@@ -34,8 +34,6 @@
 	</tbody>
 </table>
 
-<div><input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}"></div>
-
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
 	<input id="btn_ins" type="button" class="btn btn-default" value="ジャンルの追加" onclick="irow()">

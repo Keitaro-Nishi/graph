@@ -93,38 +93,24 @@ class GenreController
 		return view('genre',compact('genrelists'));
 	}
 
-	public  function request(){
-		$this->requestall = \Request::all();
-		if ($this->requestall["param"] == "delete"){
-			return $this->delete();
-		}else{
-			return \Response::json(['status' => 'NG']);
-		}
-	}
 
-	public function delete()
-	{
-		$input = $this->requestall;
-		//User::destroy($input["userids"]);
-		error_log("★★★★★★");
-		 foreach ($input["ids"] as $id) {
-		 //error_log("★★★★★★");
-		 error_log($id);
-		 //error_log("★★★★★★★★★★★★★delete2★★★★★★★★★★★★★★★".$userid);
-		 }
 
-		return \Response::json(['status' => 'OK']);
-	}
-
-	/*
 	public function delete(Request $request)
 	{
-		$deleteNo = $request->deleteno;
-		$deletegenre = Genre::find($deleteNo);
-		$deletegenre->delete();
+		//$deleteNo = array();
+		$deleteNo = $request->id;
+		foreach($id as $delid){
+			$aos = explode(".", $delid);
+			$gid1 = $aos[0];
+			$gid2 = $aos[1];
+			error_log("★★★★★★★");
+			error_log($gid1);
+		}
+		//$deletegenre = Genre::find($deleteNo);
+		//$deletegenre->delete();
 
 		return redirect('/genre');
-	}*/
+	}
 
 
 	public function init(Request $request)
