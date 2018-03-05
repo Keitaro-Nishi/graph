@@ -12,5 +12,10 @@ $(function() {
 		rowSelect : true,
 		columnSelection : false,
 	    keepSelection: true
-	})
+	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
+
+
+	}).on("deselected.rs.jquery.bootgrid", function(e, rows) {
+
+	});
 });
