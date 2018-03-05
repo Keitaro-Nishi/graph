@@ -14,11 +14,10 @@ class GenreController
 
 		$Authrole = Auth::user()->role;
 		$cityCD = Auth::user()->citycode;
-		//$result = Genre::where('bunrui', 1)->get();
-		//$result2 = Genre::where('bunrui',1)->where('gid1', 1)->get();
+
 		$genrearray= array();
 		$genrearrays= array();
-		//$genrearrays = new Genre;
+
 
 		if($cityCD == "00000"){
 			//$genres = Genre::all();
@@ -40,13 +39,9 @@ class GenreController
 				}
 
 				if($bunrui == 2){
-					//$result = DB::table('genre')->select('meisho')->where('bunrui',1)->where('gid1',$gid1)->get();
 					$result = DB::table('genre')->select('meisho')->where('bunrui',1)->where('gid1',$gid1)->first();
 					$shoubunrui = $meisho;
 					$daibunrui= $result->meisho;
-						/*foreach ($result as $result2) {
-							$daibunrui= $result2->meisho;
-						}*/
 				}
 
 				$genrearray= [
