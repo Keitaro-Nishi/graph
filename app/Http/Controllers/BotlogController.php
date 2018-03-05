@@ -11,12 +11,14 @@ class BotlogController
 
 	public function index(Request $request)
 	{
+
 		$cityCD = Auth::user()->citycode;
 		if($cityCD = "00000"){
 			$botlogs = Botlog::all();
 		}else{
 			$botlogs= Botlog::where('citycode', $cityCD)->get();
 		}
+
 		return view('botlog',['botlogs'=>$botlogs]);
 	}
 
