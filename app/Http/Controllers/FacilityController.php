@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Facility;
 
 class FacilityController {
-public function index(Request $request) {
+	public function index(Request $request) {
 		$cityCD = Auth::user ()->citycode;
 
 		if ($cityCD = "00000") {
