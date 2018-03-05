@@ -14,7 +14,7 @@ class FacilityController {
 	public function index(Request $request) {
 		$cityCD = Auth::user ()->citycode;
 
-		if ($cityCD = "00000") {
+		//if ($cityCD = "00000") {
 			$facilities = Facility::all (); /* ->orderBy('citycode', 'ASC') */
 
 			foreach ( $facilities as $facility ) {
@@ -33,7 +33,7 @@ class FacilityController {
 				$genre1 = $facility->genre1;
 				$genre2 = $facility->genre2;
 
-				error_log("☆☆☆☆☆☆☆☆",$facility->genre2,"☆☆☆☆☆☆☆☆");
+				error_log("☆☆☆☆☆☆☆☆",$genre2,"☆☆☆☆☆☆☆☆");
 
 				$bunruiL = DB::table ( 'genre' )->select ( 'meisho' )->where ( 'bunrui', 1 )->where ( 'gid1', $genre1 )->first ();
 				$genreL = $bunruiL;
@@ -56,9 +56,9 @@ class FacilityController {
 				];
 				array_push ( $facilitylists, $facilitylist );
 			}
-		} else {
-			$facilities = Facility::where ( 'citycode', $cityCD )->get ();
-		}
+		//} else {
+			//$facilities = Facility::where ( 'citycode', $cityCD )->get ();
+		//}
 		return view ( 'facility', compact ( 'facilitylists' ) );
 	}
 	public function update(Request $request) {
