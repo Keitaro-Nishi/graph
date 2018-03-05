@@ -6,9 +6,9 @@
 	<thead>
 		<tr>
 			   @if (Auth::user()->citycode == "00000")
-			   <th data-column-id='citycode' >市町村コード</th>
+			   <th data-column-id='citycode' data-type='numeric' data-identifier='true' data-width='3%' >市町村コード</th>
 			   @else
-			   <th data-column-id='citycode' data-visible="false"></th>
+			   <th data-column-id='citycode' data-type='numeric' data-identifier='true' data-width='3%' data-visible="false"></th>
 			   @endif
 			   <th data-column-id='bunrui' >分類</th>
                <th data-column-id='g1'  >大分類名称</th>
@@ -39,7 +39,7 @@
 		@endforeach
 	</tbody>
 </table>
-<!--
+
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
 	<input id="btn_ins" type="button" class="btn btn-default" value="ジャンルの追加" onclick="irow()">
@@ -47,7 +47,7 @@
 	<input id="btn_int" type="button" class="btn btn-default" value="類義語追加" onclick="entity()">
 	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog" value="モーダル表示" />
 </div>
--->
+
 <!--
 <div class="modal" id="shosaiDialog"  tabindex="-1">
 	<div class="modal-dialog">
