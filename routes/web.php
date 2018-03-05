@@ -50,4 +50,5 @@ Route::middleware(['auth'])->group(function () {
 
 	Route::get ( '/codemanage', 'CodeManageController@index')->name('codemanage')->middleware('role');
 	Route::post ( '/codemanage', 'CodeManageController@request')->name('codemanage')->middleware('role');
+
 });
