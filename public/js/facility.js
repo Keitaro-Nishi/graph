@@ -87,7 +87,7 @@ function drow() {
 	    			dataType: "JSON",
 	    			data:{
 	    				"param" : "delete",
-	    				"userids" : rowIds,
+	    				"ids" : rowIds,
 	    				"_token" : _token
 	    			}
 	    		}).done(function (response) {
