@@ -5,22 +5,24 @@
 	class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
+			   <th data-column-id='no' data-identifier='true' data-width='3%'>No</th>
 			   @if (Auth::user()->citycode == "00000")
-			   <th data-column-id='citycode' data-identifier='true' data-width='20%' >市町村コード</th>
+			   <th data-column-id='citycode' data-width='20%' >市町村コード</th>
 			   @else
-			   <th data-column-id='citycode' data-identifier='true' data-width='20%' data-visible="false"></th>
+			   <th data-column-id='citycode' data-width='20%' data-visible="false"></th>
 			   @endif
 			   <th data-column-id='bunrui' data-width='5%' >分類</th>
                <th data-column-id='g1' data-width='20%' >大分類名称</th>
                <th data-column-id='g2' data-width='20%' >小分類名称</th>
-               <th data-column-id='gid1' data-identifier='true' data-width='5%'>分類ID1</th>
-               <th data-column-id='gid2' data-identifier='true' data-width='5%'>分類ID2</th>
+               <th data-column-id='gid1' data-width='5%'>分類ID1</th>
+               <th data-column-id='gid2' data-width='5%'>分類ID2</th>
                <th data-column-id='mod'  data-width='7%' data-formatter='mods' data-sortable='false'></th>
 		</tr>
 	</thead>
 	<tbody>
 		@foreach($genrelists as $genrelist)
 		<tr>
+			<td>{{$genrelist['gid1'].$genrelist['gid2']}}</td>
 			@if (Auth::user()->citycode == "00000")
 			<td>{{$genrelist['citycode']}}</td>
 			@else
