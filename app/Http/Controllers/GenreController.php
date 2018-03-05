@@ -14,7 +14,6 @@ class GenreController
 
 		$Authrole = Auth::user()->role;
 		$cityCD = Auth::user()->citycode;
-
 		$genrelist= array();
 		$genrelists= array();
 
