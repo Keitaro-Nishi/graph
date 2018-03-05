@@ -25,7 +25,7 @@ class CodeManage extends Model
     protected $hidden = [
     ];
 
-    protected $primaryKey ='no';
+protected $primaryKey ='no';
     public $incrementing = FALSE;
     protected $table = 'botlog';
 }
