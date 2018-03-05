@@ -120,6 +120,9 @@ class GenreController
 		 	error_log($gid2);
 		 	*/
 			DB::table('genre')->where('citycode',$cityCD)->where('gid1',$gid1)->where('gid2',$gid2)->delete();
+			if($gid2 == 0){
+				DB::table('genre')->where('citycode',$cityCD)->where('gid1',$gid1)->delete();
+			}
 		}
 
 		return \Response::json(['status' => 'OK']);
