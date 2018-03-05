@@ -33,6 +33,8 @@ class FacilityController {
 				$genre1 = $facility->genre1;
 				$genre2 = $facility->genre2;
 
+				error_log($facility->genre2);
+
 				$bunruiL = DB::table ( 'genre' )->select ( 'meisho' )->where ( 'bunrui', 1 )->where ( 'gid1', $genre1 )->where ( 'citycode', '00001' )->first ();
 				$genreL = $bunruiL;
 				$bunruiM = DB::table ( 'genre' )->select ( 'meisho' )->where ( 'bunrui', 1 )->where ( 'gid1', $genre1 )->where ( 'citycode', '00001')->first ();
