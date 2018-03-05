@@ -23,7 +23,32 @@ $(function() {
 			});
 		}
 	});
+
+	//テーブル操作
+	document.getElementById('codesel').selectedIndex = 0;
+	codeselChange();
 });
+
+function codeselChange(){
+	// 選択した値を取得
+    var select_val = $('#codesel option:selected').val();
+    alert(select_val);
+
+    // tbodyのtr数回 処理をする
+    $.each($("#grid-basic tbody tr"), function (index, element) {
+
+    	alert(element);
+
+        var row_text = $(element).code1;
+
+        if (row_text == select_val) {
+            $(element).css("display", "table-row");
+        } else {
+            $(element).css("display", "none");
+        }
+
+    });
+}
 
 function drow() {
 	if(rowIds.length == 0){

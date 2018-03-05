@@ -14,7 +14,11 @@ class CodeManageController
 	public function index(Request $request)
 	{
 		$cityCD = Auth::user()->citycode;
-		$codes= Code::where('citycode', $cityCD)->get();
+		if($cityCD == "00000"){
+			$codes= Code::where('citycode', $cityCD)->get();
+		}else{
+			$codes= Code::where('citycode', $cityCD)->where('code1','>' ,(int)0)->get();
+		}
 		$bunrui = Code::where('citycode', $cityCD)->where('code1', (int)0)->get();
 		return view('codemanage',['codes'=>$codes,'bunrui'=>$bunrui]);
 	}
