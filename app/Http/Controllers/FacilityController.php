@@ -27,9 +27,9 @@ class FacilityController {
 		$this->requestall = \Request::all();
 		if($this->requestall["param"] == "update"){
 			return $this->update();
-		}elseif ($this->requestall["param"] == "delete"){
+		} elseif ($this->requestall["param"] == "delete"){
 			return $this->delete();
-		}else{
+		} else{
 			return \Response::json(['status' => 'NG']);
 		}
 	}
@@ -118,7 +118,7 @@ class FacilityController {
 	public function delete() {
 		$input = $this->requestall;
 		$ids =  $input ["ids"] ;
-		DB::table('facility')->where('id', $ids)->delete();
+		//$sql = DB::table('facility')->where('id', $ids)->delete();
 		return \Response::json ( [
 				'status' => 'OK'
 		] );
