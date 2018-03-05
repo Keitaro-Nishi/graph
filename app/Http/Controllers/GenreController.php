@@ -57,6 +57,7 @@ class GenreController
 			$genregid1 = DB::table('genre')->select('gid1')->where('citycode', $cityCD)->get();
 
 			foreach ($genres as $genre) {
+				$citycode = $genre->citycode;
 				$bunrui = $genre->bunrui;
 				$daibunrui;
 				$shoubunrui;
@@ -77,6 +78,7 @@ class GenreController
 				}
 
 				$genrelist= [
+						'citycode'=>$citycode,
 						'bunrui'=>$bunrui,
 						'daibunrui'=>$daibunrui,
 						'shoubunrui'=>$shoubunrui,
