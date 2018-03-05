@@ -5,11 +5,11 @@ $(function() {
 		multiSelect : true,
 		keepSelection : true,
 		columnSelection : false,
-	    formatters: {
-	        "mods": function($column, $row) {
-	        	return "<input type='button' class='btn btn-default' value='修正' onclick='modwin("  + $row.id + ",\"" + $row.meisho + "\",\"" + $row.jusho + "\",\"" + $row.tel + "\",\"" + $row.genre1 + "\",\"" + $row.genre2 + "\",\"" + $row.lat + "\",\"" + $row.lng + "\",\"" + $row.imageurl + "\",\"" + $row.url + "\")' > ";
-             }
-	    }
+		formatters: {
+			"mods": function($column, $row) {
+				return "<input type='button' class='btn btn-default' value='修正' onclick='modwin("  + $row.id + ",\"" + $row.meisho + "\",\"" + $row.jusho + "\",\"" + $row.tel + "\",\"" + $row.genre1 + "\",\"" + $row.genre2 + "\",\"" + $row.lat + "\",\"" + $row.lng + "\",\"" + $row.imageurl + "\",\"" + $row.url + "\")' > ";
+			}
+		}
 
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
 		for (var i = 0; i < rows.length; i++) {
@@ -70,45 +70,46 @@ function drow() {
 	}*/
 
 	bootbox.confirm({
-	    message: "選択行を削除しますか？",
-	    buttons: {
-	    	confirm: {
-	            label: '<i class="fa fa-check"></i> はい'
-	        },
-	        cancel: {
-	            label: '<i class="fa fa-times"></i> いいえ'
-	        }
-	    },
-	    callback: function (result) {
-	        if(result){
-	        	var _token = document.getElementById('_token').value;
-	        	console.log(_token);
-	        	$.ajax({
-	    			type: "POST",
-	    			dataType: "JSON",
-	    			data:{
-	    				"param" : "delete",
-	    				"ids" : rowIds,
-	    				"_token" : _token
-	    			}
-	    		}).done(function (response) {
-	    			if(response.status == "OK"){
-	    				bootbox.alert({
-	    					message: "削除しました",
-	    					size: 'small',
-	    					callback: function () {
-	    						location.reload();
-	    					}
-	    				});
-	    			}
-	    	    }).fail(function () {
-	    	    	bootbox.alert({
-	    				message: "削除できませんでした",
-	    				size: 'small'
-	    			});
-	    	    });
-	        }
-	    }
+		message: "選択行を削除しますか？",
+		buttons: {
+			confirm: {
+				label: '<i class="fa fa-check"></i> はい'
+			},
+			cancel: {
+				label: '<i class="fa fa-times"></i> いいえ'
+			}
+		},
+		callback: function (result) {
+			if(result){
+				var _token = document.getElementById('_token').value;
+				console.log(_token);
+				$.ajax({
+					type: "POST",
+					dataType: "JSON",
+					data:{
+						"param" : "delete",
+						"ids" : rowIds,
+						"_token" : _token
+					}
+				console.log(ids);
+				}).done(function (response) {
+					if(response.status == "OK"){
+						bootbox.alert({
+							message: "削除しました",
+							size: 'small',
+							callback: function () {
+								location.reload();
+							}
+					});
+				}
+				}).fail(function () {
+					bootbox.alert({
+						message: "削除できませんでした",
+						size: 'small'
+					});
+				});
+			}
+		}
 	});
 }
 
