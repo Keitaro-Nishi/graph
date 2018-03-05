@@ -16,7 +16,7 @@ class GenreController
 		$cityCD = Auth::user()->citycode;
 
 		$genrearray= array();
-		$genrearrays= array();
+		$genrelists= array();
 
 
 		if($cityCD == "00000"){
@@ -52,14 +52,14 @@ class GenreController
 						'gid2'=>$gid2,
 				];
 
-				array_push($genrearrays, $genrearray);
+				array_push($genrelists, $genrearray);
 			}
 
 		}
 		error_log(print_r($genres,true));
 		error_log("●●●●●●●");
-		error_log(print_r($genrearrays,true));
-		return view('genre',compact('genrearrays'));
+		//error_log(print_r($genrearrays,true));
+		return view('genre',compact('genrelists'));
 	}
 
 
