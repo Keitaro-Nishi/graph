@@ -80,7 +80,7 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_genre1">ジャンル１</label>
 						<div class="col-sm-10">
-							@foreach($genre1 as $value)
+							@foreach($genreL as $value)
 								<option value="{{$value->code1}}" selected>{{$value->meisho}}</option>
 							@endforeach
 						</div>
