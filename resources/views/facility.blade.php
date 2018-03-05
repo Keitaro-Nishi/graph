@@ -78,12 +78,11 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_genre1">ジャンル１</label>
-						<div class="col-sm-10">
-							@foreach($genreL as $value)
-								<option value="{{$value->bunrui}}" selected>{{$value->meisho}}</option>
-							@endforeach
-						</div>
+						<select class="form-control" id="codesel" onChange="codeselChange()">
+						@foreach($genreL as $value)
+							<option value="{{$value->bunrui}}" selected>{{$value->meisho}}</option>
+						@endforeach
+						</select>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_genre2">ジャンル２</label>
