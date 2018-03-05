@@ -106,18 +106,14 @@ class UserController
 
 		$result = $user->save();
 
-		if($result == "1"){
-			return \Response::json(['status' => 'OK']);
-		}else{
-			return \Response::json(['status' => 'NG']);
-		}
+		return \Response::json(['status' => 'OK']);
 	}
 
 	public function delete()
 	{
 		error_log("★★★★★★★★★★★★★delete1★★★★★★★★★★★★★★★");
 		$input = $this->requestall;
-		error_log("★★★★★★★★★★★★★delete2★★★★★★★★★★★★★★★");
+		error_log("★★★★★★★★★★★★★delete2★★★★★★★★★★★★★★★".$input["userids"][0]);
 		return \Response::json(['status' => 'OK']);
 	}
 

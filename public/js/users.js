@@ -86,11 +86,6 @@ function drow() {
 	    						location.reload();
 	    					}
 	    				});
-	    			}else{
-	    				bootbox.alert({
-		    				message: "1削除できませんでした",
-		    				size: 'small'
-		    			});
 	    			}
 	    	    }).fail(function () {
 	    	    	bootbox.alert({
@@ -193,11 +188,6 @@ function update(){
 				callback: function () {
 					location.reload();
 				}
-			});
-		}else if(response.status == "NG"){
-			bootbox.alert({
-				message: "更新できませんでした",
-				size: 'small'
 			});
 		}else{
 			var mes = "";
