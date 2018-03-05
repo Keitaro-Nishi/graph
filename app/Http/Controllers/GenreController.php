@@ -106,13 +106,19 @@ class GenreController
 	public function delete()
 	{
 		$input = $this->requestall;
+		$idsdata = $input["ids"];
 
 		//User::destroy($input["userids"]);
-		/*
-		 foreach ($input["userids"] as $userid) {
-		 error_log("★★★★★★★★★★★★★delete2★★★★★★★★★★★★★★★".$userid);
-		 }
-		 */
+
+		foreach ($idsdata as $iddata) {
+			$aos = explode(".", $iddata);
+			$gid1 = $aos[0];
+			$gid2 = $aos[1];
+		 	error_log("★★★★★★★★★★★★★");
+		 	error_log($gid1);
+		 	error_log($gid2);
+		}
+
 		return \Response::json(['status' => 'OK']);
 	}
 
