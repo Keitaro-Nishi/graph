@@ -1,10 +1,17 @@
 var rowIds = [];
+var updateKbn = false;
 $(function() {
 	$("#grid-basic").bootgrid({
 		selection : true,
 		multiSelect : true,
-		rowSelect : true,
-		keepSelection : true
+		keepSelection : true,
+		columnSelection : false,
+		formatters: {
+	        "details": function($column, $row) {
+	        	return "<input type='button' class='btn btn-default' value='修正' onclick='detail(\"" + $row.name + "\",\"" + $row.userid + "\",\"" + $row.organization + "\",\"" + $row.citycode + "\")' > ";
+	        	//return "<input type='button' class='btn btn-default' value='修正' onclick='detail('1','1','1','1','1')' > ";
+             }
+	    }
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
 		for (var i = 0; i < rows.length; i++) {
 			rowIds.push(rows[i].userid);
@@ -20,10 +27,13 @@ $(function() {
 });
 function drow() {
 	if(rowIds.length == 0){
-		alert("削除する行を選択してください");
+		bootbox.alert({
+			message: "削除する行を選択してください",
+			size: 'small'
+		});
 		return;
 	}
-	var successFlg = true;
+	/*
 	var myRet = confirm("選択行を削除しますか？");
 	if ( myRet == true ){
 		for (var i = 0; i < rowIds.length; i++){
@@ -31,11 +41,11 @@ function drow() {
 				type: "DELETE",
 				url: 'users/'+ rowIds[i],
 			}).then(
-					function(){
-					},
-					function(){
-						successFlg = false;
-					}
+				function(){
+				},
+				function(){
+					successFlg = false;
+				}
 			);
 		}
 		if( successFlg == true){
@@ -44,12 +54,76 @@ function drow() {
 		}else{
 			alert("削除できませんでした");
 		}
+	}*/
+
+	bootbox.confirm({
+	    message: "選択行を削除しますか？",
+	    buttons: {
+	    	confirm: {
+	            label: '<i class="fa fa-check"></i> はい'
+	        },
+	        cancel: {
+	            label: '<i class="fa fa-times"></i> いいえ'
+	        }
+	    },
+	    callback: function (result) {
+	        if(result){
+	        	var _token = document.getElementById('_token').value;
+	        	$.ajax({
+	    			type: "POST",
+	    			dataType: "JSON",
+	    			data:{
+	    				"param" : "delete",
+	    				"userids" : rowIds,
+	    				"_token" : _token
+	    			}
+	    		}).done(function (response) {
+	    			if(response.status == "OK"){
+	    				bootbox.alert({
+	    					message: "削除しました",
+	    					size: 'small',
+	    					callback: function () {
+	    						location.reload();
+	    					}
+	    				});
+	    			}
+	    	    }).fail(function () {
+	    	    	bootbox.alert({
+	    				message: "2削除できませんでした",
+	    				size: 'small'
+	    			});
+	    	    });
+	        }
+	    }
+	});
+}
+
+function detail(name,userid,organization,citycode){
+	updateKbn = true;
+	document.getElementById('modal-label').innerHTML  = "ユーザー情報修正";
+	initmodal();
+	if(document.getElementById('dia_citycode')){
+		document.getElementById('dia_citycode').value = citycode;
+		document.getElementById('dia_citycode').disabled = true;
 	}
+	document.getElementById('dia_userid').value = userid;
+	document.getElementById('dia_userid').disabled = true;
+	document.getElementById('dia_name').value = name;
+	//document.getElementById('dia_organization').selectedIndex = 0;
+	document.getElementById('dia_passres').style.display="block";
+	document.getElementById('dia_passresck').checked = false;
+	document.getElementById('dia_password').disabled = true;
+	document.getElementById('dia_password_confirmation').disabled = true;
+	document.getElementById("btn_modal").click();
+
 }
 
 function insert(){
+	updateKbn = false;
 	document.getElementById('modal-label').innerHTML  = "ユーザー登録";
 	initmodal();
+	document.getElementById('dia_passresck').checked = true;
+	document.getElementById('dia_passres').style.display="none";
 	document.getElementById("btn_modal").click();
 }
 
@@ -57,12 +131,26 @@ function insert(){
 function initmodal(){
 	if(document.getElementById('dia_citycode')){
 		document.getElementById('dia_citycode').value = "";
+		document.getElementById('dia_citycode').disabled = false;
 	}
 	document.getElementById('dia_userid').value = "";
+	document.getElementById('dia_userid').disabled = false;
 	document.getElementById('dia_name').value = "";
 	document.getElementById('dia_organization').selectedIndex = 0;
+	document.getElementById('dia_password').disabled = false;
+	document.getElementById('dia_password_confirmation').disabled = false;
 	document.getElementById('dia_password').value = "";
 	document.getElementById('dia_password_confirmation').value = "";
+}
+
+function preset(){
+	if(document.getElementById('dia_passresck').checked){
+		document.getElementById('dia_password').disabled = false;
+		document.getElementById('dia_password_confirmation').disabled = false;
+	}else{
+		document.getElementById('dia_password').disabled = true;
+		document.getElementById('dia_password_confirmation').disabled = true;
+	}
 }
 
 function update(){
@@ -71,38 +159,53 @@ function update(){
 		citycode = document.getElementById('dia_citycode').value;
 	}
 	var userid = document.getElementById('dia_userid').value;
-	var name = document.getElementById('dia_name').value;
+	var username = document.getElementById('dia_name').value;
 	var organization = document.getElementById('dia_organization').value;
+	var passreset = document.getElementById('dia_passresck').checked
 	var password = document.getElementById('dia_password').value;
 	var password_confirmation = document.getElementById('dia_password_confirmation').value;
 	var _token = document.getElementById('_token').value;
 	$.ajax({
 		type: "POST",
-		//url: "/user",
 		dataType: "JSON",
 		data: {
+			"param" : "update",
+			"updateKbn" : updateKbn,
 			"citycode" : citycode,
 			"userid" : userid,
-			"name" : name,
+			"username" : username,
 			"organization" : organization,
+			"passreset" : passreset,
 			"password" : password,
 			"password_confirmation" : password_confirmation,
 			"_token" : _token
 		}
 	}).done(function (response) {
-		alert("1-1");
-		result = JSON.parse(response);
-		alert("1-2");
-		alert(result);
-		if(result == "OK"){
-			alert("更新しました");
-			location.reload();
+		if(response.status == "OK"){
+			bootbox.alert({
+				message: "更新しました",
+				size: 'small',
+				callback: function () {
+					location.reload();
+				}
+			});
 		}else{
-			alert("1更新できませんでした");
+			var mes = "";
+			for (var item in response) {
+				if(mes != ""){
+					mes = mes + "<br>";
+				}
+			    mes = mes + response[item][0];
+			}
+			bootbox.alert({
+				message: mes,
+				size: 'small'
+			});
 		}
-	}).fail(function () {
-		alert("2-1");
-		alert(result);
-		alert("2更新できませんでした");
-	});
+    }).fail(function () {
+    	bootbox.alert({
+			message: "更新できませんでした",
+			size: 'small'
+		});
+    });
 }
