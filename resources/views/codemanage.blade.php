@@ -55,8 +55,8 @@ array_push($arr,"test");
 </div>
 <script>
 var tabledata = [];
-//var tabledata = <?php echo json_encode($arr); ?>;
 var tabledata = @json($arr);
+init();
 //alert(tabledata[0]);
 </script>
 <script src="{{ asset('js/codemanage.js') }}"></script>

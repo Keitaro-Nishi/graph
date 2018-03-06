@@ -1,6 +1,7 @@
 var rowIds = [];
 
-$(function() {
+//$(function() {
+function init() {
 	$("#grid-basic").bootgrid({
 		selection : true,
 		multiSelect : true,
@@ -28,7 +29,8 @@ $(function() {
 	alert(tabledata[0]);
 	document.getElementById('codesel').selectedIndex = 0;
 	//codeselChange();
-});
+}
+//});
 
 function codeselChange(){
     var select_val = $('#codesel option:selected').val();
