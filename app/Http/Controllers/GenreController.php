@@ -122,13 +122,13 @@ class GenreController
 			}else{
 
 				$gid2datas= DB::table('genre')->select('gid2')->where('gid1',$gid1)->orderBy('gid2', 'DESC')->first();
-				//foreach ($gid2datas as $gid2data) {
-					//$gid2 = $gid2data->gid2 + 1;
-				$gid2 = $gid2datas + 1;
-					//break;
-				//}
+				foreach ($gid2datas as $gid2data) {
+					$gid2 = $gid2data->gid2 + 1;
+					break;
+				}
 				error_log($gid2);
-				DB::table('genre')->insert(['bunrui' =>$bunrui,'gid1' => $gid1,'gid2' =>$gid2,'gid3' =>0,'meisho' =>$meisho]);
+				//DB::table('genre')->insert(['bunrui' =>$bunrui,'gid1' => $gid1,'gid2' =>$gid2,'gid3' =>0,'meisho' =>$meisho]);
+				DB::insert('insert into genre (bunrui,gid1,gid2,gid3,meisho) values (?,?,?,?,?)', [$bunrui,$gid1,$gid2,$gid3,$meisho]);
 			}
 		}
 		return \Response::json(['status' => 'OK']);
