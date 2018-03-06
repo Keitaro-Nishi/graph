@@ -60,6 +60,7 @@ function drow() {
 		callback: function (result) {
 			if(result){
 				var _token = document.getElementById('_token').value;
+				console.log(JSON.stringify(rowIds,null,'\t'));
 				$.ajax({
 					type: "POST",
 					dataType: "JSON",
