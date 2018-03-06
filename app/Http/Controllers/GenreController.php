@@ -104,8 +104,8 @@ class GenreController
 		$meishoOld = $input["meishoOld"];
 		$cityCD = Auth::user()->citycode;
 
-		error_log("★★★★★★★★★");
-		error_log("uiKbn:".$uiKbn." bunrui:".$bunrui." meisho:".$meisho." gid1:".$gid1." gid2:".$gid2." g1meisho:".$g1meisho." meishoOld:".$meishoOld);
+		//error_log("★★★★★★★★★");
+		//error_log("uiKbn:".$uiKbn." bunrui:".$bunrui." meisho:".$meisho." gid1:".$gid1." gid2:".$gid2." g1meisho:".$g1meisho." meishoOld:".$meishoOld);
 
 		if($uiKbn == 1){
 			DB::table('genre')->where('citycode',$cityCD)->where('gid1',$gid1)->where('gid2',$gid2)->update(['meisho' => $meisho]);
@@ -115,14 +115,17 @@ class GenreController
 				$gid1data= DB::table('genre')->select('gid1')->orderBy('gid1', 'DESC')->first();
 				$gid1 = $gid1data->gid1 + 1;
 
-				error_log("○○○○○○");
-				error_log($gid1);
+
 				DB::table('genre')->insert(['citycode'=> $cityCD,'bunrui' =>$bunrui, 'gid1' => $gid1,'gid2' =>0,'gid3' =>0,'meisho' =>$meisho]);
 				return \Response::json(['status' => 'OK']);
 			}else{
 
 				$gid2data= DB::table('genre')->select('gid2')->where('gid1',$gid1)->orderBy('gid2', 'DESC')->first();
 				$gid2 = $gid2data->gid2 + 1;
+
+				error_log("○○○○○○");
+				error_log($g1meisho);
+				error_log($gid1);
 
 				DB::table('genre')->insert(['citycode'=> $cityCD,'bunrui' => $bunrui,'gid1' => $gid1,'gid2' => $gid2,'gid3' =>0,'meisho' => $meisho]);
 				return \Response::json(['status' => 'OK']);
