@@ -179,15 +179,32 @@ function update(){
 			"_token" : _token
 		}
 	}).done(function (response) {
-		result = JSON.parse(response);
-		if(result == "OK"){
-			alert("更新しました");
-			location.reload();
+		if(response.status == "OK"){
+			bootbox.alert({
+				message: "更新しました",
+				size: 'small',
+				callback: function () {
+					location.reload();
+				}
+			});
 		}else{
-			alert("更新できませんでした");
+			var mes = "";
+			for (var item in response) {
+				if(mes != ""){
+					mes = mes + "<br>";
+				}
+			    mes = mes + response[item][0];
+			}
+			bootbox.alert({
+				message: mes,
+				size: 'small'
+			});
 		}
     }).fail(function () {
-        alert("更新できませんでした");
+    	bootbox.alert({
+			message: "更新できませんでした",
+			size: 'small'
+		});
     });
 
 
