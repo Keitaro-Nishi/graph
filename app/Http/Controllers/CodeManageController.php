@@ -55,15 +55,18 @@ class CodeManageController
 		}else{
 			//変更
 			$code12 = explode(".", $selcode);
+			error_log("★★★★★★★★★★★★★★code12★★★★★★★★★★★★★★".$code12[0]."★".$code12[1]);
 			$code = Code::where('citycode', $cityCD)->where('code1', $code12[0])->where('code2', $code12[1])->first();
 			$code->meisho = $input["meisho"];
 			$code->num = $input["num"];
 			if($input["code1"] == 0){
+				error_log("★★★★★★★★★★★★★★code->class1★★★★★★★★★★★★★★".$code->class1);
 				if($code->class1 != $input["class1"]){
 					$code->class1 = $input["class1"];
 					Code::where('citycode', $cityCD)->where('code1', $code12[1])->update(['class1', $input["class1"]]);
 				}
 			}
+			error_log("★★★★★★★★★★★★★★update_start2★★★★★★★★★★★★★★");
 			$code->save();
 		}
 		return \Response::json(['status' => 'OK']);
