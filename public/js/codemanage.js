@@ -52,7 +52,6 @@ function codeselChange(){
 	//テーブルデータ作成
 	var tblarray = [];
 	for(var i=0; i < tabledata.length; i++){
-		console.log(tabledata[i]['code1'] + ":" + tabledata[i]['meisho']);
 		if(tabledata[i]['code1'] == select_val){
 			if(class1 == 1){
 				tblarray.push({
@@ -158,6 +157,8 @@ function update(){
 	var meisho = document.getElementById('dia_meisho').value;
 	var num = document.getElementById('dia_num').value;
 	var calss1 = 0;
+	console.log(document.getElementsByName('kbn')[0].checked);
+	console.log(document.getElementsByName('kbn')[1].checked);
 	if(document.getElementsByName('kbn')[0].checked){
 		calss1 = 1;
 	}
