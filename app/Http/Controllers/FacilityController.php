@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
@@ -9,20 +7,18 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Facility;
 use App\Genre;
-
 class FacilityController {
 	public function index(Request $request) {
 		$cityCD = Auth::user ()->citycode;
-
 		if ($cityCD = "00000") {
 			$facilities = Facility::all ();
 			return view('facility',['facilities' => $facilities]);
 		} else {
 			/*
-			$facilities = Facility::where ( 'citycode', $cityCD )->get ();
-			$genrel = Genre::where ( 'citycode', $cityCD )->where ( 'bunrui', ( int ) 1 )->get ();
-			return view('facility',['facilities' => $facilities, 'genrel' => $genrel]);
-			*/
+			 $facilities = Facility::where ( 'citycode', $cityCD )->get ();
+			 $genrel = Genre::where ( 'citycode', $cityCD )->where ( 'bunrui', ( int ) 1 )->get ();
+			 return view('facility',['facilities' => $facilities, 'genrel' => $genrel]);
+			 */
 		}
 	}
 	public function request() {
@@ -37,10 +33,8 @@ class FacilityController {
 			] );
 		}
 	}
-
 	public function update() {
 		$input = \Request::all ();
-
 		$rules = [
 				'meisho' => 'string|max:255',
 				'jusho' => 'string|max:255',
@@ -51,13 +45,10 @@ class FacilityController {
 				'imageurl' => 'string',
 				'url' => 'string'
 		];
-
 		$validator = Validator::make ( $input, $rules );
-
 		if ($validator->fails ()) {
 			return $validator->errors ();
 		}
-
 		// insert
 		$id = $input ["id"];
 		// 市町村コード
@@ -96,7 +87,7 @@ class FacilityController {
 					'imageurl' => $imageurl,
 					'url' => $url,
 					'geom' => \DB::raw ( "public.ST_GeomFromText('POINT({$lat} {$lng})',4326)" )
-			] );
+					] );
 		} else {
 			$result = DB::table ( 'facility' )->where ( 'id', $id )->update ( [
 					'citycode' => $citycode,
@@ -111,17 +102,15 @@ class FacilityController {
 					'imageurl' => $imageurl,
 					'url' => $url,
 					'geom' => \DB::raw ( "public.ST_GeomFromText('POINT({$lat} {$lng})',4326)" )
-			] );
+					] );
 		}
 	}
-
 	public function delete() {
 		$input = $this->requestall;
 		$ids = $input ["ids"];
 		$cityCD = Auth::user ()->citycode;
-
 		foreach ( $ids as $id ) {
-			$iddata = $id[0];	
+			$iddata = $id[0];
 			DB::table ( 'facility' )->where ('id', $iddata )->delete ();
 		}
 		return \Response::json(['status' => 'OK']);
