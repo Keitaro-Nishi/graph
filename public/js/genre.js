@@ -149,3 +149,47 @@ function initmodal(){
 	document.getElementById('dia_g1meisho').disabled = false;
 	document.getElementById('dia_g2meisho').disabled = false;
 }
+
+//更新
+function update(){
+
+	//var bunrui = document.getElementById('dia_bunrui').value;
+	//var gid1 = document.getElementById('dia_g1').value;
+	var g1meisho = document.getElementById('dia_g1').options[document.getElementById('dia_g1').selectedIndex].text;
+	alert(g1meisho);
+	/*var meisho = "";
+	if(bunrui == 1){
+		meisho = document.getElementById('dia_g1meisho').value;
+	}else{
+		meisho = document.getElementById('dia_g2meisho').value;
+	}
+
+	$.ajax({
+		type: "POST",
+		dataType: "JSON",
+		data:{
+			"param" : "update",
+			"uiKbn" : uiKbn,
+			"bunrui" : bunrui,
+			"meisho" : meisho,
+			"gid1" : gid1,
+			"gid2" : gid2,
+			"g1meisho" : g1meisho,
+			"meishoOld" : meishoOld
+			"_token" : _token
+		}
+	}).done(function (response) {
+		result = JSON.parse(response);
+		if(result == "OK"){
+			alert("更新しました");
+			location.reload();
+		}else{
+			alert("更新できませんでした");
+		}
+    }).fail(function () {
+        alert("更新できませんでした");
+    });
+    */
+
+}
+
