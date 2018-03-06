@@ -42,6 +42,7 @@ Route::middleware(['auth'])->group(function () {
 	Route::post ( '/genre','GenreController@request');
 
 	Route::get ( '/genreint', 'GenreintController@index' )->name ( 'genreint' );
+	Route::get ( '/genreent', 'GenreentController@index' )->name ( 'genreent' );
 
 	Route::get ( '/linepush',function(){
 		return view( 'linepush' );
