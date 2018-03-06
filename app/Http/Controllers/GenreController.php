@@ -130,7 +130,7 @@ class GenreController
 				DB::table('genre')->insert(['bunrui' =>'$bunrui','gid1' => $gid1,'gid2' =>$gid2,'gid3' =>0,'meisho' =>'$meisho']);
 			}
 		}
-
+		return \Response::json(['status' => 'OK']);
 	}
 
 	public function init(Request $request)
