@@ -123,15 +123,19 @@ class GenreController
 
 			}else{
 
-				$gid2datas= DB::table('genre')->select('gid2')->where('gid1',$gid1)->orderBy('gid2', 'DESC')->get();
+				/*$gid2datas= DB::table('genre')->select('gid2')->where('gid1',$gid1)->orderBy('gid2', 'DESC')->get();
 				foreach ($gid2datas as $gid2data) {
 					$gid2 = $gid2data->gid2 + 1;
 					break;
-				}
+				}*/
+				$gid2data= DB::table('genre')->select('gid2')->where('gid1',$gid1)->orderBy('gid2', 'DESC')->get();
+				//foreach ($gid2datas as $gid2data) {
+					$gid2 = $gid2data[0] + 1;
+					//break;
+				//}
 				error_log("★★★★★★★★★");
-				error_log("citycode:".$cityCD." bunrui:".$bunrui." meisho:".$meisho." gid1:".$gid1." gid2:".$gid2);
+				error_log($gid2);
 
-				//DB::insert('insert into genre (citycode,bunrui,gid1,gid2,gid3,meisho) values (?,?,?,?,?,?)', [$cityCD,$bunrui,$gid1,$gid2,0,$meisho]);
 				DB::table('genre')->insert(['citycode'=> $cityCD,'bunrui' => $bunrui,'gid1' => $gid1,'gid2' => $gid2,'gid3' =>0,'meisho' => $meisho]);
 				return \Response::json(['status' => 'OK']);
 			}
