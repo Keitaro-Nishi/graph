@@ -5,7 +5,7 @@
 	<p>大分類</p>
 	<select class="form-control" onChange="g1change()"  style="width: 600px;">
 	@foreach($results as $result)
-	<option value="1">{{$result->meisho}}</option>
+	<option value="{{$result->gid1}}">{{$result->meisho}}</option>
 	@endforeach
 
 	</select>
