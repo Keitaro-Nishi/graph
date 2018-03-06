@@ -14,8 +14,8 @@ class CodeManageController
 	public function index(Request $request)
 	{
 		$cityCD = Auth::user()->citycode;
-		$codes= Code::where('citycode', $cityCD)->get();
-		$bunrui = Code::where('citycode', $cityCD)->where('code1', (int)0)->get();
+		$codes= Code::where('citycode', $cityCD)->orderBy('code1', 'ASC')->orderBy('code2', 'ASC')->get();
+		$bunrui = Code::where('citycode', $cityCD)->where('code1', (int)0)->orderBy('code2', 'ASC')->get();
 		return view('codemanage',['codes'=>$codes,'bunrui'=>$bunrui]);
 	}
 
