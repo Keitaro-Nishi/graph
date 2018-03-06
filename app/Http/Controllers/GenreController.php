@@ -118,7 +118,7 @@ class GenreController
 				error_log("○○○○○○");
 				error_log($gid1);
 				DB::table('genre')->insert(['citycode'=> $cityCD,'bunrui' =>$bunrui, 'gid1' => $gid1,'gid2' =>0,'gid3' =>0,'meisho' =>$meisho]);
-
+				return \Response::json(['status' => 'OK']);
 			}else{
 
 				$gid2data= DB::table('genre')->select('gid2')->where('gid1',$gid1)->orderBy('gid2', 'DESC')->first();
