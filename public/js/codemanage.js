@@ -194,7 +194,7 @@ function update(){
 		}
     }).fail(function () {
     	bootbox.alert({
-			message: "更新できませんでした",
+			message: "1更新できませんでした",
 			size: 'small'
 		});
     });

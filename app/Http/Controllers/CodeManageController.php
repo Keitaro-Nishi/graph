@@ -32,9 +32,11 @@ class CodeManageController
 
 	public function update()
 	{
+		error_log("★★★★★★★★★★★★★★update_start★★★★★★★★★★★★★★");
 		$input = $this->requestall;
 
 		$selcode = $input["selcode"];
+		error_log("★★★★★★★★★★★★★★update_start★★★★★★★★★★★★★★".$selcode);
 		$cityCD = Auth::user()->citycode;
 
 		if($selcode == ""){
