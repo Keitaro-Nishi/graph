@@ -151,7 +151,6 @@ function initmodal(){
 }
 
 //更新
-/*
 function update(){
 
 	var bunrui = document.getElementById('dia_bunrui').value;
@@ -164,6 +163,12 @@ function update(){
 		meisho = document.getElementById('dia_g2meisho').value;
 	}
 
+	alert(bunrui);
+	alert(gid1);
+	alert(g1meisho);
+	alert(meisho);
+
+	/*
 	$.ajax({
 		type: "POST",
 		dataType: "JSON",
@@ -189,7 +194,7 @@ function update(){
     }).fail(function () {
         alert("更新できませんでした");
     });
+	*/
 
-
-}*/
+}
 
