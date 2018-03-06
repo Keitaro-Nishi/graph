@@ -26,31 +26,34 @@ function init() {
 	});
 
 	//テーブル操作
-	console.log(tabledata);
 	alert(tabledata[0]['meisho']);
 	document.getElementById('codesel').selectedIndex = 0;
-	//codeselChange();
+	codeselChange();
 }
 //});
 
 function codeselChange(){
-    var select_val = $('#codesel option:selected').val();
-    alert(select_val);
+    //var select_val = $('#codesel option:selected').val();
+	var select_val = document.getElementById('codesel').value;
+	var codetable = document.getElementById('grid-basic');
 
-    $('#grid-basic').find('tr').hide().each(function(){
-        var tr = $(this);
-        alert($(this).find('td')[1].text());
-        if($(this).find('td')[1].text() == select_val){
-        	tr.show();
-        }
-        /*
-        $(this).find('td').each(function(){
-            if ($(this)[].text().match(regExp)) {
-                tr.show();
-            }
-        })
-        */
-    });
+	//テーブル初期化
+	while( codetable.rows[ 1 ] ) codetable.deleteRow( 1 );
+
+	//テーブルデータ作成
+	for(var rec in tabledata){
+		if(rec['code1'] == select_val){
+			var raw = codetable.insertRow( -1 );
+			var td_code12 = raw.insertCell(-1),td_code1 = raw.insertCell(-1),td_code2 = raw.insertCell(-1),td_meisho = raw.insertCell(-1),td_num = raw.insertCell(-1),td_class1 = raw.insertCell(-1),td_class2 = raw.insertCell(-1);
+			td_code12.innerHTML = rec['code1'] + "." + rec['code2'];
+			td_code1.innerHTML = rec['code1'];
+			td_code2.innerHTML = rec['code2'];
+			td_meisho.innerHTML = rec['meisho'];
+			td_num.innerHTML = rec['num'];
+			td_class1.innerHTML = rec['class1'];
+			td_class2.innerHTML = rec['class2'];
+		}
+	}
 
 }
 

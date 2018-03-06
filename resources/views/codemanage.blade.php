@@ -28,17 +28,6 @@
 		</tr>
 	</thead>
 	<tbody>
-		@foreach($codes as $code)
-		<tr>
-			<td>{{$code->code1}}.{{$code->code2}}</td>
-			<td>{{$code->code1}}</td>
-			<td>{{$code->code2}}</td>
-			<td>{{$code->meisho}}</td>
-			<td>{{$code->num}}</td>
-			<td>{{$code->class1}}</td>
-			<td>{{$code->class2}}</td>
-		</tr>
-		@endforeach
 	</tbody>
 </table>
 </div>
