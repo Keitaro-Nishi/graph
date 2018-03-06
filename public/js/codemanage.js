@@ -35,29 +35,24 @@ function init() {
 function codeselChange(){
     //var select_val = $('#codesel option:selected').val();
 	var select_val = document.getElementById('codesel').value;
-	alert("選択値:" + select_val);
 	var codetable = document.getElementById('grid-basic');
 
 	//テーブル初期化
 	while( codetable.rows[ 1 ] ) codetable.deleteRow( 1 );
 
-	console.log(tabledata);
-
 	//テーブルデータ作成
-	for(var rec in tabledata){
-		console.log(rec);
-
-		//alert(rec['code1'] + ":" + rec['meisho']);
-		if(rec['code1'] == select_val){
+	for(var i=0; i < tabledata.length; i++){
+		console.log(tabledata[i]['code1'] + ":" + tabledata[i]['meisho']);
+		if(tabledata[i]['code1'] == select_val){
 			var raw = codetable.insertRow( -1 );
 			var td_code12 = raw.insertCell(-1),td_code1 = raw.insertCell(-1),td_code2 = raw.insertCell(-1),td_meisho = raw.insertCell(-1),td_num = raw.insertCell(-1),td_class1 = raw.insertCell(-1),td_class2 = raw.insertCell(-1);
-			td_code12.innerHTML = rec['code1'] + "." + rec['code2'];
-			td_code1.innerHTML = rec['code1'];
-			td_code2.innerHTML = rec['code2'];
-			td_meisho.innerHTML = rec['meisho'];
-			td_num.innerHTML = rec['num'];
-			td_class1.innerHTML = rec['class1'];
-			td_class2.innerHTML = rec['class2'];
+			td_code12.innerHTML = tabledata[i]['code1'] + "." + tabledata[i]['code2'];
+			td_code1.innerHTML = tabledata[i]['code1'];
+			td_code2.innerHTML = tabledata[i]['code2'];
+			td_meisho.innerHTML = tabledata[i]['meisho'];
+			td_num.innerHTML = tabledata[i]['num'];
+			td_class1.innerHTML = tabledata[i]['class1'];
+			td_class2.innerHTML = tabledata[i]['class2'];
 		}
 	}
 
