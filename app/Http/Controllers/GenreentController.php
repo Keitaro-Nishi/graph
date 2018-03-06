@@ -11,11 +11,29 @@ class GenreentController
 {
 	public function index(Request $request)
 	{
+		$shoubunruilist= array();
+		$shoubunruilists= array();
+
 		$cityCD = Auth::user()->citycode;
+
 		$daibunruis= Genre::where('bunrui', 1)->where('citycode', $cityCD)->get();
 		$shoubunruis= Genre::where('bunrui', 2)->where('citycode', $cityCD)->get();
 
-		return view('genreent',compact('daibunruis','shoubunruis'));
+		foreach ($shoubunruis as $shoubunrui) {
+			$gid1 = $shoubunrui->gid1;
+			$gid2 = $shoubunrui->gid2;
+			$meisho = $shoubunrui->meisho;
+		}
+
+		$shoubunruilist= [
+				'gid1'=>$gid1,
+				'gid2'=>$gid2,
+				'meisho'=>$meisho,
+		];
+
+		array_push($shoubunruilists, $shoubunruilist);
+
+		return view('genreent',compact('daibunruis','shoubunruilists'));
 
 	}
 
