@@ -151,6 +151,7 @@ function initmodal(){
 }
 
 //更新
+/*
 function update(){
 
 	var bunrui = document.getElementById('dia_bunrui').value;
@@ -188,7 +189,7 @@ function update(){
     }).fail(function () {
         alert("更新できませんでした");
     });
-
+*/
 
 }
 
