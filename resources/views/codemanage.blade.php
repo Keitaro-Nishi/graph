@@ -43,11 +43,6 @@
 </table>
 </div>
 
-@php
-$arr = array();
-array_push($arr,"test");
-@endphp
-
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
 	<input id="btn_ins" type="button" class="btn btn-default" value="コード追加" onclick="insert()">
@@ -55,10 +50,7 @@ array_push($arr,"test");
 </div>
 <script src="{{ asset('js/codemanage.js') }}"></script>
 <script>
-var tabledata = [];
-//var tabledata = @json($arr);
 var tabledata = @json($codes);
 init();
-//alert(tabledata[0]);
 </script>
 @endsection

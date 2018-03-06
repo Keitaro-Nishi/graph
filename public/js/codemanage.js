@@ -26,7 +26,7 @@ function init() {
 	});
 
 	//テーブル操作
-	alert(tabledata[0]);
+	alert(tabledata[0][0]);
 	document.getElementById('codesel').selectedIndex = 0;
 	//codeselChange();
 }
