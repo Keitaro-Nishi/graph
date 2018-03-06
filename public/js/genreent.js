@@ -147,8 +147,8 @@ function delLine(value,raw){
 
 //もどる
 function back(){
-	var g2value = [];
-	g2value = document.getElementById('shoubunrui');
-	alert(g2value[0]['citycode']);
-	//window.location.href = "./genre";
+	//var g2value = [];
+	//g2value = document.getElementById('shoubunrui');
+	//alert(g2value[0]['citycode']);
+	window.location.href = "./genre";
 }
