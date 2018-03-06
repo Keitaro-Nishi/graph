@@ -129,9 +129,9 @@ class GenreController
 					break;
 				}
 				error_log("★★★★★★★★★");
-				error_log("citycode:".$cityCD."bunrui:".$bunrui." meisho:".$meisho." gid1:".$gid1." gid2:".$gid2);
+				error_log("citycode:".$cityCD." bunrui:".$bunrui." meisho:".$meisho." gid1:".$gid1." gid2:".$gid2);
 
-				/*$genre = new Genre;
+				$genre = new Genre;
 				$genre->citycode = $cityCD;
 				$genre->bunrui =$bunrui;
 				$genre->gid1 = $gid1;
@@ -139,9 +139,9 @@ class GenreController
 				$genre->gid3 = 0;
 				$genre->meisho = $meisho;
 				$genre->save();
-				*/
 
-				DB::table('genre')->insert(['citycode'=> $cityCD,'bunrui' => $bunrui,'gid1' => $gid1,'gid2' => $gid2,'gid3' =>0,'meisho' => $meisho]);
+
+				//DB::table('genre')->insert(['citycode'=> $cityCD,'bunrui' => $bunrui,'gid1' => $gid1,'gid2' => $gid2,'gid3' =>0,'meisho' => $meisho]);
 				return \Response::json(['status' => 'OK']);
 			}
 		}
