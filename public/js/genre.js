@@ -153,11 +153,10 @@ function initmodal(){
 //更新
 function update(){
 
-	//var bunrui = document.getElementById('dia_bunrui').value;
-	//var gid1 = document.getElementById('dia_g1').value;
+	var bunrui = document.getElementById('dia_bunrui').value;
+	var gid1 = document.getElementById('dia_g1').value;
 	var g1meisho = document.getElementById('dia_g1').options[document.getElementById('dia_g1').selectedIndex].text;
-	alert(g1meisho);
-	/*var meisho = "";
+	var meisho = "";
 	if(bunrui == 1){
 		meisho = document.getElementById('dia_g1meisho').value;
 	}else{
@@ -189,7 +188,7 @@ function update(){
     }).fail(function () {
         alert("更新できませんでした");
     });
-    */
+
 
 }
 

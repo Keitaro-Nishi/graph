@@ -61,6 +61,8 @@ class GenreController
 		$this->requestall = \Request::all();
 		if ($this->requestall["param"] == "delete"){
 			return $this->delete();
+		}elseif ($this->requestall["param"] == "update"){
+			return $this->update();
 		}else{
 			return \Response::json(['status' => 'NG']);
 		}
@@ -88,6 +90,22 @@ class GenreController
 		return \Response::json(['status' => 'OK']);
 	}
 
+	public function update()
+	{
+		$input = $this->requestall;
+
+		$uiKbn = $input["uiKbn"];
+		$bunrui = $input["bunrui"];
+		$meisho = $input["meisho"];
+		$gid1 = $input["gid1"];
+		$gid2 = $input["gid2"];
+		$g1meisho = $input["g1meisho"];
+		$meishoOld = $input["meishoOld"];
+		$cityCD = Auth::user()->citycode;
+
+		error_log("★★★★★★★★★");
+		error_log("uiKbn:".$uiKbn." bunrui:".$bunrui." meisho:".$meisho." gid1:".$gid1." gid2:".$gid2." g1meisho:".$g1meisho." meishoOld:".$meishoOld);
+	}
 
 	public function init(Request $request)
 	{
