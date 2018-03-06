@@ -129,7 +129,7 @@ class GenreController
 					break;
 				}
 				error_log("★★★★★★★★★");
-				error_log($gid2);
+				error_log("bunrui:".$bunrui." meisho:".$meisho." gid1:".$gid1." gid2:".$gid2);
 
 				$genre = new Genre;
 				$genre->bunrui =$bunrui;
