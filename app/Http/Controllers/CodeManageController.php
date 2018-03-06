@@ -58,20 +58,16 @@ class CodeManageController
 		}else{
 			//変更
 			$code12 = explode(".", $selcode);
-			error_log("★★★★★★★★★★★★★★code12★★★★★★★★★★★★★★".$code12[0]."★".$code12[1]);
 			$code = Code::where('citycode', $cityCD)->where('code1', $code12[0])->where('code2', $code12[1])->first();
 			$meisho = $input["meisho"];
 			$num = $input["num"];
 			$class1 = $code->class1;
 			if($input["code1"] == 0){
-				error_log("★★★★★★★★★★★★★★code->class1★★★★★★★★★★★★★★".$class1);
 				if($class1 != $input["class1"]){
 					$class1 = $input["class1"];
 					DB::table('code')->where('citycode', $cityCD)->where('code1', $code12[1])->update(['class1' => $class1]);
 				}
 			}
-			error_log("★★★★★★★★★★★★★★update_start2★★★★★★★★★★★★★★");
-			//$code->save();
 			DB::table('code')->where('citycode', $cityCD)->where('code1', $code12[0])->where('code2', $code12[1])->update(['meisho' => $meisho , 'num' => $num , 'class1' => $class1]);
 
 		}
@@ -80,11 +76,14 @@ class CodeManageController
 
 	public function delete()
 	{
-		/*
 		$input = $this->requestall;
-		User::destroy($input["userids"]);
+		$codes = $input["codes"];
+		$cityCD = Auth::user ()->citycode;
+		foreach ( $codes as $code ) {
+			$code12 = explode(".", $code);
+			DB::table('code')->where('citycode', $cityCD)->where('code1', $code12[0])->where('code2', $code12[1])->delete();
+		}
 		return \Response::json(['status' => 'OK']);
-		*/
 	}
 
 }

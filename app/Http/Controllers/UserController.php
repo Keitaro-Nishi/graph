@@ -23,18 +23,6 @@ class UserController
 		return view('users',['users'=>$users]);
 	}
 
-	/*
-	public function delete(Request $request)
-	{
-
-		$deleteid = $request->deletecode;
-		$deleteuser = User::find($deleteid);
-		$deleteuser->delete();
-
-		return redirect('/users');
-	}
-	*/
-
 	public  function request(){
 		$this->requestall = \Request::all();
 		if($this->requestall["param"] == "update"){
