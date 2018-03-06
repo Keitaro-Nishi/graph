@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
 use App\Code;
 
 class CodeManageController
@@ -33,67 +32,39 @@ class CodeManageController
 
 	public function update()
 	{
-		/*
 		$input = $this->requestall;
 
-		$rules = [ 'citycode' => 'required|string'];
-
-		if($input["updateKbn"] == "true"){
-			$rules = $rules + ['userid' => 'required|string|max:255'];
-		}else{
-			$rules = $rules + ['userid' => 'required|string|max:255|unique:users'];
-		}
-
-		$rules = $rules + [
-				'username' => 'required|string|max:255',
-				'organization' => 'required|string|max:255'
-		];
-
-		if($input["passreset"] == "true"){
-			$rules = $rules + ['password' => 'required|string|min:6|confirmed'];
-		}
-
-		$validator = Validator::make($input,$rules);
-
-		if($validator->fails())
-		{
-			return $validator->errors();
-		}
-
-		//$user = new User;
-		$user = User::firstOrNew(['userid' => $input["userid"]]);
+		$selcode = $input["selcode"];
 		$cityCD = Auth::user()->citycode;
-		//市町村コード
-		if($cityCD == "00000"){
-			$user->citycode= $input["citycode"];
-		}else{
-			$user->citycode= $cityCD;
-		}
-		//ユーザーＩＤ
-		$user->userid= $input["userid"];
-		//名前
-		$user->name= $input["username"];
-		//権限
-		if($cityCD == "00000"){
-			$user->role= (int)1;
-		}else{
-			$user->role= (int)2;
-		}
-		//所属
-		$user->organization= $input["organization"];
-		//パスワード
-		if($input["passreset"] == "true"){
-			$user->password= bcrypt($input["password"]);
-		}
-		//email
-		$user->email= "";
-		//予備
-		$user->reserve= "";
 
-		$result = $user->save();
-
+		if($selcode == ""){
+			//新規
+			$code = new Code;
+			$code->citycode = $cityCD;
+			$code->code1 = $input["code1"];
+			$code2 = Code::where('citycode', $cityCD)->where('code1', $input["code1"])->max('code2');
+			error_log("★★★★★★★★★★★★★★code2★★★★★★★★★★★★★★".$code2);
+			$code->code2 = $code2 + 1;
+			$code->meisho = $input["meisho"];
+			$code->num = $input["num"];
+			$code->class1 = $input["class1"];
+			$code->class2 = 0;
+			$code->save();
+		}else{
+			//変更
+			$code12 = explode(".", $selcode);
+			$code = Code::where('citycode', $cityCD)->where('code1', $code12[0])->where('code2', $code12[1])->first();
+			$code->meisho = $input["meisho"];
+			$code->num = $input["num"];
+			if($input["code1"] == 0){
+				if($code->class1 != $input["class1"]){
+					$code->class1 = $input["class1"];
+					Code::where('citycode', $cityCD)->where('code1', $code12[1])->update(['class1', $input["class1"]]);
+				}
+			}
+			$code->save();
+		}
 		return \Response::json(['status' => 'OK']);
-		*/
 	}
 
 	public function delete()

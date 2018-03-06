@@ -47,7 +47,7 @@
 					<div class="form-group" id="dia_meisho_gp">
 						<label class="col-sm-3 control-label" for="dia_meisho">設定値</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" id="dia_meisho" value="">
+							<input type="text" class="form-control"  maxlength="50" id="dia_meisho" value="">
 						</div>
 					</div>
 					<div class="form-group" id="dia_num_gp">

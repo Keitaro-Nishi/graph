@@ -106,9 +106,13 @@ function initmodal(){
 	if(class1 == 1){
 		document.getElementById('dia_meisho_gp').style.display="block";
 		document.getElementById('dia_num_gp').style.display="none";
+		document.getElementById('dia_kbn_meisho').checked = true;
+		document.getElementById('dia_kbn_num').checked = false;
 	}else if(class1 == 2){
 		document.getElementById('dia_meisho_gp').style.display="none";
 		document.getElementById('dia_num_gp').style.display="block";
+		document.getElementById('dia_kbn_meisho').checked = false;
+		document.getElementById('dia_kbn_num').checked = true;
 	}
 
 	if(select_val == 0){
@@ -148,4 +152,50 @@ function drow() {
 			alert("削除できませんでした");
 		}
 	}
+}
+
+function update(){
+	var meisho = document.getElementById('dia_meisho').value;
+	var num = document.getElementById('dia_num').value;
+	var calss1 = 0;
+	if(document.getElementById('dia_kbn_meisho').checked){
+		calss1 = 1;
+	}
+	if(document.getElementById('dia_kbn_num').checked){
+		calss1 = 2;
+	}
+	var _token = document.getElementById('_token').value;
+	$.ajax({
+		type: "POST",
+		dataType: "JSON",
+		data: {
+			"param" : "update",
+			"code1" : select_val,
+			"selcode" : selcode,
+			"meisho" : meisho,
+			"num" : num,
+			"class1" : class1,
+			"_token" : _token
+		}
+	}).done(function (response) {
+		if(response.status == "OK"){
+			bootbox.alert({
+				message: "更新しました",
+				size: 'small',
+				callback: function () {
+					location.reload();
+				}
+			});
+		}else{
+			bootbox.alert({
+				message: "更新できませんでした",
+				size: 'small'
+			});
+		}
+    }).fail(function () {
+    	bootbox.alert({
+			message: "更新できませんでした",
+			size: 'small'
+		});
+    });
 }
