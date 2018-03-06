@@ -149,6 +149,6 @@ function delLine(value,raw){
 function back(){
 	var g2value = [];
 	g2value = document.getElementById('shoubunrui');
-	alert(g2value[0][0]);
+	alert(g2value[0]['citycode']);
 	//window.location.href = "./genre";
 }
