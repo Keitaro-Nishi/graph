@@ -11,7 +11,7 @@ var rowgid2 = [];
 var wtable = document.getElementById('grid-basic');
 $(function(){
 
-	//g1change();
+	g1change();
 });
 /*
 //インテント取得
@@ -40,7 +40,7 @@ function getwtent(){
         alert("Watsonデータの取得に失敗しました");
     });
 }
-
+*/
 //大分類切替
 function g1change(){
 	var g2value = <?php echo json_encode($g2value); ?>;
@@ -69,9 +69,10 @@ function g2change(){
 
 	//テーブル初期化
 	while( wtable.rows[ 1 ] ) wtable.deleteRow( 1 );
-	getwtent();
+	//getwtent();
 }
 
+/*
 //更新
 function update(){
 	synonym = document.getElementById('synonym').value;
@@ -135,8 +136,8 @@ function delLine(value,raw){
 }
 
 */
+
 //もどる
 function back(){
 	window.location.href = "./genre";
 }
-

@@ -27,6 +27,8 @@
 	<input type="button" class="btn btn-default" onclick="back()" value="もどる" />
 </div>
 
+<input type="text" value = "$shoubunruis" />
+
 <div class="modal" id="updateDialog" tabindex="-1">
 	<div class="modal-dialog">
     	<div class="modal-content">
