@@ -41,33 +41,43 @@ class CodeManageController
 
 		if($selcode == ""){
 			//新規
-			$code = new Code;
-			$code->citycode = $cityCD;
-			$code->code1 = $input["code1"];
-			$code2 = Code::where('citycode', $cityCD)->where('code1', $input["code1"])->max('code2');
+			$code1 = $input["code1"];
+			$code2max = Code::where('citycode', $cityCD)->where('code1', $input["code1"])->max('code2');
 			error_log("★★★★★★★★★★★★★★code2★★★★★★★★★★★★★★".$code2);
-			$code->code2 = $code2 + 1;
-			$code->meisho = $input["meisho"];
-			$code->num = $input["num"];
-			$code->class1 = $input["class1"];
-			$code->class2 = 0;
-			$code->save();
+			$code2 = $code2max + 1;
+			$meisho = $input["meisho"];
+			$num = $input["num"];
+			$class1 = $input["class1"];
+			$class2 = 0;
+			//code->save();
+			$result = DB::table ( 'code' )->insert ( [
+					'citycode' => $cityCD,
+					'code1' => $code1,
+					'code2' => $code2,
+					'meisho' => $meisho,
+					'num' => $num,
+					'class1' => $class1,
+					'class2' => $class2
+					] );
 		}else{
 			//変更
 			$code12 = explode(".", $selcode);
 			error_log("★★★★★★★★★★★★★★code12★★★★★★★★★★★★★★".$code12[0]."★".$code12[1]);
 			$code = Code::where('citycode', $cityCD)->where('code1', $code12[0])->where('code2', $code12[1])->first();
-			$code->meisho = $input["meisho"];
-			$code->num = $input["num"];
+			$meisho = $input["meisho"];
+			$num = $input["num"];
+			$class1 = $code->class1;
 			if($input["code1"] == 0){
-				error_log("★★★★★★★★★★★★★★code->class1★★★★★★★★★★★★★★".$code->class1);
-				if($code->class1 != $input["class1"]){
-					$code->class1 = $input["class1"];
-					Code::where('citycode', $cityCD)->where('code1', $code12[1])->update(['class1', $input["class1"]]);
+				error_log("★★★★★★★★★★★★★★code->class1★★★★★★★★★★★★★★".$class1);
+				if($class1 != $input["class1"]){
+					$class1 = $input["class1"];
+					Code::where('citycode', $cityCD)->where('code1', $code12[1])->update(['class1' => $class1]);
 				}
 			}
 			error_log("★★★★★★★★★★★★★★update_start2★★★★★★★★★★★★★★");
-			$code->save();
+			//$code->save();
+			Code::where('citycode', $cityCD)->where('code1', $code12[0])->where('code2', $code12[1])->update(['meisho' => $meisho , 'num' => $num , 'class1' => $class1]);
+
 		}
 		return \Response::json(['status' => 'OK']);
 	}
