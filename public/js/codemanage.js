@@ -64,7 +64,7 @@ function codeselChange(){
 					"class1":tabledata[i]['class1'],
 					"class2":tabledata[i]['class2']
 				});
-			}else if(class1 == 1){
+			}else if(class1 == 2){
 				tblarray.push({
 					"code12":tabledata[i]['code1'] + "." + tabledata[i]['code2'],
 					"code1":tabledata[i]['code1'],
