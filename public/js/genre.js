@@ -240,6 +240,7 @@ function update(){
 
 }
 
+
 function intent(){
 	window.location.href = "./genreint";
 }
