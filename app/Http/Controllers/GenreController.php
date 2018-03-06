@@ -112,29 +112,17 @@ class GenreController
 		}else{
 			if($bunrui == 1){
 
-				$gid1datas= DB::table('genre')->select('gid1')->orderBy('gid1', 'DESC')->first();
-				foreach ($gid1datas as $gid1data) {
-					$gid1 = $gid1data->gid2 + 1;
-					break;
-				}
+				$gid1data= DB::table('genre')->select('gid1')->orderBy('gid1', 'DESC')->first();
+				$gid1 = $gid1data->gid1 + 1;
+
 				error_log("○○○○○○");
 				error_log($gid1);
-				DB::table('genre')->insert(['bunrui' =>$bunrui, 'gid1' => $gid1,'gid2' =>0,'gid3' =>0,'meisho' =>$meisho]);
+				DB::table('genre')->insert(['citycode'=> $cityCD,'bunrui' =>$bunrui, 'gid1' => $gid1,'gid2' =>0,'gid3' =>0,'meisho' =>$meisho]);
 
 			}else{
 
-				/*$gid2datas= DB::table('genre')->select('gid2')->where('gid1',$gid1)->orderBy('gid2', 'DESC')->get();
-				foreach ($gid2datas as $gid2data) {
-					$gid2 = $gid2data->gid2 + 1;
-					break;
-				}*/
 				$gid2data= DB::table('genre')->select('gid2')->where('gid1',$gid1)->orderBy('gid2', 'DESC')->first();
-				//foreach ($gid2datas as $gid2data) {
-					$gid2 = $gid2data->gid2 + 1;
-					//break;
-				//}
-				error_log("★★★★★★★★★");
-				error_log($gid2);
+				$gid2 = $gid2data->gid2 + 1;
 
 				DB::table('genre')->insert(['citycode'=> $cityCD,'bunrui' => $bunrui,'gid1' => $gid1,'gid2' => $gid2,'gid3' =>0,'meisho' => $meisho]);
 				return \Response::json(['status' => 'OK']);
