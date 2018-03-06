@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Code;
 
@@ -48,8 +49,9 @@ class CodeManageController
 			$meisho = $input["meisho"];
 			$num = $input["num"];
 			$class1 = $input["class1"];
-			$class2 = 0;
+			$class2 = "0";
 			//code->save();
+			error_log("★★★★★★★★★★★★★★code2★★★★★★★★★★★★★★".$code2);
 			$result = DB::table ( 'code' )->insert ( [
 					'citycode' => $cityCD,
 					'code1' => $code1,
