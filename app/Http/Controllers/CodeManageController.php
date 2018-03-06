@@ -42,8 +42,8 @@ class CodeManageController
 		if($selcode == ""){
 			//新規
 			$code1 = $input["code1"];
-			$code2max = Code::where('citycode', $cityCD)->where('code1', $input["code1"])->max('code2');
-			error_log("★★★★★★★★★★★★★★code2★★★★★★★★★★★★★★".$code2);
+			$code2max = Code::where('citycode', $cityCD)->where('code1', $code1)->max('code2');
+			error_log("★★★★★★★★★★★★★★code2★★★★★★★★★★★★★★".$code2max);
 			$code2 = $code2max + 1;
 			$meisho = $input["meisho"];
 			$num = $input["num"];
