@@ -1,5 +1,6 @@
 var rowIds = [];
 var selcode = "";
+var select_val = 0;
 var class1 = 0;
 
 //$(function() {
@@ -34,7 +35,7 @@ function init() {
 }
 
 function codeselChange(){
-	var select_val = document.getElementById('codesel').value;
+	select_val = document.getElementById('codesel').value;
 
 	//使用区分取得
 	for(var i=0; i < tabledata.length; i++){
