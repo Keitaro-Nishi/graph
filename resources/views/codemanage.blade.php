@@ -56,7 +56,8 @@ array_push($arr,"test");
 <script src="{{ asset('js/codemanage.js') }}"></script>
 <script>
 var tabledata = [];
-var tabledata = @json($arr);
+//var tabledata = @json($arr);
+var tabledata = @json($codes);
 init();
 //alert(tabledata[0]);
 </script>
