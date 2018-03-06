@@ -111,32 +111,4 @@ function drow() {
 	    }
 	});
 }
-	/*
-	var myRet = false;
-	if(g1array.length > 0){
-		myRet = confirm("選択行を削除しますか？\n※大分類を削除すると関連する小分類も削除されます");
-	}else{
-		myRet = confirm("選択行を削除しますか？");
-	}
-	if ( myRet == true ){
-		$.ajax({
-			type: "POST",
-			dataType: "JSON",
-			data: {
-				"param" : "delete",
-				"id" : idarray
-			}
-		}).done(function (response) {
-			result = JSON.parse(response);
-			if(result == "OK"){
-				alert("削除しました");
-				location.reload();
-			}else{
-				alert("削除できませんでした");
-			}
-		}).fail(function () {
-			alert("削除できませんでした");
-		});
-	}*/
-
 
