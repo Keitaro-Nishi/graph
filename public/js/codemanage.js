@@ -1,7 +1,7 @@
 var rowIds = [];
 var selcode = "";
 var select_val = 0;
-var class1 = 0;
+var class1 = "0";
 
 //$(function() {
 function init() {
@@ -13,7 +13,7 @@ function init() {
 		columnSelection : false,
 		formatters: {
 	        "details": function($column, $row) {
-	        	return "<input type='button' class='btn btn-default' value='修正' onclick='detailwin(\""  + $row.code12 + "\",\"" + $row.meisho + "\"," + $row.num + ")'> ";
+	        	return "<input type='button' class='btn btn-default' value='修正' onclick='detailwin(\""  + $row.code12 + "\",\"" + $row.meisho + "\"," + $row.num + ",\"" + $row.class1 + "\")'> ";
              }
 	    }
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
@@ -53,7 +53,7 @@ function codeselChange(){
 	var tblarray = [];
 	for(var i=0; i < tabledata.length; i++){
 		if(tabledata[i]['code1'] == select_val){
-			if(class1 == 1){
+			if(class1 == "1"){
 				tblarray.push({
 					"code12":tabledata[i]['code1'] + "." + tabledata[i]['code2'],
 					"code1":tabledata[i]['code1'],
@@ -64,7 +64,7 @@ function codeselChange(){
 					"class1":tabledata[i]['class1'],
 					"class2":tabledata[i]['class2']
 				});
-			}else if(class1 == 2){
+			}else if(class1 == "2"){
 				tblarray.push({
 					"code12":tabledata[i]['code1'] + "." + tabledata[i]['code2'],
 					"code1":tabledata[i]['code1'],
@@ -81,12 +81,19 @@ function codeselChange(){
 	$("#grid-basic").bootgrid("append",tblarray);
 }
 
-function detailwin(code,meisho,num){
+function detailwin(code,meisho,num,cl1){
 	selcode = code;
 	document.getElementById('modal-label').innerHTML  = "コード修正";
 	initmodal();
 	document.getElementById('dia_meisho').value = meisho;
 	document.getElementById('dia_num').value = num;
+	if(cl1 == "1"){
+		document.getElementsByName('kbn')[0].checked = true;
+		document.getElementsByName('kbn')[1].checked = false;
+	}else if(cl1 == "2"){
+		document.getElementsByName('kbn')[0].checked = false;
+		document.getElementsByName('kbn')[1].checked = true;
+	}
 	document.getElementById("btn_modal").click();
 }
 
@@ -102,12 +109,12 @@ function initmodal(){
 	document.getElementById('dia_meisho').value = "";
 	document.getElementById('dia_num').value = 0;
 
-	if(class1 == 1){
+	if(class1 == "1"){
 		document.getElementById('dia_meisho_gp').style.display="block";
 		document.getElementById('dia_num_gp').style.display="none";
 		document.getElementsByName('kbn')[0].checked = true;
 		document.getElementsByName('kbn')[1].checked = false;
-	}else if(class1 == 2){
+	}else if(class1 == "2"){
 		document.getElementById('dia_meisho_gp').style.display="none";
 		document.getElementById('dia_num_gp').style.display="block";
 		document.getElementsByName('kbn')[0].checked = false;
@@ -156,12 +163,12 @@ function drow() {
 function update(){
 	var meisho = document.getElementById('dia_meisho').value;
 	var num = document.getElementById('dia_num').value;
-	var class1 = 0;
+	var class1 = "0";
 	if(document.getElementsByName('kbn')[0].checked){
-		class1 = 1;
+		class1 = "1";
 	}
 	if(document.getElementsByName('kbn')[1].checked){
-		class1 = 2;
+		class1 = "2";
 	}
 	var _token = document.getElementById('_token').value;
 	console.log("select_val:" + select_val + " selcode:" + selcode + " meisho" + meisho + " num:" + num + " class1:" + class1 + " _token:" + _token);
