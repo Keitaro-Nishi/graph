@@ -42,5 +42,5 @@
 	</div>
 </div>
 
-<script src="{{ asset('js/genreinit.js') }}"></script>
+<script src="{{ asset('js/genreint.js') }}"></script>
 @endsection

@@ -40,7 +40,7 @@ Route::middleware(['auth'])->group(function () {
 
 	Route::get ( '/genre', 'GenreController@index' )->name ( 'genre' );
 	Route::post ( '/genre','GenreController@request');
-	Route::get ( '/genreinit', 'GenreController@init' )->name ( 'genreinit' );
+	Route::get ( '/genreint', 'GenreintController@index' )->name ( 'genreint' );
 
 	Route::get ( '/linepush',function(){
 		return view( 'linepush' );
