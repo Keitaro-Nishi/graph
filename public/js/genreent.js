@@ -137,6 +137,6 @@ function delLine(value,raw){
 */
 //もどる
 function back(){
-	window.location.href = "./genre.php";
+	window.location.href = "./genre";
 }
 
