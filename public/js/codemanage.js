@@ -43,7 +43,8 @@ function codeselChange(){
 
 	//テーブルデータ作成
 	for(var rec in tabledata){
-		alert(rec['code1'] + ":" + rec['meisho']);
+		console.log(rec);
+		//alert(rec['code1'] + ":" + rec['meisho']);
 		if(rec['code1'] == select_val){
 			var raw = codetable.insertRow( -1 );
 			var td_code12 = raw.insertCell(-1),td_code1 = raw.insertCell(-1),td_code2 = raw.insertCell(-1),td_meisho = raw.insertCell(-1),td_num = raw.insertCell(-1),td_class1 = raw.insertCell(-1),td_class2 = raw.insertCell(-1);
