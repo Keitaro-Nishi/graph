@@ -128,6 +128,7 @@ class GenreController
 
 	public function init(Request $request)
 	{
+		$cityCD = Auth::user()->citycode;
 		//$results= Genre::where('bunrui', 1)->get();
 		$results = DB::table('genre')->where('citycode', $cityCD)->where('bunrui', 1)->get();
 		return view('genreinit',compact('results'));
