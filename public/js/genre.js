@@ -238,6 +238,12 @@ function update(){
 		});
     });
 
+	function intent(){
+		window.location.href = "./genreint.php";
+	}
+	function entity(){
+		window.location.href = "./genreent.php";
+	}
 
 }
 
