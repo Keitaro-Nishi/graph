@@ -111,6 +111,7 @@ class FacilityController {
 		$cityCD = Auth::user ()->citycode;
 		foreach ( $ids as $id ) {
 			$iddata = $id[0];
+			error_log($iddata);
 			DB::table ( 'facility' )->where ('id', $iddata )->delete ();
 		}
 		return \Response::json(['status' => 'OK']);
