@@ -112,7 +112,6 @@ function drow() {
 	});
 }
 
-
 function irow(){
 	document.getElementById('modal-label').innerHTML  = "ジャンル追加";
 	uiKbn = 2;

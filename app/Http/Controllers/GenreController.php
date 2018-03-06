@@ -54,7 +54,6 @@ class GenreController
 				array_push($genrelists, $genrelist);
 			}
 
-
 		return view('genre',compact('genrelists','j1values'));
 	}
 
