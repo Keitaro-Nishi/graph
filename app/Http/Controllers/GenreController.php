@@ -19,6 +19,7 @@ class GenreController
 
 			$genres= Genre::where('citycode', $cityCD)->orderBy('gid1', 'ASC')->orderBy('gid2', 'ASC')->get();
 			$genregid1 = DB::table('genre')->select('gid1')->where('citycode', $cityCD)->get();
+			$j1values = DB::table('genre')->where('citycode', $cityCD)->where('bunrui', 1)->get();
 
 			foreach ($genres as $genre) {
 				$citycode = $genre->citycode;
@@ -54,7 +55,7 @@ class GenreController
 			}
 
 
-		return view('genre',compact('genrelists'));
+		return view('genre',compact('genrelists','j1values'));
 	}
 
 	public  function request(){

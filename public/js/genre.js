@@ -112,3 +112,15 @@ function drow() {
 	});
 }
 
+
+function irow(){
+	document.getElementById('modal-label').innerHTML  = "ジャンル追加";
+	uiKbn = 2;
+	meishoOld = "";
+	gid2 = 0;
+	/*initmodal();
+	document.getElementById('dia_g1').style.display = "none";
+	document.getElementById('dia_g2meisho').disabled = true;
+	*/
+	document.getElementById("btn_modal").click();
+}
