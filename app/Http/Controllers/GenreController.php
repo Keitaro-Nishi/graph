@@ -104,8 +104,8 @@ class GenreController
 		$meishoOld = $input["meishoOld"];
 		$cityCD = Auth::user()->citycode;
 
-		//error_log("★★★★★★★★★");
-		//error_log("uiKbn:".$uiKbn." bunrui:".$bunrui." meisho:".$meisho." gid1:".$gid1." gid2:".$gid2." g1meisho:".$g1meisho." meishoOld:".$meishoOld);
+		error_log("★★★★★★★★★");
+		error_log("uiKbn:".$uiKbn." bunrui:".$bunrui." meisho:".$meisho." gid1:".$gid1." gid2:".$gid2." g1meisho:".$g1meisho." meishoOld:".$meishoOld);
 
 		if($uiKbn == 1){
 			DB::table('genre')->where('citycode',$cityCD)->where('gid1',$gid1)->where('gid2',$gid2)->update(['meisho' => $meisho]);
