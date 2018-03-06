@@ -160,9 +160,11 @@ function update(){
 	console.log(document.getElementsByName('kbn')[0].checked);
 	console.log(document.getElementsByName('kbn')[1].checked);
 	if(document.getElementsByName('kbn')[0].checked == true){
+		console.log("1を選択");
 		calss1 = 1;
 	}
 	if(document.getElementsByName('kbn')[1].checked == true){
+		console.log("2を選択");
 		calss1 = 2;
 	}
 	var _token = document.getElementById('_token').value;
