@@ -242,7 +242,7 @@ function update(){
 
 
 function intent(){
-	window.location.href = "./genreinit";
+	window.location.href = "./genreint";
 }
 
 function entity(){
