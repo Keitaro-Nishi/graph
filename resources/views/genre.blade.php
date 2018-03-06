@@ -70,7 +70,7 @@
 							<input id="dia_g1meisho" class="form-control" maxlength="50" placeholder="大分類名称">
 							<select id="dia_g1" class="form-control">
 							@foreach($j1values as $j1value)
-							<option value="1">{{$j1value->meisho}}</option>
+							<option value="11">{{$j1value->meisho}}</option>
 							@endforeach
 							</select>
 						</div>
