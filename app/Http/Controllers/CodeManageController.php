@@ -33,26 +33,20 @@ class CodeManageController
 
 	public function update()
 	{
-		error_log("★★★★★★★★★★★★★★update_start★★★★★★★★★★★★★★");
 		$input = $this->requestall;
-
 		$selcode = $input["selcode"];
-		error_log("★★★★★★★★★★★★★★update_start★★★★★★★★★★★★★★".$selcode);
 		$cityCD = Auth::user()->citycode;
 
 		if($selcode == ""){
 			//新規
 			$code1 = $input["code1"];
 			$code2max = Code::where('citycode', $cityCD)->where('code1', $code1)->max('code2');
-			error_log("★★★★★★★★★★★★★★code2★★★★★★★★★★★★★★".$code2max);
 			$code2 = $code2max + 1;
 			$meisho = $input["meisho"];
 			$num = $input["num"];
 			$class1 = $input["class1"];
 			$class2 = "0";
-			//code->save();
-			error_log("★★★★★★★★★★★★★★code2★★★★★★★★★★★★★★".$code2);
-			$result = DB::table ( 'code' )->insert ( [
+			$result = DB::table('code')->insert([
 					'citycode' => $cityCD,
 					'code1' => $code1,
 					'code2' => $code2,
@@ -73,12 +67,12 @@ class CodeManageController
 				error_log("★★★★★★★★★★★★★★code->class1★★★★★★★★★★★★★★".$class1);
 				if($class1 != $input["class1"]){
 					$class1 = $input["class1"];
-					Code::where('citycode', $cityCD)->where('code1', $code12[1])->update(['class1' => $class1]);
+					DB::table('code')->where('citycode', $cityCD)->where('code1', $code12[1])->update(['class1' => $class1]);
 				}
 			}
 			error_log("★★★★★★★★★★★★★★update_start2★★★★★★★★★★★★★★");
 			//$code->save();
-			Code::where('citycode', $cityCD)->where('code1', $code12[0])->where('code2', $code12[1])->update(['meisho' => $meisho , 'num' => $num , 'class1' => $class1]);
+			DB::table('code')->where('citycode', $cityCD)->where('code1', $code12[0])->where('code2', $code12[1])->update(['meisho' => $meisho , 'num' => $num , 'class1' => $class1]);
 
 		}
 		return \Response::json(['status' => 'OK']);
