@@ -41,6 +41,8 @@ function codeselChange(){
 	//テーブル初期化
 	while( codetable.rows[ 1 ] ) codetable.deleteRow( 1 );
 
+	console.log(tabledata);
+
 	//テーブルデータ作成
 	for(var rec in tabledata){
 		console.log(rec);
