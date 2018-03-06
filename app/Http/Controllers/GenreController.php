@@ -132,6 +132,7 @@ class GenreController
 				error_log("bunrui:".$bunrui." meisho:".$meisho." gid1:".$gid1." gid2:".$gid2);
 
 				$genre = new Genre;
+				$genre->citycode = $cityCD;
 				$genre->bunrui =$bunrui;
 				$genre->gid1 = $gid1;
 				$genre->gid2 = $gid2;
