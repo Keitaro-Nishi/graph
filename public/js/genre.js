@@ -164,12 +164,6 @@ function update(){
 	}
 	var _token = document.getElementById('_token').value;
 
-	alert(bunrui);
-	alert(gid1);
-	alert(g1meisho);
-	alert(meisho);
-
-
 	$.ajax({
 		type: "POST",
 		dataType: "JSON",

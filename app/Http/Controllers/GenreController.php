@@ -106,6 +106,18 @@ class GenreController
 
 		error_log("★★★★★★★★★");
 		error_log("uiKbn:".$uiKbn." bunrui:".$bunrui." meisho:".$meisho." gid1:".$gid1." gid2:".$gid2." g1meisho:".$g1meisho." meishoOld:".$meishoOld);
+
+		if($uiKbn ==1){
+			DB::table('genre')->where('citycode',$cityCD)->where('gid1',$gid1)->where('gid2',$gid2)->update(['meisho' => $meisho]);
+		}else{
+			if($bunrui == 1){
+				$gid1data= DB::table('genre')->select('gid1')->orderBy('gid1', 'DESC')->get();
+				$gid1 = $gid1data[0] +1;
+				error_log("○○○○○○");
+				error_log($gid1);
+				DB::table('genre')->insert(['bunrui' =>$bunrui, 'gid1' => $gid1,'gid2' =>0,'gid3' =>0,'meisho' =>$meisho]);
+			}
+		}
 	}
 
 	public function init(Request $request)
