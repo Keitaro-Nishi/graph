@@ -38,32 +38,31 @@ function codeselChange(){
 	var codetable = document.getElementById('grid-basic');
 
 	//テーブル初期化
-	//while( codetable.rows[ 1 ] ) codetable.deleteRow( 1 );
 	$("#grid-basic").bootgrid("clear");
+	/*
 	if(select_val == 1){
 		var arr = [{"code12":"1.2","code1":"1","code2":"1","meisho":"テスト1","num":"3","class1":"4","class2":"5"}];
 	}else{
 		var arr = [{"code12":"1.2","code1":"1","code2":"2","meisho":"テスト2","num":"3","class1":"4","class2":"5"}];
 	}
-	$("#grid-basic").bootgrid("append",arr);
-
+	*/
 	//テーブルデータ作成
-	/*
+	var tblarray = [];
 	for(var i=0; i < tabledata.length; i++){
 		console.log(tabledata[i]['code1'] + ":" + tabledata[i]['meisho']);
 		if(tabledata[i]['code1'] == select_val){
-			var raw = codetable.insertRow( -1 );
-			var td_code12 = raw.insertCell(-1),td_code1 = raw.insertCell(-1),td_code2 = raw.insertCell(-1),td_meisho = raw.insertCell(-1),td_num = raw.insertCell(-1),td_class1 = raw.insertCell(-1),td_class2 = raw.insertCell(-1);
-			td_code12.innerHTML = tabledata[i]['code1'] + "." + tabledata[i]['code2'];
-			td_code1.innerHTML = tabledata[i]['code1'];
-			td_code2.innerHTML = tabledata[i]['code2'];
-			td_meisho.innerHTML = tabledata[i]['meisho'];
-			td_num.innerHTML = tabledata[i]['num'];
-			td_class1.innerHTML = tabledata[i]['class1'];
-			td_class2.innerHTML = tabledata[i]['class2'];
+			tblarray.push({
+				"code12":tabledata[i]['code1'] + "." + tabledata[i]['code2'],
+				"code1":tabledata[i]['code1'],
+				"code2":tabledata[i]['code2'],
+				"meisho":tabledata[i]['meisho'],
+				"num":tabledata[i]['num'],
+				"class1":tabledata[i]['class1'],
+				"class2":tabledata[i]['class2']
+			});
 		}
 	}
-	*/
+	$("#grid-basic").bootgrid("append",tblarray);
 }
 
 function drow() {
