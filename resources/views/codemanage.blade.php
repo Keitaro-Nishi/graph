@@ -59,8 +59,8 @@
 					<div class="form-group" id="dia_kbn_gp">
 						<label class="col-sm-3 control-label" for="dia_kbn_meisho">使用区分</label>
 						<div class="col-sm-9">
-							<input type="radio" class="form-check-input" name="kbn" id="dia_kbn_meisho" checked="checked">名称
-							<input type="radio" class="form-check-input" name="kbn" id="dia_kbn_num" checked="checked">数値
+							<input type="radio" class="form-check-input" name="kbn" checked="checked">名称
+							<input type="radio" class="form-check-input" name="kbn" >数値
 						</div>
 					</div>
 					<input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">

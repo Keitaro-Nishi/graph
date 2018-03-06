@@ -106,13 +106,13 @@ function initmodal(){
 	if(class1 == 1){
 		document.getElementById('dia_meisho_gp').style.display="block";
 		document.getElementById('dia_num_gp').style.display="none";
-		document.getElementById('dia_kbn_meisho').checked = true;
-		document.getElementById('dia_kbn_num').checked = false;
+		document.getElementsByName('kbn')[0].checked = true;
+		document.getElementsByName('kbn')[1].checked = false;
 	}else if(class1 == 2){
 		document.getElementById('dia_meisho_gp').style.display="none";
 		document.getElementById('dia_num_gp').style.display="block";
-		document.getElementById('dia_kbn_meisho').checked = false;
-		document.getElementById('dia_kbn_num').checked = true;
+		document.getElementsByName('kbn')[0].checked = false;
+		document.getElementsByName('kbn')[1].checked = true;
 	}
 
 	if(select_val == 0){
@@ -158,10 +158,10 @@ function update(){
 	var meisho = document.getElementById('dia_meisho').value;
 	var num = document.getElementById('dia_num').value;
 	var calss1 = 0;
-	if(document.getElementById('dia_kbn_meisho').checked){
+	if(document.getElementsByName('kbn')[0].checked){
 		calss1 = 1;
 	}
-	if(document.getElementById('dia_kbn_num').checked){
+	if(document.getElementsByName('kbn')[1].checked){
 		calss1 = 2;
 	}
 	var _token = document.getElementById('_token').value;
