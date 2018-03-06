@@ -1,4 +1,5 @@
 var rowIds = [];
+var selcode = "";
 
 //$(function() {
 function init() {
@@ -27,25 +28,17 @@ function init() {
 	});
 
 	//テーブル操作
-	//alert(tabledata[0]['meisho']);
 	document.getElementById('codesel').selectedIndex = 0;
 	codeselChange();
 }
 
 function codeselChange(){
-    //var select_val = $('#codesel option:selected').val();
 	var select_val = document.getElementById('codesel').value;
-	var codetable = document.getElementById('grid-basic');
 
 	//テーブル初期化
 	$("#grid-basic").bootgrid("clear");
-	/*
-	if(select_val == 1){
-		var arr = [{"code12":"1.2","code1":"1","code2":"1","meisho":"テスト1","num":"3","class1":"4","class2":"5"}];
-	}else{
-		var arr = [{"code12":"1.2","code1":"1","code2":"2","meisho":"テスト2","num":"3","class1":"4","class2":"5"}];
-	}
-	*/
+	rowIds = [];
+
 	//テーブルデータ作成
 	var tblarray = [];
 	for(var i=0; i < tabledata.length; i++){
@@ -63,6 +56,16 @@ function codeselChange(){
 		}
 	}
 	$("#grid-basic").bootgrid("append",tblarray);
+}
+
+function detailwin(code){
+	selcode = code;
+	document.getElementById("btn_modal").click();
+}
+
+function insert(){
+	selcode = "";
+	document.getElementById("btn_modal").click();
 }
 
 function drow() {
