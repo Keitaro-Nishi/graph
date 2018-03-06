@@ -27,7 +27,7 @@ function init() {
 
 	//テーブル操作
 	console.log(tabledata);
-	alert(tabledata[0][meisho]);
+	alert(tabledata[0]['meisho']);
 	document.getElementById('codesel').selectedIndex = 0;
 	//codeselChange();
 }
