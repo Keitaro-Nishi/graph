@@ -14,7 +14,7 @@ class GenreintController
 		$cityCD = Auth::user()->citycode;
 		//$results= Genre::where('bunrui', 1)->get();
 		$results = DB::table('genre')->where('citycode', $cityCD)->where('bunrui', 1)->get();
-		return view('genreinit',compact('results'));
+		return view('genreint',compact('results'));
 
 	}
 
