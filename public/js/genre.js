@@ -189,7 +189,7 @@ function update(){
     }).fail(function () {
         alert("更新できませんでした");
     });
-*/
 
-}
+
+}*/
 

@@ -90,6 +90,7 @@ class GenreController
 		return \Response::json(['status' => 'OK']);
 	}
 
+
 	public function update()
 	{
 		$input = $this->requestall;
