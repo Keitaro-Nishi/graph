@@ -37,6 +37,7 @@ class FacilityController {
 			] );
 		}
 	}
+
 	public function update() {
 		$input = \Request::all ();
 
