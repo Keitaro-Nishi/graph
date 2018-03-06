@@ -43,7 +43,11 @@ function getwtent(){
 */
 //大分類切替
 function g1change(){
-	var g2value = <?php echo json_encode($g2value); ?>;
+	var g2value = [];
+	g2value = document.getElementById('shoubunrui');
+	alert(g2value[0][0]);
+
+	/*
 	var select2 = document.getElementById('g2');
 	while(select2.lastChild)
 	{
@@ -62,6 +66,7 @@ function g1change(){
 	}
 
 	g2change();
+	*/
 }
 
 //小分類切替
