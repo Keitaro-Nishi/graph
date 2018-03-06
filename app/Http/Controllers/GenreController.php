@@ -110,22 +110,25 @@ class GenreController
 		if($uiKbn == 1){
 			DB::table('genre')->where('citycode',$cityCD)->where('gid1',$gid1)->where('gid2',$gid2)->update(['meisho' => $meisho]);
 		}else{
-			error_log("△△△△△△△");
 			if($bunrui == 1){
 
-				$gid1data= DB::table('genre')->select('gid1')->orderBy('gid1', 'DESC')->first();
-				$gid1 = $gid1data +1;
+				$gid1datas= DB::table('genre')->select('gid1')->orderBy('gid1', 'DESC')->first();
+				foreach ($gid1datas as $gid1data) {
+					$gid1 = $gid1data->gid2 + 1;
+					break;
+				}
 				error_log("○○○○○○");
 				error_log($gid1);
 				DB::table('genre')->insert(['bunrui' =>$bunrui, 'gid1' => $gid1,'gid2' =>0,'gid3' =>0,'meisho' =>$meisho]);
 
 			}else{
 
-				$gid2datas= DB::table('genre')->select('gid2')->where('gid1',$gid1)->orderBy('gid2', 'DESC')->first();
+				$gid2datas= DB::table('genre')->select('gid2')->where('gid1',$gid1)->orderBy('gid2', 'DESC')->get();
 				foreach ($gid2datas as $gid2data) {
 					$gid2 = $gid2data->gid2 + 1;
 					break;
 				}
+				error_log("★★★★★★★★★");
 				error_log($gid2);
 				//DB::table('genre')->insert(['bunrui' =>$bunrui,'gid1' => $gid1,'gid2' =>$gid2,'gid3' =>0,'meisho' =>$meisho]);
 				DB::insert('insert into genre (bunrui,gid1,gid2,gid3,meisho) values (?,?,?,?,?)', [$bunrui,$gid1,$gid2,$gid3,$meisho]);
