@@ -40,7 +40,11 @@ function codeselChange(){
 	//テーブル初期化
 	//while( codetable.rows[ 1 ] ) codetable.deleteRow( 1 );
 	$("#grid-basic").bootgrid("clear");
-	var arr = [{"code12":"1.2","code1":"1","code2":"2","meisho":"テスト","num":"3","class1":"4","class2":"5"}];
+	if(select_val == 1){
+		var arr = [{"code12":"1.2","code1":"1","code2":"1","meisho":"テスト1","num":"3","class1":"4","class2":"5"}];
+	}else{
+		var arr = [{"code12":"1.2","code1":"1","code2":"2","meisho":"テスト2","num":"3","class1":"4","class2":"5"}];
+	}
 	$("#grid-basic").bootgrid("append",arr);
 
 	//テーブルデータ作成
