@@ -165,6 +165,7 @@ function update(){
 		calss1 = 2;
 	}
 	var _token = document.getElementById('_token').value;
+	console.log("select_val:" + select_val + " selcode:" + selcode + " meisho" + meisho + " num:" + num + " class1:" + class1 + " _token:" + _token);
 	$.ajax({
 		type: "POST",
 		dataType: "JSON",
