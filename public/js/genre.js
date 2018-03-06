@@ -12,7 +12,12 @@ $(function() {
 		multiSelect : true,
 		rowSelect : true,
 		columnSelection : false,
-	    keepSelection: true
+	    keepSelection: true,
+	    formatters: {
+	        "mods": function($column, $row) {
+	        	return "<input type='button' class='btn btn-default' value='修正' onclick='modwin("  + $row.no + ",\"" + $row.gid1 + "\",\"" + $row.gid2 + "\",\"" + $row.g1 + "\",\"" + $row.g2 + "\")' > ";
+             }
+	    }
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
 		for (var i = 0; i < rows.length; i++)
 	    {
@@ -136,6 +141,32 @@ function bchange(){
 		document.getElementById('dia_g2meisho').disabled = false;
 	}
 }
+
+
+function modwin(no,gid1,_gid2,g1,g2){
+	document.getElementById('modal-label').innerHTML  = "ジャンル修正";
+	initmodal();
+	gid2 = _gid2;
+	uiKbn = 1;
+	document.getElementById('dia_bunrui').disabled = true;
+	if(gid2 > 0){
+		meishoOld = g2;
+		document.getElementById('dia_bunrui').value = 2;
+		document.getElementById('dia_g1').value = gid1;
+		document.getElementById('dia_g1').disabled = true;
+		document.getElementById('dia_g1meisho').style.display = "none";
+		document.getElementById('dia_g2meisho').value = g2;
+	}else{
+		meishoOld = g1;
+		document.getElementById('dia_bunrui').value = 1;
+		document.getElementById('dia_g1').value = gid1;
+		document.getElementById('dia_g1').style.display = "none";
+		document.getElementById('dia_g1meisho').value = g1;
+		document.getElementById('dia_g2meisho').disabled = true;
+	}
+	document.getElementById("btn_modal").click();
+}
+
 
 function initmodal(){
 	document.getElementById('dia_bunrui').value = 1;
