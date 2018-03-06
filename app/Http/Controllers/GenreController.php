@@ -118,9 +118,9 @@ class GenreController
 				error_log($gid1);
 				DB::table('genre')->insert(['bunrui' =>$bunrui, 'gid1' => $gid1,'gid2' =>0,'gid3' =>0,'meisho' =>$meisho]);
 			}else{
-				$gid2data= DB::table('genre')->select('gid2')->where('gid1',$gid1)->orderBy('gid2', 'DESC')->first();
+				$gid2data= DB::table('genre')->select('gid2')->where('gid1',$gid1)->orderBy('gid2', 'DESC')->get();
 				error_log("☓☓☓☓☓☓☓");
-				error_log($gid2data);
+				error_log($gid2data[0]);
 				$gid2 = $gid2data + 1;
 				error_log("●●●●●●●");
 				error_log($gid2);
