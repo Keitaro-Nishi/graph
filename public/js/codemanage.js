@@ -159,10 +159,10 @@ function update(){
 	var calss1 = 0;
 	console.log(document.getElementsByName('kbn')[0].checked);
 	console.log(document.getElementsByName('kbn')[1].checked);
-	if(document.getElementsByName('kbn')[0].checked){
+	if(document.getElementsByName('kbn')[0].checked == true){
 		calss1 = 1;
 	}
-	if(document.getElementsByName('kbn')[1].checked){
+	if(document.getElementsByName('kbn')[1].checked == true){
 		calss1 = 2;
 	}
 	var _token = document.getElementById('_token').value;
