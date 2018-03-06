@@ -12,6 +12,9 @@
 	<br>
 	<p>小分類</p>
 	<select id="g2" class="form-control" onChange="g2change()" style="width: 600px;">
+	@foreach($shoubunruilists as $shoubunruilist)
+	<option value="{{$shoubunruilist->gid1}}">{{$shoubunruilist->meisho}}</option>
+	@endforeach
 	</select>
 	<br>
 	<table id='grid-basic' class='table table-sm'>
