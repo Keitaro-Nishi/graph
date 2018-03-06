@@ -162,13 +162,14 @@ function update(){
 	}else{
 		meisho = document.getElementById('dia_g2meisho').value;
 	}
+	var _token = document.getElementById('_token').value;
 
 	alert(bunrui);
 	alert(gid1);
 	alert(g1meisho);
 	alert(meisho);
 
-	/*
+
 	$.ajax({
 		type: "POST",
 		dataType: "JSON",
@@ -194,7 +195,7 @@ function update(){
     }).fail(function () {
         alert("更新できませんでした");
     });
-	*/
+
 
 }
 
