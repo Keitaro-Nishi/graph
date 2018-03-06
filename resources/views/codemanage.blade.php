@@ -52,10 +52,10 @@
 					<div class="form-group" id="dia_num_gp">
 						<label class="col-sm-3 control-label" for="dia_num">数値</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" id="dia_num" value="">
+							<input type="number" class="form-control" id="dia_num" value="">
 						</div>
 					</div>
-					<div class="form-group">
+					<div class="form-group" id="dia_kbn_gp">
 						<label class="col-sm-3 control-label" for="dia_kbn_meisho">使用区分</label>
 						<div class="col-sm-9">
 							<input type="radio" class="form-check-input" name="kbn" id="dia_kbn_meisho" checked="checked">名称

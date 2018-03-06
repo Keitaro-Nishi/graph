@@ -11,7 +11,7 @@ function init() {
 		columnSelection : false,
 		formatters: {
 	        "details": function($column, $row) {
-	        	return "<input type='button' class='btn btn-default' value='修正' onclick='detailwin("  + $row.code12 + ")'> ";
+	        	return "<input type='button' class='btn btn-default' value='修正' onclick='detailwin(\""  + $row.code12 + "\",\"" + $row.meisho + "\"," + $row.num + ")'> ";
              }
 	    }
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
@@ -58,14 +58,48 @@ function codeselChange(){
 	$("#grid-basic").bootgrid("append",tblarray);
 }
 
-function detailwin(code){
+function detailwin(code,meisho,num){
 	selcode = code;
+	document.getElementById('modal-label').innerHTML  = "コード修正";
+	initmodal();
+	document.getElementById('dia_meisho').value = meisho;
+	document.getElementById('dia_num').value = num;
 	document.getElementById("btn_modal").click();
 }
 
 function insert(){
 	selcode = "";
+	document.getElementById('modal-label').innerHTML  = "コード追加";
+	initmodal();
 	document.getElementById("btn_modal").click();
+}
+
+//ダイアログ初期化
+function initmodal(){
+	document.getElementById('dia_meisho').value = "";
+	document.getElementById('dia_num').value = 0;
+	//使用区分取得
+	var class1 = 0;
+	var select_val = document.getElementById('codesel').value;
+	for(var i=0; i < tabledata.length; i++){
+		if(tabledata[i]['code1'] == 0 && tabledata[i]['code2'] == select_val){
+			class1 = tabledata[i]['class1'];
+			break;
+		}
+	}
+	if(class1 == 1){
+		document.getElementById('dia_meisho_gp').style.display="block";
+		document.getElementById('dia_num_gp').style.display="none";
+	}else if(class1 == 2){
+		document.getElementById('dia_meisho_gp').style.display="none";
+		document.getElementById('dia_num_gp').style.display="block";
+	}
+
+	if(select_val == 0){
+		document.getElementById('dia_kbn_gp').style.display="block";
+	}else{
+		document.getElementById('dia_kbn_gp').style.display="none";
+	}
 }
 
 function drow() {
