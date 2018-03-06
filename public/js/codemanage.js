@@ -25,6 +25,7 @@ $(function() {
 	});
 
 	//テーブル操作
+	alert(tabledata[0]);
 	document.getElementById('codesel').selectedIndex = 0;
 	//codeselChange();
 });

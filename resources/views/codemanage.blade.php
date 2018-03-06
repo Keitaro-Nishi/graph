@@ -54,9 +54,10 @@ array_push($arr,"test");
 	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog"/>
 </div>
 <script>
-alert("開始");
-var tabledata = <?php echo json_encode($arr); ?>;
-alert(tabledata[0]);
+var tabledata = [];
+//var tabledata = <?php echo json_encode($arr); ?>;
+var tabledata = @json($arr);
+//alert(tabledata[0]);
 </script>
 <script src="{{ asset('js/codemanage.js') }}"></script>
 @endsection
