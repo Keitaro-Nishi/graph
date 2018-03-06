@@ -120,6 +120,7 @@ class GenreController
 			}else{
 				$gid2data= DB::table('genre')->select('gid2')->where('gid1',$gid1)->orderBy('gid2', 'DESC')->first();
 				error_log("☓☓☓☓☓☓☓");
+				error_log($gid2data);
 				$gid2 = $gid2data + 1;
 				error_log("●●●●●●●");
 				error_log($gid2);
