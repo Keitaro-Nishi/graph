@@ -131,17 +131,7 @@ class GenreController
 				error_log("★★★★★★★★★");
 				error_log("citycode:".$cityCD." bunrui:".$bunrui." meisho:".$meisho." gid1:".$gid1." gid2:".$gid2);
 
-				//$genre = new Genre;
-				$genre = Genre::firstOrNew(['citycode' => $cityCD]);
-				$genre->citycode = $cityCD;
-				$genre->bunrui =$bunrui;
-				$genre->gid1 = $gid1;
-				$genre->gid2 = $gid2;
-				$genre->gid3 = 0;
-				$genre->meisho = $meisho;
-				$genre->save();
-
-
+				DB::insert('insert into genre (citycode,bunrui,gid1,gid2,gid3,meisho) values (?,?,?,?,?,?)', [$cityCD,$bunrui,$gid1,$gid2,$gid3,$meisho]);
 				//DB::table('genre')->insert(['citycode'=> $cityCD,'bunrui' => $bunrui,'gid1' => $gid1,'gid2' => $gid2,'gid3' =>0,'meisho' => $meisho]);
 				return \Response::json(['status' => 'OK']);
 			}
