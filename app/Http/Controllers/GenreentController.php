@@ -23,15 +23,17 @@ class GenreentController
 			$gid1 = $shoubunrui->gid1;
 			$gid2 = $shoubunrui->gid2;
 			$meisho = $shoubunrui->meisho;
+
+
+			$shoubunruilist= [
+					'gid1'=>$gid1,
+					'gid2'=>$gid2,
+					'meisho'=>$meisho,
+			];
+
+			array_push($shoubunruilists, $shoubunruilist);
 		}
 
-		$shoubunruilist= [
-				'gid1'=>$gid1,
-				'gid2'=>$gid2,
-				'meisho'=>$meisho,
-		];
-
-		array_push($shoubunruilists, $shoubunruilist);
 		error_log("●●●●●●●");
 		error_log(print_r($shoubunruilists,true));
 		return view('genreent',compact('daibunruis','shoubunruilists'));
