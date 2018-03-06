@@ -242,12 +242,13 @@ function update(){
 
 function intent(){
 	alert("検索ワード");
-	window.location.href = "./genreint.php";
+	window.location.href = "./opinion";
+	//window.location.href = "./genreint";
 }
 
 function entity(){
 	alert("類義語");
-	window.location.href = "./genreent.php";
+	window.location.href = "./genreent";
 }
 
 
