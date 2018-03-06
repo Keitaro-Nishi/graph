@@ -156,16 +156,12 @@ function drow() {
 function update(){
 	var meisho = document.getElementById('dia_meisho').value;
 	var num = document.getElementById('dia_num').value;
-	var calss1 = 0;
-	console.log(document.getElementsByName('kbn')[0].checked);
-	console.log(document.getElementsByName('kbn')[1].checked);
-	if(document.getElementsByName('kbn')[0].checked == true){
-		console.log("1を選択");
-		calss1 = 1;
+	var class1 = 0;
+	if(document.getElementsByName('kbn')[0].checked){
+		class1 = 1;
 	}
-	if(document.getElementsByName('kbn')[1].checked == true){
-		console.log("2を選択");
-		calss1 = 2;
+	if(document.getElementsByName('kbn')[1].checked){
+		class1 = 2;
 	}
 	var _token = document.getElementById('_token').value;
 	console.log("select_val:" + select_val + " selcode:" + selcode + " meisho" + meisho + " num:" + num + " class1:" + class1 + " _token:" + _token);
