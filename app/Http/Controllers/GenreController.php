@@ -127,7 +127,7 @@ class GenreController
 					break;
 				}
 				error_log($gid2);
-				DB::table('genre')->insert(['bunrui' =>$bunrui, 'gid1' => $gid1,'gid2' =>$gid2,'gid3' =>0,'meisho' =>$meisho]);
+				DB::table('genre')->insert(['bunrui' =>'$bunrui','gid1' => $gid1,'gid2' =>$gid2,'gid3' =>0,'meisho' =>'$meisho']);
 			}
 		}
 
