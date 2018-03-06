@@ -181,7 +181,7 @@ function update(){
 			"gid1" : gid1,
 			"gid2" : gid2,
 			"g1meisho" : g1meisho,
-			"meishoOld" : meishoOld
+			"meishoOld" : meishoOld,
 			"_token" : _token
 		}
 	}).done(function (response) {
