@@ -43,9 +43,12 @@ function getwtent(){
 */
 //大分類切替
 function g1change(){
+
+	/*
 	var g2value = [];
 	g2value = document.getElementById('shoubunrui');
 	alert(g2value[0][0]);
+	*/
 
 	/*
 	var select2 = document.getElementById('g2');
@@ -144,5 +147,8 @@ function delLine(value,raw){
 
 //もどる
 function back(){
-	window.location.href = "./genre";
+	var g2value = [];
+	g2value = document.getElementById('shoubunrui');
+	alert(g2value[0][0]);
+	//window.location.href = "./genre";
 }
