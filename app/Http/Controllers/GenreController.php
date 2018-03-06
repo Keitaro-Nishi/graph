@@ -128,9 +128,9 @@ class GenreController
 					$gid2 = $gid2data->gid2 + 1;
 					break;
 				}*/
-				$gid2data= DB::table('genre')->select('gid2')->where('gid1',$gid1)->orderBy('gid2', 'DESC')->get();
+				$gid2data= DB::table('genre')->select('gid2')->where('gid1',$gid1)->orderBy('gid2', 'DESC')->first();
 				//foreach ($gid2datas as $gid2data) {
-					$gid2 = $gid2data["gid2"] + 1;
+					$gid2 = $gid2data->gid2 + 1;
 					//break;
 				//}
 				error_log("★★★★★★★★★");
