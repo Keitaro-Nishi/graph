@@ -44,6 +44,7 @@ function codeselChange(){
 	//テーブルデータ作成
 	for(var rec in tabledata){
 		console.log(rec);
+
 		//alert(rec['code1'] + ":" + rec['meisho']);
 		if(rec['code1'] == select_val){
 			var raw = codetable.insertRow( -1 );
