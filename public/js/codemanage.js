@@ -1,5 +1,6 @@
 var rowIds = [];
 var selcode = "";
+var class1 = 0;
 
 //$(function() {
 function init() {
@@ -35,6 +36,14 @@ function init() {
 function codeselChange(){
 	var select_val = document.getElementById('codesel').value;
 
+	//使用区分取得
+	for(var i=0; i < tabledata.length; i++){
+		if(tabledata[i]['code1'] == 0 && tabledata[i]['code2'] == select_val){
+			class1 = tabledata[i]['class1'];
+			break;
+		}
+	}
+
 	//テーブル初期化
 	$("#grid-basic").bootgrid("clear");
 	rowIds = [];
@@ -44,15 +53,29 @@ function codeselChange(){
 	for(var i=0; i < tabledata.length; i++){
 		console.log(tabledata[i]['code1'] + ":" + tabledata[i]['meisho']);
 		if(tabledata[i]['code1'] == select_val){
-			tblarray.push({
-				"code12":tabledata[i]['code1'] + "." + tabledata[i]['code2'],
-				"code1":tabledata[i]['code1'],
-				"code2":tabledata[i]['code2'],
-				"meisho":tabledata[i]['meisho'],
-				"num":tabledata[i]['num'],
-				"class1":tabledata[i]['class1'],
-				"class2":tabledata[i]['class2']
-			});
+			if(class1 == 1){
+				tblarray.push({
+					"code12":tabledata[i]['code1'] + "." + tabledata[i]['code2'],
+					"code1":tabledata[i]['code1'],
+					"code2":tabledata[i]['code2'],
+					"meisho":tabledata[i]['meisho'],
+					"num":tabledata[i]['num'],
+					"value":tabledata[i]['meisho'],
+					"class1":tabledata[i]['class1'],
+					"class2":tabledata[i]['class2']
+				});
+			}else if(class1 == 1){
+				tblarray.push({
+					"code12":tabledata[i]['code1'] + "." + tabledata[i]['code2'],
+					"code1":tabledata[i]['code1'],
+					"code2":tabledata[i]['code2'],
+					"meisho":tabledata[i]['meisho'],
+					"num":tabledata[i]['num'],
+					"value":tabledata[i]['num'],
+					"class1":tabledata[i]['class1'],
+					"class2":tabledata[i]['class2']
+				});
+			}
 		}
 	}
 	$("#grid-basic").bootgrid("append",tblarray);
@@ -78,15 +101,7 @@ function insert(){
 function initmodal(){
 	document.getElementById('dia_meisho').value = "";
 	document.getElementById('dia_num').value = 0;
-	//使用区分取得
-	var class1 = 0;
-	var select_val = document.getElementById('codesel').value;
-	for(var i=0; i < tabledata.length; i++){
-		if(tabledata[i]['code1'] == 0 && tabledata[i]['code2'] == select_val){
-			class1 = tabledata[i]['class1'];
-			break;
-		}
-	}
+
 	if(class1 == 1){
 		document.getElementById('dia_meisho_gp').style.display="block";
 		document.getElementById('dia_num_gp').style.display="none";

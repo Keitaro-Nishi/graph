@@ -20,8 +20,9 @@
 			<th data-column-id="code12" data-identifier="true" data-visible="false">コード12</th>
 			<th data-column-id="code1" data-visible="false"></th>
 			<th data-column-id="code2" >コード</th>
-			<th data-column-id="meisho" >名称</th>
-			<th data-column-id="num"  >数値</th>
+			<th data-column-id="meisho" data-visible="false"></th>
+			<th data-column-id="num" data-visible="false"></th>
+			<th data-column-id="value" >設定値</th>
 			<th data-column-id="class1" data-visible="false"></th>
 			<th data-column-id="class2" data-visible="false"></th>
             <th data-column-id='detail'  data-width='6%' data-formatter='details' data-sortable='false'></th>
@@ -44,13 +45,13 @@
 			<div class="modal-body">
 				<form class="form-horizontal">
 					<div class="form-group" id="dia_meisho_gp">
-						<label class="col-sm-3 control-label" for="dia_meisho">名称</label>
+						<label class="col-sm-3 control-label" for="dia_meisho">設定値</label>
 						<div class="col-sm-9">
 							<input type="text" class="form-control" id="dia_meisho" value="">
 						</div>
 					</div>
 					<div class="form-group" id="dia_num_gp">
-						<label class="col-sm-3 control-label" for="dia_num">数値</label>
+						<label class="col-sm-3 control-label" for="dia_num">設定値</label>
 						<div class="col-sm-9">
 							<input type="number" class="form-control" id="dia_num" value="">
 						</div>
