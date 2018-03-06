@@ -17,7 +17,7 @@ class GenreentController
 		$cityCD = Auth::user()->citycode;
 
 		$daibunruis= Genre::where('bunrui', 1)->where('citycode', $cityCD)->get();
-		$shoubunruis= Genre::where('bunrui', 2)->where('citycode', $cityCD)->get();
+		$shoubunruis= Genre::where('bunrui', 2)->where('citycode', $cityCD)->orderBy('gid1', 'ASC')->orderBy('gid2', 'ASC')->get();
 
 		foreach ($shoubunruis as $shoubunrui) {
 			$gid1 = $shoubunrui->gid1;
