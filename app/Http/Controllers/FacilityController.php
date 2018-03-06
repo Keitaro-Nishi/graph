@@ -110,7 +110,7 @@ class FacilityController {
 		$ids = $input ["ids"];
 		$cityCD = Auth::user ()->citycode;
 		foreach ( $ids as $id ) {
-			$iddata = $id[0];
+			$iddata = $id;
 			DB::table('facility')->where('id',$iddata)->delete();
 			//error_log($iddata);
 			//DB::table ( 'facility' )->where ('id', $iddata )->delete ();
