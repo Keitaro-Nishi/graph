@@ -43,14 +43,14 @@ class GenreintController
 
 		$data = "";
 
-		error_log("☆☆☆☆☆☆☆");
-		error_log("g1meisho:".$g1meisho." g2meisho:".$g2meisho." param:".$param." sword:".$sword);
-
+		//error_log("☆☆☆☆☆☆☆");
+		//error_log("g1meisho:".$g1meisho." g2meisho:".$g2meisho." param:".$param." sword:".$sword);
 
 		error_log("●●●●●●");
 		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents/".$g1meisho."/examples?version=2017-05-26&export=true";
 		error_log("!!!!!!!");
-		$jsonString = callwatson();
+		//$jsonString = callwatson();
+		$jsonString;
 		error_log("★★★★★★★");
 		$json = json_decode($jsonString, true);
 		error_log("☆☆☆☆☆☆☆");
@@ -58,7 +58,6 @@ class GenreintController
 		foreach ($json["examples"] as $value){
 			array_push($arr,$value["text"]);
 		}
-
 		echo json_encode($arr);
 	}
 
@@ -69,6 +68,7 @@ class GenreintController
 		$username = getenv('CVS_USERNAME');
 		$password = getenv('CVS_PASS');
 		*/
+
 		error_log("○○○○○○");
 		error_log($username);
 		error_log($password);
