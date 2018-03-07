@@ -1,4 +1,5 @@
 var rowIds = [];
+var botlog = [];
 var dbvalue = [];
 var shosai_idx = 0;
 
