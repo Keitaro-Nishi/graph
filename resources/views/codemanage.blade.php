@@ -9,7 +9,7 @@
 <div class="col-sm-3">
 	<select class="form-control" id="codesel" onChange="codeselChange()" value="{{ old('codesel') }}">
 			@foreach($bunrui as $value)
-				<option value="{{$value->code2}}" selected>{{$value->meisho}}</option>
+				<option value="{{$value->code2}}.{{$value->class1}}.{{$value->class2}}" selected>{{$value->meisho}}</option>
 			@endforeach
 	</select>
 </div>
@@ -65,6 +65,9 @@
 					</div>
 					@if (Auth::user()->role == (int)0 )
 					<div class="form-group" id="dia_hkbn_gp">
+					@else
+					<div class="form-group" id="dia_hkbn_gp" style="display: none;">
+					@endif
 						<label class="col-sm-3 control-label" for="dia_hkbn">編集区分</label>
 						<div class="col-sm-9">
 							<select class="form-control" id="dia_hkbn" >
@@ -75,7 +78,6 @@
 							</select>
 						</div>
 					</div>
-					@endif
 					<input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
 					<div class="text-right" >
 						<button type="button" class="btn btn-primary" onclick="update()">登録</button>
@@ -86,7 +88,6 @@
 		</div>
 	</div>
 </div>
-
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
 	<input id="btn_ins" type="button" class="btn btn-default" value="コード追加" onclick="insert()">

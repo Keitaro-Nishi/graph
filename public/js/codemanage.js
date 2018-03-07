@@ -39,16 +39,10 @@ function init() {
 }
 
 function codeselChange(){
-	select_val = document.getElementById('codesel').value;
-
-	//使用区分取得
-	for(var i=0; i < tabledata.length; i++){
-		if(tabledata[i]['code1'] == 0 && tabledata[i]['code2'] == select_val){
-			class1 = tabledata[i]['class1'];
-			class2 = tabledata[i]['class2'];
-			break;
-		}
-	}
+	codeselval = document.getElementById('codesel').value.split('.');
+	select_val = codeselval[0];
+	class1 = codeselval[1];
+	class2 = codeselval[2];
 
 	//テーブル初期化
 	$("#grid-basic").bootgrid("clear");
@@ -100,9 +94,7 @@ function detailwin(code,meisho,num,cl1,cl2){
 		document.getElementsByName('kbn')[0].checked = false;
 		document.getElementsByName('kbn')[1].checked = true;
 	}
-	if(document.getElementById('dia_hkbn')){
-		document.getElementById('dia_hkbn').value = cl2;
-	}
+	document.getElementById('dia_hkbn').value = cl2;
 	document.getElementById("btn_modal").click();
 }
 
@@ -129,6 +121,8 @@ function initmodal(){
 		document.getElementsByName('kbn')[0].checked = false;
 		document.getElementsByName('kbn')[1].checked = true;
 	}
+
+	document.getElementById('dia_hkbn').value = class2;
 
 	if(select_val == 0){
 		document.getElementById('dia_kbn_gp').style.display="block";
@@ -206,9 +200,7 @@ function update(){
 	if(document.getElementsByName('kbn')[1].checked){
 		class1 = "2";
 	}
-	if(document.getElementById('dia_hkbn')){
-		class2 = document.getElementById('dia_hkbn').value;
-	}
+	class2 = document.getElementById('dia_hkbn').value;
 	var _token = document.getElementById('_token').value;
 	console.log("select_val:" + select_val + " selcode:" + selcode + " meisho" + meisho + " num:" + num + " class1:" + class1 + " class2:" + class2 + " _token:" + _token);
 	$.ajax({
