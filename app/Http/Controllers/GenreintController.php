@@ -58,7 +58,7 @@ class GenreintController
 	}
 
 	function callWatson2(){
-		global $curl, $url, $username, $password, $data, $options;
+		//global $curl, $url, $username, $password, $data, $options;
 
 		$workspace_id = getenv('CVS_WORKSPASE_ID');
 		$username = getenv('CVS_USERNAME');
