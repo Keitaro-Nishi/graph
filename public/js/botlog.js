@@ -14,7 +14,7 @@ $(function() {
 		columnSelection : false,
 		formatters: {
 			"details": function($column, $row) {
-				return "<input type='button' class='btn btn-default' value='詳細' onclick='detailwin("  + $row.no + ")'> ";
+				return "<input type='button' class='btn btn-default' value='修正' onclick='modwin(" + $row.no + "\",\"" + $row.userid + "\",\"" + $row.time + "\",\"" + $row.contents + "\",\"" + $row.returns + "\")' > ";
 			}
 		}
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
