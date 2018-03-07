@@ -80,6 +80,7 @@ function modwin(no, userid, time, contents){
 	document.getElementById('dia_time').value = time;
 	document.getElementById('dia_contents').value  = contents;
 	//document.getElementById('dia_return').innerHTML  = return;
+	/*
 	if(index == 0){
 		document.getElementById("sback").disabled = "true";
 	}else{
@@ -90,4 +91,5 @@ function modwin(no, userid, time, contents){
 	}else{
 		document.getElementById("snext").disabled = "";
 	}
+	*/
 }
