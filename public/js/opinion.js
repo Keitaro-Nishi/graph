@@ -103,10 +103,9 @@ function shosai_next(){
 	shosai_idx = shosai_idx + 1;
 	modal_mod(shosai_idx);
 }
-
+/*
 function modal_mod(index){
 	document.getElementById('dia_userid').value  = dbvalue[index]["userid"];
-	console.log('dia_userid');
 	document.getElementById('dia_time').value = dbvalue[index]["time"];
 	document.getElementById('dia_sadness').value  = dbvalue[index]["sadness"];
 	document.getElementById('dia_joy').value  = dbvalue[index]["joy"];
@@ -125,4 +124,5 @@ function modal_mod(index){
 	}else{
 		document.getElementById("snext").disabled = "";
 	}
+	*/
 }
