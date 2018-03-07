@@ -72,7 +72,7 @@ function shosai_next(){
 	modal_mod(shosai_idx);
 }
 
-function modal_mod(no, userid, time, contents){
+function modwin(no, userid, time, contents){
 
 	document.getElementById('dia_no').value = no;
 	document.getElementById('dia_userid').value  = userid;
