@@ -102,6 +102,16 @@ function shosai_next(){
 	shosai_idx = shosai_idx + 1;
 	modal_mod(shosai_idx);
 }
+
+//ダイアログ初期化
+function initmodal(){
+	document.getElementById('dia_no').value = "";
+	document.getElementById('dia_userid').value = "";
+	document.getElementById('dia_time').value = "";
+	document.getElementById('dia_contents').value = "";
+	//document.getElementById('dia_returns').value = "";
+}
+
 /*
 function modal_mod(index){
 	document.getElementById('dia_no').value = dbvalue[index]["no"];
