@@ -1,7 +1,9 @@
 var rowIds = [];
+var rowcl2s = [];
 var selcode = "";
 var select_val = 0;
 var class1 = "0";
+var class2 = "0";
 
 //$(function() {
 function init() {
@@ -13,18 +15,20 @@ function init() {
 		columnSelection : false,
 		formatters: {
 	        "details": function($column, $row) {
-	        	return "<input type='button' class='btn btn-default' value='修正' onclick='detailwin(\""  + $row.code12 + "\",\"" + $row.meisho + "\"," + $row.num + ",\"" + $row.class1 + "\")'> ";
+	        	return "<input type='button' class='btn btn-default' value='修正' onclick='detailwin(\""  + $row.code12 + "\",\"" + $row.meisho + "\"," + $row.num + ",\"" + $row.class1 + "\",\"" + $row.class2 + "\")'> ";
              }
 	    }
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
 		for (var i = 0; i < rows.length; i++) {
 			rowIds.push(rows[i].code12);
+			rowcl2s.push(rows[i].class2);
 		}
 	}).on("deselected.rs.jquery.bootgrid", function(e, rows) {
 		for (var i = 0; i < rows.length; i++) {
 			rowIds.some(function(v, ii) {
 				if (v == rows[i].code12)
 					rowIds.splice(ii, 1);
+					rowcl2s.splice(ii, 1);
 			});
 		}
 	});
@@ -41,6 +45,7 @@ function codeselChange(){
 	for(var i=0; i < tabledata.length; i++){
 		if(tabledata[i]['code1'] == 0 && tabledata[i]['code2'] == select_val){
 			class1 = tabledata[i]['class1'];
+			class2 = tabledata[i]['class2'];
 			break;
 		}
 	}
@@ -48,6 +53,7 @@ function codeselChange(){
 	//テーブル初期化
 	$("#grid-basic").bootgrid("clear");
 	rowIds = [];
+	rowcl2s = [];
 
 	//テーブルデータ作成
 	var tblarray = [];
@@ -81,7 +87,7 @@ function codeselChange(){
 	$("#grid-basic").bootgrid("append",tblarray);
 }
 
-function detailwin(code,meisho,num,cl1){
+function detailwin(code,meisho,num,cl1,cl2){
 	selcode = code;
 	document.getElementById('modal-label').innerHTML  = "コード修正";
 	initmodal();
@@ -93,6 +99,9 @@ function detailwin(code,meisho,num,cl1){
 	}else if(cl1 == "2"){
 		document.getElementsByName('kbn')[0].checked = false;
 		document.getElementsByName('kbn')[1].checked = true;
+	}
+	if(document.getElementById('dia_hkbn')){
+		document.getElementById('dia_hkbn').value = cl2;
 	}
 	document.getElementById("btn_modal").click();
 }
@@ -135,6 +144,15 @@ function drow() {
 			size: 'small'
 		});
 		return;
+	}
+	for(var value in rowcl2s){
+		if(value == 2){
+			bootbox.alert({
+				message: "削除できない行が含まれています",
+				size: 'small'
+			});
+			return;
+		}
 	}
 	bootbox.confirm({
 	    message: "選択行を削除しますか？",
@@ -188,8 +206,11 @@ function update(){
 	if(document.getElementsByName('kbn')[1].checked){
 		class1 = "2";
 	}
+	if(document.getElementById('dia_hkbn')){
+		class2 = document.getElementById('dia_hkbn').value;
+	}
 	var _token = document.getElementById('_token').value;
-	console.log("select_val:" + select_val + " selcode:" + selcode + " meisho" + meisho + " num:" + num + " class1:" + class1 + " _token:" + _token);
+	console.log("select_val:" + select_val + " selcode:" + selcode + " meisho" + meisho + " num:" + num + " class1:" + class1 + " class2:" + class2 + " _token:" + _token);
 	$.ajax({
 		type: "POST",
 		dataType: "JSON",
@@ -200,6 +221,7 @@ function update(){
 			"meisho" : meisho,
 			"num" : num,
 			"class1" : class1,
+			"class2" : class2,
 			"_token" : _token
 		}
 	}).done(function (response) {

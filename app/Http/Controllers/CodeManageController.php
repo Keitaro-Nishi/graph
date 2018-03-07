@@ -14,8 +14,12 @@ class CodeManageController
 	public function index(Request $request)
 	{
 		$cityCD = Auth::user()->citycode;
-		$codes= Code::where('citycode', $cityCD)->orderBy('code1', 'ASC')->orderBy('code2', 'ASC')->get();
-		$bunrui = Code::where('citycode', $cityCD)->where('code1', (int)0)->orderBy('code2', 'ASC')->get();
+		if(Auth::user()->role == (int)0){
+			$codes= Code::all()->orderBy('citycode', 'ASC')->orderBy('code1', 'ASC')->orderBy('code2', 'ASC');
+		}else{
+			$codes= Code::where('citycode', $cityCD)->where('class2', '<>', '1')->orderBy('code1', 'ASC')->orderBy('code2', 'ASC')->get();
+		}
+		$bunrui = Code::where('citycode', '00000')->where('code1', (int)0)->orderBy('code2', 'ASC')->get();
 		return view('codemanage',['codes'=>$codes,'bunrui'=>$bunrui]);
 	}
 
@@ -45,7 +49,7 @@ class CodeManageController
 			$meisho = $input["meisho"];
 			$num = $input["num"];
 			$class1 = $input["class1"];
-			$class2 = "0";
+			$class2 = $input["class2"];
 			$result = DB::table('code')->insert([
 					'citycode' => $cityCD,
 					'code1' => $code1,
@@ -62,13 +66,14 @@ class CodeManageController
 			$meisho = $input["meisho"];
 			$num = $input["num"];
 			$class1 = $code->class1;
+			$class2 = $input["class2"];
 			if($input["code1"] == 0){
 				if($class1 != $input["class1"]){
 					$class1 = $input["class1"];
 					DB::table('code')->where('citycode', $cityCD)->where('code1', $code12[1])->update(['class1' => $class1]);
 				}
 			}
-			DB::table('code')->where('citycode', $cityCD)->where('code1', $code12[0])->where('code2', $code12[1])->update(['meisho' => $meisho , 'num' => $num , 'class1' => $class1]);
+			DB::table('code')->where('citycode', $cityCD)->where('code1', $code12[0])->where('code2', $code12[1])->update(['meisho' => $meisho , 'num' => $num , 'class1' => $class1, 'class2' => $class2]);
 
 		}
 		return \Response::json(['status' => 'OK']);

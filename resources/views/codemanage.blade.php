@@ -7,7 +7,7 @@
 @section('content')
 <div class="container">
 <div class="col-sm-3">
-	<select class="form-control" id="codesel" onChange="codeselChange()">
+	<select class="form-control" id="codesel" onChange="codeselChange()" value="{{ old('codesel') }}">
 			@foreach($bunrui as $value)
 				<option value="{{$value->code2}}" selected>{{$value->meisho}}</option>
 			@endforeach
@@ -57,12 +57,25 @@
 						</div>
 					</div>
 					<div class="form-group" id="dia_kbn_gp">
-						<label class="col-sm-3 control-label" for="dia_kbn_meisho">使用区分</label>
-						<div class="col-sm-9">
+						<label class="col-sm-3 control-label" for="dia_kbn">使用区分</label>
+						<div class="col-sm-9" id="dia_kbn">
 							<input type="radio" class="form-check-input" name="kbn" checked="checked">名称
 							<input type="radio" class="form-check-input" name="kbn" >数値
 						</div>
 					</div>
+					@if (Auth::user()->role == (int)0 )
+					<div class="form-group" id="dia_hkbn_gp">
+						<label class="col-sm-3 control-label" for="dia_hkbn">編集区分</label>
+						<div class="col-sm-9">
+							<select class="form-control" id="dia_hkbn" >
+								<option value="1" selected>編集不可</option>
+								<option value="2" selected>削除不可</option>
+								<option value="3" selected>編集可</option>
+								<option value="9" selected>属性使用</option>
+							</select>
+						</div>
+					</div>
+					@endif
 					<input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
 					<div class="text-right" >
 						<button type="button" class="btn btn-primary" onclick="update()">登録</button>
