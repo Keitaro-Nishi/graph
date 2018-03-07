@@ -52,10 +52,16 @@
 			<div class="modal-body">
 
 				<form class="form-horizontal">
+					<div class="form-group"  style="display:none">
+						<label class="col-sm-2 control-label" for="dia_no">no</label>
+						<div class="col-sm-10">
+							<input id="dia_no" class="form-control" name="no" value="">
+						</div>
+					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_userid">ユーザーID</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="dia_userid" readonly>
+							<input type="text" class="form-control" id="dia_userid" value="" readonly>
 						</div>
 					</div>
 					<div class="form-group">
