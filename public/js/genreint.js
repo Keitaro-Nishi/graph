@@ -22,6 +22,7 @@ $(function(){
 	td2.innerHTML = '<input type="button" value="行削除" onclick="delLine(this)" />';
 	*/
 });
+
 //インテント取得
 function getwtint(){
 	g1meisho = document.getElementById('g1').value;

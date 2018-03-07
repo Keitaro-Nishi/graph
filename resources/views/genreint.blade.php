@@ -20,11 +20,11 @@
 	</table>
 	<br>
 	<input type="button" class="btn btn-default"  data-toggle="modal" data-target="#updateDialog" value="追加" />
-	<button type="button" class="btn btn-default" data-dismiss="modal" onclick="getwtint()">テスト</button>
 	<input type="button" class="btn btn-default" onclick="back()" value="もどる" />
 </div>
 
 <input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
+<input type="button" class="btn btn-default" onclick="getwtint()">テスト</button>
 
 <div class="modal" id="updateDialog" tabindex="-1">
 	<div class="modal-dialog">
