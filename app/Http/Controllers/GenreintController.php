@@ -20,13 +20,13 @@ class GenreintController
 	public  function request(){
 		$this->requestall = \Request::all();
 		if ($this->requestall["param"] == "intentSearch"){
-			return $this->insert();
+			return $this->intentSearch();
 		}else{
 			return \Response::json(['status' => 'NG']);
 		}
 	}
 
-	public function insert()
+	public function intentSearch()
 	{
 		$input = $this->requestall;
 
