@@ -13,7 +13,7 @@
 	<p>小分類</p>
 	<select id="g2" class="form-control" onChange="g2change()" style="width: 600px;">
 	@foreach($shoubunruis as $shoubunrui)
-	<option value="{{$shoubunrui->gid2}}">{{$shoubunrui->meisho}}</option>
+	<option value="{{$shoubunrui->gid1}}">{{$shoubunrui->meisho}}</option>
 	@endforeach
 	</select>
 	<br>
