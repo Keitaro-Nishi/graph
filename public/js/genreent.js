@@ -11,35 +11,23 @@ var rowgid2 = [];
 var wtable = document.getElementById('grid-basic');
 $(function(){
 
+	//大分類のgid1と一致する小分類の値を表示する
 	$('select[name="daibunrui"]').change(function() {
-
-		// 選択されている大分類のクラス名を取得
 		var daibunruiName = $('select[name="daibunrui"] option:selected').attr("class");
-
-
-		// 小分類の要素数を取得
 		var count = $('select[name="shoubunrui"]').children().length;
 
-		// 小分類の要素数分、for文で回す
 		for (var i=0; i<count; i++) {
-
 			var shoubunrui = $('select[name="shoubunrui"] option:eq(' + i + ')');
 
 			if(shoubunrui.attr("class") === daibunruiName) {
-				// 選択した大分類と同じクラス名だった場合
 
-				// 小分類の要素を表示
 				shoubunrui.show();
 			}else {
-				// 選択した大分類とクラス名が違った場合
-
 				if(shoubunrui.attr("class") === "msg") {
-					// 「小分類を選択して下さい」という要素だった場合
+						shoubunrui.show();
+						shoubunrui.prop('selected',true);
 
-						shoubunrui.show();  //「小分類を選択して下さい」を表示させる
-						shoubunrui.prop('selected',true);  //「小分類を選択して下さい」を強制的に選択されている状態にする
 				} else {
-					// 「小分類を選択して下さい」という要素でなかった場合
 
 					shoubunrui.hide();
 				}
@@ -47,6 +35,7 @@ $(function(){
 		}
 	})
 });
+
 /*
 //インテント取得
 function getwtent(){
@@ -75,37 +64,6 @@ function getwtent(){
     });
 }
 */
-//大分類切替
-function g1change(){
-
-
-	/*
-	var g2value = [];
-	g2value = document.getElementById('shoubunrui');
-	alert(g2value[0][0]);
-	*/
-
-	/*
-	var select2 = document.getElementById('g2');
-	while(select2.lastChild)
-	{
-		select2.removeChild(select2.lastChild);
-	}
-	g1value = document.getElementById('g1').value;
-	for( var key in g2value ) {
-		g12 = key.split(".");
-		if(g12[0] == g1value){
-			var option = document.createElement('option');
-			option.setAttribute('value', g12[1]);
-			var text = document.createTextNode(g2value[key]);
-			option.appendChild(text);
-			select2.appendChild(option);
-		}
-	}
-
-	g2change();
-	*/
-}
 
 //小分類切替
 function g2change(){
@@ -177,13 +135,9 @@ function delLine(value,raw){
 	    });
 	}
 }
-
 */
 
 //もどる
 function back(){
-	//var g2value = [];
-	//g2value = document.getElementById('shoubunrui');
-	//alert(g2value[0]['citycode']);
 	window.location.href = "./genre";
 }
