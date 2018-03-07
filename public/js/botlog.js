@@ -73,7 +73,8 @@ function shosai_next(){
 }
 
 function modwin(no, userid, time, contents){
-
+	modID = no;
+	initmodal();
 	document.getElementById('dia_no').value = no;
 	document.getElementById('dia_userid').value  = userid;
 	document.getElementById('dia_time').value = time;
