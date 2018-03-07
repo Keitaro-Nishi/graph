@@ -29,6 +29,7 @@ class BotlogController
 		if ($this->requestall ["param"] == "update") {
 			return $this->update ();
 		} elseif ($this->requestall ["param"] == "delete") {
+			error_log("???????????????????");
 			return $this->delete ();
 		} else {
 			return \Response::json ( [
