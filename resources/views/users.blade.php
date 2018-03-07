@@ -62,7 +62,7 @@
 						<label class="col-sm-3 control-label" for="dia_organization">所属</label>
 						<div class="col-sm-9">
 							<select class="form-control" id="dia_organization" name="organization">
-								@foreach($shozoku as $value)
+								@foreach($organizations as $value)
 									<option value="{{$value->code2}}" selected>{{$value->meisho}}</option>
 								@endforeach
 							</select>

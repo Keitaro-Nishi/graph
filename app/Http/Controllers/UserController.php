@@ -21,8 +21,8 @@ class UserController
 		}else{
 			$users= User::where('citycode', $cityCD)->get();
 		}
-		$shozoku = Code::where('citycode', $cityCD)->where('code1', 11)->get();
-		return view('users',['users'=>$users,'shozoku'=>$shozoku]);
+		$organizations= Code::where('citycode', $cityCD)->where('code1', 12)->get();
+		return view('users',['users'=>$users,'organizations'=>$organizations]);
 	}
 
 	public  function request(){
