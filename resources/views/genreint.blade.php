@@ -4,7 +4,6 @@
 <div class="container">
 	<p>大分類</p>
 	<select id="g1" class="form-control" onChange="g1change()"  style="width: 600px;">
-	<option selected="selected" class="msg">大分類を選択してください。</option>
 	@foreach($results as $result)
 	<option value="{{$result->gid1}}">{{$result->meisho}}</option>
 	@endforeach
@@ -40,7 +39,6 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-				<input type="button" class="btn btn-default" onclick="getwtint()" value ="テスト" />
 				<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="update()">更新</button>
 			</div>
 		</div>

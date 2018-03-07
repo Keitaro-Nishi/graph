@@ -12,7 +12,7 @@ var wtable = document.getElementById('grid-basic');
 $(function(){
 
 	//テーブル追加
-	//getwtint();
+	getwtint();
 
 	/*
 	var wtable = document.getElementById('grid-basic');
@@ -26,9 +26,7 @@ $(function(){
 //インテント取得
 function getwtint(){
 	g1meisho = document.getElementById('g1').value;
-	alert(g1meisho);
 	var _token = document.getElementById('_token').value;
-	alert(g1meisho);
 
 	$.ajax({
 		type: "POST",
