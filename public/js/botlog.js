@@ -83,7 +83,7 @@ function drow() {
 		}
 	});
 }
-
+/*
 function detailwin(value){
 	document.getElementById("btn_modal").click();
 	for (var i = 0; i < dbvalue.length; i++){
@@ -93,7 +93,7 @@ function detailwin(value){
 		}
 	}
 }
-
+*/
 function shosai_back(){
 	shosai_idx = shosai_idx - 1;
 	modal_mod(shosai_idx);
@@ -102,7 +102,7 @@ function shosai_next(){
 	shosai_idx = shosai_idx + 1;
 	modal_mod(shosai_idx);
 }
-
+/*
 function modal_mod(index){
 	document.getElementById('dia_no').value = dbvalue[index]["no"];
 	console.log('dia_no');
@@ -110,6 +110,27 @@ function modal_mod(index){
 	document.getElementById('dia_time').value = dbvalue[index]["time"];
 	document.getElementById('dia_contents').value  = dbvalue[index]["contents"];
 	document.getElementById('dia_return').value  = dbvalue[index]["return"];
+	if(index == 0){
+		document.getElementById("sback").disabled = "true";
+	}else{
+		document.getElementById("sback").disabled = "";
+	}
+	if(index == dbvalue.length - 1){
+		document.getElementById("snext").disabled = "true";
+	}else{
+		document.getElementById("snext").disabled = "";
+	}
+}
+*/
+function mod_mod(no,userid,time,contents,returns){
+	modID = no;
+	initmodal();
+	document.getElementById('dia_no').value = no;
+	document.getElementById('dia_userid').value = userid;
+	document.getElementById('dia_time').value = time;
+	document.getElementById('dia_contens').value = contents;
+	document.getElementById('dia_returns').value = returns;
+	document.getElementById("btn_modal").click();
 	if(index == 0){
 		document.getElementById("sback").disabled = "true";
 	}else{
