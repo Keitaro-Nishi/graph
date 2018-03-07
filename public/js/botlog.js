@@ -1,6 +1,10 @@
 var rowIds = [];
 var dbvalue = [];
 var shosai_idx = 0;
+
+botlog= document.getElementById('botlog').value;
+dbvalue = JSON.parse(botlog);
+
 $(function() {
 	$("#grid-basic").bootgrid({
 		selection : true,
