@@ -12,7 +12,7 @@ var wtable = document.getElementById('grid-basic');
 $(function(){
 
 	//テーブル追加
-	getwtint();
+	//getwtint();
 
 	/*
 	var wtable = document.getElementById('grid-basic');
