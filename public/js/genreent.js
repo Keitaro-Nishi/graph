@@ -15,7 +15,7 @@ $(function(){
 
 		// 選択されている大分類のクラス名を取得
 		var daibunruiName = $('select[name="daibunrui"] option:selected').attr("class");
-		console.log(countyName);
+
 
 		// 小分類の要素数を取得
 		var count = $('select[name="shoubunrui"]').children().length;
