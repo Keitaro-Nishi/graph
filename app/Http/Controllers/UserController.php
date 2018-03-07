@@ -7,6 +7,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\User;
+use App\Code;
 
 class UserController
 {
@@ -20,7 +21,8 @@ class UserController
 		}else{
 			$users= User::where('citycode', $cityCD)->get();
 		}
-		return view('users',['users'=>$users]);
+		$shozoku = Code::where('citycode', $cityCD)->where('code1', 11)->get();
+		return view('users',['users'=>$users,'shozoku'=>$shozoku]);
 	}
 
 	public  function request(){
