@@ -15,7 +15,7 @@ class CodeManageController
 	{
 		$cityCD = Auth::user()->citycode;
 		if(Auth::user()->role == (int)0){
-			$codes= Code::all()->orderBy('citycode', 'ASC')->orderBy('code1', 'ASC')->orderBy('code2', 'ASC');
+			$codes= Code::orderBy('citycode', 'ASC')->orderBy('code1', 'ASC')->orderBy('code2', 'ASC')->get();
 		}else{
 			$codes= Code::where('citycode', $cityCD)->where('class2', '<>', '1')->orderBy('code1', 'ASC')->orderBy('code2', 'ASC')->get();
 		}
