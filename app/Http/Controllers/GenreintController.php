@@ -43,9 +43,6 @@ class GenreintController
 		error_log("☆☆☆☆☆☆☆");
 		error_log("g1meisho:".$g1meisho." g2meisho:".$g2meisho." param:".$param." sword:".$sword);
 
-		error_log("○○○○○○");
-		error_log($g1meisho);
-		error_log($workspace_id);
 
 		//global $url,$g1meisho,$workspace_id;
 
@@ -57,18 +54,20 @@ class GenreintController
 			array_push($arr,$value["text"]);
 		}
 
-		error_log("○○○○○○");
-		error_log($g1meisho);
-		error_log($workspace_id);
-
 		echo json_encode($arr);
 	}
 
 	function callWatson2(){
 		global $curl, $url, $username, $password, $data, $options;
+
 		$workspace_id = getenv('CVS_WORKSPASE_ID');
 		$username = getenv('CVS_USERNAME');
 		$password = getenv('CVS_PASS');
+
+		error_log("○○○○○○");
+		error_log($username);
+		error_log($password);
+		error_log($url);
 
 		$curl = curl_init($url);
 		$options = array(
