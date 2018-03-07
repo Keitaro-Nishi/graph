@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class GenreintController
 {
+
 	public function index(Request $request)
 	{
 		$cityCD = Auth::user()->citycode;
@@ -61,7 +62,7 @@ class GenreintController
 		echo json_encode($arr);
 	}
 
-	function callwatson(){
+	 public function callwatson(){
 		global $curl, $url, $username, $password, $data, $options;
 
 		/*$workspace_id = getenv('CVS_WORKSPASE_ID');
