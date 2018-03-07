@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Botlog;
 
@@ -35,8 +36,7 @@ class BotlogController
 		}
 	}
 
-	public function delete()
-	{
+	public function delete(){
 		$input = $this->requestall;
 		$nos = $input ["nos"];
 		foreach ( $nos as $no ) {
@@ -44,7 +44,5 @@ class BotlogController
 		}
 		return \Response::json(['status' => 'OK']);
 
-		return redirect('/botlog');
 	}
-
 }
