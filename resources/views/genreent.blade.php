@@ -12,7 +12,7 @@
 	</select>
 	<br>
 	<p>小分類</p>
-	<select id="g2" name = "shoubunrui" class="form-control"  style="width: 600px;">
+	<select id="g2" name = "shoubunrui" class="form-control" onChange="g2change()" style="width: 600px;">
 	<option selected="selected" class="msg">小分類を選択してください。</option>
 	@foreach($shoubunruis as $shoubunrui)
 	<option value="{{$shoubunrui->gid1}}" class ="{{$shoubunrui->gid1}}">{{$shoubunrui->meisho}}</option>

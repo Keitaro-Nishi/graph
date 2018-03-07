@@ -69,7 +69,7 @@ function getwtent(){
 function g2change(){
 
 	//テーブル初期化
-	while( wtable.rows[ 1 ] ) wtable.deleteRow( 1 );
+	//while( wtable.rows[ 1 ] ) wtable.deleteRow( 1 );
 	//getwtent();
 }
 
