@@ -17,12 +17,14 @@ class CodeManageController
 		if(Auth::user()->role == (int)0){
 			$codes= Code::orderBy('citycode', 'ASC')->orderBy('code1', 'ASC')->orderBy('code2', 'ASC')->get();
 			$bunrui = Code::where('citycode', '00000')->where('code1', (int)0)->orderBy('code2', 'ASC')->get();
+			$citycodes = Code::groupBy('citycode')->orderBy('citycode', 'ASC')->get();
 		}else{
 			$codes= Code::where('citycode', $cityCD)->where('class2', '<>', '1')->orderBy('code1', 'ASC')->orderBy('code2', 'ASC')->get();
 			$bunrui = Code::where('citycode', '00000')->where('code1', (int)0)->where('code2', '>' ,(int)0)->where('class2', '<>', '1')->orderBy('code2', 'ASC')->get();
+			$citycodes = "";
 		}
 
-		return view('codemanage',['codes'=>$codes,'bunrui'=>$bunrui]);
+		return view('codemanage',['codes'=>$codes,'bunrui'=>$bunrui,'citycodes'=>$citycodes]);
 	}
 
 	public  function request(){
@@ -42,6 +44,9 @@ class CodeManageController
 		$input = $this->requestall;
 		$selcode = $input["selcode"];
 		$cityCD = Auth::user()->citycode;
+		if($input["citycode"] != ""){
+			$cityCD = $input["citycode"];
+		}
 
 		if($selcode == ""){
 			//新規
@@ -86,6 +91,9 @@ class CodeManageController
 		$input = $this->requestall;
 		$codes = $input["codes"];
 		$cityCD = Auth::user ()->citycode;
+		if($input["citycode"] != ""){
+			$cityCD = $input["citycode"];
+		}
 		foreach ( $codes as $code ) {
 			$code12 = explode(".", $code);
 			DB::table('code')->where('citycode', $cityCD)->where('code1', $code12[0])->where('code2', $code12[1])->delete();

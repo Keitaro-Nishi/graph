@@ -6,8 +6,17 @@
 
 @section('content')
 <div class="container">
+@if (Auth::user()->role == (int)0 )
 <div class="col-sm-3">
-	<select class="form-control" id="codesel" onChange="codeselChange()" value="{{ old('codesel') }}">
+	<select class="form-control" id="citycd" onChange="codeselChange()">
+			@foreach($citycodes as $value)
+				<option value="{{$value->citycode}}" selected>{{$value->citycode}}</option>
+			@endforeach
+	</select>
+</div>
+@endif
+<div class="col-sm-3">
+	<select class="form-control" id="codesel" onChange="codeselChange()">
 			@foreach($bunrui as $value)
 				<option value="{{$value->code2}}.{{$value->class1}}.{{$value->class2}}" selected>{{$value->meisho}}</option>
 			@endforeach

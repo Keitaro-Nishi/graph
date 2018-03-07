@@ -35,6 +35,7 @@ function init() {
 
 	//テーブル操作
 	document.getElementById('codesel').selectedIndex = 0;
+	document.getElementById('citycd').selectedIndex = 0;
 	codeselChange();
 }
 
@@ -44,6 +45,11 @@ function codeselChange(){
 	class1 = codeselval[1];
 	class2 = codeselval[2];
 
+	cityCD = tabledata[0]['citycode'];
+	if(document.getElementById('citycd')){
+		cityCD = document.getElementById('citycd').value;
+	}
+
 	//テーブル初期化
 	$("#grid-basic").bootgrid("clear");
 	rowIds = [];
@@ -52,7 +58,7 @@ function codeselChange(){
 	//テーブルデータ作成
 	var tblarray = [];
 	for(var i=0; i < tabledata.length; i++){
-		if(tabledata[i]['code1'] == select_val){
+		if(tabledata[i]['code1'] == select_val && tabledata[i]['citycode'] == cityCD){
 			if(class1 == "1"){
 				tblarray.push({
 					"code12":tabledata[i]['code1'] + "." + tabledata[i]['code2'],
@@ -160,12 +166,17 @@ function drow() {
 	    },
 	    callback: function (result) {
 	        if(result){
+	        	var cityCD = "";
+	        	if(document.getElementById('citycd')){
+	        		cityCD = document.getElementById('citycd').value;
+	        	}
 	        	var _token = document.getElementById('_token').value;
 	        	$.ajax({
 	    			type: "POST",
 	    			dataType: "JSON",
 	    			data:{
 	    				"param" : "delete",
+	    				"citycode" : cityCD,
 	    				"codes" : rowIds,
 	    				"_token" : _token
 	    			}
@@ -191,6 +202,10 @@ function drow() {
 }
 
 function update(){
+	var cityCD = "";
+	if(document.getElementById('citycd')){
+		cityCD = document.getElementById('citycd').value;
+	}
 	var meisho = document.getElementById('dia_meisho').value;
 	var num = document.getElementById('dia_num').value;
 	var class1 = "0";
@@ -208,6 +223,7 @@ function update(){
 		dataType: "JSON",
 		data: {
 			"param" : "update",
+			"citycode" : cityCD,
 			"code1" : select_val,
 			"selcode" : selcode,
 			"meisho" : meisho,
