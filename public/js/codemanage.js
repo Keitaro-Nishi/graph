@@ -139,8 +139,8 @@ function drow() {
 		});
 		return;
 	}
-	for(var value in rowcl2s){
-		if(value == 2){
+	for(var i = 0;  i < rowcl2s.length;  i++){
+		if(rowcl2s[i] == 2){
 			bootbox.alert({
 				message: "削除できない行が含まれています",
 				size: 'small'
