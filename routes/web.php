@@ -42,6 +42,8 @@ Route::middleware(['auth'])->group(function () {
 	Route::post ( '/genre','GenreController@request');
 
 	Route::get ( '/genreint', 'GenreintController@index' )->name ( 'genreint' );
+	Route::post ( '/genreint', 'GenreintController@request' );
+
 	Route::get ( '/genreent', 'GenreentController@index' )->name ( 'genreent' );
 
 	Route::get ( '/linepush',function(){
@@ -56,7 +58,6 @@ Route::get ( '/logindata', 'LogindataController@index' )->name ( 'logindata' );
 Route::get ( '/opinion', 'OpinionController@index' )->name ( 'opinion' );
 Route::get ( '/opinion/{deleteno}','OpinionController@delete' );
 
-Route::get ( '/cwtest', 'CallWatsonController@index');
 
 Route::get ( '/codemanage', 'CodeManageController@index')->name('codemanage')->middleware('role');
 	//Route::get('/ajax/{deletecode}','UserdeleteController@delete');

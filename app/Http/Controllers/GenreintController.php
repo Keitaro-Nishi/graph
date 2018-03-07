@@ -17,5 +17,29 @@ class GenreintController
 
 	}
 
+	public  function request(){
+		$this->requestall = \Request::all();
+		if ($this->requestall["param"] == "intentSearch"){
+			return $this->insert();
+		}else{
+			return \Response::json(['status' => 'NG']);
+		}
+	}
+
+	public function insert()
+	{
+		$input = $this->requestall;
+
+		$param = $_POST['param'];
+		$g1meisho= $_POST['g1meisho'];
+		$g2meisho= $_POST['g2meisho'];
+		$sword= $_POST['sword'];
+
+		$data = "";
+		error_log("★★★★★★★★★★★★★★★★★★g1meisho:".$g1meisho." g2meisho:".$g2meisho." param:".$param." sword:".$sword);
+
+
+	}
+
 
 }

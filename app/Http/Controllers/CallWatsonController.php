@@ -14,10 +14,7 @@ class CallWatsonController
 		$username = getenv('CVS_USERNAME');
 		$password = getenv('CVS_PASS');
 
-		error_log("★★★★★★★");
-		error_log($workspace_id);
-		error_log($username);
-		error_log($password);
+
 	}
 
 }
