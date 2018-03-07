@@ -24,7 +24,7 @@
 </div>
 
 <input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
-<input type="button" class="btn btn-default" onclick="getwtint()">テスト</button>
+<input type="button" class="btn btn-default" onclick="getwtint()" value ="テスト" />
 
 <div class="modal" id="updateDialog" tabindex="-1">
 	<div class="modal-dialog">
