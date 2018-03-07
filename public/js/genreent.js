@@ -33,8 +33,16 @@ $(function(){
 			}else {
 				// 選択した大分類とクラス名が違った場合
 
-				// 都市の要素を非表示
-				shoubunrui.hide();
+				if(shoubunrui.attr("class") === "msg") {
+					// 「小分類を選択して下さい」という要素だった場合
+
+						shoubunrui.show();  //「小分類を選択して下さい」を表示させる
+						shoubunrui.prop('selected',true);  //「小分類を選択して下さい」を強制的に選択されている状態にする
+				} else {
+					// 「小分類を選択して下さい」という要素でなかった場合
+
+					shoubunrui.hide();
+				}
 			}
 		}
 	})
