@@ -35,7 +35,9 @@ function init() {
 
 	//テーブル操作
 	document.getElementById('codesel').selectedIndex = 0;
-	document.getElementById('citycd').selectedIndex = 0;
+	if(document.getElementById('citycd')){
+		document.getElementById('citycd').selectedIndex = 0;
+	}
 	codeselChange();
 }
 
