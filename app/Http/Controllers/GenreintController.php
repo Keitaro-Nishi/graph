@@ -40,7 +40,7 @@ class GenreintController
 
 		$data = "";
 
-		error_log("★★★★★★★★★★★★★★★★★★");
+		error_log("☆☆☆☆☆☆☆");
 		error_log("g1meisho:".$g1meisho." g2meisho:".$g2meisho." param:".$param." sword:".$sword);
 
 		global $url,$g1meisho,$workspace_id;
