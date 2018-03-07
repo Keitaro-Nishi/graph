@@ -64,7 +64,7 @@ class GenreintController
 		echo json_encode($arr);
 	}
 
-	 public function callwatson(){
+	 function callwatson(){
 		global $curl, $url, $username, $password, $data, $options;
 
 		/*$workspace_id = getenv('CVS_WORKSPASE_ID');
