@@ -19,7 +19,7 @@ class CodeManageController
 			$bunrui = Code::where('citycode', '00000')->where('code1', (int)0)->orderBy('code2', 'ASC')->get();
 		}else{
 			$codes= Code::where('citycode', $cityCD)->where('class2', '<>', '1')->orderBy('code1', 'ASC')->orderBy('code2', 'ASC')->get();
-			$bunrui = Code::where('citycode', '00000')->where('code1', (int)0)->where('code2', '>' ,(int)0)->orderBy('code2', 'ASC')->get();
+			$bunrui = Code::where('citycode', '00000')->where('code1', (int)0)->where('code2', '>' ,(int)0)->where('class2', '<>', '1')->orderBy('code2', 'ASC')->get();
 		}
 
 		return view('codemanage',['codes'=>$codes,'bunrui'=>$bunrui]);
