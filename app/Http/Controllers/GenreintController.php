@@ -71,7 +71,6 @@ class GenreintController
 		$username = getenv('CVS_USERNAME');
 		$password = getenv('CVS_PASS');
 		*/
-
 		error_log("○○○○○○");
 		error_log($username);
 		error_log($password);
