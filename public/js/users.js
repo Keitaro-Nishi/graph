@@ -109,7 +109,7 @@ function detail(name,userid,organization,citycode){
 	document.getElementById('dia_userid').value = userid;
 	document.getElementById('dia_userid').disabled = true;
 	document.getElementById('dia_name').value = name;
-	//document.getElementById('dia_organization').selectedIndex = 0;
+	document.getElementById('dia_organization').value = organization;
 	document.getElementById('dia_passres').style.display="block";
 	document.getElementById('dia_passresck').checked = false;
 	document.getElementById('dia_password').disabled = true;

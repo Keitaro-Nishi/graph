@@ -19,7 +19,13 @@ class UserController
 		if($cityCD == "00000"){
 			$users = User::where('role', '<' ,(int)2)->get();
 		}else{
-			$users= User::where('citycode', $cityCD)->get();
+			//$users= User::where('citycode', $cityCD)->get();
+			$users = User::select()->where('citycode', $cityCD)->leftJoin('code', function ($join) {
+				$join->on('users.citycode', '=', 'code.citycode');
+				$join->on('users.code1', '=', 12);
+				$join->on('users.organization', '=', 'code.code2');
+			})
+			->get();
 		}
 		$organizations= Code::where('citycode', $cityCD)->where('code1', 12)->get();
 		return view('users',['users'=>$users,'organizations'=>$organizations]);
