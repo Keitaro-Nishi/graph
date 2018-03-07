@@ -103,7 +103,7 @@ function shosai_next(){
 	shosai_idx = shosai_idx + 1;
 	modal_mod(shosai_idx);
 }
-/*
+
 function modal_mod(index){
 	document.getElementById('dia_userid').value  = dbvalue[index]["userid"];
 	document.getElementById('dia_time').value = dbvalue[index]["time"];
@@ -124,5 +124,4 @@ function modal_mod(index){
 	}else{
 		document.getElementById("snext").disabled = "";
 	}
-	*/
 }
