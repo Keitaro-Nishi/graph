@@ -141,6 +141,7 @@ function modwin(no,userid,time,contents){
 	document.getElementById('dia_contens').value = contents;
 	//document.getElementById('dia_returns').value = returns;
 	document.getElementById("btn_modal").click();
+	/*
 	if(index == 0){
 		document.getElementById("sback").disabled = "true";
 	}else{
@@ -151,4 +152,5 @@ function modwin(no,userid,time,contents){
 	}else{
 		document.getElementById("snext").disabled = "";
 	}
+	*/
 }
