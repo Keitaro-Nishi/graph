@@ -53,7 +53,7 @@ function drow() {
 		callback: function (result) {
 			if(result){
 				var _token = document.getElementById('_token').value;
-				console.log(rowIds);
+				console.log(_token);
 				$.ajax({
 					type: "POST",
 					dataType: "JSON",
