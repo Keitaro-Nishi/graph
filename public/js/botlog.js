@@ -11,6 +11,7 @@ $(function() {
 		selection : true,
 		multiSelect : true,
 		keepSelection : true,
+		columnSelection : false,
 		formatters: {
 			"details": function($column, $row) {
 				return "<input type='button' class='btn btn-default' value='詳細' onclick='detailwin("  + $row.no + ")'> ";
@@ -54,16 +55,6 @@ function drow() {
 			location.reload();
 		}else{
 			alert("削除できませんでした");
-		}
-	}
-}
-
-function detailwin(value){
-	document.getElementById("btn_modal").click();
-	for (var i = 0; i < dbvalue.length; i++){
-		if(dbvalue[i][0] == value){
-			shosai_idx = i;
-			modal_mod(i);
 		}
 	}
 }
