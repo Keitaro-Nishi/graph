@@ -36,8 +36,7 @@ class LogimageController {
 	public function delete() {
 		$input = $this->requestall;
 		Logimage::destroy ( $input ["nos"] );
-		return \Response::json ( [
-				'status' => 'OK'
+		return \Response::json ( ['status' => 'OK'
 		] );
 	}
 }
