@@ -108,10 +108,8 @@ class FacilityController {
 	public function delete() {
 		$input = $this->requestall;
 		$ids = $input ["ids"];
-		$cityCD = Auth::user ()->citycode;
 		foreach ( $ids as $id ) {
-			$iddata = $id;
-			DB::table('facility')->where('id',$iddata)->delete();
+			DB::table('facility')->where('id',$id)->delete();
 		}
 		return \Response::json(['status' => 'OK']);
 	}

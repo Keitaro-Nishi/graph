@@ -39,9 +39,8 @@ class BotlogController
 	{
 		$input = $this->requestall;
 		$nos = $input ["nos"];
-		$cityCD = Auth::user ()->citycode;
 		foreach ( $nos as $no ) {
-			DB::table('facility')->where('id',$no)->delete();
+			DB::table('botlog')->where('no',$no)->delete();
 		}
 		return \Response::json(['status' => 'OK']);
 
