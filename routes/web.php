@@ -28,7 +28,7 @@ Route::middleware(['auth'])->group(function () {
 	Route::post ( '/opinion', 'OpinionController@request' );
 
 	Route::get ( '/botlog', 'BotlogController@index' )->name ( 'botlog' );
-	Route::post ( '/botlog', 'BoylogController@request' );
+	Route::post ( '/botlog', 'BotlogController@request' );
 
 	Route::get ( '/logimage', 'LogimageController@index' )->name ( 'logimage' );
 	Route::get ( '/logimage/{deleteno}', 'LogimageController@delete' );
