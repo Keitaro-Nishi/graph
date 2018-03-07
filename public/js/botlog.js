@@ -1,4 +1,3 @@
-<script>
 var rowIds = [];
 var dbvalue = [];
 var shosai_idx = 0;
@@ -95,4 +94,3 @@ function shosai_next(){
 				}
 			}
  */
-</script>
