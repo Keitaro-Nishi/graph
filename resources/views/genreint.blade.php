@@ -19,6 +19,7 @@
 		</tbody>
 	</table>
 	<br>
+	<input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
 	<input type="button" class="btn btn-default"  data-toggle="modal" data-target="#updateDialog" value="追加" />
 	<input type="button" class="btn btn-default" onclick="back()" value="もどる" />
 </div>

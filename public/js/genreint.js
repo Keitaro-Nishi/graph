@@ -11,19 +11,9 @@ var rowgid2 = [];
 var wtable = document.getElementById('grid-basic');
 $(function(){
 
-	//ジャンルの設定
-	/*
-	var j1value = <?php echo json_encode($j1value); ?>;
-	var select = document.getElementById('g1');
-	for( var key in j1value ) {
-		var option = document.createElement('option');
-		option.setAttribute('value', key);
-		var text = document.createTextNode(j1value[key]);
-		option.appendChild(text);
-		select.appendChild(option);
-	}*/
 	//テーブル追加
 	getwtint();
+
 	/*
 	var wtable = document.getElementById('grid-basic');
 	var raw = wtable.insertRow( -1 );
@@ -34,16 +24,18 @@ $(function(){
 });
 //インテント取得
 function getwtint(){
-	//g1meisho = document.getElementById('g1').options[document.getElementById('g1').selectedIndex].text;
 	g1meisho = document.getElementById('g1').value;
+	var _token = document.getElementById('_token').value;
+
 	$.ajax({
 		type: "POST",
-		url: "cw2.php",
-		data: {
+		dataType: "JSON",
+		data:{
 			"param" : "intentSearch",
 			"g1meisho" : g1meisho,
 			"g2meisho" : "",
 			"sword" : ""
+			"_token" : _token
 		}
 	}).done(function (response) {
 		result = JSON.parse(response);
@@ -58,6 +50,7 @@ function getwtint(){
         alert("Watsonデータの取得に失敗しました");
     });
 }
+
 //分類選択
 function g1change(){
 	//テーブル初期化
