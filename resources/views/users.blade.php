@@ -11,7 +11,8 @@
 		<tr>
 			<th data-column-id="name">ユーザー名</th>
 			<th data-column-id="userid" data-identifier="true">ユーザーID</th>
-			<th data-column-id="organization">組織名</th>
+			<th data-column-id="organization" data-visible="false"></th>
+			<th data-column-id="organizationN">組織名</th>
 			<th data-column-id="citycode" data-visible="false"></th>
 			<th data-column-id='detail'  data-width='6%' data-formatter='details' data-sortable='false'></th>
 		</tr>
@@ -22,6 +23,7 @@
 			<td>{{$user->name}}</td>
 			<td>{{$user->userid}}</td>
 			<td>{{$user->organization}}</td>
+			<td>{{$user->meisho}}</td>
 			<td>{{$user->citycode}}</td>
 		</tr>
 		@endforeach
