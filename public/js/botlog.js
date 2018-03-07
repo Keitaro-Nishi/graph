@@ -130,7 +130,7 @@ function mod_mod(no,userid,time,contents,returns){
 	document.getElementById('dia_time').value = time;
 	document.getElementById('dia_contens').value = contents;
 	//document.getElementById('dia_returns').value = returns;
-	//document.getElementById("btn_modal").click();
+	document.getElementById("btn_modal").click();
 	if(index == 0){
 		document.getElementById("sback").disabled = "true";
 	}else{
