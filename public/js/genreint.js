@@ -46,6 +46,7 @@ function getwtint(){
 			td2.style.width = "50px";
 			td1.innerHTML = result[index];
 			td2.innerHTML = '<input type="button" value="削除" class="btn btn-default" onclick="delLine(\'' + result[index] + '\',this)" />';
+			alert("成功");
 		}
     }).fail(function () {
         alert("Watsonデータの取得に失敗しました");
