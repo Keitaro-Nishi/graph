@@ -39,10 +39,13 @@ class BotlogController
 
 	public function delete(){
 		$input = $this->requestall;
+		Botlog::destroy($input["nos"]);
+		/*
 		$nos = $input ["nos"];
 		foreach ( $nos as $no ) {
 			DB::table('botlog')->where('no',$no)->delete();
 		}
+		*/
 		return \Response::json(['status' => 'OK']);
 
 	}
