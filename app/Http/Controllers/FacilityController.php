@@ -112,8 +112,6 @@ class FacilityController {
 		foreach ( $ids as $id ) {
 			$iddata = $id;
 			DB::table('facility')->where('id',$iddata)->delete();
-			//error_log($iddata);
-			//DB::table ( 'facility' )->where ('id', $iddata )->delete ();
 		}
 		return \Response::json(['status' => 'OK']);
 	}
