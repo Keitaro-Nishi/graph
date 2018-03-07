@@ -39,9 +39,16 @@ class GenreintController
 		$sword= $input["sword"];
 
 		$data = "";
-		error_log("★★★★★★★★★★★★★★★★★★g1meisho:".$g1meisho." g2meisho:".$g2meisho." param:".$param." sword:".$sword);
+
+		error_log("★★★★★★★★★★★★★★★★★★");
+		error_log("g1meisho:".$g1meisho." g2meisho:".$g2meisho." param:".$param." sword:".$sword);
 
 		global $url,$g1meisho,$workspace_id;
+
+		error_log("○○○○○○");
+		error_log($g1meisho);
+		error_log($workspace_id);
+
 		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents/".$g1meisho."/examples?version=2017-05-26&export=true";
 		$jsonString = callWatson2();
 		$json = json_decode($jsonString, true);
