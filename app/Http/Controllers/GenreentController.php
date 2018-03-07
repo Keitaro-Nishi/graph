@@ -36,7 +36,7 @@ class GenreentController
 
 		//error_log("●●●●●●●");
 		//error_log(print_r($shoubunruilists,true));
-		return view('genreent',compact('daibunruis','shoubunruilists'));
+		return view('genreent',compact('daibunruis','shoubunruis'));
 
 	}
 

@@ -12,8 +12,8 @@
 	<br>
 	<p>小分類</p>
 	<select id="g2" class="form-control" onChange="g2change()" style="width: 600px;">
-	@foreach($shoubunruilists as $shoubunruilist)
-	<option value="{{$shoubunruilist->gid1}}">{{$shoubunruilist->meisho}}</option>
+	@foreach($shoubunruis as $shoubunrui)
+	<option value="{{$shoubunrui->gid1}}">{{$shoubunrui->meisho}}</option>
 	@endforeach
 	</select>
 	<br>
