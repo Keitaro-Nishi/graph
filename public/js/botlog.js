@@ -122,7 +122,7 @@ function modal_mod(index){
 	}
 }
 */
-function mod_mod(no,userid,time,contents){
+function modwin(no,userid,time,contents){
 	modID = no;
 	initmodal();
 	document.getElementById('dia_no').value = no;
