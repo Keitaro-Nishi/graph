@@ -67,6 +67,16 @@ function detailwin(value){
 	}
 }
 
+function detailwin(value){
+	document.getElementById("btn_modal").click();
+	for (var i = 0; i < dbvalue.length; i++){
+		if(dbvalue[i]["no"] == value){
+			shosai_idx = i;
+			modal_mod(i);
+		}
+	}
+}
+
 function shosai_back(){
 	shosai_idx = shosai_idx - 1;
 	modal_mod(shosai_idx);
