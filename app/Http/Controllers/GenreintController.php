@@ -47,11 +47,7 @@ class GenreintController
 		error_log($g1meisho);
 		error_log($workspace_id);
 
-		global $url,$g1meisho,$workspace_id;
-
-		error_log("☆☆☆☆☆☆☆");
-		error_log($g1meisho);
-		error_log($workspace_id);
+		//global $url,$g1meisho,$workspace_id;
 
 		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents/".$g1meisho."/examples?version=2017-05-26&export=true";
 		$jsonString = callWatson2();
