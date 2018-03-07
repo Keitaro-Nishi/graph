@@ -3,7 +3,13 @@ var botlog = [];
 var dbvalue = [];
 var shosai_idx = 0;
 
-botlog= document.getElementById('botlog').value;
+botlog = document.getElementById('botlog').value;
+/*
+$nos = $input ["nos"];
+foreach ( $nos as $no ) {
+	DB::table('botlog')->where('no',$no)->delete();
+}
+*/
 dbvalue = JSON.parse(botlog);
 
 $(function() {
