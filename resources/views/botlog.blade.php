@@ -9,7 +9,7 @@
 	class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
-			<th data-column-id="no" data-type="numeric" data-identifier="true" data-width="4%">NO</th>
+			<th data-column-id="no" data-type="numeric" data-identifier="true" data-width="4%"data-visible="false">NO</th>
 			<th data-column-id="userid" data-width="10%">ユーザーID</th>
 			<th data-column-id="time" data-width="10%">日時</th>
 			<th data-column-id="contents" data-width="35%">質問内容</th>
@@ -30,6 +30,15 @@
 		@endforeach
 	</tbody>
 </table>
+
+<div>
+<input id="botlog" type= "hidden" value = '{{ $botlogs }}'>
+</div>
+
+<div class="container" align="center">
+	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
+	<input id="btn_modal" type="button" style="display: none" data-toggle="modal" data-target="#shosaiDialog" value="モーダル表示" />
+</div>
 
 <div class="modal" id="shosaiDialog" tabindex="-1">
 	<div class="modal-dialog">
@@ -78,11 +87,6 @@
 			</div>
 		</div>
 	</div>
-</div>
-
-<div class="container" align="center">
-	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
-	<input id="btn_modal" type="button" style="display: none" data-toggle="modal" data-target="#shosaiDialog" value="モーダル表示" />
 </div>
 
 <script src="{{ asset('js/botlog.js') }}"></script>
