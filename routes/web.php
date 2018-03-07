@@ -25,10 +25,10 @@ Route::middleware(['auth'])->group(function () {
 	Route::get ( '/users/{deletecode}', 'UserController@delete' );
 
 	Route::get ( '/opinion', 'OpinionController@index' )->name ( 'opinion' );
-	Route::get ( '/opinion/{deleteno}', 'OpinionController@delete' );
+	Route::post ( '/opinion', 'OpinionController@request' );
 
 	Route::get ( '/botlog', 'BotlogController@index' )->name ( 'botlog' );
-	Route::get ( '/botlog/{deleteno}', 'BotlogController@delete' );
+	Route::post ( '/botlog', 'BoylogController@request' );
 
 	Route::get ( '/logimage', 'LogimageController@index' )->name ( 'logimage' );
 	Route::get ( '/logimage/{deleteno}', 'LogimageController@delete' );

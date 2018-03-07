@@ -35,7 +35,7 @@ class BotlogController
 		}
 	}
 
-	public function delete(Request $request)
+	public function delete()
 	{
 		$input = $this->requestall;
 		$nos = $input ["nos"];

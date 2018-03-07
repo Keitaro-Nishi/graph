@@ -53,7 +53,7 @@ function drow() {
 		callback: function (result) {
 			if(result){
 				var _token = document.getElementById('_token').value;
-				console.log(_token);
+				console.log(rowIds);
 				$.ajax({
 					type: "POST",
 					dataType: "JSON",
@@ -105,6 +105,7 @@ function shosai_next(){
 
 function modal_mod(index){
 	document.getElementById('dia_no').value = dbvalue[index]["no"];
+	console.log('dia_no');
 	document.getElementById('dia_userid').value  = dbvalue[index]["userid"];
 	document.getElementById('dia_time').value = dbvalue[index]["time"];
 	document.getElementById('dia_contents').value  = dbvalue[index]["contents"];
