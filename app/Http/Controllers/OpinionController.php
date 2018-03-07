@@ -13,8 +13,6 @@ class OpinionController
 {
 	public function index(Request $request)
 	{
-
-
 		$Authrole = Auth::user()->role;
 		$cityCD = Auth::user()->citycode;
 		if($cityCD = "00000"){
@@ -23,16 +21,28 @@ class OpinionController
 			$opinions= Opinion::where('citycode', $cityCD)->get();
 		}
 		return view('opinion',['opinions'=>$opinions]);
-
 	}
 
-	public function delete(Request $request)
-	{
-		$deleteNo = $request->deleteno;
-		$deleteopinion = Opinion::find($deleteNo);
-		$deleteopinion->delete();
+	public function request() {
+		$this->requestall = \Request::all ();
+		if ($this->requestall ["param"] == "update") {
+			return $this->update ();
+		} elseif ($this->requestall ["param"] == "delete") {
+			return $this->delete ();
+		} else {
+			return \Response::json ( [
+					'status' => 'NG'
+			] );
+		}
+	}
 
-		return redirect('/opinion');
+	public function delete() {
+		$input = $this->requestall;
+		$ids = $input ["ids"];
+		foreach ( $ids as $id ) {
+			DB::table('opinion')->where('id',$id)->delete();
+		}
+		return \Response::json(['status' => 'OK']);
 	}
 
 }

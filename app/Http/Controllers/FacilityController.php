@@ -21,6 +21,7 @@ class FacilityController {
 			 */
 		}
 	}
+
 	public function request() {
 		$this->requestall = \Request::all ();
 		if ($this->requestall ["param"] == "update") {
@@ -33,6 +34,7 @@ class FacilityController {
 			] );
 		}
 	}
+
 	public function update() {
 		$input = \Request::all ();
 		$rules = [
