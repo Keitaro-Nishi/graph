@@ -29,6 +29,8 @@ class GenreintController
 
 	public function intentSearch()
 	{
+		global $url,$g1meisho,$workspace_id;
+
 		$workspace_id = getenv('CVS_WORKSPASE_ID');
 		$username = getenv('CVS_USERNAME');
 		$password = getenv('CVS_PASS');
@@ -45,7 +47,7 @@ class GenreintController
 		error_log("g1meisho:".$g1meisho." g2meisho:".$g2meisho." param:".$param." sword:".$sword);
 
 
-		//global $url,$g1meisho,$workspace_id;
+
 
 		error_log("●●●●●●");
 		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents/".$g1meisho."/examples?version=2017-05-26&export=true";
