@@ -72,15 +72,12 @@ function shosai_next(){
 	modal_mod(shosai_idx);
 }
 
-function modwin(no, userid, time, contents){
-	modID = no;
-	initmodal();
-	document.getElementById('dia_no').value = no;
-	document.getElementById('dia_userid').value  = userid;
-	document.getElementById('dia_time').value = time;
-	document.getElementById('dia_contents').value  = contents;
-	//document.getElementById('dia_return').innerHTML  = return;
-	/*
+function modal_mod(index){
+	document.getElementById('dia_no').value = dbvalue[index]["no"];
+	document.getElementById('dia_userid').value  = dbvalue[index]["userid"];
+	document.getElementById('dia_time').value = dbvalue[index]["time"];
+	document.getElementById('dia_contents').value  = dbvalue[index]["contents"];
+	document.getElementById('dia_return').value  = dbvalue[index]["return"];
 	if(index == 0){
 		document.getElementById("sback").disabled = "true";
 	}else{
@@ -91,5 +88,4 @@ function modwin(no, userid, time, contents){
 	}else{
 		document.getElementById("snext").disabled = "";
 	}
-	*/
 }
