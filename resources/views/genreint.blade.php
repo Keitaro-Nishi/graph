@@ -20,6 +20,7 @@
 	</table>
 	<br>
 	<input type="button" class="btn btn-default"  data-toggle="modal" data-target="#updateDialog" value="追加" />
+	<button type="button" class="btn btn-default" data-dismiss="modal" onclick="getwtint()">テスト</button>
 	<input type="button" class="btn btn-default" onclick="back()" value="もどる" />
 </div>
 
@@ -39,7 +40,6 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-				<button type="button" class="btn btn-default" data-dismiss="modal" onclick="getwtint()">テスト</button>
 				<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="update()">更新</button>
 			</div>
 		</div>

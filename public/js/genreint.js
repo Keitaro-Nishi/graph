@@ -26,6 +26,7 @@ $(function(){
 function getwtint(){
 	g1meisho = document.getElementById('g1').value;
 	var _token = document.getElementById('_token').value;
+	alert(g1meisho);
 
 	$.ajax({
 		type: "POST",
