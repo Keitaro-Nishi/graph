@@ -24,7 +24,7 @@
 </div>
 
 <input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
-<input type="button" class="btn btn-default" onclick="getwtint()" value ="テスト" />
+
 
 <div class="modal" id="updateDialog" tabindex="-1">
 	<div class="modal-dialog">
@@ -40,6 +40,7 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				<input type="button" class="btn btn-default" onclick="getwtint()" value ="テスト" />
 				<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="update()">更新</button>
 			</div>
 		</div>
