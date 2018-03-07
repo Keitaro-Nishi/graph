@@ -5,7 +5,8 @@
 @stop
 
 @section('content')
-<table id="grid-basic" class="table table-condensed table-hover table-striped">
+<table id="grid-basic"
+	class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
 			<th data-column-id="no" data-type="numeric" data-identifier="true" data-width="4%">NO</th>
@@ -40,23 +41,18 @@
 				<h4 class="modal-title" id="modal-label">詳細</h4>
 			</div>
 			<div class="modal-body">
+
 				<form class="form-horizontal">
-					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_id">No</label>
-						<div class="col-sm-10">
-							<input type="text" class="form-control" id="dia_id" value="" readonly>
-						</div>
-					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_userid">ユーザーID</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="dia_userid" value="" readonly>
+							<input type="text" class="form-control" id="dia_userid" readonly>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_time">日時</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="dia_time" value="" readonly>
+							<input type="text" class="form-control" id="dia_time" readonly>
 						</div>
 					</div>
 					<div class="form-group">
