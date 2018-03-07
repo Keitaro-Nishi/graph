@@ -56,8 +56,12 @@ class GenreintController
 		foreach ($json["examples"] as $value){
 			array_push($arr,$value["text"]);
 		}
-		echo json_encode($arr);
 
+		error_log("○○○○○○");
+		error_log($g1meisho);
+		error_log($workspace_id);
+
+		echo json_encode($arr);
 	}
 
 	function callWatson2(){
