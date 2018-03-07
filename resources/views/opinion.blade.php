@@ -107,6 +107,7 @@
 					</div>
 				</form>
 			</div>
+			<input type="hidden" id="_token" name="_token" value="{{ csrf_token() }}">
 			<div class="modal-footer">
 				<button id="sback" type="button" class="btn btn-default" onclick="shosai_back()">＜＜前へ</button>
 				<button id="snext" type="button" class="btn btn-default" onclick="shosai_next()">次へ＞＞</button>
