@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Facility;
 use App\Genre;
+
 class FacilityController {
 	public function index(Request $request) {
 		$cityCD = Auth::user ()->citycode;
