@@ -16,12 +16,13 @@ class UserController
 	public function index(Request $request)
 	{
 		$cityCD = Auth::user()->citycode;
-		$organizationCD = (int)12;
+
 		if($cityCD == "00000"){
 			$users = User::where('role', '<' ,(int)2)->get();
 		}else{
 			//$users= User::where('citycode', $cityCD)->get();
 			$users = User::select()->where('citycode', $cityCD)->leftJoin('code', function ($join) {
+				$organizationCD = (int)12;
 				$join->on('users.citycode', '=', 'code.citycode');
 				$join->on('code.code1', '=', $organizationCD);
 				$join->on('users.organization', '=', 'code.code2');
