@@ -4,16 +4,16 @@
 
 <div class="container">
 	<p>大分類</p>
-	<select id="g1" class="form-control" onChange="g1change()" style="width: 600px;">
+	<select id="g1" name = "daibunrui" class="form-control" style="width: 600px;">
 	@foreach($daibunruis as $daibunrui)
-	<option value="{{$daibunrui->gid1}}">{{$daibunrui->meisho}}</option>
+	<option value="{{$daibunrui->gid1}}" class ="{{$daibunrui->gid1}}">{{$daibunrui->meisho}}</option>
 	@endforeach
 	</select>
 	<br>
 	<p>小分類</p>
-	<select id="g2" class="form-control" onChange="g2change()" style="width: 600px;">
+	<select id="g2" name = "shoubunrui" class="form-control"  style="width: 600px;">
 	@foreach($shoubunruis as $shoubunrui)
-	<option value="{{$shoubunrui->gid1}}">{{$shoubunrui->meisho}}</option>
+	<option value="{{$shoubunrui->gid1}}" class ="{{$daibunrui->gid1}}">{{$shoubunrui->meisho}}</option>
 	@endforeach
 	</select>
 	<br>

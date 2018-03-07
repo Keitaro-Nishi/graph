@@ -11,7 +11,33 @@ var rowgid2 = [];
 var wtable = document.getElementById('grid-basic');
 $(function(){
 
-	g1change();
+	$('select[name="daibunrui"]').change(function() {
+
+		// 選択されている大分類のクラス名を取得
+		var daibunruiName = $('select[name="daibunrui"] option:selected').attr("class");
+		console.log(countyName);
+
+		// 小分類の要素数を取得
+		var count = $('select[name="shoubunrui"]').children().length;
+
+		// 小分類の要素数分、for文で回す
+		for (var i=0; i<count; i++) {
+
+			var shoubunrui = $('select[name="shoubunrui"] option:eq(' + i + ')');
+
+			if(shoubunrui.attr("class") === daibunruiName) {
+				// 選択した大分類と同じクラス名だった場合
+
+				// 小分類の要素を表示
+				shoubunrui.show();
+			}else {
+				// 選択した大分類とクラス名が違った場合
+
+				// 都市の要素を非表示
+				shoubunrui.hide();
+			}
+		}
+	})
 });
 /*
 //インテント取得
@@ -43,6 +69,7 @@ function getwtent(){
 */
 //大分類切替
 function g1change(){
+
 
 	/*
 	var g2value = [];
