@@ -47,8 +47,6 @@ class GenreintController
 		error_log("g1meisho:".$g1meisho." g2meisho:".$g2meisho." param:".$param." sword:".$sword);
 
 
-
-
 		error_log("●●●●●●");
 		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents/".$g1meisho."/examples?version=2017-05-26&export=true";
 		error_log("!!!!!!!");
