@@ -4,6 +4,7 @@
 <div class="container">
 	<p>大分類</p>
 	<select class="form-control" onChange="g1change()"  style="width: 600px;">
+	<option selected="selected" class="msg">大分類を選択してください。</option>
 	@foreach($results as $result)
 	<option value="{{$result->gid1}}">{{$result->meisho}}</option>
 	@endforeach
