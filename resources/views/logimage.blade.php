@@ -38,6 +38,7 @@
 				<p id="dia_kaku"></p>
 				<img  id="dia_image"/>
 			</div>
+			<input type="hidden" id="_token" name="_token" value="{{ csrf_token() }}">
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
 			</div>
