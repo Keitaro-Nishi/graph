@@ -22,7 +22,7 @@ class UserController
 			//$users= User::where('citycode', $cityCD)->get();
 			$users = User::select()->where('citycode', $cityCD)->leftJoin('code', function ($join) {
 				$join->on('users.citycode', '=', 'code.citycode');
-				$join->on('users.code1', '=', 12);
+				$join->on('code.code1', '=', 12);
 				$join->on('users.organization', '=', 'code.code2');
 			})
 			->get();
