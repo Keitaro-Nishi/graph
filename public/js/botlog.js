@@ -109,6 +109,16 @@ function shosai_next(){
 	shosai_idx = shosai_idx + 1;
 	modal_mod(shosai_idx);
 }
+
+//ダイアログ初期化
+function initmodal(){
+	document.getElementById('dia_no').value = "";
+	document.getElementById('dia_userid').value = "";
+	document.getElementById('dia_time').value = "";
+	document.getElementById('dia_contents').value = "";
+	//document.getElementById('dia_returns').value = "";
+}
+
 /*
 function modal_mod(index){
 	document.getElementById('dia_no').value = dbvalue[index]["no"];
@@ -138,6 +148,7 @@ function modwin(no,userid,time,contents){
 	document.getElementById('dia_contens').value = contents;
 	//document.getElementById('dia_returns').value = returns;
 	document.getElementById("btn_modal").click();
+	/*
 	if(index == 0){
 		document.getElementById("sback").disabled = "true";
 	}else{
@@ -148,4 +159,5 @@ function modwin(no,userid,time,contents){
 	}else{
 		document.getElementById("snext").disabled = "";
 	}
+	*/
 }
