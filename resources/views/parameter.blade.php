@@ -8,14 +8,14 @@
 <div class="container">
 	<form class="form-horizontal">
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="cityname">団体名</label>
-			<div class="col-sm-10">
+			<label class="col-sm-3 control-label" for="cityname">団体名</label>
+			<div class="col-sm-9">
 				<input type="text" class="form-control"  maxlength="30" id="cityname" value="{{$parameter->cityname}}">
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="line_cat">LINEチャネルアクセスTOKEN</label>
-			<div class="col-sm-10">
+			<label class="col-sm-3 control-label" for="line_cat">LINEチャネルアクセスTOKEN</label>
+			<div class="col-sm-9">
 				<input type="text" class="form-control" id="line_cat" value="{{$parameter->line_cat}}">
 			</div>
 		</div>
