@@ -29,7 +29,7 @@ class GenreintController
 
 	public function intentSearch()
 	{
-		global $url,$g1meisho,$workspace_id;
+		global $workspace_id,$username,$password,$url,$g1meisho;
 
 		$workspace_id = getenv('CVS_WORKSPASE_ID');
 		$username = getenv('CVS_USERNAME');
