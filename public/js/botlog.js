@@ -149,5 +149,5 @@ function modwin(no,userid,time,contents){
 	}else{
 		document.getElementById("snext").disabled = "";
 	}
-	 */
 }
+*/
