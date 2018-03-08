@@ -3,13 +3,12 @@ var botlog = [];
 var dbvalue = [];
 var shosai_idx = 0;
 
-//botlog = document.getElementById('botlog').value;
-
+botlog = document.getElementById('botlog').value;
 dbvalue = JSON.parse(botlog);
 
 $(function() {
 
-	$nos = document.getElementById('botlog').value;
+	$nos = JSON.parse(botlog);
 	foreach ( $nos as $no ) {
 		console.log($no);
 	}
