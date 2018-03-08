@@ -50,7 +50,6 @@ class GenreintController
 		$jsonString = $this->callWatson2();
 		$json = json_decode($jsonString, true);
 		error_log("●●●●●●");
-		error_log($json);
 
 		$arr = array();
 		foreach ($json["examples"] as $value){
