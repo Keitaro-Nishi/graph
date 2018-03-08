@@ -41,6 +41,14 @@ function update(){
 			bootbox.alert({
 				message: "更新しました",
 				size: 'small',
+				callback: function () {
+					for(var i=0; i < messages.length; i++){
+						if(messages[i]['id'] == select_val){
+							messages[i]['message'] = message;
+							break;
+						}
+					}
+				}
 			});
 		}else{
 			bootbox.alert({
