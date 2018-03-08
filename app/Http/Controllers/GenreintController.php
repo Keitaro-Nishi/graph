@@ -74,6 +74,9 @@ class GenreintController
 				CURLOPT_RETURNTRANSFER => true,
 		);
 
+		error_log("●●●●●●");
+		error_log(print_r($options,true));
+
 		curl_setopt_array($curl, $options);
 
 		error_log("●●●●●●");
