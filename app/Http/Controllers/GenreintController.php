@@ -57,6 +57,9 @@ class GenreintController
 			array_push($arr,$value["text"]);
 		}
 
+		error_log("☆☆☆☆☆☆☆");
+		error_log(print_r($arr,true));
+
 		return Response::json($arr);
 		//Response::json_encode($arr,JSON_PRETTY_PRINT);
 		//echo json_encode($arr);
