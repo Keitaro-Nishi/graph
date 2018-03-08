@@ -63,6 +63,9 @@ class GenreintController
 		global $curl, $url, $username, $password, $data, $options;
 
 		$curl = curl_init($url);
+		error_log("★★★★★★");
+		error_log($curl);
+		error_log("★★★★★★");
 		$options = array(
 				CURLOPT_HTTPHEADER => array(
 						'Content-Type: application/json',
@@ -72,7 +75,6 @@ class GenreintController
 				CURLOPT_RETURNTRANSFER => true,
 		);
 		curl_setopt_array($curl, $options);
-		error_log("★★★★★★");
 		return curl_exec($curl);
 	}
 
