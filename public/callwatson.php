@@ -13,9 +13,9 @@ $g1meisho= $_POST['g1meisho'];
 $g2meisho= $_POST['g2meisho'];
 $sword= $_POST['sword'];
 
-error_log("☆☆☆☆☆☆☆");
-error_log("g1meisho:".$g1meisho." g2meisho:".$g2meisho." param:".$param." sword:".$sword);
-error_log("届きました");
+//error_log("☆☆☆☆☆☆☆");
+//error_log("g1meisho:".$g1meisho." g2meisho:".$g2meisho." param:".$param." sword:".$sword);
+//error_log("届きました");
 
 $data = "";
 
@@ -117,7 +117,9 @@ function entityDelete(){
 }
 
 function callWatson(){
-	global $curl, $url, $username, $password, $data, $options;
+	//global $curl, $url, $username, $password, $data, $options;
+	error_log("△△△△△△△△△");
+	error_log("△△△△△△△△△");
 	$curl = curl_init($url);
 	$options = array(
 			CURLOPT_HTTPHEADER => array(
