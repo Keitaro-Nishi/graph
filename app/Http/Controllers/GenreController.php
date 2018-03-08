@@ -117,6 +117,7 @@ class GenreController
 				//Intents
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents/".$gid1."?version=2017-05-26";
 				$data = array("description" => $meisho);
+				error_log("☓☓☓☓☓☓");
 				callWatson();
 			}else{
 				//小分類
