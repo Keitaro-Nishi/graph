@@ -18,35 +18,15 @@ function messidChange(){
 }
 
 function update(){
-	/*
-	var cityCD = "";
-	if(document.getElementById('citycd')){
-		cityCD = document.getElementById('citycd').value;
-	}
-	var meisho = document.getElementById('dia_meisho').value;
-	var num = document.getElementById('dia_num').value;
-	var class1 = "0";
-	if(document.getElementsByName('kbn')[0].checked){
-		class1 = "1";
-	}
-	if(document.getElementsByName('kbn')[1].checked){
-		class1 = "2";
-	}
-	class2 = document.getElementById('dia_hkbn').value;
+	var message = document.getElementById('mess').value;
 	var _token = document.getElementById('_token').value;
-	console.log("select_val:" + select_val + " selcode:" + selcode + " meisho" + meisho + " num:" + num + " class1:" + class1 + " class2:" + class2 + " _token:" + _token);
 	$.ajax({
 		type: "POST",
 		dataType: "JSON",
 		data: {
 			"param" : "update",
-			"citycode" : cityCD,
-			"code1" : select_val,
-			"selcode" : selcode,
-			"meisho" : meisho,
-			"num" : num,
-			"class1" : class1,
-			"class2" : class2,
+			"id" : select_val,
+			"message" : message,
 			"_token" : _token
 		}
 	}).done(function (response) {
@@ -70,5 +50,4 @@ function update(){
 			size: 'small'
 		});
     });
-    */
 }

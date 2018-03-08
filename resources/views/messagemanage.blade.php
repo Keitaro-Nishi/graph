@@ -23,6 +23,7 @@
 				<textarea class="form-control" id="mess" rows='10'></textarea>
 			</div>
 		</div>
+		<input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
 	</form>
 </div>
 <div class="container" align="center">
