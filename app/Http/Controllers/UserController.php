@@ -33,7 +33,7 @@ class UserController
 			})
 			->get();
 		}
-		$organizations= Code::where('citycode', $cityCD)->where('code1', 12)->get();
+		$organizations= Code::where('citycode', $cityCD)->where('code1', 12)->orderBy('code2', 'ASC')->get();
 		return view('users',['users'=>$users,'organizations'=>$organizations]);
 	}
 

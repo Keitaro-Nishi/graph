@@ -22,8 +22,9 @@ Route::middleware(['auth'])->group(function () {
 	Route::get ( '/home', 'HomeController@index' )->name ( 'home' );
 
 	//Route::get ( '/users', 'UserController@index' )->name ( 'users' )->middleware('role');
+	//Route::post ( '/users', 'UserController@request' )->middleware('role');
 	Route::get ( '/users', 'UserController@index' )->name ( 'users' );
-	Route::post ( '/users', 'UserController@request' )->middleware('role');
+	Route::post ( '/users', 'UserController@request' );
 
 	Route::get ( '/opinion', 'OpinionController@index' )->name ( 'opinion' );
 	Route::get ( '/opinion/{deleteno}','OpinionController@delete' );
