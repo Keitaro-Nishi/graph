@@ -8,7 +8,7 @@ dbvalue = JSON.parse(botlog);
 
 $(function() {
 
-	$nos = JSON.parse(botlog);
+	$nos = dbvalue;
 	foreach ( $nos as $no ) {
 		console.log($no);
 	}
@@ -99,7 +99,7 @@ function detailwin(value){
 		}
 	}
 }
-*/
+ */
 function shosai_back(){
 	shosai_idx = shosai_idx - 1;
 	modal_mod(shosai_idx);
@@ -137,7 +137,7 @@ function modal_mod(index){
 		document.getElementById("snext").disabled = "";
 	}
 }
-*/
+ */
 function modwin(no,userid,time,contents){
 	modID = no;
 	initmodal();
@@ -158,5 +158,5 @@ function modwin(no,userid,time,contents){
 	}else{
 		document.getElementById("snext").disabled = "";
 	}
-	*/
+	 */
 }
