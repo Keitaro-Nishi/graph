@@ -20,7 +20,8 @@ $(function() {
 		columnSelection : false,
 		formatters: {
 			"details": function($column, $row) {
-				return "<input type='button' class='btn btn-default' value='詳細' onclick='modwin(" + $row.no + "\",\"" + $row.userid + "\",\"" + $row.time + "\",\"" + $row.contents + "\",\")' > ";
+				//return "<input type='button' class='btn btn-default' value='詳細' onclick='modwin(" + $row.no + "\",\"" + $row.userid + "\",\"" + $row.time + "\",\"" + $row.contents + "\",\")' > ";
+				return "<input type='button' class='btn btn-default' value='詳細' onclick='detailwin("  + $row.no + ")'> ";
 			}
 		}
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
