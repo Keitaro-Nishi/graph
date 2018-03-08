@@ -7,12 +7,7 @@ botlog = document.getElementById('botlog').value;
 dbvalue = JSON.parse(botlog);
 
 $(function() {
-/*
-	$nos = dbvalue;
-	foreach ( $nos as $no ) {
-		console.log($no);
-	}
-*/
+
 	$("#grid-basic").bootgrid({
 		selection : true,
 		multiSelect : true,
@@ -20,7 +15,6 @@ $(function() {
 		columnSelection : false,
 		formatters: {
 			"details": function($column, $row) {
-				//return "<input type='button' class='btn btn-default' value='詳細' onclick='modwin(" + $row.no + "\",\"" + $row.userid + "\",\"" + $row.time + "\",\"" + $row.contents + "\",\")' > ";
 				return "<input type='button' class='btn btn-default' value='詳細' onclick='detailwin("  + $row.no + ")'> ";
 			}
 		}
@@ -113,7 +107,6 @@ function shosai_next(){
 
 function modal_mod(index){
 	document.getElementById('dia_no').value = dbvalue[index]["no"];
-	//console.log('dia_no');
 	document.getElementById('dia_userid').value  = dbvalue[index]["userid"];
 	document.getElementById('dia_time').value = dbvalue[index]["time"];
 	document.getElementById('dia_contents').value  = dbvalue[index]["contents"];
@@ -129,26 +122,3 @@ function modal_mod(index){
 		document.getElementById("snext").disabled = "";
 	}
 }
-/*
-function modwin(no,userid,time,contents){
-	modID = no;
-	initmodal();
-	document.getElementById('dia_no').value = no;
-	document.getElementById('dia_userid').value = userid;
-	document.getElementById('dia_time').value = time;
-	document.getElementById('dia_contens').value = contents;
-	//document.getElementById('dia_returns').value = returns;
-	document.getElementById("btn_modal").click();
-
-	if(index == 0){
-		document.getElementById("sback").disabled = "true";
-	}else{
-		document.getElementById("sback").disabled = "";
-	}
-	if(index == dbvalue.length - 1){
-		document.getElementById("snext").disabled = "true";
-	}else{
-		document.getElementById("snext").disabled = "";
-	}
-}
-*/

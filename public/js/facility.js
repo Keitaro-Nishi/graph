@@ -23,19 +23,6 @@ $(function() {
 			});
 		}
 	});
-	/*
-	//ジャンルの設定
-	var genre1value = <?php echo json_encode($genre1value); ?>;
-	var select = document.getElementById('dia_genre1');
-	for( var key in genre1value ) {
-		var option = document.createElement('option');
-		option.setAttribute('value', key);
-		var text = document.createTextNode(genre1value[key]);
-		option.appendChild(text);
-		select.appendChild(option);
-	}
-	genre1change();
-	 */
 });
 
 function drow() {
