@@ -15,7 +15,7 @@ class MessageManageController
 	public function index(Request $request)
 	{
 		$cityCD = Auth::user()->citycode;
-		$messages= Message::orderBy('id', 'ASC')->get();
+		$messages= Message::where('citycode', $cityCD)->orderBy('id', 'ASC')->get();
 		$codes= Code::where('citycode', '00000')->where('code1', (int)11)->orderBy('code2', 'ASC')->get();
 
 		return view('messagemanage',['messages'=>$messages,'codes'=>$codes]);
