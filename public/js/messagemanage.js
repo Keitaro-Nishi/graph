@@ -8,12 +8,19 @@ function init() {
 
 function messidChange(){
 	select_val = document.getElementById('messid').value;
+	var messfind = false;
 
 	//メッセージ検索
 	for(var i=0; i < messages.length; i++){
 		if(messages[i]['id'] == select_val){
 			document.getElementById('mess').value = messages[i]['message'];
+			messfind = true;
+			break;
 		}
+	}
+
+	if(!messfind){
+		document.getElementById('mess').value = "";
 	}
 }
 
