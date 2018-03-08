@@ -49,11 +49,13 @@ class GenreintController
 		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents/".$g1meisho."/examples?version=2017-05-26&export=true";
 		$jsonString = $this->callWatson2();
 		$json = json_decode($jsonString, true);
+		error_log("●●●●●●");
+		error_log($json);
+
 		$arr = array();
 		foreach ($json["examples"] as $value){
 			array_push($arr,$value["text"]);
 		}
-		error_log("●●●●●●");
 		echo json_encode($arr);
 	}
 
