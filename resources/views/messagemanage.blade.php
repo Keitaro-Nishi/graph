@@ -6,15 +6,15 @@
 
 @section('content')
 <div class="container">
-<div class="col-sm-3">
-	<select class="form-control" id="messid" onChange="messidChange()">
-			@foreach($codes as $value)
-				<option value="{{$value->code2}}" selected>{{$value->meisho}}</option>
-			@endforeach
-	</select>
-</div>
-<div class="panel panel-default">
-	<div class="panel-heading">メッセージ</div>
+	<div class="col-sm-3">
+		<select class="form-control" id="messid" onChange="messidChange()">
+				@foreach($codes as $value)
+					<option value="{{$value->code2}}" selected>{{$value->meisho}}</option>
+				@endforeach
+		</select>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">メッセージ</div>
 		<div class="panel-body">
 			<form class="form-horizontal">
 				<div class="form-group">
@@ -26,7 +26,6 @@
 			</form>
 		</div>
 	</div>
-</div>
 </div>
 <div class="container" align="center">
 	<input id="btn_up" type="button" class="btn btn-primary" value="更新" onclick="update()">
