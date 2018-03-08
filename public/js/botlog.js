@@ -3,16 +3,17 @@ var botlog = [];
 var dbvalue = [];
 var shosai_idx = 0;
 
-botlog = document.getElementById('botlog').value;
-/*
-$nos = $input ["nos"];
-foreach ( $nos as $no ) {
-	DB::table('botlog')->where('no',$no)->delete();
-}
-*/
+//botlog = document.getElementById('botlog').value;
+
 dbvalue = JSON.parse(botlog);
 
 $(function() {
+
+	$nos = document.getElementById('botlog').value;
+	foreach ( $nos as $no ) {
+		console.log($no);
+	}
+
 	$("#grid-basic").bootgrid({
 		selection : true,
 		multiSelect : true,
