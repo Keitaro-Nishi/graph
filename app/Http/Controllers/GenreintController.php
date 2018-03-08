@@ -49,15 +49,12 @@ class GenreintController
 		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents/".$g1meisho."/examples?version=2017-05-26&export=true";
 		$jsonString = $this->callWatson2();
 		$json = json_decode($jsonString, true);
-		error_log("●●●●●●");
-		error_log(print_r($json,true));
+
 
 		$arr = array();
 		foreach ($json["examples"] as $value){
 			array_push($arr,$value["text"]);
 		}
-		error_log("☆☆☆☆☆☆☆");
-
 
 		return Response::json($arr);
 		//Response::json_encode($arr,JSON_PRETTY_PRINT);
@@ -76,6 +73,10 @@ class GenreintController
 				CURLOPT_CUSTOMREQUEST => 'GET',
 				CURLOPT_RETURNTRANSFER => true,
 		);
+
+		error_log("●●●●●●");
+		error_log(print_r($options,true));
+
 		curl_setopt_array($curl, $options);
 		return curl_exec($curl);
 	}
