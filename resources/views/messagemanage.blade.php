@@ -14,7 +14,7 @@
 	</select>
 </div>
 <div class="panel panel-default">
-		<div class="panel-heading">メッセージ</div>
+	<div class="panel-heading">メッセージ</div>
 		<div class="panel-body">
 			<form class="form-horizontal">
 				<div class="form-group">
@@ -26,7 +26,8 @@
 			</form>
 		</div>
 	</div>
-
+</div>
+</div>
 <div class="container" align="center">
 	<input id="btn_up" type="button" class="btn btn-primary" value="更新" onclick="update()">
 </div>
