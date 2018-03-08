@@ -56,16 +56,15 @@ class GenreintController
 		foreach ($json["examples"] as $value){
 			array_push($arr,$value["text"]);
 		}
-		echo json_encode($arr);
+
+		return Response::json_encode($arr,JSON_PRETTY_PRINT);
+		//echo json_encode($arr);
 	}
 
 	public function callWatson2(){
 		global $curl, $url, $username, $password, $data, $options;
 
 		$curl = curl_init($url);
-		error_log("★★★★★★");
-		error_log($curl);
-		error_log("★★★★★★");
 		$options = array(
 				CURLOPT_HTTPHEADER => array(
 						'Content-Type: application/json',
@@ -75,6 +74,7 @@ class GenreintController
 				CURLOPT_RETURNTRANSFER => true,
 		);
 		curl_setopt_array($curl, $options);
+		error_log("★★★★★★");
 		return curl_exec($curl);
 	}
 
