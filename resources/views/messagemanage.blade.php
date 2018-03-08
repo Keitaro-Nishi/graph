@@ -6,28 +6,24 @@
 
 @section('content')
 <div class="container">
-	<div class="col-sm-3">
-		<select class="form-control" id="messid" onChange="messidChange()">
-				@foreach($codes as $value)
+	<form class="form-horizontal">
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="messid">メッセージ種別</label>
+			<div class="col-sm-3">
+				<select class="form-control" id="messid" onChange="messidChange()">
+					@foreach($codes as $value)
 					<option value="{{$value->code2}}" selected>{{$value->meisho}}</option>
-				@endforeach
-		</select>
-	</div>
-</div>
-<div class="container">
-	<div class="panel panel-default">
-		<div class="panel-heading">メッセージ</div>
-		<div class="panel-body">
-			<form class="form-horizontal">
-				<div class="form-group">
-					<label class="col-sm-2 control-label" for="mess">メッセージ内容</label>
-					<div class="col-sm-10">
-						<textarea class="form-control" id="mess" rows='10'></textarea>
-					</div>
-				</div>
-			</form>
+					@endforeach
+				</select>
+			</div>
 		</div>
-	</div>
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="mess">メッセージ</label>
+			<div class="col-sm-9">
+				<textarea class="form-control" id="mess" rows='10'></textarea>
+			</div>
+		</div>
+	</form>
 </div>
 <div class="container" align="center">
 	<input id="btn_up" type="button" class="btn btn-primary" value="更新" onclick="update()">
