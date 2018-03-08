@@ -8,7 +8,7 @@
 <div class="container">
 	<form class="form-horizontal">
 		<div class="form-group">
-			<label class="col-sm-3 control-label" for="messid">メッセージ種別</label>
+			<label class="col-sm-2 control-label" for="messid">メッセージ種別</label>
 			<div class="col-sm-3">
 				<select class="form-control" id="messid" onChange="messidChange()">
 					@foreach($codes as $value)
@@ -18,8 +18,8 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-3 control-label" for="mess">メッセージ</label>
-			<div class="col-sm-9">
+			<label class="col-sm-2 control-label" for="mess">メッセージ</label>
+			<div class="col-sm-10">
 				<textarea class="form-control" id="mess" rows='10'></textarea>
 			</div>
 		</div>
