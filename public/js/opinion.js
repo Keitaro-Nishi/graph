@@ -4,7 +4,7 @@ var opinion = [];
 var dbvalue = [];
 
 opinion= document.getElementById('opinion').value;
-//dbvalue = JSON.parse(opinion);
+dbvalue = JSON.parse(opinion);
 
 $(function() {
 	$("#grid-basic").bootgrid({
@@ -54,7 +54,6 @@ function drow() {
 		callback: function (result) {
 			if(result){
 				var _token = document.getElementById('_token').value;
-				console.log(rowIds);
 				$.ajax({
 					type: "POST",
 					dataType: "JSON",
@@ -89,6 +88,7 @@ function detailwin(value){
 	document.getElementById("btn_modal").click();
 	for (var i = 0; i < dbvalue.length; i++){
 		if(dbvalue[i]["id"] == value){
+			console.log(i);
 			shosai_idx = i;
 			modal_mod(i);
 		}
