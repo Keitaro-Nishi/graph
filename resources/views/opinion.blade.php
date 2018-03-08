@@ -117,4 +117,5 @@
 </div>
 
 <script src="{{ asset('js/opinion.js') }}"></script>
+
 @endsection
