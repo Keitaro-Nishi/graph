@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Http\Request;
-use App\Genre;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -42,9 +41,10 @@ switch($param) {
 	default:
 		continue;
 }
+
 function intentSearch(){
-	global $url,$g1meisho,$workspace_id_shi;
-	$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id_shi."/intents/".$g1meisho."/examples?version=2017-05-26&export=true";
+	global $url,$g1meisho,$workspace_id;
+	$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents/".$g1meisho."/examples?version=2017-05-26&export=true";
 	$jsonString = callWatson2();
 	$json = json_decode($jsonString, true);
 	$arr = array();
@@ -53,9 +53,10 @@ function intentSearch(){
 	}
 	echo json_encode($arr);
 }
+
 function intentUpdate(){
-	global $url,$g1meisho,$workspace_id_shi,$sword,$data;
-	$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id_shi."/intents/".$g1meisho."/examples?version=2017-05-26";
+	global $url,$g1meisho,$workspace_id,$sword,$data;
+	$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents/".$g1meisho."/examples?version=2017-05-26";
 	$data = array("text" => $sword);
 	$jsonString = callWatson();
 	$json = json_decode($jsonString, true);
@@ -65,9 +66,10 @@ function intentUpdate(){
 		echo json_encode("NG");
 	}
 }
+
 function intentDelete(){
-	global $url,$g1meisho,$workspace_id_shi,$sword,$data;
-	$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id_shi."/intents/".$g1meisho."/examples/".urlencode($sword)."?version=2017-05-26";
+	global $url,$g1meisho,$workspace_id,$sword,$data;
+	$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents/".$g1meisho."/examples/".urlencode($sword)."?version=2017-05-26";
 	$result = callWatson3();
 	error_log($result);
 	if($result == "200"){
@@ -76,9 +78,10 @@ function intentDelete(){
 		echo json_encode("NG");
 	}
 }
+
 function entitySearch(){
-	global $url,$g1meisho,$g2meisho,$workspace_id_shi;
-	$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id_shi."/entities/".$g1meisho."/values/".urlencode($g2meisho)."/synonyms?version=2017-05-26";
+	global $url,$g1meisho,$g2meisho,$workspace_id;
+	$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities/".$g1meisho."/values/".urlencode($g2meisho)."/synonyms?version=2017-05-26";
 	$jsonString = callWatson2();
 	$json = json_decode($jsonString, true);
 	$arr = array();
@@ -87,9 +90,10 @@ function entitySearch(){
 	}
 	echo json_encode($arr);
 }
+
 function entityUpdate(){
-	global $url,$g1meisho,$g2meisho,$workspace_id_shi,$sword,$data;
-	$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id_shi."/entities/".$g1meisho."/values/".urlencode($g2meisho)."/synonyms?version=2017-05-26";
+	global $url,$g1meisho,$g2meisho,$workspace_id,$sword,$data;
+	$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities/".$g1meisho."/values/".urlencode($g2meisho)."/synonyms?version=2017-05-26";
 	$data = array("synonym" => $sword);
 	$jsonString = callWatson();
 	$json = json_decode($jsonString, true);
@@ -99,9 +103,10 @@ function entityUpdate(){
 		echo json_encode("NG");
 	}
 }
+
 function entityDelete(){
-	global $url,$g1meisho,$g2meisho,$workspace_id_shi,$sword,$data;
-	$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id_shi."/entities/".$g1meisho."/values/".urlencode($g2meisho)."/synonyms/".urlencode($sword)."?version=2017-05-26";
+	global $url,$g1meisho,$g2meisho,$workspace_id,$sword,$data;
+	$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities/".$g1meisho."/values/".urlencode($g2meisho)."/synonyms/".urlencode($sword)."?version=2017-05-26";
 	$result = callWatson3();
 	error_log($result);
 	if($result == "200"){
@@ -110,6 +115,7 @@ function entityDelete(){
 		echo json_encode("NG");
 	}
 }
+
 function callWatson(){
 	global $curl, $url, $username, $password, $data, $options;
 	$curl = curl_init($url);
@@ -125,6 +131,7 @@ function callWatson(){
 	curl_setopt_array($curl, $options);
 	return curl_exec($curl);
 }
+
 function callWatson2(){
 	global $curl, $url, $username, $password, $data, $options;
 	$curl = curl_init($url);

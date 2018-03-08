@@ -18,6 +18,7 @@ class GenreintController
 
 	}
 
+	/*
 	public  function request(){
 		$this->requestall = \Request::all();
 		if ($this->requestall["param"] == "intentSearch"){
@@ -87,6 +88,7 @@ class GenreintController
 
 		return curl_exec($curl);
 	}
+	*/
 
 
 }

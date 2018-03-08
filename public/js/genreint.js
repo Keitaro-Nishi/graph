@@ -26,7 +26,6 @@ $(function(){
 //インテント取得
 function getwtint(){
 	g1meisho = document.getElementById('g1').value;
-	var _token = document.getElementById('_token').value;
 
 	$.ajax({
 		type: "POST",
