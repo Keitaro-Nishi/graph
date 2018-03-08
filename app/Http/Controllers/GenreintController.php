@@ -52,6 +52,7 @@ class GenreintController
 		error_log("●●●●●●");
 
 		$arr = array();
+		error_log("★★★★★★");
 		foreach ($json["examples"] as $value){
 			array_push($arr,$value["text"]);
 		}
@@ -77,7 +78,6 @@ class GenreintController
 				CURLOPT_RETURNTRANSFER => true,
 		);
 		curl_setopt_array($curl, $options);
-		error_log("★★★★★★");
 		return curl_exec($curl);
 	}
 
