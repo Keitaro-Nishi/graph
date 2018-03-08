@@ -52,4 +52,10 @@ Route::middleware(['auth'])->group(function () {
 	Route::get ( '/codemanage', 'CodeManageController@index')->name('codemanage');
 	Route::post ( '/codemanage', 'CodeManageController@request');
 
+	Route::get ( '/parameter', 'ParameterController@index')->name('parameter');
+	Route::post ( '/parameter', 'ParameterController@request');
+
+	Route::get ( '/messagemanage', 'MessageManageController@index')->name('messagemanage');
+	Route::post ( '/messagemanage', 'MessageManageController@request');
+
 });
