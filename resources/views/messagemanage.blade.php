@@ -13,6 +13,8 @@
 				@endforeach
 		</select>
 	</div>
+</div>
+<div class="container">
 	<div class="panel panel-default">
 		<div class="panel-heading">メッセージ</div>
 		<div class="panel-body">
