@@ -89,17 +89,18 @@ function drow() {
 		}
 	});
 }
-/*
+
 function detailwin(value){
 	document.getElementById("btn_modal").click();
 	for (var i = 0; i < dbvalue.length; i++){
 		if(dbvalue[i]["no"] == value){
+			console.log(i);
 			shosai_idx = i;
 			modal_mod(i);
 		}
 	}
 }
- */
+
 function shosai_back(){
 	shosai_idx = shosai_idx - 1;
 	modal_mod(shosai_idx);
@@ -109,19 +110,9 @@ function shosai_next(){
 	modal_mod(shosai_idx);
 }
 
-//ダイアログ初期化
-function initmodal(){
-	document.getElementById('dia_no').value = "";
-	document.getElementById('dia_userid').value = "";
-	document.getElementById('dia_time').value = "";
-	document.getElementById('dia_contents').value = "";
-	//document.getElementById('dia_returns').value = "";
-}
-
-/*
 function modal_mod(index){
 	document.getElementById('dia_no').value = dbvalue[index]["no"];
-	console.log('dia_no');
+	//console.log('dia_no');
 	document.getElementById('dia_userid').value  = dbvalue[index]["userid"];
 	document.getElementById('dia_time').value = dbvalue[index]["time"];
 	document.getElementById('dia_contents').value  = dbvalue[index]["contents"];
@@ -137,7 +128,7 @@ function modal_mod(index){
 		document.getElementById("snext").disabled = "";
 	}
 }
- */
+/*
 function modwin(no,userid,time,contents){
 	modID = no;
 	initmodal();
@@ -147,7 +138,7 @@ function modwin(no,userid,time,contents){
 	document.getElementById('dia_contens').value = contents;
 	//document.getElementById('dia_returns').value = returns;
 	document.getElementById("btn_modal").click();
-	/*
+
 	if(index == 0){
 		document.getElementById("sback").disabled = "true";
 	}else{
