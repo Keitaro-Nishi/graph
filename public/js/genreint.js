@@ -30,17 +30,15 @@ function getwtint(){
 
 	$.ajax({
 		type: "POST",
-		dataType: "JSON",
-		data:{
+		url: "callwatson.php",
+		data: {
 			"param" : "intentSearch",
 			"g1meisho" : g1meisho,
 			"g2meisho" : "",
-			"sword" : "",
-			"_token" : _token
+			"sword" : ""
 		}
 	}).done(function (response) {
 		result = JSON.parse(response);
-		alert("届きました");
 		for( var index in result ) {
 			var raw = wtable.insertRow( -1 );
 			var td1 = raw.insertCell(-1),td2 = raw.insertCell(-1);
