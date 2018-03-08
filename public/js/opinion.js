@@ -4,7 +4,7 @@ var opinion = [];
 var dbvalue = [];
 
 opinion= document.getElementById('opinion').value;
-dbvalue = JSON.parse(opinion);
+//dbvalue = JSON.parse(opinion);
 
 $(function() {
 	$("#grid-basic").bootgrid({

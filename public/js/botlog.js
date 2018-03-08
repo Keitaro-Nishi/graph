@@ -7,12 +7,12 @@ botlog = document.getElementById('botlog').value;
 dbvalue = JSON.parse(botlog);
 
 $(function() {
-
+/*
 	$nos = dbvalue;
 	foreach ( $nos as $no ) {
 		console.log($no);
 	}
-
+*/
 	$("#grid-basic").bootgrid({
 		selection : true,
 		multiSelect : true,
