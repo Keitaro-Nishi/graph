@@ -15,7 +15,7 @@ class ParameterController
 	{
 		$cityCD = Auth::user()->citycode;
 		$parameter = Parameter::where('citycode', $cityCD)->first();
-		if($parameter){
+		if(!$parameter){
 			$parameter = new Parameter();
 		}
 
