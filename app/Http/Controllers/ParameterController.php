@@ -51,8 +51,13 @@ class ParameterController
 		error_log("★★★★★★★★★★★★★cityname★★★★★★★★★★★★★★★".$input["cityname"]);
 
 		$param = Parameter::firstOrNew(['citycode' => $input["citycode"]]);
+		error_log("★★★★★★★★★★★★★save１★★★★★★★★★★★★★★★");
 		$param->citycode = $input["citycode"];
+		error_log("★★★★★★★★★★★★★save２★★★★★★★★★★★★★★★");
 		$param->cityname = $input["cityname"];
+		error_log("★★★★★★★★★★★★★save３★★★★★★★★★★★★★★★");
+
+		/*
 		$param->line_cat= "";
 		$param->cvs_ws_id1= "";
 		$param->cvs_ws_id2= "";
@@ -63,6 +68,7 @@ class ParameterController
 		$param->intpass= "";
 		$param->usefunction= "";
 		$param->reserve= "";
+		*/
 
 		error_log("★★★★★★★★★★★★★save前★★★★★★★★★★★★★★★");
 
