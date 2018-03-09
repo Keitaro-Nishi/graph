@@ -83,7 +83,7 @@
 						<div class="col-sm-10">
 							<select class="form-control" id="dia_organization" name="organization">
 								@foreach($facilities as $value)
-									<option value="{{$value->gid1}}" selected>{{$value->meisho}}</option>
+									<option value="{{$value->gid1}}" selected>{{$value->meisho1}}</option>
 								@endforeach
 							</select>
 						</div>
