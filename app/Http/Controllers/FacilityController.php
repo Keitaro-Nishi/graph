@@ -32,7 +32,7 @@ class FacilityController {
 			})
 			->get();
 			*/
-			$facilities = Facility::where('facility.citycode', $cityCD)->leftJoin('genre as class1', function ($join){
+			$facilities = Facility::where('facility.citycode', $cityCD)->orderBy('genre1', 'ASC')->leftJoin('genre as class1', function ($join){
 				$join->on('facility.citycode', '=', 'class1.citycode')->where('class1.bunrui', (int)1);
 				$join->on('facility.genre1', '=', 'class1.gid1');
 			})->leftJoin('genre as class2', function ($join){
