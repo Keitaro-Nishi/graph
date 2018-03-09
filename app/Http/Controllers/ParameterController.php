@@ -54,9 +54,6 @@ class ParameterController
 			return $validator->errors();
 		}
 
-		error_log("★★★★★★★★★★★★★citycode★★★★★★★★★★★★★★★".$input["citycode"]);
-		error_log("★★★★★★★★★★★★★cityname★★★★★★★★★★★★★★★".$input["cityname"]);
-
 		$cityCD = $input["citycode"];
 		$cityname = $input["cityname"];
 
@@ -66,56 +63,44 @@ class ParameterController
 		] );
 
 		return \Response::json(['status' => 'OK']);
-
-		//$param = Parameter::firstOrNew(['citycode' => $input["citycode"]]);
-		$param = new Parameter();
-		error_log("★★★★★★★★★★★★★save１★★★★★★★★★★★★★★★");
-		$param->citycode = $input["citycode"];
-		error_log("★★★★★★★★★★★★★save２★★★★★★★★★★★★★★★");
-		$param->cityname = $input["cityname"];
-		error_log("★★★★★★★★★★★★★save３★★★★★★★★★★★★★★★");
-
-		/*
-		$param->line_cat= "";
-		$param->cvs_ws_id1= "";
-		$param->cvs_ws_id2= "";
-		$param->cvs_ws_id3= "";
-		$param->cvs_ws_id4= "";
-		$param->cvs_ws_id5= "";
-		$param->intpasscalss= "";
-		$param->intpass= "";
-		$param->usefunction= "";
-		$param->reserve= "";
-		*/
-
-		error_log("★★★★★★★★★★★★★save前★★★★★★★★★★★★★★★");
-
-		$result = $param->save();
-
-		error_log("★★★★★★★★★★★★★save後★★★★★★★★★★★★★★★");
-
-		return \Response::json(['status' => 'OK']);
 	}
 
 	public function update()
 	{
 		$input = $this->requestall;
 		$cityCD = Auth::user()->citycode;
-		$id = $input["id"];
-		$message = $input["message"];
-		$count =  Message::where('citycode', $cityCD)->where('id', $id)->count();
+		$intpasscalss = $input["intpasscalss"];
+		$intpass = $input["intpass"];
+		if($input["citycode"] != ""){
+			$cityCD = $input["citycode"];
+			$cityname = $input["cityname"];
+			$line_cat = $input["line_cat"];
+			$cvs_ws_id1 = $input["cvs_ws_id1"];
+			$cvs_ws_id2 = $input["cvs_ws_id2"];
+			$cvs_ws_id3 = $input["cvs_ws_id3"];
+			$cvs_ws_id4 = $input["cvs_ws_id4"];
+			$cvs_ws_id5 = $input["cvs_ws_id5"];
+			$usefunction = $input["usefunction"];
 
-		if($count == 0){
-			//新規
-			$result = DB::table('message')->insert([
-					'citycode' => $cityCD,
-					'id' => $id,
-					'message' => $message
-					] );
+			DB::table('parameter')->where('citycode', $cityCD)->update([
+					'cityname' => $cityname,
+					'line_cat' => $line_cat,
+					'cvs_ws_id1' => $cvs_ws_id1,
+					'cvs_ws_id2' => $cvs_ws_id2,
+					'cvs_ws_id3' => $cvs_ws_id3,
+					'cvs_ws_id4' => $cvs_ws_id4,
+					'cvs_ws_id5' => $cvs_ws_id5,
+					'usefunction' => $usefunction,
+					'intpasscalss' => $intpasscalss,
+					'intpass' => $intpass
+			]);
 		}else{
-			//変更
-			DB::table('message')->where('citycode', $cityCD)->where('id', $id)->update(['message' => $message]);
+			DB::table('parameter')->where('citycode', $cityCD)->update([
+					'intpasscalss' => $intpasscalss,
+					'intpass' => $intpass
+			]);
 		}
+
 		return \Response::json(['status' => 'OK']);
 	}
 }
