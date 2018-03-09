@@ -17,7 +17,7 @@ class FacilityController {
 			return view('facility',['facilities' => $facilities]);
 			*/
 			$facilities = Facility::select()->leftJoin('genre', function ($join) {
-				$join->on('users.citycode', '=', 'code.citycode')->where('code.code1', $organizationCD);
+				$join->on('facility.citycode', '=', 'code.citycode')->where('code.code1', $organizationCD);
 				$join->on('facility.genre1', '=', 'genre.meisho')->where('genre.bunrui', 1);
 			})
 			->get();

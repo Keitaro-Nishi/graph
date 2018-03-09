@@ -12,12 +12,14 @@
 			<th data-column-id="meisho">名称</th>
 			<th data-column-id="jusho">住所</th>
 			<th data-column-id="tel">電話番号</th>
-			<th data-column-id="genre1">ジャンル１</th>
+			<th data-column-id="genre1" data-visible="false"></th>
+			<th data-column-id="genre1N" data-visible="false"></th>
 			<th data-column-id="genre2">ジャンル2</th>
 			<th data-column-id="lat">緯度</th>
 			<th data-column-id="lng">経度</th>
 			<th data-column-id="imageurl">画像URL</th>
 			<th data-column-id="url">詳細URL</th>
+			<th data-column-id="citycode" data-visible="false"></th>
 			<th data-column-id='detail' data-formatter='mods' data-sortable='false'></th>
 		</tr>
 	</thead>
@@ -34,6 +36,7 @@
 			<td>{{$facility->lng}}</td>
 			<td>{{$facility->imageurl}}</td>
 			<td>{{$facility->url}}</td>
+			<td>{{$facility->citycode}}</td>
 			<td></td>
 		</tr>
 		@endforeach
@@ -77,8 +80,10 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_genre1">ジャンル１</label>
 						<div class="col-sm-10">
-							<select class="form-control" id="dia_genre1" name="genre1">
-								<option value=0>ジャンル無し</option>
+							<select class="form-control" id="dia_organization" name="organization">
+								@foreach($facilities as $value)
+									<option value="{{$value->gid1}}" selected>{{$value->meisho}}</option>
+								@endforeach
 							</select>
 						</div>
 					</div>
