@@ -1,6 +1,6 @@
 <?php
 
-namespace app\watson;
+namespace App;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -122,7 +122,7 @@ class callwatson{
 		}
 	}
 
-	public function callWatson(){
+	function callWatson(){
 		//global $curl, $url, $username, $password, $data, $options;
 		error_log("成功");
 		$curl = curl_init($url);
