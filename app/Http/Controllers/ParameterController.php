@@ -50,6 +50,16 @@ class ParameterController
 		$param = Parameter::firstOrNew(['citycode' => $input["citycode"]]);
 		$param->citycode = $input["citycode"];
 		$param->cityname = $input["cityname"];
+		$param->line_cat= "";
+		$param->cvs_ws_id1= "";
+		$param->cvs_ws_id2= "";
+		$param->cvs_ws_id3= "";
+		$param->cvs_ws_id4= "";
+		$param->cvs_ws_id5= "";
+		$param->intpasscalss= "";
+		$param->intpass= "";
+		$param->usefunction= "";
+		$param->reserve= "";
 
 		$result = $param->save();
 

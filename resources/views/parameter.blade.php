@@ -103,7 +103,7 @@
 					<div class="form-group">
 						<label class="col-sm-3 control-label" for="dia_cityname">団体名</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" id="dia_cityname" value="" required>
+							<input type="text" class="form-control" id="dia_cityname" maxlength="30" value="" required>
 						</div>
 					</div>
 					<div class="text-right" >
