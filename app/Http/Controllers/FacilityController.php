@@ -40,7 +40,7 @@ class FacilityController {
 				$join->on('facility.genre2', '=', 'class2.gid2');
 			})*/
 			->select('facility.*','class1.meisho as meisho1')
-			->select('facility.*','class2.meisho as meisho2')
+			//->select('facility.*','class2.meisho as meisho2')
 			->get();
 		}
 
