@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Genre;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use app\Libs\callwatson;
+use App\Libs\callwatson;
 
 
 class GenreController

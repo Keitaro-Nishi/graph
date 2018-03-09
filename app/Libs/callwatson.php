@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Libs;
+namespace App\Libs;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
