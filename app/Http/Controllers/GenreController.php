@@ -205,9 +205,12 @@ class GenreController
 	}
 
 	public function callWatson(){
-		error_log("●●●●●");
-		//global $curl, $url, $username, $password, $data, $options;
-		/*$curl = curl_init($url);
+		global $curl, $url, $username, $password, $data, $options;
+
+		error_log("☆☆☆☆");
+		error_log($username);
+
+		$curl = curl_init($url);
 		$options = array(
 				CURLOPT_HTTPHEADER => array(
 						'Content-Type: application/json',
@@ -218,7 +221,7 @@ class GenreController
 				CURLOPT_RETURNTRANSFER => true,
 		);
 		curl_setopt_array($curl, $options);
-		return curl_exec($curl);*/
+		return curl_exec($curl);
 	}
 
 
