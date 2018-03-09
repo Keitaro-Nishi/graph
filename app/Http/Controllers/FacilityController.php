@@ -27,9 +27,9 @@ class FacilityController {
 				$join->on('facility.citycode', '=', 'class1.citycode')->where('class1.bunrui', (int)1);
 				$join->on('facility.genre1', '=', 'class1.gid1');
 			})->leftJoin('genre as class2', function ($join){
-				$join->on('facility.citycode', '=', 'class2.citycode')->where('class2.bunrui', (int)2);
+				$join->on('facility.citycode', '=', 'class2.citycode');
 				$join->on('facility.genre1', '=', 'class2.gid1');
-				$join->on('facility.genre2', '=', 'class2.gid2')/*->where('class2.gid1', $gno)*/;
+				$join->on('facility.genre2', '=', 'class2.gid2');
 			})
 			->select('facility.*','class1.meisho as meisho1','class2.meisho as meisho2')
 			->get();
