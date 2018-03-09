@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\callwatson;
 
-class GenreController extends callwatson
+class GenreController
 {
 	public function index(Request $request)
 	{
@@ -144,7 +144,7 @@ class GenreController extends callwatson
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents?version=2017-05-26";
 				$data = array("intent" => (string)$gid1,"description" => $meisho);
 				error_log("△△△△△△△△△");
-				callWatson();
+				\App\callwatson::callWatson();
 
 				//ENTITIES
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities?version=2017-05-26";
