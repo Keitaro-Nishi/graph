@@ -31,6 +31,7 @@
 			<td>{{$facility->jusho}}</td>
 			<td>{{$facility->tel}}</td>
 			<td>{{$facility->genre1}}</td>
+			<td>{{$facility->meisho}}</td>
 			<td>{{$facility->genre2}}</td>
 			<td>{{$facility->lat}}</td>
 			<td>{{$facility->lng}}</td>
