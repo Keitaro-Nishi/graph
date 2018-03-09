@@ -11,10 +11,9 @@ use App\Genre;
 class FacilityController {
 	public function index(Request $request) {
 		$cityCD = Auth::user ()->citycode;
-		if ($cityCD = "00000") {
+		if ($cityCD == "00000") {
 
 			$facilities = Facility::all ();
-			return view('facility',['facilities' => $facilities]);
 			/*
 			$facilities = Facility::select()->leftJoin('genre', function ($join) {
 				$join->on('facility.citycode', '=', 'code.citycode');
@@ -31,15 +30,16 @@ class FacilityController {
 				//$join->on('facility.genre2', '=', 'genre.gid2')->where('genre.bunrui', 2);
 			})
 			->get();*/
-			$facilities = Facility::where('facility.citycode', $cityCD)->leftJoin('genre as genre1', function ($join) {
+			$facilities = Facility::where('facility.citycode', $cityCD)->leftJoin('genre as aaa', function ($join) {
 				//$join->on('facility.citycode', '=', 'genre1.citycode');
-				$join->on('facility.genre1', '=', 'genre1.gid1')->where('genre1.bunrui', 1)->where('genre1.citycode', $cityCD);
+				$join->on('facility.genre1', '=', 'aaa.gid1')->where('aaa.bunrui', 1)->where('aaa.citycode', $cityCD);
 				//->select(DB::raw('meisho as larmeisho, genre'))
 				//$join->on('facility.genre2', '=', 'genre.gid2')->where('genre.bunrui', 2);
 			})
-			->select('facility.*','genre1.meisho as meisho1')
+			->select('facility.*','aaa.meisho as meisho1')
 			->get();
 		}
+		return view('facility',['facilities' => $facilities]);
 	}
 
 	public function request() {
