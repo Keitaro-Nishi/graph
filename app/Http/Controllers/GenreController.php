@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Genre;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use callwatson;
+use App\callwatson;
 class GenreController
 {
 	public function index(Request $request)

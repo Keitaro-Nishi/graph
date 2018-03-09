@@ -91,7 +91,6 @@
 	</div>
 </div>
 
-<link  href="{{ asset('callwatson.php') }}" />
 <script src="{{ asset('js/genre.js') }}"></script>
 
 @endsection
