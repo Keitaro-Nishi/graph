@@ -25,7 +25,7 @@ class FacilityController {
 		} else {
 			$facilities = Facility::select()->where('facility.citycode', $cityCD)->leftJoin('genre', function ($join) {
 				$join->on('facility.citycode', '=', 'genre.citycode');
-				$join->on('facility.genre1', '=', 'genre.meisho')->where('genre.bunrui', 1);
+				$join->on('facility.genre1', '=', 'genre.gid1')->where('genre.bunrui', 1);
 				//$join->on('facility.genre2', '=', 'genre.meisho')->where('genre.bunrui', 2)->where('genre.gid1', );
 			})
 			->get();
