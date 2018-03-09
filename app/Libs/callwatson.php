@@ -122,10 +122,10 @@ class callwatson{
 		}
 	}
 
-	function callWatson(){
+	public static function callWatson(){
 		//global $curl, $url, $username, $password, $data, $options;
 		error_log("成功");
-		$curl = curl_init($url);
+		/*$curl = curl_init($url);
 		$options = array(
 				CURLOPT_HTTPHEADER => array(
 						'Content-Type: application/json',
@@ -136,7 +136,7 @@ class callwatson{
 				CURLOPT_RETURNTRANSFER => true,
 		);
 		curl_setopt_array($curl, $options);
-		return curl_exec($curl);
+		return curl_exec($curl);*/
 	}
 
 	function callWatson2(){
