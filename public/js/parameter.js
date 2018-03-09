@@ -87,8 +87,15 @@ function insert(){
 				}
 			});
 		}else{
+			var mes = "";
+			for (var item in response) {
+				if(mes != ""){
+					mes = mes + "<br>";
+				}
+			    mes = mes + response[item][0];
+			}
 			bootbox.alert({
-				message: "更新できませんでした",
+				message: mes,
 				size: 'small'
 			});
 		}
