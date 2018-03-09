@@ -202,9 +202,9 @@ class GenreController
 
 	}
 
-	function callWatson(){
+	public function callWatson(){
 		error_log("●●●●●");
-		global $curl, $url, $username, $password, $data, $options;
+		//global $curl, $url, $username, $password, $data, $options;
 		$curl = curl_init($url);
 		$options = array(
 				CURLOPT_HTTPHEADER => array(
