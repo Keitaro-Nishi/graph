@@ -18,8 +18,12 @@ class FacilityController {
 			$facilities = Facility::select()->leftJoin('genre as class', function ($join) {
 				$join->on('facility.citycode', '=', 'class.citycode')->where('class.bunrui', (int)1);
 				$join->on('facility.genre1', '=', 'class.gid1');
+			})->leftJoin('genre as class2', function ($join){
+				$join->on('facility.citycode', '=', 'class2.citycode');
+				$join->on('facility.genre1', '=', 'class2.gid1');
+				$join->on('facility.genre2', '=', 'class2.gid2');
 			})
-			->select('facility.*','class.meisho as meisho1')
+			->select('facility.*','class.meisho as meisho1','class2.meisho as meisho2')
 			->get();
 
 		} else {
