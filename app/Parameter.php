@@ -25,7 +25,7 @@ class Parameter extends Model
     protected $hidden = [
     ];
 
-    protected $primaryKey =['citycode'];
+    protected $primaryKey ='citycode';
     public $incrementing = FALSE;
     protected $table = 'parameter';
 }
