@@ -124,7 +124,7 @@ class callwatson{
 
 	public function callWatson(){
 		//global $curl, $url, $username, $password, $data, $options;
-
+		error_log("成功");
 		$curl = curl_init($url);
 		$options = array(
 				CURLOPT_HTTPHEADER => array(
