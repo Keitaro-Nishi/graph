@@ -40,7 +40,6 @@
 			<td>{{$facility->imageurl}}</td>
 			<td>{{$facility->url}}</td>
 			<td>{{$facility->citycode}}</td>
-			<td></td>
 		</tr>
 		@endforeach
 	</tbody>
