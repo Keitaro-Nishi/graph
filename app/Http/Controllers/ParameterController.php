@@ -50,6 +50,16 @@ class ParameterController
 		error_log("★★★★★★★★★★★★★citycode★★★★★★★★★★★★★★★".$input["citycode"]);
 		error_log("★★★★★★★★★★★★★cityname★★★★★★★★★★★★★★★".$input["cityname"]);
 
+		$cityCD = $input["citycode"];
+		$cityname = $input["cityname"];
+
+		$result = DB::table('parameter')->insert([
+				'citycode' => $cityCD,
+				'cityname' => $cityname
+		] );
+
+		return \Response::json(['status' => 'OK']);
+
 		//$param = Parameter::firstOrNew(['citycode' => $input["citycode"]]);
 		$param = new Parameter();
 		error_log("★★★★★★★★★★★★★save１★★★★★★★★★★★★★★★");
