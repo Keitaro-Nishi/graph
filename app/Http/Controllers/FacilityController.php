@@ -12,14 +12,22 @@ class FacilityController {
 	public function index(Request $request) {
 		$cityCD = Auth::user ()->citycode;
 		if ($cityCD = "00000") {
+			/*
 			$facilities = Facility::all ();
 			return view('facility',['facilities' => $facilities]);
+			*/
+			$facilities = Facility::select()->leftJoin('genre', function ($join) {
+				$join->on('users.citycode', '=', 'code.citycode')->where('code.code1', $organizationCD);
+				$join->on('facility.genre1', '=', 'genre.meisho')->where('genre.bunrui', 1);
+			})
+			->get();
 		} else {
-			/*
-			 $facilities = Facility::where ( 'citycode', $cityCD )->get ();
-			 $genrel = Genre::where ( 'citycode', $cityCD )->where ( 'bunrui', ( int ) 1 )->get ();
-			 return view('facility',['facilities' => $facilities, 'genrel' => $genrel]);
-			 */
+			$facilities = Facility::select()->where('facility.citycode', $cityCD)->leftJoin('genre', function ($join) {
+				$join->on('facility.citycode', '=', 'genre.citycode');
+				$join->on('facility.genre1', '=', 'genre.meisho')->where('genre.bunrui', 1);
+				//$join->on('facility.genre2', '=', 'genre.meisho')->where('genre.bunrui', 2)->where('genre.gid1', );
+			})
+			->get();
 		}
 	}
 
