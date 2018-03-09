@@ -30,15 +30,15 @@ class FacilityController {
 				//$join->on('facility.genre2', '=', 'genre.gid2')->where('genre.bunrui', 2);
 			})
 			->get();*/
-			$facilities = Facility::where('facility.citycode', $cityCD)->leftJoin('genre as aaa', function ($join) {
-				$join->on('facility.citycode', '=', 'aaa.citycode')->where('aaa.bunrui', (int)1);
+			$facilities = Facility::where('facility.citycode', $cityCD)->leftJoin('genre as class', function ($join) {
+				$join->on('facility.citycode', '=', 'class.citycode')->where('class.bunrui', (int)1);
 				$join->on('facility.genre1', '=', 'aaa.gid1');
 				//$join->on('facility.genre1', '=', 'aaa.gid1')->where('aaa.bunrui', (int)1)->where('facility.citycode', 'aaa.citycode');
 				//$join->on('facility.genre1', '=', 'aaa.gid1')->where('aaa.bunrui', (int)1);
 				//->select(DB::raw('meisho as larmeisho, genre'))
 				//$join->on('facility.genre2', '=', 'genre.gid2')->where('genre.bunrui', (int)2);
 			})
-			->select('facility.*','aaa.meisho as meisho1')
+			->select('facility.*','class.meisho as meisho1')
 			->get();
 
 		}
