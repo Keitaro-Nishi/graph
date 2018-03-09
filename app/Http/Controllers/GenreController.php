@@ -137,7 +137,7 @@ class GenreController
 				//大分類
 				$gid1data= DB::table('genre')->select('gid1')->orderBy('gid1', 'DESC')->first();
 				$gid1 = $gid1data->gid1 + 1;
-				DB::table('genre')->insert(['citycode'=> $cityCD,'bunrui' =>$bunrui, 'gid1' => $gid1,'gid2' =>0,'gid3' =>0,'meisho' =>$meisho]);
+				//DB::table('genre')->insert(['citycode'=> $cityCD,'bunrui' =>$bunrui, 'gid1' => $gid1,'gid2' =>0,'gid3' =>0,'meisho' =>$meisho]);
 
 				//CVSデータ作成
 				//Intents
