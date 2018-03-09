@@ -139,6 +139,10 @@ class callwatson{
 		return curl_exec($curl);*/
 	}
 
+	public function test(){
+		error_log("大成功");
+	}
+
 	function callWatson2(){
 		global $curl, $url, $username, $password, $data, $options;
 		$curl = curl_init($url);
