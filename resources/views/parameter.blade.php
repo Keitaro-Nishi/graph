@@ -10,7 +10,7 @@
 		@if (Auth::user()->role == (int)0 )
 		<div class="form-group">
 			<label class="col-sm-3 control-label" for="citycd">市町村コード</label>
-			<div class="col-sm-9">
+			<div class="col-sm-3">
 				<select class="form-control" id="citycd" onChange="codeselChange()">
 				</select>
 			</div>
@@ -66,7 +66,7 @@
 		@endif
 		<div class="form-group">
 			<label class="col-sm-3 control-label" for="intpasscalss">ユーザーパスワード初期値</label>
-			<div class="col-sm-9">
+			<div class="col-sm-3">
 				<select class="form-control" id="intpasscalss">
 					<option value="1" selected>ユーザーID</option>
 					<option value="2" selected>一括設定</option>
@@ -76,8 +76,8 @@
 		</div>
 		<div class="form-group">
 			<label class="col-sm-3 control-label" for="intpass">初期パスワード</label>
-			<div class="col-sm-9">
-				<input type="text" class="form-control" id="intpass" value="">
+			<div class="col-sm-6">
+				<input type="password" class="form-control" id="intpass" value="">
 			</div>
 		</div>
 		<input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -97,13 +97,13 @@
 					<div class="form-group">
 						<label class="col-sm-3 control-label" for="dia_citycode">市町村コード</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control"  maxlength="5" id="dia_citycode" value="">
+							<input type="text" class="form-control"  maxlength="5" id="dia_citycode" value="" required>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-3 control-label" for="dia_cityname">団体名</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" id="dia_cityname" value="">
+							<input type="text" class="form-control" id="dia_cityname" value="" required>
 						</div>
 					</div>
 					<div class="text-right" >
@@ -116,9 +116,10 @@
 	</div>
 </div>
 <div class="container" align="center">
-	<input id="btn_up" type="button" class="btn btn-primary" value="更新" onclick="update()">
+	<input id="btn_up" type="button" class="btn btn-primary" value="　　　更新　　　" onclick="update()">
 	@if (Auth::user()->role == (int)0 )
-	<input id="btn_up" type="button" class="btn btn-default" value="新規ユーザー作成" data-toggle="modal"  data-target="#shosaiDialog"/>
+	<input id="btn_ins" type="button" class="btn btn-default" value="新規ユーザー作成" data-toggle="modal"  data-target="#shosaiDialog"/>
+	<input id="btn_del" type="button" class="btn btn-default" value="　パラメタ削除　" onclick="delete()"/>
 	@endif
 </div>
 <script src="{{ asset('js/parameter.js') }}"></script>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 use App\Parameter;
 
 class ParameterController
@@ -26,10 +27,33 @@ class ParameterController
 		$this->requestall = \Request::all();
 		if($this->requestall["param"] == "update"){
 			return $this->update();
+		}elseif($this->requestall["param"] == "insert"){
+			return $this->insert();
 		}else{
 			return \Response::json(['status' => 'NG']);
 		}
 
+	}
+
+	public function insert(){
+		$input = $this->requestall;
+
+		$rules = [ 'citycode' => 'required|string|size:5|unique:parameter'];
+
+		$validator = Validator::make($input,$rules);
+
+		if($validator->fails())
+		{
+			return $validator->errors();
+		}
+
+		$param = Parameter::firstOrNew(['citycode' => $input["citycode"]]);
+		$param->citycode = $input["citycode"];
+		$param->cityname = $input["cityname"];
+
+		$result = $param->save();
+
+		return \Response::json(['status' => 'OK']);
 	}
 
 	public function update()

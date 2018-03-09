@@ -63,3 +63,39 @@ function update(){
 		});
     });
 }
+
+function insert(){
+	var citycode = document.getElementById('dia_citycode').value;
+	var cityname = document.getElementById('dia_cityname').value;
+	var _token = document.getElementById('_token').value;
+	$.ajax({
+		type: "POST",
+		dataType: "JSON",
+		data: {
+			"param" : "insert",
+			"citycode" : citycode,
+			"cityname" : cityname,
+			"_token" : _token
+		}
+	}).done(function (response) {
+		if(response.status == "OK"){
+			bootbox.alert({
+				message: "更新しました",
+				size: 'small',
+				callback: function () {
+					location.reload();
+				}
+			});
+		}else{
+			bootbox.alert({
+				message: "更新できませんでした",
+				size: 'small'
+			});
+		}
+    }).fail(function () {
+    	bootbox.alert({
+			message: "更新できませんでした",
+			size: 'small'
+		});
+    });
+}
