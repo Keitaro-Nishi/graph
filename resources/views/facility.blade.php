@@ -82,8 +82,8 @@
 						<label class="col-sm-2 control-label" for="dia_genre1">ジャンル１</label>
 						<div class="col-sm-10">
 							<select class="form-control" id="dia_genre1" name="organization">
-								@foreach($facilities as $value)
-									<option value="{{$value->genre1}}" selected>{{$value->meisho1}}</option>
+								@foreach($larges as $value)
+									<option value="{{$value->gid1}}" selected>{{$value->meisho1}}</option>
 								@endforeach
 							</select>
 						</div>
