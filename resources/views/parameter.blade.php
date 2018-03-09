@@ -9,9 +9,9 @@
 	<form class="form-horizontal">
 		@if (Auth::user()->role == (int)0 )
 		<div class="form-group">
-			<label class="col-sm-3 control-label" for="citycd">市町村コード</label>
+			<label class="col-sm-3 control-label" for="citycode">市町村コード</label>
 			<div class="col-sm-3">
-				<select class="form-control" id="citycd" onChange="codeselChange()">
+				<select class="form-control" id="citycode" onChange="codeselChange()">
 				@foreach($parameters as $value)
 					<option value="{{$value->citycode}}" selected>{{$value->citycode}}:{{$value->cityname}}</option>
 				@endforeach
