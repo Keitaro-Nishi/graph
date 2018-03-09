@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
@@ -13,14 +15,13 @@ class FacilityController {
 		$cityCD = Auth::user ()->citycode;
 		if ($cityCD == "00000") {
 
-			$facilities = Facility::all ();
-			/*
-			$facilities = Facility::select()->leftJoin('genre', function ($join) {
-				$join->on('facility.citycode', '=', 'code.citycode');
-				$join->on('facility.genre1', '=', 'genre.gid1')->where('genre.bunrui', 1);
+			$facilities = Facility::select()->leftJoin('genre as class', function ($join) {
+				$join->on('facility.citycode', '=', 'class.citycode')->where('class.bunrui', (int)1);
+				$join->on('facility.genre1', '=', 'class.gid1');
 			})
+			->select('facility.*','class.meisho as meisho1')
 			->get();
-			*/
+
 		} else {
 			/*
 			$facilities = Facility::select()->where('facility.citycode', $cityCD)->leftJoin('genre', function ($join) {
@@ -29,7 +30,8 @@ class FacilityController {
 				//->select(DB::raw('meisho as larmeisho, genre'))
 				//$join->on('facility.genre2', '=', 'genre.gid2')->where('genre.bunrui', 2);
 			})
-			->get();*/
+			->get();
+			*/
 			$facilities = Facility::where('facility.citycode', $cityCD)->leftJoin('genre as class', function ($join) {
 				$join->on('facility.citycode', '=', 'class.citycode')->where('class.bunrui', (int)1);
 				$join->on('facility.genre1', '=', 'class.gid1');
