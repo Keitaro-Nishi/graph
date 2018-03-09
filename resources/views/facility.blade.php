@@ -13,7 +13,7 @@
 			<th data-column-id="jusho">住所</th>
 			<th data-column-id="tel">電話番号</th>
 			<th data-column-id="genre1" data-visible="false"></th>
-			<th data-column-id="genre1N" data-visible="false"></th>
+			<th data-column-id="genre1N">ジャンル1</th>
 			<th data-column-id="genre2">ジャンル2</th>
 			<th data-column-id="lat">緯度</th>
 			<th data-column-id="lng">経度</th>
