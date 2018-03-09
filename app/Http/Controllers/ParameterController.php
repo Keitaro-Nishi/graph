@@ -64,7 +64,11 @@ class ParameterController
 		$param->usefunction= "";
 		$param->reserve= "";
 
+		error_log("★★★★★★★★★★★★★save前★★★★★★★★★★★★★★★");
+
 		$result = $param->save();
+
+		error_log("★★★★★★★★★★★★★save後★★★★★★★★★★★★★★★");
 
 		return \Response::json(['status' => 'OK']);
 	}
