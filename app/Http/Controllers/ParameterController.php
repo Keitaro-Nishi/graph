@@ -15,12 +15,19 @@ class ParameterController
 	public function index(Request $request)
 	{
 		$cityCD = Auth::user()->citycode;
+		/*
 		$parameter = Parameter::where('citycode', $cityCD)->first();
 		if(!$parameter){
 			$parameter = new Parameter();
 		}
+		*/
+		if($cityCD == "00000"){
+			$parameters = Parameter::all();
+		}else{
+			$parameters = Parameter::where('citycode', $cityCD)->get();
+		}
 
-		return view('parameter',['parameter'=>$parameter]);
+		return view('parameter',['parameters'=>$parameters]);
 	}
 
 	public  function request(){
