@@ -143,9 +143,7 @@ class GenreController
 				//Intents
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents?version=2017-05-26";
 				$data = array("intent" => (string)$gid1,"description" => $meisho);
-				error_log("★★★★★★");
-				error_log("●●●●●");
-				error_log("■■■■■");
+
 				callwatson::callWatson();
 
 				//ENTITIES
