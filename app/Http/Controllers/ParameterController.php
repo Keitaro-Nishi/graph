@@ -50,7 +50,8 @@ class ParameterController
 		error_log("★★★★★★★★★★★★★citycode★★★★★★★★★★★★★★★".$input["citycode"]);
 		error_log("★★★★★★★★★★★★★cityname★★★★★★★★★★★★★★★".$input["cityname"]);
 
-		$param = Parameter::firstOrNew(['citycode' => $input["citycode"]]);
+		//$param = Parameter::firstOrNew(['citycode' => $input["citycode"]]);
+		$param = new Parameter();
 		error_log("★★★★★★★★★★★★★save１★★★★★★★★★★★★★★★");
 		$param->citycode = $input["citycode"];
 		error_log("★★★★★★★★★★★★★save２★★★★★★★★★★★★★★★");
