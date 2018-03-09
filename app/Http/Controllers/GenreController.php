@@ -7,7 +7,8 @@ use App\Genre;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\callwatson;
-class GenreController
+
+class GenreController extends callwatson
 {
 	public function index(Request $request)
 	{
