@@ -14,7 +14,8 @@
 			<th data-column-id="tel">電話番号</th>
 			<th data-column-id="genre1" data-visible="false"></th>
 			<th data-column-id="genre1N">ジャンル1</th>
-			<th data-column-id="genre2">ジャンル2</th>
+			<th data-column-id="genre2" data-visible="false"></th>
+			<th data-column-id="genre2N">ジャンル2</th>
 			<th data-column-id="lat">緯度</th>
 			<th data-column-id="lng">経度</th>
 			<th data-column-id="imageurl">画像URL</th>
@@ -33,6 +34,7 @@
 			<td>{{$facility->genre1}}</td>
 			<td>{{$facility->meisho1}}</td>
 			<td>{{$facility->genre2}}</td>
+			<td>{{$facility->meisho2}}</td>
 			<td>{{$facility->lat}}</td>
 			<td>{{$facility->lng}}</td>
 			<td>{{$facility->imageurl}}</td>
@@ -81,7 +83,7 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_genre1">ジャンル１</label>
 						<div class="col-sm-10">
-							<select class="form-control" id="dia_genre1" name="organization">
+							<select class="form-control" id="dia_genre1" name="genre1">
 								@foreach($larges as $value)
 									<option value="{{$value->gid1}}" selected>{{$value->meisho}}</option>
 								@endforeach
@@ -92,7 +94,9 @@
 						<label class="col-sm-2 control-label" for="dia_genre2">ジャンル２</label>
 						<div class="col-sm-10">
 							<select class="form-control" id="dia_genre2" name="genre2">
-								<option value=0>ジャンル無し</option>
+								@foreach($mediums as $value)
+									<option value="{{$value->gid1}}" selected>{{$value->meisho}}</option>
+								@endforeach
 							</select>
 						</div>
 					</div>
