@@ -12,7 +12,7 @@
 			<label class="col-sm-3 control-label" for="citycd">市町村コード</label>
 			<div class="col-sm-3">
 				<select class="form-control" id="citycd" onChange="codeselChange()">
-				@foreach($$parameters as $value)
+				@foreach($parameters as $value)
 					<option value="{{$value->citycode}}" selected>{{$value->citycode}}:{{$value->cityname}}</option>
 				@endforeach
 				</select>
