@@ -87,8 +87,21 @@ function modwin(id,meisho,jusho,tel,genre1,genre2,lat,lng,imageurl,url){
 	document.getElementById('dia_meisho').value = meisho;
 	document.getElementById('dia_jusho').value = jusho;
 	document.getElementById('dia_tel').value = tel;
-	document.getElementById('dia_genre1').value = genre1;
-	document.getElementById('dia_genre2').value = genre2;
+	var options = document.getElementById('dia_genre1').options;
+	for(var i = 0; i < options.length; i++){
+		if(options[i].text === genre1){
+			options[i].selected = true;
+			break;
+		};
+	};
+	genre1change();
+	var options = document.getElementById('dia_genre2').options;
+	for(var i = 0; i < options.length; i++){
+		if(options[i].text === genre2){
+			options[i].selected = true;
+			break;
+		};
+	};
 	document.getElementById('dia_latlng').value = lat + "," + lng;
 	document.getElementById('dia_imageurl').value = imageurl;
 	document.getElementById('dia_url').value = url;
@@ -102,14 +115,15 @@ function insert() {
 	initmodal();
 	document.getElementById("btn_modal").click();
 }
-/*
+
 //ジャンル選択
 function genre1change(){
 	var select = document.getElementById('dia_genre2');
 	while (0 < select.childNodes.length) {
 		select.removeChild(select.childNodes[0]);
 	}
-	var genre2value = <?php echo json_encode($genre2value); ?>;
+	var mediums= document.getElementById('mediums').value;
+	var genre2value = JSON.parse(mediums);
 	var janru = genre2value[document.getElementById('dia_genre1').value];
 	for( var key in janru ) {
 		var option = document.createElement('option');
@@ -119,7 +133,6 @@ function genre1change(){
 		select.appendChild(option);
 	}
 }
- */
 
 //ダイアログ初期化
 function initmodal(){
@@ -127,7 +140,7 @@ function initmodal(){
 	document.getElementById('dia_jusho').value = "";
 	document.getElementById('dia_tel').value = "";
 	document.getElementById('dia_genre1').selectedIndex = 0;
-	//genre1change();
+	genre1change();
 	document.getElementById('dia_genre2').selectedIndex = 0;
 	document.getElementById('dia_latlng').value = "";
 	document.getElementById('dia_imageurl').value = "";
