@@ -122,7 +122,7 @@ class callwatson{
 		}
 	}
 
-	public static function callWatson(){
+	public function callWatson(){
 		//global $curl, $url, $username, $password, $data, $options;
 		error_log("成功");
 		/*$curl = curl_init($url);
