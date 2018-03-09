@@ -23,11 +23,21 @@ class FacilityController {
 			->get();
 			*/
 		} else {
+			/*
 			$facilities = Facility::select()->where('facility.citycode', $cityCD)->leftJoin('genre', function ($join) {
 				$join->on('facility.citycode', '=', 'genre.citycode');
 				$join->on('facility.genre1', '=', 'genre.gid1')->where('genre.bunrui', 1);
+				//->select(DB::raw('meisho as larmeisho, genre'))
 				//$join->on('facility.genre2', '=', 'genre.gid2')->where('genre.bunrui', 2);
 			})
+			->get();*/
+			$facilities = Facility::select()->where('facility.citycode', $cityCD)->leftJoin('genre as genre1', function ($join) {
+				$join->on('facility.citycode', '=', 'genre.citycode');
+				$join->on('facility.genre1', '=', 'genre.gid1')->where('genre.bunrui', 1);
+				//->select(DB::raw('meisho as larmeisho, genre'))
+				//$join->on('facility.genre2', '=', 'genre.gid2')->where('genre.bunrui', 2);
+			})
+			->select('facility.*','genre1.meisho as meisho1')
 			->get();
 		}
 	}
