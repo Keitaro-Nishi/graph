@@ -37,7 +37,7 @@ class FacilityController {
 				$join->on('facility.genre1', '=', 'class1.gid1');
 			})->leftJoin('genre as class2', function ($join){
 				$join->on('facility.citycode', '=', 'class2.citycode')->where('class2.bunrui', (int)2);
-				$join->on('facility.genre2', '=', 'class2.gid2')/*->where('class2.gid1',)*/;
+				$join->on('facility.genre2', '=', 'class2.gid2')->where('class2.gid1','class1.gid1');
 			})
 			->select('facility.*','class1.meisho as meisho1','class2.meisho as meisho2')
 			->get();
@@ -45,7 +45,7 @@ class FacilityController {
 
 		error_log("???????????????????".$facilities[0]->meisho1);
 		$larges= Genre::where('citycode', $cityCD)->where('bunrui', 1)->orderBy('gid1', 'ASC')->get();
-		$mediums= Genre::where('citycode', $cityCD)->where('bunrui', 2)/*->where('gid1', $gid1)*/->orderBy('gid2', 'ASC')->get();
+		$mediums= Genre::where('citycode', $cityCD)->where('bunrui', 2)/*->where('gid1', )*/->orderBy('gid2', 'ASC')->get();
 		return view('facility',['facilities' => $facilities, 'larges'=>$larges, 'mediums'=>$mediums]);
 
 	}
