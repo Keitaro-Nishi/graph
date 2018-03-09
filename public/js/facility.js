@@ -150,7 +150,7 @@ function update(){
 	var url = document.getElementById('dia_url').value;
 	var _token = document.getElementById('_token').value;
 
-	console.log(id);
+	console.log(genre1);
 
 	$.ajax({
 		type: "POST",
