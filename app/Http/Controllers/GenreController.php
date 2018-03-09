@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use App\Genre;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use App\callwatson;
-//use app\watson\callwatson;
+
+
 
 class GenreController
 {
@@ -145,10 +145,10 @@ class GenreController
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents?version=2017-05-26";
 				$data = array("intent" => (string)$gid1,"description" => $meisho);
 				error_log("★★★★★");
-				callwatson::callWatson();
+				//callwatson::callWatson();
 				//$abc = new app\watson\callwatson.php;
 				//$abc->callWatson();
-				//$this->callWatson($meisho);
+
 
 				//ENTITIES
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities?version=2017-05-26";
