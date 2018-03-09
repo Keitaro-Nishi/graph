@@ -145,6 +145,7 @@ class GenreController
 				$data = array("intent" => (string)$gid1,"description" => $meisho);
 				error_log("●●●●●");
 				error_log("●●●●●");
+				error_log("●●●●●");
 				callwatson::callWatson();
 
 				//ENTITIES
