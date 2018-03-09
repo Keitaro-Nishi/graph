@@ -37,9 +37,10 @@ class FacilityController {
 				//$join->on('facility.genre2', '=', 'genre.gid2')->where('genre.bunrui', 2);
 			})
 			->select('facility.*','aaa.meisho as meisho1')
-			->get();
+			//->get();
+			->first();
 		}
-		error_log("???????????????????".$facilities->meisho);
+		error_log("???????????????????".$facilities->meisho1);
 		return view('facility',['facilities' => $facilities]);
 	}
 
