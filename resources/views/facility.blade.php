@@ -40,6 +40,7 @@
 			<td>{{$facility->imageurl}}</td>
 			<td>{{$facility->url}}</td>
 			<td>{{$facility->citycode}}</td>
+			<td></td>
 		</tr>
 		@endforeach
 	</tbody>
@@ -130,17 +131,14 @@
 		</div>
 	</div>
 </div>
-@if (Auth::user()->citycode != 00000)
+
 <div class="container" align="center">
+	@if (Auth::user()->citycode != 00000)
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
 	<input id="btn_ins" type="button" class="btn btn-default" value="施設登録" onclick="insert()">
+	@endif
 	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog"/>
 </div>
-@else
-<div class="container" align="center">
-	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
-</div>
-@endif
 <script src="{{ asset('js/facility.js') }}"></script>
 
 @endsection
