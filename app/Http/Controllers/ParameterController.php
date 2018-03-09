@@ -47,6 +47,9 @@ class ParameterController
 			return $validator->errors();
 		}
 
+		error_log("★★★★★★★★★★★★★citycode★★★★★★★★★★★★★★★".$input["citycode"]);
+		error_log("★★★★★★★★★★★★★cityname★★★★★★★★★★★★★★★".$input["cityname"]);
+
 		$param = Parameter::firstOrNew(['citycode' => $input["citycode"]]);
 		$param->citycode = $input["citycode"];
 		$param->cityname = $input["cityname"];
