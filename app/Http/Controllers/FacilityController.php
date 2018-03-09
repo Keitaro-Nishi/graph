@@ -39,6 +39,7 @@ class FacilityController {
 			->select('facility.*','aaa.meisho as meisho1')
 			->get();
 		}
+		error_log("???????????????????".$facilities->meisho1);
 		return view('facility',['facilities' => $facilities]);
 	}
 
