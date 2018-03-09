@@ -13,9 +13,9 @@ $g1meisho= $_POST['g1meisho'];
 $g2meisho= $_POST['g2meisho'];
 $sword= $_POST['sword'];
 
-//error_log("☆☆☆☆☆☆☆");
+error_log("☆☆☆☆☆☆☆");
 //error_log("g1meisho:".$g1meisho." g2meisho:".$g2meisho." param:".$param." sword:".$sword);
-//error_log("届きました");
+error_log("届きました");
 
 $data = "";
 
