@@ -146,6 +146,7 @@ class GenreController
 				$data = array("intent" => (string)$gid1,"description" => $meisho);
 				error_log("★★★★★");
 				callwatson::callWatson();
+				error_log("失敗");
 				//$abc = new app\watson\callwatson.php;
 				//$abc->callWatson();
 
