@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
+class callwatson{
 
 $workspace_id = getenv('CVS_WORKSPASE_ID');
 $username = getenv('CVS_USERNAME');
@@ -165,5 +166,5 @@ function callWatson3(){
 	curl_exec($curl);
 	return curl_getinfo($curl, CURLINFO_HTTP_CODE);
 }
-
+}
 ?>
