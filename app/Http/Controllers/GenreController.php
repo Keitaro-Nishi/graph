@@ -146,7 +146,7 @@ class GenreController
 				error_log("★★★★★");
 				//$abc = new App\watson\callwatson.php;
 				//$abc->callWatson();
-				$this->callWatson();
+				$this->callWatson($meisho);
 
 				//ENTITIES
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities?version=2017-05-26";
@@ -204,11 +204,12 @@ class GenreController
 
 	}
 
-	public function callWatson(){
-		global $curl, $url, $username, $password, $data, $options;
+	public function callWatson($meisho){
+		//global $curl, $url, $username, $password, $data, $options;
+
 
 		error_log("☆☆☆☆");
-		error_log($username);
+		error_log($meisho);
 
 		$curl = curl_init($url);
 		$options = array(
