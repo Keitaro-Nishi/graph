@@ -2,7 +2,9 @@ var select_val = 0;
 
 //$(function() {
 function init() {
-	document.getElementById('citycode').selectedIndex = 0;
+	if(document.getElementById('citycode')){
+		document.getElementById('citycode').selectedIndex = 0;
+	}
 	codeselChange();
 }
 
@@ -30,6 +32,16 @@ function codeselChange(){
 			document.getElementById('intpass').value = parameters[i]['intpass'];
 			break;
 		}
+	}
+
+	intpasscalssChange();
+}
+
+function intpasscalssChange(){
+	if(document.getElementById('intpasscalss').value == "2"){
+		document.getElementById('intpasscalss').disabled = false;
+	}else{
+		document.getElementById('intpasscalss').disabled = true;
 	}
 }
 

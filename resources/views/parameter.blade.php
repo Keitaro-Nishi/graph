@@ -70,7 +70,7 @@
 		<div class="form-group">
 			<label class="col-sm-3 control-label" for="intpasscalss">ユーザーパスワード初期値</label>
 			<div class="col-sm-3">
-				<select class="form-control" id="intpasscalss">
+				<select class="form-control" id="intpasscalss" onChange="intpasscalssChange()">
 					<option value="1" selected>ユーザーID</option>
 					<option value="2" selected>一括設定</option>
 					<option value="3" selected>個別設定</option>

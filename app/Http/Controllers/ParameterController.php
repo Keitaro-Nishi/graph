@@ -47,6 +47,10 @@ class ParameterController
 
 		$rules = [ 'citycode' => 'required|string|size:5|unique:parameter'];
 
+		if($input["intpasscalss"] == "2"){
+			$rules = $rules + ['intpass' => 'required|string|min:6'];
+		}
+
 		$validator = Validator::make($input,$rules);
 
 		if($validator->fails())
