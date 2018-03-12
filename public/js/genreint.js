@@ -96,7 +96,7 @@ function update(){
 
 //行削除
 function delLine(value,raw){
-	var myRet = confirm("検索ワード「"+ value + "」を削除しますか？");
+	/*var myRet = confirm("検索ワード「"+ value + "」を削除しますか？");
 	if ( myRet == true ){
 		g1meisho = document.getElementById('g1').value;
 		$.ajax({
@@ -121,6 +121,7 @@ function delLine(value,raw){
 	        alert("削除できませんでした");
 	    });
 	}
+	*/
 }
 
 //もどる
