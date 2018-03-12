@@ -41,13 +41,13 @@ function getwtint(){
 	}).done(function (response) {
 		console.log(response);
 		//result = JSON.parse(response);
-		for( var index in response ) {
+		for( var i =0, i < response.length; i++ ) {
 			var raw = wtable.insertRow( -1 );
 			var td1 = raw.insertCell(-1),td2 = raw.insertCell(-1);
 			td2.style.width = "50px";
 			console.log(response[index]);
-			td1.innerHTML = response[index];
-			td2.innerHTML = '<input type="button" value="削除" class="btn btn-default" onclick="delLine(\'' + response[index] + '\',this)" />';
+			td1.innerHTML = response[1];
+			td2.innerHTML = '<input type="button" value="削除" class="btn btn-default" onclick="delLine(\'' + response[i] + '\',this)" />';
 			//alert("成功");
 		}
     }).fail(function () {
