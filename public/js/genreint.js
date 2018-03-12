@@ -40,8 +40,8 @@ function getwtint(){
 		}
 	}).done(function (response) {
 		alert("戻ってきました.");
-		console.log(“hello”);
 		result = JSON.parse(response);
+		console.log(result);
 		for( var index in result ) {
 			var raw = wtable.insertRow( -1 );
 			var td1 = raw.insertCell(-1),td2 = raw.insertCell(-1);
