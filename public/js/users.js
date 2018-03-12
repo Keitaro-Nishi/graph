@@ -145,11 +145,36 @@ function initmodal(){
 
 function preset(){
 	if(document.getElementById('dia_passresck').checked){
-		document.getElementById('dia_password').disabled = false;
-		document.getElementById('dia_password_confirmation').disabled = false;
+		switch (intpass['intpasscalss']){
+		//ユーザーＩＤ
+		case "1":
+			document.getElementById('dia_info').style.display="block";
+			document.getElementById('dia_infolabel').innerHTML  = "※再設定パスワードにはユーザーＩＤが設定されます";
+			break;
+		//一括設定
+		case "2":
+			document.getElementById('dia_info').style.display="block";
+			document.getElementById('dia_infolabel').innerHTML  = "※再設定パスワードにはパラメタ設定にて登録した値が設定されます";
+			break;
+		//個別設定
+		case "3":
+			document.getElementById('dia_password').disabled = false;
+			document.getElementById('dia_password_confirmation').disabled = false;
+			break;
+		}
 	}else{
 		document.getElementById('dia_password').disabled = true;
 		document.getElementById('dia_password_confirmation').disabled = true;
+		switch (intpass['intpasscalss']){
+		//ユーザーＩＤ
+		case "1":
+			document.getElementById('dia_info').style.display="none";
+			break;
+		//一括設定
+		case "2":
+			document.getElementById('dia_info').style.display="none";
+			break;
+		}
 	}
 }
 
