@@ -125,14 +125,14 @@
 		</div>
 	</div>
 </div>
-
+<!--
 <div>
 	<input id="genre1value" type= "hidden" value = '{{ $genre1value }}'>
 </div>
 <div>
 	<input id="genre2value" type= "hidden" value = '{{ $genre2value }}'>
 </div>
-
+ -->
 <div class="container" align="center">
 	@if (Auth::user()->citycode != 00000)
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
