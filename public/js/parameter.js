@@ -186,7 +186,7 @@ function insert(){
 
 function del() {
 	bootbox.confirm({
-	    message: document.getElementById('cityname').value + "のパラメタを削除しますか？<br>※" + document.getElementById('cityname').value "に関する全てのデータが削除されます",
+	    message: document.getElementById('cityname').value + "のパラメタを削除しますか？<br>※" + document.getElementById('cityname').value + "に関する全てのデータが削除されます",
 	    buttons: {
 	    	confirm: {
 	            label: '<i class="fa fa-check"></i> はい'
