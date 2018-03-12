@@ -65,8 +65,8 @@
 			<label class="col-sm-3 control-label" for="usefunction">使用機能</label>
 			<div class="col-sm-9" id="usefunction">
 				@foreach($functions as $value)
-					<input type="checkbox" class="form-check-input" id="dia_uf{{$value->code2}}" >
-					<label class="form-check-label" for="dia_uf{{$value->code2}}">{{$value->meisho}}</label>
+					<input type="checkbox" class="form-check-input" id="usefunction{{$value->code2}}" >
+					<label class="form-check-label" for="usefunction{{$value->code2}}">{{$value->meisho}}</label>
 				@endforeach
 			</div>
 		</div>
@@ -131,6 +131,7 @@
 <script src="{{ asset('js/parameter.js') }}"></script>
 <script>
 var parameters = @json($parameters);
+var functions = @json($functions);
 init();
 </script>
 @endsection

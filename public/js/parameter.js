@@ -26,8 +26,13 @@ function codeselChange(){
 				document.getElementById('cvs_ws_id3').value = parameters[i]['cvs_ws_id3'];
 				document.getElementById('cvs_ws_id4').value = parameters[i]['cvs_ws_id4'];
 				document.getElementById('cvs_ws_id5').value = parameters[i]['cvs_ws_id5'];
-				document.getElementById('usefunction').value = parameters[i]['usefunction'];
 			}
+			for(var ii=0; ii < functions.length; i++){
+				if(parameters[i]['usefunction'].substr(ii,1) == "1"){
+					document.getElementById('usefunction' + functions[ii]['code2']).selected = true;
+				}
+			}
+			document.getElementById('usefunction').value = parameters[i]['usefunction'];
 			document.getElementById('intpasscalss').value = parameters[i]['intpasscalss'];
 			document.getElementById('intpass').value = parameters[i]['intpass'];
 			break;
@@ -66,7 +71,13 @@ function update(){
 		cvs_ws_id3 = document.getElementById('cvs_ws_id3').value;
 		cvs_ws_id4 = document.getElementById('cvs_ws_id4').value;
 		cvs_ws_id5 = document.getElementById('cvs_ws_id5').value;
-		usefunction = document.getElementById('usefunction').value;
+	}
+	for(var ii=0; ii < functions.length; i++){
+		if(document.getElementById('usefunction' + functions[ii]['code2']).selected){
+			intpasscalss = intpasscalss + "1";
+		}else{
+			intpasscalss = intpasscalss + "0";
+		}
 	}
 	var intpasscalss = document.getElementById('intpasscalss').value;
 	var intpass = document.getElementById('intpass').value;
