@@ -39,9 +39,9 @@ function codeselChange(){
 
 function intpasscalssChange(){
 	if(document.getElementById('intpasscalss').value == "2"){
-		document.getElementById('intpasscalss').disabled = false;
+		document.getElementById('intpass').disabled = false;
 	}else{
-		document.getElementById('intpasscalss').disabled = true;
+		document.getElementById('intpass').disabled = true;
 	}
 }
 
@@ -99,8 +99,15 @@ function update(){
 				}
 			});
 		}else{
+			var mes = "";
+			for (var item in response) {
+				if(mes != ""){
+					mes = mes + "<br>";
+				}
+			    mes = mes + response[item][0];
+			}
 			bootbox.alert({
-				message: "更新できませんでした",
+				message: mes,
 				size: 'small'
 			});
 		}

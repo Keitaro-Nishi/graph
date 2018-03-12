@@ -72,6 +72,18 @@ class ParameterController
 	public function update()
 	{
 		$input = $this->requestall;
+
+		if($input["intpasscalss"] == "2"){
+			$rules = $rules + ['intpass' => 'required|string|min:6'];
+		}
+
+		$validator = Validator::make($input,$rules);
+
+		if($validator->fails())
+		{
+			return $validator->errors();
+		}
+
 		$cityCD = Auth::user()->citycode;
 		$intpasscalss = $input["intpasscalss"];
 		$intpass = $input["intpass"];
