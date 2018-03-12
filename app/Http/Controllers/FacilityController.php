@@ -41,12 +41,11 @@ class FacilityController {
 		error_log ( "???????????????????41" . $genre1value[0]->meisho);
 		foreach ($genre1value as $j1value){
 			$gid1 = $j1value->gid1;
-			error_log ( print_r($gid1, true));
 			$j2value= Genre::select('gid2', 'meisho')->where( 'citycode', $cityCD )->where('gid1', $gid1)->get();
-			//error_log ( print_r($j2value, true));
+			error_log ( print_r($j2value, true));
 			$genre2value = array($gid1 => $j2value);
 		}
-		error_log ( "???????????????????48" . $genre2value[0]->meisho);
+		//error_log ( "???????????????????48" . $genre2value[0]->meisho);
 		return view ( 'facility', [
 				'facilities' => $facilities,
 				'genre1value' => $genre1value,
