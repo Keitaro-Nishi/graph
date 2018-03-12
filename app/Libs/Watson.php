@@ -122,7 +122,6 @@ class Watson{
 	public function callWatson($url,$username,$password,$data){
 
 		$curl = curl_init($url);
-		error_log("△△△△△△");
 		$options = array(
 				CURLOPT_HTTPHEADER => array(
 						'Content-Type: application/json',
@@ -133,6 +132,7 @@ class Watson{
 				CURLOPT_RETURNTRANSFER => true,
 		);
 		curl_setopt_array($curl, $options);
+		error_log("△△△△△△");
 		return curl_exec($curl);
 
 	}
