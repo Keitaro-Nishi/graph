@@ -14,7 +14,7 @@ class FacilityController {
 	public function index(Request $request) {
 		$cityCD = Auth::user ()->citycode;
 		$genre1value = array ();
-		$genre2value = array ();
+		$genre2value= array ();
 
 		if ($cityCD == "00000") {
 
@@ -39,10 +39,8 @@ class FacilityController {
 
 		error_log ( "???????????????????40" . $facilities [0]->meisho1 );
 		$genre1value = Genre::where ( 'citycode', $cityCD )->where ( 'bunrui', 1 )->orderBy ( 'gid1' )->select( 'gid1', 'meisho' )->get ();
-		foreach ( $genre1value as $key => $value ) {
-			$genre2value = Genre::where ( 'citycode', $cityCD )->where ( 'bunrui', 2 )->where ( 'gid1', $key )->orderBy ( 'gid1' )->select( 'gid2', 'meisho' )->get ();
-		}
-		error_log ( "???????????????????45" . $genre2value[0]->meisho );
+		$genre2value= Genre::where ( 'citycode', $cityCD )->where ( 'bunrui', 2 )->orderBy ( 'gid1' )->select( 'gid1', 'gid2', 'meisho' )->get ();
+		error_log ( "???????????????????45" . $genre1value[0]->meisho );
 		return view ( 'facility', [
 				'facilities' => $facilities,
 				'genre1value' => $genre1value,
