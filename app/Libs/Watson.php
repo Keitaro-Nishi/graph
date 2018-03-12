@@ -141,7 +141,7 @@ class Watson{
 	}
 
 
-	function callWatson2(){
+	function callWatson2($url,$username,$password){
 
 		$curl = curl_init($url);
 		$options = array(
@@ -153,7 +153,7 @@ class Watson{
 				CURLOPT_RETURNTRANSFER => true,
 		);
 		curl_setopt_array($curl, $options);
-		error_log("★★★★★");
+		error_log("●●●●●●");
 		return curl_exec($curl);
 	}
 	function callWatson3(){
