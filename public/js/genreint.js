@@ -77,7 +77,6 @@ function update(){
 			"_token" : _token
 		}
 	}).done(function (response) {
-		alert("成功しました");
 		result = JSON.parse(response);
 		if(result == "OK"){
 			alert("更新しました");
