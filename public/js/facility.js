@@ -32,7 +32,7 @@ $(function() {
 	for( var key in genre1value ) {
 		var option = document.createElement('option');
 		option.setAttribute('value', key);
-		var text = document.createTextNode(j1value[key]);
+		var text = document.createTextNode(genre1value[key]);
 		option.appendChild(text);
 		select.appendChild(option);
 	}
