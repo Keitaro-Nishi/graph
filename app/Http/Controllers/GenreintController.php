@@ -87,7 +87,7 @@ class GenreintController
 		$data = array("text" => $sword);
 		$jsonString = $watson->callWatson($url,$username,$password,$data);
 		$json = json_decode($jsonString, true);
-		error_log("●△☓●△☓★");
+		//error_log("●△☓●△☓★");
 		error_log($json["text"]);
 
 
