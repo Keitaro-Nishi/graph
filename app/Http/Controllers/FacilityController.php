@@ -47,7 +47,7 @@ class FacilityController {
 			$j2value2 = $j2value->toArray();
 			error_log ( print_r($j2value2, true));
 			*/
-			$genre2value = array($gid1 => $j2value);
+			$genre2value = $genre2value + array($gid1 => $j2value);
 		}
 		$j2value2 = $genre2value->toArray();
 		error_log ( print_r($j2value2, true));
