@@ -60,13 +60,13 @@
 				<input type="text" class="form-control" id="cvs_ws_id5" value="">
 			</div>
 		</div>
+		@endif
 		<div class="form-group">
 			<label class="col-sm-3 control-label" for="usefunction">使用機能</label>
 			<div class="col-sm-9">
 				<input type="text" class="form-control" id="usefunction" value="">
 			</div>
 		</div>
-		@endif
 		<div class="form-group">
 			<label class="col-sm-3 control-label" for="intpasscalss">ユーザーパスワード初期値</label>
 			<div class="col-sm-3">

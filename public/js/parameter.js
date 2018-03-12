@@ -7,7 +7,7 @@ function init() {
 }
 
 function codeselChange(){
-	if(parameters[i]['citycode'] == select_val){
+	if(document.getElementById('citycode')){
 		select_val = document.getElementById('citycode').value;
 	}else{
 		select_val = parameters[0]['citycode'];
