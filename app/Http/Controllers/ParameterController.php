@@ -75,7 +75,7 @@ class ParameterController
 					'meisho' => 'オプションタイトル',
 					'num' => (int)0,
 					'class1' => '1',
-					'class1' => '2'
+					'class2' => '2'
 			]);
 		}
 		DB::table('code')->insert([
@@ -85,7 +85,7 @@ class ParameterController
 				'meisho' => '管理者',
 				'num' => (int)0,
 				'class1' => '1',
-				'class1' => '2'
+				'class2' => '2'
 		]);
 
 		return \Response::json(['status' => 'OK']);
