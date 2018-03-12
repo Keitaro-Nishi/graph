@@ -40,12 +40,12 @@ class FacilityController {
 		}
 
 		error_log("???????????????????42".$facilities[0]->meisho1);
-		$larges= DB::table('genre')->value('meisho')->where('citycode', $cityCD)->where('bunrui', 1)->orderBy('gid1', 'ASC')->get();
+		$larges= DB::table('genre')->where('citycode', $cityCD)->where('bunrui', 1)->value('meisho')->orderBy('gid1', 'ASC')->get();
 		while ($row = pg_fetch_row($larges)) {
 			$genre1value = $genre1value + array($row[1] => $row[4]);
 		}
 		foreach($genre1value as $key => $value){
-			$result = DB::table('genre')->value('meisho')->where('citycode', $cityCD)->where('bunrui', 2)->where('gid1', $key);
+			$result = DB::table('genre')->where('citycode', $cityCD)->where('bunrui', 2)->where('gid1', $key)->value('meisho');
 			$arr = array();
 			while ($row = pg_fetch_row($result)) {
 				$arr = $arr + array($row[2] => $row[4]);
