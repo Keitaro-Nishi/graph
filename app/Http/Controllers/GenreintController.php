@@ -89,8 +89,6 @@ class GenreintController
 		$jsonString = $watson->callWatson($url,$username,$password,$data);
 		$json = json_decode($jsonString, true);
 		error_log("●△☓●△☓★");
-
-
 		if($json["text"] == $sword){
 			error_log("●●●●●");
 			return \Response::json('OK');
