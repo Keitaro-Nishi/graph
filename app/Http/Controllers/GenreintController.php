@@ -67,7 +67,7 @@ class GenreintController
 		//echo json_encode($arr);
 	}
 */
-	function intentUpdate(){
+	public function intentUpdate(){
 
 		$workspace_id = getenv('CVS_WORKSPASE_ID');
 		$username = getenv('CVS_USERNAME');
