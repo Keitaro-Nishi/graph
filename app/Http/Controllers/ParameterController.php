@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Parameter;
+use App\Code;
 
 class ParameterController
 {
@@ -26,8 +27,9 @@ class ParameterController
 		}else{
 			$parameters = Parameter::select('citycode','usefunction','intpasscalss','intpass')->where('citycode', $cityCD)->get();
 		}
+		$functions = Code::where('citycode', '00000')->where('code1', (int)13)->orderBy('code2', 'ASC')->get();
 
-		return view('parameter',['parameters'=>$parameters]);
+		return view('parameter',['parameters'=>$parameters,'functions'=>$functions]);
 	}
 
 	public  function request(){
