@@ -91,11 +91,11 @@ class GenreintController
 		error_log("●△☓●△☓★");
 		if($json["text"] == $sword){
 			error_log("●●●●●");
-			return \Response::json("OK");
+			return \Response::json(['status' => 'OK']);
 			//echo json_encode("OK");
 		}else{
 			error_log("●●");
-			return \Response::json("NG");
+			return \Response::json(['status' => 'NG']);
 			//echo json_encode("NG");
 		}
 	}
