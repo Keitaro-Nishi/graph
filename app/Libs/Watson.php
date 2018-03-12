@@ -121,8 +121,8 @@ class Watson{
 
 	public function callWatson($url,$username,$password,$data){
 
-		error_log("ワトソンまで来ました");
 		$curl = curl_init($url);
+		error_log("△△△△△△");
 		$options = array(
 				CURLOPT_HTTPHEADER => array(
 						'Content-Type: application/json',

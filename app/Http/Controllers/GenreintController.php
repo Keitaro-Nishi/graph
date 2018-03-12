@@ -29,7 +29,7 @@ class GenreintController
 		}
 	}
 
-
+/*
 	public function intentSearch()
 	{
 
@@ -65,7 +65,7 @@ class GenreintController
 		//return Response::json_encode($arr,JSON_PRETTY_PRINT);
 		//echo json_encode($arr);
 	}
-
+*/
 	function intentUpdate(){
 
 		$workspace_id = getenv('CVS_WORKSPASE_ID');
@@ -86,7 +86,7 @@ class GenreintController
 
 		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents/".$g1meisho."/examples?version=2017-05-26";
 		$data = array("text" => $sword);
-		$jsonString = var_dump($watson->callWatson($url,$username,$password,$data));
+		$jsonString = $watson->callWatson($url,$username,$password,$data);
 		$json = json_decode($jsonString, true);
 		if($json["text"] == $sword){
 			echo json_encode("OK");
