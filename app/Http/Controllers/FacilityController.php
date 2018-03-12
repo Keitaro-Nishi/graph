@@ -40,7 +40,7 @@ class FacilityController {
 		}
 
 		error_log("???????????????????42".$facilities[0]->meisho1);
-		$mediums= Genre::where('citycode', $cityCD)->where('bunrui', 2)->orderBy('gid2', 'ASC')->get();
+		$mediums= Genre::where('citycode', $cityCD)->where('bunrui', 2)->orderBy('gid1', 'ASC')->get();
 		$larges= Genre::where('citycode', $cityCD)->where('bunrui', 1)->orderBy('gid1', 'ASC')->get();
 		return view('facility',['facilities' => $facilities, 'larges'=>$larges, 'mediums'=>$mediums]);
 	}
