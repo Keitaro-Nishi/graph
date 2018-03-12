@@ -13,52 +13,41 @@ use App\Genre;
 class FacilityController {
 	public function index(Request $request) {
 		$cityCD = Auth::user ()->citycode;
-		$genre1value = array();
-		$genre2value = array();
+		$genre1value = array ();
+		$genre2value = array ();
 
 		if ($cityCD == "00000") {
 
-			$facilities = Facility::select()->leftJoin('genre as class', function ($join) {
-				$join->on('facility.citycode', '=', 'class.citycode')->where('class.bunrui', (int)1);
-				$join->on('facility.genre1', '=', 'class.gid1');
-			})->leftJoin('genre as class2', function ($join){
-				$join->on('facility.citycode', '=', 'class2.citycode');
-				$join->on('facility.genre1', '=', 'class2.gid1');
-				$join->on('facility.genre2', '=', 'class2.gid2');
-			})
-			->select('facility.*','class.meisho as meisho1','class2.meisho as meisho2')
-			->get();
-
+			$facilities = Facility::select ()->leftJoin ( 'genre as class', function ($join) {
+				$join->on ( 'facility.citycode', '=', 'class.citycode' )->where ( 'class.bunrui', ( int ) 1 );
+				$join->on ( 'facility.genre1', '=', 'class.gid1' );
+			} )->leftJoin ( 'genre as class2', function ($join) {
+				$join->on ( 'facility.citycode', '=', 'class2.citycode' );
+				$join->on ( 'facility.genre1', '=', 'class2.gid1' );
+				$join->on ( 'facility.genre2', '=', 'class2.gid2' );
+			} )->select ( 'facility.*', 'class.meisho as meisho1', 'class2.meisho as meisho2' )->get ();
 		} else {
-			$facilities = Facility::where('facility.citycode', $cityCD)->orderBy('genre1', 'ASC')->leftJoin('genre as class1', function ($join){
-				$join->on('facility.citycode', '=', 'class1.citycode')->where('class1.bunrui', (int)1);
-				$join->on('facility.genre1', '=', 'class1.gid1');
-			})->leftJoin('genre as class2', function ($join){
-				$join->on('facility.citycode', '=', 'class2.citycode');
-				$join->on('facility.genre1', '=', 'class2.gid1');
-				$join->on('facility.genre2', '=', 'class2.gid2');
-			})
-			->select('facility.*','class1.meisho as meisho1','class2.meisho as meisho2')
-			->get();
+			$facilities = Facility::where ( 'facility.citycode', $cityCD )->orderBy ( 'genre1', 'ASC' )->leftJoin ( 'genre as class1', function ($join) {
+				$join->on ( 'facility.citycode', '=', 'class1.citycode' )->where ( 'class1.bunrui', ( int ) 1 );
+				$join->on ( 'facility.genre1', '=', 'class1.gid1' );
+			} )->leftJoin ( 'genre as class2', function ($join) {
+				$join->on ( 'facility.citycode', '=', 'class2.citycode' );
+				$join->on ( 'facility.genre1', '=', 'class2.gid1' );
+				$join->on ( 'facility.genre2', '=', 'class2.gid2' );
+			} )->select ( 'facility.*', 'class1.meisho as meisho1', 'class2.meisho as meisho2' )->get ();
 		}
 
-		error_log("???????????????????42".$facilities[0]->meisho1);
-		$result= Genre::where('citycode', $cityCD)->where('bunrui', 1)->orderBy('gid1', 'ASC')->get();
-		foreach($result as $res){
-			error_log($result[0]->gid);
-			//$genre1value = $genre1value + $result()->gid
+		error_log ( "???????????????????42" . $facilities [0]->meisho1 );
+		$genre1value = Genre::where ( 'citycode', $cityCD )->where ( 'bunrui', 1 )->orderBy ( 'gid1', 'ASC' )->value ( gid, meisho )->get ();
+		foreach ( $genre1value as $key => $value ) {
+			$genre2value = Genre::where ( 'citycode', $cityCD )->where ( 'bunrui', 2 )->where ( 'gid1', $key )->value ( gid, meisho )->get ();
 		}
-		foreach($genre1value as $key => $value){
-			$result = DB::table('genre')->where('citycode', $cityCD)->where('bunrui', 2)->where('gid1', $key)->get();
-			$arr = array();
-			while ($row = pg_fetch_row($result)) {
-				$arr = $arr + array($row[4] => $row[6]);
-			}
-			$genre2value = $genre2value + array($key => $arr);
-		}
-		return view('facility',['facilities' => $facilities, 'genre1value'=>$genre1value, 'genre2value'=>$genre2value]);
+		return view ( 'facility', [
+				'facilities' => $facilities,
+				'genre1value' => $genre1value,
+				'genre2value' => $genre2value
+		] );
 	}
-
 	public function request() {
 		$this->requestall = \Request::all ();
 		if ($this->requestall ["param"] == "update") {
@@ -71,7 +60,6 @@ class FacilityController {
 			] );
 		}
 	}
-
 	public function update() {
 		$input = \Request::all ();
 		$rules = [
@@ -126,7 +114,7 @@ class FacilityController {
 					'imageurl' => $imageurl,
 					'url' => $url,
 					'geom' => \DB::raw ( "public.ST_GeomFromText('POINT({$lat} {$lng})',4326)" )
-					] );
+			] );
 		} else {
 			$result = DB::table ( 'facility' )->where ( 'id', $id )->update ( [
 					'citycode' => $citycode,
@@ -141,15 +129,17 @@ class FacilityController {
 					'imageurl' => $imageurl,
 					'url' => $url,
 					'geom' => \DB::raw ( "public.ST_GeomFromText('POINT({$lat} {$lng})',4326)" )
-					] );
+			] );
 		}
 	}
 	public function delete() {
 		$input = $this->requestall;
 		$ids = $input ["ids"];
 		foreach ( $ids as $id ) {
-			DB::table('facility')->where('id',$id)->delete();
+			DB::table ( 'facility' )->where ( 'id', $id )->delete ();
 		}
-		return \Response::json(['status' => 'OK']);
+		return \Response::json ( [
+				'status' => 'OK'
+		] );
 	}
 }
