@@ -132,7 +132,7 @@ class Watson{
 				CURLOPT_RETURNTRANSFER => true,
 		);
 		curl_setopt_array($curl, $options);
-		error_log("△△△△△△");
+
 		return curl_exec($curl);
 
 	}
