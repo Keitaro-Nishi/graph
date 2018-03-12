@@ -2,12 +2,12 @@ var select_val = 0;
 
 //$(function() {
 function init() {
-	document.getElementById('messid').selectedIndex = 0;
+	document.getElementById('citycode').selectedIndex = 0;
 	codeselChange();
 }
 
 function codeselChange(){
-	select_val = document.getElementById('messid').value;
+	select_val = document.getElementById('citycode').value;
 
 	//パラメタ検索
 	for(var i=0; i < parameters.length; i++){
