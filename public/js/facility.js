@@ -139,7 +139,6 @@ function genre1change(){
 	var mediums= document.getElementById('mediums').value;
 	var genre2value = JSON.parse(mediums);
 	var janru = genre2value[document.getElementById('dia_genre1').value];
-	console.log(janru);
 	for( var key in janru ) {
 		var option = document.createElement('option');
 		option.setAttribute('value', key);
