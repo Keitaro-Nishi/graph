@@ -103,5 +103,6 @@ return [
     	'userid'=>'ユーザーＩＤ',
     	'organization'=>'所属',
     	'password'=>'パスワード',
+    	'intpass'=>'初期パスワード',
     ],
 ];

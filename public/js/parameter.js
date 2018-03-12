@@ -161,3 +161,46 @@ function insert(){
 		});
     });
 }
+
+function drow() {
+	bootbox.confirm({
+	    message: document.getElementById('cityname').value + "のパラメタを削除しますか？",
+	    buttons: {
+	    	confirm: {
+	            label: '<i class="fa fa-check"></i> はい'
+	        },
+	        cancel: {
+	            label: '<i class="fa fa-times"></i> いいえ'
+	        }
+	    },
+	    callback: function (result) {
+	        if(result){
+	        	var _token = document.getElementById('_token').value;
+	        	$.ajax({
+	    			type: "POST",
+	    			dataType: "JSON",
+	    			data:{
+	    				"param" : "delete",
+	    				"citycode" : select_val,
+	    				"_token" : _token
+	    			}
+	    		}).done(function (response) {
+	    			if(response.status == "OK"){
+	    				bootbox.alert({
+	    					message: "削除しました",
+	    					size: 'small',
+	    					callback: function () {
+	    						location.reload();
+	    					}
+	    				});
+	    			}
+	    	    }).fail(function () {
+	    	    	bootbox.alert({
+	    				message: "削除できませんでした",
+	    				size: 'small'
+	    			});
+	    	    });
+	        }
+	    }
+	});
+}

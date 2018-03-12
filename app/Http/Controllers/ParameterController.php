@@ -36,6 +36,8 @@ class ParameterController
 			return $this->update();
 		}elseif($this->requestall["param"] == "insert"){
 			return $this->insert();
+		}elseif($this->requestall["param"] == "delete"){
+			return $this->delete();
 		}else{
 			return \Response::json(['status' => 'NG']);
 		}
@@ -114,6 +116,16 @@ class ParameterController
 					'intpass' => $intpass
 			]);
 		}
+
+		return \Response::json(['status' => 'OK']);
+	}
+
+	public function delete()
+	{
+		$input = $this->requestall;
+		$cityCD = $input["citycode"];
+
+		DB::table('parameter')->where('citycode', $cityCD)->delete();
 
 		return \Response::json(['status' => 'OK']);
 	}
