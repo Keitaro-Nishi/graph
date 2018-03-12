@@ -125,8 +125,8 @@ class Watson{
 	public function callWatson(&$url){
 
 		error_log("☆☆☆☆☆☆☆");
-		$url = "テスト";
-		error_log($url);
+		$test = "テスト";
+		error_log($test);
 
 		/*$curl = curl_init($url);
 		$options = array(
