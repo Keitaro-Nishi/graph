@@ -87,16 +87,16 @@ class GenreintController
 		$data = array("text" => $sword);
 		$jsonString = $watson->callWatson($url,$username,$password,$data);
 		$json = json_decode($jsonString, true);
+		error_log("●△☓●△☓★");
 		//error_log($json["text"]);
 
 
 		if($json["text"] == $sword){
-
-			return Response::json("OK");
+			return \Response::json('OK');
 			//echo json_encode("OK");
 		}else{
-			error_log("●△☓●△☓★");
-			return Response::json("NG");
+
+			return \Response::json('NG');
 			//echo json_encode("NG");
 		}
 	}
