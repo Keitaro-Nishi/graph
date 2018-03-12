@@ -1,6 +1,6 @@
 var rowIds = [];
 
-$(function() {
+function init() {
 	$("#grid-basic").bootgrid({
 		selection : true,
 		multiSelect : true,
@@ -38,7 +38,7 @@ $(function() {
 	}
 	genre1change();
 
-});
+}
 
 function drow() {
 	if(rowIds.length == 0){

@@ -134,5 +134,8 @@
 	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog"/>
 </div>
 <script src="{{ asset('js/facility.js') }}"></script>
-
+<script>
+var intpass = @json($genre1value, $genre2value);
+init();
+</script>
 @endsection

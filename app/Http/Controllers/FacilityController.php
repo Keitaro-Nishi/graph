@@ -14,7 +14,7 @@ class FacilityController {
 	public function index(Request $request) {
 		$cityCD = Auth::user ()->citycode;
 		$genre1value = array ();
-		$genre2value= array ();
+		$genre2value = array ();
 
 		if ($cityCD == "00000") {
 
@@ -37,22 +37,24 @@ class FacilityController {
 			} )->select ( 'facility.*', 'class1.meisho as meisho1', 'class2.meisho as meisho2' )->get ();
 		}
 
-		$genre1value = Genre::select( 'gid1', 'meisho' )->where ( 'citycode', $cityCD )->where ( 'bunrui', 1 )->orderBy ( 'gid1', 'ASC' )->get ();
-		error_log ( "???????????????????41" . $genre1value[0]->meisho);
-		//error_log ( print_r($genre1value->toArray(), true));
-		foreach ($genre1value as $j1value){
+		$genre1value = Genre::select ( 'gid1', 'meisho' )->where ( 'citycode', $cityCD )->where ( 'bunrui', 1 )->orderBy ( 'gid1', 'ASC' )->get ();
+		error_log ( "???????????????????41" . $genre1value [0]->meisho );
+		// error_log ( print_r($genre1value->toArray(), true));
+		foreach ( $genre1value as $j1value ) {
 			$gid1 = $j1value->gid1;
-			$j2value= Genre::select('gid2', 'meisho')->where( 'citycode', $cityCD )->where('gid1', $gid1)->where('bunrui', 2 )->get();
+			$j2value = Genre::select ( 'gid2', 'meisho' )->where ( 'citycode', $cityCD )->where ( 'gid1', $gid1 )->where ( 'bunrui', 2 )->get ();
 
-			$j2value2 = $j2value->toArray();
-			error_log ( print_r($j2value2, true));
+			$j2value2 = $j2value->toArray ();
+			error_log ( print_r ( $j2value2, true ) );
 
-			$genre2value = $genre2value + array($gid1 => $j2value);
+			$genre2value = $genre2value + array (
+					$gid1 => $j2value
+			);
 		}
-/*
-		$genre1value = array();
-		$genre2value = array();
-		*/
+		/*
+		 * $genre1value = array();
+		 * $genre2value = array();
+		 */
 		return view ( 'facility', [
 				'facilities' => $facilities,
 				'genre1value' => $genre1value,
