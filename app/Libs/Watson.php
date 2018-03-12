@@ -122,7 +122,7 @@ class Watson{
 		}
 	}
 
-	public function callWatson(String $url){
+	public function callWatson($url){
 		//global $curl, $url, $username, $password, $data, $options;
 		error_log("☆☆☆☆☆☆☆");
 		//this.$url = $url;
