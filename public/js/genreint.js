@@ -39,7 +39,7 @@ function getwtint(){
 			"_token" : _token
 		}
 	}).done(function (response) {
-		console.log(response);
+		//console.log(response);
 		result = JSON.parse(response);
 		console.log(result);
 		for( var index in result ) {
