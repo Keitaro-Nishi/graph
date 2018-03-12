@@ -5,6 +5,9 @@ function init() {
 	if(document.getElementById('citycode')){
 		document.getElementById('citycode').selectedIndex = 0;
 	}
+	for(var ii=0; ii < functions.length; ii++){
+		document.getElementById('usefunction' + functions[ii]['code2']).disabled = !document.getElementById('citycode');
+	}
 	codeselChange();
 }
 
