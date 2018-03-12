@@ -28,7 +28,7 @@ function codeselChange(){
 				document.getElementById('cvs_ws_id5').value = parameters[i]['cvs_ws_id5'];
 			}
 			var uf = parameters[i]['usefunction'];
-			if(uf.length > 0){
+			if(uf){
 				for(var ii=0; ii < functions.length; i++){
 					if(uf.substr(ii,1) == "1"){
 						document.getElementById('usefunction' + functions[ii]['code2']).selected = true;
