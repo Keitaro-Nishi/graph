@@ -64,7 +64,7 @@ class GenreintController
 		}
 
 
-		return \Response::json($arr);
+		return Response::json($arr);
 		//return Response::json_encode($arr,JSON_PRETTY_PRINT);
 		//echo json_encode($arr);
 	}
