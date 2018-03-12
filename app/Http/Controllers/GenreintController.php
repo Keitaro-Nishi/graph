@@ -58,9 +58,10 @@ class GenreintController
 		//error_log("★★★★★");
 		//error_log(print_r($json,true));
 		$arr = array();
-		error_log("★★★★★");
+		error_log("☆☆☆☆☆");
 		foreach ($json["examples"] as $value){
 			error_log("●●●●");
+			error_log($value["text"]);
 			array_push($arr,$value["text"]);
 		}
 		return Response::json($arr);
