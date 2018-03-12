@@ -22,7 +22,7 @@ class ParameterController
 		}
 		*/
 		if($cityCD == "00000"){
-			$parameters = Parameter::all();
+			$parameters = Parameter::all()->orderBy('citycode', 'ASC');
 		}else{
 			$parameters = Parameter::select('citycode','usefunction','intpasscalss','intpass')->where('citycode', $cityCD)->get();
 		}
@@ -69,12 +69,15 @@ class ParameterController
 	{
 		$input = $this->requestall;
 
+		error_log("★★★★★★★★★★★★intpasscalss★★★★★★★★★★★★★★★★".$input["intpasscalss"]);
+
 		if($input["intpasscalss"] == "2"){
 			$rules = $rules + ['intpass' => 'required|string|min:6'];
 			$validator = Validator::make($input,$rules);
 
 			if($validator->fails())
 			{
+				error_log("★★★★★★★★★★★★fails★★★★★★★★★★★★★★★★");
 				return $validator->errors();
 			}
 		}
