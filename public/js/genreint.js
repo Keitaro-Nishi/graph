@@ -77,8 +77,8 @@ function update(){
 			"_token" : _token
 		}
 	}).done(function (response) {
-		//result = JSON.parse(response);
-		if(result.status == "OK"){
+		result = JSON.parse(response);
+		if(result == "OK"){
 			alert("更新しました");
 			var raw = wtable.insertRow( -1 );
 			var td1 = raw.insertCell(-1),td2 = raw.insertCell(-1);
