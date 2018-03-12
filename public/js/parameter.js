@@ -7,7 +7,11 @@ function init() {
 }
 
 function codeselChange(){
-	select_val = document.getElementById('citycode').value;
+	if(parameters[i]['citycode'] == select_val){
+		select_val = document.getElementById('citycode').value;
+	}else{
+		select_val = parameters[0]['citycode'];
+	}
 
 	//パラメタ検索
 	for(var i=0; i < parameters.length; i++){

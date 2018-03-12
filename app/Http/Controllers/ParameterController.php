@@ -24,7 +24,7 @@ class ParameterController
 		if($cityCD == "00000"){
 			$parameters = Parameter::all();
 		}else{
-			$parameters = Parameter::where('citycode', $cityCD)->get();
+			$parameters = Parameter::select('citycode','usefunction','intpasscalss','intpass')->where('citycode', $cityCD)->get();
 		}
 
 		return view('parameter',['parameters'=>$parameters]);
