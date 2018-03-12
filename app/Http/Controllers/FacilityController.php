@@ -41,9 +41,10 @@ class FacilityController {
 		$genre1value = Genre::where ( 'citycode', $cityCD )->where ( 'bunrui', 1 )->orderBy ( 'gid1' )->select( 'gid1', 'meisho' )->get ();
 		foreach ($genre1value as $j1value){
 			$gid1 = $j1value->gid1;
+			error_log ( "???????????????????44" . $gid1 );
 			$genre2value= DB::table('genre')->select('gid2', 'meisho')->where('gid1', $gid1)->get();
 		}
-		error_log ( "???????????????????45" . $genre2value[0]->meisho );
+		error_log ( "???????????????????47" . $genre2value[0]->meisho );
 		return view ( 'facility', [
 				'facilities' => $facilities,
 				'genre1value' => $genre1value,
