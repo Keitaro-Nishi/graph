@@ -55,8 +55,9 @@ class GenreintController
 		$jsonString = $watson->callWatson2($url,$username,$password);
 		$json = json_decode($jsonString, true);
 
-		//error_log("★★★★★");
-		//error_log(print_r($json,true));
+		error_log("★★★★★");
+		error_log(print_r($json,true));
+
 		$arr = array();
 		error_log("☆☆☆☆☆");
 		foreach ($json["examples"] as $value){
