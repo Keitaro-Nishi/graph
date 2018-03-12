@@ -91,6 +91,12 @@
 							<input type="password" class="form-control" id="dia_password_confirmation" name="password_confirmation" value="" required>
 						</div>
 					</div>
+					<div class="form-group" id="dia_info">
+						<label class="col-sm-3 control-label" for="dia_infolabel"></label>
+						<div class="col-sm-9">
+							<label class="control-label" id="dia_infolabel"></label>
+						</div>
+					</div>
 					<input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
 					<div class="text-right" >
 						<button type="button" class="btn btn-primary" onclick="update()">登録</button>
@@ -108,5 +114,8 @@
 	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog"/>
 </div>
 <script src="{{ asset('js/users.js') }}"></script>
-
+<script>
+var intpass = @json($intpass);
+init();
+</script>
 @endsection

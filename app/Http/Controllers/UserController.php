@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\User;
 use App\Code;
+use App\Parameter;
 
 class UserController
 {
@@ -34,7 +35,8 @@ class UserController
 			->get();
 		}
 		$organizations= Code::where('citycode', $cityCD)->where('code1', 12)->orderBy('code2', 'ASC')->get();
-		return view('users',['users'=>$users,'organizations'=>$organizations]);
+		$intpass = Parameter::select('intpasscalss','intpass')->where('citycode', $cityCD)->first();
+		return view('users',['users'=>$users,'organizations'=>$organizations,'intpass'=>$intpass]);
 	}
 
 	public  function request(){
