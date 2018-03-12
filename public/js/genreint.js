@@ -39,6 +39,7 @@ function getwtint(){
 			"_token" : _token
 		}
 	}).done(function (response) {
+		alert("test");
 		result = JSON.parse(response);
 		for( var index in result ) {
 			var raw = wtable.insertRow( -1 );
