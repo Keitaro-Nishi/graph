@@ -85,10 +85,9 @@ class GenreintController
 
 		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents/".$g1meisho."/examples?version=2017-05-26";
 		$data = array("text" => $sword);
-
 		$jsonString = $watson->callWatson($url,$username,$password,$data);
-		error_log("●●●●●●●");
 		$json = json_decode($jsonString, true);
+		error_log("●△☓●△☓");
 
 		if($json["text"] == $sword){
 			return Response::json("OK");
