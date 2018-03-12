@@ -1,4 +1,5 @@
 var rowIds = [];
+
 $(function() {
 	$("#grid-basic").bootgrid({
 		selection : true,
@@ -23,6 +24,20 @@ $(function() {
 			});
 		}
 	});
+/*
+	//ジャンルの設定
+	var larges = document.getElementById('large').value;
+	var genre1value = JSON.parse(large);
+	var select = document.getElementById('dia_genre1');
+	for( var key in genre1value ) {
+		var option = document.createElement('option');
+		option.setAttribute('value', key);
+		var text = document.createTextNode(j1value[key]);
+		option.appendChild(text);
+		select.appendChild(option);
+	}
+	genre1change();
+	*/
 });
 
 function drow() {
@@ -141,7 +156,7 @@ function initmodal(){
 	document.getElementById('dia_tel').value = "";
 	document.getElementById('dia_genre1').selectedIndex = 0;
 	genre1change();
-	document.getElementById('dia_genre2').selectedIndex = 0;
+	//document.getElementById('dia_genre2').selectedIndex = 0;
 	document.getElementById('dia_latlng').value = "";
 	document.getElementById('dia_imageurl').value = "";
 	document.getElementById('dia_url').value = "";
