@@ -108,6 +108,7 @@ class GenreController
 		$g1meisho = $input["g1meisho"];
 		$meishoOld = $input["meishoOld"];
 		$cityCD = Auth::user()->citycode;
+		$watson = new Watson;
 
 		if($uiKbn == 1){
 			DB::table('genre')->where('citycode',$cityCD)->where('gid1',$gid1)->where('gid2',$gid2)->update(['meisho' => $meisho]);
@@ -119,19 +120,19 @@ class GenreController
 				//Intents
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents/".$gid1."?version=2017-05-26";
 				$data = array("description" => $meisho);
-				callWatson();
+				$watson->callWatson($url,$username,$password,$data);
 			}else{
 				//小分類
 				//CVSデータ修正
 				//ENTITIES
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities/".$gid1."/values/".urlencode($meishoOld)."?version=2017-05-26";
 				$data = array("value" => $meisho);
-				callWatson();
+				$watson->callWatson($url,$username,$password,$data);
 
 				//DIALOG
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/dialog_nodes/".$gid1.".".$gid2."?version=2017-05-26";
 				$data = array("conditions" => "@".$gid1.":".$meisho);
-				callWatson();
+				$watson->callWatson($url,$username,$password,$data);
 			}
 		}else{
 			if($bunrui == 1){
@@ -143,14 +144,8 @@ class GenreController
 				//CVSデータ作成
 				//Intents
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents?version=2017-05-26";
-				$username = getenv('CVS_USERNAME');
-				$password = getenv('CVS_PASS');
 				$data = array("intent" => (string)$gid1,"description" => $meisho);
 				error_log("★★★★★");
-
-
-				$watson = new Watson;
-				//var_dump($watson->callWatson($url,$username,$password,$data));
 				$watson->callWatson($url,$username,$password,$data);
 
 				//ENTITIES
@@ -197,12 +192,12 @@ class GenreController
 				//ENTITIES
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities/".$gid1."/values?version=2017-05-26";
 				$data = array("value" => $meisho);
-				callWatson();
+				$watson->callWatson($url,$username,$password,$data);
 
 				//上記で取得したdialog_nodeをparentに設定して新規ノードを作成
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/dialog_nodes/?version=2017-05-26";
 				$data = array("dialog_node" => $gid1.".".$gid2,"type" => "response_condition","parent" =>  $gid1.".0","conditions" => "@".$gid1.":".$meisho,"output" => array("text" => array("values" => array($gid1.".".$gid2))));
-				callWatson();
+				$watson->callWatson($url,$username,$password,$data);
 			}
 		}
 		return \Response::json(['status' => 'OK']);
