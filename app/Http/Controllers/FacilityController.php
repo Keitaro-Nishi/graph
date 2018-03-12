@@ -46,7 +46,6 @@ class FacilityController {
 		$result= DB::table('genre')->where('citycode', $cityCD)->where('bunrui', 1)->orderBy('gid1', 'ASC')->get();
 		while ($row = pg_fetch_row($result)) {
 			$genre1value = $genre1value + array($row[1] => $row[4]);
-			error_log("???????????????????49".$row[4]->meisho1);
 		}
 		foreach($genre1value as $key => $value){
 			$result = DB::table('genre')->where('citycode', $cityCD)->where('bunrui', 2)->where('gid1', $key);
