@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Genre;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use App\Libs\watson;
+use App\Libs\Watson;
 
 
 class GenreController
@@ -146,9 +146,9 @@ class GenreController
 				$data = array("intent" => (string)$gid1,"description" => $meisho);
 				error_log("★★★★★");
 
-				$CallWatson = new watson;
+				$watson = new Watson;
 				//$CallWatson->callWatson();
-				$CallWatson->callwatson();
+				$watson->callwatson();
 
 
 				//ENTITIES

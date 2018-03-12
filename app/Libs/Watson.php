@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class watson{
+class Watson{
 
 	public function index(){
 		$workspace_id = getenv('CVS_WORKSPASE_ID');
@@ -124,7 +124,7 @@ class watson{
 
 	public function callWatson(){
 		//global $curl, $url, $username, $password, $data, $options;
-		error_log("成功");
+		error_log("大成功");
 		/*$curl = curl_init($url);
 		$options = array(
 				CURLOPT_HTTPHEADER => array(
