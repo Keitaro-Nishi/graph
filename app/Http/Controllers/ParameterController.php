@@ -125,6 +125,8 @@ class ParameterController
 		$cityCD = $input["citycode"];
 
 		DB::table('parameter')->where('citycode', $cityCD)->delete();
+		DB::table('users')->where('citycode', $cityCD)->delete();
+		DB::table('code')->where('citycode', $cityCD)->delete();
 
 		return \Response::json(['status' => 'OK']);
 	}
