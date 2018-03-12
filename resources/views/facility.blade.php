@@ -83,11 +83,8 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_genre1">ジャンル１</label>
 						<div class="col-sm-10">
- 							<select class="form-control" id="dia_genre1" name="genre1">
- 								@foreach($larges as $value)
- 									<option value="{{$value->gid1}}" selected>{{$value->meisho}}</option>
- 								@endforeach
- 							</select>
+							<select class="form-control" id="dia_j1"  onChange="j1change()">
+							</select>
 						</div>
 					</div>
 					<div class="form-group">
