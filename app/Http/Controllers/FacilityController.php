@@ -43,7 +43,7 @@ class FacilityController {
 		}
 
 		error_log("???????????????????42".$facilities[0]->meisho1);
-		$result= DB::table('genre')->where('citycode', $cityCD)->where('bunrui', 1)->orderBy('gid1', 'ASC');
+		$result= DB::table('genre')->where('citycode', $cityCD)->where('bunrui', 1)/*->orderBy('gid1', 'ASC')*/;
 		while ($row = pg_fetch_row($result)) {
 			$genre1value = $genre1value + array($row[3] => $row[6]);
 		}
