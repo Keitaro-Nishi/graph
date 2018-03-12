@@ -165,7 +165,7 @@ class GenreController
 
 				//全てのLISTから１つ前のダイアログを探す
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/dialog_nodes/?version=2017-05-26";
-				$jsonString = var_dump($watson->callWatson2());
+				$jsonString = var_dump($watson->callWatson2($url,$username,$password));
 				$json = json_decode($jsonString, true);
 				foreach ($json["dialog_nodes"] as $value){
 					error_log("values:".$value["output"]["text"]["values"][0]);
@@ -177,13 +177,13 @@ class GenreController
 				}
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/dialog_nodes/?version=2017-05-26";
 				$data = array("dialog_node" => $gid1.".".$gid2,"title" => "entity".$gid1,"conditions" => "@".$gid1,"previous_sibling" => "ようこそ","metadata" => array("_customization" => array("mcr" => true)));
-				var_dump($watson->callWatson());
+				var_dump($watson->callWatson($url,$username,$password,$data));
 				if($previous_sibling == ""){
 					$previous_sibling = $gid1.".".$gid2;
 				}
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/dialog_nodes/?version=2017-05-26";
 				$data = array("dialog_node" => "node_".$gid1,"title" => "intent".$gid1,"conditions" => "#".$gid1,"previous_sibling" => $previous_sibling,"output" => array("text" => array("values" => array($gid1.".".$gid2))));
-				var_dump($watson->callWatson());
+				var_dump($watson->callWatson($url,$username,$password,$data));
 
 
 			}else{
