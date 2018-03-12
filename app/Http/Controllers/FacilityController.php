@@ -13,6 +13,9 @@ use App\Genre;
 class FacilityController {
 	public function index(Request $request) {
 		$cityCD = Auth::user ()->citycode;
+		$genre1value = array();
+		$genre2value = array();
+
 		if ($cityCD == "00000") {
 
 			$facilities = Facility::select()->leftJoin('genre as class', function ($join) {
@@ -40,9 +43,10 @@ class FacilityController {
 		}
 
 		error_log("???????????????????42".$facilities[0]->meisho1);
-		$larges= DB::table('genre')->where('citycode', $cityCD)->where('bunrui', 1)->orderBy('gid1', 'ASC')->get();
-		while ($row = pg_fetch_row($larges)) {
+		$result= DB::table('genre')->where('citycode', $cityCD)->where('bunrui', 1)->orderBy('gid1', 'ASC')->get();
+		while ($row = pg_fetch_row($result)) {
 			$genre1value = $genre1value + array($row[1] => $row[4]);
+			error_log("???????????????????49".$row[4]->meisho1);
 		}
 		foreach($genre1value as $key => $value){
 			$result = DB::table('genre')->where('citycode', $cityCD)->where('bunrui', 2)->where('gid1', $key);
