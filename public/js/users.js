@@ -82,6 +82,7 @@ function detail(name,userid,organization,citycode){
 	document.getElementById('modal-label').innerHTML  = "ユーザー情報修正";
 	initmodal();
 	if(document.getElementById('dia_citycode')){
+		alert(citycode);
 		document.getElementById('dia_citycode').value = citycode;
 		document.getElementById('dia_citycode').disabled = true;
 	}
