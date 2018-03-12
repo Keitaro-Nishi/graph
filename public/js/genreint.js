@@ -45,7 +45,7 @@ function getwtint(){
 			var raw = wtable.insertRow( -1 );
 			var td1 = raw.insertCell(-1),td2 = raw.insertCell(-1);
 			td2.style.width = "50px";
-			console.log(response[index]);
+			console.log(response[i]);
 			td1.innerHTML = response[i];
 			td2.innerHTML = '<input type="button" value="削除" class="btn btn-default" onclick="delLine(\'' + response[i] + '\',this)" />';
 			//alert("成功");
