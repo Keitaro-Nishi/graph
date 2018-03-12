@@ -129,7 +129,7 @@ class Watson{
 		$x = "テスト";
 		error_log($x);
 
-		$curl = curl_init($url);
+		/*$curl = curl_init($url);
 		$options = array(
 				CURLOPT_HTTPHEADER => array(
 						'Content-Type: application/json',
@@ -141,6 +141,7 @@ class Watson{
 		);
 		curl_setopt_array($curl, $options);
 		return curl_exec($curl);
+		*/
 	}
 
 
