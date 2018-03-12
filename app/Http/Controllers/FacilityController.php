@@ -40,10 +40,19 @@ class FacilityController {
 		}
 
 		error_log("???????????????????42".$facilities[0]->meisho1);
-		$larges= Genre::where('citycode', $cityCD)->where('bunrui', 1)->orderBy('gid1', 'ASC')->get();
-		$mediums= Genre::where('citycode', $cityCD)->where('bunrui', 2)->orderBy('gid1', 'ASC')->get();
-		error_log("???????????????????45".$mediums[0]->meisho);
-		return view('facility',['facilities' => $facilities, 'larges'=>$larges, 'mediums'=>$mediums]);
+		$larges= DB::table('genre')->lists('meisho')->where('citycode', $cityCD)->where('bunrui', 1)->orderBy('gid1', 'ASC')->get();
+		while ($row = pg_fetch_row($larges)) {
+			$genre1value = $genre1value + array($row[1] => $row[4]);
+		}
+		foreach($genre1value as $key => $value){
+			$result = DB::table('genre')->lists('meisho')->where('bunrui', 2)->where('gid1', $key);
+			$arr = array();
+			while ($row = pg_fetch_row($result)) {
+				$arr = $arr + array($row[2] => $row[4]);
+			}
+			$genre2value = $genre2value + array($key => $arr);
+		}
+		return view('facility',['facilities' => $facilities, 'genre1value'=>$genre1value, 'genre2value'=>$genre2value]);
 	}
 
 	public function request() {

@@ -127,10 +127,10 @@
 </div>
 
 <div>
-	<input id="mlarges" type= "hidden" value = '{{ $larges }}'>
+	<input id="genre1value" type= "hidden" value = '{{ $genre1value }}'>
 </div>
 <div>
-	<input id="mediums" type= "hidden" value = '{{ $mediums }}'>
+	<input id="genre2value" type= "hidden" value = '{{ $genre2value }}'>
 </div>
 
 <div class="container" align="center">

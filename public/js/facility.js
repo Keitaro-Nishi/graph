@@ -26,8 +26,8 @@ $(function() {
 	});
 
 	//ジャンルの設定
-	var larges = document.getElementById('large').value;
-	var genre1value = JSON.parse(larges);
+	var large = document.getElementById('genre1value').value;
+	var genre1value = JSON.parse(large);
 	var select = document.getElementById('dia_genre1');
 	for( var key in genre1value ) {
 		var option = document.createElement('option');
@@ -138,8 +138,8 @@ function genre1change(){
 	while (0 < select.childNodes.length) {
 		select.removeChild(select.childNodes[0]);
 	}
-	var mediums= document.getElementById('mediums').value;
-	var genre2value = JSON.parse(mediums);
+	var medium= document.getElementById('$genre2value').value;
+	var genre2value = JSON.parse(medium);
 	console.log(genre2value);
 	var janru = genre2value[document.getElementById('dia_genre1').value];
 	for( var key in janru ) {
