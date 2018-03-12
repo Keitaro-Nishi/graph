@@ -165,7 +165,7 @@ class GenreController
 
 				//全てのLISTから１つ前のダイアログを探す
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/dialog_nodes/?version=2017-05-26";
-				$jsonString = var_dump($watson->callWatson2($url,$username,$password));
+				$jsonString = $watson->callWatson2($url,$username,$password);
 				$json = json_decode($jsonString, true);
 				foreach ($json["dialog_nodes"] as $value){
 					error_log("values:".$value["output"]["text"]["values"][0]);
