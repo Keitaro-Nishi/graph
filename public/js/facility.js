@@ -27,7 +27,7 @@ $(function() {
 
 	//ジャンルの設定
 	var larges = document.getElementById('large').value;
-	var genre1value = JSON.parse(large);
+	var genre1value = JSON.parse(larges);
 	var select = document.getElementById('dia_genre1');
 	for( var key in genre1value ) {
 		var option = document.createElement('option');
