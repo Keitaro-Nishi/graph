@@ -44,7 +44,7 @@ class FacilityController {
 		foreach ( $genre2value as $j2value ) {
 		}
 		*/
-		foreach($j1value as $key => $value){
+		foreach($genre1value as $key => $value){
 			$j2value= Genre::where ( 'citycode', $cityCD )->where ( 'bunrui', 2 )->where ( 'gid1', $key )->orderBy ( 'gid1' )->select( 'gid2', 'meisho' )->get ();
 			$genre2value= $j2value + array($key => $j2value);
 		}
