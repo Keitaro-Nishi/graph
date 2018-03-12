@@ -27,9 +27,12 @@ function codeselChange(){
 				document.getElementById('cvs_ws_id4').value = parameters[i]['cvs_ws_id4'];
 				document.getElementById('cvs_ws_id5').value = parameters[i]['cvs_ws_id5'];
 			}
-			for(var ii=0; ii < functions.length; i++){
-				if(parameters[i]['usefunction'].substr(ii,1) == "1"){
-					document.getElementById('usefunction' + functions[ii]['code2']).selected = true;
+			var uf = parameters[i]['usefunction'];
+			if(uf.length > 0){
+				for(var ii=0; ii < functions.length; i++){
+					if(uf.substr(ii,1) == "1"){
+						document.getElementById('usefunction' + functions[ii]['code2']).selected = true;
+					}
 				}
 			}
 			document.getElementById('usefunction').value = parameters[i]['usefunction'];
