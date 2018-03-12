@@ -36,7 +36,7 @@ class FacilityController {
 				$join->on ( 'facility.genre2', '=', 'class2.gid2' );
 			} )->select ( 'facility.*', 'class1.meisho as meisho1', 'class2.meisho as meisho2' )->get ();
 		}
-
+/*
 		$genre1value = Genre::select( 'gid1', 'meisho' )->where ( 'citycode', $cityCD )->where ( 'bunrui', 1 )->orderBy ( 'gid1', 'ASC' )->get ();
 		error_log ( "???????????????????41" . $genre1value[0]->meisho);
 		//error_log ( print_r($genre1value->toArray(), true));
@@ -49,7 +49,9 @@ class FacilityController {
 
 			$genre2value = $genre2value + array($gid1 => $j2value);
 		}
-
+*/
+		$genre1value = array();
+		$genre2value = array();
 		return view ( 'facility', [
 				'facilities' => $facilities,
 				'genre1value' => $genre1value,
