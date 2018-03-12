@@ -24,7 +24,7 @@ class GenreintController
 	public  function request(){
 		$this->requestall = \Request::all();
 		if ($this->requestall["param"] == "intentSearch"){
-			return $this->intentSeach();
+			return $this->intentSearch();
 		}elseif($this->requestall["param"] == "intentUpdate"){
 			return $this->intentUpdate();
 		}else{
