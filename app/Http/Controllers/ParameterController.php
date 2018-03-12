@@ -71,13 +71,12 @@ class ParameterController
 
 		if($input["intpasscalss"] == "2"){
 			$rules = $rules + ['intpass' => 'required|string|min:6'];
-		}
+			$validator = Validator::make($input,$rules);
 
-		$validator = Validator::make($input,$rules);
-
-		if($validator->fails())
-		{
-			return $validator->errors();
+			if($validator->fails())
+			{
+				return $validator->errors();
+			}
 		}
 
 		$cityCD = Auth::user()->citycode;
