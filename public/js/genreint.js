@@ -89,7 +89,7 @@ function update(){
 			alert("更新できませんでした");
 		}
     }).fail(function () {
-        alert("更新できませんでした");
+        alert("更新できませんでした☓");
     });
 	document.getElementById('intent').value = "";
 }
