@@ -139,13 +139,13 @@ function genre1change(){
 	var mediums= document.getElementById('mediums').value;
 	var genre2value = JSON.parse(mediums);
 	var janru = genre2value[document.getElementById('dia_genre1').value];
+	console.log(genre2);
 	for( var key in janru ) {
 		var option = document.createElement('option');
 		option.setAttribute('value', key);
 		var text = document.createTextNode(janru[key]);
 		option.appendChild(text);
 		select.appendChild(option);
-		console.log(select);
 	}
 }
 
