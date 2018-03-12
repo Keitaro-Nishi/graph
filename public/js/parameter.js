@@ -82,9 +82,9 @@ function update(){
 	}
 	for(var ii=0; ii < functions.length; ii++){
 		if(document.getElementById('usefunction' + functions[ii]['code2']).checked){
-			intpasscalss = intpasscalss + "1";
+			usefunction = usefunction + "1";
 		}else{
-			intpasscalss = intpasscalss + "0";
+			usefunction = usefunction + "0";
 		}
 	}
 	var intpasscalss = document.getElementById('intpasscalss').value;
