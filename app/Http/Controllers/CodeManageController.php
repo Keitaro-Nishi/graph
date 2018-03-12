@@ -7,6 +7,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Code;
+use App\Parameter;
 
 class CodeManageController
 {
@@ -17,7 +18,7 @@ class CodeManageController
 		if(Auth::user()->role == (int)0){
 			$codes= Code::orderBy('citycode', 'ASC')->orderBy('code1', 'ASC')->orderBy('code2', 'ASC')->get();
 			$bunrui = Code::where('citycode', '00000')->where('code1', (int)0)->orderBy('code2', 'ASC')->get();
-			$citycodes = Code::distinct()->select('citycode')->orderBy('citycode', 'ASC')->get();
+			$citycodes = Parameter::select('citycode','name')->orderBy('citycode', 'ASC')->get();
 		}else{
 			$codes= Code::where('citycode', $cityCD)->where('class2', '<>', '1')->orderBy('code1', 'ASC')->orderBy('code2', 'ASC')->get();
 			$bunrui = Code::where('citycode', '00000')->where('code1', (int)0)->where('code2', '>' ,(int)0)->where('class2', '<>', '1')->orderBy('code2', 'ASC')->get();

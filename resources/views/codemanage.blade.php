@@ -10,7 +10,7 @@
 <div class="col-sm-3">
 	<select class="form-control" id="citycd" onChange="codeselChange()">
 			@foreach($citycodes as $value)
-				<option value="{{$value->citycode}}" selected>{{$value->citycode}}</option>
+				<option value="{{$value->citycode}}" >{{$value->citycode}}:{{$value->cityname}}</option>
 			@endforeach
 	</select>
 </div>
