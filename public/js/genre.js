@@ -194,7 +194,7 @@ function update(){
 		meisho = document.getElementById('dia_g2meisho').value;
 	}
 	var _token = document.getElementById('_token').value;
-	console.log("こんにちは");
+
 
 	$.ajax({
 		type: "POST",

@@ -39,10 +39,7 @@ function getwtint(){
 			"_token" : _token
 		}
 	}).done(function (response) {
-		console.log("こんにちは");
-		alert("戻ってきました.");
 		result = JSON.parse(response);
-
 		for( var index in result ) {
 			var raw = wtable.insertRow( -1 );
 			var td1 = raw.insertCell(-1),td2 = raw.insertCell(-1);
@@ -92,7 +89,7 @@ function update(){
 			alert("更新できませんでした");
 		}
     }).fail(function () {
-        alert("更新できませんでした☓");
+        alert("更新できませんでした");
     });
 	document.getElementById('intent').value = "";
 }
