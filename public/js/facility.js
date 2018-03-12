@@ -145,6 +145,7 @@ function genre1change(){
 		var text = document.createTextNode(janru[key]);
 		option.appendChild(text);
 		select.appendChild(option);
+		console.log(select);
 	}
 }
 
