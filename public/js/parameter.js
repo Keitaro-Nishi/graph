@@ -14,6 +14,11 @@ function init() {
 function codeselChange(){
 	if(document.getElementById('citycode')){
 		select_val = document.getElementById('citycode').value;
+		if(select_val == "00000"){
+			document.getElementById('btn_del').disabled = true;
+		}else{
+			document.getElementById('btn_del').disabled = false;
+		}
 	}else{
 		select_val = parameters[0]['citycode'];
 	}
