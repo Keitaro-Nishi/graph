@@ -130,7 +130,7 @@ function insert(){
 //ダイアログ初期化
 function initmodal(){
 	if(document.getElementById('dia_citycode')){
-		document.getElementById('dia_citycode').value = "";
+		document.getElementById('dia_citycode').selectedIndex = 0;
 		document.getElementById('dia_citycode').disabled = false;
 	}
 	document.getElementById('dia_userid').value = "";
