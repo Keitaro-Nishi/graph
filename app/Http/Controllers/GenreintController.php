@@ -23,14 +23,16 @@ class GenreintController
 
 	public  function request(){
 		$this->requestall = \Request::all();
-		if ($this->requestall["param"] == "intentUpdate"){
+		if ($this->requestall["param"] == "intentSearch"){
+			return $this->intentSeach();
+		}elseif($this->requestall["param"] == "intentUpdate"){
 			return $this->intentUpdate();
 		}else{
 			return \Response::json(['status' => 'NG']);
 		}
 	}
 
-/*
+
 	public function intentSearch()
 	{
 
@@ -54,7 +56,7 @@ class GenreintController
 		$json = json_decode($jsonString, true);
 
 		error_log("●●●●●");
-		error_log(print_r($json,true));
+		//error_log(print_r($json,true));
 
 		$arr = array();
 		foreach ($json["examples"] as $value){
@@ -62,11 +64,11 @@ class GenreintController
 		}
 
 
-		return Response::json($arr);
+		return \Response::json($arr);
 		//return Response::json_encode($arr,JSON_PRETTY_PRINT);
 		//echo json_encode($arr);
 	}
-*/
+
 	public function intentUpdate(){
 
 		$workspace_id = getenv('CVS_WORKSPASE_ID');
