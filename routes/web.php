@@ -42,7 +42,7 @@ Route::middleware(['auth'])->group(function () {
 	Route::post ( '/genre','GenreController@request');
 
 	Route::get ( '/genreint', 'GenreintController@index' )->name ( 'genreint' );
-	//Route::post ( '/genreint', 'GenreintController@request' );
+	Route::post ( '/genreint', 'GenreintController@request' );
 
 	Route::get ( '/genreent', 'GenreentController@index' )->name ( 'genreent' );
 

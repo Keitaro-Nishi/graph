@@ -26,15 +26,17 @@ $(function(){
 //インテント取得
 function getwtint(){
 	g1meisho = document.getElementById('g1').value;
+	var _token = document.getElementById('_token').value;
 
 	$.ajax({
 		type: "POST",
-		url: "callwatson.php",
+		dataType: "JSON",
 		data: {
 			"param" : "intentSearch",
 			"g1meisho" : g1meisho,
 			"g2meisho" : "",
-			"sword" : ""
+			"sword" : "",
+			"_token" : _token
 		}
 	}).done(function (response) {
 		result = JSON.parse(response);

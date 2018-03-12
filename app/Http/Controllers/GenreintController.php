@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Genre;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Libs\Watson;
 
 class GenreintController
 {
@@ -18,7 +19,7 @@ class GenreintController
 
 	}
 
-	/*
+
 	public  function request(){
 		$this->requestall = \Request::all();
 		if ($this->requestall["param"] == "intentSearch"){
@@ -28,9 +29,9 @@ class GenreintController
 		}
 	}
 
+
 	public function intentSearch()
 	{
-		global $workspace_id,$username,$password,$url,$g1meisho;
 
 		$workspace_id = getenv('CVS_WORKSPASE_ID');
 		$username = getenv('CVS_USERNAME');
@@ -43,12 +44,13 @@ class GenreintController
 		$sword= $input["sword"];
 
 		$data = "";
+		$watson = new Watson;
 
 		//error_log("☆☆☆☆☆☆☆");
 		//error_log("g1meisho:".$g1meisho." g2meisho:".$g2meisho." param:".$param." sword:".$sword);
 
 		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents/".$g1meisho."/examples?version=2017-05-26&export=true";
-		$jsonString = $this->callWatson2();
+		$jsonString = $watson->callWatson2($url,$username,$password);
 		$json = json_decode($jsonString, true);
 
 		error_log("☆☆☆☆☆☆☆");
@@ -65,30 +67,7 @@ class GenreintController
 		//echo json_encode($arr);
 	}
 
-	public function callWatson2(){
-		global $curl, $url, $username, $password, $data, $options;
 
-		$curl = curl_init($url);
-		$options = array(
-				CURLOPT_HTTPHEADER => array(
-						'Content-Type: application/json',
-				),
-				CURLOPT_USERPWD => $username . ':' . $password,
-				CURLOPT_CUSTOMREQUEST => 'GET',
-				CURLOPT_RETURNTRANSFER => true,
-		);
-
-		error_log("●●●●●●");
-		error_log(print_r($options,true));
-
-		curl_setopt_array($curl, $options);
-
-		error_log("●●●●●●");
-		error_log(print_r($curl,true));
-
-		return curl_exec($curl);
-	}
-	*/
 
 
 }
