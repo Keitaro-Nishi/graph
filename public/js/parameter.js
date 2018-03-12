@@ -82,12 +82,12 @@ function update(){
 		cvs_ws_id3 = document.getElementById('cvs_ws_id3').value;
 		cvs_ws_id4 = document.getElementById('cvs_ws_id4').value;
 		cvs_ws_id5 = document.getElementById('cvs_ws_id5').value;
-	}
-	for(var ii=0; ii < functions.length; ii++){
-		if(document.getElementById('usefunction' + functions[ii]['code2']).checked){
-			usefunction = usefunction + "1";
-		}else{
-			usefunction = usefunction + "0";
+		for(var ii=0; ii < functions.length; ii++){
+			if(document.getElementById('usefunction' + functions[ii]['code2']).checked){
+				usefunction = usefunction + "1";
+			}else{
+				usefunction = usefunction + "0";
+			}
 		}
 	}
 	var intpasscalss = document.getElementById('intpasscalss').value;
