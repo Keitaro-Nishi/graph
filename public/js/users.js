@@ -109,11 +109,15 @@ function insert(){
 		case "1":
 			document.getElementById('dia_info').style.display="block";
 			document.getElementById('dia_infolabel').innerHTML  = "※パスワードにはユーザーＩＤが設定されます";
+			document.getElementById('dia_password').disabled = true;
+			document.getElementById('dia_password_confirmation').disabled = true;
 			break;
 		//一括設定
 		case "2":
 			document.getElementById('dia_info').style.display="block";
 			document.getElementById('dia_infolabel').innerHTML  = "※パスワードにはパラメタ設定にて登録した値が設定されます";
+			document.getElementById('dia_password').disabled = true;
+			document.getElementById('dia_password_confirmation').disabled = true;
 			break;
 		//個別設定
 		case "3":
