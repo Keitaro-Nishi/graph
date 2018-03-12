@@ -45,7 +45,7 @@ class FacilityController {
 			//error_log ( print_r($j2value, true));
 			$genre2value = array($gid1 => $j2value);
 		}
-		error_log ( print_r($genre2value[0],true));
+		error_log ( print_r($genre2value,true));
 
 		return view ( 'facility', [
 				'facilities' => $facilities,
