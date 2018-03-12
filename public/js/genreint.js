@@ -45,10 +45,10 @@ function getwtint(){
 			var raw = wtable.insertRow( -1 );
 			var td1 = raw.insertCell(-1),td2 = raw.insertCell(-1);
 			td2.style.width = "50px";
-			console.log(response[index]);
+			//console.log(response[index]);
 			td1.innerHTML = response[index];
 			td2.innerHTML = '<input type="button" value="削除" class="btn btn-default" onclick="delLine(\'' + response[index] + '\',this)" />';
-			alert("成功");
+			//alert("成功");
 		}
     }).fail(function () {
         alert("Watsonデータの取得に失敗しました");
