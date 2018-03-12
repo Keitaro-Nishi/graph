@@ -78,10 +78,10 @@ function update(){
 			bootbox.alert({
 				message: "更新しました",
 				size: 'small',
+				callback: function () {
+					location.reload();
+				}
 			});
-			callback: function () {
-				location.reload();
-			}
 		}else{
 			bootbox.alert({
 				message: "更新できませんでした",
