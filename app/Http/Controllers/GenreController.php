@@ -143,12 +143,14 @@ class GenreController
 				//CVSデータ作成
 				//Intents
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents?version=2017-05-26";
+				$username = getenv('CVS_USERNAME');
+				$password = getenv('CVS_PASS');
 				$data = array("intent" => (string)$gid1,"description" => $meisho);
 				error_log("★★★★★");
-				//error_log($url);
+
 
 				$watson = new Watson;
-				var_dump($watson->callWatson($url));
+				var_dump($watson->callWatson($url,$username,$password,$data));
 				//$watson->callWatson();
 
 

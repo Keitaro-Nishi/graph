@@ -122,13 +122,11 @@ class Watson{
 		}
 	}
 
-	public function callWatson($url){
+	public function callWatson($url,$username,$password,$data){
 
-		//error_log("☆☆☆☆☆☆☆");
-		//$test = "テスト";
 		error_log($url);
 
-		/*$curl = curl_init($url);
+		$curl = curl_init($url);
 		$options = array(
 				CURLOPT_HTTPHEADER => array(
 						'Content-Type: application/json',
@@ -139,8 +137,9 @@ class Watson{
 				CURLOPT_RETURNTRANSFER => true,
 		);
 		curl_setopt_array($curl, $options);
+		error_log("☆☆☆☆☆☆");
 		return curl_exec($curl);
-		*/
+
 	}
 
 
