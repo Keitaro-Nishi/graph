@@ -27,9 +27,8 @@ function codeselChange(){
 				document.getElementById('cvs_ws_id4').value = parameters[i]['cvs_ws_id4'];
 				document.getElementById('cvs_ws_id5').value = parameters[i]['cvs_ws_id5'];
 			}
-			var uf = parameters[i]['usefunction'];
-			if(uf){
-				for(var ii=0; ii < functions.length; i++){
+			if(parameters[i]['usefunction']){
+				for(var ii=0; ii < functions.length; ii++){
 					if(uf.substr(ii,1) == "1"){
 						document.getElementById('usefunction' + functions[ii]['code2']).selected = true;
 					}
@@ -75,7 +74,7 @@ function update(){
 		cvs_ws_id4 = document.getElementById('cvs_ws_id4').value;
 		cvs_ws_id5 = document.getElementById('cvs_ws_id5').value;
 	}
-	for(var ii=0; ii < functions.length; i++){
+	for(var ii=0; ii < functions.length; ii++){
 		if(document.getElementById('usefunction' + functions[ii]['code2']).selected){
 			intpasscalss = intpasscalss + "1";
 		}else{
