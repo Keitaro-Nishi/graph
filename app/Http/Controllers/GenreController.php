@@ -148,7 +148,7 @@ class GenreController
 				//error_log($url);
 
 				$watson = new Watson;
-				$watson->callWatson();
+				$watson->callWatson($url);
 
 
 				//ENTITIES

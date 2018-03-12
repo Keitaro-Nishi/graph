@@ -122,11 +122,11 @@ class Watson{
 		}
 	}
 
-	public function callWatson(){
+	public function callWatson($url){
 
 		error_log("☆☆☆☆☆☆☆");
 		//$x = "テスト";
-		//error_log($x);
+		error_log($url);
 
 		/*$curl = curl_init($url);
 		$options = array(
