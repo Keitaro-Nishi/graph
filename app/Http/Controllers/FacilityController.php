@@ -37,12 +37,12 @@ class FacilityController {
 			} )->select ( 'facility.*', 'class1.meisho as meisho1', 'class2.meisho as meisho2' )->get ();
 		}
 
-		error_log ( "???????????????????42" . $facilities [0]->meisho1 );
+		error_log ( "???????????????????40" . $facilities [0]->meisho1 );
 		$genre1value = Genre::where ( 'citycode', $cityCD )->where ( 'bunrui', 1 )->orderBy ( 'gid1' )->select( 'gid1', 'meisho' )->get ();
 		foreach ( $genre1value as $key => $value ) {
 			$genre2value = Genre::where ( 'citycode', $cityCD )->where ( 'bunrui', 2 )->where ( 'gid1', $key )->orderBy ( 'gid1' )->select( 'gid2', 'meisho' )->get ();
 		}
-		error_log ( "???????????????????42" . $genre1value[0]->meisho );
+		error_log ( "???????????????????45" . $genre2value[0]->meisho );
 		return view ( 'facility', [
 				'facilities' => $facilities,
 				'genre1value' => $genre1value,
