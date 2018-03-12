@@ -149,9 +149,7 @@ class GenreController
 				$CallWatson = new watson;
 				//$CallWatson->callWatson();
 				$CallWatson->callwatson();
-				error_log("失敗");
-				//$abc = new app\watson\callwatson.php;
-				//$abc->callWatson();
+
 
 				//ENTITIES
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities?version=2017-05-26";
