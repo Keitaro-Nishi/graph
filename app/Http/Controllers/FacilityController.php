@@ -45,13 +45,13 @@ class FacilityController {
 		error_log("???????????????????42".$facilities[0]->meisho1);
 		$result= DB::table('genre')->where('citycode', $cityCD)->where('bunrui', 1)->orderBy('gid1', 'ASC')->get();
 		while ($row = pg_fetch_row($result)) {
-			$genre1value = $genre1value + array($row[1] => $row[4]);
+			$genre1value = $genre1value + array($row[3] => $row[6]);
 		}
 		foreach($genre1value as $key => $value){
 			$result = DB::table('genre')->where('citycode', $cityCD)->where('bunrui', 2)->where('gid1', $key);
 			$arr = array();
 			while ($row = pg_fetch_row($result)) {
-				$arr = $arr + array($row[2] => $row[4]);
+				$arr = $arr + array($row[4] => $row[6]);
 			}
 			$genre2value = $genre2value + array($key => $arr);
 		}
