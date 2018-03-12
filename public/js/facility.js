@@ -24,7 +24,7 @@ $(function() {
 			});
 		}
 	});
-/*
+
 	//ジャンルの設定
 	var larges = document.getElementById('large').value;
 	var genre1value = JSON.parse(large);
@@ -37,7 +37,6 @@ $(function() {
 		select.appendChild(option);
 	}
 	genre1change();
-	*/
 });
 
 function drow() {
