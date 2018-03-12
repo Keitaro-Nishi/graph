@@ -162,7 +162,7 @@ function insert(){
     });
 }
 
-function drow() {
+function del() {
 	bootbox.confirm({
 	    message: document.getElementById('cityname').value + "のパラメタを削除しますか？",
 	    buttons: {

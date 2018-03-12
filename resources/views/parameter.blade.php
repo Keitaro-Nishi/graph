@@ -122,7 +122,7 @@
 	<input id="btn_up" type="button" class="btn btn-primary" value="　　　更新　　　" onclick="update()">
 	@if (Auth::user()->role == (int)0 )
 	<input id="btn_ins" type="button" class="btn btn-default" value="新規ユーザー作成" data-toggle="modal"  data-target="#shosaiDialog"/>
-	<input id="btn_del" type="button" class="btn btn-default" value="　パラメタ削除　" onclick="delete()"/>
+	<input id="btn_del" type="button" class="btn btn-default" value="　パラメタ削除　" onclick="del()"/>
 	@endif
 </div>
 <script src="{{ asset('js/parameter.js') }}"></script>
