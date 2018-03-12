@@ -39,15 +39,15 @@ function getwtint(){
 			"_token" : _token
 		}
 	}).done(function (response) {
-		//console.log(response);
-		result = JSON.parse(response);
-		console.log(result);
-		for( var index in result ) {
+		console.log(response);
+		//result = JSON.parse(response);
+		for( var index in response ) {
 			var raw = wtable.insertRow( -1 );
 			var td1 = raw.insertCell(-1),td2 = raw.insertCell(-1);
 			td2.style.width = "50px";
-			td1.innerHTML = result[index];
-			td2.innerHTML = '<input type="button" value="削除" class="btn btn-default" onclick="delLine(\'' + result[index] + '\',this)" />';
+			console.log(response[index]);
+			td1.innerHTML = response[index];
+			td2.innerHTML = '<input type="button" value="削除" class="btn btn-default" onclick="delLine(\'' + response[index] + '\',this)" />';
 			alert("成功");
 		}
     }).fail(function () {
