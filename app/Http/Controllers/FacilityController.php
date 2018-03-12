@@ -45,7 +45,7 @@ class FacilityController {
 			$genre1value = $genre1value + array($row[1] => $row[4]);
 		}
 		foreach($genre1value as $key => $value){
-			$result = DB::table('genre')->lists('meisho')->where('bunrui', 2)->where('gid1', $key);
+			$result = DB::table('genre')->lists('meisho')->where('citycode', $cityCD)->where('bunrui', 2)->where('gid1', $key);
 			$arr = array();
 			while ($row = pg_fetch_row($result)) {
 				$arr = $arr + array($row[2] => $row[4]);
