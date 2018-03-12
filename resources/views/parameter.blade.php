@@ -126,4 +126,8 @@
 	@endif
 </div>
 <script src="{{ asset('js/parameter.js') }}"></script>
+<script>
+var parameters = @json($parameters);
+init();
+</script>
 @endsection

@@ -3,24 +3,29 @@ var select_val = 0;
 //$(function() {
 function init() {
 	document.getElementById('messid').selectedIndex = 0;
-	messidChange();
+	codeselChange();
 }
 
-function messidChange(){
+function codeselChange(){
 	select_val = document.getElementById('messid').value;
-	var messfind = false;
 
-	//メッセージ検索
-	for(var i=0; i < messages.length; i++){
-		if(messages[i]['id'] == select_val){
-			document.getElementById('mess').value = messages[i]['message'];
-			messfind = true;
+	//パラメタ検索
+	for(var i=0; i < parameters.length; i++){
+		if(parameters[i]['citycode'] == select_val){
+			if(document.getElementById('citycode')){
+				document.getElementById('cityname').value = parameters[i]['cityname'];
+				document.getElementById('line_cat').value = parameters[i]['line_cat'];
+				document.getElementById('cvs_ws_id1').value = parameters[i]['cvs_ws_id1'];
+				document.getElementById('cvs_ws_id2').value = parameters[i]['cvs_ws_id2'];
+				document.getElementById('cvs_ws_id3').value = parameters[i]['cvs_ws_id3'];
+				document.getElementById('cvs_ws_id4').value = parameters[i]['cvs_ws_id4'];
+				document.getElementById('cvs_ws_id5').value = parameters[i]['cvs_ws_id5'];
+				document.getElementById('usefunction').value = parameters[i]['usefunction'];
+			}
+			document.getElementById('intpasscalss').value = parameters[i]['intpasscalss'];
+			document.getElementById('intpass').value = parameters[i]['intpass'];
 			break;
 		}
-	}
-
-	if(!messfind){
-		document.getElementById('mess').value = "";
 	}
 }
 
