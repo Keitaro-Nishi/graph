@@ -22,7 +22,7 @@ class ParameterController
 		}
 		*/
 		if($cityCD == "00000"){
-			$parameters = Parameter::all()->orderBy('citycode', 'ASC');
+			$parameters = Parameter::orderBy('citycode', 'ASC')->all();
 		}else{
 			$parameters = Parameter::select('citycode','usefunction','intpasscalss','intpass')->where('citycode', $cityCD)->get();
 		}
