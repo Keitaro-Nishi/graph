@@ -64,15 +64,17 @@ function g1change(){
 function update(){
 	intent = document.getElementById('intent').value;
 	g1meisho = document.getElementById('g1').value;
+	var _token = document.getElementById('_token').value;
 
 	$.ajax({
 		type: "POST",
-		url: "callwatson.php",
+		dataType: "JSON",
 		data:{
 			"param" : "intentUpdate",
 			"g1meisho" : g1meisho,
 			"g2meisho" : "",
 			"sword" : intent,
+			"_token" : _token
 		}
 	}).done(function (response) {
 		result = JSON.parse(response);

@@ -22,7 +22,7 @@ class GenreintController
 
 	public  function request(){
 		$this->requestall = \Request::all();
-		if ($this->requestall["param"] == "intentSearch"){
+		if ($this->requestall["param"] == "intentUpdate"){
 			return $this->intentSearch();
 		}else{
 			return \Response::json(['status' => 'NG']);
@@ -65,6 +65,32 @@ class GenreintController
 		return Response::json($arr);
 		//return Response::json_encode($arr,JSON_PRETTY_PRINT);
 		//echo json_encode($arr);
+	}
+
+	function intentUpdate(){
+
+		$workspace_id = getenv('CVS_WORKSPASE_ID');
+		$username = getenv('CVS_USERNAME');
+		$password = getenv('CVS_PASS');
+
+		$input = $this->requestall;
+		$param = $input["param"];
+		$g1meisho= $input["g1meisho"];
+		$g2meisho= $input["g2meisho"];
+		$sword= $input["sword"];
+
+		$data = "";
+		$watson = new Watson;
+
+		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents/".$g1meisho."/examples?version=2017-05-26";
+		$data = array("text" => $sword);
+		$jsonString = $watson->callWatson($url,$username,$password,$data);
+		$json = json_decode($jsonString, true);
+		if($json["text"] == $sword){
+			echo json_encode("OK");
+		}else{
+			echo json_encode("NG");
+		}
 	}
 
 
