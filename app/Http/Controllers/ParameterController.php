@@ -66,6 +66,28 @@ class ParameterController
 				'cityname' => $cityname
 		] );
 
+		//コードテーブル追加
+		for ($i = 1; $i <= 10; $i++) {
+			DB::table('code')->insert([
+					'citycode' => $cityCD,
+					'code1' => $i,
+					'code2' => (int)0,
+					'meisho' => 'オプションタイトル',
+					'num' => (int)0,
+					'class1' => '1',
+					'class1' => '2'
+			]);
+		}
+		DB::table('code')->insert([
+				'citycode' => $cityCD,
+				'code1' => (int)12,
+				'code2' => (int)0,
+				'meisho' => '管理者',
+				'num' => (int)0,
+				'class1' => '1',
+				'class1' => '2'
+		]);
+
 		return \Response::json(['status' => 'OK']);
 	}
 
