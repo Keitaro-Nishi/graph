@@ -41,7 +41,7 @@ function getwtint(){
 	}).done(function (response) {
 		console.log(response);
 		//result = JSON.parse(response);
-		for( var i =0, i<response.length; i++ ) {
+		for( var i =0; i<response.length; i++ ) {
 			var raw = wtable.insertRow( -1 );
 			var td1 = raw.insertCell(-1),td2 = raw.insertCell(-1);
 			td2.style.width = "50px";
