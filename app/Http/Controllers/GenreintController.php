@@ -23,7 +23,7 @@ class GenreintController
 	public  function request(){
 		$this->requestall = \Request::all();
 		if ($this->requestall["param"] == "intentUpdate"){
-			return $this->intentSearch();
+			return $this->intentUpdate();
 		}else{
 			return \Response::json(['status' => 'NG']);
 		}
