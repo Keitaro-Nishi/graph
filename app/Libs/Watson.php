@@ -122,12 +122,12 @@ class Watson{
 		}
 	}
 
-	public function callWatson(&$url){
+	public function callWatson(&$urldata){
 		//global $curl, $url, $username, $password, $data, $options;
 		error_log("☆☆☆☆☆☆☆");
 		//this.$url = $url;
 
-		error_log($url);
+		error_log($urldata);
 
 		$curl = curl_init($url);
 		$options = array(
