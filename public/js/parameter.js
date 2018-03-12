@@ -27,11 +27,11 @@ function codeselChange(){
 				document.getElementById('cvs_ws_id4').value = parameters[i]['cvs_ws_id4'];
 				document.getElementById('cvs_ws_id5').value = parameters[i]['cvs_ws_id5'];
 			}
-			if(parameters[i]['usefunction']){
-				for(var ii=0; ii < functions.length; ii++){
-					if(uf.substr(ii,1) == "1"){
-						document.getElementById('usefunction' + functions[ii]['code2']).selected = true;
-					}
+			for(var ii=0; ii < functions.length; ii++){
+				if(parameters[i]['usefunction'].substr(ii,1) == "1"){
+					document.getElementById('usefunction' + functions[ii]['code2']).checked = true;
+				}else{
+					document.getElementById('usefunction' + functions[ii]['code2']).checked = false;
 				}
 			}
 			document.getElementById('usefunction').value = parameters[i]['usefunction'];
@@ -75,7 +75,7 @@ function update(){
 		cvs_ws_id5 = document.getElementById('cvs_ws_id5').value;
 	}
 	for(var ii=0; ii < functions.length; ii++){
-		if(document.getElementById('usefunction' + functions[ii]['code2']).selected){
+		if(document.getElementById('usefunction' + functions[ii]['code2']).checked){
 			intpasscalss = intpasscalss + "1";
 		}else{
 			intpasscalss = intpasscalss + "0";
