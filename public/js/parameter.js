@@ -79,6 +79,9 @@ function update(){
 				message: "更新しました",
 				size: 'small',
 			});
+			callback: function () {
+				location.reload();
+			}
 		}else{
 			bootbox.alert({
 				message: "更新できませんでした",
