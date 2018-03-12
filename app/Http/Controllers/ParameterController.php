@@ -72,7 +72,7 @@ class ParameterController
 		error_log("★★★★★★★★★★★★intpasscalss★★★★★★★★★★★★★★★★".$input["intpasscalss"]);
 
 		if($input["intpasscalss"] == "2"){
-			$rules = $rules + ['intpass' => 'required|string|min:6'];
+			$rules = ['intpass' => 'required|string|min:6'];
 			$validator = Validator::make($input,$rules);
 
 			if($validator->fails())
