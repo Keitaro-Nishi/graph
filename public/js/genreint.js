@@ -40,9 +40,9 @@ function getwtint(){
 		}
 	}).done(function (response) {
 		alert("戻ってきました.");
-		//result = JSON.parse(response);
-		//for( var index in result ) {
-		for( var index in response ) {
+		console.log(“hello”);
+		result = JSON.parse(response);
+		for( var index in result ) {
 			var raw = wtable.insertRow( -1 );
 			var td1 = raw.insertCell(-1),td2 = raw.insertCell(-1);
 			td2.style.width = "50px";
