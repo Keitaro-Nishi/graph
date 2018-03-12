@@ -25,6 +25,7 @@ class UserController
 				$join->on('users.organization', '=', 'code.code2');
 			})
 			->get();
+			$citycodes = Parameter::select('citycode','cityname')->orderBy('citycode', 'ASC')->get();
 		}else{
 			//$users= User::where('citycode', $cityCD)->get();
 			$users = User::select()->where('users.citycode', $cityCD)->leftJoin('code', function ($join) {
@@ -33,10 +34,11 @@ class UserController
 				$join->on('users.organization', '=', 'code.code2');
 			})
 			->get();
+			$citycodes = "";
 		}
 		$organizations= Code::where('citycode', $cityCD)->where('code1', 12)->orderBy('code2', 'ASC')->get();
 		$intpass = Parameter::select('intpasscalss','intpass')->where('citycode', $cityCD)->first();
-		return view('users',['users'=>$users,'organizations'=>$organizations,'intpass'=>$intpass]);
+		return view('users',['users'=>$users,'organizations'=>$organizations,'intpass'=>$intpass,'citycodes'=>$citycodes]);
 	}
 
 	public  function request(){

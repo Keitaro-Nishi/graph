@@ -46,7 +46,11 @@
 					<div class="form-group">
 						<label class="col-sm-3 control-label" for="dia_citycode">市町村コード</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" id="dia_citycode" name="citycode" value="" required autofocus>
+							<select class="form-control" id="dia_citycode">
+								@foreach($citycodes as $value)
+									<option value="{{$value->citycode}}" >{{$value->citycode}}:{{$value->cityname}}</option>
+								@endforeach
+							</select>
 						</div>
 					</div>
 					@endif
