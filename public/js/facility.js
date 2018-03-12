@@ -102,15 +102,6 @@ function modwin(id,meisho,jusho,tel,genre1,genre2,lat,lng,imageurl,url){
 	document.getElementById('dia_jusho').value = jusho;
 	document.getElementById('dia_tel').value = tel;
 	document.getElementById('dia_genre1').value = genre1;
-	/*
-	var options = document.getElementById('dia_genre1').options;
-	for(var i = 0; i < options.length; i++){
-		if(options[i].text === genre1){
-			options[i].selected = true;
-			break;
-		};
-	};
-	*/
 	genre1change();
 	var options = document.getElementById('dia_genre2').options;
 	for(var i = 0; i < options.length; i++){
@@ -136,6 +127,7 @@ function insert() {
 //ジャンル選択
 function genre1change(){
 	var select = document.getElementById('dia_genre2');
+	console.log(select);
 	while (0 < select.childNodes.length) {
 		select.removeChild(select.childNodes[0]);
 	}
