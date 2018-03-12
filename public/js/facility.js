@@ -1,6 +1,7 @@
 var rowIds = [];
 
 function init() {
+	console.log(genre2value);
 	$("#grid-basic").bootgrid({
 		selection : true,
 		multiSelect : true,
