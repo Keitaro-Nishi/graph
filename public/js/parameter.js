@@ -27,10 +27,16 @@ function codeselChange(){
 				document.getElementById('cvs_ws_id4').value = parameters[i]['cvs_ws_id4'];
 				document.getElementById('cvs_ws_id5').value = parameters[i]['cvs_ws_id5'];
 			}
-			for(var ii=0; ii < functions.length; ii++){
-				if(parameters[i]['usefunction'].substr(ii,1) == "1"){
-					document.getElementById('usefunction' + functions[ii]['code2']).checked = true;
-				}else{
+			if(parameters[i]['usefunction']){
+				for(var ii=0; ii < functions.length; ii++){
+					if(parameters[i]['usefunction'].substr(ii,1) == "1"){
+						document.getElementById('usefunction' + functions[ii]['code2']).checked = true;
+					}else{
+						document.getElementById('usefunction' + functions[ii]['code2']).checked = false;
+					}
+				}
+			}else{
+				for(var ii=0; ii < functions.length; ii++){
 					document.getElementById('usefunction' + functions[ii]['code2']).checked = false;
 				}
 			}
