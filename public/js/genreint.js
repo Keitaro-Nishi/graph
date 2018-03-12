@@ -39,7 +39,7 @@ function getwtint(){
 			"_token" : _token
 		}
 	}).done(function (response) {
-		alert("戻ってきました");
+		alert("戻ってきました.");
 		//result = JSON.parse(response);
 		//for( var index in result ) {
 		for( var index in response ) {
