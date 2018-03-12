@@ -124,7 +124,7 @@ class Watson{
 
 	public function callWatson(){
 
-		error_log("☆☆☆☆☆☆☆");
+		//error_log("☆☆☆☆☆☆☆");
 		$test = "テスト";
 		error_log($test);
 
