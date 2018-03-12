@@ -39,8 +39,8 @@ function getwtint(){
 			"_token" : _token
 		}
 	}).done(function (response) {
-		alert("test");
 		result = JSON.parse(response);
+		alert(result[index]);
 		for( var index in result ) {
 			var raw = wtable.insertRow( -1 );
 			var td1 = raw.insertCell(-1),td2 = raw.insertCell(-1);
