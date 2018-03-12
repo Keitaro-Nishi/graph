@@ -39,13 +39,13 @@ function getwtint(){
 			"_token" : _token
 		}
 	}).done(function (response) {
-		//console.log(response);
+		console.log(response);
 		//result = JSON.parse(response);
 		for( var index in response ) {
 			var raw = wtable.insertRow( -1 );
 			var td1 = raw.insertCell(-1),td2 = raw.insertCell(-1);
 			td2.style.width = "50px";
-			//console.log(response[index]);
+			console.log(response[index]);
 			td1.innerHTML = response[index];
 			td2.innerHTML = '<input type="button" value="削除" class="btn btn-default" onclick="delLine(\'' + response[index] + '\',this)" />';
 			//alert("成功");
