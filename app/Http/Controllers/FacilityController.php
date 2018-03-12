@@ -43,7 +43,7 @@ class FacilityController {
 		}
 
 		error_log("???????????????????42".$facilities[0]->meisho1);
-		$result= DB::table('genre')->where('citycode', $cityCD)->where('bunrui', 1)->orderBy('gid1', 'ASC')->get();
+		$result= Genre::where('citycode', $cityCD)->where('bunrui', 1)->orderBy('gid1', 'ASC')->get();
 		foreach($result as $res){
 			error_log($result[0]->gid);
 			//$genre1value = $genre1value + $result()->gid
