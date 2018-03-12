@@ -1,5 +1,4 @@
 var rowIds = [];
-
 $(function() {
 	$("#grid-basic").bootgrid({
 		selection : true,
@@ -24,76 +23,52 @@ $(function() {
 			});
 		}
 	});
-/*
-	//ジャンルの設定
-	var larges = document.getElementById('large').value;
-	var genre1value = JSON.parse(larges);
-	var select = document.getElementById('dia_genre1');
-	for( var key in genre1value ) {
-		var option = document.createElement('option');
-		option.setAttribute('value', key);
-		var text = document.createTextNode(genre1value[key]);
-		option.appendChild(text);
-		select.appendChild(option);
-	}
-	genre1change();
-	*/
+	/*
+ 	//ジャンルの設定
+ 	var genre1value = <?php echo json_encode($genre1value); ?>;
+ 	var select = document.getElementById('dia_genre1');
+ 	for( var key in genre1value ) {
+ 		var option = document.createElement('option');
+ 		option.setAttribute('value', key);
+ 		var text = document.createTextNode(genre1value[key]);
+ 		option.appendChild(text);
+ 		select.appendChild(option);
+ 	}
+ 	genre1change();
+	 */
 });
 
 function drow() {
 	if(rowIds.length == 0){
-		bootbox.alert({
-			message: "削除する行を選択してください",
-			size: 'small'
-		});
+		alert("削除する行を選択してください");
 		return;
 	}
-
-	bootbox.confirm({
-		message: "選択行を削除しますか？",
-		buttons: {
-			confirm: {
-				label: '<i class="fa fa-check"></i> はい'
-			},
-			cancel: {
-				label: '<i class="fa fa-times"></i> いいえ'
-			}
-		},
-		callback: function (result) {
-			if(result){
-				var _token = document.getElementById('_token').value;
-				console.log(_token);
-				$.ajax({
-					type: "POST",
-					dataType: "JSON",
-					data:{
-						"param" : "delete",
-						"ids" : rowIds,
-						"_token" : _token
+	var successFlg = true;
+	var myRet = confirm("選択行を削除しますか？");
+	if ( myRet == true ){
+		for (var i = 0; i < rowIds.length; i++){
+			$.ajax({
+				type: "DELETE",
+				url: 'facility/'+ rowIds[i],
+			}).then(
+					function(){
+					},
+					function(){
+						successFlg = false;
 					}
-
-				}).done(function (response) {
-					if(response.status == "OK"){
-						bootbox.alert({
-							message: "削除しました",
-							size: 'small',
-							callback: function () {
-								location.reload();
-							}
-						});
-					}
-				}).fail(function () {
-					bootbox.alert({
-						message: "削除できませんでした",
-						size: 'small'
-					});
-				});
-			}
+			);
 		}
-	});
+		if( successFlg == true){
+			alert("削除しました");
+			location.reload();
+		}else{
+			alert("削除できませんでした");
+		}
+	}
 }
 
 /*  施設情報修正  */
+
 function modwin(id,meisho,jusho,tel,genre1,genre2,lat,lng,imageurl,url){
 	document.getElementById('modal-label').innerHTML  = "施設情報修正";
 	modID = id;
@@ -103,14 +78,7 @@ function modwin(id,meisho,jusho,tel,genre1,genre2,lat,lng,imageurl,url){
 	document.getElementById('dia_jusho').value = jusho;
 	document.getElementById('dia_tel').value = tel;
 	document.getElementById('dia_genre1').value = genre1;
-	genre1change();
-	var options = document.getElementById('dia_genre2').options;
-	for(var i = 0; i < options.length; i++){
-		if(options[i].text === genre2){
-			options[i].selected = true;
-			break;
-		};
-	};
+	document.getElementById('dia_genre2').value = genre2;
 	document.getElementById('dia_latlng').value = lat + "," + lng;
 	document.getElementById('dia_imageurl').value = imageurl;
 	document.getElementById('dia_url').value = url;
@@ -118,32 +86,31 @@ function modwin(id,meisho,jusho,tel,genre1,genre2,lat,lng,imageurl,url){
 }
 
 function insert() {
+	console.log('insert');
+
 	document.getElementById('dia_id').value = "";
-	document.getElementById('dia_genre1').value = 0;
 	document.getElementById("modal-label").innerHTML  = "施設登録";
 	initmodal();
 	document.getElementById("btn_modal").click();
 }
-
-//ジャンル選択
-function genre1change(){
-	var select = document.getElementById('dia_genre2');
-	console.log(select);
-	while (0 < select.childNodes.length) {
-		select.removeChild(select.childNodes[0]);
-	}
-	var mediums= document.getElementById('mediums').value;
-	var genre2value = JSON.parse(mediums);
-	console.log(genre2value);
-	var janru = genre2value[document.getElementById('dia_genre1').value];
-	for( var key in janru ) {
-		var option = document.createElement('option');
-		option.setAttribute('value', key);
-		var text = document.createTextNode(janru[key]);
-		option.appendChild(text);
-		select.appendChild(option);
-	}
-}
+/*
+ //ジャンル選択
+ function genre1change(){
+ 	var select = document.getElementById('dia_genre2');
+ 	while (0 < select.childNodes.length) {
+ 		select.removeChild(select.childNodes[0]);
+ 	}
+ 	var genre2value = <?php echo json_encode($genre2value); ?>;
+ 	var janru = genre2value[document.getElementById('dia_genre1').value];
+ 	for( var key in janru ) {
+ 		var option = document.createElement('option');
+ 		option.setAttribute('value', key);
+ 		var text = document.createTextNode(janru[key]);
+ 		option.appendChild(text);
+ 		select.appendChild(option);
+ 	}
+ }
+ */
 
 //ダイアログ初期化
 function initmodal(){
@@ -151,8 +118,8 @@ function initmodal(){
 	document.getElementById('dia_jusho').value = "";
 	document.getElementById('dia_tel').value = "";
 	document.getElementById('dia_genre1').selectedIndex = 0;
-	genre1change();
-	//document.getElementById('dia_genre2').selectedIndex = 0;
+	//genre1change();
+	document.getElementById('dia_genre2').selectedIndex = 0;
 	document.getElementById('dia_latlng').value = "";
 	document.getElementById('dia_imageurl').value = "";
 	document.getElementById('dia_url').value = "";
@@ -174,13 +141,12 @@ function update(){
 	var url = document.getElementById('dia_url').value;
 	var _token = document.getElementById('_token').value;
 
-	console.log(genre2);
+	console.log(id);
 
 	$.ajax({
 		type: "POST",
 		dataType: "JSON",
 		data: {
-			"param" : "update",
 			"id" : id,
 			"meisho" : meisho,
 			"jusho" : jusho,
@@ -194,13 +160,18 @@ function update(){
 			"_token" : _token
 		}
 	}).done(function (response) {
-		if(response.status == ""){
+		if(response.status == "OK"){
 			bootbox.alert({
 				message: "更新しました",
 				size: 'small',
 				callback: function () {
 					location.reload();
 				}
+			});
+		}else if(response.status == "NG"){
+			bootbox.alert({
+				message: "更新できませんでした",
+				size: 'small'
 			});
 		}else{
 			var mes = "";
