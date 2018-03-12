@@ -1,6 +1,6 @@
 var rowIds = [];
 var updateKbn = false;
-$(function() {
+function init() {
 	$("#grid-basic").bootgrid({
 		selection : true,
 		multiSelect : true,
@@ -24,7 +24,8 @@ $(function() {
 			});
 		}
 	});
-});
+}
+
 function drow() {
 	if(rowIds.length == 0){
 		bootbox.alert({
@@ -33,28 +34,6 @@ function drow() {
 		});
 		return;
 	}
-	/*
-	var myRet = confirm("選択行を削除しますか？");
-	if ( myRet == true ){
-		for (var i = 0; i < rowIds.length; i++){
-			$.ajax({
-				type: "DELETE",
-				url: 'users/'+ rowIds[i],
-			}).then(
-				function(){
-				},
-				function(){
-					successFlg = false;
-				}
-			);
-		}
-		if( successFlg == true){
-			alert("削除しました");
-			location.reload();
-		}else{
-			alert("削除できませんでした");
-		}
-	}*/
 
 	bootbox.confirm({
 	    message: "選択行を削除しますか？",
@@ -89,7 +68,7 @@ function drow() {
 	    			}
 	    	    }).fail(function () {
 	    	    	bootbox.alert({
-	    				message: "2削除できませんでした",
+	    				message: "削除できませんでした",
 	    				size: 'small'
 	    			});
 	    	    });
@@ -109,11 +88,12 @@ function detail(name,userid,organization,citycode){
 	document.getElementById('dia_userid').value = userid;
 	document.getElementById('dia_userid').disabled = true;
 	document.getElementById('dia_name').value = name;
-	//document.getElementById('dia_organization').selectedIndex = 0;
+	document.getElementById('dia_organization').value = organization;
 	document.getElementById('dia_passres').style.display="block";
 	document.getElementById('dia_passresck').checked = false;
 	document.getElementById('dia_password').disabled = true;
 	document.getElementById('dia_password_confirmation').disabled = true;
+	document.getElementById('dia_info').style.display="none";
 	document.getElementById("btn_modal").click();
 
 }
@@ -124,13 +104,33 @@ function insert(){
 	initmodal();
 	document.getElementById('dia_passresck').checked = true;
 	document.getElementById('dia_passres').style.display="none";
+	switch (intpass['intpasscalss']){
+		//ユーザーＩＤ
+		case "1":
+			document.getElementById('dia_info').style.display="block";
+			document.getElementById('dia_infolabel').innerHTML  = "※パスワードにはユーザーＩＤが設定されます";
+			document.getElementById('dia_password').disabled = true;
+			document.getElementById('dia_password_confirmation').disabled = true;
+			break;
+		//一括設定
+		case "2":
+			document.getElementById('dia_info').style.display="block";
+			document.getElementById('dia_infolabel').innerHTML  = "※パスワードにはパラメタ設定にて登録した値が設定されます";
+			document.getElementById('dia_password').disabled = true;
+			document.getElementById('dia_password_confirmation').disabled = true;
+			break;
+		//個別設定
+		case "3":
+			document.getElementById('dia_info').style.display="none";
+			break;
+	}
 	document.getElementById("btn_modal").click();
 }
 
 //ダイアログ初期化
 function initmodal(){
 	if(document.getElementById('dia_citycode')){
-		document.getElementById('dia_citycode').value = "";
+		document.getElementById('dia_citycode').selectedIndex = 0;
 		document.getElementById('dia_citycode').disabled = false;
 	}
 	document.getElementById('dia_userid').value = "";
@@ -145,11 +145,36 @@ function initmodal(){
 
 function preset(){
 	if(document.getElementById('dia_passresck').checked){
-		document.getElementById('dia_password').disabled = false;
-		document.getElementById('dia_password_confirmation').disabled = false;
+		switch (intpass['intpasscalss']){
+		//ユーザーＩＤ
+		case "1":
+			document.getElementById('dia_info').style.display="block";
+			document.getElementById('dia_infolabel').innerHTML  = "※再設定パスワードにはユーザーＩＤが設定されます";
+			break;
+		//一括設定
+		case "2":
+			document.getElementById('dia_info').style.display="block";
+			document.getElementById('dia_infolabel').innerHTML  = "※再設定パスワードにはパラメタ設定にて登録した値が設定されます";
+			break;
+		//個別設定
+		case "3":
+			document.getElementById('dia_password').disabled = false;
+			document.getElementById('dia_password_confirmation').disabled = false;
+			break;
+		}
 	}else{
 		document.getElementById('dia_password').disabled = true;
 		document.getElementById('dia_password_confirmation').disabled = true;
+		switch (intpass['intpasscalss']){
+		//ユーザーＩＤ
+		case "1":
+			document.getElementById('dia_info').style.display="none";
+			break;
+		//一括設定
+		case "2":
+			document.getElementById('dia_info').style.display="none";
+			break;
+		}
 	}
 }
 
@@ -161,9 +186,26 @@ function update(){
 	var userid = document.getElementById('dia_userid').value;
 	var username = document.getElementById('dia_name').value;
 	var organization = document.getElementById('dia_organization').value;
-	var passreset = document.getElementById('dia_passresck').checked
-	var password = document.getElementById('dia_password').value;
-	var password_confirmation = document.getElementById('dia_password_confirmation').value;
+	var passreset = document.getElementById('dia_passresck').checked;
+	var password = "";
+	var password_confirmation = "";
+	switch (intpass['intpasscalss']){
+	//ユーザーＩＤ
+	case "1":
+		password = document.getElementById('dia_userid').value;
+		password_confirmation = document.getElementById('dia_userid').value;
+		break;
+	//一括設定
+	case "2":
+		password = intpass['intpass'];
+		password_confirmation = intpass['intpass'];
+		break;
+	//個別設定
+	case "3":
+		password = document.getElementById('dia_password').value;
+		password_confirmation = document.getElementById('dia_password_confirmation').value;
+		break;
+	}
 	var _token = document.getElementById('_token').value;
 	$.ajax({
 		type: "POST",

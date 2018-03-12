@@ -7,6 +7,8 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\User;
+use App\Code;
+use App\Parameter;
 
 class UserController
 {
@@ -15,25 +17,29 @@ class UserController
 	public function index(Request $request)
 	{
 		$cityCD = Auth::user()->citycode;
+
 		if($cityCD == "00000"){
-			$users = User::where('role', '<' ,(int)2)->get();
+			$users = User::select()->where('users.role', '<' ,(int)2)->leftJoin('code', function ($join) {
+				$organizationCD = (int)12;
+				$join->on('users.citycode', '=', 'code.citycode')->where('code.code1', $organizationCD);
+				$join->on('users.organization', '=', 'code.code2');
+			})
+			->get();
+			$citycodes = Parameter::select('citycode','cityname')->orderBy('citycode', 'ASC')->get();
 		}else{
-			$users= User::where('citycode', $cityCD)->get();
+			//$users= User::where('citycode', $cityCD)->get();
+			$users = User::select()->where('users.citycode', $cityCD)->leftJoin('code', function ($join) {
+				$organizationCD = (int)12;
+				$join->on('users.citycode', '=', 'code.citycode')->where('code.code1', $organizationCD);
+				$join->on('users.organization', '=', 'code.code2');
+			})
+			->get();
+			$citycodes = "";
 		}
-		return view('users',['users'=>$users]);
+		$organizations= Code::where('citycode', $cityCD)->where('code1', 12)->orderBy('code2', 'ASC')->get();
+		$intpass = Parameter::select('intpasscalss','intpass')->where('citycode', $cityCD)->first();
+		return view('users',['users'=>$users,'organizations'=>$organizations,'intpass'=>$intpass,'citycodes'=>$citycodes]);
 	}
-
-	/*
-	public function delete(Request $request)
-	{
-
-		$deleteid = $request->deletecode;
-		$deleteuser = User::find($deleteid);
-		$deleteuser->delete();
-
-		return redirect('/users');
-	}
-	*/
 
 	public  function request(){
 		$this->requestall = \Request::all();
