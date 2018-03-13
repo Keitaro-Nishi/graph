@@ -5,18 +5,17 @@
 	class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
-
-			   <th data-column-id='id' data-type='numeric' data-identifier='true' data-width='3%' data-visible="false"></th>
-			   <th data-column-id='userid' data-width='7%'>ユーザーID</th>
-               <th data-column-id='time'  data-width='10%'>日時</th>
-               <th data-column-id='opinion'  data-width='30%'>ご意見</th>
-               <th data-column-id='sadness' data-type='numeric' data-width='9%'>悲しみ</th>
-               <th data-column-id='joy' data-type='numeric' data-width='9%'>喜び</th>
-               <th data-column-id='fear' data-type='numeric' data-width='9%'>恐れ</th>
-               <th data-column-id='disgust' data-type='numeric' data-width='9%'>嫌悪</th>
-               <th data-column-id='anger' data-type='numeric' data-width='9%'>怒り</th>
-               <th data-column-id='checked'  data-width='5%'>チェック</th>
-               <th data-column-id='detail'  data-width='5%' data-formatter='details' data-sortable='false'></th>
+			<th data-column-id='id' data-type='numeric' data-identifier='true' data-width='3%' data-visible="false"></th>
+			<th data-column-id='userid' data-width='7%'>ユーザーID</th>
+			<th data-column-id='time'  data-width='10%'>日時</th>
+			<th data-column-id='opinion'  data-width='30%'>ご意見</th>
+			<th data-column-id='sadness' data-type='numeric' data-width='9%'>悲しみ</th>
+			<th data-column-id='joy' data-type='numeric' data-width='9%'>喜び</th>
+			<th data-column-id='fear' data-type='numeric' data-width='9%'>恐れ</th>
+			<th data-column-id='disgust' data-type='numeric' data-width='9%'>嫌悪</th>
+			<th data-column-id='anger' data-type='numeric' data-width='9%'>怒り</th>
+			<th data-column-id='checked'  data-width='5%'>チェック</th>
+			<th data-column-id='detail'  data-width='5%' data-formatter='details' data-sortable='false'></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -46,7 +45,6 @@
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
 	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog" value="モーダル表示" />
 </div>
-
 
 <div class="modal" id="shosaiDialog"  tabindex="-1">
 	<div class="modal-dialog">
@@ -108,6 +106,7 @@
 					</div>
 				</form>
 			</div>
+			<input type="hidden" id="_token" name="_token" value="{{ csrf_token() }}">
 			<div class="modal-footer">
 				<button id="sback" type="button" class="btn btn-default" onclick="shosai_back()">＜＜前へ</button>
 				<button id="snext" type="button" class="btn btn-default" onclick="shosai_next()">次へ＞＞</button>
@@ -118,4 +117,5 @@
 </div>
 
 <script src="{{ asset('js/opinion.js') }}"></script>
+
 @endsection

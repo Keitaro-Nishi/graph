@@ -1,10 +1,23 @@
 var rowIds = [];
+var botlog = [];
+var dbvalue = [];
+var shosai_idx = 0;
+
+botlog = document.getElementById('botlog').value;
+dbvalue = JSON.parse(botlog);
+
 $(function() {
+
 	$("#grid-basic").bootgrid({
 		selection : true,
 		multiSelect : true,
-		//rowSelect : true,
-		keepSelection : true
+		keepSelection : true,
+		columnSelection : false,
+		formatters: {
+			"details": function($column, $row) {
+				return "<input type='button' class='btn btn-default' value='詳細' onclick='detailwin("  + $row.no + ")'> ";
+			}
+		}
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
 		for (var i = 0; i < rows.length; i++) {
 			rowIds.push(rows[i].no);
@@ -41,7 +54,7 @@ function drow() {
 		callback: function (result) {
 			if(result){
 				var _token = document.getElementById('_token').value;
-				console.log(rowIds);
+				console.log(_token);
 				$.ajax({
 					type: "POST",
 					dataType: "JSON",
@@ -71,28 +84,41 @@ function drow() {
 		}
 	});
 }
-/*
-function imgwin(imgno,bunrui,kakushin){
-	var oimg = new Image();
-	oimg.src = "getimage.php?id=" + imgno;
-	var img = document.getElementById("dia_image");
-	img.width = oimg.width;
-	img.height = oimg.height;
-	document.getElementById('dia_kaku').innerHTML  = "分類：" + bunrui + "　　確信度：" + kakushin;
-	img.src = "getimage.php?id=" + imgno;
-	var img = document.getElementById("dia_image");
-	if(img.width > 600){
-		var orgWidth  = img.width;
-		var orgHeight = img.height;
-		img.width = 600;
-		img.height = orgHeight * (img.width / orgWidth);
-	}
-	var imgwidth = img.width + 40;
-	if(imgwidth < 600){
-		imgwidth = 600;
-	}
-	var imgmar = img.width / 2;
-	document.getElementById('dia_cont').style.width = imgwidth + "px";
+
+function detailwin(value){
 	document.getElementById("btn_modal").click();
+	for (var i = 0; i < dbvalue.length; i++){
+		if(dbvalue[i]["no"] == value){
+			console.log(i);
+			shosai_idx = i;
+			modal_mod(i);
+		}
+	}
 }
- */
+
+function shosai_back(){
+	shosai_idx = shosai_idx - 1;
+	modal_mod(shosai_idx);
+}
+function shosai_next(){
+	shosai_idx = shosai_idx + 1;
+	modal_mod(shosai_idx);
+}
+
+function modal_mod(index){
+	document.getElementById('dia_no').value = dbvalue[index]["no"];
+	document.getElementById('dia_userid').value  = dbvalue[index]["userid"];
+	document.getElementById('dia_time').value = dbvalue[index]["time"];
+	document.getElementById('dia_contents').value  = dbvalue[index]["contents"];
+	document.getElementById('dia_return').value  = dbvalue[index]["return"];
+	if(index == 0){
+		document.getElementById("sback").disabled = "true";
+	}else{
+		document.getElementById("sback").disabled = "";
+	}
+	if(index == dbvalue.length - 1){
+		document.getElementById("snext").disabled = "true";
+	}else{
+		document.getElementById("snext").disabled = "";
+	}
+}
