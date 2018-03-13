@@ -113,7 +113,6 @@ function genre1change(){
 		select.removeChild(select.childNodes[0]);
 	}
 
-	var g2value = new array();
 	g2value = genre2value[document.getElementById('dia_genre1').value];
 	console.log(g2value);
 	for( var key in g2value ) {
