@@ -37,8 +37,8 @@ class FacilityController {
 			} )->select ( 'facility.*', 'class1.meisho as meisho1', 'class2.meisho as meisho2' )->get ();
 		}
 
-		//$genre1value = Genre::select ( 'gid1', 'meisho' )->where ( 'citycode', $cityCD )->where ( 'bunrui', 1 )->orderBy ( 'gid1', 'ASC' )->get ();
-		error_log ( "???????????????????41" . $genre1value [0]->meisho );
+		$genre1value = Genre::select ( 'gid1', 'meisho' )->where ( 'citycode', $cityCD )->where ( 'bunrui', 1 )->orderBy ( 'gid1', 'ASC' )->get ();
+		//error_log ( "???????????????????41" . $genre1value [0]->meisho );
 		//error_log ( print_r($genre1value->toArray(), true));
 		foreach ( $genre1value as $j1value ) {
 			$gid1 = $j1value->gid1;
