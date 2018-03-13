@@ -43,23 +43,16 @@ class FacilityController {
 		foreach ( $genre1value as $j1value ) {
 			$gid1 = $j1value->gid1;
 			$j2value = Genre::select ( 'gid2', 'meisho' )->where ( 'citycode', $cityCD )->where ( 'gid1', $gid1 )->where ( 'bunrui', 2 )->get ();
-			/*
-			 * $j2value2 = $j2value->toArray ();
-			 * error_log ( print_r ( $j2value2, true ) );
-			 */
 			$genre2value = $genre2value + array (
 					$gid1 => $j2value
 			);
 		}
 		error_log ( print_r($genre1value->toArray(), true));
-		/*
 		return view ( 'facility', [
 				'facilities' => $facilities,
 				'genre1value' => $genre1value,
 				'genre2value' => $genre2value,
 		] );
-		*/
-		return $genre2value;
 	}
 	public function request() {
 		$this->requestall = \Request::all ();
