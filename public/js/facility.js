@@ -138,11 +138,11 @@ function genre1change(){
 
 	g2value = genre2value[document.getElementById('dia_genre1').value];
 	console.log(g2value);
-	for( var key in g2value ) {
+	for(var i = 0; i < g2value.length; i++) {
 		console.log(key);
 		var option = document.createElement('option');
-		option.setAttribute('value', g2value[key]['gid1']);
-		var text = document.createTextNode(g2value[key]['meisho']);
+		option.setAttribute('value', g2value[i]['gid1']);
+		var text = document.createTextNode(g2value[i]['meisho']);
 		option.appendChild(text);
 		select.appendChild(option);
 	}
