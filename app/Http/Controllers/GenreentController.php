@@ -44,11 +44,11 @@ class GenreentController
 	public  function request(){
 		$this->requestall = \Request::all();
 		if ($this->requestall["param"] == "entitySearch"){
-			return $this->intentSearch();
+			return $this->entitySearch();
 		}elseif($this->requestall["param"] == "entityUpdate"){
-			return $this->intentUpdate();
+			return $this->entityUpdate();
 		}elseif($this->requestall["param"] == "entityDelete"){
-			return $this->intentDelete();
+			return $this->entityDelete();
 		}else{
 			return \Response::json(['status' => 'NG']);
 		}
