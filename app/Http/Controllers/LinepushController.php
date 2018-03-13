@@ -91,6 +91,8 @@ class LinepushController
 		$line_cat = Parameter::select('line_cat')->where('citycode', $cityCD)->first();
 		error_log("★★★★★★★★line_cat★★★★★★★★★★".$line_cat);
 		$sendids = $this->makeQuerry()->get();
+		error_log("★★★★★★★★★sendids★★★★★★★★★");
+		error_log("★★★★★★★★★sendids★★★★★★★★★".$sendids);
 		$uids = [];
 		$count = 0;
 		error_log("★★★★★★★★★sendids.length★★★★★★★★★".$sendids.length);
