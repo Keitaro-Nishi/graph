@@ -33,13 +33,51 @@ class LinepushController
 
 	public  function request(){
 		$this->requestall = \Request::all();
-		if($this->requestall["param"] == "update"){
-			return $this->update();
+		if($this->requestall["param"] == "search"){
+			return $this->search();
 		}elseif ($this->requestall["param"] == "delete"){
 			return $this->delete();
 		}else{
 			return \Response::json(['status' => 'NG']);
 		}
+	}
+
+	public function search(){
+		$input = $this->requestall;
+		$cityCD = Auth::user()->citycode;
+		$q = Userinfo::query();
+		$q->where('citycode', $cityCD);
+		$q->where('sender', (int)1);
+		switch ($input["info"]) {
+			//全て
+			case 0:
+
+				break;
+			//属性登録あり
+			case 1:
+				if($input["agek"] != 999){
+					$q->where('age', '>=', $input["agek"]);
+					if($input["agem"] != 999){
+						$q->where('age', '<=', $input["agem"]);
+					}
+				}
+				if($input["sex"] > 0){
+					$q->where('sex', $input["sex"]);
+				}
+				for ($i = 1; $i <= 10; $i++) {
+					if($input["option"][$i-1] > 0){
+						$q->where('param'.$i, $input["option"][$i-1]);
+					}
+				}
+				break;
+			//属性登録なし
+			case 2:
+				$q->where('updkbn', '0');
+				break;
+		}
+
+		$hitcount = $q->count();
+		return \Response::json(['hitcount' => $hitcount]);
 	}
 
 	public function update()

@@ -27,7 +27,7 @@ LINEプッシュ通知送信
 		</div>
 	</div>
 	<div class="form-group">
-		<label class="col-sm-2 control-label" for="age_kara">対象年齢</label>
+		<label class="col-sm-2 control-label" for="age_kara">年齢</label>
 		<div class="col-sm-2">
 			<select class="form-control" id="age_kara" onChange="agekChange()">
 				<option value="999" selected>すべて</option>
@@ -283,7 +283,7 @@ LINEプッシュ通知送信
 		</div>
 	</div>
 	<div class="form-group">
-		<label class="col-sm-2 control-label" for="sex">対象性別</label>
+		<label class="col-sm-2 control-label" for="sex">性別</label>
 		<div class="col-sm-2">
 			<select class="form-control" id="sex" onChange="sexChange()">
 				<option value="0" selected>すべて</option>
@@ -296,7 +296,7 @@ LINEプッシュ通知送信
 	<div class="form-group">
 		@foreach($code as $value)
 		@if($value['code2'] == 0)
-		<label class="col-sm-2 control-label" for="option{{$value['code1']}}">{{$value['meisho']}}</label>
+		<label class="col-sm-2 control-label" id="optionlabel{{$value['code1']}}" for="option{{$value['code1']}}">{{$value['meisho']}}</label>
 		<div class="col-sm-4">
 			<select class="form-control" id="option{{$value['code1']}}" onChange="optionChange()">
 				<option value="0" selected>すべて</option>
@@ -328,11 +328,6 @@ LINEプッシュ通知送信
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="送信" onclick="send()">
 </div>
+<input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
 <script type="text/javascript" src="js/linepush.js"></script>
-<script>
-var codes = @json($codes);
-var hitcount = @json($hitcount);
-console.log(codes);
-console.log(hitcount);
-</script>
 @endsection
