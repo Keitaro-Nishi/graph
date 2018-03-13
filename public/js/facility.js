@@ -26,7 +26,7 @@ function init() {
 			});
 		}
 	});
-	genre1change();
+	//genre1change();
 }
 function drow() {
 	if(rowIds.length == 0){
