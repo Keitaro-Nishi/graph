@@ -60,6 +60,12 @@ class Watson{
 
 	function callWatson4($url,$username,$password,$cityCD){
 
+		error_log("☆☆☆☆☆☆");
+		error_log($url);
+		error_log($username);
+		error_log($password);
+		error_log($cityCD);
+
 		$curl = curl_init($url);
 		$options = array(
 				CURLOPT_USERPWD => $username . ':' . $password,
