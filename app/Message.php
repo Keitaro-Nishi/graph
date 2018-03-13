@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Botlog extends Model
+class Message extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -13,7 +13,7 @@ class Botlog extends Model
      */
     protected $fillable = [
 
-    		'citycode', 'no', 'time', 'sender', 'type', 'userid', 'contents', 'return',
+    		'citycode', 'id', 'message'
 
     ];
 
@@ -25,7 +25,7 @@ class Botlog extends Model
     protected $hidden = [
     ];
 
-    protected $primaryKey ='no';
+    protected $primaryKey =['citycode','id'];
     public $incrementing = FALSE;
-    protected $table = 'botlog';
+    protected $table = 'message';
 }
