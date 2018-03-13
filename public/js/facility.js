@@ -26,7 +26,7 @@ function init() {
 			});
 		}
 	});
-	genre1change();
+	//genre1change();
 }
 function drow() {
 	if(rowIds.length == 0){
@@ -109,9 +109,8 @@ function insert() {
 
 //ジャンル選択
 function genre1change(){
-	g2value = genre2value[document.getElementById('dia_genre1').value];
-	console.log(g2value);
-	$g2value = g2value;
+	$g2value = genre2value[document.getElementById('dia_genre1').value];
+	console.log($g2value);
 }
 
 //ダイアログ初期化
