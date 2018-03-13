@@ -21,8 +21,10 @@ Route::middleware(['auth'])->group(function () {
 
 	Route::get ( '/home', 'HomeController@index' )->name ( 'home' );
 
+	//Route::get ( '/users', 'UserController@index' )->name ( 'users' )->middleware('role');
+	//Route::post ( '/users', 'UserController@request' )->middleware('role');
 	Route::get ( '/users', 'UserController@index' )->name ( 'users' );
-	Route::get ( '/users/{deletecode}', 'UserController@delete' );
+	Route::post ( '/users', 'UserController@request' );
 
 	Route::get ( '/opinion', 'OpinionController@index' )->name ( 'opinion' );
 	Route::post ( '/opinion', 'OpinionController@request' );
@@ -37,13 +39,29 @@ Route::middleware(['auth'])->group(function () {
 	Route::post ( '/facility', 'FacilityController@request' );
 
 	Route::get ( '/genre', 'GenreController@index' )->name ( 'genre' );
-	Route::get ( '/genreinit', 'GenreController@init' )->name ( 'genreinit' );
+	Route::post ( '/genre','GenreController@request');
 
-	Route::get ( '/linepush', function () {
-		return view ( 'linepush' );
-	} )->name ( 'linepush' );
+	Route::get ( '/genreint', 'GenreintController@index' )->name ( 'genreint' );
+	Route::post ( '/genreint', 'GenreintController@request' );
 
-	Route::get ( '/codemanage', 'CodeManageController@index' )->name ( 'codemanage' )->middleware ( 'role' );
+	Route::get ( '/genreent', 'GenreentController@index' )->name ( 'genreent' );
+	Route::post ( '/genreent', 'GenreentController@request' );
 
-	Route::get ( '/logindata', 'LogindataController@index' )->name ( 'logindata' )->middleware ( 'role' );
-} );
+	Route::get ( '/linepush',function(){
+		return view( 'linepush' );
+	})->name ( 'linepush' );
+	Route::get ( '/logindata', 'LogindataController@index' )->name ( 'logindata' )->middleware('role');
+
+	//Route::get ( '/codemanage', 'CodeManageController@index')->name('codemanage')->middleware('role');
+	//Route::post ( '/codemanage', 'CodeManageController@request')->name('codemanage')->middleware('role');
+	Route::get ( '/codemanage', 'CodeManageController@index')->name('codemanage');
+	Route::post ( '/codemanage', 'CodeManageController@request');
+
+
+	Route::get ( '/parameter', 'ParameterController@index')->name('parameter');
+	Route::post ( '/parameter', 'ParameterController@request');
+
+	Route::get ( '/messagemanage', 'MessageManageController@index')->name('messagemanage');
+	Route::post ( '/messagemanage', 'MessageManageController@request');
+
+});

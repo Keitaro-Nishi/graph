@@ -5,14 +5,17 @@
 @stop
 
 @section('content')
+<div class="container">
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
 			<th data-column-id="name">ユーザー名</th>
 			<th data-column-id="userid" data-identifier="true">ユーザーID</th>
-			<th data-column-id="organization">組織名</th>
-			<th data-column-id="role">役割</th>
+			<th data-column-id="organization" data-visible="false"></th>
+			<th data-column-id="organizationN">組織名</th>
+			<th data-column-id="citycode" data-visible="false"></th>
+			<th data-column-id='detail'  data-width='6%' data-formatter='details' data-sortable='false'></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -21,11 +24,13 @@
 			<td>{{$user->name}}</td>
 			<td>{{$user->userid}}</td>
 			<td>{{$user->organization}}</td>
-			<td>{{$user->role}}</td>
+			<td>{{$user->meisho}}</td>
+			<td>{{$user->citycode}}</td>
 		</tr>
 		@endforeach
 	</tbody>
 </table>
+</div>
 <div class="modal" id="shosaiDialog" tabindex="-1">
 	<div class="modal-dialog">
 		<div class="modal-content" style="width: 740px; margin-left: -20px;">
@@ -41,7 +46,11 @@
 					<div class="form-group">
 						<label class="col-sm-3 control-label" for="dia_citycode">市町村コード</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" id="dia_citycode" name="citycode" value="" required autofocus>
+							<select class="form-control" id="dia_citycode">
+								@foreach($citycodes as $value)
+									<option value="{{$value->citycode}}" >{{$value->citycode}}:{{$value->cityname}}</option>
+								@endforeach
+							</select>
 						</div>
 					</div>
 					@endif
@@ -54,15 +63,24 @@
 					<div class="form-group">
 						<label class="col-sm-3 control-label" for="dia_name">ユーザー名</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" id="dia_name" name="name" value="" required>
+							<input type="text" class="form-control" id="dia_name" name="username" value="" required>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-3 control-label" for="dia_organization">所属</label>
 						<div class="col-sm-9">
 							<select class="form-control" id="dia_organization" name="organization">
-								<option value=0>所属なし</option>
+								@foreach($organizations as $value)
+									<option value="{{$value->code2}}" selected>{{$value->meisho}}</option>
+								@endforeach
 							</select>
+						</div>
+					</div>
+					<div class="form-group" id="dia_passres">
+						<label class="col-sm-3 control-label" for="dia_passresck">パスワード再設定</label>
+						<div class="col-sm-9">
+							<input type="checkbox" class="form-check-input" id="dia_passresck" name="passresck" onclick="preset()">
+							<label class="form-check-label" for="dia_passresck">再設定</label>
 						</div>
 					</div>
 					<div class="form-group">
@@ -75,6 +93,12 @@
 						<label class="col-sm-3 control-label" for="dia_password_confirmation">パスワード再入力</label>
 						<div class="col-sm-9">
 							<input type="password" class="form-control" id="dia_password_confirmation" name="password_confirmation" value="" required>
+						</div>
+					</div>
+					<div class="form-group" id="dia_info">
+						<label class="col-sm-3 control-label" for="dia_infolabel"></label>
+						<div class="col-sm-9">
+							<label class="control-label" id="dia_infolabel"></label>
 						</div>
 					</div>
 					<input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -94,5 +118,8 @@
 	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog"/>
 </div>
 <script src="{{ asset('js/users.js') }}"></script>
-
+<script>
+var intpass = @json($intpass);
+init();
+</script>
 @endsection
