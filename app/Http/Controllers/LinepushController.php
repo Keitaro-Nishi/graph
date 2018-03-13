@@ -43,6 +43,11 @@ class LinepushController
 	}
 
 	public function search(){
+		$hitcount = $this->makeQuerry()->count();
+		return \Response::json(['hitcount' => $hitcount]);
+	}
+
+	public function makeQuerry(){
 		$input = $this->requestall;
 		$cityCD = Auth::user()->citycode;
 		$q = Userinfo::query();
@@ -53,7 +58,7 @@ class LinepushController
 			case 0:
 
 				break;
-			//属性登録あり
+				//属性登録あり
 			case 1:
 				$q->where('updkbn', '1');
 				if($input["agek"] != 999){
@@ -71,14 +76,12 @@ class LinepushController
 					}
 				}
 				break;
-			//属性登録なし
+				//属性登録なし
 			case 2:
 				$q->where('updkbn', '0');
 				break;
 		}
-
-		$hitcount = $q->count();
-		return \Response::json(['hitcount' => $hitcount]);
+		return $q;
 	}
 
 	public function update()
