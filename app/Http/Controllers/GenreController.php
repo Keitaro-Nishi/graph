@@ -73,6 +73,7 @@ class GenreController
 
 	public function delete()
 	{
+
 		$workspace_id = getenv('CVS_WORKSPASE_ID');
 		$username = getenv('CVS_USERNAME');
 		$password = getenv('CVS_PASS');
