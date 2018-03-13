@@ -100,6 +100,8 @@
 								@endforeach
 							</select>
 							--}}
+							<select class="form-control" id="dia_genre2">
+							</select>
 						</div>
 					</div>
 					<div class="form-group">
