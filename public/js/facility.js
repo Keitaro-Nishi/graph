@@ -27,18 +27,6 @@ function init() {
 		}
 	});
 
-	//ジャンルの設定
-	var large = document.getElementById('genre1value').value;
-	var genre1value = JSON.parse(large);
-	var select = document.getElementById('dia_genre1');
-	for( var key in genre1value ) {
-		var option = document.createElement('option');
-		option.setAttribute('value', key);
-		var text = document.createTextNode(genre1value[key]);
-		option.appendChild(text);
-		select.appendChild(option);
-	}
-	genre1change();
 
 }
 
