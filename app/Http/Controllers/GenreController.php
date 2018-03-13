@@ -88,7 +88,8 @@ class GenreController
 			$gid2 = $aos[1];
 
 			error_log("△△△△△");
-			$g2meisho = DB::table('genre')->select('meisho')->where('gid1',$gid1)->where('gid2',$gid2)->first();
+			$g2meishodata = DB::table('genre')->select('meisho')->where('gid1',$gid1)->where('gid2',$gid2)->first();
+			$g2meisho = $g2meishodata->meisho;
 			error_log($g2meisho);
 
 			if($gid2 == 0){
