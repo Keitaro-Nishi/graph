@@ -21,8 +21,6 @@
 				<option value="2">登録なし</option>
 			</select>
 		</div>
-	</div>
-	<div class="form-group">
 		<label class="col-sm-2 control-label" for="age_kara">対象年齢</label>
 		<div class="col-sm-2">
 			<select class="form-control" id="age_kara" onChange="agekChange()">
