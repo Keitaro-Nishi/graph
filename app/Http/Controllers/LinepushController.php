@@ -93,7 +93,10 @@ class LinepushController
 		$sendids = $this->makeQuerry()->get();
 		$uids = [];
 		$count = 0;
+		error_log("★★★★★★★★★sendids.length★★★★★★★★★".$sendids.length);
+		error_log("★★★★★★★★★sendids★★★★★★★★★".$sendids);
 		for ($i =0; $i < $sendids.length; $i++){
+			error_log("★★★★★★★★★sendids★★★★★★★★★".$sendids);
 			array_push($uids,trim($sendids[$i]->userid));
 			$count = $count + 1;
 			if($count == 150){
