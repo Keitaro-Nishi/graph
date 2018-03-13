@@ -136,7 +136,7 @@
 <script src="{{ asset('js/facility.js') }}"></script>
 <script>
 var genre1value = @json($genre1value);
-var genre2value = @json($genre2value);
+//var genre2value = @json($genre2value);
 init();
 </script>
 @endsection
