@@ -106,13 +106,13 @@ function insert() {
 	initmodal();
 	document.getElementById("btn_modal").click();
 }
-/*
+
 //ジャンル選択
 function genre1change(){
 	$genre2key = document.getElementById('dia_genre1').value;
-	$result = in_array($gid1 = $genre2key, $genre2value);
+	//$result = in_array($gid1 = $genre2key, $genre2value);
 }
-*/
+
 //ダイアログ初期化
 function initmodal(){
 	document.getElementById('dia_meisho').value = "";
