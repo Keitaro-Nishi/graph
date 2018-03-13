@@ -109,7 +109,6 @@ function insert() {
 
 //ジャンル選択
 function genre1change(){
-	var select = document.getElementById('dia_genre2');
 	$genre2key = document.getElementById('dia_genre1').value;
 	console.log($genre2key);
 }
