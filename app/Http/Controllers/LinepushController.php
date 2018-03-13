@@ -28,7 +28,7 @@ class LinepushController
 		}
 
 		$hitcount = Userinfo::where('citycode', $cityCD)->where('sender', (int)1)->count();
-		error_log("★★★★★★★★★★★★★★codes★★★★★★★★★★★★★★".$codes);
+		//error_log("★★★★★★★★★★★★★★codes★★★★★★★★★★★★★★".$codes);
 		$jcode = json_encode($codes);
 		error_log("★★★★★★★★★★★★★★jcodes★★★★★★★★★★★★★★".$jcode);
 		//error_log("★★★★★★★★★★★★★★codes[0]★★★★★★★★★★★★★★".$codes[0]);
