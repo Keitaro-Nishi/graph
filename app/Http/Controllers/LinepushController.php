@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
 use App\Userinfo;
+use App\Parameter;
 use App\Code;
 
 class LinepushController
@@ -35,8 +35,8 @@ class LinepushController
 		$this->requestall = \Request::all();
 		if($this->requestall["param"] == "search"){
 			return $this->search();
-		}elseif ($this->requestall["param"] == "delete"){
-			return $this->delete();
+		}elseif ($this->requestall["param"] == "send"){
+			return $this->send();
 		}else{
 			return \Response::json(['status' => 'NG']);
 		}
@@ -84,79 +84,73 @@ class LinepushController
 		return $q;
 	}
 
-	public function update()
+	public function send()
 	{
-		$input = $this->requestall;
-
-		$rules = [ 'citycode' => 'required|string'];
-
-		if($input["updateKbn"] == "true"){
-			$rules = $rules + ['userid' => 'required|string|max:255'];
-		}else{
-			$rules = $rules + ['userid' => 'required|string|max:255|unique:users'];
-		}
-
-		$rules = $rules + [
-			'username' => 'required|string|max:255',
-			'organization' => 'required|string|max:255'
-		];
-
-		if($input["passreset"] == "true"){
-			$rules = $rules + ['password' => 'required|string|min:6|confirmed'];
-		}
-
-		$validator = Validator::make($input,$rules);
-
-		if($validator->fails())
-		{
-			return $validator->errors();
-		}
-
-		//$user = new User;
-		$user = User::firstOrNew(['userid' => $input["userid"]]);
+		//jsonを作成し、LINEに送信
 		$cityCD = Auth::user()->citycode;
-		//市町村コード
-		if($cityCD == "00000"){
-			$user->citycode= $input["citycode"];
-		}else{
-			$user->citycode= $cityCD;
+		$line_cat = Parameter::select('line_cat')->where('citycode', $cityCD)->first();
+		error_log("★★★★★★★★line_cat★★★★★★★★★★".$line_cat);
+		$sendids = $this->makeQuerry()->get();
+		$uids = [];
+		$count = 0;
+		for ($i =0; $i < $sendids.length; $i++){
+			array_push($uids,trim($sendids[$i]->userid));
+			$count = $count + 1;
+			if($count == 150){
+				$result = $this->lineSend($line_cat,$uids);
+				if($result == "NG"){
+					return \Response::json(['status' => 'NG']);
+				}
+				$uids = [];
+				$count = 0;
+			}
 		}
-		//ユーザーＩＤ
-		$user->userid= $input["userid"];
-		//名前
-		$user->name= $input["username"];
-		//権限
-		if($cityCD == "00000"){
-			$user->role= (int)1;
-		}else{
-			$user->role= (int)2;
+		if($uids.length > 0){
+			$result = $this->lineSend($line_cat,$uids);
+			if($result == "NG"){
+				return \Response::json(['status' => 'NG']);
+			}
 		}
-		//所属
-		$user->organization= $input["organization"];
-		//パスワード
-		if($input["passreset"] == "true"){
-			$user->password= bcrypt($input["password"]);
-		}
-		//email
-		$user->email= "";
-		//予備
-		$user->reserve= "";
-
-		$result = $user->save();
 
 		return \Response::json(['status' => 'OK']);
 	}
 
-	public function delete()
-	{
+	public function lineSend($line_cat,$uids){
 		$input = $this->requestall;
-		User::destroy($input["userids"]);
-		/*
-		foreach ($input["userids"] as $userid) {
-			error_log("★★★★★★★★★★★★★delete2★★★★★★★★★★★★★★★".$userid);
+		error_log("★★★★★★★★★uids★★★★★★★★★".$uids);
+		$response_format_text = [
+				"to" => $uids,
+				"messages" => [
+						[
+								"type" => "text",
+								"text" => $input["sendmess"]
+						]
+				]
+		];
+
+		$ch = curl_init("https://api.line.me/v2/bot/message/multicast");
+		curl_setopt($ch, CURLOPT_POST, true);
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($response_format_text));
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+				'Content-Type: application/json; charser=UTF-8',
+				'Authorization: Bearer ' . $line_cat
+		));
+		$result = curl_exec($ch);
+		if(!curl_errno($ch)) {
+			$info = curl_getinfo($ch);
+			curl_close($ch);
+			error_log("★★★★★★★★★http_code★★★★★★★★★".$info['http_code']);
+			if($info['http_code'] == "200"){
+				return "OK";
+			}else{
+				return "NG";
+			}
+		}else{
+			curl_close($ch);
+			return "NG";
 		}
-		*/
-		return \Response::json(['status' => 'OK']);
 	}
 
 }
