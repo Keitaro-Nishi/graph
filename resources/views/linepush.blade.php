@@ -295,7 +295,7 @@ LINEプッシュ通知送信
 	@foreach($codes as $code)
 	<div class="form-group">
 		@foreach($code as $value)
-		<label class="col-sm-2 control-label" for="option{{$value->code1}}">{{$value->meisho}}</label>
+		<label class="col-sm-2 control-label" >{{$value}}</label>
 		@endforeach
 	</div>
 	@endforeach
