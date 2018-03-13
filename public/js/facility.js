@@ -30,11 +30,11 @@ function init() {
 	//ジャンルの設定
 	var large = JSON.parse(genre1value);
 	var select = document.getElementById('dia_genre1');
-	for( var gid in large ) {
+	for( var gid1 in large ) {
 		var option = document.createElement('option');
-		option.setAttribute('value', gid);
+		option.setAttribute('value', gid1);
 		console.log(option);
-		var text = document.createTextNode(l[gid]);
+		var text = document.createTextNode(l[gid1]);
 		option.appendChild(text);
 		select.appendChild(option);
 	}
