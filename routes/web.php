@@ -40,7 +40,13 @@ Route::middleware(['auth'])->group(function () {
 
 
 	Route::get ( '/genre', 'GenreController@index' )->name ( 'genre' );
-	Route::get ( '/genreinit', 'GenreController@init' )->name ( 'genreinit' );
+	Route::post ( '/genre','GenreController@request');
+
+	Route::get ( '/genreint', 'GenreintController@index' )->name ( 'genreint' );
+	Route::post ( '/genreint', 'GenreintController@request' );
+
+	Route::get ( '/genreent', 'GenreentController@index' )->name ( 'genreent' );
+	Route::post ( '/genreent', 'GenreentController@request' );
 
 	Route::get ( '/linepush',function(){
 		return view( 'linepush' );
@@ -51,6 +57,7 @@ Route::middleware(['auth'])->group(function () {
 	//Route::post ( '/codemanage', 'CodeManageController@request')->name('codemanage')->middleware('role');
 	Route::get ( '/codemanage', 'CodeManageController@index')->name('codemanage');
 	Route::post ( '/codemanage', 'CodeManageController@request');
+
 
 	Route::get ( '/parameter', 'ParameterController@index')->name('parameter');
 	Route::post ( '/parameter', 'ParameterController@request');

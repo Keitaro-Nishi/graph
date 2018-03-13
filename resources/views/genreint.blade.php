@@ -1,13 +1,16 @@
 @extends('layouts.app')
 
+@section('title')
+ジャンル検索ワード登録
+@stop
+
 @section('content')
 <div class="container">
 	<p>大分類</p>
-	<select class="form-control" onChange="g1change()"  style="width: 600px;">
+	<select id="g1" class="form-control" onChange="g1change()"  style="width: 600px;">
 	@foreach($results as $result)
-	<option value="1">{{$result->meisho}}</option>
+	<option value="{{$result->gid1}}">{{$result->meisho}}</option>
 	@endforeach
-
 	</select>
 	<br>
 	<table id='grid-basic' class='table table-sm'>
@@ -22,6 +25,10 @@
 	<input type="button" class="btn btn-default"  data-toggle="modal" data-target="#updateDialog" value="追加" />
 	<input type="button" class="btn btn-default" onclick="back()" value="もどる" />
 </div>
+
+<input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
+
+
 <div class="modal" id="updateDialog" tabindex="-1">
 	<div class="modal-dialog">
     	<div class="modal-content">
@@ -42,5 +49,5 @@
 	</div>
 </div>
 
-<script src="{{ asset('js/genreinit.js') }}"></script>
+<script src="{{ asset('js/genreint.js') }}"></script>
 @endsection
