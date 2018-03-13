@@ -108,8 +108,6 @@ class GenreintController
 
 		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents/".$g1meisho."/examples/".urlencode($sword)."?version=2017-05-26";
 		$result = $watson->callWatson3($url,$username,$password);
-		error_log("☆☆☆☆☆");
-		error_log($result);
 
 		if($result == "200"){
 			return \Response::json(['status' => 'OK']);
