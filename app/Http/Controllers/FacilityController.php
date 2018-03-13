@@ -52,11 +52,14 @@ class FacilityController {
 			);
 		}
 		error_log ( print_r($genre1value->toArray(), true));
+		/*
 		return view ( 'facility', [
 				'facilities' => $facilities,
 				'genre1value' => $genre1value,
 				'genre2value' => $genre2value,
 		] );
+		*/
+		return $genre1value;
 	}
 	public function request() {
 		$this->requestall = \Request::all ();
