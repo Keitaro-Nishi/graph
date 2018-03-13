@@ -51,10 +51,10 @@ class FacilityController {
 					$gid1 => $j2value
 			);
 		}
-		//error_log ( print_r($genre1value->toArray(), true));
+		error_log ( "???????????????????54", print_r($genre1value->toArray(), true));
 		return view ( 'facility', [
 				'facilities' => $facilities,
-				'genre1value' => $j1value,
+				'genre1value' => $genre1value,
 				'genre2value' => $genre2value,
 		] );
 	}
