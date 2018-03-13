@@ -63,10 +63,11 @@ class GenreentController
 		$g2meisho= $input["g2meisho"];
 		$sword= $input["sword"];
 		$data = "";
+		$cityCD = Auth::user()->citycode;
 		$watson = new Watson;
 
 		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities/".$g1meisho."/values/".urlencode($g2meisho)."/synonyms?version=2017-05-26";
-		$jsonString = $watson->callWatson2($url,$username,$password);
+		$jsonString = $watson->callWatson2($url,$username,$password,$cityCD);
 		$json = json_decode($jsonString, true);
 		$arr = array();
 		foreach ($json["synonyms"] as $value){
@@ -86,11 +87,12 @@ class GenreentController
 		$g2meisho= $input["g2meisho"];
 		$sword= $input["sword"];
 		$data = "";
+		$cityCD = Auth::user()->citycode;
 		$watson = new Watson;
 
 		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities/".$g1meisho."/values/".urlencode($g2meisho)."/synonyms?version=2017-05-26";
 		$data = array("synonym" => $sword);
-		$jsonString = $watson->callWatson($url,$username,$password,$data);
+		$jsonString = $watson->callWatson($url,$username,$password,$data,$cityCD);
 		$json = json_decode($jsonString, true);
 		if($json["synonym"] == $sword){
 			return \Response::json(['status' => 'OK']);
@@ -109,12 +111,12 @@ class GenreentController
 		$g2meisho= $input["g2meisho"];
 		$sword= $input["sword"];
 		$data = "";
+		$cityCD = Auth::user()->citycode;
 		$watson = new Watson;
 
 		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities/".$g1meisho."/values/".urlencode($g2meisho)."/synonyms/".urlencode($sword)."?version=2017-05-26";
-		$result = $watson->callWatson3($url,$username,$password);
+		$result = $watson->callWatson3($url,$username,$password,$cityCD);
 
-		error_log($result);
 		if($result == "200"){
 			return \Response::json(['status' => 'OK']);
 		}else{

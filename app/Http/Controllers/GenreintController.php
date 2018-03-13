@@ -49,10 +49,11 @@ class GenreintController
 		$sword= $input["sword"];
 
 		$data = "";
+		$cityCD = Auth::user()->citycode;
 		$watson = new Watson;
 
 		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents/".$g1meisho."/examples?version=2017-05-26&export=true";
-		$jsonString = $watson->callWatson2($url,$username,$password);
+		$jsonString = $watson->callWatson2($url,$username,$password,$cityCD);
 		$json = json_decode($jsonString, true);
 
 
@@ -76,12 +77,13 @@ class GenreintController
 		$sword= $input["sword"];
 
 		$data = "";
+		$cityCD = Auth::user()->citycode;
 		$watson = new Watson;
 
 
 		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents/".$g1meisho."/examples?version=2017-05-26";
 		$data = array("text" => $sword);
-		$jsonString = $watson->callWatson($url,$username,$password,$data);
+		$jsonString = $watson->callWatson($url,$username,$password,$data,$cityCD);
 		$json = json_decode($jsonString, true);
 
 		if($json["text"] == $sword){
@@ -104,10 +106,11 @@ class GenreintController
 		$sword= $input["sword"];
 
 		$data = "";
+		$cityCD = Auth::user()->citycode;
 		$watson = new Watson;
 
 		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents/".$g1meisho."/examples/".urlencode($sword)."?version=2017-05-26";
-		$result = $watson->callWatson3($url,$username,$password);
+		$result = $watson->callWatson3($url,$username,$password,$cityCD);
 
 		if($result == "200"){
 			return \Response::json(['status' => 'OK']);

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class Watson{
 
-	public function callWatson($url,$username,$password,$data){
+	public function callWatson($url,$username,$password,$data,$cityCD){
 
 		$curl = curl_init($url);
 		$options = array(
@@ -27,7 +27,7 @@ class Watson{
 	}
 
 
-	function callWatson2($url,$username,$password){
+	function callWatson2($url,$username,$password,$cityCD){
 
 		$curl = curl_init($url);
 		$options = array(
@@ -43,7 +43,7 @@ class Watson{
 	}
 
 
-	function callWatson3($url,$username,$password){
+	function callWatson3($url,$username,$password,$cityCD){
 
 		$curl = curl_init($url);
 		$options = array(
