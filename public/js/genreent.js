@@ -35,7 +35,6 @@ $(function(){
 		}
 	})
 
-	//g2change();
 
 });
 
