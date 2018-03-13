@@ -19,14 +19,13 @@ $(function(){
 		for (var i=0; i<count; i++) {
 			var shoubunrui = $('select[name="shoubunrui"] option:eq(' + i + ')');
 
-			if(shoubunrui.attr("class") === daibunruiName) {
-
+			if(shoubunrui.attr("class") === daibunruiName)
+			{
 				shoubunrui.show();
 			}else {
 				if(shoubunrui.attr("class") === "msg") {
 						shoubunrui.show();
 						shoubunrui.prop('selected',true);
-
 				} else {
 
 					shoubunrui.hide();
