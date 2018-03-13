@@ -26,7 +26,6 @@ function init() {
 			});
 		}
 	});
-	genre1change();
 }
 //施設情報削除
 function drow() {
