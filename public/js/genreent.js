@@ -23,12 +23,12 @@ $(function(){
 			{
 				shoubunrui.show();
 			}else {
-				/*if(shoubunrui.attr("class") === "message") {
+				if(shoubunrui.attr("class") === "message") {
 						shoubunrui.show();
 						shoubunrui.prop('selected',true);
-				} else {*/
+				} else {
 					shoubunrui.hide();
-				//}
+				}
 			}
 		}
 	})
@@ -63,13 +63,17 @@ function getwtent(){
 			td2.innerHTML = '<input type="button" value="削除" class="btn btn-default" onclick="delLine(\'' + response[i] + '\',this)" />';
 		}
     }).fail(function () {
-    	if(g2meisho !="小分類を選択してください。")
-    	{
     		alert("Watsonデータの取得に失敗しました");
-    	}
     });
 
 }
+
+function bchange(){
+	if(document.getElementById('g1').options[document.getElementById('g2').selectedIndex].text == "大分類を選択してください。"){
+		document.getElementById('g2').disabled = true;
+	}
+}
+
 
 
 //小分類切替
