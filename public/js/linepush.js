@@ -89,8 +89,14 @@ function postController(para){
 			document.getElementById('taisho').value = response.hitcount;
 		}
 		if(para == "send"){
+			var mess = "";
+			if(response.status == "OK"){
+				mess = "送信しました";
+			}else{
+				mess = "送信できませんでした";
+			}
 			bootbox.alert({
-				message: "送信しました",
+				message: mess,
 				size: 'small'
 			});
 		}
