@@ -7,7 +7,6 @@ botlog = document.getElementById('botlog').value;
 dbvalue = JSON.parse(botlog);
 
 $(function() {
-
 	$("#grid-basic").bootgrid({
 		selection : true,
 		multiSelect : true,
