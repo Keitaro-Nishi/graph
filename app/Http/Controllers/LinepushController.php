@@ -97,7 +97,7 @@ class LinepushController
 			array_push($uids,trim($sendids[$i]->userid));
 			$count = $count + 1;
 			if($count == 150){
-				$result = $this->lineSend($line_cat,$uids);
+				$result = $this->lineSend($line_cat->line_cat,$uids);
 				if($result == "NG"){
 					return \Response::json(['status' => 'NG']);
 				}
@@ -105,8 +105,9 @@ class LinepushController
 				$count = 0;
 			}
 		}
+		error_log("★★★★★★★★★uids.length★★★★★★★★★".$uids.length);
 		if($uids.length > 0){
-			$result = $this->lineSend($line_cat,$uids);
+			$result = $this->lineSend($line_cat->line_cat,$uids);
 			if($result == "NG"){
 				return \Response::json(['status' => 'NG']);
 			}
@@ -117,7 +118,8 @@ class LinepushController
 
 	public function lineSend($line_cat,$uids){
 		$input = $this->requestall;
-		error_log("★★★★★★★★★uids★★★★★★★★★".$uids);
+		error_log("★★★★★★★★line_cat2★★★★★★★★★★".$line_cat);
+		error_log("★★★★★★★★★uids★★★★★★★★★".$uids[0]);
 		$response_format_text = [
 				"to" => $uids,
 				"messages" => [
