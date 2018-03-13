@@ -36,61 +36,67 @@ $(function(){
 	})
 });
 
-/*
+
 //インテント取得
 function getwtent(){
 	g1meisho = document.getElementById('g1').value;
 	g2meisho = document.getElementById('g2').options[document.getElementById('g2').selectedIndex].text;
+	var _token = document.getElementById('_token').value;
+
 	$.ajax({
 		type: "POST",
-		url: "cw2.php",
+		dataType: "JSON",
 		data: {
 			"param" : "entitySearch",
 			"g1meisho" : g1meisho,
 			"g2meisho" : g2meisho,
-			"sword" : ""
+			"sword" : "",
+			"_token" : _token
 		}
 	}).done(function (response) {
-		result = JSON.parse(response);
-		for( var index in result ) {
+		//result = JSON.parse(response);
+		for( var i =0; i<response.length; i++ ) {
 			var raw = wtable.insertRow( -1 );
 			var td1 = raw.insertCell(-1),td2 = raw.insertCell(-1);
 			td2.style.width = "50px";
-			td1.innerHTML = result[index];
-			td2.innerHTML = '<input type="button" value="削除" class="btn btn-default" onclick="delLine(\'' + result[index] + '\',this)" />';
+			td1.innerHTML = response[i];
+			td2.innerHTML = '<input type="button" value="削除" class="btn btn-default" onclick="delLine(\'' + response[i] + '\',this)" />';
 		}
     }).fail(function () {
         alert("Watsonデータの取得に失敗しました");
     });
 }
-*/
+
 
 //小分類切替
 function g2change(){
 
 	//テーブル初期化
-	//while( wtable.rows[ 1 ] ) wtable.deleteRow( 1 );
-	//getwtent();
+	while( wtable.rows[ 1 ] ) wtable.deleteRow( 1 );
+	getwtent();
 }
 
-/*
+
 //更新
 function update(){
 	synonym = document.getElementById('synonym').value;
 	g1meisho = document.getElementById('g1').value;
 	g2meisho = document.getElementById('g2').options[document.getElementById('g2').selectedIndex].text;
+	var _token = document.getElementById('_token').value;
+
 	$.ajax({
 		type: "POST",
-		url: "cw2.php",
+		dataType: "JSON",
 		data: {
 			"param" : "entityUpdate",
 			"g1meisho" : g1meisho,
 			"g2meisho" : g2meisho,
-			"sword" : synonym
+			"sword" : synonym,
+			"_token" : _token
 		}
 	}).done(function (response) {
-		result = JSON.parse(response);
-		if(result == "OK"){
+		//result = JSON.parse(response);
+		if(response.status == "OK"){
 			alert("更新しました");
 			var raw = wtable.insertRow( -1 );
 			var td1 = raw.insertCell(-1),td2 = raw.insertCell(-1);
@@ -106,24 +112,28 @@ function update(){
 	document.getElementById('synonym').value = "";
 }
 
+
 //行削除
 function delLine(value,raw){
-	var myRet = confirm("類義語「"+ value + "」を削除しますか？");
+	var myRet = confirm("検索ワード「"+ value + "」を削除しますか？");
+	var _token = document.getElementById('_token').value;
+
 	if ( myRet == true ){
 		g1meisho = document.getElementById('g1').value;
 		g2meisho = document.getElementById('g2').options[document.getElementById('g2').selectedIndex].text;
 		$.ajax({
 			type: "POST",
-			url: "cw2.php",
+			dataType: "JSON",
 			data: {
 				"param" : "entityDelete",
 				"g1meisho" : g1meisho,
 				"g2meisho" : g2meisho,
-				"sword" : value
+				"sword" : value,
+				"_token" : _token
 			}
 		}).done(function (response) {
-			result = JSON.parse(response);
-			if(result == "OK"){
+			//result = JSON.parse(response);
+			if(response.status == "OK"){
 				alert("削除しました");
 				tr = raw.parentNode.parentNode;
 				tr.parentNode.deleteRow(tr.sectionRowIndex);
@@ -135,7 +145,7 @@ function delLine(value,raw){
 	    });
 	}
 }
-*/
+
 
 //もどる
 function back(){

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Genre;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Libs\Watson;
 
 class GenreentController
 {
@@ -38,6 +39,89 @@ class GenreentController
 		//error_log(print_r($shoubunruilists,true));
 		return view('genreent',compact('daibunruis','shoubunruis'));
 
+	}
+
+	public  function request(){
+		$this->requestall = \Request::all();
+		if ($this->requestall["param"] == "entitySearch"){
+			return $this->intentSearch();
+		}elseif($this->requestall["param"] == "entityUpdate"){
+			return $this->intentUpdate();
+		}elseif($this->requestall["param"] == "entityDelete"){
+			return $this->intentDelete();
+		}else{
+			return \Response::json(['status' => 'NG']);
+		}
+	}
+
+	function entitySearch(){
+
+		$workspace_id = getenv('CVS_WORKSPASE_ID');
+		$username = getenv('CVS_USERNAME');
+		$password = getenv('CVS_PASS');
+		$input = $this->requestall;
+		$param = $input["param"];
+		$g1meisho= $input["g1meisho"];
+		$g2meisho= $input["g2meisho"];
+		$sword= $input["sword"];
+		$data = "";
+		$watson = new Watson;
+
+		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities/".$g1meisho."/values/".urlencode($g2meisho)."/synonyms?version=2017-05-26";
+		$jsonString = $watson->callWatson2($url,$username,$password);
+		$json = json_decode($jsonString, true);
+		$arr = array();
+		foreach ($json["synonyms"] as $value){
+			array_push($arr,$value["synonym"]);
+		}
+		return \Response::json($arr);
+
+	}
+	function entityUpdate(){
+
+		$workspace_id = getenv('CVS_WORKSPASE_ID');
+		$username = getenv('CVS_USERNAME');
+		$password = getenv('CVS_PASS');
+		$input = $this->requestall;
+		$param = $input["param"];
+		$g1meisho= $input["g1meisho"];
+		$g2meisho= $input["g2meisho"];
+		$sword= $input["sword"];
+		$data = "";
+		$watson = new Watson;
+
+		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities/".$g1meisho."/values/".urlencode($g2meisho)."/synonyms?version=2017-05-26";
+		$data = array("synonym" => $sword);
+		$jsonString = $watson->callWatson($url,$username,$password,$data);
+		$json = json_decode($jsonString, true);
+		if($json["synonym"] == $sword){
+			return \Response::json(['status' => 'OK']);
+		}else{
+			return \Response::json(['status' => 'NG']);
+		}
+	}
+	function entityDelete(){
+
+		$workspace_id = getenv('CVS_WORKSPASE_ID');
+		$username = getenv('CVS_USERNAME');
+		$password = getenv('CVS_PASS');
+		$input = $this->requestall;
+		$param = $input["param"];
+		$g1meisho= $input["g1meisho"];
+		$g2meisho= $input["g2meisho"];
+		$sword= $input["sword"];
+		$data = "";
+		$watson = new Watson;
+
+		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities/".$g1meisho."/values/".urlencode($g2meisho)."/synonyms/".urlencode($sword)."?version=2017-05-26";
+		$result = $watson->callWatson3($url,$username,$password);
+
+		error_log($result);
+		if($result == "200"){
+			echo json_encode("OK");
+		}else{
+			echo json_encode("NG");
+		}
 	}
 
 
