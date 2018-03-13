@@ -108,10 +108,21 @@ function insert() {
 
 //ジャンル選択
 function genre1change(){
-	var $g2value = new array();
-	$g2value = genre2value[document.getElementById('dia_genre1').value];
-	console.log($g2value);
-	document.getElementById('dia_genre2').value = $g2value;
+	var select = document.getElementById('dia_j2');
+	while (0 < select.childNodes.length) {
+		select.removeChild(select.childNodes[0]);
+	}
+
+	var g2value = new array();
+	g2value = genre2value[document.getElementById('dia_genre1').value];
+	console.log(g2value);
+	for( var key in g2value ) {
+		var option = document.createElement('option');
+		option.setAttribute('value', key);
+		var text = document.createTextNode(g2value[key]);
+		option.appendChild(text);
+		select.appendChild(option);
+	}
 }
 
 //ダイアログ初期化
