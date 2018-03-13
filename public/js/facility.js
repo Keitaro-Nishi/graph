@@ -119,6 +119,7 @@ function genre1change(){
 	for(var i = 0; i < g2value.length; i++) {
 		var option = document.createElement('option');
 		option.setAttribute('value', g2value[i]['gid1']);
+		console.log("777777777777777777" + g2value[i]['gid1']);
 		var text = document.createTextNode(g2value[i]['meisho']);
 		option.appendChild(text);
 		select.appendChild(option);
