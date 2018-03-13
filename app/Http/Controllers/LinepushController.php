@@ -28,7 +28,7 @@ class LinepushController
 		}
 
 		$hitcount = Userinfo::where('citycode', $cityCD)->where('sender', (int)1)->count();
-		return view('users',['codes'=>$codes,'hitcount'=>$hitcount]);
+		return view('linepush',['codes'=>$codes,'hitcount'=>$hitcount]);
 	}
 
 	public  function request(){
