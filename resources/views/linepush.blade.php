@@ -302,6 +302,7 @@ LINEプッシュ通知送信
 				<option value="0" selected>すべて</option>
 		@else
 				<option value="{{$value->code2}}">{{$value->meisho}}</option>
+		@endif
 		@endforeach
 			</select>
 		</div>
