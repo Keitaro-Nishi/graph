@@ -46,7 +46,6 @@ function getwtent(){
 	g2meisho = document.getElementById('g2').options[document.getElementById('g2').selectedIndex].text;
 	var _token = document.getElementById('_token').value;
 
-	alert(g2meisho);
 	$.ajax({
 		type: "POST",
 		dataType: "JSON",
