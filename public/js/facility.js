@@ -110,7 +110,7 @@ function insert() {
 //ジャンル選択
 function genre1change(){
 	$g2key = document.getElementById('dia_genre1').value;
-	console.log(genre2value()->meisho);
+	$genre2value = $genre2value[$g2key];
 }
 
 //ダイアログ初期化
