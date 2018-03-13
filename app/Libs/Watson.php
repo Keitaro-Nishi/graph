@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class Watson{
 
 	public function callWatson($url,$username,$password,$data,$cityCD){
-
+		error_log($cityCD);
 		$curl = curl_init($url);
 		$options = array(
 				CURLOPT_HTTPHEADER => array(
@@ -28,7 +28,7 @@ class Watson{
 
 
 	function callWatson2($url,$username,$password,$cityCD){
-
+		error_log($cityCD);
 		$curl = curl_init($url);
 		$options = array(
 				CURLOPT_HTTPHEADER => array(
@@ -44,7 +44,7 @@ class Watson{
 
 
 	function callWatson3($url,$username,$password,$cityCD){
-
+		error_log($cityCD);
 		$curl = curl_init($url);
 		$options = array(
 				CURLOPT_HTTPHEADER => array(
