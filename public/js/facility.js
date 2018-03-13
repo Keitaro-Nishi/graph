@@ -1,8 +1,6 @@
 var rowIds = [];
 
 function init() {
-	console.log(genre1value);
-	console.log(genre2value);
 	$("#grid-basic").bootgrid({
 		selection : true,
 		multiSelect : true,
@@ -13,7 +11,6 @@ function init() {
 				return "<input type='button' class='btn btn-default' value='修正' onclick='modwin("  + $row.id + ",\"" + $row.meisho + "\",\"" + $row.jusho + "\",\"" + $row.tel + "\",\"" + $row.genre1 + "\",\"" + $row.genre2 + "\",\"" + $row.lat + "\",\"" + $row.lng + "\",\"" + $row.imageurl + "\",\"" + $row.url + "\")' > ";
 			}
 		}
-
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
 		for (var i = 0; i < rows.length; i++) {
 			rowIds.push(rows[i].id);
@@ -50,7 +47,6 @@ function drow() {
 		callback: function (result) {
 			if(result){
 				var _token = document.getElementById('_token').value;
-				console.log(_token);
 				$.ajax({
 					type: "POST",
 					dataType: "JSON",
@@ -59,7 +55,6 @@ function drow() {
 						"ids" : rowIds,
 						"_token" : _token
 					}
-
 				}).done(function (response) {
 					if(response.status == "OK"){
 						bootbox.alert({
@@ -119,9 +114,7 @@ function genre1change(){
 	while (0 < select.childNodes.length) {
 		select.removeChild(select.childNodes[0]);
 	}
-
 	g2value = genre2value[document.getElementById('dia_genre1').value];
-	console.log(g2value);
 	for(var i = 0; i < g2value.length; i++) {
 		var option = document.createElement('option');
 		option.setAttribute('value', g2value[i]['gid1']);
@@ -158,8 +151,6 @@ function update(){
 	var imageurl = document.getElementById('dia_imageurl').value;
 	var url = document.getElementById('dia_url').value;
 	var _token = document.getElementById('_token').value;
-
-	console.log(genre2);
 
 	$.ajax({
 		type: "POST",
