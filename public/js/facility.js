@@ -141,10 +141,10 @@ function genre1change(){
 	}
 	console.log(genre2value);
 	var janru = genre2value[document.getElementById('dia_genre1').value];
-	for( var key in janru ) {
+	for( var gid1 in janru ) {
 		var option = document.createElement('option');
-		option.setAttribute('value', key);
-		var text = document.createTextNode(janru[key]);
+		option.setAttribute('value', gid1);
+		var text = document.createTextNode(janru[gid1]);
 		option.appendChild(text);
 		select.appendChild(option);
 	}
