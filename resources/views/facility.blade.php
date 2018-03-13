@@ -95,7 +95,7 @@
 						<div class="col-sm-10">
 							{{-- --}}
 							<select class="form-control" id="dia_genre2" name="genre2">
-								@foreach($g2value as $value)
+								@foreach(g2value as $value)
 								<option value="{{$value->gid2}}" selected>{{$value->meisho}}</option>
 								@endforeach
 							</select>
