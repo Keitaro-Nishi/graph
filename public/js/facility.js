@@ -27,7 +27,6 @@ function init() {
 		}
 	});
 	//ジャンルの設定
-	var genre1value = <?php echo json_encode($j1value); ?>;
 	var select = document.getElementById('dia_genre1');
 	for( var key in genre1value ) {
 		var option = document.createElement('option');
