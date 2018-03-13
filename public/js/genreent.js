@@ -34,12 +34,15 @@ $(function(){
 			}
 		}
 	})
+
+	g2change();
+
 });
 
 
 //インテント取得
 function getwtent(){
-
+	/*
 	g1meisho = document.getElementById('g1').value;
 	g2meisho = document.getElementById('g2').options[document.getElementById('g2').selectedIndex].text;
 	var _token = document.getElementById('_token').value;
@@ -66,16 +69,17 @@ function getwtent(){
     }).fail(function () {
         alert("Watsonデータの取得に失敗しました");
     });
-
+	*/
 }
 
 
 //小分類切替
 function g2change(){
-
+	/*
 	//テーブル初期化
 	while( wtable.rows[ 1 ] ) wtable.deleteRow( 1 );
 	getwtent();
+	*/
 
 }
 
@@ -118,7 +122,7 @@ function update(){
 
 //行削除
 function delLine(value,raw){
-
+	/*
 	var myRet = confirm("検索ワード「"+ value + "」を削除しますか？");
 	var _token = document.getElementById('_token').value;
 
@@ -147,7 +151,7 @@ function delLine(value,raw){
 	    }).fail(function () {
 	        alert("削除できませんでした");
 	    });
-	}
+	}*/
 
 }
 

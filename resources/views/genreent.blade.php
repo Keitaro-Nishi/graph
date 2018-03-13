@@ -32,7 +32,7 @@
 	<input type="button" class="btn btn-default" onclick="back()" value="もどる" />
 </div>
 
-
+<input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
 
 <div class="modal" id="updateDialog" tabindex="-1">
 	<div class="modal-dialog">
