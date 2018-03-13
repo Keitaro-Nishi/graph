@@ -33,6 +33,8 @@ $(function(){
 		}
 	})
 
+	$('select[name="daibunrui"]').trigger('change');
+
 });
 
 
