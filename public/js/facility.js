@@ -26,7 +26,19 @@ function init() {
 			});
 		}
 	});
+	//ジャンルの設定
+	var genre1value = <?php echo json_encode($j1value); ?>;
+	var select = document.getElementById('dia_genre1');
+	for( var key in genre1value ) {
+		var option = document.createElement('option');
+		option.setAttribute('value', key);
+		var text = document.createTextNode(genre1value[key]);
+		option.appendChild(text);
+		select.appendChild(option);
+	}
+	genre1change();
 }
+//施設情報削除
 function drow() {
 	if(rowIds.length == 0){
 		bootbox.alert({
@@ -78,17 +90,6 @@ function drow() {
 			}
 		}
 	});
-	//ジャンルの設定
-	var genre1value = <?php echo json_encode($j1value); ?>;
-	var select = document.getElementById('dia_genre1');
-	for( var key in genre1value ) {
-		var option = document.createElement('option');
-		option.setAttribute('value', key);
-		var text = document.createTextNode(genre1value[key]);
-		option.appendChild(text);
-		select.appendChild(option);
-	}
-	genre1change();
 }
 
 //施設情報修正
