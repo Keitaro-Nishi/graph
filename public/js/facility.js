@@ -1,8 +1,8 @@
 var rowIds = [];
 
 function init() {
-	console.log(genre1value);
-	console.log(genre2value);
+	//console.log(genre1value);
+	//console.log(genre2value);
 	$("#grid-basic").bootgrid({
 		selection : true,
 		multiSelect : true,
@@ -30,12 +30,7 @@ function init() {
 	//ジャンルの設定
 	var select = document.getElementById('dia_genre1');
 	for( var gid1 in genre1value ) {
-		var option = document.createElement('option');
-		option.setAttribute('value', gid1);
-		console.log(option);
-		var text = document.createTextNode(genre1value[gid1]);
-		option.appendChild(text);
-		select.appendChild(option);
+		console.log(gid1);
 	}
 	genre1change();
 
@@ -139,8 +134,8 @@ function genre1change(){
 	while (0 < select.childNodes.length) {
 		select.removeChild(select.childNodes[0]);
 	}
-	console.log(genre2value);
 	var janru = genre2value[document.getElementById('dia_genre1').value];
+	console.log(genre2value);
 	for( var gid1 in janru ) {
 		var option = document.createElement('option');
 		option.setAttribute('value', gid1);
