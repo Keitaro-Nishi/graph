@@ -90,16 +90,13 @@ class LinepushController
 		$cityCD = Auth::user()->citycode;
 		$line_cat = Parameter::select('line_cat')->where('citycode', $cityCD)->first();
 		error_log("★★★★★★★★line_cat★★★★★★★★★★".$line_cat);
-		$sendids = $this->makeQuerry()->get();
-		error_log("★★★★★★★★★sendids★★★★★★★★★");
-		error_log("★★★★★★★★★sendids★★★★★★★★★".$sendids);
+		$idsresult = $this->makeQuerry()->get();
+		$sendids = json_decode($idsresult,true);
 		$uids = [];
 		$count = 0;
 		error_log("★★★★★★★★★sendids.length★★★★★★★★★".$sendids.length);
-		error_log("★★★★★★★★★sendids★★★★★★★★★".$sendids);
 		for ($i =0; $i < $sendids.length; $i++){
-			error_log("★★★★★★★★★sendids★★★★★★★★★".$sendids);
-			array_push($uids,trim($sendids[$i]->userid));
+			array_push($uids,trim($sendids[$i]['userid']));
 			$count = $count + 1;
 			if($count == 150){
 				$result = $this->lineSend($line_cat->line_cat,$uids);
