@@ -89,17 +89,15 @@ class LinepushController
 		//jsonを作成し、LINEに送信
 		$cityCD = Auth::user()->citycode;
 		$line_cat = Parameter::select('line_cat')->where('citycode', $cityCD)->first();
-		error_log("★★★★★★★★line_cat★★★★★★★★★★".$line_cat);
 		$sendids= $this->makeQuerry()->get();
-		//$sendids = json_decode($idsresult,true);
 		$uids = [];
 		$count = 0;
-		error_log("★★★★★★★★★sendids.length★★★★★★★★★".count($sendids));
 		for ($i =0; $i < count($sendids); $i++){
 			array_push($uids,trim($sendids[$i]->userid));
 			$count = $count + 1;
 			if($count == 150){
 				$result = $this->lineSend($line_cat->line_cat,$uids);
+				error_log("★★★★★★★★★result★★★★★★★★★".$result);
 				if($result == "NG"){
 					return \Response::json(['status' => 'NG']);
 				}
@@ -107,9 +105,9 @@ class LinepushController
 				$count = 0;
 			}
 		}
-		error_log("★★★★★★★★★uids.length★★★★★★★★★".count($uids));
 		if(count($uids) > 0){
 			$result = $this->lineSend($line_cat->line_cat,$uids);
+			error_log("★★★★★★★★★result★★★★★★★★★".$result);
 			if($result == "NG"){
 				return \Response::json(['status' => 'NG']);
 			}
@@ -120,8 +118,6 @@ class LinepushController
 
 	public function lineSend($line_cat,$uids){
 		$input = $this->requestall;
-		error_log("★★★★★★★★line_cat2★★★★★★★★★★".$line_cat);
-		error_log("★★★★★★★★★uids★★★★★★★★★".$uids[0]);
 		$response_format_text = [
 				"to" => $uids,
 				"messages" => [
