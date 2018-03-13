@@ -11,7 +11,6 @@ var rowgid2 = [];
 var wtable = document.getElementById('grid-basic');
 $(function(){
 
-
 	//大分類のgid1と一致する小分類の値を表示する
 	$('select[name="daibunrui"]').change(function() {
 		var daibunruiName = $('select[name="daibunrui"] option:selected').attr("class");
