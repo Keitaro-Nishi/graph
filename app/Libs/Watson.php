@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class Watson{
 
+	/*
 	public function index(){
 		$workspace_id = getenv('CVS_WORKSPASE_ID');
 		$username = getenv('CVS_USERNAME');
@@ -118,6 +119,7 @@ class Watson{
 			echo json_encode("NG");
 		}
 	}
+	*/
 
 	public function callWatson($url,$username,$password,$data){
 
@@ -152,8 +154,9 @@ class Watson{
 		curl_setopt_array($curl, $options);
 		return curl_exec($curl);
 	}
-	function callWatson3(){
-		global $curl, $url, $username, $password, $data, $options;
+
+	function callWatson3($url,$username,$password){
+
 		$curl = curl_init($url);
 		$options = array(
 				CURLOPT_HTTPHEADER => array(
