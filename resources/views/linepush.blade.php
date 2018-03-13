@@ -297,7 +297,7 @@ LINEプッシュ通知送信
 		@foreach($code as $value)
 		@if($value['code2'] == 0)
 		<label class="col-sm-2 control-label" for="option{{$value['code1']}}">{{$value['meisho']}}</label>
-		<div class="col-sm-2">
+		<div class="col-sm-4">
 			<select class="form-control" id="option{{$value['code1']}}" onChange="optionChange()">
 				<option value="0" selected>すべて</option>
 		@else

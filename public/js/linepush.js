@@ -45,7 +45,7 @@ function taishoDisabled(bl){
 	document.getElementById('age_made').disabled = bl;
 	document.getElementById('sex').disabled = bl;
 	for(var i = 1; i < 11; i++){
-		if(document.getElementById('option'+i))
+		if(document.getElementById('option'+i)){
 			document.getElementById('option'+i).disabled = bl;
 		}
 	}
