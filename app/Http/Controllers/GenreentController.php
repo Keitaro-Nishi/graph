@@ -118,9 +118,9 @@ class GenreentController
 
 		error_log($result);
 		if($result == "200"){
-			echo json_encode("OK");
+			return \Response::json(['status' => 'OK']);
 		}else{
-			echo json_encode("NG");
+			return \Response::json(['status' => 'NG']);
 		}
 	}
 
