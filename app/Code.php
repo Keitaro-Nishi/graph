@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CodeManage extends Model
+class Code extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -13,7 +13,7 @@ class CodeManage extends Model
      */
     protected $fillable = [
 
-    		'citycode', 'no', 'time', 'sender', 'type', 'userid', 'contents', 'return',
+    		'citycode', 'code1', 'code2', 'meisho', 'num', 'class1', 'class2',
 
     ];
 
@@ -25,7 +25,7 @@ class CodeManage extends Model
     protected $hidden = [
     ];
 
-protected $primaryKey ='no';
+    protected $primaryKey =['citycode','code1', 'code2'];
     public $incrementing = FALSE;
-    protected $table = 'botlog';
+    protected $table = 'code';
 }
