@@ -140,13 +140,11 @@ function genre1change(){
 	console.log(g2value);
 	for( var key in g2value ) {
 		console.log(key);
-		/*
 		var option = document.createElement('option');
 		option.setAttribute('value', key);
-		var text = document.createTextNode(g2value[key]);
+		var text = document.createTextNode(g2value[key]['meisho']);
 		option.appendChild(text);
 		select.appendChild(option);
-		*/
 	}
 }
 
