@@ -26,16 +26,8 @@ function init() {
 			});
 		}
 	});
-/*
-	//ジャンルの設定
-	var select = document.getElementById('dia_genre1');
-	for( var gid1 in genre1value ) {
-		console.log(gid1);
-	}
 	genre1change();
-*/
 }
-
 function drow() {
 	if(rowIds.length == 0){
 		bootbox.alert({
@@ -100,13 +92,7 @@ function modwin(id,meisho,jusho,tel,genre1,genre2,lat,lng,imageurl,url){
 	document.getElementById('dia_tel').value = tel;
 	document.getElementById('dia_genre1').value = genre1;
 	genre1change();
-	var options = document.getElementById('dia_genre2').options;
-	for(var i = 0; i < options.length; i++){
-		if(options[i].text === genre2){
-			options[i].selected = true;
-			break;
-		};
-	};
+	document.getElementById('dia_genre2').value = genre1;
 	document.getElementById('dia_latlng').value = lat + "," + lng;
 	document.getElementById('dia_imageurl').value = imageurl;
 	document.getElementById('dia_url').value = url;
@@ -124,19 +110,8 @@ function insert() {
 //ジャンル選択
 function genre1change(){
 	var select = document.getElementById('dia_genre2');
-	console.log(select);
-	while (0 < select.childNodes.length) {
-		select.removeChild(select.childNodes[0]);
-	}
-	var janru = genre2value[document.getElementById('dia_genre1').value];
-	console.log(genre2value);
-	for( var gid1 in janru ) {
-		var option = document.createElement('option');
-		option.setAttribute('value', gid1);
-		var text = document.createTextNode(janru[gid1]);
-		option.appendChild(text);
-		select.appendChild(option);
-	}
+	$genre2key = document.getElementById('dia_genre1').value;
+	console.log($genre2key);
 }
 
 //ダイアログ初期化
