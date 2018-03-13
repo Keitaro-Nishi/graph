@@ -94,7 +94,7 @@
 						<label class="col-sm-2 control-label" for="dia_genre2">ジャンル２</label>
 						<div class="col-sm-10">
 							<select class="form-control" id="dia_genre2" name="genre2">
-								@foreach($genre1value as $key=>$genre1key)
+								@foreach($genre2value as $key=>$genre2key)
 								<option value="{{$value->gid2}}" selected>{{$value->meisho}}</option>
 								@endforeach
 							</select>
