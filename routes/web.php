@@ -42,9 +42,6 @@ Route::middleware(['auth'])->group(function () {
 	Route::get ( '/genre', 'GenreController@index' )->name ( 'genre' );
 	Route::get ( '/genreinit', 'GenreController@init' )->name ( 'genreinit' );
 
-	Route::get ( '/linepush',function(){
-		return view( 'linepush' );
-	})->name ( 'linepush' );
 	Route::get ( '/logindata', 'LogindataController@index' )->name ( 'logindata' )->middleware('role');
 
 	//Route::get ( '/codemanage', 'CodeManageController@index')->name('codemanage')->middleware('role');
@@ -57,5 +54,8 @@ Route::middleware(['auth'])->group(function () {
 
 	Route::get ( '/messagemanage', 'MessageManageController@index')->name('messagemanage');
 	Route::post ( '/messagemanage', 'MessageManageController@request');
+
+	Route::get ( '/linepush', 'LinepushController@index')->name('linepush');
+	Route::post ( '/linepush', 'LinepushController@request');
 
 });

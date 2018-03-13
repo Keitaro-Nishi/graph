@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+LINEプッシュ通知送信
+@stop
+
 @section('content')
 <div class="container">
 	<div class="panel panel-default">
@@ -21,6 +25,8 @@
 				<option value="2">登録なし</option>
 			</select>
 		</div>
+	</div>
+	<div class="form-group">
 		<label class="col-sm-2 control-label" for="age_kara">対象年齢</label>
 		<div class="col-sm-2">
 			<select class="form-control" id="age_kara" onChange="agekChange()">
@@ -320,5 +326,10 @@
 	<input id="btn_del" type="button" class="btn btn-default" value="送信" onclick="send()">
 </div>
 <script type="text/javascript" src="js/linepush.js"></script>
-
+<script>
+var codes = @json($codes);
+var hitcount = @json($hitcount);
+console.log(codes);
+console.log(hitcount);
+</script>
 @endsection
