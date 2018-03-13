@@ -1,6 +1,5 @@
 $(function(){
 	taishoDisabled(true);
-	//taishocount();
 });
 
 //属性登録有無チェンジ
@@ -10,7 +9,7 @@ function userinfoChange(){
 	}else{
 		taishoDisabled(true);
 	}
-	//taishocount();
+	taishocount();
 }
 
 //対象年齢からチェンジ
@@ -22,22 +21,22 @@ function agekChange(){
 		document.getElementById('age_kigo').style.display = "block";
 		document.getElementById('age_made').style.display = "block";
 	}
-	//taishocount();
+	taishocount();
 }
 
 //対象年齢までチェンジ
 function agemChange(){
-	//taishocount();
+	taishocount();
 }
 
 //対象性別チェンジ
 function sexChange(){
-	//taishocount();
+	taishocount();
 }
 
-//対象地域チェンジ
-function regionChange(){
-	//taishocount();
+//オプションチェンジ
+function optionChange(){
+	taishocount();
 }
 
 function taishoDisabled(bl){

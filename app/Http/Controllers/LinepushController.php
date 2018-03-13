@@ -55,6 +55,7 @@ class LinepushController
 				break;
 			//属性登録あり
 			case 1:
+				$q->where('updkbn', '1');
 				if($input["agek"] != 999){
 					$q->where('age', '>=', $input["agek"]);
 					if($input["agem"] != 999){
