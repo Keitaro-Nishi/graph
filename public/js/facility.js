@@ -78,6 +78,17 @@ function drow() {
 			}
 		}
 	});
+	//ジャンルの設定
+	var genre1value = <?php echo json_encode($j1value); ?>;
+	var select = document.getElementById('dia_genre1');
+	for( var key in genre1value ) {
+		var option = document.createElement('option');
+		option.setAttribute('value', key);
+		var text = document.createTextNode(genre1value[key]);
+		option.appendChild(text);
+		select.appendChild(option);
+	}
+	genre1change();
 }
 
 //施設情報修正
@@ -89,9 +100,21 @@ function modwin(id,meisho,jusho,tel,genre1,genre2,lat,lng,imageurl,url){
 	document.getElementById('dia_meisho').value = meisho;
 	document.getElementById('dia_jusho').value = jusho;
 	document.getElementById('dia_tel').value = tel;
-	document.getElementById('dia_genre1').value = genre1;
+	var options = document.getElementById('dia_genre1').options;
+	for(var i = 0; i < options.length; i++){
+		if(options[i].text === genre1){
+			options[i].selected = true;
+			break;
+		};
+	};
 	genre1change();
-	document.getElementById('dia_genre2').value = genre2;
+	var options = document.getElementById('dia_genre2').options;
+	for(var i = 0; i < options.length; i++){
+		if(options[i].text === genre2){
+			options[i].selected = true;
+			break;
+		};
+	};
 	document.getElementById('dia_latlng').value = lat + "," + lng;
 	document.getElementById('dia_imageurl').value = imageurl;
 	document.getElementById('dia_url').value = url;
@@ -130,7 +153,7 @@ function initmodal(){
 	document.getElementById('dia_jusho').value = "";
 	document.getElementById('dia_tel').value = "";
 	document.getElementById('dia_genre1').selectedIndex = 0;
-	document.getElementById('dia_genre2').selectedIndex = 0;
+	genre1change();
 	document.getElementById('dia_latlng').value = "";
 	document.getElementById('dia_imageurl').value = "";
 	document.getElementById('dia_url').value = "";
