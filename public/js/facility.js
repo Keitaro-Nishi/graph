@@ -1,7 +1,7 @@
 var rowIds = [];
 
 function init() {
-	//console.log(genre1value);
+	console.log(genre1value);
 	console.log(genre2value);
 	$("#grid-basic").bootgrid({
 		selection : true,
@@ -141,7 +141,7 @@ function genre1change(){
 	for( var key in g2value ) {
 		console.log(key);
 		var option = document.createElement('option');
-		option.setAttribute('value', key);
+		option.setAttribute('value', g2value[key]['gid1']);
 		var text = document.createTextNode(g2value[key]['meisho']);
 		option.appendChild(text);
 		select.appendChild(option);
