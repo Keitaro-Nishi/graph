@@ -42,7 +42,7 @@ class FacilityController {
 		//error_log ( print_r($genre1value->toArray(), true));
 		foreach ( $genre1value as $j1value ) {
 			$gid1 = $j1value->gid1;
-			$j2value = Genre::select ( 'gid2', 'meisho' )->where ( 'citycode', $cityCD )->where ( 'gid1', $gid1 )->where ( 'bunrui', 2 )->get ();
+			$j2value = Genre::select ( 'gid2', 'meisho' )->where ( 'citycode', $cityCD )->where ( 'gid1', $gid1 )->where ( 'bunrui', 2 )->orderBy ( 'gid1', 'ASC' )->orderBy ( 'gid2', 'ASC' )->get ();
 			$genre2value = $genre2value + array (
 					$gid1 => $j2value
 			);
