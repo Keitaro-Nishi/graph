@@ -107,15 +107,12 @@ class GenreController
 				//dialog_node
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/dialog_nodes/node_".$gid1."?version=2017-05-26";
 				$watson->callWatson4($url,$username,$password,$cityCD);
-				error_log("■■■■■");
-				foreach($gid2datas as $gid2data) {
-					//$id = $gid2data->gid2;
-					error_log("☆☆☆☆☆");
-					error_log($gid2data);
+
+				foreach($gid2datas as $gid2data){
+					error_log("☆☆☆☆");
 					$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id_shi."/dialog_nodes/".$gid1.".".$gid2data."?version=2017-05-26";
 					$watson->callWatson4($url,$username,$password,$cityCD);
 				}
-
 			}else{
 				DB::table('genre')->where('citycode',$cityCD)->where('gid1',$gid1)->where('gid2',$gid2)->delete();
 
