@@ -27,7 +27,6 @@ $(function(){
 						shoubunrui.show();
 						shoubunrui.prop('selected',true);
 				} else {
-
 					shoubunrui.hide();
 				}
 			}
