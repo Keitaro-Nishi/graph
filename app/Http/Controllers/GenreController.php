@@ -87,6 +87,8 @@ class GenreController
 			$gid1 = $aos[0];
 			$gid2 = $aos[1];
 
+			$g2meisho = DB::table('genre')->select('meisho')->where('gid1',$gid1)->where('gid2',$gid2)->first();
+
 			if($gid2 == 0){
 				DB::table('genre')->where('citycode',$cityCD)->where('gid1',$gid1)->delete();
 
@@ -103,7 +105,10 @@ class GenreController
 
 			}else{
 				//DB::table('genre')->where('citycode',$cityCD)->where('gid1',$gid1)->where('gid2',$gid2)->delete();
+
 				error_log("●●●●");
+				error_log($g2meisho);
+
 				//CVS削除
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities/".$gid1."/values/".urlencode($g2meisho)."?version=2017-05-26";
 				$watson->callWatson4($url,$username,$password,$cityCD);
