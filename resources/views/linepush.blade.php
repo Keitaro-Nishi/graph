@@ -13,7 +13,7 @@ LINEプッシュ通知送信
 	<div class="form-group">
 		<label class="col-sm-2 control-label" for="taisho">送信対象者数</label>
 		<div class="col-sm-2">
-			<input class="form-control" id="taisho" readonly>
+			<input class="form-control" id="taisho" value="{{$hitcount}}" readonly>
 		</div>
 	</div>
 	<div class="form-group">
@@ -292,19 +292,21 @@ LINEプッシュ通知送信
 			</select>
 		</div>
 	</div>
+	@foreach($codes as $code)
 	<div class="form-group">
-		<label class="col-sm-2 control-label" for="region">対象地域</label>
+		@foreach($code as $value)
+		@if($value->code2 == 0)
+		<label class="col-sm-2 control-label" for="option{{$value->code1}}">{{$value->meisho}}</label>
 		<div class="col-sm-2">
-			<select class="form-control" id="region" onChange="regionChange()">
-				<option value="000" selected>すべて</option>
-				<option value="001">東地区</option>
-				<option value="002">西地区</option>
-				<option value="003">中地区</option>
-				<option value="004">南地区</option>
-				<option value="005">北地区</option>
+			<select class="form-control" id="option{{$value->code1}}" onChange="optionChange()">
+				<option value="0" selected>すべて</option>
+		@else
+				<option value="{{$value->code2}}">{{$value->meisho}}</option>
+		@endforeach
 			</select>
 		</div>
 	</div>
+	@endforeach
 	</form>
 	</div>
 	</div>

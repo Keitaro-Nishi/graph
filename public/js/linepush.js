@@ -1,6 +1,6 @@
 $(function(){
 	taishoDisabled(true);
-	taishocount();
+	//taishocount();
 });
 
 //属性登録有無チェンジ
