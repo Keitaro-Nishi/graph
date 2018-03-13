@@ -88,7 +88,6 @@ function modwin(id,meisho,jusho,tel,genre1,genre2,lat,lng,imageurl,url){
 	document.getElementById('dia_genre1').value = genre1;
 	document.getElementById('dia_genre2').value = genre2;
 	genre1change();
-	/*
 	var options = document.getElementById('dia_genre2').options;
 	for(var i = 0; i < options.length; i++){
 		if(options[i].text === genre2){
@@ -96,7 +95,6 @@ function modwin(id,meisho,jusho,tel,genre1,genre2,lat,lng,imageurl,url){
 			break;
 		};
 	};
-	*/
 	document.getElementById('dia_latlng').value = lat + "," + lng;
 	document.getElementById('dia_imageurl').value = imageurl;
 	document.getElementById('dia_url').value = url;
@@ -147,7 +145,6 @@ function update(){
 	var tel = document.getElementById('dia_tel').value;
 	var genre1 = document.getElementById('dia_genre1').value;
 	var genre2 = document.getElementById('dia_genre2').value;
-	console.log(genre2);
 	var latlng = document.getElementById('dia_latlng').value;
 	var arrayOfStrings = latlng.split(",");
 	var lat = arrayOfStrings[0];
