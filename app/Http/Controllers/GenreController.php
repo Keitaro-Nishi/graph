@@ -110,6 +110,8 @@ class GenreController
 
 				foreach($gid2datas as $gid2data) {
 					$id = $gid2data->gid2;
+					error_log("☆☆☆☆☆");
+					error_log($id);
 					$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id_shi."/dialog_nodes/".$gid1.".".$id."?version=2017-05-26";
 					$watson->callWatson4($url,$username,$password,$cityCD);
 				}
