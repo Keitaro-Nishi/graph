@@ -87,7 +87,9 @@ class GenreController
 			$gid1 = $aos[0];
 			$gid2 = $aos[1];
 
+			error_log("△△△△△");
 			$g2meisho = DB::table('genre')->select('meisho')->where('gid1',$gid1)->where('gid2',$gid2)->first();
+			error_log($g2meisho);
 
 			if($gid2 == 0){
 				DB::table('genre')->where('citycode',$cityCD)->where('gid1',$gid1)->delete();
