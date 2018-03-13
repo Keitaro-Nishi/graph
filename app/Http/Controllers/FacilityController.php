@@ -55,7 +55,7 @@ class FacilityController {
 		return view ( 'facility', [
 				'facilities' => $facilities,
 				'genre1value' => $genre1value,
-				'genre2value' => $genre2value
+				'genre2value' => $genre2value,
 		] );
 	}
 	public function request() {
