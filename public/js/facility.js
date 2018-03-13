@@ -122,7 +122,7 @@ function genre1change(){
 		var text = document.createTextNode(g2value[i]['meisho']);
 		option.appendChild(text);
 		select.appendChild(option);
-		console.log(select);
+		console.log(option);
 	}
 }
 
