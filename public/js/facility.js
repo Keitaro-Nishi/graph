@@ -32,7 +32,7 @@ function init() {
 	for( var gid1 in genre1value ) {
 		var option = document.createElement('option');
 		option.setAttribute('value', gid1);
-		console.log(genre1value);
+		console.log(option);
 		var text = document.createTextNode(genre1value[gid1]);
 		option.appendChild(text);
 		select.appendChild(option);
@@ -139,8 +139,6 @@ function genre1change(){
 	while (0 < select.childNodes.length) {
 		select.removeChild(select.childNodes[0]);
 	}
-	var medium= document.getElementById('$genre2value').value;
-	var genre2value = JSON.parse(medium);
 	console.log(genre2value);
 	var janru = genre2value[document.getElementById('dia_genre1').value];
 	for( var key in janru ) {
