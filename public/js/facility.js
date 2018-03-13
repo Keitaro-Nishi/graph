@@ -91,7 +91,7 @@ function modwin(id,meisho,jusho,tel,genre1,genre2,lat,lng,imageurl,url){
 	document.getElementById('dia_tel').value = tel;
 	document.getElementById('dia_genre1').value = genre1;
 	genre1change();
-	document.getElementById('dia_genre2').value = genre1;
+	document.getElementById('dia_genre2').value = genre2;
 	document.getElementById('dia_latlng').value = lat + "," + lng;
 	document.getElementById('dia_imageurl').value = imageurl;
 	document.getElementById('dia_url').value = url;
@@ -120,7 +120,7 @@ function initmodal(){
 	document.getElementById('dia_tel').value = "";
 	document.getElementById('dia_genre1').selectedIndex = 0;
 	genre1change();
-	//document.getElementById('dia_genre2').selectedIndex = 0;
+	document.getElementById('dia_genre2').selectedIndex = 0;
 	document.getElementById('dia_latlng').value = "";
 	document.getElementById('dia_imageurl').value = "";
 	document.getElementById('dia_url').value = "";
