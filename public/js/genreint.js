@@ -33,8 +33,7 @@ function getwtint(){
 			"_token" : _token
 		}
 	}).done(function (response) {
-		console.log(response);
-		//result = JSON.parse(response);
+
 		for( var i =0; i<response.length; i++ ) {
 			var raw = wtable.insertRow( -1 );
 			var td1 = raw.insertCell(-1),td2 = raw.insertCell(-1);
@@ -74,7 +73,6 @@ function update(){
 			"_token" : _token
 		}
 	}).done(function (response) {
-		//result = JSON.parse(response);
 		if(response.status == "OK"){
 			alert("更新しました");
 			var raw = wtable.insertRow( -1 );
@@ -109,7 +107,7 @@ function delLine(value,raw){
 				"_token" : _token
 			}
 		}).done(function (response) {
-			//result = JSON.parse(response);
+
 			if(response.status == "OK"){
 				alert("削除しました");
 				tr = raw.parentNode.parentNode;
