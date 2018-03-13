@@ -59,7 +59,7 @@ class FacilityController {
 				'genre2value' => $genre2value,
 		] );
 		*/
-		return $genre1value;
+		return $genre2value;
 	}
 	public function request() {
 		$this->requestall = \Request::all ();
