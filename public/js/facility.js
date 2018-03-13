@@ -26,14 +26,14 @@ function init() {
 			});
 		}
 	});
-
+/*
 	//ジャンルの設定
 	var select = document.getElementById('dia_genre1');
 	for( var gid1 in genre1value ) {
 		console.log(gid1);
 	}
 	genre1change();
-
+*/
 }
 
 function drow() {
