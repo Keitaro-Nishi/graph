@@ -111,6 +111,7 @@ function insert() {
 function genre1change(){
 	$g2value = genre2value[document.getElementById('dia_genre1').value];
 	console.log($g2value);
+	document.getElementById('genre2').value=$g2value;
 }
 
 //ダイアログ初期化
