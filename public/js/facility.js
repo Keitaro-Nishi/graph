@@ -28,13 +28,12 @@ function init() {
 	});
 
 	//ジャンルの設定
-	var large = JSON.parse(genre1value);
 	var select = document.getElementById('dia_genre1');
-	for( var gid1 in large ) {
+	for( var gid1 in genre1value ) {
 		var option = document.createElement('option');
 		option.setAttribute('value', gid1);
-		console.log(option);
-		var text = document.createTextNode(l[gid1]);
+		console.log(genre1value);
+		var text = document.createTextNode(genre1value[gid1]);
 		option.appendChild(text);
 		select.appendChild(option);
 	}
