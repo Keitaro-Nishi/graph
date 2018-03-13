@@ -23,8 +23,12 @@ $(function(){
 			{
 				shoubunrui.show();
 			}else {
+				if(shoubunrui.attr("class") === "message") {
+						shoubunrui.show();
+						shoubunrui.prop('selected',true);
+				} else {
 					shoubunrui.hide();
-
+				}
 			}
 		}
 	})
