@@ -39,7 +39,7 @@ class FacilityController {
 
 		$genre1value = Genre::select ( 'gid1', 'meisho' )->where ( 'citycode', $cityCD )->where ( 'bunrui', 1 )->orderBy ( 'gid1', 'ASC' )->get ();
 		error_log ( "???????????????????41" . $genre1value [0]->meisho );
-		error_log ( print_r($genre1value->toArray(), true));
+		//error_log ( print_r($genre1value->toArray(), true));
 		foreach ( $genre1value as $j1value ) {
 			$gid1 = $j1value->gid1;
 			$j2value = Genre::select ( 'gid2', 'meisho' )->where ( 'citycode', $cityCD )->where ( 'gid1', $gid1 )->where ( 'bunrui', 2 )->get ();
@@ -51,7 +51,7 @@ class FacilityController {
 					$gid1 => $j2value
 			);
 		}
-		error_log ( print_r($genre1value->toArray(), true));
+		//error_log ( print_r($genre1value->toArray(), true));
 		return view ( 'facility', [
 				'facilities' => $facilities,
 				'genre1value' => $genre1value,
