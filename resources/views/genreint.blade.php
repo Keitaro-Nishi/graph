@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+ジャンル検索ワード登録
+@stop
+
 @section('content')
 <div class="container">
 	<p>大分類</p>

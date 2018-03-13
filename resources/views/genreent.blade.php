@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+類義語登録
+@stop
+
 @section('content')
 
 <div class="container">
