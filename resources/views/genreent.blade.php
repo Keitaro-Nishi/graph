@@ -4,16 +4,14 @@
 
 <div class="container">
 	<p>大分類</p>
-	<select id="g1" name = "daibunrui" class="form-control" onChange="bchange()" style="width: 600px;">
-	<option selected="selected" class="message">大分類を選択してください。</option>
+	<select id="g1" name = "daibunrui" class="form-control"  style="width: 600px;">
 	@foreach($daibunruis as $daibunrui)
 	<option value="{{$daibunrui->gid1}}" class ="{{$daibunrui->gid1}}">{{$daibunrui->meisho}}</option>
 	@endforeach
 	</select>
 	<br>
 	<p>小分類</p>
-	<select id="g2" name = "shoubunrui" class="form-control" onChange="g2change()" style="width: 600px;">
-	<option selected="selected" class="message">小分類を選択してください。</option>
+	<select id="g2" name = "shoubunrui" class="form-control" style="width: 600px;">
 	@foreach($shoubunruis as $shoubunrui)
 	<option value="{{$shoubunrui->gid1}}" class ="{{$shoubunrui->gid1}}">{{$shoubunrui->meisho}}</option>
 	@endforeach

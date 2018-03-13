@@ -68,13 +68,6 @@ function getwtent(){
 
 }
 
-function bchange(){
-	if(document.getElementById('g1').options[document.getElementById('g2').selectedIndex].text == "大分類を選択してください。"){
-		document.getElementById('g2').disabled = true;
-	}
-}
-
-
 
 //小分類切替
 function g2change(){
