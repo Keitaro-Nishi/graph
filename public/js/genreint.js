@@ -12,7 +12,7 @@ var wtable = document.getElementById('grid-basic');
 $(function(){
 
 	//テーブル追加
-	//getwtint();
+	getwtint();
 
 	/*
 	var wtable = document.getElementById('grid-basic');
@@ -57,6 +57,7 @@ function getwtint(){
 
 //分類選択
 function g1change(){
+
 	//テーブル初期化
 	while( wtable.rows[ 1 ] ) wtable.deleteRow( 1 );
 	getwtint();
