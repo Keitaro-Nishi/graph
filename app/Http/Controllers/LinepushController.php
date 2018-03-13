@@ -23,13 +23,15 @@ class LinepushController
 			$count = Code::where('citycode', $cityCD)->where('code1', $i)->where('code2', '>', 0)->count();
 			if($count > 0){
 				$records = Code::select('code1','code2','meisho')->where('citycode', $cityCD)->where('code1', $i)->orderBy('code2', 'ASC')->get();
-				$codes = array_push($codes, json_decode($records,true));
+				//$codes = array_push($codes, json_decode($records,true));
+				$codes = $records;
 			}
 		}
 
 		$hitcount = Userinfo::where('citycode', $cityCD)->where('sender', (int)1)->count();
 		//error_log("★★★★★★★★★★★★★★codes[0]★★★★★★★★★★★★★★".$codes[0]);
-		return view('linepush',['codes'=>json_encode($codes),'hitcount'=>$hitcount]);
+		//return view('linepush',['codes'=>json_encode($codes),'hitcount'=>$hitcount]);
+		return view('linepush',['codes'=>$codes,'hitcount'=>$hitcount]);
 	}
 
 	public  function request(){
