@@ -107,17 +107,19 @@ class GenreController
 				$watson->callWatson4($url,$username,$password,$cityCD);
 
 			}else{
-				//DB::table('genre')->where('citycode',$cityCD)->where('gid1',$gid1)->where('gid2',$gid2)->delete();
+				DB::table('genre')->where('citycode',$cityCD)->where('gid1',$gid1)->where('gid2',$gid2)->delete();
 
 				error_log("●●●●");
 				error_log($g2meisho);
 
+				/*
 				//CVS削除
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities/".$gid1."/values/".urlencode($g2meisho)."?version=2017-05-26";
 				$watson->callWatson4($url,$username,$password,$cityCD);
 
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/dialog_nodes/".$gid1.".".$gid2."?version=2017-05-26";
 				$watson->callWatson4($url,$username,$password,$cityCD);
+				*/
 			}
 		}
 
