@@ -39,7 +39,7 @@ class GenreController
 				}
 
 				if($bunrui == 2){
-					$bunruidata= DB::table('genre')->select('meisho')->where('bunrui',1)->where('gid1',$gid1)->first();
+					$bunruidata= DB::table('genre')->select('meisho')->where('citycode',$cityCD)->where('bunrui',1)->where('gid1',$gid1)->first();
 					$shoubunrui = $meisho;
 					$daibunrui= $bunruidata->meisho;
 				}
@@ -87,11 +87,12 @@ class GenreController
 			$gid1 = $aos[0];
 			$gid2 = $aos[1];
 
-			$g2meishodata = DB::table('genre')->select('meisho')->where('gid1',$gid1)->where('gid2',$gid2)->first();
+			$g2meishodata = DB::table('genre')->select('meisho')->where('citycode',$cityCD)->where('gid1',$gid1)->where('gid2',$gid2)->first();
 			$g2meisho = $g2meishodata->meisho;
 
 			if($gid2 == 0){
 				DB::table('genre')->where('citycode',$cityCD)->where('gid1',$gid1)->delete();
+				$gid2datas = DB::table('genre')->select('gid2')->where('citycode',$cityCD)->where('gid1',$gid1)->get();
 
 				//CVS削除
 				//Intents
@@ -103,6 +104,12 @@ class GenreController
 				//dialog_node
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/dialog_nodes/node_".$gid1."?version=2017-05-26";
 				$watson->callWatson4($url,$username,$password,$cityCD);
+
+				foreach($gid2datas as $gid2data) {
+					$id = $gid2data->gid2;
+					$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id_shi."/dialog_nodes/".$gid1.".".$id."?version=2017-05-26";
+					$watson->callWatson4($url,$username,$password,$cityCD);
+				}
 
 			}else{
 				DB::table('genre')->where('citycode',$cityCD)->where('gid1',$gid1)->where('gid2',$gid2)->delete();
