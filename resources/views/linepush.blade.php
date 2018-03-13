@@ -329,7 +329,7 @@ LINEプッシュ通知送信
 <script>
 var codes = @json($codes);
 var hitcount = @json($hitcount);
-console.log(codes[0]);
+console.log(codes);
 console.log(hitcount);
 </script>
 @endsection
