@@ -135,7 +135,6 @@ function send(){
 	mess = mess + "<br>性別：" + document.getElementById('sex').options[document.getElementById('sex').selectedIndex].text;
 	for(var i = 1; i < 11; i++){
 		if(document.getElementById('option'+i)){
-			option.push(document.getElementById('option'+i).value);
 			mess = mess + "<br>" + document.getElementById('optionlabel'+i).innerText + "：" + document.getElementById('option'+i).options[document.getElementById('option'+i).selectedIndex].text;
 		}
 	}
