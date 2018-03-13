@@ -67,7 +67,10 @@ function getwtent(){
 			td2.innerHTML = '<input type="button" value="削除" class="btn btn-default" onclick="delLine(\'' + response[i] + '\',this)" />';
 		}
     }).fail(function () {
-        alert("Watsonデータの取得に失敗しました");
+    	if(g2meisho !="小分類を選択してください。")
+    	{
+    		alert("Watsonデータの取得に失敗しました");
+    	}
     });
 
 }
