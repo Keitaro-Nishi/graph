@@ -92,28 +92,28 @@ class GenreController
 			$g2meisho = $g2meishodata->meisho;
 
 			if($gid2 == 0){
-				DB::table('genre')->where('citycode',$cityCD)->where('gid1',$gid1)->delete();
+				//DB::table('genre')->where('citycode',$cityCD)->where('gid1',$gid1)->delete();
 				$gid2datas = DB::table('genre')->select('gid2')->where('citycode',$cityCD)->where('gid1',$gid1)->get();
 
 				//CVS削除
 				//Intents
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents/".$gid1."?version=2017-05-26";
-				$watson->callWatson4($url,$username,$password,$cityCD);
+				//$watson->callWatson4($url,$username,$password,$cityCD);
 
 				//ENTITIES
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities/".$gid1."?version=2017-05-26";
-				$watson->callWatson4($url,$username,$password,$cityCD);
+				//$watson->callWatson4($url,$username,$password,$cityCD);
 
 				//dialog_node
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/dialog_nodes/node_".$gid1."?version=2017-05-26";
-				$watson->callWatson4($url,$username,$password,$cityCD);
+				//$watson->callWatson4($url,$username,$password,$cityCD);
 
 				foreach($gid2datas as $gid2data){
 					error_log("☆☆☆☆☆☆");
 					$g2 = $gid2data->gid2;
 					error_log($g2);
 					$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/dialog_nodes/".$gid1.".".$g2."?version=2017-05-26";
-					$watson->callWatson4($url,$username,$password,$cityCD);
+					//$watson->callWatson4($url,$username,$password,$cityCD);
 				}
 			}else{
 				DB::table('genre')->where('citycode',$cityCD)->where('gid1',$gid1)->where('gid2',$gid2)->delete();
