@@ -156,7 +156,7 @@ class GenreController
 			DB::table('genre')->where('citycode',$cityCD)->where('gid1',$gid1)->where('gid2',$gid2)->update(['meisho' => $meisho]);
 
 			if($gid2 == 0){
-				$result = DB::table('genre')->select('gid2')->select('meisho')->where('gid1',$gid1)->get();
+				$result = DB::table('genre')->select('gid2')->select('meisho')->where('citycode', $cityCD)->where('gid1',$gid1)->get();
 				//大分類
 				//CVSデータ修正
 				//Intents
@@ -180,14 +180,8 @@ class GenreController
 			if($bunrui == 1){
 				//大分類
 				error_log("★★★★★");
-				$gid1data= DB::table('genre')->select('gid1')->orderBy('gid1', 'DESC')->first();
-				/*error_log("☆☆☆☆☆");
-				error_log($gid1data->gid1);
-				if ($gid1data->gid1 ==null){
-					$gid1 = 1;
-				}else{*/
-					$gid1 = $gid1data->gid1 + 1;
-				//}
+				$gid1data= DB::table('genre')->select('gid1')->where('citycode', $cityCD)->orderBy('gid1', 'DESC')->first();
+				$gid1 = $gid1data->gid1 + 1;
 
 				DB::table('genre')->insert(['citycode'=> $cityCD,'bunrui' =>$bunrui, 'gid1' => $gid1,'gid2' =>0,'gid3' =>0,'meisho' =>$meisho]);
 
@@ -231,7 +225,7 @@ class GenreController
 
 			}else{
 				//小分類
-				$gid2data= DB::table('genre')->select('gid2')->where('gid1',$gid1)->orderBy('gid2', 'DESC')->first();
+				$gid2data= DB::table('genre')->select('gid2')->where('citycode', $cityCD)->where('gid1',$gid1)->orderBy('gid2', 'DESC')->first();
 				$gid2 = $gid2data->gid2 + 1;
 
 				DB::table('genre')->insert(['citycode'=> $cityCD,'bunrui' => $bunrui,'gid1' => $gid1,'gid2' => $gid2,'gid3' =>0,'meisho' => $meisho]);
