@@ -156,7 +156,7 @@ class GenreController
 			DB::table('genre')->where('citycode',$cityCD)->where('gid1',$gid1)->where('gid2',$gid2)->update(['meisho' => $meisho]);
 
 			if($gid2 == 0){
-				$result = DB::table('genre')->select('gid2')->select('meisho')->where('citycode', $cityCD)->where('gid1',$gid1)->get();
+				//$result = DB::table('genre')->select('gid2')->select('meisho')->where('citycode', $cityCD)->where('gid1',$gid1)->get();
 				//大分類
 				//CVSデータ修正
 				//Intents
