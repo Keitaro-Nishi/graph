@@ -162,15 +162,13 @@ function update(){
 			"_token" : _token
 		}
 	}).done(function (response) {
-		if(response.status == "OK"){
-			bootbox.alert({
-				message: "更新しました",
-				size: 'small',
-				callback: function () {
-					location.reload();
-				}
-			});
-		}
+		bootbox.alert({
+			message: "更新しました",
+			size: 'small',
+			callback: function () {
+				location.reload();
+			}
+		});
 	}).fail(function () {
 		bootbox.alert({
 			message: "更新できませんでした",
