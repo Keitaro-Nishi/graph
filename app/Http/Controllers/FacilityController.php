@@ -49,6 +49,7 @@ class FacilityController {
 				'genre2value' => $genre2value,
 		] );
 	}
+	//分岐
 	public function request() {
 		$this->requestall = \Request::all ();
 		if ($this->requestall ["param"] == "update") {
@@ -57,6 +58,7 @@ class FacilityController {
 			return $this->delete ();
 		}
 	}
+	//DB更新
 	public function update() {
 		$input = \Request::all ();
 		$rules = [
@@ -129,14 +131,13 @@ class FacilityController {
 		}
 		return \Response::json(['status' => 'OK']);
 	}
+	//削除
 	public function delete() {
 		$input = $this->requestall;
 		$ids = $input ["ids"];
 		foreach ( $ids as $id ) {
 			DB::table ( 'facility' )->where ( 'id', $id )->delete ();
 		}
-		return \Response::json ( [
-				'status' => 'OK'
-		] );
+		return \Response::json ( ['status' => 'OK'] );
 	}
 }
