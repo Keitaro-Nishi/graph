@@ -13,11 +13,11 @@ class LogimageController {
 		if ($cityCD = "00000") {
 			$logimages = Logimage::all ();
 			$results = Logimage::select( 'image' )->first ();
-			$img_data=pg_unescape_bytea($results);
+			//$img_data=pg_unescape_bytea($results);
 		} else {
 			$logimages = Logimage::where ( 'citycode', $cityCD )->get ();
 		}
-		return $img_data;
+		return $results;
 		/*
 		return view ( 'logimage', [
 				'logimages' => $logimages,
