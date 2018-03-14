@@ -10,10 +10,10 @@
 
 	<thead>
 		<tr>
-			<th data-column-id='id' data-type='numeric' data-identifier='true' data-width='3%' data-visible="false"></th>
-			<th data-column-id="userid" data-width="30%">ユーザー</th>
-			<th data-column-id="classification" data-width="20%">分類</th>
-			<th data-column-id="time" data-width="40%">時間</th>
+			<th data-column-id='id' data-type='numeric' data-identifier='true' data-width='5%' data-visible="false"></th>
+			<th data-column-id='userid' data-width='30%'>ユーザー</th>
+			<th data-column-id='classification' data-width='25%'>分類</th>
+			<th data-column-id='time' data-width='40%'>時間</th>
 		</tr>
 	</thead>
 	<tbody>
