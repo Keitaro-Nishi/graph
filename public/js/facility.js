@@ -86,11 +86,10 @@ function modwin(id,meisho,jusho,tel,genre1,genre2,lat,lng,imageurl,url){
 	document.getElementById('dia_jusho').value = jusho;
 	document.getElementById('dia_tel').value = tel;
 	document.getElementById('dia_genre1').value = genre1;
-	document.getElementById('dia_genre2').value = genre2;
 	genre1change();
 	var options = document.getElementById('dia_genre2').options;
 	for(var i = 0; i < options.length; i++){
-		if(options[i].text === genre2){
+		if(options[i].text == genre2){
 			options[i].selected = true;
 			break;
 		};
@@ -119,7 +118,6 @@ function genre1change(){
 	for(var i = 0; i < g2value.length; i++) {
 		var option = document.createElement('option');
 		option.setAttribute('value', g2value[i]['gid2']);
-		console.log("777777777777777777" + g2value[i]['gid2']);
 		var text = document.createTextNode(g2value[i]['meisho']);
 		option.appendChild(text);
 		select.appendChild(option);
@@ -146,7 +144,6 @@ function update(){
 	var tel = document.getElementById('dia_tel').value;
 	var genre1 = document.getElementById('dia_genre1').value;
 	var genre2 = document.getElementById('dia_genre2').value;
-	console.log(genre2);
 	var latlng = document.getElementById('dia_latlng').value;
 	var arrayOfStrings = latlng.split(",");
 	var lat = arrayOfStrings[0];
