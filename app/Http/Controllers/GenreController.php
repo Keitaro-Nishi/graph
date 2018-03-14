@@ -179,15 +179,19 @@ class GenreController
 		}else{
 			if($bunrui == 1){
 				//大分類
+
+				$gid1data= [
+						'gid1'=>"",
+				];
+
 				error_log("★★★★★");
-				//$gid1data= DB::table('genre')->select('gid1')->orderBy('gid1', 'DESC')->first();
 				$gid1data= DB::table('genre')->select('gid1')->where('citycode', $cityCD)->orderBy('gid1', 'DESC')->first();
 				error_log("★★★★★");
-				if($gid1data->gid1 ==null){
+				/*if($gid1data->gid1 ==null){
 					$gid1 =1;
-				}else{
+				}else{*/
 					$gid1 = $gid1data->gid1 + 1;
-				}
+				//}
 				error_log("☆☆☆☆☆");
 				error_log($gid1);
 				//->where('citycode', $cityCD)
