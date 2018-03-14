@@ -15,7 +15,7 @@ class LogimageController {
 			$results = Logimage::select( 'no', 'image' );
 			foreach($results as $result){
 				$img_data=pg_unescape_bytea($result->image);
-				$image = array($image, $img_data);
+				$image = $image + array($img_data);
 				error_log ( print_r($image, true));
 			}
 		} else {
