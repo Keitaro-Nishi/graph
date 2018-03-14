@@ -12,7 +12,7 @@
 			<th data-column-id="no" data-type="numeric" data-identifier="true" data-width="4%"data-visible="false">NO</th>
 			<th data-column-id='time' data-identifier="true">日時</th>
 			<th data-column-id='userid'>ユーザーID</th>
-			<th data-column-id='image'>送信画像</th>
+			<th data-column-id='image' data-formatter='image'>送信画像</th>
 			<th data-column-id='class'>分類</th>
 			<th data-column-id='score'>確信度</th>
 		</tr>
