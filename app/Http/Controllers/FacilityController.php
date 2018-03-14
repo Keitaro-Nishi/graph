@@ -57,7 +57,7 @@ class FacilityController {
 			return $this->delete ();
 		} else {
 			return \Response::json ( [
-					'status' => ''
+					'status' => 'NG'
 			] );
 		}
 	}
@@ -132,6 +132,7 @@ class FacilityController {
 					'geom' => \DB::raw ( "public.ST_GeomFromText('POINT({$lat} {$lng})',4326)" )
 			] );
 		}
+		return \Response::json(['status' => 'OK']);
 	}
 	public function delete() {
 		$input = $this->requestall;
