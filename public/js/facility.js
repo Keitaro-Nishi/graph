@@ -87,7 +87,7 @@ function modwin(id,meisho,jusho,tel,genre1,genre2,lat,lng,imageurl,url){
 	document.getElementById('dia_tel').value = tel;
 	document.getElementById('dia_genre1').value = genre1;
 	genre1change();
-	document.getElementById('dia_genre2').value = genre;
+	document.getElementById('dia_genre2').value = genre2;
 	/*
 	var options = document.getElementById('dia_genre2').options;
 	console.log(genre2);
