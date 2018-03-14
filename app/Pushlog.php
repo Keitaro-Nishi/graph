@@ -13,7 +13,7 @@ class Pushlog extends Model
      */
     protected $fillable = [
 
-    		'citycode', 'no', 'line_cat', 'time', 'info', 'age', 'sex',
+    		'citycode', 'line_cat', 'time', 'info', 'age', 'sex',
     		'param1', 'param2', 'param3', 'param4', 'param5', 'param6', 'param7', 'param8', 'param9', 'param10', 'target', 'type','contents','sender'
 
     ];
@@ -29,4 +29,5 @@ class Pushlog extends Model
     protected $primaryKey ='no';
     //public $incrementing = FALSE;
     protected $table = 'pushlog';
+    public $timestamps = false;
 }
