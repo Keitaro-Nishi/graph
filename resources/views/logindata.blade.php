@@ -32,5 +32,9 @@
 
 <input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
 
+<div class="container" align="center">
+	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
+</div>
+
 <script src="{{ asset('js/logindata.js') }}"></script>
 @endsection
