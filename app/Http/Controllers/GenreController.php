@@ -181,7 +181,7 @@ class GenreController
 				//大分類
 				error_log("★★★★★");
 				//$gid1data= DB::table('genre')->select('gid1')->orderBy('gid1', 'DESC')->first();
-				$gid1data= DB::table('genre')->where('citycode', $cityCD)->value('gid1')->orderBy('gid1', 'DESC')->first();
+				$gid1data= DB::table('genre')->select('gid1')->where('citycode',$cityCD)->orderBy('gid1', 'DESC')->first();
 				$gid1 = $gid1data->gid1 + 1;
 				error_log("☆☆☆☆☆");
 				error_log($gid1);
