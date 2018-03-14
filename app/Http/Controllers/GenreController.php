@@ -187,7 +187,7 @@ class GenreController
 				error_log("★★★★★");
 				$gid1data= DB::table('genre')->select('gid1')->where('citycode', $cityCD)->orderBy('gid1', 'DESC')->first();
 				error_log("★★★★★");
-				if($gid1data->gid1 ==""){
+				if($gid1data->gid1 == ""){
 					$gid1 =1;
 				}else{
 					$gid1 = $gid1data->gid1 + 1;
