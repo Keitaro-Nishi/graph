@@ -20,10 +20,8 @@ class GenreController
 		$genrelists= array();
 
 			$genres= Genre::where('citycode', $cityCD)->orderBy('gid1', 'ASC')->orderBy('gid2', 'ASC')->get();
-			//$genregid1 = DB::table('genre')->select('gid1')->where('citycode', $cityCD)->get();
-			$genregid1 = Genre::get(['gid1'])->where('citycode', $cityCD);
+			$genregid1 = DB::table('genre')->select('gid1')->where('citycode', $cityCD)->get();
 			$j1values = Genre::where('citycode', $cityCD)->where('bunrui', 1)->get();
-			error_log(print_r($j1values,true));
 
 			foreach ($genres as $genre) {
 				$citycode = $genre->citycode;
