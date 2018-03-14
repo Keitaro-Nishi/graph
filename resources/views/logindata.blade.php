@@ -10,6 +10,7 @@
 
 	<thead>
 		<tr>
+			<th data-column-id='id' data-type='numeric' data-identifier='true' data-width='3%' data-visible="false"></th>
 			<th data-column-id="userid" data-width="30%">ユーザー</th>
 			<!--  <th data-column-id="icon"  data-width="5%" data-formatter="icons" data-sortable="false"></th>-->
 			<th data-column-id="classification" data-width="20%">分類</th>
@@ -20,6 +21,7 @@
 
 		@foreach($logindata as $infomation)
 		<tr>
+			<td>{{$infomation->id}}</td>
 			<td>{{$infomation->userid}}</td>
 			 <!--  <td></td> -->
 			<td>{{$infomation->classification}}</td>
@@ -29,6 +31,8 @@
 
 	</tbody>
 </table>
+
+<input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
 
 <script src="{{ asset('js/logindata.js') }}"></script>
 @endsection
