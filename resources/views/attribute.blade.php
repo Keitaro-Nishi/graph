@@ -1,4 +1,4 @@
-@extends('layouts.other')
+@extends('layouts.app')
 
 @section('title')
 属性登録
