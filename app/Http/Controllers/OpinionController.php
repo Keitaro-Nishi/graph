@@ -26,13 +26,24 @@ class OpinionController
 
 	}
 
-	public function delete(Request $request)
-	{
-		$deleteNo = $request->deleteno;
-		$deleteopinion = Opinion::find($deleteNo);
-		$deleteopinion->delete();
-
-		return redirect('/opinion');
+	public  function request(){
+		$this->requestall = \Request::all();
+		if($this->requestall["param"] == "delete"){
+			return $this->delete();
+		}else{
+			return \Response::json(['status' => 'NG']);
+		}
 	}
+
+	public function delete()
+	{
+		$input = $this->requestall;
+		Opinion::destroy($input["opinionids"]);
+
+		return \Response::json(['status' => 'OK']);
+	}
+
+
+		//return redirect('/opinion');
 
 }

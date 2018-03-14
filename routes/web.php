@@ -27,7 +27,7 @@ Route::middleware(['auth'])->group(function () {
 	Route::post ( '/users', 'UserController@request' );
 
 	Route::get ( '/opinion', 'OpinionController@index' )->name ( 'opinion' );
-	Route::get ( '/opinion/{deleteno}','OpinionController@delete' );
+	Route::post ( '/opinion', 'OpinionController@request' );
 
 	Route::get ( '/botlog', 'BotlogController@index' )->name ( 'botlog' );
 	Route::get ( '/botlog/{deleteno}','BotlogController@delete' );
