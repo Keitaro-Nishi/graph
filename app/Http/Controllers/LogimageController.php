@@ -11,7 +11,11 @@ class LogimageController {
 	public function index(Request $request) {
 		$cityCD = Auth::user ()->citycode;
 		if ($cityCD = "00000") {
-			$logimages = Logimage::all ();
+			$logimage = Logimage::all ();
+			foreach ( $logimage as $logimages ){
+				$img_data = pg_unescape_bytea($logimage()->image);
+				$logimages = $logimage + array($img_data);
+			}
 		} else {
 			$logimages = Logimage::where ( 'citycode', $cityCD )->get ();
 		}

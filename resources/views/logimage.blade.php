@@ -15,6 +15,7 @@
 			<th data-column-id='image' data-formatter='image'>送信画像</th>
 			<th data-column-id='class'>分類</th>
 			<th data-column-id='score'>確信度</th>
+			{{--<th data-column-id='zm'  data-width='7%' data-formatter='zoom' data-sortable='false'></th>--}}
 		</tr>
 	</thead>
 	<tbody>
@@ -52,5 +53,8 @@
 	</div>
 </div>
 <script src="{{ asset('js/logimage.js') }}"></script>
-
+<script>
+var logimages = @json($logimages);
+init();
+</script>
 @endsection
