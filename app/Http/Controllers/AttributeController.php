@@ -15,6 +15,7 @@ class AttributeController
 
 	public function index(Request $request)
 	{
+		/*
 		$cityCD = Auth::user()->citycode;
 
 		$codes = array();
@@ -28,7 +29,8 @@ class AttributeController
 		}
 
 		$hitcount = Userinfo::where('citycode', $cityCD)->where('sender', (int)1)->count();
-		return view('linepush',['codes'=>$codes,'hitcount'=>$hitcount]);
+		*/
+		return view('attribute',['test'=>$request]);
 	}
 
 	public  function request(){

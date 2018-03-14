@@ -1,5 +1,5 @@
 $(function(){
-	taishoDisabled(true);
+	//taishoDisabled(true);
 });
 
 //属性登録有無チェンジ
