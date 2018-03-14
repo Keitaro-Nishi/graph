@@ -15,8 +15,8 @@ class LogimageController {
 			foreach ( $logimages as $logimage ){
 				$result = $logimage->no;
 				error_log($result);
-				//$img_data = pg_unescape_bytea($result);
-				//$logimages->image = $img_data;
+				$img_data = pg_unescape_bytea($result);
+				$logimage->image = $img_data;
 			}
 		} else {
 			$logimages = Logimage::where ( 'citycode', $cityCD )->get ();
