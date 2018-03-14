@@ -77,7 +77,6 @@ class FacilityController {
 		if ($validator->fails ()) {
 			return $validator->errors ();
 		}
-		// insert
 		$id = $input ["id"];
 		// 市町村コード
 		$citycode = Auth::user ()->citycode;
