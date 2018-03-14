@@ -195,6 +195,7 @@ function update(){
 	}
 	var _token = document.getElementById('_token').value;
 
+	console_log("テスト");
 
 	$.ajax({
 		type: "POST",
