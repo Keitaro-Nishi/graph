@@ -129,7 +129,6 @@ function initmodal(){
 }
 
 function update(){
-
 	var id = document.getElementById('dia_id').value;
 	var meisho = document.getElementById('dia_meisho').value;
 	var jusho = document.getElementById('dia_jusho').value;

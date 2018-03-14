@@ -64,15 +64,13 @@ function drow() {
 					}
 
 				}).done(function (response) {
-					if(response.status == "OK"){
-						bootbox.alert({
-							message: "削除しました",
-							size: 'small',
-							callback: function () {
-								location.reload();
-							}
-						});
-					}
+					bootbox.alert({
+						message: "削除しました",
+						size: 'small',
+						callback: function () {
+							location.reload();
+						}
+					});
 				}).fail(function () {
 					bootbox.alert({
 						message: "削除できませんでした",

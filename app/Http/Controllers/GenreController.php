@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Libs\Watson;
 
-
 class GenreController{
 	public function index(Request $request){
 
@@ -87,8 +86,7 @@ class GenreController{
 		return \Response::json(['status' => 'OK']);
 	}
 
-	public function update()
-	{
+	public function update(){
 		$workspace_id = getenv('CVS_WORKSPASE_ID');
 		$username = getenv('CVS_USERNAME');
 		$password = getenv('CVS_PASS');

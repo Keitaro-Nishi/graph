@@ -17,7 +17,6 @@ class BotlogController{
 		}else{
 			$botlogs= Botlog::where('citycode', $cityCD)->get();
 		}
-
 		return view('botlog',['botlogs'=>$botlogs]);
 	}
 
@@ -26,7 +25,6 @@ class BotlogController{
 		if ($this->requestall ["param"] == "update") {
 			return $this->update ();
 		} elseif ($this->requestall ["param"] == "delete") {
-			error_log("???????????????????");
 			return $this->delete ();
 		}
 	}
