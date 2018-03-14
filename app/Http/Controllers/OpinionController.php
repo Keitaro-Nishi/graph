@@ -44,6 +44,4 @@ class OpinionController
 	}
 
 
-		//return redirect('/opinion');
-
 }
