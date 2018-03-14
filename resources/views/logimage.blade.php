@@ -53,8 +53,4 @@
 	</div>
 </div>
 <script src="{{ asset('js/logimage.js') }}"></script>
-<script>
-var logimages = @json($logimages);
-init();
-</script>
 @endsection
