@@ -40,7 +40,8 @@ class GenreController
 				}
 
 				if($bunrui == 2){
-					$bunruidata= DB::table('genre')->select('meisho')->where('citycode',$cityCD)->where('bunrui',1)->where('gid1',$gid1)->first();
+					//$bunruidata= DB::table('genre')->select('meisho')->where('citycode',$cityCD)->where('bunrui',1)->where('gid1',$gid1)->first();
+					$bunruidata = Genre::get(['meisho'])->where('citycode', $cityCD)->where('bunrui',1)->where('gid1',$gid1)->first();
 					$shoubunrui = $meisho;
 					$daibunrui= $bunruidata->meisho;
 				}
