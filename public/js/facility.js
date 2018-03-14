@@ -164,7 +164,8 @@ function update(){
 			"_token" : _token
 		}
 	}).done(function (response) {
-		if(response.status == "OK"){
+		if(response.status == ""){
+			console.log(response.status);
 			bootbox.alert({
 				message: "更新しました",
 				size: 'small',

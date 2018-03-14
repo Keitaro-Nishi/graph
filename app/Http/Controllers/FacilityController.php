@@ -57,7 +57,7 @@ class FacilityController {
 			return $this->delete ();
 		} else {
 			return \Response::json ( [
-					'status' => 'OK'
+					'status' => ''
 			] );
 		}
 	}
