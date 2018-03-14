@@ -13,7 +13,7 @@ class LogimageController {
 		if ($cityCD = "00000") {
 			$logimages = Logimage::all ();
 			foreach ( $logimages as $logimage ){
-				$result = $logimage->image;
+				$result = $logimage->no;
 				error_log($result);
 				//$img_data = pg_unescape_bytea($result);
 				//$logimages->image = $img_data;
