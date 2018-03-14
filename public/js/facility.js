@@ -88,16 +88,6 @@ function modwin(id,meisho,jusho,tel,genre1,genre2,lat,lng,imageurl,url){
 	document.getElementById('dia_genre1').value = genre1;
 	genre1change();
 	document.getElementById('dia_genre2').value = genre2;
-	/*
-	var options = document.getElementById('dia_genre2').options;
-	console.log(genre2);
-	for(var i = 0; i < options.length; i++){
-		if(options[i].text === genre2){
-			options[i].selected = true;
-			break;
-		};
-	};
-	*/
 	document.getElementById('dia_latlng').value = lat + "," + lng;
 	document.getElementById('dia_imageurl').value = imageurl;
 	document.getElementById('dia_url').value = url;
