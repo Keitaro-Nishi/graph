@@ -180,10 +180,11 @@ class GenreController
 			if($bunrui == 1){
 				//大分類
 				error_log("★★★★★");
-				$gid1data= DB::table('genre')->select('gid1')->where('citycode', $cityCD)->orderBy('gid1', 'DESC')->first();
+				$gid1data= DB::table('genre')->select('gid1')->orderBy('gid1', 'DESC')->first();
 				$gid1 = $gid1data->gid1 + 1;
 				error_log("☆☆☆☆☆");
 				error_log($gid1);
+				//->where('citycode', $cityCD)
 
 				DB::table('genre')->insert(['citycode'=> $cityCD,'bunrui' =>$bunrui, 'gid1' => $gid1,'gid2' =>0,'gid3' =>0,'meisho' =>$meisho]);
 
