@@ -14,8 +14,6 @@ class AttributeController
 
 	public function index($citycode,$sender, $id)
 	{
-		$cityCD = Auth::user()->citycode;
-
 		$codes = array();
 
 		for ($i = 1; $i <= 10; $i++) {
