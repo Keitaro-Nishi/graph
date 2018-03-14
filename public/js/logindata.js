@@ -1,12 +1,14 @@
 $(function() {
 	$("#grid-basic").bootgrid({
-		/*selection: true,
-		multiSelect: true,
-		rowSelect: true
+		selection : true,
+		multiSelect : true,
+		rowSelect : false,
+		columnSelection : false,
+	    keepSelection: true,
+		/*formatters: {
+		"icons": function($column, $row) {
+		return "<span class='glyphicon glyphicon-log-in'></span>";
 		*/
-		//formatters: {
-		//"icons": function($column, $row) {
-		//return "<span class='glyphicon glyphicon-log-in'></span>";
 
 		 /*for (var i = 0; i < rows.length; i++){
 		 if(rows[i].classification =="ログイン"){
