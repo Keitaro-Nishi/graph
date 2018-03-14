@@ -11,19 +11,13 @@ class LogimageController {
 	public function index(Request $request) {
 		$cityCD = Auth::user ()->citycode;
 		if ($cityCD = "00000") {
-			$logimages = Logimage::all ();
-			$results = Logimage::select( 'image' )->first ();
-			//$img_data=pg_unescape_bytea($results);
+			$logimages = Logimage::select('citycode', 'no', 'time', 'userid', 'score', 'class')->get ();
 		} else {
-			$logimages = Logimage::where ( 'citycode', $cityCD )->get ();
+			$logimages = Logimage::select('citycode', 'no', 'time', 'userid', 'score', 'class')->where ( 'citycode', $cityCD )->get ();
 		}
-		return $results;
-		/*
 		return view ( 'logimage', [
 				'logimages' => $logimages,
-				'image' => $image,
 		] );
-		*/
 	}
 	public function request() {
 		$this->requestall = \Request::all ();
