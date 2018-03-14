@@ -16,13 +16,13 @@ class LogimageController {
 				$result = $logimages->image;
 				error_log($result);
 				$img_data = pg_unescape_bytea($result);
-				$logimage = $logimage + array($img_data);
+				$logimages->image = $img_data;
 			}
 		} else {
 			$logimages = Logimage::where ( 'citycode', $cityCD )->get ();
 		}
 		return view ( 'logimage', [
-				'logimages' => $logimage
+				'logimages' => $logimages
 		] );
 	}
 	public function request() {
