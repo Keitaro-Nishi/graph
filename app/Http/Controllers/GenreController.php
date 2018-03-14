@@ -98,7 +98,7 @@ class GenreController
 				//CVS削除
 				//dialog_node
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/dialog_nodes/node_".$gid1."?version=2017-05-26";
-				//$watson->callWatson4($url,$username,$password,$cityCD);
+				$watson->callWatson4($url,$username,$password,$cityCD);
 
 				foreach($gid2datas as $gid2data){
 					error_log("☆☆☆☆☆☆");
