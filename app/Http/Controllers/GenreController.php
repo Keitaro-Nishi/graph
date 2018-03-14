@@ -116,7 +116,7 @@ class GenreController
 					//$watson->callWatson4($url,$username,$password,$cityCD);
 				}
 			}else{
-				DB::table('genre')->where('citycode',$cityCD)->where('gid1',$gid1)->where('gid2',$gid2)->delete();
+				//DB::table('genre')->where('citycode',$cityCD)->where('gid1',$gid1)->where('gid2',$gid2)->delete();
 
 				//CVS削除
 				error_log("●●●●●●");
