@@ -6,7 +6,8 @@
 
 @section('content')
 <div class="container">
-	<label>{{$test}}</label>
+	<label>{{$test1}}</label>
+	<label>{{$test2}}</label>
 </div>
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="送信" onclick="send()">

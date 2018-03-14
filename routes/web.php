@@ -60,4 +60,4 @@ Route::middleware(['auth'])->group(function () {
 
 });
 
-	Route::get ( '/attribute/{data}', 'AttributeController@index')->name('attribute');
+	Route::get ( '/attribute/{sender?}/{id?}', 'AttributeController@index')->name('attribute');

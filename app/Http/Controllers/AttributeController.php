@@ -13,7 +13,7 @@ class AttributeController
 {
 	private $requestall;
 
-	public function index(Request $request)
+	public function index($sender, $id)
 	{
 		/*
 		$cityCD = Auth::user()->citycode;
@@ -30,7 +30,7 @@ class AttributeController
 
 		$hitcount = Userinfo::where('citycode', $cityCD)->where('sender', (int)1)->count();
 		*/
-		return view('attribute',['test'=>$request]);
+		return view('attribute',['test1'=>$sender,'test2'=>$id]);
 	}
 
 	public  function request(){
