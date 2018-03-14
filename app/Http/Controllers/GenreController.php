@@ -9,10 +9,8 @@ use Illuminate\Support\Facades\DB;
 use App\Libs\Watson;
 
 
-class GenreController
-{
-	public function index(Request $request)
-	{
+class GenreController{
+	public function index(Request $request){
 
 		$Authrole = Auth::user()->role;
 		$cityCD = Auth::user()->citycode;
@@ -31,7 +29,6 @@ class GenreController
 				$gid1 = $genre->gid1;
 				$gid2 = $genre->gid2;
 				$meisho = $genre->meisho;
-
 
 				if($bunrui == 1){
 					$daibunrui = $meisho;
@@ -70,7 +67,6 @@ class GenreController
 		}
 	}
 
-
 	public function delete()
 	{
 		$input = $this->requestall;
@@ -88,10 +84,8 @@ class GenreController
 				DB::table('genre')->where('citycode',$cityCD)->where('gid1',$gid1)->where('gid2',$gid2)->delete();
 			}
 		}
-
 		return \Response::json(['status' => 'OK']);
 	}
-
 
 	public function update()
 	{
@@ -179,7 +173,6 @@ class GenreController
 				$data = array("dialog_node" => "node_".$gid1,"title" => "intent".$gid1,"conditions" => "#".$gid1,"previous_sibling" => $previous_sibling,"output" => array("text" => array("values" => array($gid1.".".$gid2))));
 				$watson->callWatson($url,$username,$password,$data);
 
-
 			}else{
 				//小分類
 				$gid2data= DB::table('genre')->select('gid2')->where('gid1',$gid1)->orderBy('gid2', 'DESC')->first();
@@ -200,8 +193,5 @@ class GenreController
 			}
 		}
 		return \Response::json(['status' => 'OK']);
-
 	}
-
-
 }
