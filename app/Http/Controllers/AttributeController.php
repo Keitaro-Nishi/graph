@@ -24,7 +24,7 @@ class AttributeController
 			}
 		}
 
-		$userinfo =  Code::where('citycode', $citycode)->where('userid', $id)->first();
+		$userinfo =  Userinfo::where('citycode', $citycode)->where('userid', $id)->first();
 		if(!$userinfo){
 			$userinfo = new Userinfo();
 		}
