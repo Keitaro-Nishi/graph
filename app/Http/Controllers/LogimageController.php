@@ -13,14 +13,17 @@ class LogimageController {
 		if ($cityCD = "00000") {
 			$logimages = Logimage::all ();
 			$results = Logimage::select( 'image' );
-			error_log ($results);
+			$img_data=pg_unescape_bytea($results);
 		} else {
 			$logimages = Logimage::where ( 'citycode', $cityCD )->get ();
 		}
+		return $img_data;
+		/*
 		return view ( 'logimage', [
 				'logimages' => $logimages,
 				'image' => $image,
 		] );
+		*/
 	}
 	public function request() {
 		$this->requestall = \Request::all ();
