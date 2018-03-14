@@ -88,8 +88,8 @@ function modwin(id,meisho,jusho,tel,genre1,genre2,lat,lng,imageurl,url){
 	document.getElementById('dia_genre1').value = genre1;
 	genre1change();
 	var options = document.getElementById('dia_genre2').options;
-	//console.log(options);
-	//console.log(genre2);
+	console.log(options);
+	console.log(genre2);
 	for(var i = 0; i < options.length; i++){
 		if(options[i].text == genre2){
 			options[i].selected = true;
