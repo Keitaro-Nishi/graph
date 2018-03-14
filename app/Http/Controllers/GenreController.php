@@ -92,7 +92,7 @@ class GenreController
 			$g2meisho = $g2meishodata->meisho;
 
 			if($gid2 == 0){
-				DB::table('genre')->where('citycode',$cityCD)->where('gid1',$gid1)->delete();
+				//DB::table('genre')->where('citycode',$cityCD)->where('gid1',$gid1)->delete();
 				$gid2datas = DB::table('genre')->select('gid2')->where('citycode',$cityCD)->where('gid1',$gid1)->get();
 
 				//CVS削除
