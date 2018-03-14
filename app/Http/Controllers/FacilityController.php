@@ -55,10 +55,6 @@ class FacilityController {
 			return $this->update ();
 		} elseif ($this->requestall ["param"] == "delete") {
 			return $this->delete ();
-		} else {
-			return \Response::json ( [
-					'status' => 'NG'
-			] );
 		}
 	}
 	public function update() {
@@ -116,7 +112,7 @@ class FacilityController {
 					'geom' => \DB::raw ( "public.ST_GeomFromText('POINT({$lat} {$lng})',4326)" )
 			] );
 		} else {
-			$result = DB::table ( 'facility' )->where ( 'id', $id )->update ( [
+			$result = DB::table ( 'facilit' )->where ( 'id', $id )->update ( [
 					'citycode' => $citycode,
 					'meisho' => $meisho,
 					'jusho' => $jusho,
