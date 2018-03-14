@@ -10,12 +10,11 @@ class Genre extends Model
 
 
 
-	/*protected $fillable = [
+	protected $fillable = [
 
-	'citycode', 'no', 'time', 'sex', 'age', 'opinion', 'sadness', 'joy', 'fear', 'disgust', 'anger', 'checked'
+	'citycode', 'bunrui', 'gid1', 'gid2', 'gid3', 'meisho',
 
 	];
-	*/
 
 	//protected $primaryKey =['citycode','id'];
 	protected $primaryKey = ['gid1', 'gid2','gid3'];
