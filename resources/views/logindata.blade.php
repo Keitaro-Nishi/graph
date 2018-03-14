@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+ログイン情報
+@stop
+
 @section('content')
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
@@ -26,39 +30,5 @@
 	</tbody>
 </table>
 
-<script>
-
-			/*
-			var tr = $("table tr");//全行を取得
-			var rowCount =tr.length;
-			alert(rowCount);
-			*/
-
-			$(function() {
-				$("#header").load("header.html");
-				$("#grid-basic").bootgrid({
-					/*selection: true,
-					multiSelect: true,
-					rowSelect: true
-					*/
-					//formatters: {
-				      //"icons": function($column, $row) {
-
-				    	  		//return "<span class='glyphicon glyphicon-log-in'></span>";
-
-								    	 /*for (var i = 0; i < rows.length; i++){
-								  	         if(rows[i].classification =="ログイン"){
-									         	return "<span class='glyphicon glyphicon-log-in'></span>";
-								  	         }
-								  	         if(rows[i].classification =="ログアウト"){
-									         	return "<span class='glyphicon glyphicon-log-out'></span>";
-								    	 	 }
-								    	 }*/
-
-								//}
-					//}
-				});
-			});
-
-</script>
+<script src="{{ asset('js/logindata.js') }}"></script>
 @endsection
