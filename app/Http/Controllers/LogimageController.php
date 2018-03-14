@@ -12,11 +12,11 @@ class LogimageController {
 		$cityCD = Auth::user ()->citycode;
 		if ($cityCD = "00000") {
 			$logimages = Logimage::all ();
-			foreach ( $logimages as $logimage ){
-				$result = $logimage->image;
-				error_log($result);
-				$img_data = pg_unescape_bytea($result);
-				$logimage = array($logimage, $img_data);
+			$results = Logimage::select(no, image);
+			foreach($results as $result){
+				$img_data=pg_unescape_bytea($result->image);
+				$image = array($image, $img_data);
+				error_log ( print_r($image, true));
 			}
 		} else {
 			$logimages = Logimage::where ( 'citycode', $cityCD )->get ();
