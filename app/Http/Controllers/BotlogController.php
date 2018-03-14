@@ -28,10 +28,6 @@ class BotlogController{
 		} elseif ($this->requestall ["param"] == "delete") {
 			error_log("???????????????????");
 			return $this->delete ();
-		} else {
-			return \Response::json ( [
-					'status' => 'NG'
-			] );
 		}
 	}
 
