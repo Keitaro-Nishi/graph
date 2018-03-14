@@ -179,6 +179,7 @@ class GenreController
 		}else{
 			if($bunrui == 1){
 				//大分類
+				error_log("★★★★★");
 				$gid1data= DB::table('genre')->select('gid1')->orderBy('gid1', 'DESC')->first();
 				error_log("☆☆☆☆☆");
 				error_log($gid1data->gid1);
