@@ -6,31 +6,32 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use App\Userinfo;
-use App\Parameter;
 use App\Code;
 
 class AttributeController
 {
 	private $requestall;
 
-	public function index($sender, $id)
+	public function index($citycode,$sender, $id)
 	{
-		/*
 		$cityCD = Auth::user()->citycode;
 
 		$codes = array();
 
 		for ($i = 1; $i <= 10; $i++) {
-			$count = Code::where('citycode', $cityCD)->where('code1', $i)->where('code2', '>', 0)->count();
+			$count = Code::where('citycode', $citycode)->where('code1', $i)->where('code2', '>', 0)->count();
 			if($count > 0){
-				$records = Code::select('code1','code2','meisho')->where('citycode', $cityCD)->where('code1', $i)->orderBy('code2', 'ASC')->get();
+				$records = Code::select('code1','code2','meisho')->where('citycode', $citycode)->where('code1', $i)->orderBy('code2', 'ASC')->get();
 				array_push($codes, json_decode($records,true));
 			}
 		}
 
-		$hitcount = Userinfo::where('citycode', $cityCD)->where('sender', (int)1)->count();
-		*/
-		return view('attribute',['test1'=>$sender,'test2'=>$id]);
+		$userinfo =  Code::where('citycode', $citycode)->where('userid', $id)->first();
+		if(!$userinfo){
+			$userinfo = new Userinfo();
+		}
+
+		return view('attribute',['codes'=>$codes,'userinfo'=>$userinfo]);
 	}
 
 	public  function request(){

@@ -60,4 +60,5 @@ Route::middleware(['auth'])->group(function () {
 
 });
 
-	Route::get ( '/attribute/{sender?}/{id?}', 'AttributeController@index')->name('attribute');
+	Route::get ( '/attribute/{citycode?}/{sender?}/{id?}', 'AttributeController@index')->name('attribute');
+	Route::post ( '/attribute', 'AttributeController@request');
