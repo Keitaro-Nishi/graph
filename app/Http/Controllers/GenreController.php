@@ -109,8 +109,9 @@ class GenreController
 				$watson->callWatson4($url,$username,$password,$cityCD);
 
 				foreach($gid2datas as $gid2data){
-
+					error_log("☆☆☆☆☆☆");
 					$g2 = $gid2data->gid2;
+					error_log($g2);
 					$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/dialog_nodes/".$gid1.".".$g2."?version=2017-05-26";
 					$watson->callWatson4($url,$username,$password,$cityCD);
 				}
@@ -123,7 +124,7 @@ class GenreController
 
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/dialog_nodes/".$gid1.".".$gid2."?version=2017-05-26";
 				$watson->callWatson4($url,$username,$password,$cityCD);
-
+				error_log("○○○○○");
 			}
 		}
 
