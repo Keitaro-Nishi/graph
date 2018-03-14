@@ -138,7 +138,6 @@ function bchange(){
 	}
 }
 
-
 function modwin(no,gid1,_gid2,g1,g2){
 	document.getElementById('modal-label').innerHTML  = "ジャンル修正";
 	initmodal();
