@@ -5,13 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
-use Carbon\Carbon;
 use App\Userinfo;
 use App\Parameter;
 use App\Code;
-use App\Pushlog;
 
-class LinepushController
+class AttributeController
 {
 	private $requestall;
 
@@ -114,32 +112,6 @@ class LinepushController
 				return \Response::json(['status' => 'NG']);
 			}
 		}
-
-		//ログの更新
-		$input = $this->requestall;
-		$target = $this->makeQuerry()->count();
-		$pushlog = new Pushlog();
-		$pushlog->citycode = $cityCD;
-		$pushlog->time = Carbon::now();
-		$pushlog->info = $input["info"];
-		$pushlog->agek = $input["agek"];
-		$pushlog->agem = $input["agem"];
-		$pushlog->sex = $input["sex"];
-		$pushlog->param1 = $input["option"][0];
-		$pushlog->param2 = $input["option"][1];
-		$pushlog->param3 = $input["option"][2];
-		$pushlog->param4 = $input["option"][3];
-		$pushlog->param5 = $input["option"][4];
-		$pushlog->param6 = $input["option"][5];
-		$pushlog->param7 = $input["option"][6];
-		$pushlog->param8 = $input["option"][7];
-		$pushlog->param9 = $input["option"][8];
-		$pushlog->param10 = $input["option"][9];
-		$pushlog->target = $target;
-		$pushlog->type = (int)1;
-		$pushlog->contents = $input["sendmess"];
-		$pushlog->sender = Auth::user()->userid;
-		$pushlog->save();
 
 		return \Response::json(['status' => 'OK']);
 	}

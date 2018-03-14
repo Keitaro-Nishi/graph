@@ -59,3 +59,5 @@ Route::middleware(['auth'])->group(function () {
 	Route::post ( '/linepush', 'LinepushController@request');
 
 });
+
+	Route::get ( '/attribute/{data}', 'AttributeController@index')->name('attribute');
