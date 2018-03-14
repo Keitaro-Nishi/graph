@@ -13,7 +13,7 @@ class LogimageController {
 		if ($cityCD = "00000") {
 			$logimages = Logimage::all ();
 			$results = Logimage::select( 'image' );
-			error_log ( print_r($results->toArray(), true));
+			error_log ($results);
 		} else {
 			$logimages = Logimage::where ( 'citycode', $cityCD )->get ();
 		}
