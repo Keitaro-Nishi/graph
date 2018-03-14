@@ -21,7 +21,7 @@ class GenreController
 
 			$genres= Genre::where('citycode', $cityCD)->orderBy('gid1', 'ASC')->orderBy('gid2', 'ASC')->get();
 			$genregid1 = DB::table('genre')->select('gid1')->where('citycode', $cityCD)->get();
-			$j1values = DB::table('genre')->where('citycode', $cityCD)->where('bunrui', 1)->get();
+			$j1values = Genre::table('genre')->where('citycode', $cityCD)->where('bunrui', 1)->get();
 
 			foreach ($genres as $genre) {
 				$citycode = $genre->citycode;
@@ -100,9 +100,7 @@ class GenreController
 				$watson->callWatson4($url,$username,$password,$cityCD);
 
 				foreach($gid2datas as $gid2data){
-					error_log("☆☆☆☆☆☆");
 					$g2 = $gid2data->gid2;
-					error_log($g2);
 					$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/dialog_nodes/".$gid1.".".$g2."?version=2017-05-26";
 					$watson->callWatson4($url,$username,$password,$cityCD);
 				}
@@ -114,7 +112,7 @@ class GenreController
 				//ENTITIES
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities/".$gid1."?version=2017-05-26";
 				$watson->callWatson4($url,$username,$password,$cityCD);
-				
+
 				DB::table('genre')->where('citycode',$cityCD)->where('gid1',$gid1)->delete();
 			}else{
 				DB::table('genre')->where('citycode',$cityCD)->where('gid1',$gid1)->where('gid2',$gid2)->delete();

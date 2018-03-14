@@ -8,13 +8,6 @@ class Genre extends Model
 {
 
 
-	//use CompositePrimaryKeyTrait;
-
-	/*public function getFirstNameAttribute($value)
-	{
-		return ucfirst($value);
-	}
-	*/
 
 
 	/*protected $fillable = [
