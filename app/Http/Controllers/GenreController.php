@@ -182,7 +182,7 @@ class GenreController
 				$gid1data= DB::table('genre')->select('gid1')->orderBy('gid1', 'DESC')->first();
 
 				if (empty($gid1data)){
-					$gid1 == 1;
+					$gid1 = 1;
 				}else{
 					$gid1 = $gid1data->gid1 + 1;
 				}
