@@ -200,10 +200,9 @@ class GenreController
 				$jsonString = $watson->callWatson2($url,$username,$password,$cityCD);
 				$json = json_decode($jsonString, true);
 				foreach ($json["dialog_nodes"] as $value){
-					error_log("values:".$value["output"]["text"]["values"][0]);
+
 					if($value["output"]["text"]["values"][0] == $nodevalue){
 						$previous_sibling = $value["dialog_node"];
-						error_log($previous_sibling);
 						break;
 					}
 				}
