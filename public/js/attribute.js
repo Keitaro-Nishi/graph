@@ -20,6 +20,40 @@ function init(){
 	}
 };
 
+//言語変更
+function languageChange(){
+	var sex = document.getElementById('sex');
+	while (0 < sex.childNodes.length) {
+		sex.removeChild(sex.childNodes[0]);
+	}
+	//日本語
+	if(document.getElementById('language').value == "01"){
+		document.getElementById('label_language').innerHTML = "言語";
+		document.getElementById('label_sex').innerHTML = "性別";
+		setSelectValue(sex,"0","");
+		setSelectValue(sex,"1","男性");
+		setSelectValue(sex,"2","女性");
+		document.getElementById('label_age').innerHTML = "年齢";
+	}
+
+	//英語
+	if(document.getElementById('language').value == "02"){
+		document.getElementById('label_language').innerHTML = "Language";
+		document.getElementById('label_sex').innerHTML = "Sex";
+		setSelectValue(sex,"0","");
+		setSelectValue(sex,"1","Male");
+		setSelectValue(sex,"2","Female");
+		document.getElementById('label_age').innerHTML = "Age";
+	}
+}
+
+function setSelectValue(select,value,text){
+	var option = document.createElement('option');
+	option.setAttribute('value', value);
+	var intext = document.createTextNode(text);
+	option.appendChild(intext);
+	select.appendChild(option);
+}
 
 //更新
 function update(){
