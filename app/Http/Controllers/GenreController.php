@@ -185,7 +185,6 @@ class GenreController
 				if(!$gid1data){
 					$gid1 =1;
 				}else{
-					error_log("●●");
 					$gid1 = $gid1data->gid1+1;
 				}
 
