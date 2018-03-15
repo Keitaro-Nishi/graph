@@ -24,9 +24,9 @@ class LogimageController {
 		$logimages = Logimage::all ()->first();
 
 		// タイトル取得
-		$title = $hoge->file_title;
+		$title = $logimages->no;
 		// バイナリデータ取得
-		$fileData = $hoge->file_data;
+		$fileData = $logimages->image;
 
 		// 取得したバイナリデータをファイルに書き込んでレスポンスに返却
 		$writingHogeData = '.jpg';
