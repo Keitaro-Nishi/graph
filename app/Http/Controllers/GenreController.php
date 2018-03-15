@@ -184,7 +184,8 @@ class GenreController
 				$gid1data= DB::table('genre')->select('gid1')->where('citycode', $cityCD)->orderBy('gid1', 'DESC')->first();
 
 
-				if(empty($gid1data["gid1"])){
+				//if(empty($gid1data["gid1"])){
+				if(!$gid1data){
 					$gid1 =1;
 				}else{
 					error_log("●●");
