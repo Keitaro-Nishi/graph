@@ -75,7 +75,6 @@ class GenreController
 	public function delete()
 	{
 		$cityCD = Auth::user()->citycode;
-		//$workspace_id = getenv('CVS_WORKSPASE_ID');
 		$workspace = Parameter::select('cvs_ws_id1')->where('citycode', $cityCD)->first();
 		$workspace_id = $workspace->cvs_ws_id1;
 		$username = getenv('CVS_USERNAME');
@@ -115,12 +114,10 @@ class GenreController
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities/".$gid1."?version=2017-05-26";
 				$watson->callWatson4($url,$username,$password,$cityCD);
 
-				//DB::table('genre')->where('citycode',$cityCD)->where('gid1',$gid1)->delete();
 				Genre::where('citycode',$cityCD)->where('gid1',$gid1)->delete();
 
 			}else{
 
-				//DB::table('genre')->where('citycode',$cityCD)->where('gid1',$gid1)->where('gid2',$gid2)->delete();
 				Genre::where('citycode',$cityCD)->where('gid1',$gid1)->where('gid2',$gid2)->delete();
 
 				//CVS削除
@@ -139,7 +136,6 @@ class GenreController
 	public function update()
 	{
 		$cityCD = Auth::user()->citycode;
-		//$workspace_id = getenv('CVS_WORKSPASE_ID');
 		$workspace = Parameter::select('cvs_ws_id1')->where('citycode', $cityCD)->first();
 		$workspace_id = $workspace->cvs_ws_id1;
 		$username = getenv('CVS_USERNAME');
@@ -182,9 +178,6 @@ class GenreController
 		}else{
 			if($bunrui == 1){
 				//大分類
-
-				error_log("☆☆☆☆");
-				error_log($workspace_id);
 
 				$gid1data= Genre::select('gid1')->where('citycode', $cityCD)->orderBy('gid1', 'DESC')->first();
 
@@ -234,9 +227,6 @@ class GenreController
 
 
 			}else{
-
-				error_log("☆☆☆☆");
-				error_log($workspace_id);
 
 				//小分類
 				$gid2data= Genre::select('gid2')->where('citycode', $cityCD)->where('gid1',$gid1)->orderBy('gid2', 'DESC')->first();
