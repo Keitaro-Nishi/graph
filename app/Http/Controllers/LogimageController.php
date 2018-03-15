@@ -37,10 +37,10 @@ class LogimageController {
 	public function links($id) {
 		error_log ( '????????????????' . $id );
 		$logimages = Logimage::select ( 'image' )->where ( 'no', $id )->first ();
-		error_log ( '????????????????40' . $logimages);
+		error_log ( '40????????????????' . $logimages);
 		header ( 'Content-type: image/jpeg' );
 		header ( "Content-Disposition: inline; filename=image.jpg" );
 		$img_data = pg_unescape_bytea ( $logimages->image );
-		return $img_data;
+		echo $img_data;
 	}
 }
