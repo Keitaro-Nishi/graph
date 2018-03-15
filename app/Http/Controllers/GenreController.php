@@ -183,13 +183,15 @@ class GenreController
 
 				$gid1data= DB::table('genre')->select('gid1')->where('citycode', $cityCD)->orderBy('gid1', 'DESC')->first();
 
-				$g1 = $gid1data->gid1;
-				$gid1 = $g1+1;
+				//$g1 = $gid1data->gid1;
+				//$gid1 = $g1+1;
 				error_log("●●●●●");
-				error_log($gid1);
 
 				if(empty($gid1data["gid1"])){
 					$gid1 =1;
+				} else{
+					$g1 = $gid1data->gid1;
+					$gid1 = $g1+1;
 				}
 
 				error_log("☆☆☆☆☆");
