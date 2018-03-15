@@ -71,7 +71,6 @@ class GenreController
 		}
 	}
 
-
 	public function delete()
 	{
 		$cityCD = Auth::user()->citycode;
