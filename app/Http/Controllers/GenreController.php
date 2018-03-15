@@ -75,7 +75,6 @@ class GenreController
 	public function delete()
 	{
 
-		$cityCD = Auth::user()->citycode;
 		//$workspace_id = getenv('CVS_WORKSPASE_ID');
 		$workspace_id = Parameter::select('cvs_ws_id1')->where('citycode', $cityCD)->first();
 		$username = getenv('CVS_USERNAME');
@@ -140,7 +139,6 @@ class GenreController
 	public function update()
 	{
 
-		$cityCD = Auth::user()->citycode;
 		//$workspace_id = getenv('CVS_WORKSPASE_ID');
 		$workspace_id = Parameter::select('cvs_ws_id1')->where('citycode', $cityCD)->first();
 		$username = getenv('CVS_USERNAME');
