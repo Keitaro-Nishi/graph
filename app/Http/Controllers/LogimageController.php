@@ -50,7 +50,7 @@ class LogimageController {
 		 $writingHogeData = '.jpg';
 		 file_put_contents ( $writingHogeData, $fileData );
 		 $response = Response::make($writingHogeData,200);
-		 $response->header('Content-type','image/jpeg' );
+		 $response->header('Content-type','image/jpg' );
 		  // 拡張子はhoge
 		  $headers = array (
 		 		 'Content-Type: image/jpg'
