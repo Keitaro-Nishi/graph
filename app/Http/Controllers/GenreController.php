@@ -7,6 +7,7 @@ use App\Genre;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Libs\Watson;
+use App\Parameter;
 
 
 class GenreController
@@ -74,7 +75,9 @@ class GenreController
 	public function delete()
 	{
 
-		$workspace_id = getenv('CVS_WORKSPASE_ID');
+		$cityCD = Auth::user()->citycode;
+		//$workspace_id = getenv('CVS_WORKSPASE_ID');
+		$workspace_id = Parameter::select('cvs_ws_id1')->where('citycode', $cityCD);
 		$username = getenv('CVS_USERNAME');
 		$password = getenv('CVS_PASS');
 
@@ -136,7 +139,10 @@ class GenreController
 
 	public function update()
 	{
-		$workspace_id = getenv('CVS_WORKSPASE_ID');
+
+		$cityCD = Auth::user()->citycode;
+		//$workspace_id = getenv('CVS_WORKSPASE_ID');
+		$workspace_id = Parameter::select('cvs_ws_id1')->where('citycode', $cityCD);
 		$username = getenv('CVS_USERNAME');
 		$password = getenv('CVS_PASS');
 
