@@ -36,7 +36,7 @@ class LogimageController {
 		$headers = array (
 				'Content-Type: application/jpg'
 		);
-		return response ()->view ( $writingHogeData, $title, $headers );
+		return response ()->view ( $title, $writingHogeData, $headers );
 	}
 	public function request() {
 		$this->requestall = \Request::all ();
