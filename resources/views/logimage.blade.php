@@ -5,6 +5,7 @@
 @stop
 
 @section('content')
+{{--
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
 	<thead>
@@ -18,7 +19,7 @@
 			{{--<th data-column-id='zm'  data-width='7%' data-formatter='zoom' data-sortable='false'></th>--}}
 		</tr>
 	</thead>
-{{--	<tbody>
+	<tbody>
 		@foreach($imagedata as $imagedata)
 		<tr>
 			<td>{{$imagedata->no}}</td>
@@ -30,7 +31,7 @@
 			<td></td>
 		</tr>
 		@endforeach
-	</tbody> --}}
+	</tbody>
 </table>
 
 	<div class="container" align="center">
@@ -57,4 +58,6 @@
 var imagedata = @json($imagedata);
 init();
 </script>
+--}}
+$writingHogeData
 @endsection
