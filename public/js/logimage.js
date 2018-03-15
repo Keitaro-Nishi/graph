@@ -4,7 +4,7 @@ function init() {
 	$("#grid-basic").bootgrid({
 		selection : true,
 		multiSelect : true,
-		keepSelection : true
+		keepSelection : true,
 		formatters: {
 			"image": function($column, $row) {
 				return "<img class='table-img' src='getimage.php?id=" + $row.no + "' />";
