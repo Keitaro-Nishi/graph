@@ -78,7 +78,7 @@ class AttributeController
 				'param8' => $param8,
 				'param9' => $param9,
 				'param10' => $param10,
-				'updkbn' => "1"
+				'updkbn' => '1'
 		];
 
 		$count = Userinfo::where('citycode', $citycode)->where('userid', $userid)->where('sender', $sender)->count();
@@ -88,6 +88,7 @@ class AttributeController
 		if($count > 0){
 			$result = DB::table('userinfo')->where('citycode', $citycode)->where('userid', $userid)->where('sender', $sender)->update($save_value);
 		}else{
+			error_log("★★★★★★★★save_value★★★★★★★★★★".$save_value["age"]);
 			$result = DB::table('userinfo')->insert($save_value);
 		}
 
