@@ -162,7 +162,7 @@
 			@if($value['code2'] == 0)
 			<label class="col-sm-3 control-label" id="optionlabel{{$value['code1']}}" for="option{{$value['code1']}}">{{$value['meisho']}}</label>
 			<div class="col-sm-3">
-				<select class="form-control" id="option{{$value['code1']}}" onChange="optionChange()">
+				<select class="form-control" id="option{{$value['code1']}}" >
 					<option value="0"></option>
 			@else
 					<option value="{{$value['code2']}}">{{$value['meisho']}}</option>
@@ -180,9 +180,6 @@
 	<input type="button" class="btn btn-default" value="削除" onclick="del()">
 	<input type="button" class="btn btn-primary" value="登録" onclick="update()">
 </div>
-<input id="userid" type="hidden" value="{{$userid}}">
-<input id="citycode" type="hidden" value="{{$citycode}}">
-<input id="sender" type="hidden" value="{{$sender}}">
 <input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
 <script src="{{ asset('js/attribute.js') }}"></script>
 <script>

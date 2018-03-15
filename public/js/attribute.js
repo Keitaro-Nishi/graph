@@ -23,9 +23,6 @@ function init(){
 
 //更新
 function update(){
-	var userid = document.getElementById('userid').value;
-	var citycode = document.getElementById('citycode').value;
-	var sender = document.getElementById('sender').value;
 	var language = document.getElementById('language').value;
 	var sex = document.getElementById('sex').value;
 	var age = document.getElementById('age').value;
@@ -43,9 +40,6 @@ function update(){
 		dataType: "JSON",
 		data: {
 			"param" : "update",
-			"userid" : userid,
-			"citycode" : citycode,
-			"sender" : sender,
 			"language" : language,
 			"sex" : sex,
 			"age" : age,
@@ -82,18 +76,12 @@ function del(){
 	    },
 	    callback: function (result) {
 	        if(result){
-	        	var userid = document.getElementById('userid').value;
-	        	var citycode = document.getElementById('citycode').value;
-	        	var sender = document.getElementById('sender').value;
 	        	var _token = document.getElementById('_token').value;
 	        	$.ajax({
 	        		type: "POST",
 	        		dataType: "JSON",
 	        		data: {
 	        			"param" : "delete",
-	        			"userid" : userid,
-	        			"citycode" : citycode,
-	        			"sender" : sender,
 	        			"_token" : _token
 	        		}
 	        	}).done(function (response) {

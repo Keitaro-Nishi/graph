@@ -32,22 +32,19 @@ class AttributeController
 		return view('attribute',['codes'=>$codes,'userinfo'=>$userinfo,'citycode'=>$citycode,'sender'=>$sender,'userid'=>$id]);
 	}
 
-	public  function request(){
+	public  function request($citycode,$sender, $id){
 		$this->requestall = \Request::all();
 		if($this->requestall["param"] == "update"){
-			return $this->update();
+			return $this->update($citycode,$sender, $id);
 		}elseif ($this->requestall["param"] == "delete"){
-			return $this->delete();
+			return $this->delete($citycode,$sender, $id);
 		}else{
 			return \Response::json(['status' => 'NG']);
 		}
 	}
 
-	public function update(){
+	public function update($citycode,$sender, $userid){
 		$input = $this->requestall;
-		$citycode = $input["citycode"];
-		$userid = $input["userid"];
-		$sender = $input["sender"];
 		$language = $input["language"];
 		$sex = $input["sex"];
 		$age = $input["age"];
@@ -93,11 +90,8 @@ class AttributeController
 		return \Response::json(['status' => 'OK']);
 	}
 
-	public function delete(){
+	public function delete($citycode,$sender, $userid){
 		$input = $this->requestall;
-		$citycode = $input["citycode"];
-		$userid = $input["userid"];
-		$sender = $input["sender"];
 
 		$save_value = [
 				'citycode' => $citycode,
