@@ -22,6 +22,9 @@ class LogimageController {
 		*/
 		 $logimages = Logimage::all ()->first ();
 
+		 //
+		 $title = $logimages->no;
+
 		 // バイナリデータ取得
 		 $fileData = $logimages->image;
 
