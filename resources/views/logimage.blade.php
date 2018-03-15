@@ -53,7 +53,7 @@
 </div>
 <script src="{{ asset('js/logimage.js') }}"></script>
 <script>
-var logimage = @json($logimages);
+var img_data = @json($img_data);
 init();
 </script>
 @endsection

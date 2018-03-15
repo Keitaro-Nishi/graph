@@ -41,6 +41,6 @@ class LogimageController {
 		header ( 'Content-type: image/jpeg' );
 		header ( "Content-Disposition: inline; filename=image.jpg" );
 		$img_data = pg_unescape_bytea ( $logimages->image );
-		echo $img_data;
+		return $img_data;
 	}
 }
