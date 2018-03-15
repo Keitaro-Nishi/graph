@@ -48,11 +48,8 @@ function update(){
 		}
 	}).done(function (response) {
 		bootbox.alert({
-			message: "登録しました。",
+			message: "登録しました。<br>画面を閉じてください。",
 			size: 'small',
-			callback: function (result) {
-				window.open('','_self').close();
-			}
 		});
     }).fail(function () {
     	bootbox.alert({
@@ -86,11 +83,8 @@ function del(){
 	        		}
 	        	}).done(function (response) {
 	        		bootbox.alert({
-	        			message: "削除しました。",
+	        			message: "削除しました。<br>画面を閉じてください。",
 	        			size: 'small',
-	        			callback: function (result) {
-	        				window.open('','_self').close();
-	        			}
 	        		});
 	            }).fail(function () {
 	            	bootbox.alert({
