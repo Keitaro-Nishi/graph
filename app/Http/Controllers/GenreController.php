@@ -74,15 +74,15 @@ class GenreController
 
 	public function delete()
 	{
-
+		$cityCD = Auth::user()->citycode;
 		//$workspace_id = getenv('CVS_WORKSPASE_ID');
-		$workspace_id = Parameter::select('cvs_ws_id1')->where('citycode', $cityCD)->first();
+		$workspace = Parameter::select('cvs_ws_id1')->where('citycode', $cityCD)->first();
+		$workspace_id = $workspace->cvs_ws_id1;
 		$username = getenv('CVS_USERNAME');
 		$password = getenv('CVS_PASS');
-
 		$input = $this->requestall;
 		$idsdata = $input["ids"];
-		$cityCD = Auth::user()->citycode;
+
 		$watson = new Watson;
 
 		foreach ($idsdata as $iddata) {
@@ -138,7 +138,7 @@ class GenreController
 
 	public function update()
 	{
-
+		$cityCD = Auth::user()->citycode;
 		//$workspace_id = getenv('CVS_WORKSPASE_ID');
 		$workspace = Parameter::select('cvs_ws_id1')->where('citycode', $cityCD)->first();
 		$workspace_id = $workspace->cvs_ws_id1;
@@ -153,7 +153,6 @@ class GenreController
 		$gid2 = $input["gid2"];
 		$g1meisho = $input["g1meisho"];
 		$meishoOld = $input["meishoOld"];
-		$cityCD = Auth::user()->citycode;
 		$watson = new Watson;
 
 
