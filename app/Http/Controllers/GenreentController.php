@@ -69,7 +69,7 @@ class GenreentController
 		$watson = new Watson;
 
 		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities/".$g1meisho."/values/".urlencode($g2meisho)."/synonyms?version=2017-05-26";
-		$jsonString = $watson->callWatson2($url,$username,$password,$cityCD);
+		$jsonString = $watson->callcvsGet($cityCD,$url);
 		$json = json_decode($jsonString, true);
 		$arr = array();
 		foreach ($json["synonyms"] as $value){
@@ -95,7 +95,7 @@ class GenreentController
 
 		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities/".$g1meisho."/values/".urlencode($g2meisho)."/synonyms?version=2017-05-26";
 		$data = array("synonym" => $sword);
-		$jsonString = $watson->callWatson($url,$username,$password,$data,$cityCD);
+		$jsonString = $watson->callcvsPost($cityCD,$url,$data);
 		$json = json_decode($jsonString, true);
 		if($json["synonym"] == $sword){
 			return \Response::json(['status' => 'OK']);
@@ -119,7 +119,7 @@ class GenreentController
 		$watson = new Watson;
 
 		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities/".$g1meisho."/values/".urlencode($g2meisho)."/synonyms/".urlencode($sword)."?version=2017-05-26";
-		$result = $watson->callWatson3($url,$username,$password,$cityCD);
+		$result = $watson->callcvsDelete($cityCD,$url);
 
 		if($result == "200"){
 			return \Response::json(['status' => 'OK']);
