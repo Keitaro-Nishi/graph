@@ -16,6 +16,7 @@ function init() {
 		 */
 		formatters: {
 			"image": function($column, $row) {
+				return "<img class='table-img' src='getimage.php?id=" + $row.no + "' />";
 				console.log($row.no);
 			}
 		}
