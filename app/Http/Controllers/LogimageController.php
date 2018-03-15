@@ -19,13 +19,14 @@ class LogimageController {
 				$fileData = $logimage->image;
 
 				// 取得したバイナリデータをファイルに書き込んでレスポンスに返却
-				$writingHogeData = '.jpg';
-				file_put_contents ( $writingHogeData, $fileData );
+				$writingImageData = '.jpg';
+				file_put_contents ( $writingImageData, $fileData );
 
 				// 拡張子はhoge
 				$headers = array (
 						'Content-Type: application/jpg'
 				);
+				$imagedata = $imagedata + array($logimage, $writingImageData, $headers);
 			}
 		} else {
 			$logimages = Logimage::select ( 'citycode', 'no', 'time', 'userid', 'score', 'class' )->where ( 'citycode', $cityCD )->get ();

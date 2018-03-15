@@ -18,19 +18,19 @@
 			{{--<th data-column-id='zm'  data-width='7%' data-formatter='zoom' data-sortable='false'></th>--}}
 		</tr>
 	</thead>
-	<tbody>
-		@foreach($logimages as $logimage)
+{{--	<tbody>
+		@foreach($imagedata as $imagedata)
 		<tr>
-			<td>{{$logimage->no}}</td>
-			<td>{{$logimage->time}}</td>
-			<td>{{$logimage->userid}}</td>
-			<td>{{$logimage->image}}</td>
-			<td>{{$logimage->class}}</td>
-			<td>{{$logimage->score}}</td>
+			<td>{{$imagedata->no}}</td>
+			<td>{{$imagedata->time}}</td>
+			<td>{{$imagedata->userid}}</td>
+			<td>{{$imagedata->image}}</td>
+			<td>{{$imagedata->class}}</td>
+			<td>{{$imagedata->score}}</td>
 			<td></td>
 		</tr>
 		@endforeach
-	</tbody>
+	</tbody> --}}
 </table>
 
 	<div class="container" align="center">
@@ -54,7 +54,7 @@
 </div>
 <script src="{{ asset('js/logimage.js') }}"></script>
 <script>
-var logimages = @json($logimages);
+var imagedata = @json($imagedata);
 init();
 </script>
 @endsection
