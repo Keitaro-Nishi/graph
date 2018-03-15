@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Auth;
 use App\Userinfo;
 use App\Code;
 
@@ -33,6 +32,7 @@ class AttributeController
 	}
 
 	public  function request($citycode,$sender, $id){
+		error_log("★★★★★★★★request★★★★★★★★★★");
 		$this->requestall = \Request::all();
 		if($this->requestall["param"] == "update"){
 			return $this->update($citycode,$sender, $id);
@@ -45,6 +45,7 @@ class AttributeController
 
 	public function update($citycode,$sender, $userid){
 		$input = $this->requestall;
+		error_log("★★★★★★★★sex★★★★★★★★★★".$input["sex"]);
 		$language = $input["language"];
 		$sex = $input["sex"];
 		$age = $input["age"];
