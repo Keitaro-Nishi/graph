@@ -11,9 +11,8 @@ $img_id = $_GET ['id'];
 $conn = "host=" . $db_host . " dbname=" . $db_name . " user=" . $db_user . " password=" . $db_pass;
 $link = pg_connect ( $conn );
 
-error_log("!!!!!!!!!!!!!!!". $img_id. "!!!!!!!!!!!!!!!");
-
 if ($link) {
+	error_log("!!!!!!!!!!!!!!!". $img_id. "!!!!!!!!!!!!!!!");
 	$result = pg_query ( "SELECT image FROM logimage WHERE no = " . $img_id );
 	$row = pg_fetch_row ( $result );
 	header ( 'Content-type: image/jpeg' );
