@@ -16,7 +16,7 @@ class LogindataController
 		if($cityCD = "00000"){
 			$logindata = Logindata::all();
 		}else{
-			$logindata= Logindata::where('citycode', $cityCD)->get();
+			$logindata= Logindata::where('citycode', $cityCD)->orderBy('id', 'DESC')->get();
 		}
 		return view('logindata',['logindata'=>$logindata]);
 
