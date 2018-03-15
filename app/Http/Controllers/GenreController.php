@@ -189,7 +189,7 @@ class GenreController
 
 				if(empty($gid1data["gid1"])){
 					$gid1 =1;
-				} else{
+				}elseif(!empty($gid1data["gid1"])){
 					$g1 = $gid1data->gid1;
 					$gid1 = $g1+1;
 				}
