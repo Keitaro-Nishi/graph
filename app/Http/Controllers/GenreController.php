@@ -180,7 +180,9 @@ class GenreController
 			if($bunrui == 1){
 				//大分類
 
+				$gid1 = "";
 				$gid1data= DB::table('genre')->select('gid1')->where('citycode', $cityCD)->orderBy('gid1', 'DESC')->first();
+
 
 				if(empty($gid1data["gid1"])){
 					$gid1 =1;
