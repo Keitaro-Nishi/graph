@@ -7,6 +7,7 @@
 @section('content')
 <div class="container">
 	<form class="form-horizontal">
+		<br><br>
 		<div class="form-group">
 			<label class="col-sm-3 control-label" for="language">言語</label>
 			<div class="col-sm-3">
@@ -20,7 +21,7 @@
 			<label class="col-sm-3 control-label" for="sex">性別</label>
 			<div class="col-sm-3">
 				<select class="form-control" id="sex">
-					<option value="0" selected>性別</option>
+					<option value="0" selected></option>
 					<option value="1">男性</option>
 					<option value="2">女性</option>
 				</select>
@@ -30,7 +31,7 @@
 			<label class="col-sm-3 control-label" for="sex">年齢</label>
 			<div class="col-sm-3">
 				<select class="form-control" id="sex">
-					<option value="999" selected>年齢</option>
+					<option value="999" selected></option>
 					<option value="0">0歳</option>
 					<option value="1">1歳</option>
 					<option value="2">2歳</option>
