@@ -14,6 +14,7 @@ function init() {
 			}
 		}
 		 */
+		console.log($row.no);
 		formatters: {
 			"image": function($column, $row) {
 				return "<img class='table-img' src='"$row.no"' />";
