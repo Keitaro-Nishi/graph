@@ -56,6 +56,9 @@ class LogimageController {
 		$headers = array (
 				'Content-Type: image/jpg'
 		);
-		return response ()->download ( $writingHogeData, $headers );
+		//return response ()->download ( $writingHogeData, $headers );
+		return \Response::json ( [
+				'status' => 'OK'
+		] );
 	}
 }
