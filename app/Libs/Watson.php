@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class Watson{
 
-	public function callWatson($cityCD,$url,$data){
+	public function callcvsPost($cityCD,$url,$data){
 
 		$username = getenv('CVS_USERNAME');
 		$password = getenv('CVS_PASS');
@@ -29,7 +29,7 @@ class Watson{
 	}
 
 
-	function callWatson2($cityCD,$url){
+	function callcvsGet($cityCD,$url){
 
 		$username = getenv('CVS_USERNAME');
 		$password = getenv('CVS_PASS');
@@ -48,7 +48,7 @@ class Watson{
 	}
 
 
-	function callWatson3($cityCD,$url){
+	function callcvsDelete($cityCD,$url){
 
 		$username = getenv('CVS_USERNAME');
 		$password = getenv('CVS_PASS');
@@ -67,6 +67,7 @@ class Watson{
 		return curl_getinfo($curl, CURLINFO_HTTP_CODE);
 	}
 
+	/*
 	function callWatson4($cityCD,$url){
 
 		$username = getenv('CVS_USERNAME');
@@ -81,5 +82,6 @@ class Watson{
 		curl_setopt_array($curl, $options);
 		return curl_exec($curl);
 	}
+	*/
 
 }
