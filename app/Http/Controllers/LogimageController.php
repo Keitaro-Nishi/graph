@@ -38,7 +38,7 @@ class LogimageController {
 		error_log ( '????????????????' . $id );
 		$logimages = Logimage::select ( 'image' )->where ( 'no', $id )->first ();
 		//error_log ( '40????????????????' . $logimages);
-		$response = Response::make(pg_unescape_bytea ( $logimages->image ),200);
+		$response = Response::make($logimages->image,200);
 		$response->header('Content-type','image/jpeg' );
 		//$response->header('Content-Disposition','filename=image.jpg' );
 		//header ( 'Content-type: image/jpeg' );
