@@ -97,21 +97,21 @@ class GenreController
 				//CVS削除
 				//dialog_node
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/dialog_nodes/node_".$gid1."?version=2017-05-26";
-				$watson->callWatson4($url,$cityCD);
+				$watson->callWatson4($cityCD,$url);
 
 				foreach($gid2datas as $gid2data){
 					$g2 = $gid2data->gid2;
 					$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/dialog_nodes/".$gid1.".".$g2."?version=2017-05-26";
-					$watson->callWatson4($url,$cityCD);
+					$watson->callWatson4($cityCD,$url);
 				}
 
 				//Intents
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents/".$gid1."?version=2017-05-26";
-				$watson->callWatson4($url,$cityCD);
+				$watson->callWatson4($cityCD,$url);
 
 				//ENTITIES
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities/".$gid1."?version=2017-05-26";
-				$watson->callWatson4($url,$cityCD);
+				$watson->callWatson4($cityCD,$url);
 
 				Genre::where('citycode',$cityCD)->where('gid1',$gid1)->delete();
 
@@ -121,10 +121,10 @@ class GenreController
 
 				//CVS削除
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities/".$gid1."/values/".urlencode($g2meisho)."?version=2017-05-26";
-				$watson->callWatson4($url,$cityCD);
+				$watson->callWatson4($cityCD,$url);
 
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/dialog_nodes/".$gid1.".".$gid2."?version=2017-05-26";
-				$watson->callWatson4($url,$cityCD);
+				$watson->callWatson4($cityCD,$url);
 			}
 		}
 
@@ -160,19 +160,19 @@ class GenreController
 				//Intents
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents/".$gid1."?version=2017-05-26";
 				$data = array("description" => $meisho);
-				$watson->callWatson($url,$data,$cityCD);
+				$watson->callWatson($cityCD,$url,$data);
 			}else{
 				//小分類
 				//CVSデータ修正
 				//ENTITIES
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities/".$gid1."/values/".urlencode($meishoOld)."?version=2017-05-26";
 				$data = array("value" => $meisho);
-				$watson->callWatson($url,$data,$cityCD);
+				$watson->callWatson($cityCD,$url,$data);
 
 				//DIALOG
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/dialog_nodes/".$gid1.".".$gid2."?version=2017-05-26";
 				$data = array("conditions" => "@".$gid1.":".$meisho);
-				$watson->callWatson($url,$data,$cityCD);
+				$watson->callWatson($cityCD,$url,$data);
 			}
 		}else{
 			if($bunrui == 1){
@@ -191,12 +191,12 @@ class GenreController
 				//Intents
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents?version=2017-05-26";
 				$data = array("intent" => (string)$gid1,"description" => $meisho);
-				$watson->callWatson($url,$data,$cityCD);
+				$watson->callWatson($cityCD,$url,$data);
 
 				//ENTITIES
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities?version=2017-05-26";
 				$data = array("entity" => (string)$gid1);
-				$watson->callWatson($url,$data,$cityCD);
+				$watson->callWatson($cityCD,$url,$data);
 
 				//dialog_node
 				$previous_sibling = "";
@@ -205,7 +205,7 @@ class GenreController
 
 				//全てのLISTから１つ前のダイアログを探す
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/dialog_nodes/?version=2017-05-26";
-				$jsonString = $watson->callWatson2($url,$username,$password,$cityCD);
+				$jsonString = $watson->callWatson2($cityCD,$url);
 				$json = json_decode($jsonString, true);
 				foreach ($json["dialog_nodes"] as $value){
 
@@ -216,13 +216,13 @@ class GenreController
 				}
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/dialog_nodes/?version=2017-05-26";
 				$data = array("dialog_node" => $gid1.".".$gid2,"title" => "entity".$gid1,"conditions" => "@".$gid1,"previous_sibling" => "ようこそ","metadata" => array("_customization" => array("mcr" => true)));
-				$watson->callWatson($url,$data,$cityCD);
+				$watson->callWatson($cityCD,$url,$data);
 				if($previous_sibling == ""){
 					$previous_sibling = $gid1.".".$gid2;
 				}
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/dialog_nodes/?version=2017-05-26";
 				$data = array("dialog_node" => "node_".$gid1,"title" => "intent".$gid1,"conditions" => "#".$gid1,"previous_sibling" => $previous_sibling,"output" => array("text" => array("values" => array($gid1.".".$gid2))));
-				$watson->callWatson($url,$data,$cityCD);
+				$watson->callWatson($cityCD,$url,$data);
 
 
 			}else{
@@ -237,12 +237,12 @@ class GenreController
 				//ENTITIES
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities/".$gid1."/values?version=2017-05-26";
 				$data = array("value" => $meisho);
-				$watson->callWatson($url,$data,$cityCD);
+				$watson->callWatson($cityCD,$url,$data);
 
 				//上記で取得したdialog_nodeをparentに設定して新規ノードを作成
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/dialog_nodes/?version=2017-05-26";
 				$data = array("dialog_node" => $gid1.".".$gid2,"type" => "response_condition","parent" =>  $gid1.".0","conditions" => "@".$gid1.":".$meisho,"output" => array("text" => array("values" => array($gid1.".".$gid2))));
-				$watson->callWatson($url,$data,$cityCD);
+				$watson->callWatson($cityCD,$url,$data);
 			}
 		}
 		return \Response::json(['status' => 'OK']);
