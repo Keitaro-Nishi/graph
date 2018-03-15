@@ -77,8 +77,8 @@ class GenreController
 		$cityCD = Auth::user()->citycode;
 		$workspace = Parameter::select('cvs_ws_id1')->where('citycode', $cityCD)->first();
 		$workspace_id = $workspace->cvs_ws_id1;
-		$username = getenv('CVS_USERNAME');
-		$password = getenv('CVS_PASS');
+		//$username = getenv('CVS_USERNAME');
+		//$password = getenv('CVS_PASS');
 		$input = $this->requestall;
 		$idsdata = $input["ids"];
 
@@ -98,21 +98,21 @@ class GenreController
 				//CVS削除
 				//dialog_node
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/dialog_nodes/node_".$gid1."?version=2017-05-26";
-				$watson->callWatson4($url,$username,$password,$cityCD);
+				$watson->callWatson4($url,$cityCD);
 
 				foreach($gid2datas as $gid2data){
 					$g2 = $gid2data->gid2;
 					$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/dialog_nodes/".$gid1.".".$g2."?version=2017-05-26";
-					$watson->callWatson4($url,$username,$password,$cityCD);
+					$watson->callWatson4($url,$cityCD);
 				}
 
 				//Intents
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents/".$gid1."?version=2017-05-26";
-				$watson->callWatson4($url,$username,$password,$cityCD);
+				$watson->callWatson4($url,$cityCD);
 
 				//ENTITIES
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities/".$gid1."?version=2017-05-26";
-				$watson->callWatson4($url,$username,$password,$cityCD);
+				$watson->callWatson4($url,$cityCD);
 
 				Genre::where('citycode',$cityCD)->where('gid1',$gid1)->delete();
 
@@ -122,10 +122,10 @@ class GenreController
 
 				//CVS削除
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities/".$gid1."/values/".urlencode($g2meisho)."?version=2017-05-26";
-				$watson->callWatson4($url,$username,$password,$cityCD);
+				$watson->callWatson4($url,$cityCD);
 
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/dialog_nodes/".$gid1.".".$gid2."?version=2017-05-26";
-				$watson->callWatson4($url,$username,$password,$cityCD);
+				$watson->callWatson4($url,$cityCD);
 			}
 		}
 
@@ -138,8 +138,8 @@ class GenreController
 		$cityCD = Auth::user()->citycode;
 		$workspace = Parameter::select('cvs_ws_id1')->where('citycode', $cityCD)->first();
 		$workspace_id = $workspace->cvs_ws_id1;
-		$username = getenv('CVS_USERNAME');
-		$password = getenv('CVS_PASS');
+		//$username = getenv('CVS_USERNAME');
+		//$password = getenv('CVS_PASS');
 
 		$input = $this->requestall;
 		$uiKbn = $input["uiKbn"];
@@ -161,19 +161,19 @@ class GenreController
 				//Intents
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents/".$gid1."?version=2017-05-26";
 				$data = array("description" => $meisho);
-				$watson->callWatson($url,$username,$password,$data,$cityCD);
+				$watson->callWatson($url,$data,$cityCD);
 			}else{
 				//小分類
 				//CVSデータ修正
 				//ENTITIES
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities/".$gid1."/values/".urlencode($meishoOld)."?version=2017-05-26";
 				$data = array("value" => $meisho);
-				$watson->callWatson($url,$username,$password,$data,$cityCD);
+				$watson->callWatson($url,$data,$cityCD);
 
 				//DIALOG
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/dialog_nodes/".$gid1.".".$gid2."?version=2017-05-26";
 				$data = array("conditions" => "@".$gid1.":".$meisho);
-				$watson->callWatson($url,$username,$password,$data,$cityCD);
+				$watson->callWatson($url,$data,$cityCD);
 			}
 		}else{
 			if($bunrui == 1){
@@ -192,12 +192,12 @@ class GenreController
 				//Intents
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents?version=2017-05-26";
 				$data = array("intent" => (string)$gid1,"description" => $meisho);
-				$watson->callWatson($url,$username,$password,$data,$cityCD);
+				$watson->callWatson($url,$data,$cityCD);
 
 				//ENTITIES
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities?version=2017-05-26";
 				$data = array("entity" => (string)$gid1);
-				$watson->callWatson($url,$username,$password,$data,$cityCD);
+				$watson->callWatson($url,$data,$cityCD);
 
 				//dialog_node
 				$previous_sibling = "";
@@ -217,13 +217,13 @@ class GenreController
 				}
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/dialog_nodes/?version=2017-05-26";
 				$data = array("dialog_node" => $gid1.".".$gid2,"title" => "entity".$gid1,"conditions" => "@".$gid1,"previous_sibling" => "ようこそ","metadata" => array("_customization" => array("mcr" => true)));
-				$watson->callWatson($url,$username,$password,$data,$cityCD);
+				$watson->callWatson($url,$data,$cityCD);
 				if($previous_sibling == ""){
 					$previous_sibling = $gid1.".".$gid2;
 				}
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/dialog_nodes/?version=2017-05-26";
 				$data = array("dialog_node" => "node_".$gid1,"title" => "intent".$gid1,"conditions" => "#".$gid1,"previous_sibling" => $previous_sibling,"output" => array("text" => array("values" => array($gid1.".".$gid2))));
-				$watson->callWatson($url,$username,$password,$data,$cityCD);
+				$watson->callWatson($url,$data,$cityCD);
 
 
 			}else{
@@ -238,12 +238,12 @@ class GenreController
 				//ENTITIES
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities/".$gid1."/values?version=2017-05-26";
 				$data = array("value" => $meisho);
-				$watson->callWatson($url,$username,$password,$data,$cityCD);
+				$watson->callWatson($url,$data,$cityCD);
 
 				//上記で取得したdialog_nodeをparentに設定して新規ノードを作成
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/dialog_nodes/?version=2017-05-26";
 				$data = array("dialog_node" => $gid1.".".$gid2,"type" => "response_condition","parent" =>  $gid1.".0","conditions" => "@".$gid1.":".$meisho,"output" => array("text" => array("values" => array($gid1.".".$gid2))));
-				$watson->callWatson($url,$username,$password,$data,$cityCD);
+				$watson->callWatson($url,$data,$cityCD);
 			}
 		}
 		return \Response::json(['status' => 'OK']);
