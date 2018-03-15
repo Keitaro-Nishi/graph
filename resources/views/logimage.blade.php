@@ -9,10 +9,11 @@
 	class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
-			<th data-column-id="no" data-type="numeric" data-identifier="true" data-width="4%"data-visible="false">NO</th>
+			<th data-column-id="no" data-type="numeric" data-identifier="true" data-width="4%" data-visible="false">NO</th>
 			<th data-column-id='time' data-identifier="true">日時</th>
 			<th data-column-id='userid'>ユーザーID</th>
 			<th data-column-id='image' data-formatter='image'>送信画像</th>
+			<th data-column-id='imagest' data-visible="false"></th>
 			<th data-column-id='class'>分類</th>
 			<th data-column-id='score'>確信度</th>
 			{{--<th data-column-id='zm'  data-width='7%' data-formatter='zoom' data-sortable='false'></th>--}}
@@ -25,6 +26,7 @@
 			<td>{{$logimage->time}}</td>
 			<td>{{$logimage->userid}}</td>
 			<td></td>
+			<td>{{$logimage->image}}</td>
 			<td>{{$logimage->class}}</td>
 			<td>{{$logimage->score}}</td>
 			<td></td>
