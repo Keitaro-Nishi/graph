@@ -192,7 +192,7 @@ class GenreController
 					$gid1 =1;
 				}else{
 					error_log("☆☆☆☆☆");
-					$gid1 = $gid1data->gid1+ 1;
+					$gid1 = $gid1data->gid1 + 1;
 				}
 				error_log("☆☆☆☆☆");
 				error_log($gid1);
