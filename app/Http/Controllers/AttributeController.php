@@ -88,7 +88,23 @@ class AttributeController
 		if($count > 0){
 			$result = DB::table('userinfo')->where('citycode', $citycode)->where('userid', $userid)->where('sender', $sender)->update($save_value);
 		}else{
-			error_log("★★★★★★★★save_value★★★★★★★★★★".$save_value["age"]);
+			error_log("★★★★★★★★citycode★★★★★★★★★★".$save_value["citycode"]);
+			error_log("★★★★★★★★userid★★★★★★★★★★".$save_value["userid"]);
+			error_log("★★★★★★★★sender★★★★★★★★★★".$save_value["sender"]);
+			error_log("★★★★★★★★sex★★★★★★★★★★".$save_value["sex"]);
+			error_log("★★★★★★★★age★★★★★★★★★★".$save_value["age"]);
+			error_log("★★★★★★★★param1★★★★★★★★★★".$save_value["param1"]);
+			error_log("★★★★★★★★param2★★★★★★★★★★".$save_value["param2"]);
+			error_log("★★★★★★★★param3★★★★★★★★★★".$save_value["param3"]);
+			error_log("★★★★★★★★param4★★★★★★★★★★".$save_value["param4"]);
+			error_log("★★★★★★★★param5★★★★★★★★★★".$save_value["param5"]);
+			error_log("★★★★★★★★param6★★★★★★★★★★".$save_value["param6"]);
+			error_log("★★★★★★★★param7★★★★★★★★★★".$save_value["param7"]);
+			error_log("★★★★★★★★param8★★★★★★★★★★".$save_value["param8"]);
+			error_log("★★★★★★★★param9★★★★★★★★★★".$save_value["param9"]);
+			error_log("★★★★★★★★param10★★★★★★★★★★".$save_value["param10"]);
+			error_log("★★★★★★★★updkbn★★★★★★★★★★".$save_value["updkbn"]);
+
 			$result = DB::table('userinfo')->insert($save_value);
 		}
 
