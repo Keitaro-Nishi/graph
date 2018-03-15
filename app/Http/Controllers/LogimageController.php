@@ -21,7 +21,7 @@ class LogimageController {
 		] );
 		*/
 
-		$logimages = Logimage::all ()->get();
+		$logimages = Logimage::all ()->first();
 
 		// タイトル取得
 		$title = $hoge->file_title;
