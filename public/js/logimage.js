@@ -7,11 +7,13 @@ function init() {
 		formatters: {
 			"image": function($column, $row) {
 				return "<img class='table-img' src='getimage.php?id=" + $row.no + "' />";
-			},
+			}
+	/*,
 			"zoom": function($column, $row) {
 				return "<input type='button' class='btn btn-default' value='画像拡大' onclick='imgwin("  + $row.no + ",\"" + $row.class + "\"," + $row.score + ")'> ";
 			}
 		}
+		*/
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
 		for (var i = 0; i < rows.length; i++) {
 			rowIds.push(rows[i].no);
