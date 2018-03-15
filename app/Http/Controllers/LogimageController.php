@@ -38,13 +38,19 @@ class LogimageController {
 		error_log ( '????????????????' . $id );
 		$logimages = Logimage::select ( 'image' )->where ( 'no', $id )->first ();
 		//error_log ( '40????????????????' . $logimages);
+		/*
 		$response = Response::make($logimages->image,200);
 		$response->header('Content-type','image/jpeg' );
-		$response->header('Content-Disposition','filename=image.jpg' );
-		//header ( 'Content-type: image/jpeg' );
-		//header ( "Content-Disposition: inline; filename=image.jpg" );
-		//$img_data = pg_unescape_bytea ( $logimages->image );
-		//echo $img_data;
+		$response->header('Content-Disposition','filename=image.jpg' );*/
+
+		// バイナリデータ取得
+		 $fileData = $logimages->image;
+
+		 // 取得したバイナリデータをファイルに書き込んでレスポンスに返却
+		 $writingHogeData = '.jpg';
+		 file_put_contents ( $writingHogeData, $fileData );
+		 $response = Response::make($writingHogeData,200);
+		 $response->header('Content-type','image/jpeg' );
 		return $response;
 	}
 }
