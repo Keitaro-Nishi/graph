@@ -11,7 +11,8 @@ class LogimageController {
 	public function index(Request $request) {
 		$cityCD = Auth::user ()->citycode;
 		if ($cityCD = "00000") {
-			$logimages = Logimage::select ( 'citycode', 'no', 'time', 'userid', 'score', 'class' )->get ();
+			//$logimages = Logimage::select ( 'citycode', 'no', 'time', 'userid', 'score', 'class' )->get ();
+			$logimages = Logimage::all();
 		} else {
 			$logimages = Logimage::select ( 'citycode', 'no', 'time', 'userid', 'score', 'class' )->where ( 'citycode', $cityCD )->get ();
 		}
@@ -52,10 +53,8 @@ class LogimageController {
 		file_put_contents ( $writingHogeData, $fileData );
 		$response = Response::make ( $writingHogeData, 200 );
 		$response->header ( 'Content-type', 'image/jpg' );
-		// 拡張子はhoge
-		$headers = array (
-				'Content-Type: image/jpg'
-		);
+		// 拡張子はjpg
+		$headers = array ('Content-Type: image/jpg');
 		//return response ()->download ( $writingHogeData, $headers );
 		return \Response::json ( [
 				'status' => 'OK'
