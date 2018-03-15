@@ -9,6 +9,7 @@ use App\Logimage;
 
 class LogimageController {
 	public function index(Request $request) {
+		/*
 		$cityCD = Auth::user ()->citycode;
 		if ($cityCD = "00000") {
 			$logimages = Logimage::select('citycode', 'no', 'time', 'userid', 'score', 'class')->get ();
@@ -18,6 +19,24 @@ class LogimageController {
 		return view ( 'logimage', [
 				'logimages' => $logimages,
 		] );
+		*/
+
+		$logimages = Logimage::all ()->get();
+
+		// タイトル取得
+		$title = $hoge->file_title;
+		// バイナリデータ取得
+		$fileData = $hoge->file_data;
+
+		// 取得したバイナリデータをファイルに書き込んでレスポンスに返却
+		$writingHogeData = '.jpg';
+		file_put_contents($writingHogeData , $fileData);
+
+		// 拡張子はhoge
+		$headers = array(
+				'Content-Type: application/jpg',
+		);
+		return response()->download($writingHogeData, $title, $headers);
 	}
 	public function request() {
 		$this->requestall = \Request::all ();
