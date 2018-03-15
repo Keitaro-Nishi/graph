@@ -234,6 +234,10 @@ class GenreController
 
 
 			}else{
+
+				error_log("☆☆☆☆");
+				error_log($workspace_id);
+
 				//小分類
 				$gid2data= Genre::select('gid2')->where('citycode', $cityCD)->where('gid1',$gid1)->orderBy('gid2', 'DESC')->first();
 				$gid2 = $gid2data->gid2 + 1;
