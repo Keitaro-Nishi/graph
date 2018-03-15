@@ -69,7 +69,7 @@ function update(){
 }
 
 //削除
-function delete(){
+function del(){
 	bootbox.confirm({
 	    message: "登録されている属性を削除しますか？",
 	    buttons: {
