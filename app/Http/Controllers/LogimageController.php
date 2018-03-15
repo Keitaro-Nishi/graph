@@ -9,46 +9,33 @@ use App\Logimage;
 
 class LogimageController {
 	public function index(Request $request) {
-		$cityCD = Auth::user ()->citycode;
-		if ($cityCD = "00000") {
-			$logimages = Logimage::all ()->get ();
+		/*
+		 * $cityCD = Auth::user ()->citycode;
+		 * if ($cityCD = "00000") {
+		 * $logimages = Logimage::select('citycode', 'no', 'time', 'userid', 'score', 'class')->get ();
+		 * } else {
+		 * $logimages = Logimage::select('citycode', 'no', 'time', 'userid', 'score', 'class')->where ( 'citycode', $cityCD )->get ();
+		 * }
+		 * return view ( 'logimage', [
+		 * 'logimages' => $logimages,
+		 * ] );
+		 */
+		$logimages = Logimage::all ()->first ();
 
-			foreach ( $logimages as $logimage ) {
+		// バイナリデータ取得
+		$fileData = $logimages->image;
 
-				// バイナリデータ取得
-				$fileData = $logimage->image;
+		// 取得したバイナリデータをファイルに書き込んでレスポンスに返却
+		$writingHogeData = '.jpg';
+		file_put_contents ( $writingHogeData, $fileData );
 
-				// 取得したバイナリデータをファイルに書き込んでレスポンスに返却
-				$writingImageData = '.jpg';
-				file_put_contents ( $writingImageData, $fileData );
-
-				// 拡張子はhoge
-				$headers = array (
-						'Content-Type: application/jpg'
-				);
-				$imagedata = $imagedata + array($logimage, $writingImageData, $headers);
-			}
-		} else {
-			$logimages = Logimage::select ( 'citycode', 'no', 'time', 'userid', 'score', 'class' )->where ( 'citycode', $cityCD )->get ();
-
-			foreach ( $logimages as $logimage ) {
-
-				// バイナリデータ取得
-				$fileData = $logimage->image;
-
-				// 取得したバイナリデータをファイルに書き込んでレスポンスに返却
-				$writingImageData = '.jpg';
-				file_put_contents ( $writingImageData, $fileData );
-
-				// 拡張子はhoge
-				$headers = array (
-						'Content-Type: application/jpg'
-				);
-				$imagedata = $imagedata + array($logimage, $writingImageData, $headers);
-			}
-		}
+		// 拡張子はhoge
+		$headers = array (
+				'Content-Type: application/jpg'
+		);
 		return view ( 'logimage', [
-				'imagedata' => $imagedata
+				'writingHogeData' => $writingHogeData,
+				'headers' => $headers,
 		] );
 	}
 	public function request() {
