@@ -25,7 +25,6 @@
 			<td>{{$logimage->time}}</td>
 			<td>{{$logimage->userid}}</td>
 			<td>{{$logimage->image}}</td>
-			{{-- <td>@php echo $img_data; @endphp </td> --}}
 			<td>{{$logimage->class}}</td>
 			<td>{{$logimage->score}}</td>
 			<td></td>
