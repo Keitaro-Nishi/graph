@@ -20,7 +20,7 @@ class GenreController
 		$genrelists= array();
 
 			$genres= Genre::where('citycode', $cityCD)->orderBy('gid1', 'ASC')->orderBy('gid2', 'ASC')->get();
-			$genregid1 = DB::table('genre')->select('gid1')->where('citycode', $cityCD)->get();
+			$genregid1 = Genre::select('gid1')->where('citycode', $cityCD)->get();
 			$j1values = Genre::where('citycode', $cityCD)->where('bunrui', 1)->get();
 
 			foreach ($genres as $genre) {
@@ -39,7 +39,7 @@ class GenreController
 				}
 
 				if($bunrui == 2){
-					$bunruidata= DB::table('genre')->select('meisho')->where('citycode',$cityCD)->where('bunrui',1)->where('gid1',$gid1)->first();
+					$bunruidata= Genre::select('meisho')->where('citycode',$cityCD)->where('bunrui',1)->where('gid1',$gid1)->first();
 					$shoubunrui = $meisho;
 					$daibunrui= $bunruidata->meisho;
 				}
@@ -88,11 +88,11 @@ class GenreController
 			$gid1 = $aos[0];
 			$gid2 = $aos[1];
 
-			$g2meishodata = DB::table('genre')->select('meisho')->where('citycode',$cityCD)->where('gid1',$gid1)->where('gid2',$gid2)->first();
+			$g2meishodata = Genre::select('meisho')->where('citycode',$cityCD)->where('gid1',$gid1)->where('gid2',$gid2)->first();
 			$g2meisho = $g2meishodata->meisho;
 
 			if($gid2 == 0){
-				$gid2datas = DB::table('genre')->select('gid2')->where('citycode',$cityCD)->where('gid1',$gid1)->get();
+				$gid2datas = Genre::select('gid2')->where('citycode',$cityCD)->where('gid1',$gid1)->get();
 
 				//CVS削除
 				//dialog_node
@@ -180,20 +180,14 @@ class GenreController
 			if($bunrui == 1){
 				//大分類
 
-				//$gid1 = "";
-				//$gid1data= DB::table('genre')->select('gid1')->where('citycode', $cityCD)->orderBy('gid1', 'DESC')->first();
 				$gid1data= Genre::select('gid1')->where('citycode', $cityCD)->orderBy('gid1', 'DESC')->first();
 
-				//if(empty($gid1data["gid1"])){
 				if(!$gid1data){
 					$gid1 =1;
 				}else{
 					error_log("●●");
 					$gid1 = $gid1data->gid1+1;
 				}
-
-				error_log("☆☆☆☆☆☆");
-				error_log($gid1);
 
 				DB::table('genre')->insert(['citycode'=> $cityCD,'bunrui' =>$bunrui, 'gid1' => $gid1,'gid2' =>0,'gid3' =>0,'meisho' =>$meisho]);
 
@@ -237,7 +231,7 @@ class GenreController
 
 			}else{
 				//小分類
-				$gid2data= DB::table('genre')->select('gid2')->where('citycode', $cityCD)->where('gid1',$gid1)->orderBy('gid2', 'DESC')->first();
+				$gid2data= Genre::select('gid2')->where('citycode', $cityCD)->where('gid1',$gid1)->orderBy('gid2', 'DESC')->first();
 				$gid2 = $gid2data->gid2 + 1;
 
 				DB::table('genre')->insert(['citycode'=> $cityCD,'bunrui' => $bunrui,'gid1' => $gid1,'gid2' => $gid2,'gid3' =>0,'meisho' => $meisho]);
