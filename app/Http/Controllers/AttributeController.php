@@ -45,6 +45,7 @@ class AttributeController
 
 	public function update($citycode,$sender, $userid){
 		$input = $this->requestall;
+		error_log("★★★★★★★★userid★★★★★★★★★★".$userid);
 		error_log("★★★★★★★★sex★★★★★★★★★★".$input["sex"]);
 		$language = $input["language"];
 		$sex = $input["sex"];
@@ -81,6 +82,8 @@ class AttributeController
 		];
 
 		$count = Userinfo::where('citycode', $citycode)->where('userid', $userid)->where('sender', $sender)->count();
+
+		error_log("★★★★★★★★count★★★★★★★★★★".$count);
 
 		if($count > 0){
 			$result = DB::table('userinfo')->where('citycode', $citycode)->where('userid', $userid)->where('sender', $sender)->update($save_value);
