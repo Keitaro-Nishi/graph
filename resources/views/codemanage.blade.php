@@ -102,7 +102,7 @@
 	<input id="btn_ins" type="button" class="btn btn-default" value="コード追加" onclick="insert()">
 	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog"/>
 </div>
-<script src="{{ asset('js/codemanage.js') }}"></script>
+<script src="{{ secure_asset('js/codemanage.js') }}"></script>
 <script>
 var tabledata = @json($codes);
 init();

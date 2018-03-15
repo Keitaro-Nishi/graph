@@ -29,7 +29,7 @@
 <div class="container" align="center">
 	<input id="btn_up" type="button" class="btn btn-primary" value="更新" onclick="update()">
 </div>
-<script src="{{ asset('js/messagemanage.js') }}"></script>
+<script src="{{ secure_asset('js/messagemanage.js') }}"></script>
 <script>
 var messages = @json($messages);
 init();
