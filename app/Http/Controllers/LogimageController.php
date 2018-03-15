@@ -40,7 +40,7 @@ class LogimageController {
 		//error_log ( '40????????????????' . $logimages);
 		$response = Response::make($logimages->image,200);
 		$response->header('Content-type','image/jpeg' );
-		//$response->header('Content-Disposition','filename=image.jpg' );
+		$response->header('Content-Disposition','filename=image.jpg' );
 		//header ( 'Content-type: image/jpeg' );
 		//header ( "Content-Disposition: inline; filename=image.jpg" );
 		//$img_data = pg_unescape_bytea ( $logimages->image );
