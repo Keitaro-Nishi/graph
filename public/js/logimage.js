@@ -1,13 +1,11 @@
 var rowIds = [];
-
 function init() {
 	$("#grid-basic").bootgrid({
 		selection : true,
 		multiSelect : true,
-		keepSelection : true,
+		keepSelection : true
 		formatters: {
 			"image": function($column, $row) {
-				console.log($row.no);
 				return "<img class='table-img' src='getimage.php?id=" + $row.no + "' />";
 			},
 			"zoom": function($column, $row) {
@@ -77,14 +75,14 @@ function drow() {
 		}
 	});
 }
-/*
+
 function imgwin(imgno,bunrui,kakushin){
 	var oimg = new Image();
 	oimg.src = "getimage.php?id=" + imgno;
 	var img = document.getElementById("dia_image");
 	img.width = oimg.width;
 	img.height = oimg.height;
-	document.getElementById('dia_score').innerHTML  = "分類：" + cls + "　　確信度：" + score;
+	document.getElementById('dia_score').innerHTML  = "分類：" + class + "　　確信度：" + score;
 	img.src = "getimage.php?id=" + imgno;
 	var img = document.getElementById("dia_image");
 	if(img.width > 600){
@@ -101,4 +99,3 @@ function imgwin(imgno,bunrui,kakushin){
 	document.getElementById('dia_cont').style.width = imgwidth + "px";
 	document.getElementById("btn_modal").click();
 }
-*/
