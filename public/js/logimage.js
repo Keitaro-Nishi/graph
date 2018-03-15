@@ -1,24 +1,16 @@
 var rowIds = [];
+
 function init() {
 	$("#grid-basic").bootgrid({
 		selection : true,
 		multiSelect : true,
 		keepSelection : true
-		/*
 		formatters: {
 			"image": function($column, $row) {
 				return "<img class='table-img' src='getimage.php?id=" + $row.no + "' />";
 			},
 			"zoom": function($column, $row) {
 				return "<input type='button' class='btn btn-default' value='画像拡大' onclick='imgwin("  + $row.no + ",\"" + $row.class + "\"," + $row.score + ")'> ";
-			}
-		}
-		 */
-		console.log($row.no);
-		formatters: {
-			"image": function($column, $row) {
-				return "<img class='table-img' src='"$row.no"' />";
-				console.log($row.no);
 			}
 		}
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
