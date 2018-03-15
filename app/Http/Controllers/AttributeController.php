@@ -61,6 +61,7 @@ class AttributeController
 		$param9 = $input["option"][8];
 		$param10 = $input["option"][9];
 
+		/*
 		$save_value = [
 				'citycode' => $citycode,
 				'userid' => $userid,
@@ -80,6 +81,13 @@ class AttributeController
 				'param10' => $param10,
 				'updkbn' => '1'
 		];
+		*/
+		$save_value = [
+				'citycode' => $citycode,
+				'userid' => $userid,
+				'sender' => $sender,
+				'updkbn' => '1'
+		];
 
 		$count = Userinfo::where('citycode', $citycode)->where('userid', $userid)->where('sender', $sender)->count();
 
@@ -88,9 +96,11 @@ class AttributeController
 		if($count > 0){
 			$result = DB::table('userinfo')->where('citycode', $citycode)->where('userid', $userid)->where('sender', $sender)->update($save_value);
 		}else{
+			/*
 			error_log("★★★★★★★★citycode★★★★★★★★★★".$save_value["citycode"]);
 			error_log("★★★★★★★★userid★★★★★★★★★★".$save_value["userid"]);
 			error_log("★★★★★★★★sender★★★★★★★★★★".$save_value["sender"]);
+			error_log("★★★★★★★★language★★★★★★★★★★".$save_value["language"]);
 			error_log("★★★★★★★★sex★★★★★★★★★★".$save_value["sex"]);
 			error_log("★★★★★★★★age★★★★★★★★★★".$save_value["age"]);
 			error_log("★★★★★★★★param1★★★★★★★★★★".$save_value["param1"]);
@@ -104,6 +114,7 @@ class AttributeController
 			error_log("★★★★★★★★param9★★★★★★★★★★".$save_value["param9"]);
 			error_log("★★★★★★★★param10★★★★★★★★★★".$save_value["param10"]);
 			error_log("★★★★★★★★updkbn★★★★★★★★★★".$save_value["updkbn"]);
+			*/
 
 			$result = DB::table('userinfo')->insert($save_value);
 		}
