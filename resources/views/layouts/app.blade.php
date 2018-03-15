@@ -15,15 +15,15 @@
 </title>
 
 <!-- Styles -->
-<link href="{{ secure_asset('css/common.css') }}" rel="stylesheet">
-<link href="{{ secure_asset('css/bootstrap.css') }}" rel="stylesheet">
-<link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
-<link href="{{ secure_asset('css/Buttons.css') }}" rel="stylesheet">
-<link href="{{ secure_asset('css/jquery.bootgrid.css') }}" rel="stylesheet">
+<link href="{{ asset('css/common.css') }}" rel="stylesheet">
+<link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<link href="{{ asset('css/Buttons.css') }}" rel="stylesheet">
+<link href="{{ asset('css/jquery.bootgrid.css') }}" rel="stylesheet">
 
 <!-- Scripts -->
-<script src="{{ secure_asset('js/app.js') }}"></script>
-<script src="{{ secure_asset('js/jquery.bootgrid.js') }}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/jquery.bootgrid.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
 
 </head>

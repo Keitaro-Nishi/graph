@@ -128,7 +128,7 @@
 	<input id="btn_del" type="button" class="btn btn-default" value="　パラメタ削除　" onclick="del()"/>
 	@endif
 </div>
-<script src="{{ secure_asset('js/parameter.js') }}"></script>
+<script src="{{ asset('js/parameter.js') }}"></script>
 <script>
 var parameters = @json($parameters);
 var functions = @json($functions);
