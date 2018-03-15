@@ -188,6 +188,7 @@ class GenreController
 				if(empty($judge)){
 					$gid1 =1;
 				}else{
+					error_log("☆☆☆☆☆");
 					$gid1 = $gid1data->gid1+1;
 				}
 
@@ -198,7 +199,7 @@ class GenreController
 					$gid1 = $gid1data->gid1+1;
 				}*/
 
-				error_log("☆☆☆☆☆");
+
 				error_log($gid1);
 
 
