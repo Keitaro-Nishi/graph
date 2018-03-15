@@ -143,8 +143,6 @@ class GenreController
 		$cityCD = Auth::user()->citycode;
 		//$workspace_id = getenv('CVS_WORKSPASE_ID');
 		$workspace_id = Parameter::select('cvs_ws_id1')->where('citycode', $cityCD)->first();
-		error_log("☆☆☆☆");
-		error_log($workspace_id);
 		$username = getenv('CVS_USERNAME');
 		$password = getenv('CVS_PASS');
 
@@ -187,6 +185,9 @@ class GenreController
 			if($bunrui == 1){
 				//大分類
 
+				error_log("☆☆☆☆");
+				error_log($workspace_id);
+
 				$gid1data= Genre::select('gid1')->where('citycode', $cityCD)->orderBy('gid1', 'DESC')->first();
 
 				if(!$gid1data){
@@ -194,7 +195,6 @@ class GenreController
 				}else{
 					$gid1 = $gid1data->gid1+1;
 				}
-
 				DB::table('genre')->insert(['citycode'=> $cityCD,'bunrui' =>$bunrui, 'gid1' => $gid1,'gid2' =>0,'gid3' =>0,'meisho' =>$meisho]);
 
 				//CVSデータ作成
