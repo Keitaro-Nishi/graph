@@ -51,6 +51,7 @@ function drow() {
 		callback: function (result) {
 			if(result){
 				var _token = document.getElementById('_token').value;
+				console.log(rowIds);
 				$.ajax({
 					type: "POST",
 					dataType: "JSON",
@@ -78,27 +79,27 @@ function drow() {
 	});
 }
 /*
-function imgwin(imgno,bunrui,kakushin){
-	var oimg = new Image();
-	oimg.src = "getimage.php?id=" + imgno;
-	var img = document.getElementById("dia_image");
-	img.width = oimg.width;
-	img.height = oimg.height;
-	document.getElementById('dia_score').innerHTML  = "分類：" + class + "　　確信度：" + score;
-	img.src = "getimage.php?id=" + imgno;
-	var img = document.getElementById("dia_image");
-	if(img.width > 600){
-		var orgWidth  = img.width;
-		var orgHeight = img.height;
-		img.width = 600;
-		img.height = orgHeight * (img.width / orgWidth);
-	}
-	var imgwidth = img.width + 40;
-	if(imgwidth < 600){
-		imgwidth = 600;
-	}
-	var imgmar = img.width / 2;
-	document.getElementById('dia_cont').style.width = imgwidth + "px";
-	document.getElementById("btn_modal").click();
-}
+ function imgwin(imgno,bunrui,kakushin){
+ 	var oimg = new Image();
+ 	oimg.src = "getimage.php?id=" + imgno;
+ 	var img = document.getElementById("dia_image");
+ 	img.width = oimg.width;
+ 	img.height = oimg.height;
+ 	document.getElementById('dia_score').innerHTML  = "分類：" + class + "　　確信度：" + score;
+ 	img.src = "getimage.php?id=" + imgno;
+ 	var img = document.getElementById("dia_image");
+ 	if(img.width > 600){
+ 		var orgWidth  = img.width;
+ 		var orgHeight = img.height;
+ 		img.width = 600;
+ 		img.height = orgHeight * (img.width / orgWidth);
+ 	}
+ 	var imgwidth = img.width + 40;
+ 	if(imgwidth < 600){
+ 		imgwidth = 600;
+ 	}
+ 	var imgmar = img.width / 2;
+ 	document.getElementById('dia_cont').style.width = imgwidth + "px";
+ 	document.getElementById("btn_modal").click();
+ }
  */
