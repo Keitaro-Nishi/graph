@@ -53,7 +53,7 @@ class LogimageController {
 		 $response->header('Content-type','image/jpeg' );
 		  // 拡張子はhoge
 		  $headers = array (
-		 		 'Content-Type: application/jpg'
+		 		 'Content-Type: image/jpg'
 		 		 );
 		  return response()->file($writingHogeData, $headers);
 	}
