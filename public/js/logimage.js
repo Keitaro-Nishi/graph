@@ -7,6 +7,7 @@ function init() {
 		keepSelection : true,
 		formatters: {
 			"image": function($column, $row) {
+				console.log($row.no);
 				return "<img class='table-img' src='getimage.php?id=" + $row.no + "' />";
 			},
 			"zoom": function($column, $row) {
