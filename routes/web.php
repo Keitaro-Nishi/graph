@@ -17,7 +17,7 @@ Route::get ( '/', function () {
 Auth::routes ();
 
 Route::middleware(['auth'])->group(function () {
-	Route::get ( '/register', 'Auth\RegisterController@showRegistrationForm' )->name('register')->middleware('role');
+	Route::get ( '/register', 'Auth\RegisterController@showRegistrationForm' )->name ( 'register' )->middleware ( 'role' );
 
 	Route::get ( '/home', 'HomeController@index' )->name ( 'home' );
 
@@ -30,14 +30,13 @@ Route::middleware(['auth'])->group(function () {
 	Route::post ( '/opinion', 'OpinionController@request' );
 
 	Route::get ( '/botlog', 'BotlogController@index' )->name ( 'botlog' );
-	Route::get ( '/botlog/{deleteno}','BotlogController@delete' );
+	Route::post ( '/botlog', 'BotlogController@request' );
 
 	Route::get ( '/logimage', 'LogimageController@index' )->name ( 'logimage' );
-	Route::get ( '/logimage/{deleteno}','LogimageController@delete' );
+	Route::post ( '/logimage', 'LogimageController@request' );
 
 	Route::get ( '/facility', 'FacilityController@index' )->name ( 'facility' );
-	Route::post ( '/facility', 'FacilityController@update' );
-
+	Route::post ( '/facility', 'FacilityController@request' );
 
 	Route::get ( '/genre', 'GenreController@index' )->name ( 'genre' );
 	Route::post ( '/genre','GenreController@request');
