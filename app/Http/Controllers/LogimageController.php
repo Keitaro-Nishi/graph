@@ -30,7 +30,7 @@ class LogimageController {
 
 		 // 取得したバイナリデータをファイルに書き込んでレスポンスに返却
 		 $writingHogeData = '.jpg';
-		 file_put_contents ( $writingHogeData, $fileData );
+		 file_put_contents ( $writingHogeData, $title, $fileData );
 
 		 // 拡張子はhoge
 		 $headers = array (
