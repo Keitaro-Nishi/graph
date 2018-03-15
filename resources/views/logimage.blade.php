@@ -26,7 +26,7 @@
 			<td>{{$logimage->time}}</td>
 			<td>{{$logimage->userid}}</td>
 			<td></td>
-			<td>{{$logimage->image}}</td>
+			<td></td>
 			<td>{{$logimage->class}}</td>
 			<td>{{$logimage->score}}</td>
 			<td></td>
@@ -34,6 +34,10 @@
 		@endforeach
 	</tbody>
 </table>
+@foreach($logimages as $logimage)
+<img src='data:image/jpeg;base64,{{$logimage->image}}' />
+@endforeach
+
 	<div class="container" align="center">
 		<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
 		<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#image_Modal" value="モーダル表示" />
