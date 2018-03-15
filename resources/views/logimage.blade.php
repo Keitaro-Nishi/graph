@@ -59,5 +59,9 @@ var imagedata = @json($imagedata);
 init();
 </script>
 --}}
-$writingHogeData
+<img src="" alt="Now Loading...." id="image">
+<script type="text/JavaScript">
+var x=1;
+document.getElementById("image").src=$writingHogeData + $headers;
+</script>
 @endsection
