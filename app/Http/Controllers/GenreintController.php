@@ -8,6 +8,7 @@ use App\Genre;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Libs\Watson;
+use App\Parameter;
 
 class GenreintController
 {
