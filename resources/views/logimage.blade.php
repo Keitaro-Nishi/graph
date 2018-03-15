@@ -5,7 +5,6 @@
 @stop
 
 @section('content')
-{{--
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
 	<thead>
@@ -16,7 +15,7 @@
 			<th data-column-id='image' data-formatter='image'>送信画像</th>
 			<th data-column-id='class'>分類</th>
 			<th data-column-id='score'>確信度</th>
-			<th data-column-id='zm'  data-width='7%' data-formatter='zoom' data-sortable='false'></th>
+			{{--<th data-column-id='zm'  data-width='7%' data-formatter='zoom' data-sortable='false'></th>--}}
 		</tr>
 	</thead>
 	<tbody>
@@ -57,11 +56,5 @@
 <script>
 var imagedata = @json($imagedata);
 init();
-</script>
---}}
-<img src="" alt="Now Loading...." id="image">
-<script type="text/JavaScript">
-var x= $writingHogeData;
-document.getElementById("image").src=x + ".jpg";
 </script>
 @endsection
