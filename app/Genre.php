@@ -8,25 +8,18 @@ class Genre extends Model
 {
 
 
-	//use CompositePrimaryKeyTrait;
-
-	/*public function getFirstNameAttribute($value)
-	{
-		return ucfirst($value);
-	}
-	*/
 
 
-	/*protected $fillable = [
+	protected $fillable = [
 
-	'citycode', 'no', 'time', 'sex', 'age', 'opinion', 'sadness', 'joy', 'fear', 'disgust', 'anger', 'checked'
+	'citycode', 'bunrui', 'gid1', 'gid2', 'gid3', 'meisho',
 
 	];
-	*/
 
 	//protected $primaryKey =['citycode','id'];
 	protected $primaryKey = ['gid1', 'gid2','gid3'];
 	public $incrementing = false;
+	public $timestamps = false;
 	protected $table = 'genre';
 
 }

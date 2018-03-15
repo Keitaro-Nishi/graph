@@ -1,13 +1,9 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use App\Opinion;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use App\Opinion;
-
 class OpinionController
 {
 	public function index(Request $request)
@@ -21,27 +17,18 @@ class OpinionController
 		}
 		return view('opinion',['opinions'=>$opinions]);
 	}
-
-	public function request() {
-		$this->requestall = \Request::all ();
-		if ($this->requestall ["param"] == "update") {
-			return $this->update ();
-		} elseif ($this->requestall ["param"] == "delete") {
-			return $this->delete ();
-		} else {
-			return \Response::json ( [
-					'status' => 'NG'
-			] );
+	public  function request(){
+		$this->requestall = \Request::all();
+		if($this->requestall["param"] == "delete"){
+			return $this->delete();
+		}else{
+			return \Response::json(['status' => 'NG']);
 		}
 	}
-
-	public function delete() {
+	public function delete()
+	{
 		$input = $this->requestall;
-		$ids = $input ["ids"];
-		foreach ( $ids as $id ) {
-			DB::table('opinion')->where('id',$id)->delete();
-		}
+		Opinion::destroy($input["opinionids"]);
 		return \Response::json(['status' => 'OK']);
 	}
-
 }

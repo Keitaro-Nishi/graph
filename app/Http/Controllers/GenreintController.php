@@ -8,6 +8,7 @@ use App\Genre;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Libs\Watson;
+use App\Parameter;
 
 class GenreintController
 {
@@ -37,8 +38,9 @@ class GenreintController
 
 	public function intentSearch()
 	{
-
-		$workspace_id = getenv('CVS_WORKSPASE_ID');
+		$cityCD = Auth::user()->citycode;
+		$workspace = Parameter::select('cvs_ws_id1')->where('citycode', $cityCD)->first();
+		$workspace_id = $workspace->cvs_ws_id1;
 		$username = getenv('CVS_USERNAME');
 		$password = getenv('CVS_PASS');
 
@@ -47,13 +49,12 @@ class GenreintController
 		$g1meisho= $input["g1meisho"];
 		$g2meisho= $input["g2meisho"];
 		$sword= $input["sword"];
-
 		$data = "";
-		$cityCD = Auth::user()->citycode;
+
 		$watson = new Watson;
 
 		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents/".$g1meisho."/examples?version=2017-05-26&export=true";
-		$jsonString = $watson->callWatson2($url,$username,$password,$cityCD);
+		$jsonString = $watson->callcvsGet($cityCD,$url);
 		$json = json_decode($jsonString, true);
 
 
@@ -66,7 +67,9 @@ class GenreintController
 
 	public function intentUpdate(){
 
-		$workspace_id = getenv('CVS_WORKSPASE_ID');
+		$cityCD = Auth::user()->citycode;
+		$workspace = Parameter::select('cvs_ws_id1')->where('citycode', $cityCD)->first();
+		$workspace_id = $workspace->cvs_ws_id1;
 		$username = getenv('CVS_USERNAME');
 		$password = getenv('CVS_PASS');
 
@@ -77,13 +80,12 @@ class GenreintController
 		$sword= $input["sword"];
 
 		$data = "";
-		$cityCD = Auth::user()->citycode;
 		$watson = new Watson;
 
 
 		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents/".$g1meisho."/examples?version=2017-05-26";
 		$data = array("text" => $sword);
-		$jsonString = $watson->callWatson($url,$username,$password,$data,$cityCD);
+		$jsonString = $watson->callcvsPost($cityCD,$url,$data);
 		$json = json_decode($jsonString, true);
 
 		if($json["text"] == $sword){
@@ -95,7 +97,9 @@ class GenreintController
 
 	function intentDelete(){
 
-		$workspace_id = getenv('CVS_WORKSPASE_ID');
+		$cityCD = Auth::user()->citycode;
+		$workspace = Parameter::select('cvs_ws_id1')->where('citycode', $cityCD)->first();
+		$workspace_id = $workspace->cvs_ws_id1;
 		$username = getenv('CVS_USERNAME');
 		$password = getenv('CVS_PASS');
 
@@ -106,11 +110,10 @@ class GenreintController
 		$sword= $input["sword"];
 
 		$data = "";
-		$cityCD = Auth::user()->citycode;
 		$watson = new Watson;
 
 		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents/".$g1meisho."/examples/".urlencode($sword)."?version=2017-05-26";
-		$result = $watson->callWatson3($url,$username,$password,$cityCD);
+		$result = $watson->callcvsDelete($cityCD,$url);
 
 		if($result == "200"){
 			return \Response::json(['status' => 'OK']);

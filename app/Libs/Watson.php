@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 
 class Watson{
 
-	public function callWatson($url,$username,$password,$data,$cityCD){
+	public function callcvsPost($cityCD,$url,$data){
+
+		$username = getenv('CVS_USERNAME');
+		$password = getenv('CVS_PASS');
 
 		$curl = curl_init($url);
 		$options = array(
@@ -26,7 +29,10 @@ class Watson{
 	}
 
 
-	function callWatson2($url,$username,$password,$cityCD){
+	function callcvsGet($cityCD,$url){
+
+		$username = getenv('CVS_USERNAME');
+		$password = getenv('CVS_PASS');
 
 		$curl = curl_init($url);
 		$options = array(
@@ -42,7 +48,10 @@ class Watson{
 	}
 
 
-	function callWatson3($url,$username,$password,$cityCD){
+	function callcvsDelete($cityCD,$url){
+
+		$username = getenv('CVS_USERNAME');
+		$password = getenv('CVS_PASS');
 
 		$curl = curl_init($url);
 		$options = array(
@@ -57,5 +66,22 @@ class Watson{
 		curl_exec($curl);
 		return curl_getinfo($curl, CURLINFO_HTTP_CODE);
 	}
+
+	/*
+	function callWatson4($cityCD,$url){
+
+		$username = getenv('CVS_USERNAME');
+		$password = getenv('CVS_PASS');
+
+		$curl = curl_init($url);
+		$options = array(
+				CURLOPT_USERPWD => $username . ':' . $password,
+				CURLOPT_CUSTOMREQUEST => 'DELETE',
+				CURLOPT_RETURNTRANSFER => true,
+		);
+		curl_setopt_array($curl, $options);
+		return curl_exec($curl);
+	}
+	*/
 
 }
