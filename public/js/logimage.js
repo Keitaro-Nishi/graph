@@ -1,4 +1,5 @@
 var rowIds = [];
+
 function init() {
 	$("#grid-basic").bootgrid({
 		selection : true,
@@ -6,11 +7,12 @@ function init() {
 		keepSelection : true,
 		formatters: {
 			"image": function($column, $row) {
+				console.log($row.no);
 				return "<img class='table-img' src='getimage.php?id=" + $row.no + "' />";
-			}/*,
+			},
 			"zoom": function($column, $row) {
-				return "<input type='button' class='btn btn-default' value='画像拡大' onclick='imgwin("  + $row.no + ",\"" + $row.cls + "\"," + $row.scr + ")'> ";
-			}*/
+				return "<input type='button' class='btn btn-default' value='画像拡大' onclick='imgwin("  + $row.no + ",\"" + $row.class + "\"," + $row.score + ")'> ";
+			}
 		}
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
 		for (var i = 0; i < rows.length; i++) {
@@ -99,4 +101,4 @@ function imgwin(imgno,bunrui,kakushin){
 	document.getElementById('dia_cont').style.width = imgwidth + "px";
 	document.getElementById("btn_modal").click();
 }
-*/
+ */
