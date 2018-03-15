@@ -76,8 +76,6 @@ class GenreController
 		$cityCD = Auth::user()->citycode;
 		$workspace = Parameter::select('cvs_ws_id1')->where('citycode', $cityCD)->first();
 		$workspace_id = $workspace->cvs_ws_id1;
-		//$username = getenv('CVS_USERNAME');
-		//$password = getenv('CVS_PASS');
 		$input = $this->requestall;
 		$idsdata = $input["ids"];
 
@@ -137,8 +135,6 @@ class GenreController
 		$cityCD = Auth::user()->citycode;
 		$workspace = Parameter::select('cvs_ws_id1')->where('citycode', $cityCD)->first();
 		$workspace_id = $workspace->cvs_ws_id1;
-		//$username = getenv('CVS_USERNAME');
-		//$password = getenv('CVS_PASS');
 
 		$input = $this->requestall;
 		$uiKbn = $input["uiKbn"];
@@ -205,7 +201,6 @@ class GenreController
 
 				//全てのLISTから１つ前のダイアログを探す
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/dialog_nodes/?version=2017-05-26";
-				//$jsonString = $watson->callWatson2($cityCD,$url);
 				$jsonString = $watson->callcvsGet($cityCD,$url);
 				$json = json_decode($jsonString, true);
 				foreach ($json["dialog_nodes"] as $value){
