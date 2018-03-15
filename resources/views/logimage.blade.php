@@ -19,14 +19,14 @@
 		</tr>
 	</thead>
 	<tbody>
-		@foreach($imagedata as $imagedata)
+		@foreach($logimages as $logimage)
 		<tr>
-			<td>{{$imagedata->no}}</td>
-			<td>{{$imagedata->time}}</td>
-			<td>{{$imagedata->userid}}</td>
-			<td>{{$imagedata->image}}</td>
-			<td>{{$imagedata->class}}</td>
-			<td>{{$imagedata->score}}</td>
+			<td>{{$logimage->no}}</td>
+			<td>{{$logimage->time}}</td>
+			<td>{{$logimage->userid}}</td>
+			<td>{{$logimage->image}}</td>
+			<td>{{$logimage->class}}</td>
+			<td>{{$logimage->score}}</td>
 			<td></td>
 		</tr>
 		@endforeach
@@ -53,8 +53,4 @@
 	</div>
 </div>
 <script src="{{ asset('js/logimage.js') }}"></script>
-<script>
-var imagedata = @json($imagedata);
-init();
-</script>
 @endsection
