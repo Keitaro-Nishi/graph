@@ -9,9 +9,9 @@
 	<form class="form-horizontal">
 		<br><br>
 		<div class="form-group">
-			<label class="col-sm-3 control-label" id="label_language" for="language" onChange="languageChange()">言語</label>
+			<label class="col-sm-3 control-label" id="label_language" for="language">言語</label>
 			<div class="col-sm-3">
-				<select class="form-control" id="language">
+				<select class="form-control" id="language" onChange="languageChange()">
 					<option value="01">日本語</option>
 					<option value="02">English</option>
 				</select>
