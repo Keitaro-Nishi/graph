@@ -24,135 +24,106 @@ class AttributeController
 			}
 		}
 
-		$userinfo =  Userinfo::where('citycode', $citycode)->where('userid', $id)->first();
+		$userinfo =  Userinfo::where('citycode', $citycode)->where('userid', $id)->where('sender', $sender)->first();
 		if(!$userinfo){
 			$userinfo = new Userinfo();
 		}
 
-		return view('attribute',['codes'=>$codes,'userinfo'=>$userinfo]);
+		return view('attribute',['codes'=>$codes,'userinfo'=>$userinfo,'citycode'=>$citycode,'sender'=>$sender,'userid'=>$id]);
 	}
 
 	public  function request(){
 		$this->requestall = \Request::all();
-		if($this->requestall["param"] == "search"){
-			return $this->search();
-		}elseif ($this->requestall["param"] == "send"){
-			return $this->send();
+		if($this->requestall["param"] == "update"){
+			return $this->update();
+		}elseif ($this->requestall["param"] == "delete"){
+			return $this->delete();
 		}else{
 			return \Response::json(['status' => 'NG']);
 		}
 	}
 
-	public function search(){
-		$hitcount = $this->makeQuerry()->count();
-		return \Response::json(['hitcount' => $hitcount]);
-	}
-
-	public function makeQuerry(){
+	public function update(){
 		$input = $this->requestall;
-		$cityCD = Auth::user()->citycode;
-		$q = Userinfo::query();
-		$q->where('citycode', $cityCD);
-		$q->where('sender', (int)1);
-		switch ($input["info"]) {
-			//全て
-			case 0:
+		$citycode = $input["citycode"];
+		$userid = $input["userid"];
+		$sender = $input["sender"];
+		$language = $input["language"];
+		$sex = $input["sex"];
+		$age = $input["age"];
+		$param1 = $input["option"][0];
+		$param2 = $input["option"][1];
+		$param3 = $input["option"][2];
+		$param4 = $input["option"][3];
+		$param5 = $input["option"][4];
+		$param6 = $input["option"][5];
+		$param7 = $input["option"][6];
+		$param8 = $input["option"][7];
+		$param9 = $input["option"][8];
+		$param10 = $input["option"][9];
 
-				break;
-				//属性登録あり
-			case 1:
-				$q->where('updkbn', '1');
-				if($input["agek"] != 999){
-					$q->where('age', '>=', $input["agek"]);
-					if($input["agem"] != 999){
-						$q->where('age', '<=', $input["agem"]);
-					}
-				}
-				if($input["sex"] > 0){
-					$q->where('sex', $input["sex"]);
-				}
-				for ($i = 1; $i <= 10; $i++) {
-					if($input["option"][$i-1] > 0){
-						$q->where('param'.$i, $input["option"][$i-1]);
-					}
-				}
-				break;
-				//属性登録なし
-			case 2:
-				$q->where('updkbn', '0');
-				break;
-		}
-		return $q;
-	}
+		$save_value = [
+				'citycode' => $citycode,
+				'userid' => $userid,
+				'sender' => $sender,
+				'language' => $language,
+				'sex' => $sex,
+				'age' => $age,
+				'param1' => $param1,
+				'param2' => $param2,
+				'param3' => $param3,
+				'param4' => $param4,
+				'param5' => $param5,
+				'param6' => $param6,
+				'param7' => $param7,
+				'param8' => $param8,
+				'param9' => $param9,
+				'param10' => $param10,
+				'updkbn' => "1"
+		];
 
-	public function send()
-	{
-		//jsonを作成し、LINEに送信
-		$cityCD = Auth::user()->citycode;
-		$line_cat = Parameter::select('line_cat')->where('citycode', $cityCD)->first();
-		$sendids= $this->makeQuerry()->get();
-		$uids = [];
-		$count = 0;
-		for ($i =0; $i < count($sendids); $i++){
-			array_push($uids,trim($sendids[$i]->userid));
-			$count = $count + 1;
-			if($count == 150){
-				$result = $this->lineSend($line_cat->line_cat,$uids);
-				error_log("★★★★★★★★★result★★★★★★★★★".$result);
-				if($result == "NG"){
-					return \Response::json(['status' => 'NG']);
-				}
-				$uids = [];
-				$count = 0;
-			}
-		}
-		if(count($uids) > 0){
-			$result = $this->lineSend($line_cat->line_cat,$uids);
-			error_log("★★★★★★★★★result★★★★★★★★★".$result);
-			if($result == "NG"){
-				return \Response::json(['status' => 'NG']);
-			}
+		$count = Userinfo::where('citycode', $citycode)->where('userid', $userid)->where('sender', $sender)->count();
+
+		if($count > 0){
+			$result = DB::table('userinfo')->where('citycode', $citycode)->where('userid', $userid)->where('sender', $sender)->update($save_value);
+		}else{
+			$result = DB::table('userinfo')->insert($save_value);
 		}
 
 		return \Response::json(['status' => 'OK']);
 	}
 
-	public function lineSend($line_cat,$uids){
+	public function delete(){
 		$input = $this->requestall;
-		$response_format_text = [
-				"to" => $uids,
-				"messages" => [
-						[
-								"type" => "text",
-								"text" => $input["sendmess"]
-						]
-				]
+		$citycode = $input["citycode"];
+		$userid = $input["userid"];
+		$sender = $input["sender"];
+
+		$save_value = [
+				'citycode' => $citycode,
+				'userid' => $userid,
+				'sender' => $sender,
+				'language' => "01",
+				'sex' => 0,
+				'age' => 999,
+				'param1' => 0,
+				'param2' => 0,
+				'param3' => 0,
+				'param4' => 0,
+				'param5' => 0,
+				'param6' => 0,
+				'param7' => 0,
+				'param8' => 0,
+				'param9' => 0,
+				'param10' => 0,
+				'updkbn' => "0"
 		];
-
-		$ch = curl_init("https://api.line.me/v2/bot/message/multicast");
-		curl_setopt($ch, CURLOPT_POST, true);
-		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($response_format_text));
-		curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-				'Content-Type: application/json; charser=UTF-8',
-				'Authorization: Bearer ' . $line_cat
-		));
-		$result = curl_exec($ch);
-		if(!curl_errno($ch)) {
-			$info = curl_getinfo($ch);
-			curl_close($ch);
-			error_log("★★★★★★★★★http_code★★★★★★★★★".$info['http_code']);
-			if($info['http_code'] == "200"){
-				return "OK";
-			}else{
-				return "NG";
-			}
-		}else{
-			curl_close($ch);
-			return "NG";
+		$count = Userinfo::where('citycode', $citycode)->where('userid', $userid)->where('sender', $sender)->count();
+		if($count > 0){
+			$result = DB::table('userinfo')->where('citycode', $citycode)->where('userid', $userid)->where('sender', $sender)->update($save_value);
 		}
-	}
 
+		return \Response::json(['status' => 'OK']);
+	}
 }
 

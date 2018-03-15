@@ -12,7 +12,7 @@
 			<label class="col-sm-3 control-label" for="language">言語</label>
 			<div class="col-sm-3">
 				<select class="form-control" id="language">
-					<option value="01" selected>日本語</option>
+					<option value="01">日本語</option>
 					<option value="02">English</option>
 				</select>
 			</div>
@@ -21,17 +21,17 @@
 			<label class="col-sm-3 control-label" for="sex">性別</label>
 			<div class="col-sm-3">
 				<select class="form-control" id="sex">
-					<option value="0" selected></option>
+					<option value="0"></option>
 					<option value="1">男性</option>
 					<option value="2">女性</option>
 				</select>
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-3 control-label" for="sex">年齢</label>
+			<label class="col-sm-3 control-label" for="age">年齢</label>
 			<div class="col-sm-3">
-				<select class="form-control" id="sex">
-					<option value="999" selected></option>
+				<select class="form-control" id="age">
+					<option value="999"></option>
 					<option value="0">0歳</option>
 					<option value="1">1歳</option>
 					<option value="2">2歳</option>
@@ -163,7 +163,7 @@
 			<label class="col-sm-3 control-label" id="optionlabel{{$value['code1']}}" for="option{{$value['code1']}}">{{$value['meisho']}}</label>
 			<div class="col-sm-3">
 				<select class="form-control" id="option{{$value['code1']}}" onChange="optionChange()">
-					<option value="0" selected></option>
+					<option value="0"></option>
 			@else
 					<option value="{{$value['code2']}}">{{$value['meisho']}}</option>
 			@endif
@@ -180,6 +180,13 @@
 	<input type="button" class="btn btn-default" value="削除" onclick="delete()">
 	<input type="button" class="btn btn-primary" value="登録" onclick="update()">
 </div>
+<input id="userid" type="hidden" value="{{$userid}}">
+<input id="citycode" type="hidden" value="{{$citycode}}">
+<input id="sender" type="hidden" value="{{$sender}}">
 <input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
 <script src="{{ asset('js/attribute.js') }}"></script>
+<script>
+var userinfo = @json($userinfo);
+init();
+</script>
 @endsection

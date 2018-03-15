@@ -1,66 +1,34 @@
-$(function(){
-	//taishoDisabled(true);
-});
-
-//属性登録有無チェンジ
-function userinfoChange(){
-	if(document.getElementById('userinfo').value == 1){
-		taishoDisabled(false);
+function init(){
+	if(userinfo["updkbn"] == "1"){
+		document.getElementById('language').value = userinfo["language"];
+		document.getElementById('sex').value = userinfo["sex"];
+		document.getElementById('age').value = userinfo["age"];
+		for(var i = 1; i < 11; i++){
+			if(document.getElementById('option'+i)){
+				document.getElementById('option'+i).value = userinfo["param" + i];
+			}
+		}
 	}else{
-		taishoDisabled(true);
-	}
-	taishocount();
-}
-
-//対象年齢からチェンジ
-function agekChange(){
-	if(document.getElementById('age_kara').value == "999"){
-		document.getElementById('age_kigo').style.display = "none";
-		document.getElementById('age_made').style.display = "none";
-	}else{
-		document.getElementById('age_kigo').style.display = "block";
-		document.getElementById('age_made').style.display = "block";
-	}
-	taishocount();
-}
-
-//対象年齢までチェンジ
-function agemChange(){
-	taishocount();
-}
-
-//対象性別チェンジ
-function sexChange(){
-	taishocount();
-}
-
-//オプションチェンジ
-function optionChange(){
-	taishocount();
-}
-
-function taishoDisabled(bl){
-	document.getElementById('age_kara').disabled = bl;
-	document.getElementById('age_made').disabled = bl;
-	document.getElementById('sex').disabled = bl;
-	for(var i = 1; i < 11; i++){
-		if(document.getElementById('option'+i)){
-			document.getElementById('option'+i).disabled = bl;
+		document.getElementById('language').selectedIndex = 0;
+		document.getElementById('sex').selectedIndex = 0;
+		document.getElementById('age').selectedIndex = 0;
+		for(var i = 1; i < 11; i++){
+			if(document.getElementById('option'+i)){
+				document.getElementById('option'+i).selectedIndex = 0;
+			}
 		}
 	}
-}
+};
 
-//対象人数の調査
-function taishocount(){
-	postController("search");
-}
 
-//ControllerにPOST
-function postController(para){
-	var info = document.getElementById('userinfo').value;
-	var agek = document.getElementById('age_kara').value;
-	var agem = document.getElementById('age_made').value;
+//更新
+function update(){
+	var userid = document.getElementById('userid').value;
+	var citycode = document.getElementById('citycode').value;
+	var sender = document.getElementById('sender').value;
+	var language = document.getElementById('language').value;
 	var sex = document.getElementById('sex').value;
+	var age = document.getElementById('age').value;
 	var option = [];
 	for(var i = 1; i < 11; i++){
 		if(document.getElementById('option'+i)){
@@ -69,85 +37,41 @@ function postController(para){
 			option.push(0);
 		}
 	}
-	var sendmess = document.getElementById('sendmess').value;
 	var _token = document.getElementById('_token').value;
 	$.ajax({
 		type: "POST",
 		dataType: "JSON",
 		data: {
-			"param" : para,
-			"info" : info,
-			"agek" : agek,
-			"agem" : agem,
+			"param" : "update",
+			"userid" : userid,
+			"citycode" : citycode,
+			"sender" : sender,
+			"language" : language,
 			"sex" : sex,
+			"age" : age,
 			"option" : option,
-			"sendmess" : sendmess,
 			"_token" : _token
 		}
 	}).done(function (response) {
-		if(para == "search"){
-			document.getElementById('taisho').value = response.hitcount;
-		}
-		if(para == "send"){
-			var mess = "";
-			if(response.status == "OK"){
-				mess = "送信しました";
-			}else{
-				mess = "送信できませんでした";
+		bootbox.alert({
+			message: "登録しました。",
+			size: 'small',
+			callback: function (result) {
+				window.open('','_self').close();
 			}
-			bootbox.alert({
-				message: mess,
-				size: 'small'
-			});
-		}
+		});
     }).fail(function () {
-    	if(para == "search"){
-    		bootbox.alert({
-				message: "対象者数を取得できませんでした",
-				size: 'small'
-			});
-    	}
-    	if(para == "send"){
-    		bootbox.alert({
-				message: "送信できませんでした",
-				size: 'small'
-			});
-		}
+    	bootbox.alert({
+			message: "登録できませんでした",
+			size: 'small'
+		});
     });
 }
 
-//送信
-function send(){
-	if (document.getElementById('taisho').value == 0){
-		bootbox.alert({
-			message: "送信対象者が存在しません",
-			size: 'small'
-		});
-		return;
-	}
-	if (!document.getElementById('sendmess').value.match(/\S/g)){
-		bootbox.alert({
-			message: "送信内容が入力されていません",
-			size: 'small'
-		});
-		return;
-	}
-	var mess = "【送信対象】<br>属性登録有無：" + document.getElementById('userinfo').options[document.getElementById('userinfo').selectedIndex].text;
-	if(document.getElementById('age_kara').value == "999"){
-		mess = mess + "<br>年齢：" + document.getElementById('age_kara').options[document.getElementById('age_kara').selectedIndex].text;
-	}else{
-		mess = mess + "<br>年齢：" + document.getElementById('age_kara').options[document.getElementById('age_kara').selectedIndex].text + "から" + document.getElementById('age_made').options[document.getElementById('age_made').selectedIndex].text;
-	}
-	mess = mess + "<br>性別：" + document.getElementById('sex').options[document.getElementById('sex').selectedIndex].text;
-	for(var i = 1; i < 11; i++){
-		if(document.getElementById('option'+i)){
-			mess = mess + "<br>" + document.getElementById('optionlabel'+i).innerText + "：" + document.getElementById('option'+i).options[document.getElementById('option'+i).selectedIndex].text;
-		}
-	}
-	mess = mess + "<br><br>上記の条件に該当する" + document.getElementById('taisho').value + "人にメッセージを送信しますか？";
-
+//削除
+function delete(){
 	bootbox.confirm({
-	    message: mess,
+	    message: "登録されている属性を削除しますか？",
 	    buttons: {
 	    	confirm: {
 	            label: '<i class="fa fa-check"></i> はい'
@@ -158,7 +82,34 @@ function send(){
 	    },
 	    callback: function (result) {
 	        if(result){
-	        	postController("send");
+	        	var userid = document.getElementById('userid').value;
+	        	var citycode = document.getElementById('citycode').value;
+	        	var sender = document.getElementById('sender').value;
+	        	var _token = document.getElementById('_token').value;
+	        	$.ajax({
+	        		type: "POST",
+	        		dataType: "JSON",
+	        		data: {
+	        			"param" : "delete",
+	        			"userid" : userid,
+	        			"citycode" : citycode,
+	        			"sender" : sender,
+	        			"_token" : _token
+	        		}
+	        	}).done(function (response) {
+	        		bootbox.alert({
+	        			message: "削除しました。",
+	        			size: 'small',
+	        			callback: function (result) {
+	        				window.open('','_self').close();
+	        			}
+	        		});
+	            }).fail(function () {
+	            	bootbox.alert({
+	        			message: "削除できませんでした",
+	        			size: 'small'
+	        		});
+	            });
 	        }
 	    }
 	});
