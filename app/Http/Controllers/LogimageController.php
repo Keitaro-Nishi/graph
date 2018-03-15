@@ -37,24 +37,25 @@ class LogimageController {
 	public function links($id) {
 		error_log ( '????????????????' . $id );
 		$logimages = Logimage::select ( 'image' )->where ( 'no', $id )->first ();
-		//error_log ( '40????????????????' . $logimages);
-/*
-		$response = Response::make($logimages->image,200);
-		$response->header('Content-type','image/jpeg' );
-		$response->header('Content-Disposition','filename=image.jpg' );*/
+		// error_log ( '40????????????????' . $logimages);
+		/*
+		 * $response = Response::make($logimages->image,200);
+		 * $response->header('Content-type','image/jpeg' );
+		 * $response->header('Content-Disposition','filename=image.jpg' );
+		 */
 
 		// バイナリデータ取得
-		 $fileData = $logimages->image;
+		$fileData = $logimages->image;
 
-		 // 取得したバイナリデータをファイルに書き込んでレスポンスに返却
-		 $writingHogeData = '.jpg';
-		 file_put_contents ( $writingHogeData, $fileData );
-		 $response = Response::make($writingHogeData,200);
-		 $response->header('Content-type','image/jpg' );
-		  // 拡張子はhoge
-		  $headers = array (
-		 		 'Content-Type: image/jpg'
-		 		 );
-		  return response()->file($writingHogeData, $headers);
+		// 取得したバイナリデータをファイルに書き込んでレスポンスに返却
+		$writingHogeData = '.jpg';
+		file_put_contents ( $writingHogeData, $fileData );
+		$response = Response::make ( $writingHogeData, 200 );
+		$response->header ( 'Content-type', 'image/jpg' );
+		// 拡張子はhoge
+		$headers = array (
+				'Content-Type: image/jpg'
+		);
+		return response ()->download ( $writingHogeData, $headers );
 	}
 }
