@@ -32,7 +32,6 @@
 		@endforeach
 	</tbody>
 </table>
-
 	<div class="container" align="center">
 		<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
 		<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#image_Modal" value="モーダル表示" />

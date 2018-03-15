@@ -8,7 +8,8 @@ function init() {
 		formatters: {
 			"image": function($column, $row) {
 				console.log($row.no);
-				return "<img class='table-img' src='getimage.php?id=" + $row.no + "' />";
+				//return "<img class='table-img' src='getimage.php?id=" + $row.no + "' />";
+				return "<img class='table-img' src='https://tyattobot.herokuapp.com/getimage/" + $row.no + "' />";
 			},
 			"zoom": function($column, $row) {
 				return "<input type='button' class='btn btn-default' value='画像拡大' onclick='imgwin("  + $row.no + ",\"" + $row.class + "\"," + $row.score + ")'> ";

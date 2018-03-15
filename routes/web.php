@@ -33,6 +33,7 @@ Route::middleware(['auth'])->group(function () {
 	Route::post ( '/botlog', 'BotlogController@request' );
 
 	Route::get ( '/logimage', 'LogimageController@index' )->name ( 'logimage' );
+	Route::get ( '/getimage/{id?}', 'getimage@links' );
 	Route::post ( '/logimage', 'LogimageController@request' );
 
 	Route::get ( '/facility', 'FacilityController@index' )->name ( 'facility' );
