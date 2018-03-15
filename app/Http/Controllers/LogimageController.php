@@ -9,34 +9,15 @@ use App\Logimage;
 
 class LogimageController {
 	public function index(Request $request) {
-		/*
-		 * $cityCD = Auth::user ()->citycode;
-		 * if ($cityCD = "00000") {
-		 * $logimages = Logimage::select ( 'citycode', 'no', 'time', 'userid', 'score', 'class' )->get ();
-		 * } else {
-		 * $logimages = Logimage::select ( 'citycode', 'no', 'time', 'userid', 'score', 'class' )->where ( 'citycode', $cityCD )->get ();
-		 * }
-		 * return view ( 'logimage', [
-		 * 'logimages' => $logimages
-		 * ] );
-		 */
-		$logimages = Logimage::all ()->first ();
-
-		// タイトル
-		$title = $logimages->no;
-
-		// バイナリデータ取得
-		$fileData = $logimages->image;
-
-		// 取得したバイナリデータをファイルに書き込んでレスポンスに返却
-		$writingHogeData = '.jpg';
-		file_put_contents ( $writingHogeData, $fileData );
-
-		// 拡張子はhoge
-		$headers = array (
-				'Content-Type: application/jpg'
-		);
-		return response ()->view ( $title, $writingHogeData, $headers );
+		$cityCD = Auth::user ()->citycode;
+		if ($cityCD = "00000") {
+			$logimages = Logimage::select ( 'citycode', 'no', 'time', 'userid', 'score', 'class' )->get ();
+		} else {
+			$logimages = Logimage::select ( 'citycode', 'no', 'time', 'userid', 'score', 'class' )->where ( 'citycode', $cityCD )->get ();
+		}
+		return view ( 'logimage', [
+				'logimages' => $logimages
+		] );
 	}
 	public function request() {
 		$this->requestall = \Request::all ();
