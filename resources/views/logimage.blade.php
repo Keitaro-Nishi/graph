@@ -24,7 +24,7 @@
 			<td>{{$logimage->no}}</td>
 			<td>{{$logimage->time}}</td>
 			<td>{{$logimage->userid}}</td>
-			<td>{{$logimage->image}}</td>
+			<td></td>
 			<td>{{$logimage->class}}</td>
 			<td>{{$logimage->score}}</td>
 			<td></td>
