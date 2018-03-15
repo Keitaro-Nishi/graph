@@ -19,6 +19,7 @@ class Genre extends Model
 	//protected $primaryKey =['citycode','id'];
 	protected $primaryKey = ['gid1', 'gid2','gid3'];
 	public $incrementing = false;
+	public $timestamps = false;
 	protected $table = 'genre';
 
 }

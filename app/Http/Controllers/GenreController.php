@@ -153,7 +153,8 @@ class GenreController
 
 
 		if($uiKbn == 1){
-			DB::table('genre')->where('citycode',$cityCD)->where('gid1',$gid1)->where('gid2',$gid2)->update(['meisho' => $meisho]);
+			//DB::table('genre')->where('citycode',$cityCD)->where('gid1',$gid1)->where('gid2',$gid2)->update(['meisho' => $meisho]);
+			Genre::where('citycode',$cityCD)->where('gid1',$gid1)->where('gid2',$gid2)->update(['meisho' => $meisho]);
 
 			if($gid2 == 0){
 				//$result = DB::table('genre')->select('gid2')->select('meisho')->where('citycode', $cityCD)->where('gid1',$gid1)->get();
