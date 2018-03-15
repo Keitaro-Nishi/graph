@@ -10,7 +10,7 @@ function init() {
 				console.log($row.no);
 				//return "<img class='table-img' src='getimage.php?id=" + $row.no + "' />";
 				//return "<img class='table-img' src='http://tyattobot.herokuapp.com/logimage/" + $row.no + "' />";
-				return "<img class='table-img' src='data:image/png;base64,'" + $row.imagest + "' />";
+				return "<img class='table-img' src='data:image/jpeg;base64,'" + $row.imagest + "' />";
 			},
 			"zoom": function($column, $row) {
 				return "<input type='button' class='btn btn-default' value='画像拡大' onclick='imgwin("  + $row.no + ",\"" + $row.class + "\"," + $row.score + ")'> ";
