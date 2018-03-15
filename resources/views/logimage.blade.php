@@ -61,7 +61,7 @@ init();
 --}}
 <img src="" alt="Now Loading...." id="image">
 <script type="text/JavaScript">
-var x=1;
-document.getElementById("image").src=$writingHogeData + $headers;
+var x= $writingHogeData;
+document.getElementById("image").src=x + ".jpg";
 </script>
 @endsection
