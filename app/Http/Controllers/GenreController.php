@@ -140,7 +140,7 @@ class GenreController
 	{
 
 		//$workspace_id = getenv('CVS_WORKSPASE_ID');
-		$workspace = Parameter::select('cvs_ws_id1')->where('citycode', $cityCD)->first();
+		$workspace = Parameter::select('cvs_ws_id1')->where('citycode', $cityCD)->get();
 		$workspace_id = $workspace->cvs_ws_id1;
 		$username = getenv('CVS_USERNAME');
 		$password = getenv('CVS_PASS');
