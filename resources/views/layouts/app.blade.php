@@ -20,6 +20,8 @@
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <link href="{{ asset('css/Buttons.css') }}" rel="stylesheet">
 <link href="{{ asset('css/jquery.bootgrid.css') }}" rel="stylesheet">
+<link href="{{ asset('css/botui.min.css') }}" rel="stylesheet">
+<link href="{{ asset('css/botui-theme-default.css') }}" rel="stylesheet">
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
