@@ -53,6 +53,6 @@ class LogimageController {
 		file_put_contents ( $imegeData, $fileData );
 		$headers = array ('Content-Type: image/jpg');
 
-		return response()->file( $writingHogeData, $headers );
+		return response()->file( $imegeData, $headers );
 	}
 }
