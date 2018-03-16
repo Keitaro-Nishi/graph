@@ -38,7 +38,11 @@ class UsersettingController extends Controller {
 		$newpassword = bcrypt ( $input ["password"] );
 
 		$nowpassword = User::select ( 'password', 'name' )->where ( 'userid', $userid )->first ();
-		if (Hash::check ( $oldpassword, $nowpassword->password )) {
+		if (Hash::check ( $newpassword, $nowpassword->password )) {
+			return \Response::json ( [
+					'status' => 'BACK'
+			] );
+		}else if (Hash::check ( $oldpassword, $nowpassword->password )) {
 			// パスワード一致
 			User::where ( 'userid', $userid )->update ( [
 					'name' => $newName,
