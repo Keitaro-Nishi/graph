@@ -64,6 +64,6 @@
 </div>
 <script src="{{ asset('js/logimage.js') }}"></script>
 <script>
- init();
- </script>
+init();
+</script>
 @endsection
