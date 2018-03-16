@@ -26,11 +26,11 @@ class UsersettingController extends Controller {
 		];
 
 		$validator = Validator::make ( $input, $rules );
-
+/*
 		if ($validator->fails ()) {
 			return $validator->errors ();
 		}
-
+*/
 		$input = \Request::all ();
 		$newName = $input ["name"];
 		$oldpassword = $input ["oldpassword"];
