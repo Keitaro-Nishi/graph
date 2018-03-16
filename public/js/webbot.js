@@ -130,6 +130,9 @@ $(function(){
 		  if(sex == "2"){
 			sexN = "女";
 		  }
+
+		  alert("成功");
+		  /*
 		  callWatson("1", "0", age + "の" + sexN);
 		  botui.message.bot({
 			  delay: 1000,
@@ -144,6 +147,7 @@ $(function(){
 		  }).then(function(res) {
 			  kenshin2(res);
 		  })
+		  */
 	  }
 
 	  //検診相談続き
