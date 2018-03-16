@@ -9,8 +9,11 @@ use Illuminate\Support\Facades\DB;
 use App\Libs\Watson;
 use App\Parameter;
 
-class GenreController{
-	public function index(Request $request){
+
+class GenreController
+{
+	public function index(Request $request)
+	{
 
 		$Authrole = Auth::user()->role;
 		$cityCD = Auth::user()->citycode;
@@ -29,6 +32,7 @@ class GenreController{
 				$gid1 = $genre->gid1;
 				$gid2 = $genre->gid2;
 				$meisho = $genre->meisho;
+
 
 				if($bunrui == 1){
 					$daibunrui = $meisho;
@@ -121,8 +125,10 @@ class GenreController{
 				$watson->callcvsDelete($cityCD,$url);
 			}
 		}
+
 		return \Response::json(['status' => 'OK']);
 	}
+
 
 	public function update()
 	{
@@ -214,6 +220,7 @@ class GenreController{
 				$data = array("dialog_node" => "node_".$gid1,"title" => "intent".$gid1,"conditions" => "#".$gid1,"previous_sibling" => $previous_sibling,"output" => array("text" => array("values" => array($gid1.".".$gid2))));
 				$watson->callcvsPost($cityCD,$url,$data);
 
+
 			}else{
 
 				//小分類
@@ -235,5 +242,8 @@ class GenreController{
 			}
 		}
 		return \Response::json(['status' => 'OK']);
+
 	}
+
+
 }

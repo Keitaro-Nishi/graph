@@ -7,6 +7,7 @@ botlog = document.getElementById('botlog').value;
 dbvalue = JSON.parse(botlog);
 
 $(function() {
+
 	$("#grid-basic").bootgrid({
 		selection : true,
 		multiSelect : true,
@@ -64,13 +65,15 @@ function drow() {
 					}
 
 				}).done(function (response) {
-					bootbox.alert({
-						message: "削除しました",
-						size: 'small',
-						callback: function () {
-							location.reload();
-						}
-					});
+					if(response.status == "OK"){
+						bootbox.alert({
+							message: "削除しました",
+							size: 'small',
+							callback: function () {
+								location.reload();
+							}
+						});
+					}
 				}).fail(function () {
 					bootbox.alert({
 						message: "削除できませんでした",

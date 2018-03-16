@@ -38,27 +38,32 @@ class FacilityController {
 		}
 
 		$genre1value = Genre::select ( 'gid1', 'meisho' )->where ( 'citycode', $cityCD )->where ( 'bunrui', 1 )->orderBy ( 'gid1', 'ASC' )->get ();
+		//error_log ( "???????????????????41" . $genre1value [0]->meisho );
+		//error_log ( print_r($genre1value->toArray(), true));
 		foreach ( $genre1value as $j1value ) {
 			$gid1 = $j1value->gid1;
 			$j2value = Genre::select ( 'gid2', 'meisho' )->where ( 'citycode', $cityCD )->where ( 'gid1', $gid1 )->where ( 'bunrui', 2 )->orderBy ( 'gid1', 'ASC' )->orderBy ( 'gid2', 'ASC' )->get ();
 			$genre2value = $genre2value + array ($gid1 => $j2value);
 		}
+		//error_log ( print_r($genre1value->toArray(), true));
 		return view ( 'facility', [
 				'facilities' => $facilities,
 				'genre1value' => $genre1value,
 				'genre2value' => $genre2value,
 		] );
 	}
-	//分岐
 	public function request() {
 		$this->requestall = \Request::all ();
 		if ($this->requestall ["param"] == "update") {
 			return $this->update ();
 		} elseif ($this->requestall ["param"] == "delete") {
 			return $this->delete ();
+		} else {
+			return \Response::json ( [
+					'status' => 'NG'
+			] );
 		}
 	}
-	//DB更新
 	public function update() {
 		$input = \Request::all ();
 		$rules = [
@@ -75,6 +80,7 @@ class FacilityController {
 		if ($validator->fails ()) {
 			return $validator->errors ();
 		}
+		// insert
 		$id = $input ["id"];
 		// 市町村コード
 		$citycode = Auth::user ()->citycode;
@@ -114,7 +120,7 @@ class FacilityController {
 					'geom' => \DB::raw ( "public.ST_GeomFromText('POINT({$lat} {$lng})',4326)" )
 			] );
 		} else {
-			$result = DB::table ( 'facilit' )->where ( 'id', $id )->update ( [
+			$result = DB::table ( 'facility' )->where ( 'id', $id )->update ( [
 					'citycode' => $citycode,
 					'meisho' => $meisho,
 					'jusho' => $jusho,
@@ -129,15 +135,15 @@ class FacilityController {
 					'geom' => \DB::raw ( "public.ST_GeomFromText('POINT({$lat} {$lng})',4326)" )
 			] );
 		}
-		return \Response::json(['status' => 'OK']);
 	}
-	//削除
 	public function delete() {
 		$input = $this->requestall;
 		$ids = $input ["ids"];
 		foreach ( $ids as $id ) {
 			DB::table ( 'facility' )->where ( 'id', $id )->delete ();
 		}
-		return \Response::json ( ['status' => 'OK'] );
+		return \Response::json ( [
+				'status' => 'OK'
+		] );
 	}
 }
