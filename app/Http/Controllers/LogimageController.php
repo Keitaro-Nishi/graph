@@ -52,23 +52,23 @@ class LogimageController {
 		 */
 
 		// バイナリデータ取得
-		//$fileData = $logimages->image;
+		$fileData = $logimages->image;
 
 		// 取得したバイナリデータをファイルに書き込んでレスポンスに返却
-		//$writingHogeData = 'image.jpg';
-		//file_put_contents ( $writingHogeData, $fileData );
+		$writingHogeData = 'image.jpg';
+		file_put_contents ( $writingHogeData, $fileData );
 		$headers = array ('Content-Type: image/jpg');
 		//$img_data=pg_unescape_bytea($logimages->image);
 		//$img_data=pg_unescape_bytea($logimages["image"]);
-		$bytea = stream_get_contents($logimages->image);
-		$img_data=pg_unescape_bytea($bytea);
-		$html_data = htmlspecialchars($img_data);
+		//$bytea = stream_get_contents($logimages->image);
+		//$img_data=pg_unescape_bytea($bytea);
+		//$html_data = htmlspecialchars($img_data);
 
-		$response = Response::make ( $html_data, 200 ,$headers);
+		//$response = Response::make ( $html_data, 200 ,$headers);
 		//$response->header ( 'Content-type', 'image/jpg' );
 		// 拡張子はjpg
 
-		return $response;
-		//return response ()->file( $writingHogeData, $headers );
+		//return $response;
+		return response ()->file( $writingHogeData, $headers );
 	}
 }
