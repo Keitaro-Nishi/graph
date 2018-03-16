@@ -11,32 +11,53 @@ class LogimageController {
 	public function index(Request $request) {
 		$cityCD = Auth::user ()->citycode;
 		if ($cityCD = "00000") {
-			$logimages = Logimage::all ();
+			//$logimages = Logimage::select ( 'citycode', 'no', 'time', 'userid', 'score', 'class' )->get ();
+			$logimages = Logimage::all();
 		} else {
-			$logimages = Logimage::where ( 'citycode', $cityCD )->get ();
+			$logimages = Logimage::select ( 'citycode', 'no', 'time', 'userid', 'score', 'class' )->where ( 'citycode', $cityCD )->get ();
 		}
 		return view ( 'logimage', [
 				'logimages' => $logimages
 		] );
 	}
-
 	public function request() {
 		$this->requestall = \Request::all ();
 		if ($this->requestall ["param"] == "update") {
 			return $this->update ();
 		} elseif ($this->requestall ["param"] == "delete") {
 			return $this->delete ();
-		} else {
-			return \Response::json ( [
-					'status' => 'NG'
-			] );
 		}
 	}
-
 	public function delete() {
 		$input = $this->requestall;
 		Logimage::destroy ( $input ["nos"] );
-		return \Response::json ( ['status' => 'OK'
+		return \Response::json ( [
+				'status' => 'OK'
+		] );
+	}
+	public function links($id) {
+		error_log ( '????????????????' . $id );
+		$logimages = Logimage::select ( 'image' )->where ( 'no', $id )->first ();
+		// error_log ( '40????????????????' . $logimages);
+		/*
+		 * $response = Response::make($logimages->image,200);
+		 * $response->header('Content-type','image/jpeg' );
+		 * $response->header('Content-Disposition','filename=image.jpg' );
+		 */
+
+		// バイナリデータ取得
+		$fileData = $logimages->image;
+
+		// 取得したバイナリデータをファイルに書き込んでレスポンスに返却
+		$writingHogeData = '.jpg';
+		file_put_contents ( $writingHogeData, $fileData );
+		$response = Response::make ( $writingHogeData, 200 );
+		$response->header ( 'Content-type', 'image/jpg' );
+		// 拡張子はjpg
+		$headers = array ('Content-Type: image/jpg');
+		//return response ()->download ( $writingHogeData, $headers );
+		return \Response::json ( [
+				'status' => 'OK'
 		] );
 	}
 }

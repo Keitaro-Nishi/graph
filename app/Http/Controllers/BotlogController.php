@@ -4,15 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Botlog;
 
-class BotlogController
-{
+class BotlogController{
 
-	public function index(Request $request)
-	{
+	public function index(Request $request){
 
 		$cityCD = Auth::user()->citycode;
 		if($cityCD = "00000"){
@@ -20,7 +17,6 @@ class BotlogController
 		}else{
 			$botlogs= Botlog::where('citycode', $cityCD)->get();
 		}
-
 		return view('botlog',['botlogs'=>$botlogs]);
 	}
 
@@ -29,25 +25,13 @@ class BotlogController
 		if ($this->requestall ["param"] == "update") {
 			return $this->update ();
 		} elseif ($this->requestall ["param"] == "delete") {
-			error_log("???????????????????");
 			return $this->delete ();
-		} else {
-			return \Response::json ( [
-					'status' => 'NG'
-			] );
 		}
 	}
 
 	public function delete(){
 		$input = $this->requestall;
 		Botlog::destroy($input["nos"]);
-		/*
-		$nos = $input ["nos"];
-		foreach ( $nos as $no ) {
-			DB::table('botlog')->where('no',$no)->delete();
-		}
-		*/
 		return \Response::json(['status' => 'OK']);
-
 	}
 }
