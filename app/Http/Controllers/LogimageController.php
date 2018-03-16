@@ -62,8 +62,9 @@ class LogimageController {
 		//$img_data=pg_unescape_bytea($logimages["image"]);
 		$bytea = stream_get_contents($logimages->image);
 		$img_data=pg_unescape_bytea($bytea);
+		$html_data = htmlspecialchars($img_data);
 
-		$response = Response::make ( $img_data, 200 ,$headers);
+		$response = Response::make ( $html_data, 200 ,$headers);
 		//$response->header ( 'Content-type', 'image/jpg' );
 		// 拡張子はjpg
 
