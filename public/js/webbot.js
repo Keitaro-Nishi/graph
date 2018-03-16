@@ -17,10 +17,14 @@ $(function(){
 	userid= document.getElementById('userid').value;
 
 	var url = "";
-	var attrurl = "";
+	var rurl = "";
+	var attrurl ="";
 
-	url = location.href.join("/");
-	attrurl = url.replace( /webbot/g , "attribute" ) ;
+	url = location.href;
+	rurl = url.replace( /webbot/g , "attribute" ) ;
+	attrurl = rurl + "/";
+
+
 	console.log(attrurl);
 	//attrurl =
 
