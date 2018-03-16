@@ -17,14 +17,10 @@ $(function(){
 	userid= document.getElementById('userid').value;
 
 	var attrurl = "";
-	attrurl = "http://gyosei-chatbot.herokuapp.com/attribute/"+citycode+"/2/"+userid+"";
-	//+ userid ";
 
-	console.log(citycode);
-	console.log(userid);
+	attrurl = location.href;
 	console.log(attrurl);
 
-	/*
 	attributeSearch();
 
 	  //初期メッセージ
@@ -75,15 +71,14 @@ $(function(){
 		  }).then(function() {
 			  var attrurl = "";
 
-			  attrurl = "http://gyosei-chatbot.herokuapp.com/attribute/ + citycode /2/ + userid ";
-	 */
+			  //attrurl = "http://gyosei-chatbot.herokuapp.com/attribute/"+citycode+"/2/"+userid+"";
 
 			  /*if (lang == "02"){
 				  attrurl = "https://gyoseibot.herokuapp.com/attribute_en.php?user=";
 			  }else{
 				  attrurl = "https://gyoseibot.herokuapp.com/attribute.php?user=";
 			  }*/
-	/*
+
 			  if(age < 10){
 					age = "00" + age;
 				}else{
@@ -222,7 +217,7 @@ $(function(){
 	            alert(errorThrown);
 	        });
 	  }
-	  */
+
 });
 
 function dispclear(){
