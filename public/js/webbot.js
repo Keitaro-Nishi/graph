@@ -17,7 +17,8 @@ $(function(){
 	userid= document.getElementById('userid').value;
 
 	var attrurl = "";
-	attrurl = "http://gyosei-chatbot.herokuapp.com/attribute/ + citycode /2/ + userid ";
+	attrurl = "http://gyosei-chatbot.herokuapp.com/attribute/"+citycode+"/2/";
+	//+ userid ";
 
 	console.log(citycode);
 	console.log(userid);
