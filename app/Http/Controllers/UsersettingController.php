@@ -19,43 +19,43 @@ class UsersettingController extends Controller {
 	}
 	public function update() {
 		$userid = Auth::user ()->userid;
-/*
-		$rules = [
-				'name' => 'required|string|max:255',
-				'password' => 'required|string|min:6|confirmed'
-		];
-
-		$validator = Validator::make ( $input, $rules );
-
-		if ($validator->fails ()) {
-			return $validator->errors ();
-		}
-*/
+		/*
+		 * $rules = [
+		 * 'name' => 'required|string|max:255',
+		 * 'password' => 'required|string|min:6|confirmed'
+		 * ];
+		 *
+		 * $validator = Validator::make ( $input, $rules );
+		 *
+		 * if ($validator->fails ()) {
+		 * return $validator->errors ();
+		 * }
+		 */
 		$input = \Request::all ();
 		$newName = $input ["name"];
 		$oldpassword = $input ["oldpassword"];
-		//$password = $input ["password"];
+		$password = $input ["password"];
 		$newpassword = bcrypt ( $input ["password"] );
 
 		$nowpassword = User::select ( 'password', 'name' )->where ( 'userid', $userid )->first ();
 
 		if (Hash::check ( $oldpassword, $nowpassword->password )) {
-			/*
-			 * if (Hash::check ( $password, $nowpassword->password )) {
-			 *
-			 * return \Response::json ( [
-			 * 'status' => 'BACK'
-			 * ] );
-			 * } else {
-			 */
-			User::where ( 'userid', $userid )->update ( [
-					'name' => $newName,
-					'password' => $newpassword
-			] );
-			return \Response::json ( [
-					'status' => 'OK'
-			] );
-			// }
+
+			if (Hash::check ( $password, $nowpassword->password )) {
+
+				return \Response::json ( [
+						'status' => 'BACK'
+				] );
+			} else {
+
+				User::where ( 'userid', $userid )->update ( [
+						'name' => $newName,
+						'password' => $newpassword
+				] );
+				return \Response::json ( [
+						'status' => 'OK'
+				] );
+			}
 		} else {
 			return \Response::json ( [
 					'status' => 'NG'
