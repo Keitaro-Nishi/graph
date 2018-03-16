@@ -1,7 +1,7 @@
 $(function(){
 	var url = 'https://api.github.com/search/repositories?q=';
 	var msgIndex, key;
-	//var botui = new BotUI('chat-app');
+	var botui = new BotUI('chat-app');
 	var user = "webtest";
 	var lang = "";
 	var sex = "0";

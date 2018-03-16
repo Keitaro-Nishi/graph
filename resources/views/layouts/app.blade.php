@@ -26,6 +26,11 @@
 <script src="{{ asset('js/jquery.bootgrid.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
 
+<!-- チャットボット(WEB)用に追加 -->
+<script src="//www.promisejs.org/polyfills/promise-6.1.0.min.js"></script>
+<script src="//npmcdn.com/vue@2.0.5/dist/vue.min.js"></script>
+<script src="//unpkg.com/botui/build/botui.min.js"></script>
+
 </head>
 <body>
 	<div id="app">
