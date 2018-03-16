@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
+use App\Libs\Watson;
 use App\Userinfo;
 use App\Code;
 
@@ -15,6 +16,7 @@ class AttributeController
 	public function index($citycode,$sender, $id)
 	{
 		$codes = array();
+		$codesEn = array();
 
 		for ($i = 1; $i <= 10; $i++) {
 			$count = Code::where('citycode', $citycode)->where('code1', $i)->where('code2', '>', 0)->count();
@@ -22,6 +24,16 @@ class AttributeController
 				$records = Code::select('code1','code2','meisho')->where('citycode', $citycode)->where('code1', $i)->orderBy('code2', 'ASC')->get();
 				array_push($codes, json_decode($records,true));
 			}
+		}
+
+		//英訳
+		$watson = new Watson;
+		foreach ($codes as $recode){
+			foreach ($recode as $value){
+				$value["meisho"] = $watson->callLT($citycode,"ja","en",$value["meisho"]);
+				error_log("★★★★★★★★★meisho★★★★★★★★★".$value["meisho"]);
+			}
+			array_push($codesEn, $recode);
 		}
 
 		$userinfo =  Userinfo::where('citycode', $citycode)->where('userid', $id)->where('sender', $sender)->first();

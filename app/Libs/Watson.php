@@ -2,9 +2,6 @@
 
 namespace app\Libs;
 
-use Illuminate\Http\Request;
-
-
 class Watson{
 
 	public function callcvsPost($cityCD,$url,$data){
@@ -67,5 +64,28 @@ class Watson{
 		return curl_getinfo($curl, CURLINFO_HTTP_CODE);
 	}
 
+	function callLT($cityCD,$source,$target,$text){
+
+		$LTuser = getenv('LT_USER');
+		$LTpass = getenv('LT_PASS');
+
+		$data = array('text' => $text, 'source' => $source, 'target' => $target);
+		$curl = curl_init("https://gateway.watsonplatform.net/language-translator/api/v2/translate");
+
+		$options = array(
+				CURLOPT_HTTPHEADER => array(
+						'content-type: application/json','accept: application/json'
+				),
+				CURLOPT_USERPWD => $LTuser. ':' . $LTpass,
+				CURLOPT_POST => true,
+				CURLOPT_POSTFIELDS => json_encode($data),
+				CURLOPT_RETURNTRANSFER => true,
+		);
+
+		curl_setopt_array($curl, $options);
+		$jsonString= curl_exec($curl);
+		$json = json_decode($jsonString, true);
+		return $json["translations"][0]["translation"];
+	}
 
 }
