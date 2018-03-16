@@ -21,12 +21,12 @@ class UsersettingController {
 		$input = \Request::all ();
 		$userid = Auth::user ()->userid;
 		$newName = $input ["username"];
-		$Oldpassword = bcrypt ( $input ["oldpassword"] );
+		$oldpassword = bcrypt ( $input ["oldpassword"] );
 		$newpassword = bcrypt ( $input ["password"] );
 
 		$nowpassword = User::select ( 'password' )->where ( 'userid', $userid );
-		error_log(Auth::user()->password);
-		error_log($nowpassword);
+		error_log("????????????????". $nowpassword);
+		error_log("????????????????". $oldpassword);
 		/*
 		if ($nowpassword == $oldpassword) {
 			User::where ( 'userid', $userid )->update ( [
