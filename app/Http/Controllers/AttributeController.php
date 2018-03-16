@@ -30,7 +30,7 @@ class AttributeController
 		$watson = new Watson;
 		foreach ($codes as $recode){
 			$recodeEn = array();
-			foreach ($recodeEn as $value){
+			foreach ($recode as $value){
 				$value["meisho"] = $watson->callLT($citycode,"ja","en",$value["meisho"]);
 				error_log("★★★★★★★★★meisho★★★★★★★★★".$value["meisho"]);
 				array_push($recodeEn,$value);
