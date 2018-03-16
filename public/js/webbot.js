@@ -22,7 +22,7 @@ $(function(){
 
 	url = location.href;
 	rurl = url.replace( /webbot/g , "attribute" ) ;
-	attrurl = rurl + "/";
+	attrurl = rurl + "/" +"+citycode+"/2/"+userid+";
 
 
 	console.log(attrurl);
