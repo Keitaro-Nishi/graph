@@ -16,10 +16,14 @@ $(function(){
 	citycode= document.getElementById('citycode').value;
 	userid= document.getElementById('userid').value;
 
+	var url = "";
 	var attrurl = "";
 
-	attrurl = location.href;
-	console.log(attrurl);
+	url = location.href/"+citycode+"/2/"+userid+";
+	console.log(url);
+	//attrurl =
+
+	//console.log(attrurl);
 
 	attributeSearch();
 
