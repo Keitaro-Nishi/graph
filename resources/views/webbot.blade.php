@@ -14,8 +14,8 @@
 	</div>
 </div>
 
-<input id="citycode" value = '{{ $citycode }}'>
-<input id="userid"  value = '{{ $userid }}'>
+<input id="citycode" type= "hidden" value = '{{ $citycode }}'>
+<input id="userid"  type= "hidden" value = '{{ $userid }}'>
 
 <script src="{{ asset('js/webbot.js') }}"></script>
 @endsection

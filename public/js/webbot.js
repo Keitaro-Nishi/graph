@@ -10,7 +10,16 @@ $(function(){
 	var search = "";
 	var message = "";
 	var sexN = "";
+	var citycode ="";
+	var userid ="";
 
+	citycode= document.getElementById('citycode').value;
+	userid= document.getElementById('userid').value;
+
+	console.log(citycode);
+	console.log(userid);
+
+	/*
 	attributeSearch();
 
 	  //初期メッセージ
@@ -52,6 +61,7 @@ $(function(){
 		  })
 	  }
 
+
 	  //属性登録
 	  function attribute(){
 		  botui.message.bot({
@@ -60,13 +70,15 @@ $(function(){
 		  }).then(function() {
 			  var attrurl = "";
 
-			  attrurl = "https://gyoseibot.herokuapp.com/attribute.php?user=";
+			  attrurl = "http://gyosei-chatbot.herokuapp.com/attribute/ + citycode /2/ + userid ";
+	 */
+
 			  /*if (lang == "02"){
 				  attrurl = "https://gyoseibot.herokuapp.com/attribute_en.php?user=";
 			  }else{
 				  attrurl = "https://gyoseibot.herokuapp.com/attribute.php?user=";
 			  }*/
-
+	/*
 			  if(age < 10){
 					age = "00" + age;
 				}else{
@@ -205,4 +217,5 @@ $(function(){
 	            alert(errorThrown);
 	        });
 	  }
+	  */
 });
