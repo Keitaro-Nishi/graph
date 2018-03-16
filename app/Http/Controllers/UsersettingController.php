@@ -18,6 +18,7 @@ class UsersettingController {
 		$oldID = Auth::user ()->userid;
 		$newID= $input["userid"];
 		$newpassword= bcrypt($input["password"]);
+		error_log($oldID);
 		User::where ( 'userid', $oldID )->update ( [
 				'userid' => $newID ,
 				'password' => $newpassword
