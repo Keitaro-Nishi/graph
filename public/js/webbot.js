@@ -21,7 +21,7 @@ $(function(){
 
 	url = location.href;
 	attrurl = url.replace( /webbot/g , "attribute" ) ;
-	console.log(url);
+	console.log(attrurl);
 	//attrurl =
 
 	//console.log(attrurl);
