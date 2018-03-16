@@ -11,8 +11,8 @@ class WebbotController
 	public function index(Request $request)
 	{
 		$citycode = Auth::user()->citycode;
-		$name = Auth::user()->name;
+		$userid = Auth::user()->userid;
 
-		return view('webbot',compact('citycode','name'));
+		return view('webbot',compact('citycode','userid'));
 	}
 }
