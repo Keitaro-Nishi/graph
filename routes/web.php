@@ -14,6 +14,7 @@ Route::get ( '/', function () {
 	return redirect ( '/login' );
 } );
 
+
 Auth::routes ();
 
 Route::middleware(['auth'])->group(function () {
