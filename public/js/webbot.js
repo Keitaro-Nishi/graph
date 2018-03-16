@@ -3,9 +3,9 @@ $(function(){
 	var msgIndex, key;
 	var botui = new BotUI('chat-app');
 	var user = "webtest";
-	var lang = "";
-	var sex = "0";
-	var age = "999";
+	//var lang = "";
+	//var sex = "0";
+	//var age = "999";
 	var region = "";
 	var search = "";
 	var message = "";
@@ -16,8 +16,17 @@ $(function(){
 
 	citycode= document.getElementById('citycode').value;
 	userid= document.getElementById('userid').value;
-	userinfodata = document.getElementById('userinfo').value;
+
+	userinfodata = document.getElementById('userinfodata').value;
 	userinfo = JSON.parse(userinfodata);
+
+	var language = userinfo['language'];
+	var sex = userinfo['sex'];
+	var age = userinfo['age'];
+
+	console.log(language);
+	console.log(sex);
+	console.log(age);
 
 
 

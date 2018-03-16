@@ -18,20 +18,23 @@ class WebbotController
 		$userinfo = Userinfo::where('citycode', $citycode)->where('userid', $userid)->where('sender', $sender)->first();
 
 		if(!$userinfo){
-			$language = "";
-			$sex = 0;
-			$age = 999;
+
+			$userinfodata= [
+					'language'=>"",
+					'sex'=>0,
+					'age'=>999,
+			];
+
 		}else{
-			$language = $userinfo->language;
-			$sex = $userinfo->sex;
-			$age = $userinfo->age;
+
+			$userinfodata= [
+					'language'=>$userinfo->language,
+					'sex'=>$userinfo->sex,
+					'age'=>$userinfo->age,
+			];
+
 		}
 
-		error_log("☆☆☆☆☆");
-		error_log($language);
-		error_log($sex);
-		error_log($age);
-
-		return view('webbot',compact('citycode','userid','userinfo'));
+		return view('webbot',compact('citycode','userid','userinfodata'));
 	}
 }
