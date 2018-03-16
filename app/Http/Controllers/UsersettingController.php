@@ -19,14 +19,14 @@ class UsersettingController extends Controller {
 	}
 	public function update() {
 		$userid = Auth::user ()->userid;
-
+/*
 		$rules = [
 				'name' => 'required|string|max:255',
 				'password' => 'required|string|min:6|confirmed'
 		];
 
 		$validator = Validator::make ( $input, $rules );
-/*
+
 		if ($validator->fails ()) {
 			return $validator->errors ();
 		}
