@@ -13,9 +13,9 @@ $(function(){
 	var citycode ="";
 	var userid ="";
 	var userinfo = [];
-	var url = "";
 
-	url = location.href + "/" + citycode + "/" + 2 + "/" +userid;
+
+
 	citycode= document.getElementById('citycode').value;
 	userid= document.getElementById('userid').value;
 
@@ -92,9 +92,10 @@ $(function(){
 			  delay: 1000,
 			  content: message
 		  }).then(function() {
+			  var url = "";
 			  var attrurl = "";
 
-			  //url = location.href + "/" + citycode + "/" + 2 + "/" +userid;
+			  url = location.href + "/" + citycode + "/" + 2 + "/" +userid;
 			  attrurl = url.replace( /webbot/g , "attribute" );
 
 			  /*if (lang == "02"){
