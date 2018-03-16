@@ -78,8 +78,8 @@ $(function(){
 			language = response.language;
 	      	sex = response.sex;
 	      	age = response.age;
-	      	console.log(sex);
-	      	console.log(age);
+	      	//console.log(sex);
+	      	//console.log(age);
 		  }).fail(function(){
 			  alert("エラーが発生しました。");
 		  });
@@ -124,6 +124,10 @@ $(function(){
 	  function kenshin(){
 		  //属性登録チェック
 		  attributeSearch();
+
+		  console.log(sex);
+	      console.log(age);
+
 		  if(sex == "0" || age == "999"){
 			  message = '申し訳ありませんが、先に以下のリンクより属性登録をお願いします。';
 			  attribute();
