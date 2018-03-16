@@ -19,6 +19,8 @@ $(function(){
 	userinfodata = document.getElementById('userinfo').value;
 	userinfo = JSON.parse(userinfodata);
 
+	console.log( userinfo['sex'] );
+
 
 	//attributeSearch();
 
@@ -94,6 +96,7 @@ $(function(){
 		  }).then(init);
 	  }
 
+	  /*
 	  //属性検索
 	  function attributeSearch(){
 		  $.ajax({
@@ -116,8 +119,9 @@ $(function(){
             alert(errorThrown);
         });
 	  }
+	  */
 
-	  /*
+
 	  //検診相談
 	  function kenshin(){
 		  //属性登録チェック
@@ -204,6 +208,7 @@ $(function(){
 	  }
 
 
+	  /*
 	  //Watson呼び出し
 	  function callWatson(param, kbn, text){
 		  var param = { "user": user , "param": param , "kbn": kbn, "text": text };
