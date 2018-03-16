@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-市政へのご意見
+ご意見ログ
 @stop
 
 @section('content')
@@ -44,6 +44,8 @@
 <div>
 <input id="opinion" type= "hidden" value = '{{ $opinions }}'>
 </div>
+
+<input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
 
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">

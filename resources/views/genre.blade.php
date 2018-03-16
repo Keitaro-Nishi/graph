@@ -96,5 +96,4 @@
 </div>
 
 <script src="{{ asset('js/genre.js') }}"></script>
-
 @endsection

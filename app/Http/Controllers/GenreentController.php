@@ -7,6 +7,7 @@ use App\Genre;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Libs\Watson;
+use App\Parameter;
 
 class GenreentController
 {
@@ -54,7 +55,9 @@ class GenreentController
 
 	function entitySearch(){
 
-		$workspace_id = getenv('CVS_WORKSPASE_ID');
+		$cityCD = Auth::user()->citycode;
+		$workspace = Parameter::select('cvs_ws_id1')->where('citycode', $cityCD)->first();
+		$workspace_id = $workspace->cvs_ws_id1;
 		$username = getenv('CVS_USERNAME');
 		$password = getenv('CVS_PASS');
 		$input = $this->requestall;
@@ -63,11 +66,10 @@ class GenreentController
 		$g2meisho= $input["g2meisho"];
 		$sword= $input["sword"];
 		$data = "";
-		$cityCD = Auth::user()->citycode;
 		$watson = new Watson;
 
 		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities/".$g1meisho."/values/".urlencode($g2meisho)."/synonyms?version=2017-05-26";
-		$jsonString = $watson->callWatson2($url,$username,$password,$cityCD);
+		$jsonString = $watson->callcvsGet($cityCD,$url);
 		$json = json_decode($jsonString, true);
 		$arr = array();
 		foreach ($json["synonyms"] as $value){
@@ -78,7 +80,9 @@ class GenreentController
 	}
 	function entityUpdate(){
 
-		$workspace_id = getenv('CVS_WORKSPASE_ID');
+		$cityCD = Auth::user()->citycode;
+		$workspace = Parameter::select('cvs_ws_id1')->where('citycode', $cityCD)->first();
+		$workspace_id = $workspace->cvs_ws_id1;
 		$username = getenv('CVS_USERNAME');
 		$password = getenv('CVS_PASS');
 		$input = $this->requestall;
@@ -87,12 +91,11 @@ class GenreentController
 		$g2meisho= $input["g2meisho"];
 		$sword= $input["sword"];
 		$data = "";
-		$cityCD = Auth::user()->citycode;
 		$watson = new Watson;
 
 		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities/".$g1meisho."/values/".urlencode($g2meisho)."/synonyms?version=2017-05-26";
 		$data = array("synonym" => $sword);
-		$jsonString = $watson->callWatson($url,$username,$password,$data,$cityCD);
+		$jsonString = $watson->callcvsPost($cityCD,$url,$data);
 		$json = json_decode($jsonString, true);
 		if($json["synonym"] == $sword){
 			return \Response::json(['status' => 'OK']);
@@ -102,7 +105,9 @@ class GenreentController
 	}
 	function entityDelete(){
 
-		$workspace_id = getenv('CVS_WORKSPASE_ID');
+		$cityCD = Auth::user()->citycode;
+		$workspace = Parameter::select('cvs_ws_id1')->where('citycode', $cityCD)->first();
+		$workspace_id = $workspace->cvs_ws_id1;
 		$username = getenv('CVS_USERNAME');
 		$password = getenv('CVS_PASS');
 		$input = $this->requestall;
@@ -111,11 +116,10 @@ class GenreentController
 		$g2meisho= $input["g2meisho"];
 		$sword= $input["sword"];
 		$data = "";
-		$cityCD = Auth::user()->citycode;
 		$watson = new Watson;
 
 		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities/".$g1meisho."/values/".urlencode($g2meisho)."/synonyms/".urlencode($sword)."?version=2017-05-26";
-		$result = $watson->callWatson3($url,$username,$password,$cityCD);
+		$result = $watson->callcvsDelete($cityCD,$url);
 
 		if($result == "200"){
 			return \Response::json(['status' => 'OK']);

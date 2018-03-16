@@ -180,12 +180,13 @@ function update(){
 
 	var bunrui = document.getElementById('dia_bunrui').value;
 	var gid1 = document.getElementById('dia_g1').value;
-	var g1meisho = document.getElementById('dia_g1').options[document.getElementById('dia_g1').selectedIndex].text;
+	var g1meisho ="";
 	var meisho = "";
 	if(bunrui == 1){
 		meisho = document.getElementById('dia_g1meisho').value;
 	}else{
 		meisho = document.getElementById('dia_g2meisho').value;
+		g1meisho = document.getElementById('dia_g1').options[document.getElementById('dia_g1').selectedIndex].text;
 	}
 	var _token = document.getElementById('_token').value;
 
