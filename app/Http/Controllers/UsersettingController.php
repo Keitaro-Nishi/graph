@@ -27,6 +27,9 @@ class UsersettingController {
 		$nowpassword = User::select ( 'password' )->where ( 'userid', $userid );
 		error_log("????????????????". $nowpassword);
 		error_log("????????????????". $oldpassword);
+		return \Response::json ( [
+				'status' => 'OK'
+		] );
 		/*
 		if ($nowpassword == $oldpassword) {
 			User::where ( 'userid', $userid )->update ( [
