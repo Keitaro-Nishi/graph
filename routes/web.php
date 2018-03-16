@@ -66,6 +66,9 @@ Route::middleware(['auth'])->group(function () {
 	Route::get ( '/linepush', 'LinepushController@index')->name('linepush');
 	Route::post ( '/linepush', 'LinepushController@request');
 
+	Route::get ( '/webbot', 'WebbotController@index')->name('webbot');
+	Route::post ( '/webbot', 'WebbotController@request');
+
 });
 
 	Route::get ( '/attribute/{citycode?}/{sender?}/{id?}', 'AttributeController@index')->name('attribute');
