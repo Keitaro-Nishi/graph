@@ -13,53 +13,47 @@ a
 				<div class="panel-heading">ユーザー</div>
 
 				<div class="panel-body">
-					<form class="form-horizontal" method="POST" action="{{ route('usersetting') }}">
-					{{ csrf_field() }}
-
-						<div class="form-group{{ $errors->has('userid') ? ' has-error' : '' }}">
-							<label for="userid" class="col-md-4 control-label">ユーザーID</label>
-
-							<div class="col-md-6">
-								<input id="userid" type="text" class="form-control" name="userid" value="{{Auth::user()->userid}}" required>
-
-								@if ($errors->has('userid'))
-									<span class="help-block">
-										<strong>{{ $errors->first('userid') }}</strong>
-									</span>
-								@endif
-							</div>
+					<form class="form-horizontal">
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="dia_userid">ユーザーＩＤ</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="dia_userid" name="userid" value="" required>
 						</div>
-
-						<div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-							<label for="password" class="col-md-4 control-label">パスワード</label>
-
-							<div class="col-md-6">
-								<input id="password" type="password" class="form-control" name="password" required>
-
-								@if ($errors->has('password'))
-									<span class="help-block">
-										<strong>{{ $errors->first('password') }}</strong>
-									</span>
-								@endif
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="password-confirm" class="col-md-4 control-label">パスワードの再入力</label>
-
-							<div class="col-md-6">
-								<input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-							</div>
-						</div>
-
-					<input type="hidden" id="_token" name="_token" value="{{ csrf_token() }}">
-					<div class="text-right" >
-						<button type="button" class="btn btn-primary" onclick="update()">登録</button>
 					</div>
-					</form>
+					<div class="form-group" id="dia_passres">
+						<label class="col-sm-3 control-label" for="dia_passresck">パスワード再設定</label>
+						<div class="col-sm-9">
+							<input type="checkbox" class="form-check-input" id="dia_passresck" name="passresck" onclick="preset()">
+							<label class="form-check-label" for="dia_passresck">再設定</label>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="dia_password">パスワード</label>
+						<div class="col-sm-9">
+							<input type="password" class="form-control" id="dia_password" name="password" value="" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="dia_password_confirmation">パスワード再入力</label>
+						<div class="col-sm-9">
+							<input type="password" class="form-control" id="dia_password_confirmation" name="password_confirmation" value="" required>
+						</div>
+					</div>
+					<div class="form-group" id="dia_info">
+						<label class="col-sm-3 control-label" for="dia_infolabel"></label>
+						<div class="col-sm-9">
+							<label class="control-label" id="dia_infolabel"></label>
+						</div>
+					</div>
+					<input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
+					<div class="text-right" >
+						<button type="button" class="btn btn-primary" onclick="update()">変更</button>
+					</div>
+				</form>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+<script src="{{ asset('js/usersetting.js') }}"></script>
 @endsection
