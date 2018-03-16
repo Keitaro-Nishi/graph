@@ -49,7 +49,7 @@ class LogimageController {
 		$fileData = $logimages->image;
 
 		// 取得したバイナリデータをファイルに書き込んでレスポンスに返却
-		$imegeData = 'image.jpg';
+		$imegeData = 'image'.$id.'.jpg';
 		file_put_contents ( $imegeData, $fileData );
 		$headers = array ('Content-Type: image/jpg');
 
