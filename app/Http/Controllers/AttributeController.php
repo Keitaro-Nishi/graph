@@ -29,11 +29,13 @@ class AttributeController
 		//英訳
 		$watson = new Watson;
 		foreach ($codes as $recode){
-			foreach ($recode as $value){
+			$recodeEn = array();
+			foreach ($recodeEn as $value){
 				$value["meisho"] = $watson->callLT($citycode,"ja","en",$value["meisho"]);
 				error_log("★★★★★★★★★meisho★★★★★★★★★".$value["meisho"]);
+				array_push($recodeEn,$value);
 			}
-			array_push($codesEn, $recode);
+			array_push($codesEn, $recodeEn);
 		}
 
 		$userinfo =  Userinfo::where('citycode', $citycode)->where('userid', $id)->where('sender', $sender)->first();
