@@ -14,10 +14,6 @@ Route::get ( '/', function () {
 	return redirect ( '/login' );
 } );
 
-Route::get ( '/userinfo',function(){
-	return view('userinfo');
-});
-Route::post ( '/userinfo', 'UserinfoController@request' );
 
 Auth::routes ();
 
