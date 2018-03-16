@@ -19,7 +19,7 @@ $(function(){
 	var url = "";
 	var attrurl = "";
 
-	url = location.href;
+	url = location.href.join("/");
 	attrurl = url.replace( /webbot/g , "attribute" ) ;
 	console.log(attrurl);
 	//attrurl =
