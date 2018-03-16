@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-a
+パスワード変更
 @stop
 
 @section('content')
