@@ -18,18 +18,21 @@ class UsersettingController {
 		] );
 	}
 	public function update() {
-		$input = \Request::all ();
 		$userid = Auth::user ()->userid;
+
+		$input = \Request::all ();
 		$newName = $input ["username"];
 		$oldpassword = bcrypt ( $input ["oldpassword"] );
 		$newpassword = bcrypt ( $input ["password"] );
 
-		$nowpassword = User::select ( 'password' )->where ( 'userid', $userid );
-		error_log("????????????????". $nowpassword);
-		error_log("????????????????". $oldpassword);
 		return \Response::json ( [
 				'status' => 'OK'
 		] );
+
+		$nowpassword = User::select ( 'password' )->where ( 'userid', $userid );
+		error_log("????????????????". $nowpassword);
+		error_log("????????????????". $oldpassword);
+
 		/*
 		if ($nowpassword == $oldpassword) {
 			User::where ( 'userid', $userid )->update ( [
