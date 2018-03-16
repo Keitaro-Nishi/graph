@@ -12,19 +12,15 @@ $(function(){
 	var sexN = "";
 	var citycode ="";
 	var userid ="";
+	var userinfo = [];
 
 	citycode= document.getElementById('citycode').value;
 	userid= document.getElementById('userid').value;
+	userinfodata = document.getElementById('userinfo').value;
+	userinfo = JSON.parse(userinfodata);
 
 
-	var url = location.href + "/" + citycode + "/" + 2 + "/" +userid;
-	var attrurl = url.replace( /webbot/g , "attribute" ) ;
-
-
-	console.log(attrurl);
-
-
-	attributeSearch();
+	//attributeSearch();
 
 	  //初期メッセージ
 	  botui.message.bot({
@@ -72,9 +68,11 @@ $(function(){
 			  delay: 1000,
 			  content: message
 		  }).then(function() {
+			  var url = "";
 			  var attrurl = "";
 
-			  //attrurl = "http://gyosei-chatbot.herokuapp.com/attribute/"+citycode+"/2/"+userid+"";
+			  url = location.href + "/" + citycode + "/" + 2 + "/" +userid;
+			  attrurl = url.replace( /webbot/g , "attribute" );
 
 			  /*if (lang == "02"){
 				  attrurl = "https://gyoseibot.herokuapp.com/attribute_en.php?user=";
@@ -98,16 +96,17 @@ $(function(){
 
 	  //属性検索
 	  function attributeSearch(){
-		var param = { "user": user };
-		$.ajax({
-            type: "GET",
-            url: "attsearch.php",
-            data: param,
-            crossDomain: false,
-            dataType : "json",
-            scriptCharset: 'utf-8',
-            async: false
-        }).done(function(data){
+		  $.ajax({
+  			type: "POST",
+  			dataType: "JSON",
+  			data:{
+  				"param" : "search",
+  				"citycode" : citycode,
+  				"sender" : 2,
+  				"userid" : userid,
+  				"_token" : _token
+  			}
+  		}).done(function(data){
         	lang = data.lang;
         	sex = data.sex;
         	age = data.age;
@@ -118,6 +117,7 @@ $(function(){
         });
 	  }
 
+	  /*
 	  //検診相談
 	  function kenshin(){
 		  //属性登録チェック
@@ -203,6 +203,7 @@ $(function(){
 		  })
 	  }
 
+
 	  //Watson呼び出し
 	  function callWatson(param, kbn, text){
 		  var param = { "user": user , "param": param , "kbn": kbn, "text": text };
@@ -220,6 +221,7 @@ $(function(){
 	            alert(errorThrown);
 	        });
 	  }
+	  */
 
 });
 

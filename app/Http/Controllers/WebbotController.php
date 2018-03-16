@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\Userinfo;
 
 class WebbotController
 {
@@ -12,7 +13,10 @@ class WebbotController
 	{
 		$citycode = Auth::user()->citycode;
 		$userid = Auth::user()->userid;
+		$sender = 2;
 
-		return view('webbot',compact('citycode','userid'));
+		$userinfo = Userinfo::where('citycode', $citycode)->where('userid', $id)->where('sender', $sender)->first();
+
+		return view('webbot',compact('citycode','userid','userinfo'));
 	}
 }
