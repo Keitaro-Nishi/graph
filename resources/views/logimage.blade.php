@@ -24,7 +24,7 @@
 		@foreach($logimages as $logimage)
 		<tr>
 			<td>{{$logimage->no}}</td>
-			<td>{{$logimage->time}}</td>
+			<td>{{$logimage->time->format('Y年m月d日')}}</td>
 			<td>{{$logimage->userid}}</td>
 			<td></td>
 			<td>{{$logimage->class}}</td>
