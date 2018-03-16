@@ -25,7 +25,7 @@ class UsersettingController {
 		$oldpassword = bcrypt ( $input ["oldpassword"] );
 		$newpassword = bcrypt ( $input ["password"] );
 
-		$nowpassword = User::select ( 'password' )->where ( 'userid', $userid );
+		$nowpassword = User::select ( 'password' )->where ( 'userid', $userid )->first();
 		error_log("????????????????". $nowpassword);
 		error_log("????????????????". $oldpassword);
 
