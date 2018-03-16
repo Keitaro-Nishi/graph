@@ -19,22 +19,18 @@ class WebbotController
 
 		if(!$userinfo){
 
-			$userinfodata= [
-					'language'=>"",
-					'sex'=>0,
-					'age'=>999,
-			];
+			$language = "";
+			$sex = 0;
+			$age = 999;
 
 		}else{
 
-			$userinfodata= [
-					'language'=>$userinfo->language,
-					'sex'=>$userinfo->sex,
-					'age'=>$userinfo->age,
-			];
+			$language = $userinfo->language;
+			$sex = $userinfo->sex;
+			$age = $userinfo->age;
 
 		}
 
-		return view('webbot',compact('citycode','userid','userinfodata'));
+		return view('webbot',compact('citycode','userid','language','sex','age'));
 	}
 }
