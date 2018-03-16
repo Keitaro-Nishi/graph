@@ -9,7 +9,7 @@ function init() {
 			"image": function($column, $row) {
 				console.log($row.no);
 				//return "<img class='table-img' src='getimage.php?id=" + $row.no + "' />";
-				return "<img class='table-img' src='http://gchatbot-branch1.herokuapp.com/logimage/" + $row.no + "' />";
+				return "<img class='table-img' src='" + location.href + "/" + $row.no + "' />";
 				//return "<img class='table-img' src='data:image/jpeg;base64,'" + $row.imagest + "' />";
 			},
 			"zoom": function($column, $row) {
