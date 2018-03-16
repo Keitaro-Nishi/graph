@@ -96,4 +96,3 @@ function imgwin(imgno,bunrui,kakushin){
 	document.getElementById('dia_cont').style.width = imgwidth + "px";
 	document.getElementById("btn_modal").click();
 }
- */
