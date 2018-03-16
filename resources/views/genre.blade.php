@@ -82,7 +82,7 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_tel">小分類名称</label>
 						<div class="col-sm-10">
-							<input id="dia_g2meisho" class="form-control" maxlength="50" placeholder="小分類名称">
+							<input id="dia_g2meisho" class="form-control" maxlength="50" placeholder="小分類名称" required>
 						</div>
 					</div>
 				</form>
