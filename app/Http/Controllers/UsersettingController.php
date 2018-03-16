@@ -9,7 +9,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
 
 class UsersettingController {
-	public function index(Request $request) {
+	public function index() {
 		$userid = Auth::user ()->userid;
 		return view ( 'usersetting', [
 				'userid' => $userid
