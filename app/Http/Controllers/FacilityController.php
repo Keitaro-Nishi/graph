@@ -41,15 +41,17 @@ class FacilityController {
 		foreach ( $genre1value as $j1value ) {
 			$gid1 = $j1value->gid1;
 			$j2value = Genre::select ( 'gid2', 'meisho' )->where ( 'citycode', $cityCD )->where ( 'gid1', $gid1 )->where ( 'bunrui', 2 )->orderBy ( 'gid1', 'ASC' )->orderBy ( 'gid2', 'ASC' )->get ();
-			$genre2value = $genre2value + array ($gid1 => $j2value);
+			$genre2value = $genre2value + array (
+					$gid1 => $j2value
+			);
 		}
 		return view ( 'facility', [
 				'facilities' => $facilities,
 				'genre1value' => $genre1value,
-				'genre2value' => $genre2value,
+				'genre2value' => $genre2value
 		] );
 	}
-	//分岐
+	// 分岐
 	public function request() {
 		$this->requestall = \Request::all ();
 		if ($this->requestall ["param"] == "update") {
@@ -58,7 +60,7 @@ class FacilityController {
 			return $this->delete ();
 		}
 	}
-	//DB更新
+	// DB更新
 	public function update() {
 		$input = \Request::all ();
 		$rules = [
@@ -112,7 +114,7 @@ class FacilityController {
 					'imageurl' => $imageurl,
 					'url' => $url,
 					'geom' => \DB::raw ( "public.ST_GeomFromText('POINT({$lat} {$lng})',4326)" )
-					] );
+			] );
 		} else {
 			$result = DB::table ( 'facilit' )->where ( 'id', $id )->update ( [
 					'citycode' => $citycode,
@@ -127,17 +129,21 @@ class FacilityController {
 					'imageurl' => $imageurl,
 					'url' => $url,
 					'geom' => \DB::raw ( "public.ST_GeomFromText('POINT({$lat} {$lng})',4326)" )
-					] );
+			] );
 		}
-		return \Response::json(['status' => 'OK']);
+		return \Response::json ( [
+				'status' => 'OK'
+		] );
 	}
-	//削除
+	// 削除
 	public function delete() {
 		$input = $this->requestall;
 		$ids = $input ["ids"];
 		foreach ( $ids as $id ) {
 			DB::table ( 'facility' )->where ( 'id', $id )->delete ();
 		}
-		return \Response::json ( ['status' => 'OK'] );
+		return \Response::json ( [
+				'status' => 'OK'
+		] );
 	}
 }
