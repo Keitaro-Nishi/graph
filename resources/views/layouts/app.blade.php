@@ -89,14 +89,12 @@
 								@if (Auth::user()->role == 0 or Auth::user()->role == 1)
 								<li><a href="{{ route('users') }}">ユーザー管理</a></li>
 								<li><a href="{{ route('logindata') }}">ログイン情報</a></li>
-								<li><a href="{{ route('register') }}">Register</a></li>
 								@endif
-								<li><a href="{{ route('logout') }}"
-									onclick="event.preventDefault();
-											document.getElementById('logout-form').submit();"> Logout </a>
+								<li><a href="{{ route('usersetting') }}">パスワード変更</a></li>
+								<li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+									document.getElementById('logout-form').submit();"> Logout </a>
 
-									<form id="logout-form" action="{{ route('logout') }}"
-										method="POST" style="display: none;">{{ csrf_field() }}</form>
+									<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
 								</li>
 							</ul>
 						</li>
