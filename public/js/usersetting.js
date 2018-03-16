@@ -16,13 +16,24 @@ function update(){
 			"_token" : _token
 		}
 	}).done(function (response) {
-		bootbox.alert({
-			message: "更新しました",
-			size: 'small',
-			callback: function () {
-				location.reload();
-			}
-		});
+		if(response.status == "OK"){
+			bootbox.alert({
+				message: "更新しました",
+				size: 'small',
+				callback: function () {
+					location.reload();
+				}
+			});
+		}
+		else if(response.status == "NG"){
+			bootbox.alert({
+				message: "現在のパスワードが違います。",
+				size: 'small',
+				callback: function () {
+					location.reload();
+				}
+			});
+		}
 	}).fail(function () {
 		bootbox.alert({
 			message: "更新できませんでした",

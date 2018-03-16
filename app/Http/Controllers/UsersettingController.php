@@ -22,20 +22,14 @@ class UsersettingController {
 
 		$input = \Request::all ();
 		$newName = $input ["name"];
-		$oldpassword = bcrypt ( $input ["oldpassword"] );
+		$oldpassword = $input ["oldpassword"];
 		$newpassword = bcrypt ( $input ["password"] );
 
 		$nowpassword = User::select ( 'password' )->where ( 'userid', $userid )->first();
-		$testpassword = bcrypt ( $nowpassword );
-		error_log("????????????????". $testpassword);
 		error_log("????????????????". $oldpassword);
 
-		return \Response::json ( [
-				'status' => 'OK'
-		] );
-
-		/*
-		if ($nowpassword == $oldpassword) {
+		if (Hash::check($oldpassword, $nowpassword)) {
+			// パスワード一致
 			User::where ( 'userid', $userid )->update ( [
 					'name' => $newName,
 					'password' => $newpassword
@@ -48,6 +42,5 @@ class UsersettingController {
 					'status' => 'NG'
 			] );
 		}
-		*/
 	}
 }
