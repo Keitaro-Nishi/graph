@@ -11,10 +11,10 @@ use App\Logimage;
 class LogimageController {
 	public function index(Request $request) {
 		$cityCD = Auth::user()->citycode;
-		error_log("★★★★★★★★★citycode★★★★★★★★★".$cityCD);
 		if ($cityCD = "00000") {
 			$logimages = Logimage::all ();
 		} else {
+			error_log("★★★★★★★★★citycode★★★★★★★★★".$cityCD);
 			$logimages = Logimage::where('citycode', $cityCD)->get();
 		}
 		return view ( 'logimage', [
