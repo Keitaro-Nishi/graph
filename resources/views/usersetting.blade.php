@@ -15,15 +15,15 @@ a
 				<div class="panel-body">
 					<form class="form-horizontal">
 					<div class="form-group">
-						<label class="col-sm-3 control-label" for="dia_name">名前</label>
-						<div class="col-sm-9">
-							<input type="text" class="form-control" id="dia_name" name="name" value="{{$name}}" required>
-						</div>
-					</div>
-					<div class="form-group">
 						<label class="col-sm-3 control-label" for="dia_userid">ユーザーID</label>
 						<div class="col-sm-9">
 							<input type="text" class="form-control" id="dia_userid" name="userid" value="{{$userid}}　　※ログイン時に使用" disabled="disabled" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="dia_name">名前</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="dia_name" name="name" value="{{$name}}" required>
 						</div>
 					</div>
 					<div class="form-group">
