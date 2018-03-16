@@ -19,11 +19,6 @@ $(function(){
 	userinfodata = document.getElementById('userinfo').value;
 	userinfo = JSON.parse(userinfodata);
 
-	sex = userinfo['sex'];
-	age = userinfo['age']
-
-	console.log(sex);
-	console.log(age);
 
 
 	//attributeSearch();
