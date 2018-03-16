@@ -8,12 +8,13 @@ function update(){
 		type: "POST",
 		dataType: "JSON",
 		data: {
+			"param" : "update",
 			"userid" : userid,
 			"password" : password,
 			"password_confirmation" : password_confirmation,
 			"_token" : _token
 		}
-	}).done(function (update) {
+	}).done(function (response) {
 		bootbox.alert({
 			message: "更新しました",
 			size: 'small',

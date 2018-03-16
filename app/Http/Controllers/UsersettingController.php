@@ -15,6 +15,16 @@ class UsersettingController {
 				'userid' => $userid
 		] );
 	}
+	// 分岐
+	public function request() {
+		$this->requestall = \Request::all ();
+		if ($this->requestall ["param"] == "update") {
+			return $this->update ();
+		} elseif ($this->requestall ["param"] == "delete") {
+			return $this->delete ();
+		}
+	}
+
 	public function update() {
 		$oldID = Auth::user ()->userid;
 		$newID = $input ["userid"];
