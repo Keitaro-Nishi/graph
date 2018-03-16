@@ -17,7 +17,7 @@ a
 					<div class="form-group">
 						<label class="col-sm-3 control-label" for="dia_userid">ユーザーＩＤ</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" id="dia_userid" name="userid" value="" required>
+							<input type="text" class="form-control" id="dia_userid" name="userid" value="{{Auth::user()->userid}}" required>
 						</div>
 					</div>
 					<div class="form-group">
