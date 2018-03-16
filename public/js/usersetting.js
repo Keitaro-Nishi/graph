@@ -1,6 +1,7 @@
 function update(){
-	var userid = document.getElementById('dia_userid').value;
+	var name = document.getElementById('dia_name').value;
 	var password = document.getElementById('dia_password').value;
+	var oldpassword = document.getElementById('dia_oldpassword').value;
 	var password_confirmation = document.getElementById('dia_password_confirmation').value;
 	var _token = document.getElementById('_token').value;
 	console.log(_token);
@@ -8,7 +9,8 @@ function update(){
 		type: "POST",
 		dataType: "JSON",
 		data: {
-			"userid" : userid,
+			"name" : name,
+			"old_password" : old_password,
 			"password" : password,
 			"password_confirmation" : password_confirmation,
 			"_token" : _token

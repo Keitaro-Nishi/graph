@@ -15,13 +15,25 @@ a
 				<div class="panel-body">
 					<form class="form-horizontal">
 					<div class="form-group">
-						<label class="col-sm-3 control-label" for="dia_userid">ユーザーＩＤ</label>
+						<label class="col-sm-3 control-label" for="dia_userid">ユーザーID</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" id="dia_userid" name="userid" value="{{$userid}}" required>
+							<input type="text" class="form-control" id="dia_userid" name="userid" value="{{$userid}}" disabled="disabled" required>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-3 control-label" for="dia_password">パスワード</label>
+						<label class="col-sm-3 control-label" for="dia_name">名前</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="dia_name" name="name" value="{{$name}}" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="dia_oldpassword">現在のパスワード</label>
+						<div class="col-sm-9">
+							<input type="password" class="form-control" id="dia_oldpassword" name="oldpassword" value="" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="dia_password">新しいパスワード</label>
 						<div class="col-sm-9">
 							<input type="password" class="form-control" id="dia_password" name="password" value="" required>
 						</div>
@@ -30,12 +42,6 @@ a
 						<label class="col-sm-3 control-label" for="dia_password_confirmation">パスワード再入力</label>
 						<div class="col-sm-9">
 							<input type="password" class="form-control" id="dia_password_confirmation" name="password_confirmation" value="" required>
-						</div>
-					</div>
-					<div class="form-group" id="dia_info">
-						<label class="col-sm-3 control-label" for="dia_infolabel"></label>
-						<div class="col-sm-9">
-							<label class="control-label" id="dia_infolabel"></label>
 						</div>
 					</div>
 					<input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
