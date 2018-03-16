@@ -15,7 +15,7 @@ class WebbotController
 		$userid = Auth::user()->userid;
 		$sender = 2;
 
-		$userinfo = Userinfo::where('citycode', $citycode)->where('userid', $id)->where('sender', $sender)->first();
+		$userinfo = Userinfo::where('citycode', $citycode)->where('userid', $userid)->where('sender', $sender)->first();
 
 		return view('webbot',compact('citycode','userid','userinfo'));
 	}
