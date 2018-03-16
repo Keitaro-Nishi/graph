@@ -14,6 +14,9 @@ Route::get ( '/', function () {
 	return redirect ( '/login' );
 } );
 
+Route::get ( '/userinfo', 'UserinfoController@index' );
+Route::post ( '/userinfo', 'UserinfoController@request' );
+
 Auth::routes ();
 
 Route::middleware(['auth'])->group(function () {
