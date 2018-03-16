@@ -3,9 +3,9 @@ $(function(){
 	var msgIndex, key;
 	var botui = new BotUI('chat-app');
 	var user = "webtest";
-	//var lang = "";
-	//var sex = "0";
-	//var age = "999";
+	var language = "";
+	var sex = "0";
+	var age = "999";
 	var region = "";
 	var search = "";
 	var message = "";
