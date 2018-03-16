@@ -10,6 +10,9 @@ class WebbotController
 {
 	public function index(Request $request)
 	{
-		return view('webbot');
+		$citycode = Auth::user()->citycode;
+		$name = Auth::user()->name;
+
+		return view('webbot',compact('citycode','name'));
 	}
 }

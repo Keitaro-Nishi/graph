@@ -14,6 +14,8 @@
 	</div>
 </div>
 
+<input id="citycode" value = '{{ $citycode }}'>
+<input id="name"  value = '{{ $name }}'>
 
 <script src="{{ asset('js/webbot.js') }}"></script>
 @endsection
