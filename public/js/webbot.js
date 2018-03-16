@@ -78,6 +78,8 @@ $(function(){
 			language = response.language;
 	      	sex = response.sex;
 	      	age = response.age;
+	      	console.log(sex);
+	      	console.log(age);
 		  }).fail(function(){
 			  alert("エラーが発生しました。");
 		  });
