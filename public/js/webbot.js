@@ -61,6 +61,26 @@ $(function(){
 		  })
 	  }
 
+	  function attributeSearch(){
+		  var _token = document.getElementById('_token').value;
+
+		  type: "POST",
+			dataType: "JSON",
+			data: {
+				"param" : "search",
+				"citycode" : citycode,
+				"userid" : userid,
+				"sender" : 2,
+				"_token" : _token
+			}
+	  }).done(function(data){
+		language = data.language;
+      	sex = data.sex;
+      	age = data.age;
+	  }).fail(function(){
+		  alert("エラーが発生しました。");
+	  }
+
 
 	  //属性登録
 	  function attribute(){
@@ -87,10 +107,10 @@ $(function(){
 						age = "0" + age;
 					}
 			  }
-			  botui.message.add({
+			  /*botui.message.add({
 			        delay: 1000,
 			        content: '[属性登録](' + attrurl + user.substr(0, 1) + sex + user.substr(1, 1) + age + user.substr(2, 1) + region + user.substr(3) + ')^'
-			  });
+			  });*/
 		  }).then(init);
 	  }
 
@@ -98,7 +118,7 @@ $(function(){
 	  //検診相談
 	  function kenshin(){
 		  //属性登録チェック
-		  //attributeSearch();
+		  attributeSearch();
 		  if(sex == "0" || age == "999"){
 			  message = '申し訳ありませんが、先に以下のリンクより属性登録をお願いします。';
 			  attribute();
