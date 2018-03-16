@@ -12,12 +12,15 @@
 			<th data-column-id="meisho">名称</th>
 			<th data-column-id="jusho">住所</th>
 			<th data-column-id="tel">電話番号</th>
-			<th data-column-id="genre1">ジャンル１</th>
-			<th data-column-id="genre2">ジャンル2</th>
+			<th data-column-id="genre1" data-visible="false"></th>
+			<th data-column-id="genre1N">ジャンル1</th>
+			<th data-column-id="genre2" data-visible="false"></th>
+			<th data-column-id="genre2N">ジャンル2</th>
 			<th data-column-id="lat">緯度</th>
 			<th data-column-id="lng">経度</th>
 			<th data-column-id="imageurl">画像URL</th>
 			<th data-column-id="url">詳細URL</th>
+			<th data-column-id="citycode" data-visible="false"></th>
 			<th data-column-id='detail' data-formatter='mods' data-sortable='false'></th>
 		</tr>
 	</thead>
@@ -29,11 +32,14 @@
 			<td>{{$facility->jusho}}</td>
 			<td>{{$facility->tel}}</td>
 			<td>{{$facility->genre1}}</td>
+			<td>{{$facility->meisho1}}</td>
 			<td>{{$facility->genre2}}</td>
+			<td>{{$facility->meisho2}}</td>
 			<td>{{$facility->lat}}</td>
 			<td>{{$facility->lng}}</td>
 			<td>{{$facility->imageurl}}</td>
 			<td>{{$facility->url}}</td>
+			<td>{{$facility->citycode}}</td>
 			<td></td>
 		</tr>
 		@endforeach
@@ -77,16 +83,17 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_genre1">ジャンル１</label>
 						<div class="col-sm-10">
-							<select class="form-control" id="dia_genre1" name="genre1">
-								<option value=0>ジャンル無し</option>
+							<select class="form-control" id="dia_genre1" name="genre1" onChange="genre1change()">
+								@foreach($genre1value as $value)
+								<option value="{{$value->gid1}}" selected>{{$value->meisho}}</option>
+								@endforeach
 							</select>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_genre2">ジャンル２</label>
 						<div class="col-sm-10">
-							<select class="form-control" id="dia_genre2" name="genre2">
-								<option value=0>ジャンル無し</option>
+							<select class="form-control" id="dia_genre2">
 							</select>
 						</div>
 					</div>
@@ -121,17 +128,18 @@
 		</div>
 	</div>
 </div>
-@if (Auth::user()->citycode != 00000)
+
 <div class="container" align="center">
+	@if (Auth::user()->citycode != 00000)
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
 	<input id="btn_ins" type="button" class="btn btn-default" value="施設登録" onclick="insert()">
+	@endif
 	<input id="btn_modal" type="button" style="display:none" data-toggle="modal"  data-target="#shosaiDialog"/>
 </div>
-@else
-<div class="container" align="center">
-	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
-</div>
-@endif
 <script src="{{ asset('js/facility.js') }}"></script>
-
+<script>
+var genre1value = @json($genre1value);
+var genre2value = @json($genre2value);
+init();
+</script>
 @endsection

@@ -68,7 +68,6 @@
 								<li><a href="{{ route('facility') }}">施設情報</a></li>
 								<li><a href="{{ route('genre') }}">施設ジャンル</a></li>
 								<li><a href="{{ route('opinion') }}">ご意見ログ</a></li>
-								<li><a href="{{ route('register') }}">属性情報</a></li>
 								<li><a href="{{ route('linepush') }}">LINEプッシュ通知</a></li>
 								<li><a href="{{ route('messagemanage') }}">メッセージ管理</a></li>
 								@if (Auth::user()->role == 0 or Auth::user()->role == 1)
@@ -93,7 +92,7 @@
 								@endif
 								<li><a href="{{ route('logout') }}"
 									onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();"> Logout </a>
+											document.getElementById('logout-form').submit();"> Logout </a>
 
 									<form id="logout-form" action="{{ route('logout') }}"
 										method="POST" style="display: none;">{{ csrf_field() }}</form>

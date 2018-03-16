@@ -11,7 +11,7 @@ class Logimage extends Model
 
 	protected $fillable = [
 
-	'citycode', 'no', 'time', 'userid',/* 'image', */'score', 'class'
+	'citycode', 'no', 'time', 'userid', 'image', 'score', 'class'
 
 	];
 

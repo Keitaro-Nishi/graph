@@ -1,16 +1,16 @@
 var rowIds = [];
-$(function() {
+
+function init() {
 	$("#grid-basic").bootgrid({
 		selection : true,
 		multiSelect : true,
 		keepSelection : true,
 		columnSelection : false,
-	    formatters: {
-	        "mods": function($column, $row) {
-	        	return "<input type='button' class='btn btn-default' value='修正' onclick='modwin("  + $row.id + ",\"" + $row.meisho + "\",\"" + $row.jusho + "\",\"" + $row.tel + "\",\"" + $row.genre1 + "\",\"" + $row.genre2 + "\",\"" + $row.lat + "\",\"" + $row.lng + "\",\"" + $row.imageurl + "\",\"" + $row.url + "\")' > ";
-             }
-	    }
-
+		formatters: {
+			"mods": function($column, $row) {
+				return "<input type='button' class='btn btn-default' value='修正' onclick='modwin("  + $row.id + ",\"" + $row.meisho + "\",\"" + $row.jusho + "\",\"" + $row.tel + "\",\"" + $row.genre1 + "\",\"" + $row.genre2 + "\",\"" + $row.lat + "\",\"" + $row.lng + "\",\"" + $row.imageurl + "\",\"" + $row.url + "\")' > ";
+			}
+		}
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
 		for (var i = 0; i < rows.length; i++) {
 			rowIds.push(rows[i].id);
@@ -23,51 +23,58 @@ $(function() {
 			});
 		}
 	});
-	/*
-	//ジャンルの設定
-	var genre1value = <?php echo json_encode($genre1value); ?>;
-	var select = document.getElementById('dia_genre1');
-	for( var key in genre1value ) {
-		var option = document.createElement('option');
-		option.setAttribute('value', key);
-		var text = document.createTextNode(genre1value[key]);
-		option.appendChild(text);
-		select.appendChild(option);
-	}
-	genre1change();
-	 */
-});
-
+}
+//施設情報削除
 function drow() {
 	if(rowIds.length == 0){
-		alert("削除する行を選択してください");
+		bootbox.alert({
+			message: "削除する行を選択してください",
+			size: 'small'
+		});
 		return;
 	}
-	var successFlg = true;
-	var myRet = confirm("選択行を削除しますか？");
-	if ( myRet == true ){
-		for (var i = 0; i < rowIds.length; i++){
-			$.ajax({
-				type: "DELETE",
-				url: 'facility/'+ rowIds[i],
-			}).then(
-					function(){
-					},
-					function(){
-						successFlg = false;
+
+	bootbox.confirm({
+		message: "選択行を削除しますか？",
+		buttons: {
+			confirm: {
+				label: '<i class="fa fa-check"></i> はい'
+			},
+			cancel: {
+				label: '<i class="fa fa-times"></i> いいえ'
+			}
+		},
+		callback: function (result) {
+			if(result){
+				var _token = document.getElementById('_token').value;
+				$.ajax({
+					type: "POST",
+					dataType: "JSON",
+					data:{
+						"param" : "delete",
+						"ids" : rowIds,
+						"_token" : _token
 					}
-			);
+				}).done(function (response) {
+					bootbox.alert({
+						message: "削除しました",
+						size: 'small',
+						callback: function () {
+							location.reload();
+						}
+					});
+				}).fail(function () {
+					bootbox.alert({
+						message: "削除できませんでした",
+						size: 'small'
+					});
+				});
+			}
 		}
-		if( successFlg == true){
-			alert("削除しました");
-			location.reload();
-		}else{
-			alert("削除できませんでした");
-		}
-	}
+	});
 }
 
-/*  施設情報修正  */
+//施設情報修正
 function modwin(id,meisho,jusho,tel,genre1,genre2,lat,lng,imageurl,url){
 	document.getElementById('modal-label').innerHTML  = "施設情報修正";
 	modID = id;
@@ -77,6 +84,7 @@ function modwin(id,meisho,jusho,tel,genre1,genre2,lat,lng,imageurl,url){
 	document.getElementById('dia_jusho').value = jusho;
 	document.getElementById('dia_tel').value = tel;
 	document.getElementById('dia_genre1').value = genre1;
+	genre1change();
 	document.getElementById('dia_genre2').value = genre2;
 	document.getElementById('dia_latlng').value = lat + "," + lng;
 	document.getElementById('dia_imageurl').value = imageurl;
@@ -85,30 +93,28 @@ function modwin(id,meisho,jusho,tel,genre1,genre2,lat,lng,imageurl,url){
 }
 
 function insert() {
-	console.log('insert');
 	document.getElementById('dia_id').value = "";
+	document.getElementById('dia_genre1').value = 0;
 	document.getElementById("modal-label").innerHTML  = "施設登録";
 	initmodal();
 	document.getElementById("btn_modal").click();
 }
-/*
+
 //ジャンル選択
 function genre1change(){
 	var select = document.getElementById('dia_genre2');
 	while (0 < select.childNodes.length) {
 		select.removeChild(select.childNodes[0]);
 	}
-	var genre2value = <?php echo json_encode($genre2value); ?>;
-	var janru = genre2value[document.getElementById('dia_genre1').value];
-	for( var key in janru ) {
+	g2value = genre2value[document.getElementById('dia_genre1').value];
+	for(var i = 0; i < g2value.length; i++) {
 		var option = document.createElement('option');
-		option.setAttribute('value', key);
-		var text = document.createTextNode(janru[key]);
+		option.setAttribute('value', g2value[i]['gid2']);
+		var text = document.createTextNode(g2value[i]['meisho']);
 		option.appendChild(text);
 		select.appendChild(option);
 	}
 }
- */
 
 //ダイアログ初期化
 function initmodal(){
@@ -116,15 +122,13 @@ function initmodal(){
 	document.getElementById('dia_jusho').value = "";
 	document.getElementById('dia_tel').value = "";
 	document.getElementById('dia_genre1').selectedIndex = 0;
-	//genre1change();
-	document.getElementById('dia_genre2').selectedIndex = 0;
+	genre1change();
 	document.getElementById('dia_latlng').value = "";
 	document.getElementById('dia_imageurl').value = "";
 	document.getElementById('dia_url').value = "";
 }
 
 function update(){
-
 	var id = document.getElementById('dia_id').value;
 	var meisho = document.getElementById('dia_meisho').value;
 	var jusho = document.getElementById('dia_jusho').value;
@@ -139,12 +143,11 @@ function update(){
 	var url = document.getElementById('dia_url').value;
 	var _token = document.getElementById('_token').value;
 
-	console.log(id);
-
 	$.ajax({
 		type: "POST",
 		dataType: "JSON",
 		data: {
+			"param" : "update",
 			"id" : id,
 			"meisho" : meisho,
 			"jusho" : jusho,
@@ -158,32 +161,13 @@ function update(){
 			"_token" : _token
 		}
 	}).done(function (response) {
-		if(response.status == "OK"){
-			bootbox.alert({
-				message: "更新しました",
-				size: 'small',
-				callback: function () {
-					location.reload();
-				}
-			});
-		}else if(response.status == "NG"){
-			bootbox.alert({
-				message: "更新できませんでした",
-				size: 'small'
-			});
-		}else{
-			var mes = "";
-			for (var item in response) {
-				if(mes != ""){
-					mes = mes + "<br>";
-				}
-				mes = mes + response[item][0];
+		bootbox.alert({
+			message: "更新しました",
+			size: 'small',
+			callback: function () {
+				location.reload();
 			}
-			bootbox.alert({
-				message: mes,
-				size: 'small'
-			});
-		}
+		});
 	}).fail(function () {
 		bootbox.alert({
 			message: "更新できませんでした",

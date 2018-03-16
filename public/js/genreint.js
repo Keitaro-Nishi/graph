@@ -11,75 +11,69 @@ var rowgid2 = [];
 var wtable = document.getElementById('grid-basic');
 $(function(){
 
-	//ジャンルの設定
-	/*
-	var j1value = <?php echo json_encode($j1value); ?>;
-	var select = document.getElementById('g1');
-	for( var key in j1value ) {
-		var option = document.createElement('option');
-		option.setAttribute('value', key);
-		var text = document.createTextNode(j1value[key]);
-		option.appendChild(text);
-		select.appendChild(option);
-	}*/
 	//テーブル追加
 	getwtint();
-	/*
-	var wtable = document.getElementById('grid-basic');
-	var raw = wtable.insertRow( -1 );
-	var td1 = raw.insertCell(-1),td2 = raw.insertCell(-1);
-	td1.innerHTML = "テスト";
-	td2.innerHTML = '<input type="button" value="行削除" onclick="delLine(this)" />';
-	*/
+
 });
+
 //インテント取得
 function getwtint(){
-	//g1meisho = document.getElementById('g1').options[document.getElementById('g1').selectedIndex].text;
 	g1meisho = document.getElementById('g1').value;
+	var _token = document.getElementById('_token').value;
+
+
 	$.ajax({
 		type: "POST",
-		url: "cw2.php",
+		dataType: "JSON",
 		data: {
 			"param" : "intentSearch",
 			"g1meisho" : g1meisho,
 			"g2meisho" : "",
-			"sword" : ""
+			"sword" : "",
+			"_token" : _token
 		}
 	}).done(function (response) {
-		result = JSON.parse(response);
-		for( var index in result ) {
+
+		for( var i =0; i<response.length; i++ ) {
 			var raw = wtable.insertRow( -1 );
 			var td1 = raw.insertCell(-1),td2 = raw.insertCell(-1);
 			td2.style.width = "50px";
-			td1.innerHTML = result[index];
-			td2.innerHTML = '<input type="button" value="削除" class="btn btn-default" onclick="delLine(\'' + result[index] + '\',this)" />';
+			console.log(response[i]);
+			td1.innerHTML = response[i];
+			td2.innerHTML = '<input type="button" value="削除" class="btn btn-default" onclick="delLine(\'' + response[i] + '\',this)" />';
+			//alert("成功");
 		}
     }).fail(function () {
         alert("Watsonデータの取得に失敗しました");
     });
 }
+
 //分類選択
 function g1change(){
+
 	//テーブル初期化
 	while( wtable.rows[ 1 ] ) wtable.deleteRow( 1 );
 	getwtint();
 }
+
 //更新
 function update(){
 	intent = document.getElementById('intent').value;
 	g1meisho = document.getElementById('g1').value;
+	var _token = document.getElementById('_token').value;
+
 	$.ajax({
 		type: "POST",
-		url: "cw2.php",
-		data: {
+		dataType: "JSON",
+		data:{
 			"param" : "intentUpdate",
 			"g1meisho" : g1meisho,
 			"g2meisho" : "",
-			"sword" : intent
+			"sword" : intent,
+			"_token" : _token
 		}
 	}).done(function (response) {
-		result = JSON.parse(response);
-		if(result == "OK"){
+		if(response.status == "OK"){
 			alert("更新しました");
 			var raw = wtable.insertRow( -1 );
 			var td1 = raw.insertCell(-1),td2 = raw.insertCell(-1);
@@ -98,20 +92,23 @@ function update(){
 //行削除
 function delLine(value,raw){
 	var myRet = confirm("検索ワード「"+ value + "」を削除しますか？");
+	var _token = document.getElementById('_token').value;
+
 	if ( myRet == true ){
 		g1meisho = document.getElementById('g1').value;
 		$.ajax({
 			type: "POST",
-			url: "cw2.php",
+			dataType: "JSON",
 			data: {
 				"param" : "intentDelete",
 				"g1meisho" : g1meisho,
 				"g2meisho" : "",
-				"sword" : value
+				"sword" : value,
+				"_token" : _token
 			}
 		}).done(function (response) {
-			result = JSON.parse(response);
-			if(result == "OK"){
+
+			if(response.status == "OK"){
 				alert("削除しました");
 				tr = raw.parentNode.parentNode;
 				tr.parentNode.deleteRow(tr.sectionRowIndex);
@@ -122,9 +119,10 @@ function delLine(value,raw){
 	        alert("削除できませんでした");
 	    });
 	}
+
 }
 
 //もどる
 function back(){
-	window.location.href = "./genre.blade.php";
+	window.location.href = "./genre";
 }
