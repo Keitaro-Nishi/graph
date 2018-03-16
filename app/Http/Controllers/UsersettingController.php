@@ -40,21 +40,22 @@ class UsersettingController extends Controller {
 		$nowpassword = User::select ( 'password', 'name' )->where ( 'userid', $userid )->first ();
 
 		if (Hash::check ( $oldpassword, $nowpassword->password )) {
-
-			if (Hash::check ( $password, $nowpassword->password )) {
-
-				return \Response::json ( [
-						'status' => 'BACK'
-				] );
-			} else {
-				User::where ( 'userid', $userid )->update ( [
-						'name' => $newName,
-						'password' => $newpassword
-				] );
-				return \Response::json ( [
-						'status' => 'OK'
-				] );
-			}
+			/*
+			 * if (Hash::check ( $password, $nowpassword->password )) {
+			 *
+			 * return \Response::json ( [
+			 * 'status' => 'BACK'
+			 * ] );
+			 * } else {
+			 */
+			User::where ( 'userid', $userid )->update ( [
+					'name' => $newName,
+					'password' => $newpassword
+			] );
+			return \Response::json ( [
+					'status' => 'OK'
+			] );
+			// }
 		} else {
 			return \Response::json ( [
 					'status' => 'NG'
