@@ -1,7 +1,7 @@
 function update(){
 	var userid = document.getElementById('dia_userid').value;
-	var password = document.getElementById('dia_userid').value;
-	var password_confirmation = document.getElementById('dia_userid').value;
+	var password = document.getElementById('dia_password').value;
+	var password_confirmation = document.getElementById('dia_password_confirmation').value;
 	var _token = document.getElementById('_token').value;
 	$.ajax({
 		type: "POST",

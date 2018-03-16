@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class UsersettingController {
 
-	public function index() {
+	public function index(Request $request) {
 		return view('usersetting');
 	}
 
