@@ -9,6 +9,9 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
 
 class UsersettingController {
+	
+	
+	
 	public function update() {
 		$oldID = Auth::user ()->usesrid;
 		User::where ( 'userid', $oldID )->update ( [
