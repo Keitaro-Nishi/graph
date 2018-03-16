@@ -13,7 +13,9 @@ $(function(){
 	var citycode ="";
 	var userid ="";
 	var userinfo = [];
+	var url = "";
 
+	url = location.href + "/" + citycode + "/" + 2 + "/" +userid;
 	citycode= document.getElementById('citycode').value;
 	userid= document.getElementById('userid').value;
 
@@ -90,10 +92,9 @@ $(function(){
 			  delay: 1000,
 			  content: message
 		  }).then(function() {
-			  var url = "";
 			  var attrurl = "";
 
-			  url = location.href + "/" + citycode + "/" + 2 + "/" +userid;
+			  //url = location.href + "/" + citycode + "/" + 2 + "/" +userid;
 			  attrurl = url.replace( /webbot/g , "attribute" );
 
 			  /*if (lang == "02"){
@@ -109,10 +110,10 @@ $(function(){
 						age = "0" + age;
 					}
 			  }
-			  /*botui.message.add({
+			  botui.message.add({
 			        delay: 1000,
 			        content: '[属性登録](' + attrurl + user.substr(0, 1) + sex + user.substr(1, 1) + age + user.substr(2, 1) + region + user.substr(3) + ')^'
-			  });*/
+			  });
 		  }).then(init);
 	  }
 
