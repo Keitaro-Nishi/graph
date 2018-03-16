@@ -21,7 +21,7 @@ class UsersettingController {
 		$userid = Auth::user ()->userid;
 
 		$input = \Request::all ();
-		$newName = $input ["username"];
+		$newName = $input ["name"];
 		$oldpassword = bcrypt ( $input ["oldpassword"] );
 		$newpassword = bcrypt ( $input ["password"] );
 
