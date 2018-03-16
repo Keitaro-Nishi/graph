@@ -125,8 +125,9 @@ $(function(){
 	  //検診相談
 	  function kenshin(){
 		  //属性登録チェック
-		  attributeSearch();
-		  if(sex == "0" || age == "999"){
+		  //attributeSearch();
+		  //if(sex == "0" || age == "999"){
+		  if(!userinfo){
 			  message = '申し訳ありませんが、先に以下のリンクより属性登録をお願いします。';
 			  attribute();
 			  return;
