@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Userinfo extends Model
 {
+
     /**
      * The attributes that are mass assignable.
      *
@@ -28,3 +29,5 @@ class Userinfo extends Model
     public $incrementing = FALSE;
     protected $table = 'userinfo';
 }
+
+
