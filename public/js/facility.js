@@ -56,15 +56,13 @@ function drow() {
 						"_token" : _token
 					}
 				}).done(function (response) {
-					if(response.status == "OK"){
-						bootbox.alert({
-							message: "削除しました",
-							size: 'small',
-							callback: function () {
-								location.reload();
-							}
-						});
-					}
+					bootbox.alert({
+						message: "削除しました",
+						size: 'small',
+						callback: function () {
+							location.reload();
+						}
+					});
 				}).fail(function () {
 					bootbox.alert({
 						message: "削除できませんでした",
@@ -87,13 +85,7 @@ function modwin(id,meisho,jusho,tel,genre1,genre2,lat,lng,imageurl,url){
 	document.getElementById('dia_tel').value = tel;
 	document.getElementById('dia_genre1').value = genre1;
 	genre1change();
-	var options = document.getElementById('dia_genre2').options;
-	for(var i = 0; i < options.length; i++){
-		if(options[i].text === genre2){
-			options[i].selected = true;
-			break;
-		};
-	};
+	document.getElementById('dia_genre2').value = genre2;
 	document.getElementById('dia_latlng').value = lat + "," + lng;
 	document.getElementById('dia_imageurl').value = imageurl;
 	document.getElementById('dia_url').value = url;
@@ -118,7 +110,7 @@ function genre1change(){
 	console.log(g2value);
 	for(var i = 0; i < g2value.length; i++) {
 		var option = document.createElement('option');
-		option.setAttribute('value', g2value[i]['gid1']);
+		option.setAttribute('value', g2value[i]['gid2']);
 		var text = document.createTextNode(g2value[i]['meisho']);
 		option.appendChild(text);
 		select.appendChild(option);
@@ -138,7 +130,6 @@ function initmodal(){
 }
 
 function update(){
-
 	var id = document.getElementById('dia_id').value;
 	var meisho = document.getElementById('dia_meisho').value;
 	var jusho = document.getElementById('dia_jusho').value;
@@ -171,27 +162,13 @@ function update(){
 			"_token" : _token
 		}
 	}).done(function (response) {
-		if(response.status == ""){
-			bootbox.alert({
-				message: "更新しました",
-				size: 'small',
-				callback: function () {
-					location.reload();
-				}
-			});
-		}else{
-			var mes = "";
-			for (var item in response) {
-				if(mes != ""){
-					mes = mes + "<br>";
-				}
-				mes = mes + response[item][0];
+		bootbox.alert({
+			message: "更新しました",
+			size: 'small',
+			callback: function () {
+				location.reload();
 			}
-			bootbox.alert({
-				message: mes,
-				size: 'small'
-			});
-		}
+		});
 	}).fail(function () {
 		bootbox.alert({
 			message: "更新できませんでした",
