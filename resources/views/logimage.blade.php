@@ -14,8 +14,8 @@
 			<th data-column-id='time' data-identifier="true">日時</th>
 			<th data-column-id='userid'>ユーザーID</th>
 			<th data-column-id='image' data-formatter='image'>送信画像</th>
-			<th data-column-id='class'>分類</th>
-			<th data-column-id='score'>確信度</th>
+			<th data-column-id='cls'>分類</th>
+			<th data-column-id='scr'>確信度</th>
 			<th data-column-id='zm' data-width='7%' data-formatter='zoom'
 				data-sortable='false'></th>
 		</tr>
@@ -34,6 +34,7 @@
 		@endforeach
 	</tbody>
 </table>
+<input type="hidden" id="_token" name="_token" value="{{ csrf_token() }}">
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
 	<input id="btn_modal" type="button" style="display: none" data-toggle="modal" data-target="#image_Modal" value="モーダル表示" />
@@ -45,8 +46,6 @@
 				<p id="dia_kaku"></p>
 				<img id="dia_image" />
 			</div>
-			<input type="hidden" id="_token" name="_token"
-				value="{{ csrf_token() }}">
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
 			</div>

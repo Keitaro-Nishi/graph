@@ -10,7 +10,7 @@ function init() {
 				return "<img class='table-img' src='" + location.href + "/" + $row.no + "' />";
 			},
 			"zoom": function($column, $row) {
-				return "<input type='button' class='btn btn-default' value='画像拡大' onclick='imgwin("  + $row.no + ",\"" + $row.class + "\"," + $row.score + ")'> ";
+				return "<input type='button' class='btn btn-default' value='画像拡大' onclick='imgwin("  + $row.no + ",\"" + $row.cls + "\"," + $row.scr + ")'> ";
 			}
 		}
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
