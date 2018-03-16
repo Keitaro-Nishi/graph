@@ -15,9 +15,13 @@ class UsersettingController {
 	}
 
 	public function update() {
-		$user->userid= $input["userid"];
-		$user->password= bcrypt($input["password"]);
-		$result = $user->save();
+		$oldID = Auth::user ()->usesrid;
+		$newID= $input["userid"];
+		$newpassword= bcrypt($input["password"]);
+		User::where ( 'userid', $oldID )->update ( [
+				'userid' => $newID ,
+				'password' => $newpassword
+		] );
 		return \Response::json ( [
 				'status' => 'OK'
 		] );
