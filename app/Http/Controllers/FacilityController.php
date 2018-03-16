@@ -64,14 +64,14 @@ class FacilityController {
 	public function update() {
 		$input = \Request::all ();
 		$rules = [
-				'meisho' => 'string|max:255',
-				'jusho' => 'string|max:255',
-				'tel' => 'string|max:14',
-				'genre1' => 'integer',
-				'genre2' => 'integer',
+				'meisho' => 'required|string|max:255',
+				'jusho' => 'required|string|max:255',
+				'tel' => 'required|string|max:14',
+				'genre1' => 'required|integer',
+				'genre2' => 'required|nteger',
 				'genre3' => 'integer',
-				'imageurl' => 'string',
-				'url' => 'string'
+				'imageurl' => 'required|string',
+				'url' => 'required|string'
 		];
 
 		$validator = Validator::make ( $input, $rules );
