@@ -65,6 +65,11 @@ class WebbotController
 			$age = $userinfo->age;
 
 		}
+
+		error_log($language);
+		error_log($sex);
+		error_log($age);
+
 		return \Response::json(['language' =>$language,'sex' =>$sex,'age' =>$age]);
 	}
 }
