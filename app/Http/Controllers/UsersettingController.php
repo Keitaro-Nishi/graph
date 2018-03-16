@@ -19,19 +19,19 @@ class UsersettingController extends Controller {
 	}
 	public function update() {
 		$userid = Auth::user ()->userid;
-		/*
-		 * $rules = [
-		 * 'name' => 'required|string|max:255',
-		 * 'password' => 'required|string|min:6|confirmed'
-		 * ];
-		 *
-		 * $validator = Validator::make ( $input, $rules );
-		 *
-		 * if ($validator->fails ()) {
-		 * return $validator->errors ();
-		 * }
-		 */
 		$input = \Request::all ();
+
+		$rules = [
+				'name' => 'required|string|max:255',
+				'password' => 'required|string|min:6|confirmed'
+		];
+
+		$validator = Validator::make ( $input, $rules );
+
+		if ($validator->fails ()) {
+			return $validator->errors ();
+		}
+
 		$newName = $input ["name"];
 		$oldpassword = $input ["oldpassword"];
 		$password = $input ["password"];

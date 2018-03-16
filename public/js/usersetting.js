@@ -28,17 +28,11 @@ function update(){
 			bootbox.alert({
 				message: "現在のパスワードが間違っています。",
 				size: 'small',
-				callback: function () {
-					location.reload();
-				}
 			});
 		}else if(response.status == "BACK"){
 			bootbox.alert({
 				message: "パスワードに変更がありません。",
 				size: 'small',
-				callback: function () {
-					location.reload();
-				}
 			});
 		}
 	}).fail(function () {
