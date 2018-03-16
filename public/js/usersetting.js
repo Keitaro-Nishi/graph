@@ -13,7 +13,7 @@ function update(){
 			"password_confirmation" : password_confirmation,
 			"_token" : _token
 		}
-	}).done(function (response) {
+	}).done(function (update) {
 		bootbox.alert({
 			message: "更新しました",
 			size: 'small',
