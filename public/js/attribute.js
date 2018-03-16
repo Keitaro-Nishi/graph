@@ -23,6 +23,16 @@ function init(){
 
 //言語変更
 function languageChange(){
+	//selectedIndex退避
+	var sex_Sidx = document.getElementById('sex').selectedIndex;
+	var option_Sidx = [];
+	for(var i = 1; i < 11; i++){
+		if(document.getElementById('option'+i)){
+			option_Sidx.push(document.getElementById('option'+i).selectedIndex);
+		}else{
+			option_Sidx.push(0);
+		}
+	}
 	var sex = document.getElementById('sex');
 	while (0 < sex.childNodes.length) {
 		sex.removeChild(sex.childNodes[0]);
@@ -47,6 +57,14 @@ function languageChange(){
 		setSelectValue(sex,"2","Female");
 		document.getElementById('label_age').innerHTML = "Age";
 		optionSetting(codesEn);
+	}
+
+	//selectedIndex設定
+	document.getElementById('sex').selectedIndex = sex_Sidx;
+	for(var i = 1; i < 11; i++){
+		if(document.getElementById('option'+i)){
+			document.getElementById('option'+i).selectedIndex = option_Sidx[i-1];
+		}
 	}
 }
 
