@@ -21,13 +21,6 @@ $(function(){
 	var sex = document.getElementById('sex').value;
 	var age = document.getElementById('age').value;
 
-	console.log(language);
-	console.log(sex);
-	console.log(age);
-
-
-
-	//attributeSearch();
 
 	  //初期メッセージ
 	  botui.message.bot({
@@ -100,31 +93,6 @@ $(function(){
 			  });
 		  }).then(init);
 	  }
-
-	  /*
-	  //属性検索
-	  function attributeSearch(){
-		  $.ajax({
-  			type: "POST",
-  			dataType: "JSON",
-  			data:{
-  				"param" : "search",
-  				"citycode" : citycode,
-  				"sender" : 2,
-  				"userid" : userid,
-  				"_token" : _token
-  			}
-  		}).done(function(data){
-        	lang = data.lang;
-        	sex = data.sex;
-        	age = data.age;
-        	region = data.region;
-        	search = data.search;
-        }).fail(function(XMLHttpRequest, textStatus, errorThrown){
-            alert(errorThrown);
-        });
-	  }
-	  */
 
 
 	  //検診相談
