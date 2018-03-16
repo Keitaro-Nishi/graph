@@ -73,10 +73,12 @@ class FacilityController {
 				'imageurl' => 'string',
 				'url' => 'string'
 		];
+
 		$validator = Validator::make ( $input, $rules );
 		if ($validator->fails ()) {
 			return $validator->errors ();
 		}
+
 		$id = $input ["id"];
 		// 市町村コード
 		$citycode = Auth::user ()->citycode;

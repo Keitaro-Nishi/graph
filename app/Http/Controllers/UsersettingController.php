@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -42,12 +43,10 @@ class UsersettingController extends Controller {
 		if (Hash::check ( $oldpassword, $nowpassword->password )) {
 
 			if (Hash::check ( $password, $nowpassword->password )) {
-
 				return \Response::json ( [
 						'status' => 'BACK'
 				] );
 			} else {
-
 				User::where ( 'userid', $userid )->update ( [
 						'name' => $newName,
 						'password' => $newpassword
