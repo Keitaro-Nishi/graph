@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+LINEプッシュ通知送信
+@stop
+
 @section('content')
 <div class="container">
 	<div class="panel panel-default">
@@ -9,7 +13,7 @@
 	<div class="form-group">
 		<label class="col-sm-2 control-label" for="taisho">送信対象者数</label>
 		<div class="col-sm-2">
-			<input class="form-control" id="taisho" readonly>
+			<input class="form-control" id="taisho" value="{{$hitcount}}" readonly>
 		</div>
 	</div>
 	<div class="form-group">
@@ -23,7 +27,7 @@
 		</div>
 	</div>
 	<div class="form-group">
-		<label class="col-sm-2 control-label" for="age_kara">対象年齢</label>
+		<label class="col-sm-2 control-label" for="age_kara">年齢</label>
 		<div class="col-sm-2">
 			<select class="form-control" id="age_kara" onChange="agekChange()">
 				<option value="999" selected>すべて</option>
@@ -279,7 +283,7 @@
 		</div>
 	</div>
 	<div class="form-group">
-		<label class="col-sm-2 control-label" for="sex">対象性別</label>
+		<label class="col-sm-2 control-label" for="sex">性別</label>
 		<div class="col-sm-2">
 			<select class="form-control" id="sex" onChange="sexChange()">
 				<option value="0" selected>すべて</option>
@@ -288,19 +292,22 @@
 			</select>
 		</div>
 	</div>
+	@foreach($codes as $code)
 	<div class="form-group">
-		<label class="col-sm-2 control-label" for="region">対象地域</label>
-		<div class="col-sm-2">
-			<select class="form-control" id="region" onChange="regionChange()">
-				<option value="000" selected>すべて</option>
-				<option value="001">東地区</option>
-				<option value="002">西地区</option>
-				<option value="003">中地区</option>
-				<option value="004">南地区</option>
-				<option value="005">北地区</option>
+		@foreach($code as $value)
+		@if($value['code2'] == 0)
+		<label class="col-sm-2 control-label" id="optionlabel{{$value['code1']}}" for="option{{$value['code1']}}">{{$value['meisho']}}</label>
+		<div class="col-sm-4">
+			<select class="form-control" id="option{{$value['code1']}}" onChange="optionChange()">
+				<option value="0" selected>すべて</option>
+		@else
+				<option value="{{$value['code2']}}">{{$value['meisho']}}</option>
+		@endif
+		@endforeach
 			</select>
 		</div>
 	</div>
+	@endforeach
 	</form>
 	</div>
 	</div>
@@ -321,6 +328,6 @@
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="送信" onclick="send()">
 </div>
+<input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
 <script type="text/javascript" src="js/linepush.js"></script>
-
 @endsection
