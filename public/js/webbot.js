@@ -19,7 +19,8 @@ $(function(){
 	var url = "";
 	var attrurl = "";
 
-	url = location.href/"+citycode+"/2/"+userid+";
+	url = location.href;
+	attrurl = url.replace( /webbot/g , "attribute" ) ;
 	console.log(url);
 	//attrurl =
 
