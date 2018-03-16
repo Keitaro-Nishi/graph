@@ -69,7 +69,7 @@ Route::middleware ( [
 	Route::post ( '/linepush', 'LinepushController@request' );
 
 	Route::get ( '/usersetting', 'UsersettingController@index' )->name ( 'usersetting' );
-	Route::post ( '/usersetting', 'Usersetting@request' );
+	Route::post ( '/usersetting', 'UsersettingController@update' );
 } );
 
 Route::get ( '/attribute/{citycode?}/{sender?}/{id?}', 'AttributeController@index' )->name ( 'attribute' );

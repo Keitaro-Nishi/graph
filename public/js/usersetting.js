@@ -8,7 +8,6 @@ function update(){
 		type: "POST",
 		dataType: "JSON",
 		data: {
-			"param" : "update",
 			"userid" : userid,
 			"password" : password,
 			"password_confirmation" : password_confirmation,
