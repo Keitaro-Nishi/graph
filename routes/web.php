@@ -66,6 +66,8 @@ Route::middleware(['auth'])->group(function () {
 	Route::get ( '/linepush', 'LinepushController@index')->name('linepush');
 	Route::post ( '/linepush', 'LinepushController@request');
 
+	Route::get ( '/usersetting', 'UsersettingController@index')->name('usersetting');
+	Route::post ( '/usersetting', 'Usersetting@update');
 });
 
 	Route::get ( '/attribute/{citycode?}/{sender?}/{id?}', 'AttributeController@index')->name('attribute');
