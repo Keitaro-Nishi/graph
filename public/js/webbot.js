@@ -76,10 +76,10 @@ $(function(){
 					"sender" : 2,
 					"_token" : _token
 				}
-		  }).done(function(data){
-			language = data.language;
-	      	sex = data.sex;
-	      	age = data.age;
+		  }).done(function(response){
+			language = response.language;
+	      	sex = response.sex;
+	      	age = response.age;
 		  }).fail(function(){
 			  alert("エラーが発生しました。");
 		  });
