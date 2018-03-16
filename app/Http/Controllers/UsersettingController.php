@@ -25,13 +25,13 @@ class UsersettingController {
 		$oldpassword = bcrypt ( $input ["oldpassword"] );
 		$newpassword = bcrypt ( $input ["password"] );
 
-		return \Response::json ( [
-				'status' => 'OK'
-		] );
-
 		$nowpassword = User::select ( 'password' )->where ( 'userid', $userid );
 		error_log("????????????????". $nowpassword);
 		error_log("????????????????". $oldpassword);
+
+		return \Response::json ( [
+				'status' => 'OK'
+		] );
 
 		/*
 		if ($nowpassword == $oldpassword) {
