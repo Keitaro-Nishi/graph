@@ -24,7 +24,7 @@
 		@foreach($logimages as $logimage)
 		<tr>
 			<td>{{$logimage->no}}</td>
-			<td>{{ Carbon\Carbon::parse($logimage->time)->format('Y/m/d h:i:s') }}</td>
+			<td>{{ Carbon\Carbon::parse($logimage->time)->format('Y/m/d H:i:s') }}</td>
 			<td>{{$logimage->userid}}</td>
 			<td></td>
 			<td>{{$logimage->class}}</td>
