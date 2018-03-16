@@ -55,9 +55,6 @@ class LogimageController {
 		$response->header ( 'Content-type', 'image/jpg' );
 		// 拡張子はjpg
 		$headers = array ('Content-Type: image/jpg');
-		//return response ()->download ( $writingHogeData, $headers );
-		return \Response::json ( [
-				'status' => 'OK'
-		] );
+		return response ()->file( $writingHogeData, $headers );
 	}
 }
