@@ -64,22 +64,24 @@ $(function(){
 	  function attributeSearch(){
 		  var _token = document.getElementById('_token').value;
 
-		  type: "POST",
-			dataType: "JSON",
-			data: {
-				"param" : "search",
-				"citycode" : citycode,
-				"userid" : userid,
-				"sender" : 2,
-				"_token" : _token
-			}
-	  }).done(function(data){
-		language = data.language;
-      	sex = data.sex;
-      	age = data.age;
-	  }).fail(function(){
-		  alert("エラーが発生しました。");
-	  }
+		  $.ajax({
+			  type: "POST",
+				dataType: "JSON",
+				data: {
+					"param" : "search",
+					"citycode" : citycode,
+					"userid" : userid,
+					"sender" : 2,
+					"_token" : _token
+				}
+		  }).done(function(data){
+			language = data.language;
+	      	sex = data.sex;
+	      	age = data.age;
+		  }).fail(function(){
+			  alert("エラーが発生しました。");
+		  });
+	   }
 
 
 	  //属性登録
