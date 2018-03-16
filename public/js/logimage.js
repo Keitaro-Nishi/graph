@@ -82,7 +82,7 @@ function imgwin(imgno,bunrui,kakushin){
 	img.src = location.href + "/" + imgno;
 	img.width = img.src.width;
 	img.height = img.src.height;
-	document.getElementById('dia_score').innerHTML  = "分類：" + bunrui + "　　確信度：" + kakushin;
+	document.getElementById('dia_kaku').innerHTML  = "分類：" + bunrui + "　　確信度：" + kakushin;
 	if(img.width > 600){
 		var orgWidth  = img.width;
 		var orgHeight = img.height;
