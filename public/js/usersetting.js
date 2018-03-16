@@ -10,7 +10,7 @@ function update(){
 		dataType: "JSON",
 		data: {
 			"name" : name,
-			"old_password" : old_password,
+			"oldpassword" : oldpassword,
 			"password" : password,
 			"password_confirmation" : password_confirmation,
 			"_token" : _token
