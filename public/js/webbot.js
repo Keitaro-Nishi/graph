@@ -4,8 +4,8 @@ $(function(){
 	var botui = new BotUI('chat-app');
 	var user = "webtest";
 	var lang = "";
-	var sex = "0";
-	var age = "999";
+	//var sex = "0";
+	//var age = "999";
 	var region = "";
 	var search = "";
 	var message = "";
@@ -19,7 +19,11 @@ $(function(){
 	userinfodata = document.getElementById('userinfo').value;
 	userinfo = JSON.parse(userinfodata);
 
-	console.log( userinfo['sex'] );
+	var sex = userinfo['sex'];
+	var age = userinfo['age']
+
+	console.log(sex);
+	console.log(age);
 
 
 	//attributeSearch();
@@ -126,8 +130,7 @@ $(function(){
 	  function kenshin(){
 		  //属性登録チェック
 		  //attributeSearch();
-		  //if(sex == "0" || age == "999"){
-		  if(!userinfo){
+		  if(sex == "0" || age == "999"){
 			  message = '申し訳ありませんが、先に以下のリンクより属性登録をお願いします。';
 			  attribute();
 			  return;
