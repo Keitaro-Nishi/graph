@@ -9,18 +9,19 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
 
 class UsersettingController {
-
-	public function index() {
-		return view('usersetting');
+	public function index(Request $request) {
+		$userid = Auth::user ()->userid;
+		return view ( 'usersetting', [
+				'userid' => $userid
+		] );
 	}
-
 	public function update() {
 		$oldID = Auth::user ()->userid;
-		$newID= $input["userid"];
-		$newpassword= bcrypt($input["password"]);
-		error_log($oldID);
+		$newID = $input ["userid"];
+		$newpassword = bcrypt ( $input ["password"] );
+		error_log ( $oldID );
 		User::where ( 'userid', $oldID )->update ( [
-				'userid' => $newID ,
+				'userid' => $newID,
 				'password' => $newpassword
 		] );
 		return \Response::json ( [
