@@ -4,8 +4,8 @@ $(function(){
 	var botui = new BotUI('chat-app');
 	var user = "webtest";
 	var lang = "";
-	//var sex = "0";
-	//var age = "999";
+	var sex = "0";
+	var age = "999";
 	var region = "";
 	var search = "";
 	var message = "";
@@ -19,8 +19,8 @@ $(function(){
 	userinfodata = document.getElementById('userinfo').value;
 	userinfo = JSON.parse(userinfodata);
 
-	var sex = userinfo['sex'];
-	var age = userinfo['age']
+	sex = userinfo['sex'];
+	age = userinfo['age']
 
 	console.log(sex);
 	console.log(age);
