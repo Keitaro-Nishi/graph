@@ -16,12 +16,12 @@ class WebbotController
 		$sender = 2;
 
 		$userinfo = Userinfo::where('citycode', $citycode)->where('userid', $userid)->where('sender', $sender)->first();
-		$language = $userinfo->language;
+		//$language = $userinfo->language;
 		$sex = $userinfo->sex;
 		$age = $userinfo->age;
 
 		error_log("☆☆☆☆☆");
-		error_log($language);
+		//error_log($language);
 		error_log($sex);
 		error_log($age);
 
