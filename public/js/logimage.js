@@ -7,7 +7,6 @@ function init() {
 		keepSelection : true,
 		formatters: {
 			"image": function($column, $row) {
-				console.log($row.no);
 				return "<img class='table-img' src='" + location.href + "/" + $row.no + "' />";
 			},
 			"zoom": function($column, $row) {
@@ -83,7 +82,7 @@ function imgwin(imgno,bunrui,kakushin){
 	img.src = location.href + "/" + imgno;
 	img.width = img.src.width;
 	img.height = img.src.height;
-	document.getElementById('dia_score').innerHTML  = "分類：" + class + "　　確信度：" + score;
+	document.getElementById('dia_score').innerHTML  = "分類：" + bunrui + "　　確信度：" + kakushin;
 	if(img.width > 600){
 		var orgWidth  = img.width;
 		var orgHeight = img.height;
