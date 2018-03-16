@@ -12,23 +12,28 @@ class LogimageController {
 	public function index(Request $request) {
 		$cityCD = Auth::user ()->citycode;
 		if ($cityCD = "00000") {
-			//$logimages = Logimage::select ( 'citycode', 'no', 'time', 'userid', 'score', 'class' )->get ();
-			$logimages = Logimage::all();
+			$logimages = Logimage::all ();
 		} else {
-			$logimages = Logimage::select ( 'citycode', 'no', 'time', 'userid', 'score', 'class' )->where ( 'citycode', $cityCD )->get ();
+			$logimages = Logimage::where ( 'citycode', $cityCD )->get ();
 		}
 		return view ( 'logimage', [
 				'logimages' => $logimages
 		] );
 	}
+
 	public function request() {
 		$this->requestall = \Request::all ();
 		if ($this->requestall ["param"] == "update") {
 			return $this->update ();
 		} elseif ($this->requestall ["param"] == "delete") {
 			return $this->delete ();
+		} else {
+			return \Response::json ( [
+					'status' => 'NG'
+			] );
 		}
 	}
+
 	public function delete() {
 		$input = $this->requestall;
 		Logimage::destroy ( $input ["nos"] );
