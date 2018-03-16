@@ -28,7 +28,6 @@ class UsersettingController {
 		$nowpassword = User::select ( 'password', 'name' )->where ( 'userid', $userid )->first();
 		error_log("????????????????". $oldpassword);
 		$nowpass = $nowpassword->password;
-		error_log("????????????????". $nowpass);
 		if (Hash::check($oldpassword, $nowpass)) {
 			// パスワード一致
 			/*
@@ -37,6 +36,7 @@ class UsersettingController {
 					'password' => $newpassword
 			] );
 			*/
+			error_log("????????????????". $nowpass);
 			return \Response::json ( [
 					'status' => 'OK'
 			] );
