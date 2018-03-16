@@ -113,7 +113,8 @@ $(function(){
 			  }
 			  botui.message.add({
 			        delay: 1000,
-			        content: '[属性登録](' + attrurl + user.substr(0, 1) + sex + user.substr(1, 1) + age + user.substr(2, 1) + region + user.substr(3) + ')^'
+			        //content: '[属性登録](' + attrurl + user.substr(0, 1) + sex + user.substr(1, 1) + age + user.substr(2, 1) + region + user.substr(3) + ')^'
+			        content: '[属性登録]('attrurl')^'
 			  });
 		  }).then(init);
 	  }
