@@ -12,35 +12,37 @@ $(function() {
 		multiSelect : true,
 		rowSelect : false,
 		columnSelection : false,
-		keepSelection: true,
-		formatters: {
-			"mods": function($column, $row) {
-				return "<input type='button' class='btn btn-default' value='修正' onclick='modwin("  + $row.no + ",\"" + $row.gid1 + "\",\"" + $row.gid2 + "\",\"" + $row.g1 + "\",\"" + $row.g2 + "\")' > ";
-			}
-		}
+	    keepSelection: true,
+	    formatters: {
+	        "mods": function($column, $row) {
+	        	return "<input type='button' class='btn btn-default' value='修正' onclick='modwin("  + $row.no + ",\"" + $row.gid1 + "\",\"" + $row.gid2 + "\",\"" + $row.g1 + "\",\"" + $row.g2 + "\")' > ";
+             }
+	    }
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
 		for (var i = 0; i < rows.length; i++)
-		{
-			rowIds.push(rows[i].no);
-			rowcitycode.push(rows[i].citycode);
-			rowgid1.push(rows[i].gid1);
-			rowgid2.push(rows[i].gid2);
-		}
+	    {
+	        rowIds.push(rows[i].no);
+	        rowcitycode.push(rows[i].citycode);
+	        rowgid1.push(rows[i].gid1);
+	        rowgid2.push(rows[i].gid2);
+	        //alert("rowIds:" + rows[i].no + "rowcitycode:" + rows[i].citycode + "rowgid1:" + rows[i].gid1 + " rowgid2:" + rows[i].gid2);
+	    }
 	}).on("deselected.rs.jquery.bootgrid", function(e, rows) {
 		for (var i = 0; i < rows.length; i++)
-		{
-			for (var ii = 0; ii < rowIds.length; ii++){
-				if(rowIds[ii] == rows[i].no){
-					rowIds.splice(ii,1);
-					rowcitycode.splice(ii,1);
-					rowgid1.splice(ii,1);
-					rowgid2.splice(ii,1);
-					break;
-				}
-			}
-		}
+	    {
+	    	for (var ii = 0; ii < rowIds.length; ii++){
+		    	if(rowIds[ii] == rows[i].no){
+		    		rowIds.splice(ii,1);
+		    		rowcitycode.splice(ii,1);
+		    		rowgid1.splice(ii,1);
+		    		rowgid2.splice(ii,1);
+		    		break;
+		    	}
+	    	}
+	    }
 	});
 });
+
 
 function drow() {
 
@@ -73,43 +75,45 @@ function drow() {
 	});
 
 	bootbox.confirm({
-		message: "選択行を削除しますか？\n※大分類を削除すると関連する小分類も削除されます",
-		buttons: {
-			confirm: {
-				label: '<i class="fa fa-check"></i> はい'
-			},
-			cancel: {
-				label: '<i class="fa fa-times"></i> いいえ'
-			}
-		},
-		callback: function (result) {
-			if(result){
-				var _token = document.getElementById('_token').value;
+	    message: "選択行を削除しますか？\n※大分類を削除すると関連する小分類も削除されます",
+	    buttons: {
+	    	confirm: {
+	            label: '<i class="fa fa-check"></i> はい'
+	        },
+	        cancel: {
+	            label: '<i class="fa fa-times"></i> いいえ'
+	        }
+	    },
+	    callback: function (result) {
+	        if(result){
+	        	var _token = document.getElementById('_token').value;
 
-				$.ajax({
-					type: "POST",
-					dataType: "JSON",
-					data:{
-						"param" : "delete",
-						"ids" : idarray,
-						"_token" : _token
-					}
-				}).done(function (response) {
-					bootbox.alert({
-						message: "削除しました",
-						size: 'small',
-						callback: function () {
-							location.reload();
-						}
-					});
-				}).fail(function () {
-					bootbox.alert({
-						message: "削除できませんでした",
-						size: 'small'
-					});
-				});
-			}
-		}
+	        	$.ajax({
+	    			type: "POST",
+	    			dataType: "JSON",
+	    			data:{
+	    				"param" : "delete",
+	    				"ids" : idarray,
+	    				"_token" : _token
+	    			}
+	    		}).done(function (response) {
+	    			if(response.status == "OK"){
+	    				bootbox.alert({
+	    					message: "削除しました",
+	    					size: 'small',
+	    					callback: function () {
+	    						location.reload();
+	    					}
+	    				});
+	    			}
+	    	    }).fail(function () {
+	    	    	bootbox.alert({
+	    				message: "2削除できませんでした",
+	    				size: 'small'
+	    			});
+	    	    });
+	        }
+	    }
 	});
 }
 
@@ -134,9 +138,10 @@ function bchange(){
 	if(document.getElementById('dia_bunrui').value == 2){
 		document.getElementById('dia_g1').style.display = "block";
 		document.getElementById('dia_g1meisho').style.display = "none"
-			document.getElementById('dia_g2meisho').disabled = false;
+		document.getElementById('dia_g2meisho').disabled = false;
 	}
 }
+
 
 function modwin(no,gid1,_gid2,g1,g2){
 	document.getElementById('modal-label').innerHTML  = "ジャンル修正";
@@ -161,6 +166,7 @@ function modwin(no,gid1,_gid2,g1,g2){
 	}
 	document.getElementById("btn_modal").click();
 }
+
 
 function initmodal(){
 	document.getElementById('dia_bunrui').value = 1;
@@ -190,6 +196,7 @@ function update(){
 	}
 	var _token = document.getElementById('_token').value;
 
+
 	$.ajax({
 		type: "POST",
 		dataType: "JSON",
@@ -205,20 +212,36 @@ function update(){
 			"_token" : _token
 		}
 	}).done(function (response) {
-		bootbox.alert({
-			message: "更新しました",
-			size: 'small',
-			callback: function () {
-				location.reload();
+		if(response.status == "OK"){
+			bootbox.alert({
+				message: "更新しました",
+				size: 'small',
+				callback: function () {
+					location.reload();
+				}
+			});
+		}else{
+			var mes = "";
+			for (var item in response) {
+				if(mes != ""){
+					mes = mes + "<br>";
+				}
+			    mes = mes + response[item][0];
 			}
+			bootbox.alert({
+				message: mes,
+				size: 'small'
+			});
 		}
-	}).fail(function () {
-		bootbox.alert({
+    }).fail(function () {
+    	bootbox.alert({
 			message: "更新できませんでした",
 			size: 'small'
 		});
-	});
+    });
+
 }
+
 
 function intent(){
 	window.location.href = "./genreint";
@@ -227,3 +250,5 @@ function intent(){
 function entity(){
 	window.location.href = "./genreent";
 }
+
+
