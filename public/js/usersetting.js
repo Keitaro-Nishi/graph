@@ -24,8 +24,7 @@ function update(){
 					location.reload();
 				}
 			});
-		}
-		else if(response.status == "NG"){
+		}else if(response.status == "NG"){
 			bootbox.alert({
 				message: "現在のパスワードが違います。",
 				size: 'small',

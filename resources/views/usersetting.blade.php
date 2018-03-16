@@ -23,7 +23,7 @@ a
 					<div class="form-group">
 						<label class="col-sm-3 control-label" for="dia_userid">ユーザーID</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" id="dia_userid" name="userid" value="{{$userid}}" disabled="disabled" required>
+							<input type="text" class="form-control" id="dia_userid" name="userid" value="{{$userid}}　　※ログインに使用" disabled="disabled" required>
 						</div>
 					</div>
 					<div class="form-group">
