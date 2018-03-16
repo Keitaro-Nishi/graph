@@ -49,7 +49,6 @@ function drow() {
 		callback: function (result) {
 			if(result){
 				var _token = document.getElementById('_token').value;
-				console.log(rowIds);
 				$.ajax({
 					type: "POST",
 					dataType: "JSON",
