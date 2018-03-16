@@ -14,16 +14,17 @@ Route::get ( '/', function () {
 	return redirect ( '/login' );
 } );
 
-
 Auth::routes ();
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware ( [
+		'auth'
+] )->group ( function () {
 	Route::get ( '/register', 'Auth\RegisterController@showRegistrationForm' )->name ( 'register' )->middleware ( 'role' );
 
 	Route::get ( '/home', 'HomeController@index' )->name ( 'home' );
 
-	//Route::get ( '/users', 'UserController@index' )->name ( 'users' )->middleware('role');
-	//Route::post ( '/users', 'UserController@request' )->middleware('role');
+	// Route::get ( '/users', 'UserController@index' )->name ( 'users' )->middleware('role');
+	// Route::post ( '/users', 'UserController@request' )->middleware('role');
 	Route::get ( '/users', 'UserController@index' )->name ( 'users' );
 	Route::post ( '/users', 'UserController@request' );
 
@@ -35,12 +36,14 @@ Route::middleware(['auth'])->group(function () {
 
 	Route::get ( '/logimage', 'LogimageController@index' )->name ( 'logimage' );
 	Route::post ( '/logimage', 'LogimageController@request' );
+	// Route::get ( '/getimage/{id?}', 'app\Libs\getimage@links' );
+	Route::get ( '/logimage/{id?}', 'LogimageController@links' );
 
 	Route::get ( '/facility', 'FacilityController@index' )->name ( 'facility' );
 	Route::post ( '/facility', 'FacilityController@request' );
 
 	Route::get ( '/genre', 'GenreController@index' )->name ( 'genre' );
-	Route::post ( '/genre','GenreController@request');
+	Route::post ( '/genre', 'GenreController@request' );
 
 	Route::get ( '/genreint', 'GenreintController@index' )->name ( 'genreint' );
 	Route::post ( '/genreint', 'GenreintController@request' );
@@ -48,29 +51,28 @@ Route::middleware(['auth'])->group(function () {
 	Route::get ( '/genreent', 'GenreentController@index' )->name ( 'genreent' );
 	Route::post ( '/genreent', 'GenreentController@request' );
 
-	Route::get ( '/logindata', 'LogindataController@index' )->name ( 'logindata' )->middleware('role');
+	Route::get ( '/logindata', 'LogindataController@index' )->name ( 'logindata' )->middleware ( 'role' );
 	Route::post ( '/logindata', 'LogindataController@request' );
 
-	//Route::get ( '/codemanage', 'CodeManageController@index')->name('codemanage')->middleware('role');
-	//Route::post ( '/codemanage', 'CodeManageController@request')->name('codemanage')->middleware('role');
-	Route::get ( '/codemanage', 'CodeManageController@index')->name('codemanage');
-	Route::post ( '/codemanage', 'CodeManageController@request');
+	// Route::get ( '/codemanage', 'CodeManageController@index')->name('codemanage')->middleware('role');
+	// Route::post ( '/codemanage', 'CodeManageController@request')->name('codemanage')->middleware('role');
+	Route::get ( '/codemanage', 'CodeManageController@index' )->name ( 'codemanage' );
+	Route::post ( '/codemanage', 'CodeManageController@request' );
 
+	Route::get ( '/parameter', 'ParameterController@index' )->name ( 'parameter' );
+	Route::post ( '/parameter', 'ParameterController@request' );
 
-	Route::get ( '/parameter', 'ParameterController@index')->name('parameter');
-	Route::post ( '/parameter', 'ParameterController@request');
+	Route::get ( '/messagemanage', 'MessageManageController@index' )->name ( 'messagemanage' );
+	Route::post ( '/messagemanage', 'MessageManageController@request' );
 
-	Route::get ( '/messagemanage', 'MessageManageController@index')->name('messagemanage');
-	Route::post ( '/messagemanage', 'MessageManageController@request');
+	Route::get ( '/linepush', 'LinepushController@index' )->name ( 'linepush' );
+	Route::post ( '/linepush', 'LinepushController@request' );
 
-	Route::get ( '/linepush', 'LinepushController@index')->name('linepush');
-	Route::post ( '/linepush', 'LinepushController@request');
+	Route::get ( '/usersetting', 'UsersettingController@index' )->name ( 'usersetting' );
+	Route::post ( '/usersetting', 'Usersetting@update' );
+} );
 
-	Route::get ( '/usersetting', 'UsersettingController@index')->name('usersetting');
-	Route::post ( '/usersetting', 'Usersetting@update');
-});
+Route::get ( '/attribute/{citycode?}/{sender?}/{id?}', 'AttributeController@index' )->name ( 'attribute' );
+Route::post ( '/attribute/{citycode?}/{sender?}/{id?}', 'AttributeController@request' );
 
-	Route::get ( '/attribute/{citycode?}/{sender?}/{id?}', 'AttributeController@index')->name('attribute');
-	Route::post ( '/attribute/{citycode?}/{sender?}/{id?}', 'AttributeController@request');
-
-	Route::get ( '/logimage/{id?}', 'LogimageController@links' );
+Route::get ( '/logimage/{id?}', 'LogimageController@links' );
