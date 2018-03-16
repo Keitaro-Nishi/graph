@@ -1,6 +1,7 @@
 function init(){
 	if(userinfo["updkbn"] == "1"){
 		document.getElementById('language').value = userinfo["language"];
+		languageChange();
 		document.getElementById('sex').value = userinfo["sex"];
 		document.getElementById('age').value = userinfo["age"];
 		for(var i = 1; i < 11; i++){
@@ -8,7 +9,6 @@ function init(){
 				document.getElementById('option'+i).value = userinfo["param" + i];
 			}
 		}
-		languageChange();
 	}else{
 		document.getElementById('language').selectedIndex = 0;
 		document.getElementById('sex').selectedIndex = 0;
@@ -58,6 +58,7 @@ function optionSetting(option_codes){
 			while (0 < option.childNodes.length) {
 				option.removeChild(option.childNodes[0]);
 			}
+			setSelectValue(option,"0","");
 			for(var ii = 1; ii < option_codes[i-1].length; ii++){
 				setSelectValue(option,option_codes[i-1][ii]["code2"],option_codes[i-1][ii]["meisho"]);
 			}
