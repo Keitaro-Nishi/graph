@@ -59,7 +59,7 @@ class LogimageController {
 		//file_put_contents ( $writingHogeData, $fileData );
 		$headers = array ('Content-Type: image/jpg');
 		//$img_data=pg_unescape_bytea($logimages->image);
-		$img_data=pg_unescape_bytea($logimages["image"]);
+		//$img_data=pg_unescape_bytea($logimages["image"]);
 
 		$response = Response::make ( $logimages->image, 200 ,$headers);
 		//$response->header ( 'Content-type', 'image/jpg' );
