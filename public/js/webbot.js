@@ -16,19 +16,13 @@ $(function(){
 	citycode= document.getElementById('citycode').value;
 	userid= document.getElementById('userid').value;
 
-	var url = "";
-	var rurl = "";
-	var attrurl ="";
 
-	url = location.href + "/" + citycode + "/" + 2 + "/" +userid;
-	attrurl = url.replace( /webbot/g , "attribute" ) ;
-	//attrurl = rurl + "/" + citycode + "/" + 2 + "/" +userid;
+	var url = location.href + "/" + citycode + "/" + 2 + "/" +userid;
+	var attrurl = url.replace( /webbot/g , "attribute" ) ;
 
 
 	console.log(attrurl);
 
-
-	//console.log(attrurl);
 
 	attributeSearch();
 
