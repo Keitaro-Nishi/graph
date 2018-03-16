@@ -42,33 +42,16 @@ class LogimageController {
 		] );
 	}
 	public function links($id) {
-		error_log ( '????????????????' . $id );
 		$logimages = Logimage::select ( 'image' )->where ( 'no', $id )->first ();
-		// error_log ( '40????????????????' . $logimages);
-		/*
-		 * $response = Response::make($logimages->image,200);
-		 * $response->header('Content-type','image/jpeg' );
-		 * $response->header('Content-Disposition','filename=image.jpg' );
-		 */
 
 		// バイナリデータ取得
 		$fileData = $logimages->image;
 
 		// 取得したバイナリデータをファイルに書き込んでレスポンスに返却
-		$writingHogeData = 'image.jpg';
-		file_put_contents ( $writingHogeData, $fileData );
+		$imegeData = 'image.jpg';
+		file_put_contents ( $imegeData, $fileData );
 		$headers = array ('Content-Type: image/jpg');
-		//$img_data=pg_unescape_bytea($logimages->image);
-		//$img_data=pg_unescape_bytea($logimages["image"]);
-		//$bytea = stream_get_contents($logimages->image);
-		//$img_data=pg_unescape_bytea($bytea);
-		//$html_data = htmlspecialchars($img_data);
 
-		//$response = Response::make ( $html_data, 200 ,$headers);
-		//$response->header ( 'Content-type', 'image/jpg' );
-		// 拡張子はjpg
-
-		//return $response;
-		return response ()->file( $writingHogeData, $headers );
+		return response()->file( $writingHogeData, $headers );
 	}
 }
