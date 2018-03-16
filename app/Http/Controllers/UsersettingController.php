@@ -34,7 +34,7 @@ class UsersettingController extends Controller {
 		$input = \Request::all ();
 		$newName = $input ["name"];
 		$oldpassword = $input ["oldpassword"];
-		$password = $input ["password"];
+		//$password = $input ["password"];
 		$newpassword = bcrypt ( $input ["password"] );
 
 		$nowpassword = User::select ( 'password', 'name' )->where ( 'userid', $userid )->first ();
