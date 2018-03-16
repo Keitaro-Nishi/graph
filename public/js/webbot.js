@@ -20,12 +20,12 @@ $(function(){
 	var rurl = "";
 	var attrurl ="";
 
-	url = location.href;
+	url = location.href + "/" + citycode + "/" + 2 + "/" +userid;
 	rurl = url.replace( /webbot/g , "attribute" ) ;
-	attrurl = rurl + "/" + citycode + "/" + 2 + "/" +userid;
+	//attrurl = rurl + "/" + citycode + "/" + 2 + "/" +userid;
 
 
-	console.log(attrurl);
+	console.log(url);
 	//attrurl =
 
 	//console.log(attrurl);
