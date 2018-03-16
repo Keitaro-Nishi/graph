@@ -23,7 +23,7 @@
 			<td>{{$infomation->id}}</td>
 			<td>{{$infomation->userid}}</td>
 			<td>{{$infomation->classification}}</td>
-			<td>{{$infomation->time}}</td>
+			<td>{{ Carbon\Carbon::parse($infomation->time)->format('Y/m/d h:i:s') }}</td>
 		</tr>
 		@endforeach
 
