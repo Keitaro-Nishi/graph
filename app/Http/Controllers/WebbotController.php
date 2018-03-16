@@ -15,7 +15,7 @@ class WebbotController
 		$userid = Auth::user()->userid;
 		$sender = 2;
 
-		$userinfo = Userinfo::where('citycode', $citycode)->where('userid', $userid)->where('sender', $sender)->first();
+		/*$userinfo = Userinfo::where('citycode', $citycode)->where('userid', $userid)->where('sender', $sender)->first();
 
 		if(!$userinfo){
 
@@ -30,8 +30,10 @@ class WebbotController
 			$age = $userinfo->age;
 
 		}
+		*/
 
-		return view('webbot',compact('citycode','userid','language','sex','age'));
+		//return view('webbot',compact('citycode','userid','language','sex','age'));
+		return view('webbot',compact('citycode','userid'));
 	}
 
 	public  function request(){

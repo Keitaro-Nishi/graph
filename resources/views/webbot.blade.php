@@ -16,9 +16,7 @@
 
 <input id="citycode" type= "hidden" value = '{{ $citycode }}'>
 <input id="userid"  type= "hidden" value = '{{ $userid }}'>
-<input id="language" type= "hidden" value = '{{ $language }}'>
-<input id="sex" type= "hidden" value = '{{ $sex }}'>
-<input id="age" type= "hidden" value = '{{ $age }}'>
+
 
 <input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
 

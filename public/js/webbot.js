@@ -19,9 +19,7 @@ $(function(){
 	citycode= document.getElementById('citycode').value;
 	userid= document.getElementById('userid').value;
 
-	var language = document.getElementById('language').value;
-	var sex = document.getElementById('sex').value;
-	var age = document.getElementById('age').value;
+
 
 
 	  //初期メッセージ
