@@ -32,8 +32,7 @@ function update(){
 					location.reload();
 				}
 			});
-		}
-		/*else if(response.status == "BACK"){
+		}else if(response.status == "BACK"){
 			bootbox.alert({
 				message: "パスワードに変更がありません。",
 				size: 'small',
@@ -41,7 +40,7 @@ function update(){
 					location.reload();
 				}
 			});
-		}*/
+		}
 	}).fail(function () {
 		bootbox.alert({
 			message: "更新できませんでした",
