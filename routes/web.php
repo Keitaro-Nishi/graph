@@ -15,7 +15,7 @@ Route::get ( '/', function () {
 } );
 
 Route::get ( '/userinfo',function(){
-	return redirect ( '/userinfo' );
+	return view('userinfo');
 });
 Route::post ( '/userinfo', 'UserinfoController@request' );
 
