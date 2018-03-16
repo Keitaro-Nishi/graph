@@ -43,7 +43,7 @@ class AttributeController
 			$userinfo = new Userinfo();
 		}
 
-		return view('attribute',['codes'=>$codesEn,'userinfo'=>$userinfo,'citycode'=>$citycode,'sender'=>$sender,'userid'=>$id]);
+		return view('attribute',['codes'=>$codes,'codesEn'=>$codesEn,'userinfo'=>$userinfo,'citycode'=>$citycode,'sender'=>$sender,'userid'=>$id]);
 	}
 
 	public  function request($citycode,$sender, $id){

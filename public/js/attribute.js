@@ -8,6 +8,7 @@ function init(){
 				document.getElementById('option'+i).value = userinfo["param" + i];
 			}
 		}
+		languageChange();
 	}else{
 		document.getElementById('language').selectedIndex = 0;
 		document.getElementById('sex').selectedIndex = 0;
@@ -34,6 +35,7 @@ function languageChange(){
 		setSelectValue(sex,"1","男性");
 		setSelectValue(sex,"2","女性");
 		document.getElementById('label_age').innerHTML = "年齢";
+		optionSetting(codes);
 	}
 
 	//英語
@@ -44,6 +46,22 @@ function languageChange(){
 		setSelectValue(sex,"1","Male");
 		setSelectValue(sex,"2","Female");
 		document.getElementById('label_age').innerHTML = "Age";
+		optionSetting(codesEn);
+	}
+}
+
+function optionSetting(option_codes){
+	for(var i = 1; i < 11; i++){
+		if(document.getElementById('option'+i)){
+			document.getElementById('label_option'+i).innerHTML = option_codes[i-1][0]["meisho"];
+			var option = document.getElementById('option'+i);
+			while (0 < option.childNodes.length) {
+				option.removeChild(option.childNodes[0]);
+			}
+			for(var ii = 1; ii < option_codes[i-1].length; ii++){
+				setSelectValue(option,option_codes[i-1][ii]["code2"],option_codes[i-1][ii]["meisho"]);
+			}
+		}
 	}
 }
 
