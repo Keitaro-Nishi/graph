@@ -30,10 +30,12 @@ class UsersettingController {
 
 		if (Hash::check($oldpassword, $nowpassword)) {
 			// パスワード一致
+			/*
 			User::where ( 'userid', $userid )->update ( [
 					'name' => $newName,
 					'password' => $newpassword
 			] );
+			*/
 			return \Response::json ( [
 					'status' => 'OK'
 			] );
