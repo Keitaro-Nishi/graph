@@ -16,20 +16,6 @@ a
 					<form class="form-horizontal" method="POST" action="{{ route('usersetting') }}">
 					{{ csrf_field() }}
 
-						<div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">
-							<label for="role" class="col-md-4 control-label"></label>
-
-								<div class="col-md-6">
-									<input id="role" type="hidden" class="form-control" name="role" value="{{Auth::user()->role+1}}">
-
-									@if ($errors->has('citycode'))
-										<span class="help-block">
-												<strong>{{ $errors->first('role') }}</strong>
-										</span>
-									@endif
-								</div>
-						</div>
-
 						<div class="form-group{{ $errors->has('userid') ? ' has-error' : '' }}">
 							<label for="userid" class="col-md-4 control-label">ユーザーID</label>
 
