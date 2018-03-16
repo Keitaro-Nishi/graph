@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+//use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Auth;
 use App\Logimage;
 
@@ -49,12 +50,14 @@ class LogimageController {
 		$fileData = $logimages->image;
 
 		// 取得したバイナリデータをファイルに書き込んでレスポンスに返却
-		$writingHogeData = '.jpg';
+		$writingHogeData = 'image.jpg';
 		file_put_contents ( $writingHogeData, $fileData );
-		$response = Response::make ( $writingHogeData, 200 );
+		$headers = array ('Content-Type: image/jpg');
+		$response = Response::make ( $writingHogeData, 200 ,$headers);
 		$response->header ( 'Content-type', 'image/jpg' );
 		// 拡張子はjpg
-		$headers = array ('Content-Type: image/jpg');
-		return response ()->file( $writingHogeData, $headers );
+
+		return $response;
+		//return response ()->file( $writingHogeData, $headers );
 	}
 }
