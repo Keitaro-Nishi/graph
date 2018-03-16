@@ -162,6 +162,7 @@ $(function(){
 	  }
 
 	  //検診相談続き
+	  /*
 	  function kenshin2(res){
 		  callWatson("1", "1", res.value);
 		  botui.message.bot({
@@ -178,6 +179,7 @@ $(function(){
 			  kenshin2(res);
 		  })
 	  }
+	  */
 
 	  //その他のお問い合わせ
 	  function sonota(){
