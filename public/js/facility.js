@@ -107,7 +107,6 @@ function genre1change(){
 		select.removeChild(select.childNodes[0]);
 	}
 	g2value = genre2value[document.getElementById('dia_genre1').value];
-	console.log(g2value);
 	for(var i = 0; i < g2value.length; i++) {
 		var option = document.createElement('option');
 		option.setAttribute('value', g2value[i]['gid2']);

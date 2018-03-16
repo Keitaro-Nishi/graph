@@ -68,7 +68,7 @@ class FacilityController {
 				'jusho' => 'required|string|max:255',
 				'tel' => 'required|string|max:14',
 				'genre1' => 'required|integer',
-				'genre2' => 'required|nteger',
+				'genre2' => 'required|integer',
 				'genre3' => 'integer',
 				'imageurl' => 'required|string',
 				'url' => 'required|string'
