@@ -78,12 +78,13 @@ function drow() {
 }
 
 function imgwin(imgno,bunrui,kakushin){
+	var oimg = new Image();
+	oimg.src = location.href + "/" + imgno;
 	var img = document.getElementById("dia_image");
-	img.src = location.href + "/" + imgno;
-	//img.width = img.src.width;
-	//img.height = img.src.height;
+	img.src = oimg.src;
+	img.width = oimg.width;
+	img.height = oimg.height;
 	document.getElementById('dia_kaku').innerHTML  = "分類：" + bunrui + "　　確信度：" + kakushin;
-	/*
 	if(img.width > 600){
 		var orgWidth  = img.width;
 		var orgHeight = img.height;
@@ -95,6 +96,5 @@ function imgwin(imgno,bunrui,kakushin){
 		imgwidth = 600;
 	}
 	document.getElementById('dia_cont').style.width = imgwidth + "px";
-	*/
 	document.getElementById("btn_modal").click();
 }
