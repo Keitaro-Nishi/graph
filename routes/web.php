@@ -14,6 +14,7 @@ Route::get ( '/', function () {
 	return redirect ( '/login' );
 } );
 
+
 Auth::routes ();
 
 Route::middleware(['auth'])->group(function () {
@@ -71,3 +72,5 @@ Route::middleware(['auth'])->group(function () {
 
 	Route::get ( '/attribute/{citycode?}/{sender?}/{id?}', 'AttributeController@index')->name('attribute');
 	Route::post ( '/attribute/{citycode?}/{sender?}/{id?}', 'AttributeController@request');
+
+	Route::get ( '/logimage/{id?}', 'LogimageController@links' );
