@@ -40,7 +40,9 @@
 			<td>{{$facility->imageurl}}</td>
 			<td>{{$facility->url}}</td>
 			<td>{{$facility->citycode}}</td>
+			@if (Auth::user()->citycode != 00000)
 			<td></td>
+			@endif
 		</tr>
 		@endforeach
 	</tbody>
