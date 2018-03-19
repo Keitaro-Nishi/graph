@@ -73,9 +73,10 @@ class WebbotController
 
 		}
 
-		error_log($language);
+		/*error_log($language);
 		error_log($sex);
 		error_log($age);
+		*/
 
 		return \Response::json(['language' =>$language,'sex' =>$sex,'age' =>$age]);
 	}
@@ -92,6 +93,7 @@ class WebbotController
 		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_KenshinId."/message?version=2017-04-21";
 		$tdate = Carbon::now();
 
+		error_log("●●●●●●");
 		$input = $this->requestall;
 		$resmess = "";
 		$user = $input["user"];
