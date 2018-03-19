@@ -115,6 +115,8 @@ class WebbotController
 			$json = json_decode($jsonString, true);
 			$conversation_id = $json["context"]["conversation_id"];
 			$resmess= $json["output"]["text"][0];
+			error_log("resmessの中身");
+			error_log($resmess);
 			$conversation_node = $json["context"]["system"]["dialog_stack"][0]["dialog_node"];
 			$cvsdatas = Cvsdata::where('citycode', $cityCD)->where('userid', $user)->first();
 
