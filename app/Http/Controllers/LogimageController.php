@@ -1,26 +1,22 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 //use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Auth;
 use App\Logimage;
-
 class LogimageController {
 	public function index(Request $request) {
-		$cityCD = Auth::user ()->citycode;
-		if ($cityCD = "00000") {
+		$cityCD = Auth::user()->citycode;
+		if ($cityCD == "00000") {
 			$logimages = Logimage::all ();
 		} else {
-			$logimages = Logimage::where ( 'citycode', $cityCD )->get ();
+			$logimages = Logimage::where('citycode', $cityCD)->get();
 		}
 		return view ( 'logimage', [
 				'logimages' => $logimages
 		] );
 	}
-
 	public function request() {
 		$this->requestall = \Request::all ();
 		if ($this->requestall ["param"] == "update") {
@@ -33,7 +29,6 @@ class LogimageController {
 			] );
 		}
 	}
-
 	public function delete() {
 		$input = $this->requestall;
 		Logimage::destroy ( $input ["nos"] );
@@ -42,28 +37,13 @@ class LogimageController {
 		] );
 	}
 	public function links($id) {
-		error_log ( '????????????????' . $id );
 		$logimages = Logimage::select ( 'image' )->where ( 'no', $id )->first ();
-		// error_log ( '40????????????????' . $logimages);
-		/*
-		 * $response = Response::make($logimages->image,200);
-		 * $response->header('Content-type','image/jpeg' );
-		 * $response->header('Content-Disposition','filename=image.jpg' );
-		 */
-
 		// バイナリデータ取得
-		//$fileData = $logimages->image;
-
+		$fileData = $logimages->image;
 		// 取得したバイナリデータをファイルに書き込んでレスポンスに返却
-		//$writingHogeData = 'image.jpg';
-		//file_put_contents ( $writingHogeData, $fileData );
+		$imegeData = 'image'.$id.'.jpg';
+		file_put_contents ( $imegeData, $fileData );
 		$headers = array ('Content-Type: image/jpg');
-		$img_data=pg_unescape_bytea($logimages->image);
-		$response = Response::make ( $logimages->image, 200 ,$headers);
-		//$response->header ( 'Content-type', 'image/jpg' );
-		// 拡張子はjpg
-
-		return $response;
-		//return response ()->file( $writingHogeData, $headers );
+		return response()->file( $imegeData, $headers );
 	}
 }
