@@ -114,6 +114,7 @@ class WebbotController
 
 		//return \Response::json(['text' => $resmess]);
 		$watson = new Watson;
+		error_log($kbn);
 
 
 		if($kbn =="0"){
