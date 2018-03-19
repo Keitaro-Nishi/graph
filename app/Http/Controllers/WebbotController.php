@@ -105,8 +105,6 @@ class WebbotController
 		$text= str_replace("\n","",$text);
 		$data = array('input' => array("text" => $text));
 
-		error_log("●●●●●●");
-		error_log(print_r($data,true));
 
 		//URL置き換え
 		$pattern = '(https?://[-_.!~*\'()a-zA-Z0-9;/?:@&=+$,%#]+)';
@@ -114,7 +112,9 @@ class WebbotController
 		$resmess= mb_ereg_replace($pattern, $replacement, htmlspecialchars($resmess));
 		//改行コードを置き換え
 		$resmess = str_replace("\\n","<br>",$resmess);
-		//error_log($resmess);
+
+		error_log("●●●●●●");
+		error_log($resmess);
 		return \Response::json(['text' => $resmess]);
 		$watson = new Watson;
 
