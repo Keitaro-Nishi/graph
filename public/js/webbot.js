@@ -245,8 +245,8 @@ $(function(){
 	            /*crossDomain: false,
 	            scriptCharset: 'utf-8',
 	            async: false*/
-	        }).done(function(data){
-	        	message = data.text;
+	        }).done(function(response){
+	        	message = response.text;
 	        }).fail(function(XMLHttpRequest, textStatus, errorThrown){
 	            alert(errorThrown);
 	        });
