@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Userinfo;
+use App\Libs\Watson;
 
 class WebbotController
 {
@@ -40,6 +41,8 @@ class WebbotController
 		$this->requestall = \Request::all();
 		if ($this->requestall["param"] == "search"){
 			return $this->search();
+		}elseif($this->requestall["param"] == "watson"){
+			return $this->callcvsKenshin();
 		}else{
 			return \Response::json(['status' => 'NG']);
 		}
@@ -73,5 +76,27 @@ class WebbotController
 		error_log($age);
 
 		return \Response::json(['language' =>$language,'sex' =>$sex,'age' =>$age]);
+	}
+
+
+	public function callcvsKenshin()
+	{
+		$cityCD = Auth::user()->citycode;
+		$workspace = Parameter::select('cvs_ws_id2')->where('citycode', $cityCD)->first();
+		$workspace_KenshinId = $workspace->cvs_ws_id2;
+
+		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_KenshinId."/message?version=2017-04-21";
+
+		$input = $this->requestall;
+		$user = $input["user"];
+		$paramdata = $input["paramdata"];
+		$text = $input["text"];
+
+		$text= str_replace("\n","",$text);
+		$data = array('input' => array("text" => $text));
+		$watson = new Watson;
+
+		$watson->callcvsKenshin($cityCD,$url,$data);
+
 	}
 }

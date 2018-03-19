@@ -68,4 +68,24 @@ class Watson{
 	}
 
 
+	function callcvsKenshin($cityCD,$url,$data){
+
+		$username = getenv('CVS_USERNAME');
+		$password = getenv('CVS_PASS');
+
+		$curl = curl_init($url);
+		$options = array(
+				CURLOPT_HTTPHEADER => array(
+						'Content-Type: application/json',
+				),
+				CURLOPT_USERPWD => $username . ':' . $password,
+				CURLOPT_POST => true,
+				CURLOPT_POSTFIELDS => json_encode($data),
+				CURLOPT_RETURNTRANSFER => true,
+		);
+		curl_setopt_array($curl, $options);
+		return curl_exec($curl);
+	}
+
+
 }

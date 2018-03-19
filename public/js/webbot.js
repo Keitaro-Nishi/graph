@@ -142,8 +142,6 @@ $(function(){
 			sexN = "女";
 		  }
 
-		  alert("成功");
-		  /*
 		  callWatson("1", "0", age + "の" + sexN);
 		  botui.message.bot({
 			  delay: 1000,
@@ -156,14 +154,13 @@ $(function(){
 			        }
 			  });
 		  }).then(function(res) {
-			  kenshin2(res);
+			  kenshin3(res);
 		  })
-		  */
+
 	  }
 
 	  //検診相談続き
-	  /*
-	  function kenshin2(res){
+	  function kenshin3(res){
 		  callWatson("1", "1", res.value);
 		  botui.message.bot({
 			  delay: 1000,
@@ -179,7 +176,7 @@ $(function(){
 			  kenshin2(res);
 		  })
 	  }
-	  */
+
 
 	  //その他のお問い合わせ
 	  function sonota(){
@@ -218,14 +215,21 @@ $(function(){
 	  }
 
 
-	  /*
+
 	  //Watson呼び出し
 	  function callWatson(param, kbn, text){
-		  var param = { "user": user , "param": param , "kbn": kbn, "text": text };
+		  var _token = document.getElementById('_token').value;
+		  //var param = { "user": user , "param": param , "kbn": kbn, "text": text };
 			$.ajax({
-	            type: "GET",
-	            url: "cw.php",
-	            data: param,
+				type: "POST",
+				dataType: "JSON",
+				data:{
+					"param" : "watson",
+					"user" : user,
+					"paramdata" : param,
+					"text" : text,
+					"_token" : _token
+				}
 	            crossDomain: false,
 	            dataType : "json",
 	            scriptCharset: 'utf-8',
@@ -236,7 +240,7 @@ $(function(){
 	            alert(errorThrown);
 	        });
 	  }
-	  */
+
 
 });
 
