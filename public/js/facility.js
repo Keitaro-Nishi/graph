@@ -9,6 +9,9 @@ function init() {
 		formatters: {
 			"mods": function($column, $row) {
 				return "<input type='button' class='btn btn-default' value='修正' onclick='modwin("  + $row.id + ",\"" + $row.meisho + "\",\"" + $row.jusho + "\",\"" + $row.tel + "\",\"" + $row.genre1 + "\",\"" + $row.genre2 + "\",\"" + $row.lat + "\",\"" + $row.lng + "\",\"" + $row.imageurl + "\",\"" + $row.url + "\")' > ";
+			},
+			"mods1": function($column, $row) {
+				return "<input type='button' class='btn btn-default' value='詳細' onclick='modwin1("  + $row.id + ",\"" + $row.meisho + "\",\"" + $row.jusho + "\",\"" + $row.tel + "\",\"" + $row.genre1 + "\",\"" + $row.genre2 + "\",\"" + $row.lat + "\",\"" + $row.lng + "\",\"" + $row.imageurl + "\",\"" + $row.url + "\")' > ";
 			}
 		}
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
@@ -92,6 +95,23 @@ function modwin(id,meisho,jusho,tel,genre1,genre2,lat,lng,imageurl,url){
 	document.getElementById("btn_modal").click();
 }
 
+//施設情報詳細
+function modwin1(id,meisho,jusho,tel,genre1,genre2,lat,lng,imageurl,url){
+	document.getElementById('modal-label').innerHTML  = "施設情報詳細";
+	modID = id;
+	initmodal();
+	document.getElementById('dia_id').value = id;
+	document.getElementById('dia_meisho').value = meisho;
+	document.getElementById('dia_jusho').value = jusho;
+	document.getElementById('dia_tel').value = tel;
+	document.getElementById('dia_genre1').value = genre1;
+	document.getElementById('dia_genre2').value = genre2;
+	document.getElementById('dia_latlng').value = lat + "," + lng;
+	document.getElementById('dia_imageurl').value = imageurl;
+	document.getElementById('dia_url').value = url;
+	document.getElementById("btn_modal").click();
+}
+
 function insert() {
 	document.getElementById('dia_id').value = "";
 	document.getElementById('dia_genre1').value = 0;
@@ -103,12 +123,10 @@ function insert() {
 //ジャンル選択
 function genre1change(){
 	var select = document.getElementById('dia_genre2');
-	console.log(select);
 	while (0 < select.childNodes.length) {
 		select.removeChild(select.childNodes[0]);
 	}
 	g2value = genre2value[document.getElementById('dia_genre1').value];
-	console.log(g2value);
 	for(var i = 0; i < g2value.length; i++) {
 		var option = document.createElement('option');
 		option.setAttribute('value', g2value[i]['gid2']);
