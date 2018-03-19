@@ -112,10 +112,11 @@ class WebbotController
 		//改行コードを置き換え
 		$resmess = str_replace("\\n","<br>",$resmess);
 
+		error_log("●●●●●●");
 		return \Response::json(['text' => $resmess]);
 		$watson = new Watson;
 
-		error_log("●●●●●●");
+
 		if($kbn =="0"){
 			$jsonString = $watson->callcvsKenshin($cityCD,$url,$data);
 			$json = json_decode($jsonString, true);
