@@ -104,5 +104,7 @@ return [
     	'organization'=>'所属',
     	'password'=>'パスワード',
     	'intpass'=>'初期パスワード',
+    	'meisho'=>'施設名称',
+
     ],
 ];
