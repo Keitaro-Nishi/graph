@@ -142,12 +142,11 @@ class WebbotController
 							                             "dialog_turn_counter" => 1,
 							                             "dialog_request_counter" => 1));
 
-			error_log("●●●●●●");
-
 			$jsonString = $watson->callcvsKenshin($cityCD,$url,$data);
 			$json = json_decode($jsonString, true);
 			$resmess= $json["output"]["text"][0];
 			$conversation_node = $json["context"]["system"]["dialog_stack"][0]["dialog_node"];
+			error_log("☆☆☆☆☆☆");
 
 			Cvsdata::where('citycode',$cityCD)->where('userid',$user)->update(['conversationid' => $conversation_id,'dnode' =>$conversation_node,'time' =>$tdate]);
 		}
