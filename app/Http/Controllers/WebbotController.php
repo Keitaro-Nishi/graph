@@ -118,8 +118,6 @@ class WebbotController
 
 
 		if($kbn =="0"){
-			error_log("●●●●●●");
-			error_log($kbn);
 
 			$jsonString = $watson->callcvsKenshin($cityCD,$url,$data);
 			error_log("○○○○○○");
@@ -128,6 +126,7 @@ class WebbotController
 			$conversation_id = $json["context"]["conversation_id"];
 			$resmess= $json["output"]["text"][0];
 			$conversation_node = $json["context"]["system"]["dialog_stack"][0]["dialog_node"];
+			error_log("●●●●●●");
 			$cvsdatas = Cvsdata::where('citycode', $cityCD)->where('userid', $user)->first();
 			error_log("△△△△△△");
 
