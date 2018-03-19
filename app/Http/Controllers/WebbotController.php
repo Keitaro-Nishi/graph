@@ -103,7 +103,7 @@ class WebbotController
 		$kbn = $input["kbn"];
 		$text = $input["text"];
 
-		error_log("★★★★★★");
+
 		error_log($text);
 
 		$text= str_replace("\n","",$text);
@@ -130,7 +130,6 @@ class WebbotController
 
 		}else{
 
-			error_log("☆☆☆☆☆☆");
 			$cvsdatas = Cvsdata::where('citycode', $cityCD)->where('userid', $user)->first();
 			$conversation_id = $cvsdatas->conversationid;
 			$conversation_node= $cvsdatas->dnode;
@@ -141,12 +140,13 @@ class WebbotController
 							                             "dialog_request_counter" => 1));
 
 			$jsonString = $watson->callcvsKenshin($cityCD,$url,$data);
-			error_log("☓☓☓☓☓");
 			$json = json_decode($jsonString, true);
-			error_log("△△△△△△");
+			error_log("●●●●●");
 			$resmess= $json["output"]["text"][0];
-			error_log("★★★★★★");
+			error_log("○○○○○");
 			$conversation_node = $json["context"]["system"]["dialog_stack"][0]["dialog_node"];
+			error_log("★★★★★★");
+			error_log($conversation_node);
 
 
 			Cvsdata::where('citycode',$cityCD)->where('userid',$user)->update(['conversationid' => $conversation_id,'dnode' =>$conversation_node,'time' =>$tdate]);
