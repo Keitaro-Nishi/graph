@@ -118,12 +118,19 @@ class WebbotController
 
 
 		if($kbn =="0"){
-			$jsonString = $watson->callcvsKenshin($cityCD,$url,$data);
-			$json = json_decode($jsonString, true);
-			$conversation_id = $json["context"]["conversation_id"];
-			$resmess= $json["output"]["text"][0];
-			$conversation_node = $json["context"]["system"]["dialog_stack"][0]["dialog_node"];
+			error_log("●●●●●●");
+			error_log($kbn);
 
+			$jsonString = $watson->callcvsKenshin($cityCD,$url,$data);
+			error_log("○○○○○○");
+			$json = json_decode($jsonString, true);
+			error_log("☓☓☓☓☓");
+			$conversation_id = $json["context"]["conversation_id"];
+			error_log("△△△△△△");
+			$resmess= $json["output"]["text"][0];
+			error_log("★★★★★★");
+			$conversation_node = $json["context"]["system"]["dialog_stack"][0]["dialog_node"];
+			error_log("☆☆☆☆☆☆");
 			$cvsdatas = Cvsdata::where('citycode', $cityCD)->where('userid', $user)->first();
 
 			if(!$cvsdatas){
@@ -132,13 +139,11 @@ class WebbotController
 				Cvsdata::where('citycode',$cityCD)->where('userid',$user)->update(['conversationid' => $conversation_id,'dnode' =>$conversation_node,'time' =>$tdate]);
 			}
 		}else{
-			error_log("●●●●●●");
-			error_log($kbn);
+
 			$cvsdatas = Cvsdata::where('citycode', $cityCD)->where('userid', $user)->first();
 			$conversation_id = $cvsdatas->conversationid;
 			$conversation_node= $cvsdatas->dnode;
 			$conversation_time= $cvsdatas->time;
-
 			$data["context"] = array("conversation_id" => $conversation_id,
 				  					  "system" => array("dialog_stack" => array(array("dialog_node" => $conversation_node)),
 							                             "dialog_turn_counter" => 1,
