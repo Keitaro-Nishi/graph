@@ -164,7 +164,10 @@ $(function(){
 
 	  //検診相談続き
 	  function kenshin3(res){
+
 		  callWatson("1", "1", res.value);
+
+		  /*
 		  botui.message.bot({
 			  delay: 1000,
 			  content: message
@@ -178,6 +181,7 @@ $(function(){
 		  }).then(function(res) {
 			  kenshin3(res);
 		  })
+		  */
 	  }
 
 
