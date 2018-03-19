@@ -26,7 +26,7 @@ class HomeController extends Controller {
 		$count = Logindata::where ( 'userid', $userid )->count ();
 		error_log ( "??????????????". $count."??????????????" );
 		if ($count == 1){
-			return Redirect::to('/usersetting');
+			return Redirect('/usersetting');
 		}
 		return view ( 'home' );
 	}
