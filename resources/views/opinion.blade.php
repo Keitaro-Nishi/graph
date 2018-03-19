@@ -12,7 +12,7 @@
 			<th data-column-id='id' data-type='numeric' data-identifier='true' data-width='3%' data-visible="false"></th>
 			<th data-column-id='userid' data-width='9%'>ユーザーID</th>
 			<th data-column-id='time'  data-width='11%'>日時</th>
-			<th data-column-id='opinion'  data-width='33%'>ご意見</th>
+			<th data-column-id='opinion'  data-width='30%'>ご意見</th>
 			<th data-column-id='sadness' data-type='numeric' data-width='7%'>悲しみ</th>
 			<th data-column-id='joy' data-type='numeric' data-width='7%'>喜び</th>
 			<th data-column-id='fear' data-type='numeric' data-width='7%'>恐れ</th>
