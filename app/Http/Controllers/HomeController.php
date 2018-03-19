@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Redirect;
 use App\Logindata;
 
 class HomeController extends Controller {
