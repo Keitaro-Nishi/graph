@@ -13,12 +13,12 @@
 			<th data-column-id='userid' data-width='7%'>ユーザーID</th>
 			<th data-column-id='time'  data-width='10%'>日時</th>
 			<th data-column-id='opinion'  data-width='30%'>ご意見</th>
-			<th data-column-id='sadness' data-type='numeric' data-width='9%'>悲しみ</th>
-			<th data-column-id='joy' data-type='numeric' data-width='9%'>喜び</th>
-			<th data-column-id='fear' data-type='numeric' data-width='9%'>恐れ</th>
-			<th data-column-id='disgust' data-type='numeric' data-width='9%'>嫌悪</th>
-			<th data-column-id='anger' data-type='numeric' data-width='9%'>怒り</th>
-			<th data-column-id='checked'  data-width='5%'>チェック</th>
+			<th data-column-id='sadness' data-type='numeric' data-width='8%'>悲しみ</th>
+			<th data-column-id='joy' data-type='numeric' data-width='8%'>喜び</th>
+			<th data-column-id='fear' data-type='numeric' data-width='8%'>恐れ</th>
+			<th data-column-id='disgust' data-type='numeric' data-width='8%'>嫌悪</th>
+			<th data-column-id='anger' data-type='numeric' data-width='8%'>怒り</th>
+			<th data-column-id='checked'  data-width='10%'>チェック</th>
 			<th data-column-id='detail'  data-width='5%' data-formatter='details' data-sortable='false'></th>
 		</tr>
 	</thead>
@@ -27,7 +27,7 @@
 		<tr>
 			<td>{{$opinion->id}}</td>
 			<td>{{$opinion->userid}}</td>
-			<td>{{$opinion->time}}</td>
+			<td>{{ Carbon\Carbon::parse($opinion->time)->format('Y/m/d H:i:s') }}</td>
 			<td>{{$opinion->opinion}}</td>
 			<td>{{$opinion->sadness}}</td>
 			<td>{{$opinion->joy}}</td>
