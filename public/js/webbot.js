@@ -256,7 +256,7 @@ $(function(){
 	  function display(){
 		  botui.message.bot({
 			  content: message
-		  })
+		  }).then();
 	  }
 
 });
