@@ -139,7 +139,6 @@ class WebbotController
 							                             "dialog_turn_counter" => 1,
 							                             "dialog_request_counter" => 1));
 
-			error_log("○○○○○○");
 			$jsonString = $watson->callcvsKenshin($cityCD,$url,$data);
 			error_log("☓☓☓☓☓");
 			$json = json_decode($jsonString, true);
