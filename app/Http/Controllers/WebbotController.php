@@ -114,25 +114,21 @@ class WebbotController
 		$resmess = str_replace("\\n","<br>",$resmess);
 		return \Response::json(['text' => $resmess]);
 
-
-
 		if($kbn =="0"){
 
 			$jsonString = $watson->callcvsKenshin($cityCD,$url,$data);
-			error_log("○○○○○○");
 			$json = json_decode($jsonString, true);
-			error_log("☓☓☓☓☓");
 			$conversation_id = $json["context"]["conversation_id"];
 			$resmess= $json["output"]["text"][0];
 			$conversation_node = $json["context"]["system"]["dialog_stack"][0]["dialog_node"];
 			$cvsdatas = Cvsdata::where('citycode', $cityCD)->where('userid', $user)->first();
-
 
 			if(!$cvsdatas){
 				DB::table('cvsdata')->insert(['citycode'=> $cityCD,'userid' =>$user, 'conversationid' => $conversation_id,'dnode' =>$conversation_node,'time' =>$tdate]);
 			}else{
 				DB::table('cvsdata')->where('citycode',$cityCD)->where('userid',$user)->update(['conversationid' => $conversation_id,'dnode' =>$conversation_node,'time' =>$tdate]);
 			}
+
 		}else{
 
 			$cvsdatas = Cvsdata::where('citycode', $cityCD)->where('userid', $user)->first();
