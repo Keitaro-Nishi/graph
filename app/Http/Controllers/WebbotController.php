@@ -91,6 +91,7 @@ class WebbotController
 		$tdate = Carbon::now();
 
 		$input = $this->requestall;
+		$resmess = "";
 		$user = $input["user"];
 		$paramdata = $input["paramdata"];
 		$kbn = $input["kbn"];
