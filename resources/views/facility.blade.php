@@ -23,8 +23,6 @@
 			<th data-column-id="citycode" data-visible="false"></th>
 			@if(Auth::user()->role != 0)
 			<th data-column-id='detail' data-formatter='mods' data-sortable='false'></th>
-			@else
-			<th data-column-id='detail' data-formatter='mods1' data-sortable='false'></th>
 			@endif
 		</tr>
 	</thead>
