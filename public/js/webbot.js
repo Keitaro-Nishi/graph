@@ -231,10 +231,6 @@ $(function(){
 		  var kbn = kbn;
 		  var text = text;
 
-		  console.log(param);
-		  console.log(kbn);
-		  console.log(text);
-
 		  var _token = document.getElementById('_token').value;
 
 			$.ajax({

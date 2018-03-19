@@ -84,7 +84,6 @@ class Watson{
 				CURLOPT_RETURNTRANSFER => true,
 		);
 		curl_setopt_array($curl, $options);
-		error_log("ワトソン");
 		return curl_exec($curl);
 	}
 

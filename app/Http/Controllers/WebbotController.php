@@ -104,7 +104,6 @@ class WebbotController
 		$text = $input["text"];
 
 
-		error_log($text);
 
 		$text= str_replace("\n","",$text);
 		$data = array('input' => array("text" => $text));
@@ -116,8 +115,6 @@ class WebbotController
 			$conversation_id = $json["context"]["conversation_id"];
 			$resmess= $json["output"]["text"][0];
 
-			error_log("中身");
-			error_log($resmess);
 
 			$conversation_node = $json["context"]["system"]["dialog_stack"][0]["dialog_node"];
 			$cvsdatas = Cvsdata::where('citycode', $cityCD)->where('userid', $user)->first();
@@ -141,12 +138,8 @@ class WebbotController
 
 			$jsonString = $watson->callcvsKenshin($cityCD,$url,$data);
 			$json = json_decode($jsonString, true);
-			error_log("●●●●●");
 			$resmess= $json["output"]["text"][0];
-			error_log("○○○○○");
 			$conversation_node = $json["context"]["system"]["dialog_stack"][0]["dialog_node"];
-			error_log("★★★★★★");
-			error_log($conversation_node);
 
 			DB::table('cvsdata')->where('citycode',$cityCD)->where('userid',$user)->update(['conversationid' => $conversation_id,'dnode' =>$conversation_node,'time' =>$tdate]);
 		}
@@ -158,9 +151,6 @@ class WebbotController
 
 		//改行コードを置き換え
 		$resmess = str_replace("\\n","<br>",$resmess);
-
-		error_log("最後のresmessの中身");
-		error_log($resmess);
 
 		return \Response::json(['text' => $resmess]);
 
