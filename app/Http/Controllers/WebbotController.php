@@ -93,6 +93,7 @@ class WebbotController
 
 		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_KenshinId."/message?version=2017-04-21";
 		$tdate = Carbon::now();
+		$watson = new Watson;
 
 
 		$input = $this->requestall;
@@ -111,10 +112,8 @@ class WebbotController
 		$resmess= mb_ereg_replace($pattern, $replacement, htmlspecialchars($resmess));
 		//改行コードを置き換え
 		$resmess = str_replace("\\n","<br>",$resmess);
+		return \Response::json(['text' => $resmess]);
 
-		//return \Response::json(['text' => $resmess]);
-		$watson = new Watson;
-		error_log($kbn);
 
 
 		if($kbn =="0"){
@@ -130,14 +129,9 @@ class WebbotController
 
 
 			if(!$cvsdatas){
-				error_log("△△△△△△");
 				DB::table('cvsdata')->insert(['citycode'=> $cityCD,'userid' =>$user, 'conversationid' => $conversation_id,'dnode' =>$conversation_node,'time' =>$tdate]);
-				error_log("☆☆☆☆☆☆");
 			}else{
-				error_log("●●●●●●");
 				DB::table('cvsdata')->where('citycode',$cityCD)->where('userid',$user)->update(['conversationid' => $conversation_id,'dnode' =>$conversation_node,'time' =>$tdate]);
-				//Cvsdata::where('citycode',$cityCD)->where('userid',$user)->update(['conversationid' => $conversation_id,'dnode' =>$conversation_node,'time' =>$tdate]);
-				error_log("★★★★★★");
 			}
 		}else{
 
