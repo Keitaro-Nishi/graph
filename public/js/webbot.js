@@ -245,6 +245,7 @@ $(function(){
 	        }).done(function(response){
 	        	message = response.text;
 	        	alert("成功")
+	        	alert(message);
 	        }).fail(function(XMLHttpRequest, textStatus, errorThrown){
 	            alert(errorThrown);
 	        });

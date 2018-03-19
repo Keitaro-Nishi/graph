@@ -156,9 +156,6 @@ class WebbotController
 		$replacement = '[\1](\1)^';
 		$resmess= mb_ereg_replace($pattern, $replacement, htmlspecialchars($resmess));
 
-		error_log("直前のresmessの中身");
-		error_log($resmess);
-
 		//改行コードを置き換え
 		$resmess = str_replace("\\n","<br>",$resmess);
 
