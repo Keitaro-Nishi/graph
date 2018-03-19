@@ -247,9 +247,9 @@ $(function(){
 	            async: false*/
 	        }).done(function(response){
 	        	message = response.text;
-	        	alert(message);
-	        //}).fail(function(XMLHttpRequest, textStatus, errorThrown){
-	        }).fail(function(){
+	        	alert("成功")
+	        }).fail(function(XMLHttpRequest, textStatus, errorThrown){
+	        //}).fail(function(){
 	            alert(errorThrown);
 	        });
 	  }
