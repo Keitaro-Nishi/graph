@@ -105,6 +105,9 @@ return [
     	'password'=>'パスワード',
     	'intpass'=>'初期パスワード',
     	'meisho'=>'施設名称',
-
+		'jusho'=>'住所',
+    	'tel'=>'電話番号',
+    	'imageurl'=>'画像URL',
+    	'url'=>'詳細URL',
     ],
 ];
