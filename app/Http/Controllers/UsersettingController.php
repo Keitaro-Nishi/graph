@@ -23,7 +23,6 @@ class UsersettingController {
 	public function update() {
 		$userid = Auth::user ()->userid;
 		$input = \Request::all ();
-		$count = Logindata::where ( 'userid', $userid )->count ();
 
 		$rules = [
 				'name' => 'required|string|max:255',
@@ -57,6 +56,7 @@ class UsersettingController {
 				return \Response::json ( [
 						'status' => 'OK'
 				] );
+				$count = Logindata::where ( 'userid', $userid )->count ();
 				if ($count == 1){
 					Auth::logout();
 				}
