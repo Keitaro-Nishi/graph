@@ -220,11 +220,13 @@ $(function(){
 
 	  //Watson呼び出し
 	  function callWatson(param, kbn, text){
+		  var param = param;
+		  var kbn = kbn;
+		  var text = text;
 
 		  console.log(param);
 		  console.log(kbn);
 		  console.log(text);
-
 		  var _token = document.getElementById('_token').value;
 
 			$.ajax({
