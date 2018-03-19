@@ -103,6 +103,7 @@ function insert() {
 //ジャンル選択
 function genre1change(){
 	var select = document.getElementById('dia_genre2');
+	console.log(select);
 	while (0 < select.childNodes.length) {
 		select.removeChild(select.childNodes[0]);
 	}
