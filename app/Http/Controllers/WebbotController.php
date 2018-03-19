@@ -113,7 +113,7 @@ class WebbotController
 		$resmess = str_replace("\\n","<br>",$resmess);
 
 		error_log("●●●●●●");
-		return \Response::json(['text' => $resmess]);
+		//return \Response::json(['text' => $resmess]);
 		$watson = new Watson;
 
 
@@ -141,6 +141,9 @@ class WebbotController
 				  "system" => array("dialog_stack" => array(array("dialog_node" => $conversation_node)),
 							                                 "dialog_turn_counter" => 1,
 							                                 "dialog_request_counter" => 1));
+
+			error_log("●●●●●●");
+			error_log(print_r($data,true));
 
 			$jsonString = $watson->callcvsKenshin($cityCD,$url,$data);
 			$json = json_decode($jsonString, true);
