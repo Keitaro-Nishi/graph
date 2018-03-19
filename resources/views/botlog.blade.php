@@ -22,7 +22,7 @@
 		<tr>
 			<td>{{$botlog->no}}</td>
 			<td>{{$botlog->userid}}</td>
-			<td>{{$botlog->time}}</td>
+			<td>{{ Carbon\Carbon::parse($botlog->time)->format('Y/m/d H:i:s') }}</td>
 			<td>{{$botlog->contents}}</td>
 			<td>{{$botlog->return}}</td>
 			<td></td>
