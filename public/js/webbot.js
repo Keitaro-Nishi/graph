@@ -144,7 +144,6 @@ $(function(){
 
 		  callWatson("1", "0", age + "の" + sexN);
 
-		  display();
 		  /*
 		  botui.message.bot({
 			  delay: 1000,
@@ -248,6 +247,7 @@ $(function(){
 	        	message = response.text;
 	        	alert("成功")
 	        	alert(message);
+	        	display();
 	        }).fail(function(XMLHttpRequest, textStatus, errorThrown){
 	            alert(errorThrown);
 	        });
