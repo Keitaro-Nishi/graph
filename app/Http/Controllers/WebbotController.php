@@ -83,6 +83,8 @@ class WebbotController
 
 	public function callcvsKenshin()
 	{
+		error_log("☆☆☆☆☆☆");
+
 		$cityCD = Auth::user()->citycode;
 		$workspace = Parameter::select('cvs_ws_id2')->where('citycode', $cityCD)->first();
 		$workspace_KenshinId = $workspace->cvs_ws_id2;
