@@ -103,6 +103,9 @@ class WebbotController
 		$kbn = $input["kbn"];
 		$text = $input["text"];
 
+		error_log("★★★★★★");
+		error_log($text);
+
 		$text= str_replace("\n","",$text);
 		$data = array('input' => array("text" => $text));
 
