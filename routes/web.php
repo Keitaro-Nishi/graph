@@ -35,9 +35,8 @@ Route::middleware ( [
 	Route::post ( '/botlog', 'BotlogController@request' );
 
 	Route::get ( '/logimage', 'LogimageController@index' )->name ( 'logimage' );
-	Route::post ( '/logimage', 'LogimageController@request' );
-	// Route::get ( '/getimage/{id?}', 'app\Libs\getimage@links' );
 	Route::get ( '/logimage/{id?}', 'LogimageController@links' );
+	Route::post ( '/logimage', 'LogimageController@request' );
 
 	Route::get ( '/facility', 'FacilityController@index' )->name ( 'facility' );
 	Route::post ( '/facility', 'FacilityController@request' );

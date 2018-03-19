@@ -9,23 +9,23 @@
 	class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
-			<th data-column-id="no" data-type="numeric" data-identifier="true" data-width="4%" data-visible="false">NO</th>
+			<th data-column-id="no" data-type="numeric" data-identifier="true"
+				data-width="4%" data-visible="false">NO</th>
 			<th data-column-id='time' data-identifier="true">日時</th>
 			<th data-column-id='userid'>ユーザーID</th>
 			<th data-column-id='image' data-formatter='image'>送信画像</th>
-			<th data-column-id='imagest' data-visible="false"></th>
-			<th data-column-id='class'>分類</th>
-			<th data-column-id='score'>確信度</th>
-		{{--<th data-column-id='zm' data-width='7%' data-formatter='zoom'data-sortable='false'></th>--}}
+			<th data-column-id='cls'>分類</th>
+			<th data-column-id='scr'>確信度</th>
+			<th data-column-id='zm' data-width='7%' data-formatter='zoom'
+				data-sortable='false'></th>
 		</tr>
 	</thead>
 	<tbody>
 		@foreach($logimages as $logimage)
 		<tr>
 			<td>{{$logimage->no}}</td>
-			<td>{{$logimage->time}}</td>
+			<td>{{ Carbon\Carbon::parse($logimage->time)->format('Y/m/d H:i:s') }}</td>
 			<td>{{$logimage->userid}}</td>
-			<td></td>
 			<td></td>
 			<td>{{$logimage->class}}</td>
 			<td>{{$logimage->score}}</td>
@@ -34,10 +34,7 @@
 		@endforeach
 	</tbody>
 </table>
-@foreach($logimages as $logimage)
-<img src='data:image/jpeg;base64,{{$logimage->image}}' />
-@endforeach
-
+<input type="hidden" id="_token" name="_token" value="{{ csrf_token() }}">
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
 	<input id="btn_modal" type="button" style="display: none" data-toggle="modal" data-target="#image_Modal" value="モーダル表示" />
@@ -49,8 +46,6 @@
 				<p id="dia_kaku"></p>
 				<img id="dia_image" />
 			</div>
-			<input type="hidden" id="_token" name="_token"
-				value="{{ csrf_token() }}">
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
 			</div>
