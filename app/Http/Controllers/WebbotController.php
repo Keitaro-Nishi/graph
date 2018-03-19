@@ -126,10 +126,10 @@ class WebbotController
 			$json = json_decode($jsonString, true);
 			error_log("☓☓☓☓☓");
 			$conversation_id = $json["context"]["conversation_id"];
-			error_log("△△△△△△");
 			$resmess= $json["output"]["text"][0];
 			$conversation_node = $json["context"]["system"]["dialog_stack"][0]["dialog_node"];
 			$cvsdatas = Cvsdata::where('citycode', $cityCD)->where('userid', $user)->first();
+			error_log("△△△△△△");
 
 			if(!$cvsdatas){
 				DB::table('cvsdata')->insert(['citycode'=> $cityCD,'userid' =>$user, 'conversationid' => $conversation_id,'dnode' =>$conversation_node,'time' =>$tdate]);
