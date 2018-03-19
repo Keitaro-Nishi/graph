@@ -224,7 +224,7 @@ $(function(){
 		  var kbn = kbn;
 		  var text = text;
 
-		  console_log(text);
+		  alert(text);
 
 		  var _token = document.getElementById('_token').value;
 
