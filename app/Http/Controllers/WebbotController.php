@@ -105,7 +105,6 @@ class WebbotController
 		$text= str_replace("\n","",$text);
 		$data = array('input' => array("text" => $text));
 
-
 		//URL置き換え
 		$pattern = '(https?://[-_.!~*\'()a-zA-Z0-9;/?:@&=+$,%#]+)';
 		$replacement = '[\1](\1)^';
@@ -113,11 +112,10 @@ class WebbotController
 		//改行コードを置き換え
 		$resmess = str_replace("\\n","<br>",$resmess);
 
-		error_log("●●●●●●");
-		error_log($resmess);
 		return \Response::json(['text' => $resmess]);
 		$watson = new Watson;
 
+		error_log("●●●●●●");
 		if($kbn =="0"){
 			$jsonString = $watson->callcvsKenshin($cityCD,$url,$data);
 			$json = json_decode($jsonString, true);
