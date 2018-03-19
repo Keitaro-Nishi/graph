@@ -130,6 +130,7 @@ class WebbotController
 
 		}else{
 
+			error_log("☆☆☆☆☆☆");
 			$cvsdatas = Cvsdata::where('citycode', $cityCD)->where('userid', $user)->first();
 			$conversation_id = $cvsdatas->conversationid;
 			$conversation_node= $cvsdatas->dnode;
@@ -146,7 +147,7 @@ class WebbotController
 			$resmess= $json["output"]["text"][0];
 			error_log("★★★★★★");
 			$conversation_node = $json["context"]["system"]["dialog_stack"][0]["dialog_node"];
-			error_log("☆☆☆☆☆☆");
+
 
 			Cvsdata::where('citycode',$cityCD)->where('userid',$user)->update(['conversationid' => $conversation_id,'dnode' =>$conversation_node,'time' =>$tdate]);
 		}
