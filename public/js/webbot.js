@@ -166,6 +166,7 @@ $(function(){
 	  function kenshin3(res){
 
 		  alert("検診３");
+		  alert(res.value);
 		  callWatson("1", "1", res.value);
 
 		  /*
