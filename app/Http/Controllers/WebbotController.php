@@ -9,6 +9,7 @@ use App\Userinfo;
 use App\Cvsdata;
 use App\Libs\Watson;
 use Carbon\Carbon;
+use App\Parameter;
 
 class WebbotController
 {
