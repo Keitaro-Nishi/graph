@@ -145,7 +145,7 @@ $(function(){
 		  callWatson("1", "0", age + "の" + sexN);
 		  botui.message.bot({
 			  delay: 1000,
-			  content: message
+			  //content: message
 		  }).then(function() {
 			  return botui.action.text({
 			        delay: 1000,
