@@ -143,6 +143,8 @@ $(function(){
 		  }
 
 		  callWatson("1", "0", age + "の" + sexN);
+
+		  /*
 		  botui.message.bot({
 			  delay: 1000,
 			  content: message
@@ -156,7 +158,7 @@ $(function(){
 		  }).then(function(res) {
 			  kenshin3(res);
 		  })
-
+		  */
 
 	  }
 
