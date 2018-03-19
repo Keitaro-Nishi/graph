@@ -2,7 +2,7 @@ $(function(){
 	var url = 'https://api.github.com/search/repositories?q=';
 	var msgIndex, key;
 	var botui = new BotUI('chat-app');
-	var user = "webtest";
+	//var user = "webtest";
 	var language = "";
 	var sex = "0";
 	var age = "999";
@@ -219,13 +219,12 @@ $(function(){
 	  //Watson呼び出し
 	  function callWatson(param, kbn, text){
 		  var _token = document.getElementById('_token').value;
-		  //var param = { "user": user , "param": param , "kbn": kbn, "text": text };
 			$.ajax({
 				type: "POST",
 				dataType: "JSON",
 				data:{
 					"param" : "watson",
-					"user" : user,
+					"user" : userid,
 					"paramdata" : param,
 					"kbn" : kbn,
 					"text" : text,
@@ -234,8 +233,8 @@ $(function(){
 	            crossDomain: false,
 	            scriptCharset: 'utf-8',
 	            async: false
-	        }).done(function(response){
-	        	message = response.text;
+	        }).done(function(data){
+	        	message = data.text;
 	        }).fail(function(XMLHttpRequest, textStatus, errorThrown){
 	            alert(errorThrown);
 	        });
