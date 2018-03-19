@@ -148,8 +148,7 @@ class WebbotController
 			error_log("★★★★★★");
 			error_log($conversation_node);
 
-
-			Cvsdata::where('citycode',$cityCD)->where('userid',$user)->update(['conversationid' => $conversation_id,'dnode' =>$conversation_node,'time' =>$tdate]);
+			DB::table('cvsdata')->where('citycode',$cityCD)->where('userid',$user)->update(['conversationid' => $conversation_id,'dnode' =>$conversation_node,'time' =>$tdate]);
 		}
 
 		//URL置き換え
