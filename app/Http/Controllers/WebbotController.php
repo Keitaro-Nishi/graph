@@ -85,17 +85,16 @@ class WebbotController
 
 	public function callcvsKenshin()
 	{
-		error_log("☆☆☆☆☆☆");
+
 
 		$cityCD = Auth::user()->citycode;
 		$workspace = Parameter::select('cvs_ws_id2')->where('citycode', $cityCD)->first();
 		$workspace_KenshinId = $workspace->cvs_ws_id2;
-		error_log($workspace_KenshinId);
 
 		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_KenshinId."/message?version=2017-04-21";
 		$tdate = Carbon::now();
 
-		error_log("●●●●●●");
+
 		$input = $this->requestall;
 		$resmess = "";
 		$user = $input["user"];
@@ -105,6 +104,9 @@ class WebbotController
 
 		$text= str_replace("\n","",$text);
 		$data = array('input' => array("text" => $text));
+
+		error_log("●●●●●●");
+		error_log(print_r($data,true));
 
 		//URL置き換え
 		$pattern = '(https?://[-_.!~*\'()a-zA-Z0-9;/?:@&=+$,%#]+)';
