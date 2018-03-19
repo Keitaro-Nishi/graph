@@ -89,6 +89,7 @@ class WebbotController
 		$cityCD = Auth::user()->citycode;
 		$workspace = Parameter::select('cvs_ws_id2')->where('citycode', $cityCD)->first();
 		$workspace_KenshinId = $workspace->cvs_ws_id2;
+		error_log($workspace_KenshinId);
 
 		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_KenshinId."/message?version=2017-04-21";
 		$tdate = Carbon::now();
