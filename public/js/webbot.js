@@ -222,10 +222,6 @@ $(function(){
 		  var kbn = kbn;
 		  var text = text;
 
-		  console.log(param);
-		  console.log(kbn);
-		  console.log(text);
-
 		  var _token = document.getElementById('_token').value;
 
 			$.ajax({
@@ -239,9 +235,9 @@ $(function(){
 					"text" : text,
 					"_token" : _token
 				}
-	            /*crossDomain: false,
+	            crossDomain: false,
 	            scriptCharset: 'utf-8',
-	            async: false*/
+	            async: false
 	        }).done(function(response){
 	        	message = response.text;
 	        	alert("成功")
