@@ -23,7 +23,7 @@ class HomeController extends Controller {
 	public function index() {
 		$userid = Auth::user ()->userid;
 		$count = Logindata::where ( userid, $userid )->count ();
-		error_log ( $count );
+		error_log ( "??????????????". $count."??????????????" );
 		return view ( 'home' );
 	}
 }
