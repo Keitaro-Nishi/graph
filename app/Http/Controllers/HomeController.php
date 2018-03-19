@@ -24,7 +24,6 @@ class HomeController extends Controller {
 	public function index() {
 		$userid = Auth::user ()->userid;
 		$count = Logindata::where ( 'userid', $userid )->count ();
-		error_log ( "??????????????". $count."??????????????" );
 		if ($count == 1){
 			return Redirect('/usersetting');
 		}
