@@ -109,14 +109,6 @@ class WebbotController
 		$text= str_replace("\n","",$text);
 		$data = array('input' => array("text" => $text));
 
-		//URL置き換え
-		$pattern = '(https?://[-_.!~*\'()a-zA-Z0-9;/?:@&=+$,%#]+)';
-		$replacement = '[\1](\1)^';
-		$resmess= mb_ereg_replace($pattern, $replacement, htmlspecialchars($resmess));
-		//改行コードを置き換え
-		$resmess = str_replace("\\n","<br>",$resmess);
-		return \Response::json(['text' => $resmess]);
-
 		if($kbn =="0"){
 
 			$jsonString = $watson->callcvsKenshin($cityCD,$url,$data);
@@ -155,6 +147,15 @@ class WebbotController
 
 			Cvsdata::where('citycode',$cityCD)->where('userid',$user)->update(['conversationid' => $conversation_id,'dnode' =>$conversation_node,'time' =>$tdate]);
 		}
+
+
+		//URL置き換え
+		$pattern = '(https?://[-_.!~*\'()a-zA-Z0-9;/?:@&=+$,%#]+)';
+		$replacement = '[\1](\1)^';
+		$resmess= mb_ereg_replace($pattern, $replacement, htmlspecialchars($resmess));
+		//改行コードを置き換え
+		$resmess = str_replace("\\n","<br>",$resmess);
+		return \Response::json(['text' => $resmess]);
 
 
 	}

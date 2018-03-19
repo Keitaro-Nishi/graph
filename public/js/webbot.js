@@ -143,7 +143,7 @@ $(function(){
 		  }
 
 		  callWatson("1", "0", age + "の" + sexN);
-		  /*
+
 		  botui.message.bot({
 			  delay: 1000,
 			  content: message
@@ -157,7 +157,7 @@ $(function(){
 		  }).then(function(res) {
 			  kenshin3(res);
 		  })
-		  */
+
 
 	  }
 
@@ -224,7 +224,7 @@ $(function(){
 		  var kbn = kbn;
 		  var text = text;
 
-		  alert(text);
+		  //alert(text);
 
 		  var _token = document.getElementById('_token').value;
 
