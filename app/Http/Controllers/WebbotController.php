@@ -115,8 +115,10 @@ class WebbotController
 			$json = json_decode($jsonString, true);
 			$conversation_id = $json["context"]["conversation_id"];
 			$resmess= $json["output"]["text"][0];
-			error_log("resmessの中身");
+
+			error_log("中身");
 			error_log($resmess);
+
 			$conversation_node = $json["context"]["system"]["dialog_stack"][0]["dialog_node"];
 			$cvsdatas = Cvsdata::where('citycode', $cityCD)->where('userid', $user)->first();
 
@@ -155,10 +157,17 @@ class WebbotController
 		$pattern = '(https?://[-_.!~*\'()a-zA-Z0-9;/?:@&=+$,%#]+)';
 		$replacement = '[\1](\1)^';
 		$resmess= mb_ereg_replace($pattern, $replacement, htmlspecialchars($resmess));
+
+		error_log("直前のresmessの中身");
+		error_log($resmess);
+
 		//改行コードを置き換え
 		$resmess = str_replace("\\n","<br>",$resmess);
-		return \Response::json(['text' => $resmess]);
 
+		error_log("最後のresmessの中身");
+		error_log($resmess);
+
+		return \Response::json(['text' => $resmess]);
 
 	}
 }
