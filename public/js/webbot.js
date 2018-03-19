@@ -235,9 +235,9 @@ $(function(){
 					"text" : text,
 					"_token" : _token
 				}
-	            crossDomain: false,
+	            /*crossDomain: false,
 	            scriptCharset: 'utf-8',
-	            async: false
+	            async: false*/
 	        }).done(function(response){
 	        	message = response.text;
 	        	alert("成功")
