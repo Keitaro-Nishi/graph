@@ -113,7 +113,6 @@ class WebbotController
 		$resmess = str_replace("\\n","<br>",$resmess);
 
 		//return \Response::json(['text' => $resmess]);
-		error_log("●●●●●●");
 		$watson = new Watson;
 
 
@@ -132,6 +131,8 @@ class WebbotController
 				Cvsdata::where('citycode',$cityCD)->where('userid',$user)->update(['conversationid' => $conversation_id,'dnode' =>$conversation_node,'time' =>$tdate]);
 			}
 		}else{
+			error_log("●●●●●●");
+			error_log($kbn);
 			$cvsdatas = Cvsdata::where('citycode', $cityCD)->where('userid', $user)->first();
 			$conversation_id = $cvsdatas->conversationid;
 			$conversation_node= $cvsdatas->dnode;
