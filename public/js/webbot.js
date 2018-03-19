@@ -245,8 +245,7 @@ $(function(){
 	            async: false*/
 	        }).done(function(response){
 	        	message = response.text;
-	        	alert("成功")
-	        	alert(message);
+
 	        	display();
 	        }).fail(function(XMLHttpRequest, textStatus, errorThrown){
 	            alert(errorThrown);
@@ -256,7 +255,14 @@ $(function(){
 	  function display(){
 		  botui.message.bot({
 			  content: message
-		  }).then();
+		  }).then(function() {
+			  return botui.action.text({
+			        delay: 1000,
+			        action: {
+			          placeholder: '入力してください'
+			        }
+			  });
+		  })
 	  }
 
 });
