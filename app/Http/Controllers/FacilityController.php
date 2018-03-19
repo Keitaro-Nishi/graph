@@ -57,6 +57,8 @@ class FacilityController {
 			return $this->update ();
 		} elseif ($this->requestall ["param"] == "delete") {
 			return $this->delete ();
+		} else {
+			return \Response::json ([ 'status' => 'NG' ]);
 		}
 	}
 	// DB更新
