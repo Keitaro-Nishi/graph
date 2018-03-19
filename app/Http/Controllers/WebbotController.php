@@ -112,8 +112,8 @@ class WebbotController
 		//改行コードを置き換え
 		$resmess = str_replace("\\n","<br>",$resmess);
 
-		error_log("●●●●●●");
 		//return \Response::json(['text' => $resmess]);
+		error_log("●●●●●●");
 		$watson = new Watson;
 
 
