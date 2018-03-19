@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Logindata;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
@@ -15,12 +16,14 @@ class UsersettingController {
 		$name = Auth::user ()->name;
 		return view ( 'usersetting', [
 				'userid' => $userid,
-				'name' => $name
+				'name' => $name,
+				'count' => $count,
 		] );
 	}
 	public function update() {
 		$userid = Auth::user ()->userid;
 		$input = \Request::all ();
+		$count = Logindata::where ( 'userid', $userid )->count ();
 
 		$rules = [
 				'name' => 'required|string|max:255',
@@ -54,6 +57,9 @@ class UsersettingController {
 				return \Response::json ( [
 						'status' => 'OK'
 				] );
+				if ($count == 1){
+					Auth::logout();
+				}
 			}
 		} else {
 			return \Response::json ( [
