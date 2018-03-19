@@ -152,7 +152,6 @@ class WebbotController
 			Cvsdata::where('citycode',$cityCD)->where('userid',$user)->update(['conversationid' => $conversation_id,'dnode' =>$conversation_node,'time' =>$tdate]);
 		}
 
-
 		//URL置き換え
 		$pattern = '(https?://[-_.!~*\'()a-zA-Z0-9;/?:@&=+$,%#]+)';
 		$replacement = '[\1](\1)^';
