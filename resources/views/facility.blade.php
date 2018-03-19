@@ -21,9 +21,7 @@
 			<th data-column-id="imageurl">画像URL</th>
 			<th data-column-id="url">詳細URL</th>
 			<th data-column-id="citycode" data-visible="false"></th>
-			@if (Auth::user()->citycode != 00000)
 			<th data-column-id='detail' data-formatter='mods' data-sortable='false'></th>
-			@endif
 		</tr>
 	</thead>
 	<tbody>
@@ -42,9 +40,7 @@
 			<td>{{$facility->imageurl}}</td>
 			<td>{{$facility->url}}</td>
 			<td>{{$facility->citycode}}</td>
-			@if (Auth::user()->citycode != 00000)
 			<td></td>
-			@endif
 		</tr>
 		@endforeach
 	</tbody>

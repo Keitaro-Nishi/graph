@@ -17,7 +17,6 @@ class FacilityController {
 		$genre2value = array ();
 
 		if ($cityCD == "00000") {
-
 			$facilities = Facility::select ()->leftJoin ( 'genre as class', function ($join) {
 				$join->on ( 'facility.citycode', '=', 'class.citycode' )->where ( 'class.bunrui', ( int ) 1 );
 				$join->on ( 'facility.genre1', '=', 'class.gid1' );
