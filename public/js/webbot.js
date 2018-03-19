@@ -165,8 +165,8 @@ $(function(){
 	  //検診相談続き
 	  function kenshin3(res){
 
-		  alert("検診３");
-		  alert(res.value);
+		  //alert("検診３");
+		  //alert(res.value);
 		  callWatson("1", "1", res.value);
 
 		  /*
@@ -231,7 +231,9 @@ $(function(){
 		  var kbn = kbn;
 		  var text = text;
 
-		  //alert(text);
+		  console.log(param);
+		  console.log(kbn);
+		  console.log(text);
 
 		  var _token = document.getElementById('_token').value;
 
