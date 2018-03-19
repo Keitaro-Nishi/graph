@@ -108,7 +108,7 @@ function drow() {
 	    			}
 	    	    }).fail(function () {
 	    	    	bootbox.alert({
-	    				message: "2削除できませんでした",
+	    				message: "削除できませんでした",
 	    				size: 'small'
 	    			});
 	    	    });
@@ -209,7 +209,7 @@ function update(){
 			"gid2" : gid2,
 			"g1meisho" : g1meisho,
 			"meishoOld" : meishoOld,
-			"_token" : _token
+			"_token" : _token,
 		}
 	}).done(function (response) {
 		if(response.status == "OK"){

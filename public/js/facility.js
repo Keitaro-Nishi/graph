@@ -158,7 +158,7 @@ function update(){
 			"lng" : lng,
 			"imageurl" : imageurl,
 			"url" : url,
-			"_token" : _token
+			"_token" : _token,
 		}
 	}).done(function (response) {
 		if(response.status == "OK"){
