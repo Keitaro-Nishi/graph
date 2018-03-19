@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Userinfo;
+use App\Cvsdata;
 use App\Libs\Watson;
 use Carbon\Carbon;
 
@@ -115,7 +116,30 @@ class WebbotController
 			$resmess= $json["output"]["text"][0];
 			$conversation_node = $json["context"]["system"]["dialog_stack"][0]["dialog_node"];
 
-			DB::table('cvsdata')->insert(['citycode'=> $cityCD,'userid' =>$user, 'conversationid' => $conversation_id,'dnode' =>$conversation_node,'time' =>$tdate]);
+			$cvsdatas = Cvsdata::where('citycode', $cityCD)->where('userid', $user)->first();
+
+			if(!$cvsdatas){
+				DB::table('cvsdata')->insert(['citycode'=> $cityCD,'userid' =>$user, 'conversationid' => $conversation_id,'dnode' =>$conversation_node,'time' =>$tdate]);
+			}else{
+				Cvsdata::where('citycode',$cityCD)->where('userid',$user)->update(['conversationid' => $conversation_id,'dnode' =>$conversation_node,'time' =>$tdate]);
+			}
+		}else{
+			$cvsdatas = Cvsdata::where('citycode', $cityCD)->where('userid', $user)->first();
+			$conversation_id = $cvsdatas->conversationid;
+			$conversation_node= $cvsdatas->dnode;
+			$conversation_time= $cvsdatas->time;
+
+			$data["context"] = array("conversation_id" => $conversation_id,
+				  "system" => array("dialog_stack" => array(array("dialog_node" => $conversation_node)),
+							                                 "dialog_turn_counter" => 1,
+							                                 "dialog_request_counter" => 1));
+
+			$jsonString = $watson->callcvsKenshin($cityCD,$url,$data);
+			$json = json_decode($jsonString, true);
+			$resmess= $json["output"]["text"][0];
+			$conversation_node = $json["context"]["system"]["dialog_stack"][0]["dialog_node"];
+
+			Cvsdata::where('citycode',$cityCD)->where('userid',$user)->update(['conversationid' => $conversation_id,'dnode' =>$conversation_node,'time' =>$tdate]);
 		}
 
 
