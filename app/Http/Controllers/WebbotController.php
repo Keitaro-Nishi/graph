@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Userinfo;
 use App\Libs\Watson;
+use Carbon\Carbon;
 
 class WebbotController
 {
@@ -86,17 +87,37 @@ class WebbotController
 		$workspace_KenshinId = $workspace->cvs_ws_id2;
 
 		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_KenshinId."/message?version=2017-04-21";
+		$tdate = Carbon::now();
 
 		$input = $this->requestall;
 		$user = $input["user"];
 		$paramdata = $input["paramdata"];
+		$kbn = $input["kbn"];
 		$text = $input["text"];
 
 		$text= str_replace("\n","",$text);
 		$data = array('input' => array("text" => $text));
+
+		//URL置き換え
+		$pattern = '(https?://[-_.!~*\'()a-zA-Z0-9;/?:@&=+$,%#]+)';
+		$replacement = '[\1](\1)^';
+		$resmess= mb_ereg_replace($pattern, $replacement, htmlspecialchars($resmess));
+		//改行コードを置き換え
+		$resmess = str_replace("\\n","<br>",$resmess);
+		//error_log($resmess);
+		return \Response::json(['text' => $resmess]);
 		$watson = new Watson;
 
-		$watson->callcvsKenshin($cityCD,$url,$data);
+		if($kbn =="0"){
+			$jsonString = $watson->callcvsKenshin($cityCD,$url,$data);
+			$json = json_decode($jsonString, true);
+			$conversation_id = $json["context"]["conversation_id"];
+			$resmess= $json["output"]["text"][0];
+			$conversation_node = $json["context"]["system"]["dialog_stack"][0]["dialog_node"];
+
+			DB::table('cvsdata')->insert(['citycode'=> $cityCD,'userid' =>$user, 'conversationid' => $conversation_id,'dnode' =>$conversation_node,'time' =>$tdate]);
+		}
+
 
 	}
 }

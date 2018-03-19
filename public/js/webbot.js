@@ -227,15 +227,15 @@ $(function(){
 					"param" : "watson",
 					"user" : user,
 					"paramdata" : param,
+					"kbn" : kbn,
 					"text" : text,
 					"_token" : _token
 				}
 	            crossDomain: false,
-	            dataType : "json",
 	            scriptCharset: 'utf-8',
 	            async: false
-	        }).done(function(data){
-	        	message = data.text;
+	        }).done(function(response){
+	        	message = response.text;
 	        }).fail(function(XMLHttpRequest, textStatus, errorThrown){
 	            alert(errorThrown);
 	        });
