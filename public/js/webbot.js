@@ -231,7 +231,7 @@ $(function(){
 					"text" : text,
 					"_token" : _token
 				}
-	            crossDomain: false,
+	            //crossDomain: false,
 	            scriptCharset: 'utf-8',
 	            async: false
 	        }).done(function(data){
