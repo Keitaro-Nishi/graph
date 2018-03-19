@@ -231,9 +231,9 @@ $(function(){
 					"text" : text,
 					"_token" : _token
 				}
-	            //crossDomain: false,
+	            /*crossDomain: false,
 	            scriptCharset: 'utf-8',
-	            async: false
+	            async: false*/
 	        }).done(function(data){
 	        	message = data.text;
 	        }).fail(function(XMLHttpRequest, textStatus, errorThrown){
