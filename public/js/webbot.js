@@ -176,7 +176,7 @@ $(function(){
 			        }
 			  });
 		  }).then(function(res) {
-			  kenshin2(res);
+			  kenshin3(res);
 		  })
 	  }
 
@@ -240,9 +240,6 @@ $(function(){
 					"text" : text,
 					"_token" : _token
 				}
-	            /*crossDomain: false,
-	            scriptCharset: 'utf-8',
-	            async: false*/
 	        }).done(function(response){
 	        	message = response.text;
 
@@ -262,6 +259,8 @@ $(function(){
 			          placeholder: '入力してください'
 			        }
 			  });
+		  }).then(function(res) {
+			  kenshin3(res);
 		  })
 	  }
 
