@@ -218,7 +218,11 @@ $(function(){
 
 	  //Watson呼び出し
 	  function callWatson(param, kbn, text){
-		  //console_log("js watsonの呼び出し");
+
+		  console.log(param);
+		  console.log(kbn);
+		  console.log(text);
+
 		  var _token = document.getElementById('_token').value;
 			$.ajax({
 				type: "POST",
