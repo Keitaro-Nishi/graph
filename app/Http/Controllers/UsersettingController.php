@@ -17,7 +17,6 @@ class UsersettingController {
 		return view ( 'usersetting', [
 				'userid' => $userid,
 				'name' => $name,
-				'count' => $count,
 		] );
 	}
 	public function update() {
