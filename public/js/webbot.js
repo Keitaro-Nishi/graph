@@ -71,7 +71,7 @@ $(function(){
 			  type: "POST",
 				dataType: "JSON",
 				data: {
-					"param" : "search",
+					"parameter" : "search",
 					"citycode" : citycode,
 					"userid" : userid,
 					"sender" : 2,
@@ -244,9 +244,9 @@ $(function(){
 				type: "POST",
 				dataType: "JSON",
 				data:{
-					"param" : "watson",
+					"parameter" : "watson",
 					"user" : userid,
-					"paramdata" : param,
+					"param" : param,
 					"kbn" : kbn,
 					"text" : text,
 					"_token" : _token

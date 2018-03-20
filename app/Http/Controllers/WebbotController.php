@@ -42,9 +42,9 @@ class WebbotController
 
 	public  function request(){
 		$this->requestall = \Request::all();
-		if ($this->requestall["param"] == "search"){
+		if ($this->requestall["parameter"] == "search"){
 			return $this->search();
-		}elseif($this->requestall["param"] == "watson"){
+		}elseif($this->requestall["parameter"] == "watson"){
 			return $this->callcvs();
 		}else{
 			return \Response::json(['status' => 'NG']);
@@ -100,12 +100,12 @@ class WebbotController
 		$input = $this->requestall;
 		$resmess = "";
 		$user = $input["user"];
-		$paramdata = $input["paramdata"];
+		$param = $input["param"];
 		$kbn = $input["kbn"];
 		$text = $input["text"];
 
-		error_log($paramdata);
-		if($paramdata =="1"){
+		error_log($param);
+		if($param =="1"){
 			error_log("★★★★★");
 			$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_KenshinId."/message?version=2017-04-21";
 		}else{
