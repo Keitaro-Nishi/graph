@@ -24,16 +24,11 @@ class HomeController extends Controller {
 	 */
 	public function index() {
 		$userid = Auth::user ()->userid;
-		$loginedpass = Auth::user ()->password;
-		$nowpass = User::select ( 'password' )->where ( 'userid', $userid )->first ();
-		error_log("??????????????29". $loginedpass);
-		error_log("??????????????30". $nowpass->password);
 
 		$count = Logindata::where ( 'userid', $userid )->count ();
 		if ($count == 1) {
-			if ($nowpass->password == $loginedpass) {
-				return Redirect ( '/usersetting' );
-			}
+
+			return Redirect ( '/usersetting' );
 		}
 		return view ( 'home' );
 	}

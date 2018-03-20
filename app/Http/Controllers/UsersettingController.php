@@ -16,7 +16,7 @@ class UsersettingController {
 		$name = Auth::user ()->name;
 		return view ( 'usersetting', [
 				'userid' => $userid,
-				'name' => $name,
+				'name' => $name
 		] );
 	}
 	public function update() {
@@ -53,9 +53,13 @@ class UsersettingController {
 						'name' => $newName,
 						'password' => $newpassword
 				] );
-				return \Response::json ( [
-						'status' => 'OK'
-				] );
+				if ($count == 1) {
+					Auth::logout();
+				} else {
+					return \Response::json ( [
+							'status' => 'OK'
+					] );
+				}
 			}
 		} else {
 			return \Response::json ( [
