@@ -213,7 +213,6 @@ $(function(){
 	  function sonota2(res){
 		  callWatson("2", "1", res.value);
 
-
 		  /*
 		  botui.message.bot({
 			  delay: 1000,
