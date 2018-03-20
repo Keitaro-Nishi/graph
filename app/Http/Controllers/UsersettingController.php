@@ -14,10 +14,6 @@ class UsersettingController {
 	public function index(Request $request) {
 		$userid = Auth::user ()->userid;
 		$name = Auth::user ()->name;
-
-		$testpass = Auth::user ()->password;
-		error_log("?????????????????". $testpass. "?????????????????");
-
 		return view ( 'usersetting', [
 				'userid' => $userid,
 				'name' => $name,
