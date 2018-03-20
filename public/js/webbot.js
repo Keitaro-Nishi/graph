@@ -117,7 +117,6 @@ $(function(){
 			  }
 			  botui.message.add({
 			        delay: 1000,
-			        //content: '[属性登録](' + attrurl + user.substr(0, 1) + sex + user.substr(1, 1) + age + user.substr(2, 1) + region + user.substr(3) + ')^'
 			        content: '[属性登録](' + attrurl +')^'
 			  });
 		  }).then(init);
@@ -151,7 +150,6 @@ $(function(){
 
 	  //検診相談続き
 	  function kenshin3(res){
-
 		  callWatson("1", "1", res.value);
 
 	  }
@@ -192,10 +190,8 @@ $(function(){
 	        }).done(function(response){
 	        	message = response.text;
 	        	if(param =="1"){
-	        		console.log("検診");
 	        		displayKenshin();
 	        	}else{
-	        		console.log("その他");
 	        		displaySonota();
 	        	}
 	        }).fail(function(XMLHttpRequest, textStatus, errorThrown){
