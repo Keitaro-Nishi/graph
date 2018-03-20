@@ -1,7 +1,7 @@
-@if($count != 1)
-@extends('layouts.app')
-@else
+@if($count == 1)
 @extends('layouts.other')
+@else
+@extends('layouts.app')
 @endif
 
 @section('title')
