@@ -193,14 +193,19 @@ $(function(){
 				}
 	        }).done(function(response){
 	        	message = response.text;
-	        	display();
+	        	if(param =="1"){
+	        		display();
+	        	}else{
+	        		displaySonota();
+	        	}
+
 	        }).fail(function(XMLHttpRequest, textStatus, errorThrown){
 	            alert(errorThrown);
 	        });
 	  }
 
 	  //その他 Watson呼び出し
-	  function callWatsonSonota(param, kbn, text){
+	  /*function callWatsonSonota(param, kbn, text){
 		  param = param;
 		  kbn = kbn;
 		  text = text;
@@ -224,7 +229,7 @@ $(function(){
 	        }).fail(function(XMLHttpRequest, textStatus, errorThrown){
 	            alert(errorThrown);
 	        });
-	  }
+	  }*/
 
 
 	  //検診 メッセージの表示
