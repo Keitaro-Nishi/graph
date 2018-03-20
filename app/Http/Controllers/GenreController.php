@@ -147,7 +147,7 @@ class GenreController
 		$watson = new Watson;
 
 		if($meisho == null){
-			return \Response::json(['status' => 'NG']);
+
 		}else{
 			if($uiKbn == 1){
 				Genre::where('citycode',$cityCD)->where('gid1',$gid1)->where('gid2',$gid2)->update(['meisho' => $meisho]);
