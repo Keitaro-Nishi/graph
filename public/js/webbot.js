@@ -160,19 +160,17 @@ $(function(){
 	  //その他のお問い合わせ
 	  function sonota(){
 		  callWatson("2", "0", "初回発話");
-		  //callWatsonSonota("2", "0", "初回発話");
 
 	  }
 
 	//その他のお問い合わせ続き
 	  function sonota2(res){
 		  callWatson("2", "1", res.value);
-		  //callWatsonSonota("2", "1", res.value);
 
 	  }
 
 
-	  //検診 Watson呼び出し
+	  //Watson呼び出し
 	  function callWatson(param, kbn, text){
 		  param = param;
 		  kbn = kbn;
@@ -202,33 +200,6 @@ $(function(){
 	            alert(errorThrown);
 	        });
 	  }
-
-	  //その他 Watson呼び出し
-	  /*function callWatsonSonota(param, kbn, text){
-		  param = param;
-		  kbn = kbn;
-		  text = text;
-
-		  var _token = document.getElementById('_token').value;
-
-			$.ajax({
-				type: "POST",
-				dataType: "JSON",
-				data:{
-					"parameter" : "watson",
-					"user" : userid,
-					"param" : param,
-					"kbn" : kbn,
-					"text" : text,
-					"_token" : _token
-				}
-	        }).done(function(response){
-	        	message = response.text;
-	        	displaySonota();
-	        }).fail(function(XMLHttpRequest, textStatus, errorThrown){
-	            alert(errorThrown);
-	        });
-	  }*/
 
 
 	  //検診 メッセージの表示
