@@ -120,7 +120,7 @@ class WebbotController
 
 		if($kbn =="0"){
 
-			$jsonString = $watson->callcvsKenshin($cityCD,$url,$data);
+			$jsonString = $watson->callcvsWebbot($cityCD,$url,$data);
 			$json = json_decode($jsonString, true);
 			$conversation_id = $json["context"]["conversation_id"];
 			$resmess= $json["output"]["text"][0];
@@ -146,7 +146,7 @@ class WebbotController
 							                             "dialog_turn_counter" => 1,
 							                             "dialog_request_counter" => 1));
 
-			$jsonString = $watson->callcvsKenshin($cityCD,$url,$data);
+			$jsonString = $watson->callcvsWebbot($cityCD,$url,$data);
 			$json = json_decode($jsonString, true);
 			$resmess= $json["output"]["text"][0];
 			$conversation_node = $json["context"]["system"]["dialog_stack"][0]["dialog_node"];

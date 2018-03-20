@@ -68,7 +68,7 @@ class Watson{
 	}
 
 
-	function callcvsKenshin($cityCD,$url,$data){
+	function callcvsWebbot($cityCD,$url,$data){
 
 		$username = getenv('CVS_USERNAME');
 		$password = getenv('CVS_PASS');
