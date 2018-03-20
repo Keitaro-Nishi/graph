@@ -220,6 +220,14 @@ function update(){
 					location.reload();
 				}
 			});
+		}elseif(response.status == "blunk"){
+			bootbox.alert({
+				message: "入力されていません",
+				size: 'small',
+				callback: function () {
+					location.reload();
+				}
+			});
 		}else{
 			var mes = "";
 			for (var item in response) {
