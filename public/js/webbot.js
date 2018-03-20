@@ -201,7 +201,6 @@ $(function(){
 	        });
 	  }
 
-
 	  //検診 メッセージの表示
 	  function display(){
 		  botui.message.bot({
