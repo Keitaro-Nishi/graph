@@ -190,7 +190,8 @@ $(function(){
 
 	  //その他のお問い合わせ
 	  function sonota(){
-		  callWatson("2", "0", "初回発話");
+		  //callWatson("2", "0", "初回発話");
+		  callWatsonSonota("2", "0", "初回発話");
 
 		  /*
 		  botui.message.bot({
@@ -211,7 +212,8 @@ $(function(){
 
 	//その他のお問い合わせ続き
 	  function sonota2(res){
-		  callWatson("2", "1", res.value);
+		  //callWatson("2", "1", res.value);
+		  callWatsonSonota("2", "1", res.value);
 
 		  /*
 		  botui.message.bot({
@@ -262,6 +264,38 @@ $(function(){
 	        });
 	  }
 
+	  //その他 Watson呼び出し
+	  function callWatsonSonota(param, kbn, text){
+		  param = param;
+		  kbn = kbn;
+		  text = text;
+
+		  console.log(param);
+		  console.log(kbn);
+		  console.log(text);
+
+		  var _token = document.getElementById('_token').value;
+
+			$.ajax({
+				type: "POST",
+				dataType: "JSON",
+				data:{
+					"parameter" : "watson",
+					"user" : userid,
+					"param" : param,
+					"kbn" : kbn,
+					"text" : text,
+					"_token" : _token
+				}
+	        }).done(function(response){
+	        	message = response.text;
+	        	displaySonota();
+	        }).fail(function(XMLHttpRequest, textStatus, errorThrown){
+	            alert(errorThrown);
+	        });
+	  }
+
+
 	  //メッセージの表示
 	  function display(){
 		  botui.message.bot({
@@ -274,14 +308,23 @@ $(function(){
 			        }
 			  });
 		  }).then(function(res) {
-			  //if(param == 1){
-				 // alert("検診へ");
 				  kenshin3(res);
-			  /*}else{
-				  alert("その他へ");
-				  sonota2(res);
-			  }
-			  */
+		  })
+	  }
+
+	//その他 メッセージの表示
+	  function displaySonota(){
+		  botui.message.bot({
+			  content: message
+		  }).then(function() {
+			  return botui.action.text({
+			        delay: 1000,
+			        action: {
+			          placeholder: '入力してください'
+			        }
+			  });
+		  }).then(function(res) {
+			  sonota2(res);
 		  })
 	  }
 
