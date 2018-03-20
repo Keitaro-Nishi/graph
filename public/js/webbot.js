@@ -147,22 +147,6 @@ $(function(){
 
 		  callWatson("1", "0", age + "の" + sexN);
 
-		  /*
-		  botui.message.bot({
-			  delay: 1000,
-			  content: message
-		  }).then(function() {
-			  return botui.action.text({
-			        delay: 1000,
-			        action: {
-			          placeholder: '入力してください'
-			        }
-			  });
-		  }).then(function(res) {
-			  kenshin3(res);
-		  })
-		  */
-
 	  }
 
 	  //検診相談続き
@@ -170,21 +154,6 @@ $(function(){
 
 		  callWatson("1", "1", res.value);
 
-		  /*
-		  botui.message.bot({
-			  delay: 1000,
-			  content: message
-		  }).then(function() {
-			  return botui.action.text({
-			        delay: 1000,
-			        action: {
-			          placeholder: '入力してください'
-			        }
-			  });
-		  }).then(function(res) {
-			  kenshin3(res);
-		  })
-		  */
 	  }
 
 
@@ -193,21 +162,6 @@ $(function(){
 		  //callWatson("2", "0", "初回発話");
 		  callWatsonSonota("2", "0", "初回発話");
 
-		  /*
-		  botui.message.bot({
-			  delay: 1000,
-			  content: message
-		  }).then(function() {
-			  return botui.action.text({
-			        delay: 1000,
-			        action: {
-			          placeholder: '入力してください'
-			        }
-			  });
-		  }).then(function(res) {
-			  sonota2(res);
-		  })
-		  */
 	  }
 
 	//その他のお問い合わせ続き
@@ -215,21 +169,6 @@ $(function(){
 		  //callWatson("2", "1", res.value);
 		  callWatsonSonota("2", "1", res.value);
 
-		  /*
-		  botui.message.bot({
-			  delay: 1000,
-			  content: message
-		  }).then(function() {
-			  return botui.action.text({
-			        delay: 1000,
-			        action: {
-			          placeholder: '入力してください'
-			        }
-			  });
-		  }).then(function(res) {
-			  sonota2(res);
-		  })
-		  */
 	  }
 
 

@@ -106,13 +106,10 @@ class WebbotController
 
 
 
-		error_log($param);
 
 		if($param =="1"){
-			error_log("★★★★★");
 			$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_KenshinId."/message?version=2017-04-21";
 		}elseif($param =="2"){
-			error_log("☆☆☆☆☆☆");
 			$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_SonotaId."/message?version=2017-04-21";
 		}
 
