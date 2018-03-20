@@ -220,15 +220,15 @@ function update(){
 					location.reload();
 				}
 			});
-		}elseif(response.status == "blunk"){
+		}else{
 			bootbox.alert({
-				message: "入力されていません",
+				message: "入力されていません。",
 				size: 'small',
 				callback: function () {
 					location.reload();
 				}
 			});
-		}else{
+			/*
 			var mes = "";
 			for (var item in response) {
 				if(mes != ""){
@@ -240,6 +240,7 @@ function update(){
 				message: mes,
 				size: 'small'
 			});
+			*/
 		}
     }).fail(function () {
     	bootbox.alert({
