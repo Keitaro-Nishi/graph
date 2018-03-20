@@ -134,7 +134,7 @@ class LinepushController
 			}
 		}
 		if(count($uids) > 0){
-			$result = $this->lineSend($line_cat->line_cat,$uids,$input["sendmess"]);
+			$result = $this->lineSend($line_cat->line_cat,$uids,$message);
 			if($result == "NG"){
 				return \Response::json(['status' => 'NG']);
 			}
