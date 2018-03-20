@@ -90,8 +90,8 @@ class WebbotController
 		$cityCD = Auth::user()->citycode;
 		$workspace = Parameter::select('cvs_ws_id2')->where('citycode', $cityCD)->first();
 		$workspace_KenshinId = $workspace->cvs_ws_id2;
-		$workspaceSonota = Parameter::select('cvs_ws_id3')->where('citycode', $cityCD)->first();
-		$workspace_SonotaId = $workspaceSonota->cvs_ws_id3;
+		//$workspaceSonota = Parameter::select('cvs_ws_id3')->where('citycode', $cityCD)->first();
+		//$workspace_SonotaId = $workspaceSonota->cvs_ws_id3;
 
 
 		$tdate = Carbon::now();
@@ -104,10 +104,13 @@ class WebbotController
 		$kbn = $input["kbn"];
 		$text = $input["text"];
 
+		error_log($paramdata);
 		if($paramdata =="1"){
+			error_log("★★★★★");
 			$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_KenshinId."/message?version=2017-04-21";
 		}else{
-			$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_SonotaId."/message?version=2017-04-21";
+			error_log("☆☆☆☆☆☆");
+			//$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_SonotaId."/message?version=2017-04-21";
 		}
 
 
