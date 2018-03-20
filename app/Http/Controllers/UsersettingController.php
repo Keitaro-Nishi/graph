@@ -53,6 +53,7 @@ class UsersettingController {
 						'name' => $newName,
 						'password' => $newpassword
 				] );
+				$count = $count + 1;
 				return \Response::json ( [
 						'status' => 'OK'
 				] );
