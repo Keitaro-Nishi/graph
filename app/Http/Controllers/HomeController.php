@@ -26,6 +26,9 @@ class HomeController extends Controller {
 		$userid = Auth::user ()->userid;
 		$loginedpass = Auth::user ()->password;
 		$nowpass = User::select ( 'password' )->where ( 'userid', $userid )->first ();
+		error_log("??????????????29". $loginedpass);
+		error_log("??????????????30". $nowpass);
+
 		$count = Logindata::where ( 'userid', $userid )->count ();
 		if ($count == 1) {
 			if ($nowpass == $loginedpass) {
