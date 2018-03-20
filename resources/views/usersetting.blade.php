@@ -1,4 +1,4 @@
-@if(counnt != 1)
+@if(count != 1)
 @extends('layouts.app')
 @else
 @extends('layouts.other')
