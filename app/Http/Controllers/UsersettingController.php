@@ -55,6 +55,7 @@ class UsersettingController {
 				] );
 				if ($count == 1) {
 					Auth::logout();
+					return Redirect ( '/home' );
 				} else {
 					return \Response::json ( [
 							'status' => 'OK'
