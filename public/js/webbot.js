@@ -172,15 +172,11 @@ $(function(){
 	  }
 
 
-	  //Watson呼び出し
+	  //検診 Watson呼び出し
 	  function callWatson(param, kbn, text){
 		  param = param;
 		  kbn = kbn;
 		  text = text;
-
-		  console.log(param);
-		  console.log(kbn);
-		  console.log(text);
 
 		  var _token = document.getElementById('_token').value;
 
@@ -209,10 +205,6 @@ $(function(){
 		  kbn = kbn;
 		  text = text;
 
-		  console.log(param);
-		  console.log(kbn);
-		  console.log(text);
-
 		  var _token = document.getElementById('_token').value;
 
 			$.ajax({
@@ -235,7 +227,7 @@ $(function(){
 	  }
 
 
-	  //メッセージの表示
+	  //検診 メッセージの表示
 	  function display(){
 		  botui.message.bot({
 			  content: message
