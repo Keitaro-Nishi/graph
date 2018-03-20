@@ -1,4 +1,8 @@
+@if(counnt != 1)
 @extends('layouts.app')
+@else
+@extends('layouts.other')
+@endif
 
 @section('title')
 パスワード変更

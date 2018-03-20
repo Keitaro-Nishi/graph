@@ -14,9 +14,11 @@ class UsersettingController {
 	public function index(Request $request) {
 		$userid = Auth::user ()->userid;
 		$name = Auth::user ()->name;
+		$count = Logindata::where ( 'userid', $userid )->count ();
 		return view ( 'usersetting', [
 				'userid' => $userid,
-				'name' => $name
+				'name' => $name,
+				'count' => $count,
 		] );
 	}
 	public function update() {
