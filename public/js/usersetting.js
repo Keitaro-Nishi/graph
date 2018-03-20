@@ -36,8 +36,11 @@ function update(){
 			});
 		}else if(response.status == "LOGOUT"){
 			bootbox.alert({
-				message: "ログアウト",
+				message: "ログアウトします。新しいパスワードでログインしてください。",
 				size: 'small',
+				callback: function () {
+					location.replace(/login);
+				}
 			});
 		}else{
 			var mes = "";

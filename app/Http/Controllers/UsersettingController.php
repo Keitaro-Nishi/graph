@@ -57,6 +57,7 @@ class UsersettingController {
 					return \Response::json ( [
 							'status' => 'LOGOUT'
 					] );
+					Auth::logout();
 				} else {
 					return \Response::json ( [
 							'status' => 'OK'
