@@ -104,6 +104,9 @@ class WebbotController
 		$kbn = $input["kbn"];
 		$text = $input["text"];
 
+		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_KenshinId."/message?version=2017-04-21";
+
+		/*
 		error_log($param);
 		if($param =="1"){
 			error_log("★★★★★");
@@ -112,6 +115,7 @@ class WebbotController
 			error_log("☆☆☆☆☆☆");
 			//$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_SonotaId."/message?version=2017-04-21";
 		}
+		*/
 
 
 		$text= str_replace("\n","",$text);
