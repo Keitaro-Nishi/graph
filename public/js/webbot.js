@@ -238,6 +238,10 @@ $(function(){
 		  kbn = kbn;
 		  text = text;
 
+		  console.log(param);
+		  console.log(kbn);
+		  console.log(text);
+
 		  var _token = document.getElementById('_token').value;
 
 			$.ajax({
@@ -271,7 +275,6 @@ $(function(){
 			        }
 			  });
 		  }).then(function(res) {
-			  console.log(param);
 			  if(param == "1" ){
 				  alert("検診へ");
 				  kenshin3(res);
