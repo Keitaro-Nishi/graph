@@ -34,6 +34,11 @@ function update(){
 				message: "パスワードに変更がありません。",
 				size: 'small',
 			});
+		}else if(response.status == "LOGOUT"){
+			bootbox.alert({
+				message: "ログアウト",
+				size: 'small',
+			});
 		}else{
 			var mes = "";
 			for (var item in response) {
