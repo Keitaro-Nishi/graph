@@ -13,6 +13,9 @@ $(function(){
 	var citycode ="";
 	var userid ="";
 	var userinfo = [];
+	var param = "";
+	var kbn = "";
+	var text = "";
 
 
 
@@ -231,9 +234,9 @@ $(function(){
 
 	  //Watson呼び出し
 	  function callWatson(param, kbn, text){
-		  var param = param;
-		  var kbn = kbn;
-		  var text = text;
+		  param = param;
+		  kbn = kbn;
+		  text = text;
 
 		  var _token = document.getElementById('_token').value;
 
