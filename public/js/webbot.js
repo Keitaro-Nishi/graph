@@ -269,8 +269,10 @@ $(function(){
 			  });
 		  }).then(function(res) {
 			  if(param == "1" ){
+				  alert("検診へ");
 				  kenshin3(res);
 			  }else{
+				  alert("その他へ");
 				  sonota2(res);
 			  }
 		  })
