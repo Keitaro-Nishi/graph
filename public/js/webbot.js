@@ -231,7 +231,6 @@ $(function(){
 	  }
 
 
-
 	  //Watson呼び出し
 	  function callWatson(param, kbn, text){
 		  param = param;
