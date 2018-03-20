@@ -54,7 +54,6 @@ class UsersettingController {
 						'password' => $newpassword
 				] );
 				if ($count == 1) {
-					Auth::logout();
 					return \Response::json ( [
 							'status' => 'LOGOUT'
 					] );
