@@ -198,7 +198,6 @@ $(function(){
 	        	}else{
 	        		displaySonota();
 	        	}
-
 	        }).fail(function(XMLHttpRequest, textStatus, errorThrown){
 	            alert(errorThrown);
 	        });
