@@ -159,15 +159,15 @@ $(function(){
 
 	  //その他のお問い合わせ
 	  function sonota(){
-		  //callWatson("2", "0", "初回発話");
-		  callWatsonSonota("2", "0", "初回発話");
+		  callWatson("2", "0", "初回発話");
+		  //callWatsonSonota("2", "0", "初回発話");
 
 	  }
 
 	//その他のお問い合わせ続き
 	  function sonota2(res){
-		  //callWatson("2", "1", res.value);
-		  callWatsonSonota("2", "1", res.value);
+		  callWatson("2", "1", res.value);
+		  //callWatsonSonota("2", "1", res.value);
 
 	  }
 
