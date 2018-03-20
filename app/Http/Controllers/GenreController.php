@@ -135,6 +135,7 @@ class GenreController
 		$cityCD = Auth::user()->citycode;
 		$workspace = Parameter::select('cvs_ws_id1')->where('citycode', $cityCD)->first();
 		$workspace_id = $workspace->cvs_ws_id1;
+		$meisho ="";
 
 		$input = $this->requestall;
 		$uiKbn = $input["uiKbn"];
@@ -146,7 +147,7 @@ class GenreController
 		$meishoOld = $input["meishoOld"];
 		$watson = new Watson;
 
-		if($meisho ==null){
+		if($meisho == ""){
 			if($uiKbn == 1){
 				Genre::where('citycode',$cityCD)->where('gid1',$gid1)->where('gid2',$gid2)->update(['meisho' => $meisho]);
 
