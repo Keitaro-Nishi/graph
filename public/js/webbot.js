@@ -271,6 +271,7 @@ $(function(){
 			        }
 			  });
 		  }).then(function(res) {
+			  console.log(param);
 			  if(param == "1" ){
 				  alert("検診へ");
 				  kenshin3(res);
