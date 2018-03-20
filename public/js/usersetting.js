@@ -39,7 +39,7 @@ function update(){
 				message: "ログアウトします。新しいパスワードでログインしてください。",
 				size: 'small',
 				callback: function () {
-					location.replace(/login);
+					location.replace("/login");
 				}
 			});
 		}else{
