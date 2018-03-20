@@ -31,7 +31,7 @@ class HomeController extends Controller {
 
 		$count = Logindata::where ( 'userid', $userid )->count ();
 		if ($count == 1) {
-			if ($nowpass == $loginedpass) {
+			if ($nowpass->password == $loginedpass) {
 				return Redirect ( '/usersetting' );
 			}
 		}
