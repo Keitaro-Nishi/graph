@@ -191,18 +191,40 @@ $(function(){
 				}
 	        }).done(function(response){
 	        	message = response.text;
-	        	if(param =="1"){
+	        	display();
+	        	/*if(param =="1"){
 	        		display();
 	        	}else{
 	        		displaySonota();
-	        	}
+	        	}*/
 	        }).fail(function(XMLHttpRequest, textStatus, errorThrown){
 	            alert(errorThrown);
 	        });
 	  }
 
-	  //検診 メッセージの表示
+
 	  function display(){
+		  botui.message.bot({
+			  content: message
+		  }).then(function() {
+			  return botui.action.text({
+			        delay: 1000,
+			        action: {
+			          placeholder: '入力してください'
+			        }
+			  });
+		  }).then(function(res) {
+			  if(param =="1"){
+				  kenshin3(res);
+	          }else{
+	        		sonota2(res);
+	          }
+		  })
+	  }
+
+
+	  //検診 メッセージの表示
+	  /*function display(){
 		  botui.message.bot({
 			  content: message
 		  }).then(function() {
@@ -215,10 +237,11 @@ $(function(){
 		  }).then(function(res) {
 				  kenshin3(res);
 		  })
-	  }
+	  }*/
+
 
 	//その他 メッセージの表示
-	  function displaySonota(){
+	  /*function displaySonota(){
 		  botui.message.bot({
 			  content: message
 		  }).then(function() {
@@ -231,7 +254,7 @@ $(function(){
 		  }).then(function(res) {
 			  sonota2(res);
 		  })
-	  }
+	  }*/
 
 });
 
