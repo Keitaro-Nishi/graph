@@ -188,6 +188,8 @@ $(function(){
 	  //その他のお問い合わせ
 	  function sonota(){
 		  callWatson("2", "0", "初回発話");
+
+		  /*
 		  botui.message.bot({
 			  delay: 1000,
 			  content: message
@@ -201,11 +203,14 @@ $(function(){
 		  }).then(function(res) {
 			  sonota2(res);
 		  })
+		  */
 	  }
 
 	//その他のお問い合わせ続き
 	  function sonota2(res){
 		  callWatson("2", "1", res.value);
+
+		  /*
 		  botui.message.bot({
 			  delay: 1000,
 			  content: message
@@ -219,6 +224,7 @@ $(function(){
 		  }).then(function(res) {
 			  sonota2(res);
 		  })
+		  */
 	  }
 
 
@@ -244,13 +250,13 @@ $(function(){
 				}
 	        }).done(function(response){
 	        	message = response.text;
-
 	        	display();
 	        }).fail(function(XMLHttpRequest, textStatus, errorThrown){
 	            alert(errorThrown);
 	        });
 	  }
 
+	  //メッセージの表示
 	  function display(){
 		  botui.message.bot({
 			  content: message
@@ -262,7 +268,11 @@ $(function(){
 			        }
 			  });
 		  }).then(function(res) {
-			  kenshin3(res);
+			  if(param == "1" ){
+				  kenshin3(res);
+			  }else{
+				  sonota2(res);
+			  }
 		  })
 	  }
 
