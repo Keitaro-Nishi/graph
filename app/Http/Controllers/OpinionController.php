@@ -20,6 +20,7 @@ class OpinionController
 			//$opinions= Opinion::where('citycode', $cityCD)->get();
 			$opinions= Opinion::where('citycode', $cityCD)->first();
 
+			error_log("★★★★★★");
 			$date = date_create($opinions->time);
 			$date = date_format($date , 'Y-m-d');
 
