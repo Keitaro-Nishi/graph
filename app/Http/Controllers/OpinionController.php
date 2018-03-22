@@ -23,7 +23,7 @@ class OpinionController
 			foreach($opinions as $opinion){
 
 				$date = date_create($opinion->time);
-				$date = date_format($date , 'Y-m-d');
+				$date = date_format($date , 'Y-m-d H:i:s');
 
 				error_log("☆☆☆☆☆☆");
 				error_log($date);
