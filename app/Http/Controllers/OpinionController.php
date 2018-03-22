@@ -55,7 +55,7 @@ class OpinionController
 				array_push($opinions, $opinionlist);
 			}
 
-			$opinionObject = (object)$opinions;
+			$opinionObject= json_encode($opinions);
 
 
 		}
