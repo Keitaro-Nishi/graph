@@ -20,20 +20,20 @@
 	<tbody>
 		@foreach($botlogs as $botlog)
 		<tr>
-			<td>{{$botlog->no}}</td>
-			<td>{{$botlog->userid}}</td>
-			<td>{{$botlog->time}}</td>
-			<td>{{$botlog->contents}}</td>
-			<td>{{$botlog->return}}</td>
+			<td>{{$botlog['no']}}</td>
+			<td>{{$botlog['userid']}}</td>
+			<td>{{$botlog['time']}}</td>
+			<td>{{$botlog['contents']}}</td>
+			<td>{{$botlog['return']}}</td>
 			<td></td>
 		</tr>
 		@endforeach
 	</tbody>
 </table>
 
-<div>
-<input id="botlog" type= "hidden" value = '{{ $botlogs }}'>
-</div>
+
+<input id="botlog" type= "hidden" value = '{{ $botlogvalue }}'>
+
 
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
