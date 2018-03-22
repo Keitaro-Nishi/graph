@@ -228,19 +228,6 @@ function update(){
 					location.reload();
 				}
 			});
-			/*
-			var mes = "";
-			for (var item in response) {
-				if(mes != ""){
-					mes = mes + "<br>";
-				}
-			    mes = mes + response[item][0];
-			}
-			bootbox.alert({
-				message: mes,
-				size: 'small'
-			});
-			*/
 		}
     }).fail(function () {
     	bootbox.alert({
