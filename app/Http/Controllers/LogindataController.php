@@ -20,7 +20,6 @@ class LogindataController
 			$logindata= Logindata::where('citycode', $cityCD)->orderBy('id', 'DESC')->get();
 		}
 		return view('logindata',['logindata'=>$logindata]);
-
 	}
 
 	public  function request(){
