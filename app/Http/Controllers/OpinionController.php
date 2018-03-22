@@ -55,12 +55,13 @@ class OpinionController
 				array_push($opinions, $opinionlist);
 			}
 
-			$opinionObject= json_encode($opinions);
+
 
 
 		}
 
-		return view('opinion',compact('opinions','opinionObject'));
+		$opinimodal= json_encode($opinions);
+		return view('opinion',compact('opinions','opinimodal'));
 	}
 
 	public  function request(){
