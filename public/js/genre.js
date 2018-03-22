@@ -225,7 +225,7 @@ function update(){
 				message: "入力されていません。",
 				size: 'small',
 				callback: function () {
-					location.reload();
+					//location.reload();
 				}
 			});
 			/*
