@@ -20,16 +20,16 @@ class OpinionController
 
 			$opinions= Opinion::where('citycode', $cityCD)->get();
 
-			/*$opinions= Opinion::where('citycode', $cityCD)->first();
+			foreach($opinions as $opinion){
 
-			error_log(print_r($opinions,true));
-			error_log("★★★★★★");
-			$date = date_create($opinions->time);
-			$date = date_format($date , 'Y-m-d');
+				$date = date_create($opinion->time);
+				$date = date_format($date , 'Y-m-d');
 
-			error_log("☆☆☆☆☆☆");
-			error_log($date);
-			*/
+				error_log("☆☆☆☆☆☆");
+				error_log($date);
+
+
+			}
 
 		}
 
