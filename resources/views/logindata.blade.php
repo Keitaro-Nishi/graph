@@ -5,6 +5,7 @@
 @stop
 
 @section('content')
+<div class="container">
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
 
@@ -29,6 +30,7 @@
 
 	</tbody>
 </table>
+</div>
 
 <input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
 
