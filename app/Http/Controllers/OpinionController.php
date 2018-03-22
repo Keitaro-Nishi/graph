@@ -11,6 +11,8 @@ class OpinionController
 	{
 		$Authrole = Auth::user()->role;
 		$cityCD = Auth::user()->citycode;
+		$opinionlist= array();
+		$opinions= array();
 
 		if($cityCD == "00000"){
 
@@ -18,18 +20,43 @@ class OpinionController
 
 		}else{
 
-			$opinions= Opinion::where('citycode', $cityCD)->get();
+			$opiniondata= Opinion::where('citycode', $cityCD)->get();
 
-			foreach($opinions as $opinion){
+			foreach($opiniondata as $opinion){
 
-				$date = date_create($opinion->time);
-				$date = date_format($date , 'Y-m-d H:i:s');
+				$citycode = $opinion->citycode;
+				$id = $opinion->id;
+				$userid = $opinion->userid;
+				$timedata = date_create($opinion->time);
+				$time = date_format($timedata , 'Y-m-d H:i:s');
+				$opinion = $opinion->opinion;
+				$sadness = $opinion->sadness;
+				$joy = $opinion->joy;
+				$fear = $opinion->fear;
+				$disgust = $opinion->disgust;
+				$anger = $opinion->anger;
+				$checked = $opinion->checked;
 
-				error_log("☆☆☆☆☆☆");
-				error_log($date);
 
+				$opinionlist= [
+						'citycode'=>$citycode,
+						'id'=>$id,
+						'userid'=>$userid,
+						'time'=>$time,
+						'opinion'=>$opinion,
+						'sadness'=>$sadness,
+						'joy'=>$joy,
+						'fear'=>$fear,
+						'disgust'=>$disgust,
+						'anger'=>$anger,
+						'checked'=>$checked,
+				];
 
+				array_push($opinions, $opinionlist);
 			}
+
+			error_log("★★★★★★");
+			error_log(print_r($opinions,true));
 
 		}
 
