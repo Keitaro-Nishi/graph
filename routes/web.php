@@ -14,7 +14,6 @@ Route::get ( '/', function () {
 	return redirect ( '/login' );
 } );
 
-
 Auth::routes ();
 
 Route::middleware(['auth'])->group(function () {
@@ -34,6 +33,7 @@ Route::middleware(['auth'])->group(function () {
 	Route::post ( '/botlog', 'BotlogController@request' );
 
 	Route::get ( '/logimage', 'LogimageController@index' )->name ( 'logimage' );
+	Route::get ( '/logimage/{id?}', 'LogimageController@links' );
 	Route::post ( '/logimage', 'LogimageController@request' );
 
 	Route::get ( '/facility', 'FacilityController@index' )->name ( 'facility' );
@@ -73,5 +73,3 @@ Route::middleware(['auth'])->group(function () {
 
 	Route::get ( '/attribute/{citycode?}/{sender?}/{id?}', 'AttributeController@index')->name('attribute');
 	Route::post ( '/attribute/{citycode?}/{sender?}/{id?}', 'AttributeController@request');
-
-	Route::get ( '/logimage/{id?}', 'LogimageController@links' );
