@@ -16,7 +16,40 @@ class OpinionController
 
 		if($cityCD == "00000"){
 
-			$opinions = Opinion::all();
+			$opiniondatas = Opinion::all();
+
+			foreach($opiniondatas as $opiniondata){
+
+				$citycode = $opiniondata->citycode;
+				$id = $opiniondata->id;
+				$userid = $opiniondata->userid;
+				$timedata = date_create($opiniondata->time);
+				$time = date_format($timedata , 'Y-m-d H:i:s');
+				$opinion = $opiniondata->opinion;
+				$sadness = $opiniondata->sadness;
+				$joy = $opiniondata->joy;
+				$fear = $opiniondata->fear;
+				$disgust = $opiniondata->disgust;
+				$anger = $opiniondata->anger;
+				$checked = $opiniondata->checked;
+
+
+				$opinionlist= [
+						'citycode'=>$citycode,
+						'id'=>$id,
+						'userid'=>$userid,
+						'time'=>$time,
+						'opinion'=>$opinion,
+						'sadness'=>$sadness,
+						'joy'=>$joy,
+						'fear'=>$fear,
+						'disgust'=>$disgust,
+						'anger'=>$anger,
+						'checked'=>$checked,
+				];
+
+				array_push($opinions, $opinionlist);
+			}
 
 		}else{
 
