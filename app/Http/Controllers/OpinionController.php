@@ -22,8 +22,8 @@ class OpinionController
 
 			$opiniondata= Opinion::where('citycode', $cityCD)->get();
 
-			error_log("●●●●●●");
-			error_log(print_r($opiniondata,true));
+
+			//error_log(print_r($opiniondata,true));
 
 			foreach($opiniondata as $opinion){
 
@@ -34,6 +34,8 @@ class OpinionController
 				$time = date_format($timedata , 'Y-m-d H:i:s');
 				$opinion = $opinion->opinion;
 				$sadness = $opinion->sadness;
+				error_log("●●●●●●");
+				error_log($sadness);
 				$joy = $opinion->joy;
 				$fear = $opinion->fear;
 				$disgust = $opinion->disgust;
@@ -63,7 +65,7 @@ class OpinionController
 
 		}
 
-		return view('opinion',['opinions'=>$opinions]);
+		return view('opinion',compact('opinions'));
 	}
 
 	public  function request(){
