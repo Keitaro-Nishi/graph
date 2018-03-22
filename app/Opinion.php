@@ -8,15 +8,12 @@ class Opinion extends Model
 {
 
 
-	/*protected $fillable = [
+	protected $fillable = [
 
-	'citycode', 'no', 'time', 'sex', 'age', 'opinion', 'sadness', 'joy', 'fear', 'disgust', 'anger', 'checked'
+	'citycode', 'id','userid','time', 'opinion', 'sadness', 'joy', 'fear', 'disgust', 'anger', 'checked'
 
 	];
-	*/
 
-	protected $primaryKey =['citycode','id'];
-	//protected $primaryKey ='id';
 	protected $table = 'opinion';
 	public $timestamps = false;
 }
