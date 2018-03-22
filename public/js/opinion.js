@@ -4,7 +4,7 @@ var opinion = [];
 var dbvalue = [];
 
 opinion= document.getElementById('opinion').value;
-//dbvalue = JSON.parse(opinion);
+dbvalue = JSON.parse(opinion);
 
 			$(function() {
 				$("#grid-basic").bootgrid({
@@ -87,7 +87,7 @@ opinion= document.getElementById('opinion').value;
 			function detailwin(value){
 				document.getElementById("btn_modal").click();
 				for (var i = 0; i < dbvalue.length; i++){
-					if(opinion[i]["id"] == value){
+					if(dbvalue[i]["id"] == value){
 						shosai_idx = i;
 						modal_mod(i);
 					}
@@ -106,15 +106,15 @@ opinion= document.getElementById('opinion').value;
 
 
 			function modal_mod(index){
-     			document.getElementById('dia_userid').value  = opinion[index]["userid"];
-				document.getElementById('dia_time').value = opinion[index]["time"];
-				document.getElementById('dia_sadness').value  = opinion[index]["sadness"];
-				document.getElementById('dia_joy').value  = opinion[index]["joy"];
-				document.getElementById('dia_fear').value  = opinion[index]["fear"];
-				document.getElementById('dia_disgust').value  = opinion[index]["disgust"];
-				document.getElementById('dia_anger').value  = opinion[index]["anger"];
-				document.getElementById('dia_checked').value  = opinion[index]["checked"];
-				document.getElementById('dia_opinion').innerHTML  = opinion[index]["opinion"];
+     			document.getElementById('dia_userid').value  = dbvalue[index]["userid"];
+				document.getElementById('dia_time').value = dbvalue[index]["time"];
+				document.getElementById('dia_sadness').value  = dbvalue[index]["sadness"];
+				document.getElementById('dia_joy').value  = dbvalue[index]["joy"];
+				document.getElementById('dia_fear').value  = dbvalue[index]["fear"];
+				document.getElementById('dia_disgust').value  = dbvalue[index]["disgust"];
+				document.getElementById('dia_anger').value  = dbvalue[index]["anger"];
+				document.getElementById('dia_checked').value  = dbvalue[index]["checked"];
+				document.getElementById('dia_opinion').innerHTML  = dbvalue[index]["opinion"];
 				if(index == 0){
 					document.getElementById("sback").disabled = "true";
 				}else{

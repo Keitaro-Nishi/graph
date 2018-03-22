@@ -55,12 +55,12 @@ class OpinionController
 				array_push($opinions, $opinionlist);
 			}
 
-			error_log("★★★★★★");
-			error_log(print_r($opinions,true));
+			$opinionObject = (object)$opinions;
+
 
 		}
 
-		return view('opinion',['opinions'=>$opinions]);
+		return view('opinion',compact('opinions','opinionObject'));
 	}
 
 	public  function request(){
