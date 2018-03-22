@@ -35,7 +35,7 @@ class OpinionController
 				$fear = $opiniondata->fear;
 				$disgust = $opiniondata->disgust;
 				$anger = $opiniondata->anger;
-				$checked = $opiniondata->checked;
+				//$checked = $opiniondata->checked;
 
 
 				$opinionlist= [
@@ -49,7 +49,7 @@ class OpinionController
 						'fear'=>$fear,
 						'disgust'=>$disgust,
 						'anger'=>$anger,
-						'checked'=>$checked,
+						//'checked'=>$checked,
 				];
 
 				array_push($opinions, $opinionlist);
