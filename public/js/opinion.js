@@ -4,7 +4,7 @@ var opinion = [];
 var dbvalue = [];
 
 opinion= document.getElementById('opinion').value;
-dbvalue = JSON.parse(opinion);
+//dbvalue = JSON.parse(opinion);
 
 			$(function() {
 				$("#grid-basic").bootgrid({
@@ -104,6 +104,7 @@ dbvalue = JSON.parse(opinion);
 			}
 
 
+			/*
 			function modal_mod(index){
      			document.getElementById('dia_userid').value  = dbvalue[index]["userid"];
 				document.getElementById('dia_time').value = dbvalue[index]["time"];
@@ -125,3 +126,4 @@ dbvalue = JSON.parse(opinion);
 					document.getElementById("snext").disabled = "";
 				}
 			}
+			*/
