@@ -223,10 +223,10 @@ function update(){
 		}else{
 			bootbox.alert({
 				message: "入力されていません。",
-				size: 'small',
+				size: 'small'/*,
 				callback: function () {
-					//location.reload();
-				}
+					location.reload();
+				}*/
 			});
 			/*
 			var mes = "";
