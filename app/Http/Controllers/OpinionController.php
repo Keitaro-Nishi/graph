@@ -14,7 +14,7 @@ class OpinionController
 		error_log("☆☆☆☆☆☆");
 		error_log($cityCD);
 
-		if($cityCD = "00000"){
+		if($cityCD == "00000"){
 
 			$opinions = Opinion::all();
 
