@@ -13,7 +13,7 @@ class LogindataController
 		$Authrole = Auth::user()->role;
 		$cityCD = Auth::user()->citycode;
 
-		if($cityCD = "00000"){
+		if($cityCD == "00000"){
 			$logindata = Logindata::all();
 		}else{
 			$logindata= Logindata::where('citycode', $cityCD)->orderBy('id', 'DESC')->get();
