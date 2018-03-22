@@ -12,18 +12,15 @@ class OpinionController
 		$Authrole = Auth::user()->role;
 		$cityCD = Auth::user()->citycode;
 
-		error_log("☆☆☆☆☆☆");
-		error_log($cityCD);
-
 		if($cityCD == "00000"){
 
 			$opinions = Opinion::all();
 
 		}else{
 
-			//$opinions= Opinion::where('citycode', $cityCD)->get();
+			$opinions= Opinion::where('citycode', $cityCD)->get();
 
-			$opinions= Opinion::where('citycode', $cityCD)->first();
+			/*$opinions= Opinion::where('citycode', $cityCD)->first();
 
 			error_log(print_r($opinions,true));
 			error_log("★★★★★★");
@@ -32,6 +29,7 @@ class OpinionController
 
 			error_log("☆☆☆☆☆☆");
 			error_log($date);
+			*/
 
 		}
 
