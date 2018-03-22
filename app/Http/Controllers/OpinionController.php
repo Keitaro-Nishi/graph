@@ -22,6 +22,9 @@ class OpinionController
 
 			$opiniondata= Opinion::where('citycode', $cityCD)->get();
 
+			error_log("●●●●●●");
+			error_log(print_r($opiniondata,true));
+
 			foreach($opiniondata as $opinion){
 
 				$citycode = $opinion->citycode;
