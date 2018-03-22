@@ -60,7 +60,7 @@ class OpinionController
 
 		}
 
-		return view('opinion',compact('opinions'));
+		return view('opinion',['opinions'=>$opinions]);
 	}
 
 	public  function request(){
