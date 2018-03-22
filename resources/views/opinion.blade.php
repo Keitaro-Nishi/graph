@@ -41,7 +41,7 @@
 	</tbody>
 </table>
 
-<input id="opinion" type= "hidden" value = '{{ $opinimodal }}'>
+<input id="opinion" type= "hidden" value = '{{ $opinionvalue }}'>
 
 <input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
 

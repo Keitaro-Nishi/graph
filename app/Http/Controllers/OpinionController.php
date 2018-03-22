@@ -33,7 +33,6 @@ class OpinionController
 				$anger = $opiniondata->anger;
 				$checked = $opiniondata->checked;
 
-
 				$opinionlist= [
 						'citycode'=>$citycode,
 						'id'=>$id,
@@ -70,7 +69,6 @@ class OpinionController
 				$anger = $opiniondata->anger;
 				$checked = $opiniondata->checked;
 
-
 				$opinionlist= [
 						'citycode'=>$citycode,
 						'id'=>$id,
@@ -87,14 +85,10 @@ class OpinionController
 
 				array_push($opinions, $opinionlist);
 			}
-
-
-
-
 		}
 
-		$opinimodal= json_encode($opinions);
-		return view('opinion',compact('opinions','opinimodal'));
+		$opinionvalue= json_encode($opinions);
+		return view('opinion',compact('opinions','opinionvalue'));
 	}
 
 	public  function request(){
