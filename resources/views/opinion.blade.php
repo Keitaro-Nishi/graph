@@ -25,16 +25,16 @@
 	<tbody>
 		@foreach($opinions as $opinion)
 		<tr>
-			<td>{{$opinion->id}}</td>
-			<td>{{$opinion->userid}}</td>
-			<td>{{$opinion->time}}</td>
-			<td>{{$opinion->opinion}}</td>
-			<td>{{$opinion->sadness}}</td>
-			<td>{{$opinion->joy}}</td>
-			<td>{{$opinion->fear}}</td>
-			<td>{{$opinion->disgust}}</td>
-			<td>{{$opinion->anger}}</td>
-			<td>{{$opinion->checked}}</td>
+			<td>{{$opinion['id']}}</td>
+			<td>{{$opinion['userid']}}</td>
+			<td>{{$opinion['time']}}</td>
+			<td>{{$opinion['opinion']}}</td>
+			<td>{{$opinion['sadness']}}</td>
+			<td>{{$opinion['joy']}}</td>
+			<td>{{$opinion['fear']}}</td>
+			<td>{{$opinion['disgust']}}</td>
+			<td>{{$opinion['anger']}}</td>
+			<td>{{$opinion['checked']}}</td>
 			<td></td>
 		</tr>
 		@endforeach
