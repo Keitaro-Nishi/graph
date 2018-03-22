@@ -3,7 +3,7 @@ var shosai_idx = 0;
 var opinion = [];
 var dbvalue = [];
 
-opinion= document.getElementById('opinion').value;
+//opinion= document.getElementById('opinion').value;
 //dbvalue = JSON.parse(opinion);
 
 			$(function() {
