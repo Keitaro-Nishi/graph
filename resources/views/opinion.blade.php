@@ -27,7 +27,7 @@
 		<tr>
 			<td>{{$opinion->id}}</td>
 			<td>{{$opinion->userid}}</td>
-			<td>{{ Carbon\Carbon::parse($opinion->time)->format('Y/m/d H:i:s') }}</td>
+			<td>{{$opinion->time}}</td>
 			<td>{{$opinion->opinion}}</td>
 			<td>{{$opinion->sadness}}</td>
 			<td>{{$opinion->joy}}</td>
