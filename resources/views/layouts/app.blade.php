@@ -20,11 +20,18 @@
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <link href="{{ asset('css/Buttons.css') }}" rel="stylesheet">
 <link href="{{ asset('css/jquery.bootgrid.css') }}" rel="stylesheet">
+<link href="{{ asset('css/botui.min.css') }}" rel="stylesheet">
+<link href="{{ asset('css/botui-theme-default.css') }}" rel="stylesheet">
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/jquery.bootgrid.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+
+<!-- チャットボット(WEB)用に追加 -->
+<script src="//www.promisejs.org/polyfills/promise-6.1.0.min.js"></script>
+<script src="//npmcdn.com/vue@2.0.5/dist/vue.min.js"></script>
+<script src="//unpkg.com/botui/build/botui.min.js"></script>
 
 </head>
 <body>
@@ -75,6 +82,7 @@
 								<li><a href="{{ route('register') }}">セッション情報</a></li>
 								<li><a href="{{ route('codemanage') }}">コード管理</a></li>
 								<li><a href="{{ route('parameter') }}">市町村パラメタ</a></li>
+								<li><a href="{{ route('webbot') }}">チャットボット(WEB)</a></li>
 								@endif
 							</ul>
 						</li>
