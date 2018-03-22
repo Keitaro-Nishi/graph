@@ -25,25 +25,23 @@
 	<tbody>
 		@foreach($opinions as $opinion)
 		<tr>
-			<td>{{$opinion->id}}</td>
-			<td>{{$opinion->userid}}</td>
-			<td>{{ Carbon\Carbon::parse($opinion->time)->format('Y/m/d H:i:s') }}</td>
-			<td>{{$opinion->opinion}}</td>
-			<td>{{$opinion->sadness}}</td>
-			<td>{{$opinion->joy}}</td>
-			<td>{{$opinion->fear}}</td>
-			<td>{{$opinion->disgust}}</td>
-			<td>{{$opinion->anger}}</td>
-			<td>{{$opinion->checked}}</td>
+			<td>{{$opinion['id']}}</td>
+			<td>{{$opinion['userid']}}</td>
+			<td>{{$opinion['time']}}</td>
+			<td>{{$opinion['opinion']}}</td>
+			<td>{{$opinion['sadness']}}</td>
+			<td>{{$opinion['joy']}}</td>
+			<td>{{$opinion['fear']}}</td>
+			<td>{{$opinion['disgust']}}</td>
+			<td>{{$opinion['anger']}}</td>
+			<td>{{$opinion['checked']}}</td>
 			<td></td>
 		</tr>
 		@endforeach
 	</tbody>
 </table>
 
-<div>
-<input id="opinion" type= "hidden" value = '{{ $opinions }}'>
-</div>
+<input id="opinion" type= "hidden" value = '{{ $opinionvalue }}'>
 
 <input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
 
