@@ -18,7 +18,7 @@ class BotlogController
 		$botloglist= array();
 		$botlogs= array();
 
-		if($cityCD = "00000"){
+		if($cityCD == "00000"){
 			$botlogdatas = Botlog::all();
 
 			foreach($botlogdatas as $botlogdata){
