@@ -16,9 +16,7 @@ class OpinionController
 
 		if($cityCD = "00000"){
 
-			error_log("★★★★★★");
 			$opinions = Opinion::all();
-			error_log(print_r($opinions,true));
 
 		}else{
 
