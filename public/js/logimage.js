@@ -1,10 +1,19 @@
 var rowIds = [];
-$(function() {
+
+function init() {
 	$("#grid-basic").bootgrid({
 		selection : true,
 		multiSelect : true,
-		//rowSelect : true,
-		keepSelection : true
+		columnSelection : false,
+		keepSelection : true,
+		formatters: {
+			"image": function($column, $row) {
+				return "<img class='table-img' src='" + location.href + "/" + $row.no + "' />";
+			},
+			"zoom": function($column, $row) {
+				return "<input type='button' class='btn btn-default' value='画像拡大' onclick='imgwin("  + $row.no + ",\"" + $row.cls + "\"," + $row.scr + ")'> ";
+			}
+		}
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
 		for (var i = 0; i < rows.length; i++) {
 			rowIds.push(rows[i].no);
@@ -17,7 +26,7 @@ $(function() {
 			});
 		}
 	});
-});
+}
 
 function drow() {
 	if(rowIds.length == 0){
@@ -41,7 +50,6 @@ function drow() {
 		callback: function (result) {
 			if(result){
 				var _token = document.getElementById('_token').value;
-				console.log(rowIds);
 				$.ajax({
 					type: "POST",
 					dataType: "JSON",
@@ -50,17 +58,14 @@ function drow() {
 						"nos" : rowIds,
 						"_token" : _token
 					}
-
 				}).done(function (response) {
-					if(response.status == "OK"){
-						bootbox.alert({
-							message: "削除しました",
-							size: 'small',
-							callback: function () {
-								location.reload();
-							}
-						});
-					}
+					bootbox.alert({
+						message: "削除しました",
+						size: 'small',
+						callback: function () {
+							location.reload();
+						}
+					});
 				}).fail(function () {
 					bootbox.alert({
 						message: "削除できませんでした",
@@ -71,16 +76,15 @@ function drow() {
 		}
 	});
 }
-/*
+
 function imgwin(imgno,bunrui,kakushin){
 	var oimg = new Image();
-	oimg.src = "getimage.php?id=" + imgno;
+	oimg.src = location.href + "/" + imgno;
 	var img = document.getElementById("dia_image");
+	img.src = oimg.src;
 	img.width = oimg.width;
 	img.height = oimg.height;
 	document.getElementById('dia_kaku').innerHTML  = "分類：" + bunrui + "　　確信度：" + kakushin;
-	img.src = "getimage.php?id=" + imgno;
-	var img = document.getElementById("dia_image");
 	if(img.width > 600){
 		var orgWidth  = img.width;
 		var orgHeight = img.height;
@@ -91,8 +95,6 @@ function imgwin(imgno,bunrui,kakushin){
 	if(imgwidth < 600){
 		imgwidth = 600;
 	}
-	var imgmar = img.width / 2;
 	document.getElementById('dia_cont').style.width = imgwidth + "px";
 	document.getElementById("btn_modal").click();
 }
- */
