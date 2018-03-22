@@ -11,6 +11,9 @@ class OpinionController
 		$Authrole = Auth::user()->role;
 		$cityCD = Auth::user()->citycode;
 
+		error_log("☆☆☆☆☆☆");
+		error_log($cityCD);
+
 		if($cityCD = "00000"){
 
 			error_log("★★★★★★");
