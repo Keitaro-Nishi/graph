@@ -20,27 +20,22 @@ class OpinionController
 
 		}else{
 
-			$opiniondata= Opinion::where('citycode', $cityCD)->get();
+			$opiniondatas= Opinion::where('citycode', $cityCD)->get();
 
+			foreach($opiniondatas as $opiniondata){
 
-			//error_log(print_r($opiniondata,true));
-
-			foreach($opiniondata as $opinion){
-
-				$citycode = $opinion->citycode;
-				$id = $opinion->id;
-				$userid = $opinion->userid;
-				$timedata = date_create($opinion->time);
+				$citycode = $opiniondata->citycode;
+				$id = $opiniondata->id;
+				$userid = $opiniondata->userid;
+				$timedata = date_create($opiniondata->time);
 				$time = date_format($timedata , 'Y-m-d H:i:s');
-				$opinion = $opinion->opinion;
-				$sadness = $opinion->sadness;
-				error_log("●●●●●●");
-				error_log($sadness);
-				$joy = $opinion->joy;
-				$fear = $opinion->fear;
-				$disgust = $opinion->disgust;
-				$anger = $opinion->anger;
-				$checked = $opinion->checked;
+				$opinion = $opiniondata->opinion;
+				$sadness = $opiniondata->sadness;
+				$joy = $opiniondata->joy;
+				$fear = $opiniondata->fear;
+				$disgust = $opiniondata->disgust;
+				$anger = $opiniondata->anger;
+				$checked = $opiniondata->checked;
 
 
 				$opinionlist= [
