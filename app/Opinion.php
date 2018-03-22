@@ -17,7 +17,6 @@ class Opinion extends Model
 
 	protected $primaryKey =['citycode','id'];
 	//protected $primaryKey ='id';
-	//public $incrementing = false;
 	protected $table = 'opinion';
-
+	public $timestamps = false;
 }
