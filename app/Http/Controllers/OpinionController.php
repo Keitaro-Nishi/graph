@@ -17,7 +17,10 @@ class OpinionController
 
 		}else{
 
-			//$opinions= Opinion::where('citycode', $cityCD)->get();
+			error_log("★★★★★★");
+			$opinions= Opinion::where('citycode', $cityCD)->get();
+			error_log(print_r($opinions,true));
+			/*
 			$opinions= Opinion::where('citycode', $cityCD)->first();
 
 			error_log("★★★★★★");
@@ -26,6 +29,7 @@ class OpinionController
 
 			error_log("☆☆☆☆☆☆");
 			error_log($date);
+			*/
 		}
 
 		return view('opinion',['opinions'=>$opinions]);
