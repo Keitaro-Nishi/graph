@@ -15,13 +15,72 @@ class BotlogController
 	{
 
 		$cityCD = Auth::user()->citycode;
+		$botloglist= array();
+		$botlogs= array();
+
 		if($cityCD = "00000"){
-			$botlogs = Botlog::all();
+			$botlogdatas = Botlog::all();
+
+			foreach($botlogdatas as $botlogdata){
+
+				$citycode = $botlogdata->citycode;
+				$no = $botlogdata->no;
+				$timedata = date_create($botlogdata->time);
+				$time = date_format($timedata , 'Y-m-d H:i:s');
+				$sender = $botlogdata->sender;
+				$type = $botlogdata->type;
+				$userid = $botlogdata->userid;
+				$contents = $botlogdata->contents;
+				$return = $botlogdata->return;
+
+				$botloglist= [
+						'citycode'=>$citycode,
+						'no'=>$no,
+						'time'=>$time,
+						'opinion'=>$opinion,
+						'sender'=>$sender,
+						'type'=>$type,
+						'userid'=>$userid,
+						'contents'=>$contents,
+						'return'=>$return,
+				];
+
+				array_push($botlogs, $botloglist);
+			}
+
 		}else{
-			$botlogs= Botlog::where('citycode', $cityCD)->get();
+			$botlogdatas= Botlog::where('citycode', $cityCD)->get();
+
+			foreach($botlogdatas as $botlogdata){
+
+				$citycode = $botlogdata->citycode;
+				$no = $botlogdata->no;
+				$timedata = date_create($botlogdata->time);
+				$time = date_format($timedata , 'Y-m-d H:i:s');
+				$sender = $botlogdata->sender;
+				$type = $botlogdata->type;
+				$userid = $botlogdata->userid;
+				$contents = $botlogdata->contents;
+				$return = $botlogdata->return;
+
+				$botloglist= [
+						'citycode'=>$citycode,
+						'no'=>$no,
+						'time'=>$time,
+						'opinion'=>$opinion,
+						'sender'=>$sender,
+						'type'=>$type,
+						'userid'=>$userid,
+						'contents'=>$contents,
+						'return'=>$return,
+				];
+
+				array_push($botlogs, $botloglist);
+			}
 		}
 
-		return view('botlog',['botlogs'=>$botlogs]);
+		$botlogvalue= json_encode($botlogs);
+		return view('botlog',compact('botlogs','botlogvalue'));
 	}
 
 	public function request() {
