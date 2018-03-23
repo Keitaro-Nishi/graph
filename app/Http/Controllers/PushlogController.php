@@ -19,7 +19,7 @@ class PushlogController
 		$pushlogs= array();
 
 		if($cityCD == "00000"){
-			$pushlogdatas = Pushlog::all();
+			$pushlogdatas = Pushlog::orderBy('time', 'DESC')->get();
 
 			foreach($pushlogdatas as $pushlogdata){
 
@@ -72,7 +72,7 @@ class PushlogController
 			}
 		}else{
 
-			$pushlogdatas= Pushlog::where('citycode', $cityCD)->get();
+			$pushlogdatas= Pushlog::where('citycode', $cityCD)->orderBy('time', 'DESC')->get();
 			foreach($pushlogdatas as $pushlogdata){
 
 				$no = $pushlogdata->no;
