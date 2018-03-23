@@ -62,7 +62,6 @@
 </div>
 <script src="{{ asset('js/usersetting.js') }}"></script>
 <script>
-var count = @json($count);
 init();
 </script>
 @endsection
