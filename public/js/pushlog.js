@@ -87,10 +87,16 @@ function drow() {
 
 function detailwin(value){
 	document.getElementById("btn_modal").click();
-	/*for (var i = 0; i < dbvalue.length; i++){
-		if(dbvalue[i]["id"] == value){
-			shosai_idx = i;
+	for (var i = 0; i < dbvalue.length; i++){
+		if(dbvalue[i]["no"] == value){
 			modal_mod(i);
 		}
-	}*/
+	}
+}
+
+function modal_mod(index){
+	document.getElementById('dia_number').value  = dbvalue[index]["target"];
+	document.getElementById('dia_register').value = dbvalue[index]["info"];
+	document.getElementById('dia_age').value  = dbvalue[index]["agek"];
+	document.getElementById('dia_sex').value  = dbvalue[index]["sex"];
 }

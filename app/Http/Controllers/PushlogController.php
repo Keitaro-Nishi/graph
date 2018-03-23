@@ -49,6 +49,7 @@ class PushlogController
 			}
 		}else{
 
+			$pushlogdatas= Pushlog::where('citycode', $cityCD)->get();
 			foreach($pushlogdatas as $pushlogdata){
 
 				$no = $pushlogdata->no;
@@ -77,8 +78,8 @@ class PushlogController
 			}
 		}
 
-		$pushlogvalue= json_encode($pushlogs);
-		return view('pushlog',compact('pushlogs','pushlogvalue'));
+
+		return view('pushlog',compact('pushlogs','pushlogdatas'));
 	}
 
 
