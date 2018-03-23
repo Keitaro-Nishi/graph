@@ -5,6 +5,7 @@
 @stop
 
 @section('content')
+<div class="container">
 <table id="grid-basic"
 	class="table table-condensed table-hover table-striped">
 

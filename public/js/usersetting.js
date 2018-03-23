@@ -1,6 +1,6 @@
 //履歴にスタックしたかどうかのflag
 var isHistoryPush = false;
-(function() {
+function init() {
 	if (history && history.pushState && history.state !== undefined) {
 		// history イベントの監視
 		window.addEventListener('popstate', function (e) {
@@ -10,7 +10,7 @@ var isHistoryPush = false;
 			}
 		}, false);
 	}
-})();
+}
 
 function update(){
 	var name = document.getElementById('dia_name').value;

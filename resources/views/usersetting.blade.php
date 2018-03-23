@@ -55,4 +55,7 @@
 	</div>
 </div>
 <script src="{{ asset('js/usersetting.js') }}"></script>
+<script>
+init();
+</script>
 @endsection
