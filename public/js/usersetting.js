@@ -1,8 +1,6 @@
 window.location.hash="#noback";
-function init() {
-	window.onhashchange=function(){
-		window.location.hash="#noback";
-	}
+window.onhashchange=function(){
+	window.location.hash="#noback";
 }
 
 function update(){
