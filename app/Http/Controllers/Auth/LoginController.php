@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use App\Events\Logined;
@@ -51,7 +52,7 @@ class LoginController extends Controller {
 		if (Auth::check()) {
 			return redirect ( '/home' );
 		}else{
-		return view('auth.login');
+			return view('auth.login');
 		}
 	}
 
