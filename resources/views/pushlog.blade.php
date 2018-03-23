@@ -54,32 +54,35 @@ Lineプッシュログ
 			</div>
 			<div class="modal-body">
 
-				<form class="form-horizontal">
-					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_number">送信対象者数</label>
-						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_number" readonly>
+				<div class="container" align="center">
+					<form class="form-horizontal">
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="dia_number">送信対象者数</label>
+							<div class="col-sm-2">
+								<input type="text" class="form-control" id="dia_number" readonly>
+							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_register">属性登録有無</label>
-						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_register" readonly>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="dia_register">属性登録有無</label>
+							<div class="col-sm-2">
+								<input type="text" class="form-control" id="dia_register" readonly>
+							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_age">年齢</label>
-						<div class="col-sm-3">
-							<input type="text" class="form-control" id="dia_age" readonly>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="dia_age">年齢</label>
+							<div class="col-sm-3">
+								<input type="text" class="form-control" id="dia_age" readonly>
+							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_sex">性別</label>
-						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_sex" readonly>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="dia_sex">性別</label>
+							<div class="col-sm-2">
+								<input type="text" class="form-control" id="dia_sex" readonly>
+							</div>
 						</div>
-					</div>
-				</form>
+					</form>
+				</div>
+
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
