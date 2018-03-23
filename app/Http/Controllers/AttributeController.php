@@ -12,7 +12,7 @@ class AttributeController
 {
 	private $requestall;
 
-	public function index($citycode, $sender, $id)
+	public function index($citycode,$sender, $id)
 	{
 		$codes = array();
 
@@ -32,7 +32,7 @@ class AttributeController
 		return view('attribute',['codes'=>$codes,'userinfo'=>$userinfo,'citycode'=>$citycode,'sender'=>$sender,'userid'=>$id]);
 	}
 
-	public  function request($citycode, $sender, $id){
+	public  function request($citycode,$sender, $id){
 		$this->requestall = \Request::all();
 		if($this->requestall["param"] == "update"){
 			return $this->update($citycode,$sender, $id);

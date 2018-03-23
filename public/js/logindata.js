@@ -32,6 +32,7 @@ function drow() {
 		});
 		return;
 	}
+
 	bootbox.confirm({
 	    message: "選択行を削除しますか？",
 	    buttons: {
@@ -73,3 +74,4 @@ function drow() {
 	    }
 	});
 }
+
