@@ -69,6 +69,9 @@ Route::middleware(['auth'])->group(function () {
 	Route::get ( '/webbot', 'WebbotController@index')->name('webbot');
 	Route::post ( '/webbot', 'WebbotController@request');
 
+	Route::get ( '/pushlog', 'PushlogController@index')->name('pushlog');
+	Route::post ( '/pushlog', 'PushlogController@request');
+
 });
 
 	Route::get ( '/attribute/{citycode?}/{sender?}/{id?}', 'AttributeController@index')->name('attribute');
