@@ -1,11 +1,4 @@
 function init(){
-
-    console.log(count);
-    if (count == 1)
-    {
-      document.getElementById("app-navbar-collapse").style.visibility="visible";
-    }
-
     // 自身のページを履歴に追加
     history.pushState(null, null, null);
     // ページ戻り時にも自身のページを履歴に追加
