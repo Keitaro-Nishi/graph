@@ -12,7 +12,6 @@ var isHistoryPush = false;
 	}
 })();
 
-
 function update(){
 	var name = document.getElementById('dia_name').value;
 	var oldpassword = document.getElementById('dia_oldpassword').value;
