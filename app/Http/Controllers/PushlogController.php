@@ -97,7 +97,9 @@ class PushlogController
 				$target = $pushlogdata->target;
 				$typedata = $pushlogdata->type;
 				$contents = $pushlogdata->contents;
-				$sender = $pushlogdata->sender;
+				$senderdata = $pushlogdata->sender;
+				$senders = User::select('name')->where('citycode',$cityCD)->where('userid',$senderdata)->first();
+				$sender = $senders->name;
 
 				if($typedata == 1){
 					$type = "テキスト";
