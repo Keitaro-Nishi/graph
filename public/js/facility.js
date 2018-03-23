@@ -107,6 +107,7 @@ function genre1change(){
 		select.removeChild(select.childNodes[0]);
 	}
 	g2value = genre2value[document.getElementById('dia_genre1').value];
+	console.log(g2value);
 	for(var i = 0; i < g2value.length; i++) {
 		var option = document.createElement('option');
 		option.setAttribute('value', g2value[i]['gid2']);
@@ -158,30 +159,16 @@ function update(){
 			"lng" : lng,
 			"imageurl" : imageurl,
 			"url" : url,
-			"_token" : _token,
+			"_token" : _token
 		}
 	}).done(function (response) {
-		if(response.status == "OK"){
-			bootbox.alert({
-				message: "更新しました",
-				size: 'small',
-				callback: function () {
-					location.reload();
-				}
-			});
-		}else{
-			var mes = "";
-			for (var item in response) {
-				if(mes != ""){
-					mes = mes + "<br>";
-				}
-				mes = mes + response[item][0];
+		bootbox.alert({
+			message: "更新しました",
+			size: 'small',
+			callback: function () {
+				location.reload();
 			}
-			bootbox.alert({
-				message: mes,
-				size: 'small'
-			});
-		}
+		});
 	}).fail(function () {
 		bootbox.alert({
 			message: "更新できませんでした",
