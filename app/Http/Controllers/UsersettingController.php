@@ -14,6 +14,7 @@ class UsersettingController {
 	public function index(Request $request) {
 		$userid = Auth::user ()->userid;
 		$name = Auth::user ()->name;
+		$cityCD = Auth::user ()->citycode;
 		$count = Logindata::where ( 'userid', $userid )->count ();
 		return view ( 'usersetting', [
 				'userid' => $userid,
@@ -56,7 +57,7 @@ class UsersettingController {
 						'password' => $newpassword
 				] );
 				if ($count == 1) {
-					Auth::logout();
+					Auth::logout ();
 					return \Response::json ( [
 							'status' => 'LOGOUT'
 					] );

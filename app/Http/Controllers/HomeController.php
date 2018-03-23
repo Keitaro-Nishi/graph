@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Response;
 use App\Logindata;
+use App\Parameter;
 use App\User;
 
 class HomeController extends Controller {
@@ -24,10 +25,14 @@ class HomeController extends Controller {
 	 */
 	public function index() {
 		$userid = Auth::user ()->userid;
-
+		$parameter = Parameter::where ( 'citycode', $cityCD )->get ();
+		$intpassclass = $parameter->intpassclass;
+		error_log($intpassclass);
 		$count = Logindata::where ( 'userid', $userid )->count ();
 		if ($count == 1) {
-			return Redirect ( '/usersetting' );
+			if ($intpassclass == 1 or $intpassclass == 2) {
+				return Redirect ( '/usersetting' );
+			}
 		}
 		return view ( 'home' );
 	}
