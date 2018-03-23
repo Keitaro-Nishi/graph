@@ -11,7 +11,7 @@ Lineプッシュログ
 		<tr>
 			<th data-column-id="no" data-type="numeric" data-identifier="true" data-width="4%"data-visible="false">NO</th>
 			<th data-column-id="time" data-width="10%">日時</th>
-			<th data-column-id="target" data-width="10%">対象人数(人)</th>
+			<th data-column-id="target" data-width="10%">対象人数</th>
 			<th data-column-id="type" data-width="10%">タイプ</th>
 			<th data-column-id="contents" data-width="35%">送信内容</th>
 			<th data-column-id="sender" data-width="35%">送信者</th>
