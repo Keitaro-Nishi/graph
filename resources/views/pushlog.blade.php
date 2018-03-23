@@ -70,7 +70,7 @@ Lineプッシュログ
 						</div>
 						<div class="form-group">
 							<label class="col-sm-2 control-label" for="dia_age">年齢</label>
-							<div class="col-sm-3">
+							<div class="col-sm-2">
 								<input type="text" class="form-control" id="dia_age" readonly>
 							</div>
 						</div>
