@@ -43,6 +43,50 @@ Lineプッシュログ
 </div>
 
 
+<div class="modal" id="shosaiDialog"  tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content" style="width:740px; margin-left: -20px;">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="modal-label">対象情報</h4>
+			</div>
+			<div class="modal-body">
+
+				<form class="form-horizontal">
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="dia_number">送信対象者数</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="dia_number" readonly>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="dia_register">属性登録有無</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="dia_register" readonly>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="dia_age">年齢</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="dia_age" readonly>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="dia_sex">性別</label>
+						<div class="col-sm-2">
+							<input type="text" class="form-control" id="dia_sex" readonly>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
 
 <script src="{{ asset('js/pushlog.js') }}"></script>
 

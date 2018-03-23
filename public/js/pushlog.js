@@ -1,10 +1,10 @@
 var rowIds = [];
-//var botlog = [];
-//var dbvalue = [];
+var pushlog = [];
+var dbvalue = [];
 //var shosai_idx = 0;
 
-//botlog = document.getElementById('botlog').value;
-//dbvalue = JSON.parse(botlog);
+pushlog = document.getElementById('pushlog').value;
+dbvalue = JSON.parse(pushlog);
 
 $(function() {
 
@@ -15,7 +15,7 @@ $(function() {
 		columnSelection : false,
 		formatters: {
 			"details": function($column, $row) {
-				return "<input type='button' class='btn btn-default' value='詳細' onclick='detailwin("  + $row.no + ")'> ";
+				return "<input type='button' class='btn btn-default' value='対象情報' onclick='detailwin("  + $row.no + ")'> ";
 			}
 		}
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
@@ -83,4 +83,14 @@ function drow() {
 			}
 		}
 	});
+}
+
+function detailwin(value){
+	document.getElementById("btn_modal").click();
+	/*for (var i = 0; i < dbvalue.length; i++){
+		if(dbvalue[i]["id"] == value){
+			shosai_idx = i;
+			modal_mod(i);
+		}
+	}*/
 }
