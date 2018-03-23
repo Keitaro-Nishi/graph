@@ -24,11 +24,7 @@ Lineプッシュログ
 			<td>{{$pushlog->no}}</td>
 			<td>{{ Carbon\Carbon::parse($pushlog->time)->format('Y/m/d H:i:s') }}</td>
 			<td>{{$pushlog->target}}</td>
-			@if({{$pushlog->type}} == 1)
 			<td>テキスト</td>
-			@else
-			<td>その他</td>
-			@endif
 			<td>{{$pushlog->contents}}</td>
 			<td>{{$pushlog->sender}}</td>
 			<td></td>
