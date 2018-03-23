@@ -31,7 +31,7 @@ class HomeController extends Controller {
 		error_log("????????????". $intpasscalss. "????????????");
 		$count = Logindata::where ( 'userid', $userid )->count ();
 		if ($count == 1) {
-			if ($intpassclass == 1 or $intpassclass == 2) {
+			if ($intpasscalss == 1 or $intpasscalss == 2) {
 				return Redirect ( '/usersetting' );
 			}
 		}
