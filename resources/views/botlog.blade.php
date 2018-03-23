@@ -41,8 +41,6 @@
 </div>
 
 
-<canvas id="myChart"></canvas>
-
 <div class="modal" id="shosaiDialog" tabindex="-1">
 	<div class="modal-dialog">
 		<div class="modal-content" style="width: 740px; margin-left: -20px;">
