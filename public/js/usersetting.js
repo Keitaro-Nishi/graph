@@ -30,7 +30,7 @@ function update(){
 				message: "更新しました",
 				size: 'small',
 				callback: function () {
-					location.reload();
+					location.replace("/home");
 				}
 			});
 		}else if(response.status == "NG"){
