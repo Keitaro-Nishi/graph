@@ -1,6 +1,7 @@
 function init(){
 	if(userinfo["updkbn"] == "1"){
 		document.getElementById('language').value = userinfo["language"];
+		languageChange();
 		document.getElementById('sex').value = userinfo["sex"];
 		document.getElementById('age').value = userinfo["age"];
 		for(var i = 1; i < 11; i++){
@@ -22,6 +23,16 @@ function init(){
 
 //言語変更
 function languageChange(){
+	//selectedIndex退避
+	var sex_Sidx = document.getElementById('sex').selectedIndex;
+	var option_Sidx = [];
+	for(var i = 1; i < 11; i++){
+		if(document.getElementById('option'+i)){
+			option_Sidx.push(document.getElementById('option'+i).selectedIndex);
+		}else{
+			option_Sidx.push(0);
+		}
+	}
 	var sex = document.getElementById('sex');
 	while (0 < sex.childNodes.length) {
 		sex.removeChild(sex.childNodes[0]);
@@ -34,6 +45,7 @@ function languageChange(){
 		setSelectValue(sex,"1","男性");
 		setSelectValue(sex,"2","女性");
 		document.getElementById('label_age').innerHTML = "年齢";
+		optionSetting(codes);
 	}
 
 	//英語
@@ -44,6 +56,31 @@ function languageChange(){
 		setSelectValue(sex,"1","Male");
 		setSelectValue(sex,"2","Female");
 		document.getElementById('label_age').innerHTML = "Age";
+		optionSetting(codesEn);
+	}
+
+	//selectedIndex設定
+	document.getElementById('sex').selectedIndex = sex_Sidx;
+	for(var i = 1; i < 11; i++){
+		if(document.getElementById('option'+i)){
+			document.getElementById('option'+i).selectedIndex = option_Sidx[i-1];
+		}
+	}
+}
+
+function optionSetting(option_codes){
+	for(var i = 1; i < 11; i++){
+		if(document.getElementById('option'+i)){
+			document.getElementById('label_option'+i).innerHTML = option_codes[i-1][0]["meisho"];
+			var option = document.getElementById('option'+i);
+			while (0 < option.childNodes.length) {
+				option.removeChild(option.childNodes[0]);
+			}
+			setSelectValue(option,"0","");
+			for(var ii = 1; ii < option_codes[i-1].length; ii++){
+				setSelectValue(option,option_codes[i-1][ii]["code2"],option_codes[i-1][ii]["meisho"]);
+			}
+		}
 	}
 }
 

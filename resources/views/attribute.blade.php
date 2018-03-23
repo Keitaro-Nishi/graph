@@ -184,6 +184,8 @@
 <script src="{{ asset('js/attribute.js') }}"></script>
 <script>
 var userinfo = @json($userinfo);
+var codes = @json($codes);
+var codesEn = @json($codesEn);
 init();
 </script>
 @endsection
