@@ -48,6 +48,11 @@
 						</div>
 					</div>
 					<input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
+					@if($count != 1)
+					<div class="text-right" >
+						<button type="button" class="btn btn-default" href="/home">ホーム</button>
+					</div>
+					@endif
 					<div class="text-right" >
 						<button type="button" class="btn btn-primary" onclick="update()">変更</button>
 					</div>
