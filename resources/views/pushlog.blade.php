@@ -25,7 +25,7 @@ Lineプッシュログ
 			<td>{{$pushlog['time']}}</td>
 			<td>{{$pushlog['target']}}</td>
 			<td>{{$pushlog['type']}}</td>
-			<td>{{$pushlog['coontents']}}</td>
+			<td>{{$pushlog['contents']}}</td>
 			<td>{{$pushlog['sender']}}</td>
 			<td></td>
 		</tr>
