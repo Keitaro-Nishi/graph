@@ -5,6 +5,12 @@ function init(){
     $(window).on("popstate", function(){
         history.pushState(null, null, null);
     });
+
+    if (count == 1)
+    {
+      document.getElementById("app-navbar-collapse").style.visibility="visible";
+    }
+
 }
 
 function update(){

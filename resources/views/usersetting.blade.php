@@ -1,4 +1,4 @@
-@extends('layouts.app2')
+@extends('layouts.app')
 
 @section('title')
 パスワード変更
@@ -62,6 +62,7 @@
 </div>
 <script src="{{ asset('js/usersetting.js') }}"></script>
 <script>
+var count = @json($count);
 init();
 </script>
 @endsection
