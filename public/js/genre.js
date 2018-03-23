@@ -209,7 +209,7 @@ function update(){
 			"gid2" : gid2,
 			"g1meisho" : g1meisho,
 			"meishoOld" : meishoOld,
-			"_token" : _token
+			"_token" : _token,
 		}
 	}).done(function (response) {
 		if(response.status == "OK"){

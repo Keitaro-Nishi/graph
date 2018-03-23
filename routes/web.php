@@ -63,7 +63,10 @@ Route::middleware(['auth'])->group(function () {
 	Route::get ( '/messagemanage', 'MessageManageController@index')->name('messagemanage');
 	Route::post ( '/messagemanage', 'MessageManageController@request');
 
-	Route::get ( '/linepush', 'LinepushController@index')->name('linepush');
+	Route::get ( '/usersetting', 'UsersettingController@index' )->name ( 'usersetting' );
+	Route::post ( '/usersetting', 'UsersettingController@update' );
+
+  Route::get ( '/linepush', 'LinepushController@index')->name('linepush');
 	Route::post ( '/linepush', 'LinepushController@request');
 
 	Route::get ( '/webbot', 'WebbotController@index')->name('webbot');

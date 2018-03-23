@@ -17,8 +17,7 @@ class FacilityController {
 		$genre2value = array ();
 
 		if ($cityCD == "00000") {
-
-			$facilities = Facility::select ()->leftJoin ( 'genre as class', function ($join) {
+			$facilities = Facility::orderBy ( 'genre1', 'ASC' )->leftJoin ( 'genre as class', function ($join) {
 				$join->on ( 'facility.citycode', '=', 'class.citycode' )->where ( 'class.bunrui', ( int ) 1 );
 				$join->on ( 'facility.genre1', '=', 'class.gid1' );
 			} )->leftJoin ( 'genre as class2', function ($join) {
@@ -58,25 +57,29 @@ class FacilityController {
 			return $this->update ();
 		} elseif ($this->requestall ["param"] == "delete") {
 			return $this->delete ();
+		} else {
+			return \Response::json ([ 'status' => 'NG' ]);
 		}
 	}
 	// DB更新
 	public function update() {
 		$input = \Request::all ();
 		$rules = [
-				'meisho' => 'string|max:255',
-				'jusho' => 'string|max:255',
-				'tel' => 'string|max:14',
-				'genre1' => 'integer',
-				'genre2' => 'integer',
+				'meisho' => 'required|string|max:255',
+				'jusho' => 'required|string|max:255',
+				'tel' => 'required|string|max:14',
+				'genre1' => 'required|integer',
+				'genre2' => 'required|integer',
 				'genre3' => 'integer',
-				'imageurl' => 'string',
-				'url' => 'string'
+				'imageurl' => 'required|string',
+				'url' => 'required|string'
 		];
+
 		$validator = Validator::make ( $input, $rules );
 		if ($validator->fails ()) {
 			return $validator->errors ();
 		}
+
 		$id = $input ["id"];
 		// 市町村コード
 		$citycode = Auth::user ()->citycode;

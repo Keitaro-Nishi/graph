@@ -88,7 +88,7 @@
 				</form>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" onclick="update()">更新</button>
+				<button type="button"  class="btn btn-primary" onclick="update()">更新</button>
 				<button id="dia_close" type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
 			</div>
 		</div>

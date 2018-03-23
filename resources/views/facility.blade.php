@@ -21,7 +21,9 @@
 			<th data-column-id="imageurl">画像URL</th>
 			<th data-column-id="url">詳細URL</th>
 			<th data-column-id="citycode" data-visible="false"></th>
+			@if(Auth::user()->role != 0)
 			<th data-column-id='detail' data-formatter='mods' data-sortable='false'></th>
+			@endif
 		</tr>
 	</thead>
 	<tbody>

@@ -16,8 +16,7 @@
 			<th data-column-id='image' data-formatter='image'>送信画像</th>
 			<th data-column-id='cls'>分類</th>
 			<th data-column-id='scr'>確信度</th>
-			<th data-column-id='zm' data-width='7%' data-formatter='zoom'
-				data-sortable='false'></th>
+			<th data-column-id='zm' data-width='7%' data-formatter='zoom' data-sortable='false'></th>
 		</tr>
 	</thead>
 	<tbody>
