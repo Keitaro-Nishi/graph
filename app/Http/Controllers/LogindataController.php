@@ -13,13 +13,13 @@ class LogindataController
 		$Authrole = Auth::user()->role;
 		$cityCD = Auth::user()->citycode;
 
-		if($cityCD = "00000"){
+
+		if($cityCD == "00000"){
 			$logindata = Logindata::orderBy('time', 'DESC')->get();
 		}else{
 			$logindata= Logindata::where('citycode', $cityCD)->orderBy('time', 'DESC')->get();
 		}
 		return view('logindata',['logindata'=>$logindata]);
-
 	}
 
 	public  function request(){

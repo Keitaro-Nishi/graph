@@ -20,11 +20,19 @@
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <link href="{{ asset('css/Buttons.css') }}" rel="stylesheet">
 <link href="{{ asset('css/jquery.bootgrid.css') }}" rel="stylesheet">
+<link href="{{ asset('css/botui.min.css') }}" rel="stylesheet">
+<link href="{{ asset('css/botui-theme-default.css') }}" rel="stylesheet">
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/jquery.bootgrid.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+
+<!-- チャットボット(WEB)用に追加 -->
+<script src="//www.promisejs.org/polyfills/promise-6.1.0.min.js"></script>
+<script src="//npmcdn.com/vue@2.0.5/dist/vue.min.js"></script>
+<script src="//unpkg.com/botui/build/botui.min.js"></script>
+
 
 </head>
 <body>
@@ -70,7 +78,9 @@
 								<li><a href="{{ route('opinion') }}">ご意見ログ</a></li>
 								<li><a href="{{ route('register') }}">属性情報</a></li>
 								<li><a href="{{ route('linepush') }}">LINEプッシュ通知</a></li>
+								<li><a href="{{ route('pushlog') }}">LINEプッシュログ</a></li>
 								<li><a href="{{ route('messagemanage') }}">メッセージ管理</a></li>
+								<li><a href="{{ route('webbot') }}">チャットボット(WEB)</a></li>
 								@if (Auth::user()->role == 0 or Auth::user()->role == 1)
 								<li><a href="{{ route('register') }}">セッション情報</a></li>
 								<li><a href="{{ route('codemanage') }}">コード管理</a></li>
@@ -89,14 +99,12 @@
 								@if (Auth::user()->role == 0 or Auth::user()->role == 1)
 								<li><a href="{{ route('users') }}">ユーザー管理</a></li>
 								<li><a href="{{ route('logindata') }}">ログイン情報</a></li>
-								<li><a href="{{ route('register') }}">Register</a></li>
 								@endif
-								<li><a href="{{ route('logout') }}"
-									onclick="event.preventDefault();
-											document.getElementById('logout-form').submit();"> Logout </a>
+								<li><a href="{{ route('usersetting') }}">パスワード変更</a></li>
+								<li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+									document.getElementById('logout-form').submit();">ログアウト</a>
 
-									<form id="logout-form" action="{{ route('logout') }}"
-										method="POST" style="display: none;">{{ csrf_field() }}</form>
+									<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
 								</li>
 							</ul>
 						</li>

@@ -56,17 +56,24 @@ Route::middleware(['auth'])->group(function () {
 	Route::get ( '/codemanage', 'CodeManageController@index')->name('codemanage');
 	Route::post ( '/codemanage', 'CodeManageController@request');
 
-
 	Route::get ( '/parameter', 'ParameterController@index')->name('parameter');
 	Route::post ( '/parameter', 'ParameterController@request');
 
 	Route::get ( '/messagemanage', 'MessageManageController@index')->name('messagemanage');
 	Route::post ( '/messagemanage', 'MessageManageController@request');
 
-	Route::get ( '/linepush', 'LinepushController@index')->name('linepush');
+	Route::get ( '/usersetting', 'UsersettingController@index' )->name ( 'usersetting' );
+	Route::post ( '/usersetting', 'UsersettingController@update' );
+
+  	Route::get ( '/linepush', 'LinepushController@index')->name('linepush');
 	Route::post ( '/linepush', 'LinepushController@request');
 
-});
+	Route::get ( '/webbot', 'WebbotController@index')->name('webbot');
+	Route::post ( '/webbot', 'WebbotController@request');
 
+	Route::get ( '/pushlog', 'PushlogController@index')->name('pushlog');
+	Route::post ( '/pushlog', 'PushlogController@request');
+
+});
 	Route::get ( '/attribute/{citycode?}/{sender?}/{id?}', 'AttributeController@index')->name('attribute');
 	Route::post ( '/attribute/{citycode?}/{sender?}/{id?}', 'AttributeController@request');

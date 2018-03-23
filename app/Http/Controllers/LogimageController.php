@@ -19,7 +19,6 @@ class LogimageController {
 		return view ( 'logimage', [
 				'logimages' => $logimages
 		] );
-
 	}
 
 	public function request() {

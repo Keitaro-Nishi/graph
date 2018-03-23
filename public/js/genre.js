@@ -108,7 +108,7 @@ function drow() {
 	    			}
 	    	    }).fail(function () {
 	    	    	bootbox.alert({
-	    				message: "2削除できませんでした",
+	    				message: "削除できませんでした",
 	    				size: 'small'
 	    			});
 	    	    });
@@ -221,16 +221,12 @@ function update(){
 				}
 			});
 		}else{
-			var mes = "";
-			for (var item in response) {
-				if(mes != ""){
-					mes = mes + "<br>";
-				}
-			    mes = mes + response[item][0];
-			}
 			bootbox.alert({
-				message: mes,
-				size: 'small'
+				message: "入力されていません。",
+				size: 'small',
+				callback: function () {
+					location.reload();
+				}
 			});
 		}
     }).fail(function () {
