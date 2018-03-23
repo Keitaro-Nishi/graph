@@ -34,7 +34,7 @@
 <script src="//unpkg.com/botui/build/botui.min.js"></script>
 
 <!-- chart.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
 
 </head>
 <body>
