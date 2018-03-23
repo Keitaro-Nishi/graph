@@ -10,5 +10,5 @@
 </div>
 
 
-<script src="{{ asset('js/graphtest.js') }}"></script>
+<script src="{{ asset('js/botlog.js') }}"></script>
 @endsection
