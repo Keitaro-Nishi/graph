@@ -50,9 +50,6 @@
 					<input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
 					<div class="text-right" >
 						<button type="button" class="btn btn-primary" onclick="update()">変更</button>
-					@if($count != 1)
-						<button type="button" class="btn btn-default" onclick="location.href='/home'">ホーム</button>
-					@endif
 					</div>
 				</form>
 				</div>
