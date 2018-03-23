@@ -19,14 +19,14 @@ Lineプッシュログ
 		</tr>
 	</thead>
 	<tbody>
-		@foreach($botlogs as $botlog)
+		@foreach($pushlogs as $pushlog)
 		<tr>
-			<td>{{$botlog->no}}</td>
-			<td>{{$botlog->time}}</td>
-			<td>{{$botlog->target}}</td>
-			<td>{{$botlog->type}}</td>
-			<td>{{$botlog->contents}}</td>
-			<td>{{$botlog->sender}}</td>
+			<td>{{$pushlog->no}}</td>
+			<td>{{$pushlog->time}}</td>
+			<td>{{$pushlog->target}}</td>
+			<td>{{$pushlog->type}}</td>
+			<td>{{$pushlog->contents}}</td>
+			<td>{{$pushlog->sender}}</td>
 			<td></td>
 		</tr>
 		@endforeach
