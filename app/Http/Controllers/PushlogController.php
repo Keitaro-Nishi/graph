@@ -7,6 +7,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Pushlog;
+use App\User;
 
 class PushlogController
 {
@@ -33,7 +34,10 @@ class PushlogController
 				$target = $pushlogdata->target;
 				$typedata = $pushlogdata->type;
 				$contents = $pushlogdata->contents;
-				$sender = $pushlogdata->sender;
+				$senderdata = $pushlogdata->sender;
+				$senders = User::select('name')->where('userid',$senderdata)->first();
+				$sender = $senders->name;
+
 
 				if($typedata == 1){
 					$type = "テキスト";
