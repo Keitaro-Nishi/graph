@@ -34,7 +34,7 @@ Lineプッシュログ
 </table>
 
 
-<input id="botlog" type= "hidden" value = '{{ $botlogs }}'>
+<input id="botlog" type= "hidden" value = '{{ $pushlogs }}'>
 <input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
 
 <div class="container" align="center">
