@@ -50,8 +50,9 @@ class LoginController extends Controller {
 	{
 		if (Auth::check()) {
 			return redirect ( '/home' );
-		}
+		}else{
 		return view('auth.login');
+		}
 	}
 
 	public function logout(Request $request) {
