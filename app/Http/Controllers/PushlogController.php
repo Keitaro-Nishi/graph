@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Pushlog;
 
-class BotlogController
+class PushlogController
 {
 
 	public function index(Request $request)
