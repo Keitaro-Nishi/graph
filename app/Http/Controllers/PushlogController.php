@@ -28,6 +28,7 @@ class PushlogController
 				$time = date_format($timedata , 'Y-m-d H:i:s');
 				$infodata = $pushlogdata->info;
 				$agek = $pushlogdata->agek;
+				$agem = $pushlogdata->agem;
 				$sex = $pushlogdata->sex;
 				$target = $pushlogdata->target;
 				$typedata = $pushlogdata->type;
@@ -51,7 +52,7 @@ class PushlogController
 						'no'=>$no,
 						'time'=>$time,
 						'info'=>$info,
-						'age'=>$agek,
+						'age'=>$agek."歳から".$agem."歳",
 						'sex'=>$sex,
 						'target'=>$target,
 						'type'=>$type,
