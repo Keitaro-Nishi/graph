@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Libs\Watson;
 use App\Parameter;
-
 class GenreController
 {
 	public function index(Request $request)
@@ -45,10 +44,8 @@ class GenreController
 			];
 			array_push($genrelists, $genrelist);
 		}
-
 		return view('genre',compact('genrelists','j1values'));
 	}
-
 	public  function request(){
 		$this->requestall = \Request::all();
 		if ($this->requestall["param"] == "delete"){
@@ -59,7 +56,6 @@ class GenreController
 			return \Response::json(['status' => 'NG']);
 		}
 	}
-
 	public function delete()
 	{
 		$cityCD = Auth::user()->citycode;
@@ -67,57 +63,42 @@ class GenreController
 		$workspace_id = $workspace->cvs_ws_id1;
 		$input = $this->requestall;
 		$idsdata = $input["ids"];
-
 		$watson = new Watson;
-
 		foreach ($idsdata as $iddata) {
 			$aos = explode(".", $iddata);
 			$gid1 = $aos[0];
 			$gid2 = $aos[1];
-
 			$g2meishodata = Genre::select('meisho')->where('citycode',$cityCD)->where('gid1',$gid1)->where('gid2',$gid2)->first();
 			$g2meisho = $g2meishodata->meisho;
-
 			if($gid2 == 0){
 				$gid2datas = Genre::select('gid2')->where('citycode',$cityCD)->where('gid1',$gid1)->get();
-
 				//CVS削除
 				//dialog_node
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/dialog_nodes/node_".$gid1."?version=2017-05-26";
 				$watson->callcvsDelete($cityCD,$url);
-
 				foreach($gid2datas as $gid2data){
 					$g2 = $gid2data->gid2;
 					$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/dialog_nodes/".$gid1.".".$g2."?version=2017-05-26";
 					$watson->callcvsDelete($cityCD,$url);
 				}
-
 				//Intents
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents/".$gid1."?version=2017-05-26";
 				$watson->callcvsDelete($cityCD,$url);
-
 				//ENTITIES
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities/".$gid1."?version=2017-05-26";
 				$watson->callcvsDelete($cityCD,$url);
-
 				Genre::where('citycode',$cityCD)->where('gid1',$gid1)->delete();
-
 			}else{
-
 				Genre::where('citycode',$cityCD)->where('gid1',$gid1)->where('gid2',$gid2)->delete();
-
 				//CVS削除
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities/".$gid1."/values/".urlencode($g2meisho)."?version=2017-05-26";
 				$watson->callcvsDelete($cityCD,$url);
-
 				$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/dialog_nodes/".$gid1.".".$gid2."?version=2017-05-26";
 				$watson->callcvsDelete($cityCD,$url);
 			}
 		}
-
 		return \Response::json(['status' => 'OK']);
 	}
-
 	public function update()
 	{
 		$cityCD = Auth::user()->citycode;
@@ -216,8 +197,5 @@ class GenreController
 			}
 			return \Response::json(['status' => 'OK']);
 		}
-
 	}
-
-
 }
