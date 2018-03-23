@@ -40,9 +40,6 @@
 	<input id="btn_modal" type="button" style="display: none" data-toggle="modal" data-target="#shosaiDialog" value="モーダル表示" />
 </div>
 
-<div>
-<canvas id="myChart"></canvas>
-</div>
 
 <div class="modal" id="shosaiDialog" tabindex="-1">
 	<div class="modal-dialog">
@@ -89,6 +86,9 @@
 				</form>
 			</div>
 			<input type="hidden" id="_token" name="_token" value="{{ csrf_token() }}">
+			<div>
+			<canvas id="myChart"></canvas>
+			</div>
 			<div class="modal-footer">
 				<button id="sback" type="button" class="btn btn-default" onclick="shosai_back()">＜＜前へ</button>
 				<button id="snext" type="button" class="btn btn-default" onclick="shosai_next()">次へ＞＞</button>
