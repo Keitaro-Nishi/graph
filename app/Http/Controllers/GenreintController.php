@@ -21,6 +21,7 @@ class GenreintController
 
 	}
 
+
 	public  function request(){
 		$this->requestall = \Request::all();
 		if ($this->requestall["param"] == "intentSearch"){
@@ -33,6 +34,7 @@ class GenreintController
 			return \Response::json(['status' => 'NG']);
 		}
 	}
+
 
 	public function intentSearch()
 	{
@@ -119,4 +121,8 @@ class GenreintController
 			return \Response::json(['status' => 'NG']);
 		}
 	}
+
+
+
+
 }

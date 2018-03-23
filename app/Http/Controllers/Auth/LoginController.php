@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use App\Events\Logined;
@@ -28,6 +27,7 @@ class LoginController extends Controller {
 	 *
 	 * @var string
 	 */
+
 	protected $redirectTo = '/home';
 
 	/**
@@ -42,22 +42,16 @@ class LoginController extends Controller {
 	 * $this->middleware('guest')->except('logout');
 	 * }
 	 */
-	protected function authenticated(Request $request, $user) {
-		// ログインイベントを発火させ最終ログイン日時を記録する
-		event ( new Logined () );
-	}
 
-	public function showLoginForm()
-	{
-		if (Auth::check()) {
-			return redirect ( '/home' );
-		}else{
-			return view('auth.login');
-		}
-	}
+	 protected function authenticated(Request $request, $user)
+    	{
+        // ログインイベントを発火させ最終ログイン日時を記録する
+        event(new Logined());
+   	 }
 
-	public function logout(Request $request) {
-		event ( new Logouted () );
+   	 public function logout(Request $request) {
+
+   	 	event(new Logouted());
 
 		$this->guard ()->logout ();
 
@@ -67,6 +61,7 @@ class LoginController extends Controller {
 
 		return redirect ( '/login' );
 	}
+
 	public function username() {
 		return 'userid';
 	}
