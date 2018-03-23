@@ -57,19 +57,19 @@ Lineプッシュログ
 				<form class="form-horizontal">
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_number">送信対象者数</label>
-						<div class="col-sm-10">
+						<div class="col-sm-2">
 							<input type="text" class="form-control" id="dia_number" readonly>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_register">属性登録有無</label>
-						<div class="col-sm-10">
+						<div class="col-sm-2">
 							<input type="text" class="form-control" id="dia_register" readonly>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_age">年齢</label>
-						<div class="col-sm-10">
+						<div class="col-sm-2">
 							<input type="text" class="form-control" id="dia_age" readonly>
 						</div>
 					</div>
