@@ -21,12 +21,12 @@ Lineプッシュログ
 	<tbody>
 		@foreach($pushlogs as $pushlog)
 		<tr>
-			<td>{{$pushlog->no}}</td>
-			<td>{{ Carbon\Carbon::parse($pushlog->time)->format('Y/m/d H:i:s') }}</td>
-			<td>{{$pushlog->target}}</td>
-			<td>テキスト</td>
-			<td>{{$pushlog->contents}}</td>
-			<td>{{$pushlog->sender}}</td>
+			<td>{{$pushlog['no']}}</td>
+			<td>{{$pushlog['time']}}</td>
+			<td>{{$pushlog['target']}}</td>
+			<td>{{$pushlog['type']}}</td>
+			<td>{{$pushlog['coontents']}}</td>
+			<td>{{$pushlog['sender']}}</td>
 			<td></td>
 		</tr>
 		@endforeach
@@ -34,7 +34,7 @@ Lineプッシュログ
 </table>
 
 
-<input id="botlog" type= "hidden" value = '{{ $pushlogs }}'>
+<input id="pushlog" type= "hidden" value = '{{ $pushlogvalue }}'>
 <input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
 
 <div class="container" align="center">
