@@ -55,12 +55,18 @@ class PushlogController
 					$sex = "女性";
 				}
 
+				if($agek == 999){
+					$age = "すべて";
+				}else{
+					$age = $agek."歳 ～ ".$agem."歳";
+				}
+
 				$pushloglist= [
 
 						'no'=>$no,
 						'time'=>$time,
 						'info'=>$info,
-						'age'=>$agek."歳 ～ ".$agem."歳",
+						'age'=>$age,
 						'sex'=>$sex,
 						'target'=>$target." 人",
 						'type'=>$type,
