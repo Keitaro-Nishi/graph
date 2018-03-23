@@ -55,6 +55,8 @@ class PushlogController
 				$no = $pushlogdata->no;
 				$timedata = date_create($pushlogdata->time);
 				$time = date_format($timedata , 'Y-m-d H:i:s');
+				$infodata = $pushlogdata->info;
+				$agek = $pushlogdata->agek;
 				$target = $pushlogdata->target;
 				$typedata = $pushlogdata->type;
 				$contents = $pushlogdata->contents;
@@ -64,10 +66,20 @@ class PushlogController
 					$type = "テキスト";
 				}
 
+				if($infodata == 0){
+					$info = "すべて";
+				}elseif($infodata == 1){
+					$info = "登録あり";
+				}elseif($infodata == 2){
+					$info = "登録なし";
+				}
+
 				$pushloglist= [
 
 						'no'=>$no,
 						'time'=>$time,
+						'info'=>$info,
+						'age'=>$agek,
 						'target'=>$target,
 						'type'=>$type,
 						'contents'=>$contents,
@@ -78,8 +90,8 @@ class PushlogController
 			}
 		}
 
-
-		return view('pushlog',compact('pushlogs','pushlogdatas'));
+		$pushlogvalue= json_encode($pushlogs);
+		return view('pushlog',compact('pushlogs','pushlogvalue'));
 	}
 
 

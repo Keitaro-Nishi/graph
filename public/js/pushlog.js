@@ -1,7 +1,7 @@
 var rowIds = [];
 var pushlog = [];
 var dbvalue = [];
-//var shosai_idx = 0;
+
 
 pushlog = document.getElementById('pushlog').value;
 dbvalue = JSON.parse(pushlog);
