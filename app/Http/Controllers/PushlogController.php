@@ -92,6 +92,8 @@ class PushlogController
 			}
 		}
 
+		error_log("★★★");
+		error_log(print_r($pushlogs,true));
 		$pushlogvalue= json_encode($pushlogs);
 		return view('pushlog',compact('pushlogs','pushlogvalue'));
 	}
