@@ -27,7 +27,7 @@ class HomeController extends Controller {
 		$userid = Auth::user ()->userid;
 		$cityCD = Auth::user ()->citycode;
 		$parameter = Parameter::where ( 'citycode', $cityCD )->get ();
-		$intpasscalss = $parameter->intpasscalss;
+		$intpasscalss = $parameter->cityname;
 		error_log("????????????". $intpasscalss. "????????????");
 		$count = Logindata::where ( 'userid', $userid )->count ();
 		if ($count == 1) {
