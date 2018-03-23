@@ -29,7 +29,7 @@ class PushlogController
 				$infodata = $pushlogdata->info;
 				$agek = $pushlogdata->agek;
 				$agem = $pushlogdata->agem;
-				$sex = $pushlogdata->sex;
+				$sexdata = $pushlogdata->sex;
 				$target = $pushlogdata->target;
 				$typedata = $pushlogdata->type;
 				$contents = $pushlogdata->contents;
@@ -45,6 +45,14 @@ class PushlogController
 					$info = "登録あり";
 				}elseif($infodata == 2){
 					$info = "登録なし";
+				}
+
+				if($sexdata == 0){
+					$sex = "すべて";
+				}elseif($sexdata== 1){
+					$sex = "男性";
+				}elseif($sexdata== 2){
+					$sex = "女性";
 				}
 
 				$pushloglist= [
@@ -73,7 +81,7 @@ class PushlogController
 				$infodata = $pushlogdata->info;
 				$agek = $pushlogdata->agek;
 				$agem = $pushlogdata->agem;
-				$sex = $pushlogdata->sex;
+				$sexdata = $pushlogdata->sex;
 				$target = $pushlogdata->target;
 				$typedata = $pushlogdata->type;
 				$contents = $pushlogdata->contents;
@@ -89,6 +97,14 @@ class PushlogController
 					$info = "登録あり";
 				}elseif($infodata == 2){
 					$info = "登録なし";
+				}
+
+				if($sexdata == 0){
+					$sex = "すべて";
+				}elseif($sexdata== 1){
+					$sex = "男性";
+				}elseif($sexdata== 2){
+					$sex = "女性";
 				}
 
 				$pushloglist= [
@@ -108,8 +124,6 @@ class PushlogController
 			}
 		}
 
-		error_log("★★★");
-		error_log(print_r($pushlogs,true));
 		$pushlogvalue= json_encode($pushlogs);
 		return view('pushlog',compact('pushlogs','pushlogvalue'));
 	}
