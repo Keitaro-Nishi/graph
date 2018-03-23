@@ -96,7 +96,7 @@ class PushlogController
 						'no'=>$no,
 						'time'=>$time,
 						'info'=>$info,
-						'age'=>$agek." 歳から ".$agem." 歳",
+						'age'=>$agek."歳～".$agem."歳",
 						'sex'=>$sex,
 						'target'=>$target,
 						'type'=>$type,
