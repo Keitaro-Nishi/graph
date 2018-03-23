@@ -16,6 +16,7 @@ class LogimageController {
 		return view ( 'logimage', [
 				'logimages' => $logimages
 		] );
+
 	}
 	public function request() {
 		$this->requestall = \Request::all ();
@@ -38,12 +39,6 @@ class LogimageController {
 	}
 	public function links($id) {
 		$logimages = Logimage::select ( 'image' )->where ( 'no', $id )->first ();
-		// バイナリデータ取得
-		$fileData = $logimages->image;
-		// 取得したバイナリデータをファイルに書き込んでレスポンスに返却
-		$imegeData = 'image'.$id.'.jpg';
-		file_put_contents ( $imegeData, $fileData );
-		$headers = array ('Content-Type: image/jpg');
 		return response()->file( $imegeData, $headers );
 	}
 }

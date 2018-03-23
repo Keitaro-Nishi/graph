@@ -221,16 +221,12 @@ function update(){
 				}
 			});
 		}else{
-			var mes = "";
-			for (var item in response) {
-				if(mes != ""){
-					mes = mes + "<br>";
-				}
-			    mes = mes + response[item][0];
-			}
 			bootbox.alert({
-				message: mes,
-				size: 'small'
+				message: "入力されていません。",
+				size: 'small',
+				callback: function () {
+					location.reload();
+				}
 			});
 		}
     }).fail(function () {
