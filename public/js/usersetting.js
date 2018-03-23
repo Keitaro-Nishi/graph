@@ -10,7 +10,6 @@ function init(){
     {
       document.getElementById("app-navbar-collapse").style.visibility="visible";
     }
-
 }
 
 function update(){
