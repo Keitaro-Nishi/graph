@@ -19,24 +19,6 @@ class WebbotController
 		$userid = Auth::user()->userid;
 		$sender = 2;
 
-		/*$userinfo = Userinfo::where('citycode', $citycode)->where('userid', $userid)->where('sender', $sender)->first();
-
-		if(!$userinfo){
-
-			$language = "";
-			$sex = 0;
-			$age = 999;
-
-		}else{
-
-			$language = $userinfo->language;
-			$sex = $userinfo->sex;
-			$age = $userinfo->age;
-
-		}
-		*/
-
-		//return view('webbot',compact('citycode','userid','language','sex','age'));
 		return view('webbot',compact('citycode','userid'));
 	}
 
@@ -74,11 +56,6 @@ class WebbotController
 
 		}
 
-		/*error_log($language);
-		error_log($sex);
-		error_log($age);
-		*/
-
 		return \Response::json(['language' =>$language,'sex' =>$sex,'age' =>$age]);
 	}
 
@@ -104,16 +81,11 @@ class WebbotController
 		$kbn = $input["kbn"];
 		$text = $input["text"];
 
-
-
-
 		if($param =="1"){
 			$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_KenshinId."/message?version=2017-04-21";
 		}elseif($param =="2"){
 			$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_SonotaId."/message?version=2017-04-21";
 		}
-
-
 
 		$text= str_replace("\n","",$text);
 		$data = array('input' => array("text" => $text));
@@ -124,7 +96,6 @@ class WebbotController
 			$json = json_decode($jsonString, true);
 			$conversation_id = $json["context"]["conversation_id"];
 			$resmess= $json["output"]["text"][0];
-
 
 			$conversation_node = $json["context"]["system"]["dialog_stack"][0]["dialog_node"];
 			$cvsdatas = Cvsdata::where('citycode', $cityCD)->where('userid', $user)->first();
@@ -153,6 +124,7 @@ class WebbotController
 
 			DB::table('cvsdata')->where('citycode',$cityCD)->where('userid',$user)->update(['conversationid' => $conversation_id,'dnode' =>$conversation_node,'time' =>$tdate]);
 		}
+
 
 		//URL置き換え
 		$pattern = '(https?://[-_.!~*\'()a-zA-Z0-9;/?:@&=+$,%#]+)';
