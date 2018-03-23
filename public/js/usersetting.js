@@ -1,67 +1,73 @@
-@extends('layouts.app2')
+function init(){
+    // 自身のページを履歴に追加
+    history.pushState(null, null, null);
+    // ページ戻り時にも自身のページを履歴に追加
+    $(window).on("popstate", function(){
+        history.pushState(null, null, null);
+    });
+}
 
-@section('title')
-パスワード変更
-@stop
+function update(){
+	var name = document.getElementById('dia_name').value;
+	var oldpassword = document.getElementById('dia_oldpassword').value;
+	var password = document.getElementById('dia_password').value;
+	var password_confirmation = document.getElementById('dia_password_confirmation').value;
+	var _token = document.getElementById('_token').value;
 
-@section('content')
-<div class="container">
-
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<div class="panel panel-default">
-				<div class="panel-heading">ユーザー</div>
-
-				<div class="panel-body">
-					@if($count == 1)
-					<p style="text-align:center; color:red;">初回ログイン時には必ずパスワードを変更してください。</p>
-					@endif
-					<form class="form-horizontal">
-					<div class="form-group">
-						<label class="col-sm-3 control-label" for="dia_userid">ユーザーID</label>
-						<div class="col-sm-9">
-							<input type="text" class="form-control" id="dia_userid" name="userid" value="{{$userid}}　　※ログイン時に使用" disabled="disabled" required>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-3 control-label" for="dia_name">名前</label>
-						<div class="col-sm-9">
-							<input type="text" class="form-control" id="dia_name" name="name" value="{{$name}}" required>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-3 control-label" for="dia_oldpassword">現在のパスワード</label>
-						<div class="col-sm-9">
-							<input type="password" class="form-control" id="dia_oldpassword" name="oldpassword" value="" required>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-3 control-label" for="dia_password">新しいパスワード</label>
-						<div class="col-sm-9">
-							<input type="password" class="form-control" id="dia_password" name="password" value="" required>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-3 control-label" for="dia_password_confirmation">パスワード再入力</label>
-						<div class="col-sm-9">
-							<input type="password" class="form-control" id="dia_password_confirmation" name="password_confirmation" value="" required>
-						</div>
-					</div>
-					<input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
-					<div class="text-right" >
-						<button type="button" class="btn btn-primary" onclick="update()">変更</button>
-					@if($count != 1)
-						<button type="button" class="btn btn-default" onclick="location.href='/home'">ホーム</button>
-					@endif
-					</div>
-				</form>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<script src="{{ asset('js/usersetting.js') }}"></script>
-<script>
-init();
-</script>
-@endsection
+	$.ajax({
+		type: "POST",
+		dataType: "JSON",
+		data: {
+			"name" : name,
+			"oldpassword" : oldpassword,
+			"password" : password,
+			"password_confirmation" : password_confirmation,
+			"_token" : _token
+		}
+	}).done(function (response) {
+		if(response.status == "OK"){
+			bootbox.alert({
+				message: "更新しました",
+				size: 'small',
+				callback: function () {
+					location.replace("/home");
+				}
+			});
+		}else if(response.status == "NG"){
+			bootbox.alert({
+				message: "現在のパスワードが間違っています。",
+				size: 'small',
+			});
+		}else if(response.status == "BACK"){
+			bootbox.alert({
+				message: "パスワードに変更がありません。",
+				size: 'small',
+			});
+		}else if(response.status == "LOGOUT"){
+			bootbox.alert({
+				message: "ログアウトします。新しいパスワードでログインしてください。",
+				size: 'small',
+				callback: function () {
+					location.replace("/login");
+				}
+			});
+		}else{
+			var mes = "";
+			for (var item in response) {
+				if(mes != ""){
+					mes = mes + "<br>";
+				}
+				mes = mes + response[item][0];
+			}
+			bootbox.alert({
+				message: mes,
+				size: 'small'
+			});
+		}
+	}).fail(function () {
+		bootbox.alert({
+			message: "更新できませんでした",
+			size: 'small'
+		});
+	});
+}
