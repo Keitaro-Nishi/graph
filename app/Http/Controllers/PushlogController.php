@@ -117,6 +117,8 @@ class PushlogController
 
 				if($agek == 999 or $agem == 999){
 					$age = "すべて";
+				}elseif($agek == $agem){
+					$age = $agek."歳";
 				}else{
 					$age = $agek."歳 ～ ".$agem."歳";
 				}
