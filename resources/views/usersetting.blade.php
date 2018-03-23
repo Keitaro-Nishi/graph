@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @section('title')
 パスワード変更
@@ -13,6 +13,9 @@
 				<div class="panel-heading">ユーザー</div>
 
 				<div class="panel-body">
+					@if($count == 1)
+					<p>初回ログイン時には必ずパスワードを変更してください。</p>
+					@endif
 					<form class="form-horizontal">
 					<div class="form-group">
 						<label class="col-sm-3 control-label" for="dia_userid">ユーザーID</label>
