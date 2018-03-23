@@ -1,4 +1,8 @@
+@if ($count == 1)
 @extends('layouts.app2')
+@else
+@extends('layouts.app')
+@endif
 
 @section('title')
 パスワード変更
