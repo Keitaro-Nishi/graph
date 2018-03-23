@@ -22,7 +22,7 @@ Lineプッシュログ
 		@foreach($pushlogs as $pushlog)
 		<tr>
 			<td>{{$pushlog->no}}</td>
-			<td>{{$pushlog->time}}</td>
+			<td>{{ Carbon\Carbon::parse($pushlog->time)->format('Y/m/d H:i:s') }}</td>
 			<td>{{$pushlog->target}}</td>
 			<td>{{$pushlog->type}}</td>
 			<td>{{$pushlog->contents}}</td>
