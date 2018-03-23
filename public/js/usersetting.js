@@ -1,14 +1,7 @@
-//履歴にスタックしたかどうかのflag
-var isHistoryPush = false;
+window.location.hash="#noback";
 function init() {
-	if (history && history.pushState && history.state !== undefined) {
-		// history イベントの監視
-		window.addEventListener('popstate', function (e) {
-			if (isHistoryPush) {
-				alert('ブラウザでの戻るボタンは禁止されております。');
-				history.pushState(null, null, null);
-			}
-		}, false);
+	window.onhashchange=function(){
+		window.location.hash="#noback";
 	}
 }
 
