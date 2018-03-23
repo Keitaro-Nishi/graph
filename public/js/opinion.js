@@ -104,8 +104,9 @@ dbvalue = JSON.parse(opinion);
 			}
 
 
-
 			function modal_mod(index){
+				var ctx = document.getElementById('myChart').getContext('2d');
+
      			document.getElementById('dia_userid').value  = dbvalue[index]["userid"];
 				document.getElementById('dia_time').value = dbvalue[index]["time"];
 				document.getElementById('dia_sadness').value  = dbvalue[index]["sadness"];
@@ -115,6 +116,19 @@ dbvalue = JSON.parse(opinion);
 				document.getElementById('dia_anger').value  = dbvalue[index]["anger"];
 				document.getElementById('dia_checked').value  = dbvalue[index]["checked"];
 				document.getElementById('dia_opinion').innerHTML  = dbvalue[index]["opinion"];
+
+				var myChart = new Chart(ctx, {
+					  type: 'bar',
+					  data: {
+					    labels: ['悲しみ', '喜び', '恐れ', '憎悪', '怒り'],
+					    datasets: [{
+					      label: '感情',
+					      data: [dbvalue[index]["sadness"],dbvalue[index]["joy"],dbvalue[index]["fear"],dbvalue[index]["disgust"],dbvalue[index]["anger"]],
+					      backgroundColor: "rgba(153,255,51,0.4)"
+					    }]
+					  }
+					});
+
 				if(index == 0){
 					document.getElementById("sback").disabled = "true";
 				}else{
