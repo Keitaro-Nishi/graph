@@ -62,3 +62,8 @@ function update(){
 		});
 	});
 }
+
+window.location.hash="#noback";
+window.onhashchange=function(){
+    window.location.hash="#noback";
+}
