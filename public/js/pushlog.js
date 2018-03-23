@@ -97,6 +97,6 @@ function detailwin(value){
 function modal_mod(index){
 	document.getElementById('dia_number').value  = dbvalue[index]["target"];
 	document.getElementById('dia_register').value = dbvalue[index]["info"];
-	document.getElementById('dia_age').value  = dbvalue[index]["agek"];
+	document.getElementById('dia_age').value  = dbvalue[index]["age"];
 	document.getElementById('dia_sex').value  = dbvalue[index]["sex"];
 }
