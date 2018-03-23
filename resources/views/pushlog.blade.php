@@ -35,66 +35,14 @@ Lineプッシュログ
 
 
 <input id="botlog" type= "hidden" value = '{{ $botlogs }}'>
-
+<input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
 
 <div class="container" align="center">
 	<input id="btn_del" type="button" class="btn btn-default" value="選択行の削除" onclick="drow()">
 	<input id="btn_modal" type="button" style="display: none" data-toggle="modal" data-target="#shosaiDialog" value="モーダル表示" />
 </div>
 
-<div class="modal" id="shosaiDialog" tabindex="-1">
-	<div class="modal-dialog">
-		<div class="modal-content" style="width: 740px; margin-left: -20px;">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">
-					<span aria-hidden="true">&times;</span>
-				</button>
-				<h4 class="modal-title" id="modal-label">詳細</h4>
-			</div>
-			<div class="modal-body">
 
-				<form class="form-horizontal">
-					<div class="form-group"  style="display:none">
-						<label class="col-sm-2 control-label" for="dia_no">no</label>
-						<div class="col-sm-10">
-							<input id="dia_no" class="form-control" name="no" value="">
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_userid">ユーザーID</label>
-						<div class="col-sm-10">
-							<input type="text" class="form-control" id="dia_userid" value="" readonly>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_time">日時</label>
-						<div class="col-sm-10">
-							<input type="text" class="form-control" id="dia_time" readonly>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_contents">質問</label>
-						<div class="col-sm-10">
-							<textarea class="form-control" id="dia_contents" rows='5' readonly></textarea>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_return">回答</label>
-						<div class="col-sm-10">
-							<textarea class="form-control" id="dia_return" rows='5' readonly></textarea>
-						</div>
-					</div>
-				</form>
-			</div>
-			<input type="hidden" id="_token" name="_token" value="{{ csrf_token() }}">
-			<div class="modal-footer">
-				<button id="sback" type="button" class="btn btn-default" onclick="shosai_back()">＜＜前へ</button>
-				<button id="snext" type="button" class="btn btn-default" onclick="shosai_next()">次へ＞＞</button>
-				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-			</div>
-		</div>
-	</div>
-</div>
 
 <script src="{{ asset('js/pushlog.js') }}"></script>
 

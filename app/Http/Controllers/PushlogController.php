@@ -40,7 +40,7 @@ class BotlogController
 
 	public function delete(){
 		$input = $this->requestall;
-		Pushlog::destroy($input["nos"]);
+		Pushlog::destroy($input["no"]);
 
 		return \Response::json(['status' => 'OK']);
 
