@@ -1,6 +1,6 @@
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
-  type: 'line',
+  type: 'bar',
   data: {
     labels: ['月', '火', '水', '木', '金', '土', '日'],
     datasets: [{
