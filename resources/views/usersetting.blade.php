@@ -14,7 +14,7 @@
 
 				<div class="panel-body">
 					@if($count == 1)
-					<p>初回ログイン時には必ずパスワードを変更してください。</p>
+					<p style="text-align:center" color="red">初回ログイン時には必ずパスワードを変更してください。</p>
 					@endif
 					<form class="form-horizontal">
 					<div class="form-group">
