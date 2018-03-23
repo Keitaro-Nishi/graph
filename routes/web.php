@@ -14,16 +14,14 @@ Route::get ( '/', function () {
 	return redirect ( '/login' );
 } );
 
-Route::get ( '/graphtest', function () {
-		return redirect ( '/graphtest' );
-} );
-
 Auth::routes ();
 
 Route::middleware(['auth'])->group(function () {
 	Route::get ( '/register', 'Auth\RegisterController@showRegistrationForm' )->name ( 'register' )->middleware ( 'role' );
 
 	Route::get ( '/home', 'HomeController@index' )->name ( 'home' );
+
+	Route::get ( '/graphtest', 'GraphtestController@index' )->name ( 'graphtest' );
 
 	//Route::get ( '/users', 'UserController@index' )->name ( 'users' )->middleware('role');
 	//Route::post ( '/users', 'UserController@request' )->middleware('role');
