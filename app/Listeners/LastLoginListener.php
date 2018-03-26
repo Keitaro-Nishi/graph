@@ -43,6 +43,5 @@ class LastLoginListener
 		$logindata->time = Carbon::now();
 
 		$logindata->save();
-
 	}
 }
