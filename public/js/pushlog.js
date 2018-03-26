@@ -95,13 +95,9 @@ function detailwin(value,param1,param2,param3,param4,param5,param6,param7,param8
 			modal_mod(i);
 		}
 	}
+
 }
 
-
-//オプションチェンジ
-function optionChange(){
-	taishocount();
-}
 
 function taishoDisabled(bl){
 	for(var i = 1; i < 11; i++){
