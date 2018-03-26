@@ -177,8 +177,8 @@
 
 
 <div class="container" align="center">
-	<input id="btn_del" type="button" class="btn btn-default" value="削除" onclick="del()">
-	<input id="btn_update" type="button" class="btn btn-primary" value="登録" onclick="update()">
+	<input id="btn_del" type="button" class="btn btn-default" value="　削除　" onclick="del()">
+	<input id="btn_update" type="button" class="btn btn-primary" value="　登録　" onclick="update()">
 </div>
 <input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
 <script src="{{ asset('js/attribute.js') }}"></script>

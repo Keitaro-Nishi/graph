@@ -46,6 +46,8 @@ function languageChange(){
 		setSelectValue(sex,"2","女性");
 		document.getElementById('label_age').innerHTML = "年齢";
 		optionSetting(codes);
+		document.getElementById('btn_del').value = "　削除　";
+		document.getElementById('btn_update').value = "　登録　";
 	}
 
 	//英語
@@ -57,6 +59,8 @@ function languageChange(){
 		setSelectValue(sex,"2","Female");
 		document.getElementById('label_age').innerHTML = "Age";
 		optionSetting(codesEn);
+		document.getElementById('btn_del').value =    "   Delete   ";
+		document.getElementById('btn_update').value = "Registration";
 	}
 
 	//selectedIndex設定
@@ -98,6 +102,16 @@ function update(){
 	var sex = document.getElementById('sex').value;
 	var age = document.getElementById('age').value;
 	var option = [];
+	var okmess = "";
+	var ngmess = "";
+	if(document.getElementById('language').value == "01"){
+		okmess = "登録しました。<br>画面を閉じてください。";
+		ngmess = "登録できませんでした";
+	}
+	if(document.getElementById('language').value == "02"){
+		okmess = "Has registered.<br>Please close the screen.";
+		ngmess = "Registration failed.";
+	}
 	for(var i = 1; i < 11; i++){
 		if(document.getElementById('option'+i)){
 			option.push(document.getElementById('option'+i).value);
@@ -119,12 +133,12 @@ function update(){
 		}
 	}).done(function (response) {
 		bootbox.alert({
-			message: "登録しました。<br>画面を閉じてください。",
+			message: okmess,
 			size: 'small',
 		});
     }).fail(function () {
     	bootbox.alert({
-			message: "登録できませんでした",
+			message: ngmess,
 			size: 'small'
 		});
     });
@@ -132,14 +146,33 @@ function update(){
 
 //削除
 function del(){
+	var confmess = "";
+	var okmess = "";
+	var ngmess = "";
+	var yes = "";
+	var no = "";
+	if(document.getElementById('language').value == "01"){
+		confmess = "登録されている属性を削除しますか？";
+		okmess = "削除しました。<br>画面を閉じてください。";
+		ngmess = "削除できませんでした";
+		yes = "はい";
+		no = "いいえ";
+	}
+	if(document.getElementById('language').value == "02"){
+		confmess = "Delete registered attributes?";
+		okmess = "It has been deleted.<br>Please close the screen.";
+		ngmess = "Delete failed.";
+		yes = "YES";
+		no = "NO";
+	}
 	bootbox.confirm({
-	    message: "登録されている属性を削除しますか？",
+	    message: confmess,
 	    buttons: {
 	    	confirm: {
-	            label: '<i class="fa fa-check"></i> はい'
+	            label: '<i class="fa fa-check"></i> ' + yes
 	        },
 	        cancel: {
-	            label: '<i class="fa fa-times"></i> いいえ'
+	            label: '<i class="fa fa-times"></i> ' + no
 	        }
 	    },
 	    callback: function (result) {
@@ -154,12 +187,12 @@ function del(){
 	        		}
 	        	}).done(function (response) {
 	        		bootbox.alert({
-	        			message: "削除しました。<br>画面を閉じてください。",
+	        			message: okmess,
 	        			size: 'small',
 	        		});
 	            }).fail(function () {
 	            	bootbox.alert({
-	        			message: "削除できませんでした",
+	        			message: ngmess,
 	        			size: 'small'
 	        		});
 	            });
