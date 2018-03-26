@@ -16,3 +16,7 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::group(['namespace' => 'Api'], function (Request $request) {
+	Route::post('/line/callback/{citycode?}', 'LineBotController@callback');
+});
