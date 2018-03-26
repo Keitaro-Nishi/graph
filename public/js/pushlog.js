@@ -18,7 +18,7 @@ $(function() {
 		columnSelection : false,
 		formatters: {
 			"details": function($column, $row) {
-				return "<input type='button' class='btn btn-default' value='対象情報' onclick='detailwin("  + $row.no + ")'> ";
+				return "<input type='button' class='btn btn-default' value='対象情報' onclick='detailwin("  + $row.param1 + ")'> ";
 			}
 		}
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
@@ -91,6 +91,7 @@ function drow() {
 }
 
 function detailwin(value){
+	alert(value);
 	document.getElementById("btn_modal").click();
 	for (var i = 0; i < dbvalue.length; i++){
 		if(dbvalue[i]["no"] == value){
