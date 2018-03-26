@@ -169,10 +169,12 @@ class PushlogController
 				array_push($pushlogs, $pushloglist);
 
 				for ($i = 1; $i <= 10; $i++) {
-						$meishovalue = Code::select('meisho')->where('citycode', $cityCD)->where('code1', $i)->where('code2',paramlist['$i'])->orderBy('code2', 'ASC')->get();
-						error_log("☆☆☆☆☆☆☆");
-						error_log($meishovalue);
-						//array_push($meishovalues, $meishovalue);
+						$meishovalues = Code::select('meisho')->where('citycode', $cityCD)->where('code1', $i)->where('code2',paramlist['$i'])->orderBy('code2', 'ASC')->get();
+						foreach($meishovalues as $meishovalue){
+							$meisho = $meishovalue->meisho;
+							error_log("☆☆☆☆☆☆☆");
+							error_log($meisho);
+						}
 				}
 
 			}
