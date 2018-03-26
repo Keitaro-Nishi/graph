@@ -129,5 +129,8 @@ Lineプッシュログ
 </div>
 
 <script src="{{ asset('js/pushlog.js') }}"></script>
-
+<script>
+var pushlogs = @json($pushlogs);
+init();
+</script>
 @endsection

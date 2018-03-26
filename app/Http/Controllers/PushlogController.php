@@ -186,7 +186,7 @@ class PushlogController
 			}
 		}
 
-		$pushlogvalue= json_encode($pushlogs);
+		//$pushlogvalue= json_encode($pushlogs);
 
 		for ($i = 1; $i <= 10; $i++) {
 			$count = Code::where('citycode', $cityCD)->where('code1', $i)->where('code2', '>', 0)->count();
@@ -197,7 +197,7 @@ class PushlogController
 		}
 
 
-		return view('pushlog',compact('pushlogs','pushlogvalue','codes'));
+		return view('pushlog',compact('pushlogs','codes'));
 	}
 
 
