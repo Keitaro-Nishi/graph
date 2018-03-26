@@ -4,8 +4,8 @@ var dbvalue = [];
 var meisho = [];
 var meishovalue = [];
 
-meisho = document.getElementById('pushlog').value;
-meishovalue = JSON.parse(meisho);
+pushlog = document.getElementById('pushlog').value;
+dbvalue = JSON.parse(meisho);
 
 function int() {
 
@@ -117,7 +117,7 @@ function modal_mod(index){
 
 		for(var i = 1; i < 11; i++){
 			if(document.getElementById('option'+i)){
-				document.getElementById('option'+i).value = meishovalue[index]["param"+i];
+				document.getElementById('option'+i).value = dbvalue[index]["param"+i];
 			}
 		}
 }
