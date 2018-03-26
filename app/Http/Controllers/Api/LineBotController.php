@@ -25,6 +25,8 @@ class LineBotController
 
 		$line_cat = Parameter::select('line_cat')->where('citycode', $citycode)->first();
 
+		error_log("★★★★★★★★★★★★★★line_cat★★★★★★★★★★★★★★★".$line_cat);
+
 		$response_format_text = [
 				"type" => "text",
 				"text" => "test"
