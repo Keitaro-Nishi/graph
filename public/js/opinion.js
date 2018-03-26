@@ -116,7 +116,8 @@ function modal_mod(index){
 	document.getElementById('dia_checked').value  = dbvalue[index]["checked"];
 	document.getElementById('dia_opinion').innerHTML  = dbvalue[index]["opinion"];
 
-	var myChart = new Chart(ctx, {
+	var myChart = new Chart(ctx);
+	$('myChart').on('shown.bs.modal', function (event) {
 		type: 'bar',
 		data: {
 			labels: ['悲しみ', '喜び', '恐れ', '嫌悪', '怒り'],
