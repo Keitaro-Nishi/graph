@@ -131,10 +131,10 @@ function modal_mod(index){
 			legend: {
 				display: false
 			},
+		*/
 			responsive: false,
 			maintainAspectRatio: true,
 		},
-		*/
 	});
 
 	if(index == 0){
