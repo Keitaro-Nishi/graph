@@ -6,7 +6,7 @@ var dbvalue = [];
 //pushlog = document.getElementById('pushlog').value;
 //dbvalue = JSON.parse(pushlog);
 
-function int() {
+function init() {
 
 //$(function() {
 
