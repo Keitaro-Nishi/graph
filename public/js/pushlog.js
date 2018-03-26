@@ -90,7 +90,7 @@ function drow() {
 }
 
 function detailwin(value){
-	console.log(meishovalue[0].length);
+	//console.log(meishovalue[0].length);
 
 	document.getElementById("btn_modal").click();
 	for (var i = 0; i < dbvalue.length; i++){
@@ -106,7 +106,7 @@ function modal_mod(index){
 		document.getElementById('dia_register').value = dbvalue[index]["info"];
 		document.getElementById('dia_age').value  = dbvalue[index]["age"];
 		document.getElementById('dia_sex').value  = dbvalue[index]["sex"];
-	for(var i = 1; i < meishovalue[0].length; i++){
-		document.getElementById('option'+i).value = meishovalue[i-1][i-1]
+	for(var i = 1; i < 11; i++){
+		document.getElementById('option'+i).value = meishovalue[i-1][i-1];
 	}
 }
