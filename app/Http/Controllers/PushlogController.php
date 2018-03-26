@@ -39,7 +39,8 @@ class PushlogController
 				$senders = User::select('name')->where('userid',$senderdata)->first();
 				$sender = $senders->name;
 
-				$typevalue = Code::select('meisho')->where('citycode',"00000")->where('code1',15)->where('code2',$typedata)->first();
+				//$typevalue = Code::select('meisho')->where('citycode',"00000")->where('code1',15)->where('code2',$typedata)->first();
+				$typevalue = Code::select('meisho')->where('citycode',"00000")->where('code1',15)->where('code2',2)->first();
 				$type = $typevalue->meisho;
 
 				if($infodata == 0){
@@ -100,7 +101,8 @@ class PushlogController
 				$senders = User::select('name')->where('citycode',$cityCD)->where('userid',$senderdata)->first();
 				$sender = $senders->name;
 
-				$typevalue = Code::select('meisho')->where('citycode',"00000")->where('code1',15)->where('code2',$typedata)->first();
+				//$typevalue = Code::select('meisho')->where('citycode',"00000")->where('code1',15)->where('code2',$typedata)->first();
+				$typevalue = Code::select('meisho')->where('citycode',"00000")->where('code1',15)->where('code2',2)->first();
 				$type = $typevalue->meisho;
 
 				if($infodata == 0){
