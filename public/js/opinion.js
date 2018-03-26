@@ -130,10 +130,7 @@ function modal_mod(index){
 			legend: {
 				display: false
 			},
-		/*
 			responsive: false,
-			maintainAspectRatio: true,
-			*/
 		},
 	});
 
