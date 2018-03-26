@@ -118,6 +118,7 @@ function modal_mod(index){
 
 	var myChart = new Chart(ctx, {
 		type: 'bar',
+		options: { responsive: false },
 		data: {
 			labels: ['悲しみ', '喜び', '恐れ', '嫌悪', '怒り'],
 			datasets: [{
