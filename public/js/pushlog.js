@@ -93,8 +93,6 @@ function drow() {
 }
 
 function detailwin(value,param1,param2,param3,param4,param5,param6,param7,param8,param9,param10){
-
-	alert(param10);
 	document.getElementById("btn_modal").click();
 	for (var i = 0; i < dbvalue.length; i++){
 		if(dbvalue[i]["no"] == value){
