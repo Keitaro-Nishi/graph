@@ -20,6 +20,7 @@ class LineBotController
 		//ユーザーID取得
 		$userID = $jsonObj->{"events"}[0]->{"source"}->{"userId"};
 
+		error_log("★★★★★★★★★★★★replyToken★★★★★★★★★★★★★".$replyToken);
 		error_log("★★★★★★★★★★★★eventType★★★★★★★★★★★★★".$eventType);
 
 		//友達追加時の処理
