@@ -87,8 +87,8 @@ class LineBotController
 				switch ($functions[$i]->code2) {
 					//属性登録
 					case 1:
-						error_log("★★★★★★★★★★★★usefunction★★★★★★★★★★★★★".$usefunction->usefunction);
-						if(substr($usefunction->usefunction,$i,0) == 1){
+						error_log("★★★★★★★★★★★★usefunction★★★★★★★★★★★★★".substr($usefunction->usefunction,$i,1));
+						if(substr($usefunction->usefunction,$i,1) == 1){
 							$response_format_text = [
 									"type" => "text",
 									"text" => "属性登録"
