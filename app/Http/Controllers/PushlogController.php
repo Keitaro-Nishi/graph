@@ -19,6 +19,7 @@ class PushlogController
 		$cityCD = Auth::user()->citycode;
 		$pushloglist= array();
 		$pushlogs= array();
+		$codes = array();
 
 		if($cityCD == "00000"){
 			$pushlogdatas = Pushlog::orderBy('time', 'DESC')->get();
@@ -145,7 +146,19 @@ class PushlogController
 		}
 
 		$pushlogvalue= json_encode($pushlogs);
-		return view('pushlog',compact('pushlogs','pushlogvalue'));
+
+		for ($i = 1; $i <= 10; $i++) {
+			$count = Code::where('citycode', $cityCD)->where('code1', $i)->where('code2', '>', 0)->count();
+			if($count > 0){
+				$records = Code::select('code1','code2','meisho')->where('citycode', $cityCD)->where('code1', $i)->orderBy('code2', 'ASC')->get();
+				array_push($codes, json_decode($records,true));
+			}
+		}
+
+		errorLog("★★★★★★");
+		error_log(print_r($codes,true));
+
+		return view('pushlog',compact('pushlogs','pushlogvalue','codes'));
 	}
 
 
