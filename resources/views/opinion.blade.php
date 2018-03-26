@@ -5,8 +5,7 @@
 @stop
 
 @section('content')
-<table id="grid-basic"
-	class="table table-condensed table-hover table-striped">
+<table id="grid-basic" class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
 			<th data-column-id='id' data-type='numeric' data-identifier='true' data-width='3%' data-visible="false"></th>

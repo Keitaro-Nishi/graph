@@ -103,7 +103,6 @@ function shosai_next(){
 	modal_mod(shosai_idx);
 }
 
-
 function modal_mod(index){
 	var ctx = document.getElementById('myChart').getContext('2d');
 
