@@ -110,7 +110,7 @@
 				</form>
 			</div>
 			<input type="hidden" id="_token" name="_token" value="{{ csrf_token() }}">
-			<div class="container">
+			<div>
 				<canvas id="myChart"></canvas>
 			</div>
 			<div class="modal-footer">
