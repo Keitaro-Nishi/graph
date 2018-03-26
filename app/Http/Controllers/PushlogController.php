@@ -20,7 +20,7 @@ class PushlogController
 		$pushloglist= array();
 		$pushlogs= array();
 		$codes = array();
-		$paramlist = array();
+		$paramlists = array();
 
 		if($cityCD == "00000"){
 			$pushlogdatas = Pushlog::orderBy('time', 'DESC')->get();
@@ -106,7 +106,7 @@ class PushlogController
 				$param9 = $pushlogdata->param9;
 				$param10 = $pushlogdata->para10;
 
-				$paramlist= [
+				$paramlists= [
 
 						'param1' =>$param1,
 						'param2'=>$param2,
