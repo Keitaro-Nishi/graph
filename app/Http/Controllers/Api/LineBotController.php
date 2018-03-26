@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Parameter;
+use App\Message;
 class LineBotController
 {
 	public function callback(Request $request,$citycode)
@@ -19,18 +20,21 @@ class LineBotController
 		//ユーザーID取得
 		$userID = $jsonObj->{"events"}[0]->{"source"}->{"userId"};
 
-		error_log("★★★★★★★★★★★★★★text★★★★★★★★★★★★★★★".$text);
-		error_log("★★★★★★★★★★★★★★replyToken★★★★★★★★★★★★★★★".$replyToken);
+		//友達追加時の処理
+		if($eventType == "follow"){
+			$mess = Parameter::select('message')->where('citycode', $citycode)->where('id', 1)->first();
+			$response_format_text = [
+					"type" => "text",
+					"text" => $mess->message
+			];
+			$this->linesend($citycode,$replyToken,$response_format_text);
+			return;
+		}
 
+	}
 
+	public function linesend ($citycode,$replyToken,$response_format_text){
 		$line_cat = Parameter::select('line_cat')->where('citycode', $citycode)->first();
-
-		error_log("★★★★★★★★★★★★★★line_cat★★★★★★★★★★★★★★★".$line_cat);
-
-		$response_format_text = [
-				"type" => "text",
-				"text" => "test"
-		];
 
 		$post_data = [
 				"replyToken" => $replyToken,
@@ -48,6 +52,5 @@ class LineBotController
 		));
 		$result = curl_exec($ch);
 		curl_close($ch);
-
 	}
 }
