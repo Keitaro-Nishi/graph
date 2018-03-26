@@ -4,9 +4,10 @@ var dbvalue = [];
 var meisho = [];
 var meishovalue = [];
 
+meisho = document.getElementById('pushlog').value;
+meishovalue = JSON.parse(meisho);
 
-
-$(function() {
+function int() {
 
 	$("#grid-basic").bootgrid({
 		selection : true,
@@ -33,7 +34,7 @@ $(function() {
 
 	taishoDisabled(true);
 
-});
+}
 
 function drow() {
 	if(rowIds.length == 0){
@@ -96,6 +97,7 @@ function detailwin(value,param1,param2,param3,param4,param5,param6,param7,param8
 		}
 	}
 
+
 }
 
 
@@ -112,5 +114,11 @@ function modal_mod(index){
 		document.getElementById('dia_register').value = dbvalue[index]["info"];
 		document.getElementById('dia_age').value  = dbvalue[index]["age"];
 		document.getElementById('dia_sex').value  = dbvalue[index]["sex"];
+
+		for(var i = 1; i < 11; i++){
+			if(document.getElementById('option'+i)){
+				document.getElementById('option'+i).value = meishovalue[index]["param"+i];
+			}
+		}
 }
 
