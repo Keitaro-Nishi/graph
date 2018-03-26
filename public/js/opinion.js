@@ -83,7 +83,6 @@ function drow() {
 	});
 }
 
-
 function detailwin(value){
 	document.getElementById("btn_modal").click();
 	for (var i = 0; i < dbvalue.length; i++){
