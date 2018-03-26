@@ -110,10 +110,10 @@ class PushlogController
 
 				$paramlist = array($param1,$param2,$param3,$param4,$param5,$param6,$param7,$param8,$param9,$param10);
 
+				$meisholist = array();
 
 				for ($i = 1; $i <= 10; $i++) {
 
-					$meisholist = array();
 
 					if($paramlist[$i-1] == 0){
 						$meisho = "すべて";
