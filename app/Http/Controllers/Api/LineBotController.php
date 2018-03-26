@@ -44,7 +44,7 @@ class LineBotController
 		curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($post_data));
 		curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 				'Content-Type: application/json; charser=UTF-8',
-				'Authorization: Bearer ' . $line_cat
+				'Authorization: Bearer ' . $line_cat->line_cat
 		));
 		$result = curl_exec($ch);
 		curl_close($ch);
