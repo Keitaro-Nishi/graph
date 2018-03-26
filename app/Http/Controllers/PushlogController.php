@@ -20,7 +20,7 @@ class PushlogController
 		$pushloglist= array();
 		$pushlogs= array();
 		$codes = array();
-		//$paramlists = array();
+		$meisholist = array();
 
 		if($cityCD == "00000"){
 			$pushlogdatas = Pushlog::orderBy('time', 'DESC')->get();
@@ -118,10 +118,11 @@ class PushlogController
 						$meisho = $meishovalues->meisho;
 					}
 
-					error_log("☆☆☆☆☆☆");
-					error_log($meisho);
+					array_push($meisholist, $meisho);
 				}
 
+				error_log("●●●●●");
+				error_log(print_r($meisholist,true));
 
 				$target = $pushlogdata->target;
 				$typedata = $pushlogdata->type;
