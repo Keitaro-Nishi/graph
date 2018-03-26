@@ -104,6 +104,7 @@ function shosai_next(){
 
 function modal_mod(index){
 	var ctx = document.getElementById('myChart').getContext('2d');
+	document.getElementById("disp").style.display="none";
 
 	document.getElementById('dia_userid').value  = dbvalue[index]["userid"];
 	document.getElementById('dia_time').value = dbvalue[index]["time"];

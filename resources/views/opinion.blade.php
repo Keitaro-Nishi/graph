@@ -79,6 +79,7 @@
 							<textarea class="form-control" id="dia_opinion" rows='5' readonly></textarea>
 						</div>
 					</div>
+					<div id="disp">
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="dia_sadness">悲しみ</label>
 						<div class="col-sm-2">
@@ -107,11 +108,12 @@
 							<input type="text" class="form-control" id="dia_checked" readonly>
 						</div>
 					</div>
+					</div>
 				</form>
 			</div>
 			<input type="hidden" id="_token" name="_token" value="{{ csrf_token() }}">
-			<div class="container">
-			<canvas id="myChart"></canvas>
+			<div>
+				<canvas id="myChart"></canvas>
 			</div>
 			<div class="modal-footer">
 				<button id="sback" type="button" class="btn btn-default" onclick="shosai_back()">＜＜前へ</button>
