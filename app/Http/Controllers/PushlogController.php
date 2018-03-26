@@ -155,7 +155,7 @@ class PushlogController
 			}
 		}
 
-		errorLog("★★★★★★");
+		error_log("★★★★★★");
 		error_log(print_r($codes,true));
 
 		return view('pushlog',compact('pushlogs','pushlogvalue','codes'));
