@@ -49,6 +49,7 @@ class LineBotController
 	public function messageEvent(){
 		error_log("★★★★★★★★★★★★messageEvent★★★★★★★★★★★★★");
 		$type = $this->jsonRequest->{"events"}[0]->{"message"}->{"type"};
+		error_log("★★★★★★★★★★★★type★★★★★★★★★★★★★".$type);
 
 		switch ($type) {
 			case "text":
@@ -71,13 +72,16 @@ class LineBotController
 	}
 
 	public function textMessage(){
+		error_log("★★★★★★★★★★★★textMessage★★★★★★★★★★★★★");
 		//メッセージ取得
 		$text = $this->jsonRequest->{"events"}[0]->{"message"}->{"text"};
+		error_log("★★★★★★★★★★★★text★★★★★★★★★★★★★".$text);
 
 		$functions = Code::where('citycode', '00000')->where('code1', (int)13)->orderBy('code2', 'ASC')->get();
 		$usefunction = Parameter::select('usefunction')->where('citycode', $this->citycode)->first();
 		$unknownMess = Message::select('message')->where('citycode', $citycode)->where('id', 2)->first();
 		for ($i =0; $i < count($functions); $i++){
+			error_log("★★★★★★★★★★★★meisho★★★★★★★★★★★★★".$functions[$i]->meisho);
 			if($functions[$i]->meisho == $text){
 				switch ($functions[$i]->code2) {
 					//属性登録
