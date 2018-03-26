@@ -108,7 +108,7 @@ class PushlogController
 
 				$paramlist= [
 
-						'1'=>$param1,
+						1 =>$param1,
 						'2'=>$param2,
 						'3'=>$param3,
 						'4'=>$param4,
