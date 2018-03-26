@@ -131,7 +131,7 @@ function modal_mod(index){
 				display: false
 			},
 			responsive: false,
-			maintainAspectRatio: false,
+			maintainAspectRatio: true,
 		},
 	});
 
