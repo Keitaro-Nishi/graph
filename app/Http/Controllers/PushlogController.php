@@ -108,14 +108,12 @@ class PushlogController
 
 				$paramlist = array($param1,$param2,$param3,$param4,$param5,$param6,$param7,$param8,$param9,$param10);
 
-				error_log("☆☆☆☆☆☆");
-				error_log(print_r($paramlist,true));
-				/*
+
 				for ($i = 1; $i <= 10; $i++) {
 
-					$meishovalues = Code::select('meisho')->where('citycode', $cityCD)->where('code1', $i)->where('code2', $i)->orderBy('code2', 'ASC')->get();
+					$meishovalue = Code::select('meisho')->where('citycode', $cityCD)->where('code1', $i)->where('code2', $paramlist[$i-1])->orderBy('code2', 'ASC')->get();
 
-				}*/
+				}
 
 
 				$target = $pushlogdata->target;
