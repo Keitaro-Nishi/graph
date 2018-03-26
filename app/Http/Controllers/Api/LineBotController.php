@@ -83,9 +83,11 @@ class LineBotController
 		for ($i =0; $i < count($functions); $i++){
 			error_log("★★★★★★★★★★★★meisho★★★★★★★★★★★★★".$functions[$i]->meisho);
 			if($functions[$i]->meisho == $text){
+				error_log("★★★★★★★★★★★★code2★★★★★★★★★★★★★".$functions[$i]->code2);
 				switch ($functions[$i]->code2) {
 					//属性登録
 					case 1:
+						error_log("★★★★★★★★★★★★usefunction★★★★★★★★★★★★★".$usefunction->usefunction);
 						if(substr($usefunction->usefunction,$i,0) == 1){
 							$response_format_text = [
 									"type" => "text",
