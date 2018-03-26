@@ -93,7 +93,7 @@ function drow() {
 
 function detailwin(value){
 	document.getElementById("btn_modal").click();
-	for (var i = 0; i < dbvalue.length; i++){
+	for (var i = 0; i < pushlogs.length; i++){
 		if(pushlogs[i]["no"] == value){
 			modal_mod(i);
 		}
