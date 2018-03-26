@@ -96,16 +96,19 @@ function detailwin(value){
 	for (var i = 0; i < dbvalue.length; i++){
 		if(dbvalue[i]["no"] == value){
 			modal_mod(i);
+			modal_others();
 		}
 	}
 }
 
 function modal_mod(index){
-
 		document.getElementById('dia_number').value  = dbvalue[index]["target"];
 		document.getElementById('dia_register').value = dbvalue[index]["info"];
 		document.getElementById('dia_age').value  = dbvalue[index]["age"];
 		document.getElementById('dia_sex').value  = dbvalue[index]["sex"];
+}
+
+function modal_others(){
 	for(var i = 1; i < 11; i++){
 		document.getElementById('option'+i).value = meishovalue[i-1][i-1];
 	}
