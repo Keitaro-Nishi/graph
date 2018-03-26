@@ -7,6 +7,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Botlog;
+use App\Logindata;
 
 class BotlogController {
 	public function index(Request $request) {
@@ -63,7 +64,7 @@ class BotlogController {
 			}
 		}
 		$today = Carbon::now ();
-		$result = Botlog::where ( 'time', $today )->groupBy ( 'time' )->orderBy ( 'time', 'ASC' )->count ();
+		$result = Logindata::where ( 'time', $today )->count ();
 		error_log ( "?????????????" . $today . "???????????????" );
 
 		$botlogvalue = json_encode ( $botlogs );
