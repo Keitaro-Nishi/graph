@@ -10,8 +10,10 @@ class LineBotController
 	{
 
 		error_log("★★★★★★★★★★★★citycode★★★★★★★★★★★★★".$citycode);
+		error_log("★★★★★★★★★★★★req★★★★★★★★★★★★★".$request->getContent());
 
 		$jsonObj = json_decode($request->getContent());
+
 
 		$type = $jsonObj->{"events"}[0]->{"message"}->{"type"};
 		$eventType = $jsonObj->{"events"}[0]->{"type"};
