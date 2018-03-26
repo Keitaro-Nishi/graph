@@ -112,8 +112,8 @@
 				</form>
 			</div>
 			<input type="hidden" id="_token" name="_token" value="{{ csrf_token() }}">
-			<div align="center">
-				<canvas id="myChart" width="600" height="250"></canvas>
+			<div align="center" class="chart-container" style="position: relative; height:30vh; width:80vw">
+				<canvas id="myChart"></canvas>
 			</div>
 			<div class="modal-footer">
 				<button id="sback" type="button" class="btn btn-default" onclick="shosai_back()">＜＜前へ</button>
