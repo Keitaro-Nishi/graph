@@ -79,36 +79,36 @@
 							<textarea class="form-control" id="dia_opinion" rows='5' readonly></textarea>
 						</div>
 					</div>
-					{{--
-					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_sadness">悲しみ</label>
-						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_sadness" readonly>
+					<div  id="disp">
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="dia_sadness">悲しみ</label>
+							<div class="col-sm-2">
+								<input type="text" class="form-control" id="dia_sadness" readonly>
+							</div>
+							<label class="col-sm-2 control-label" for="dia_joy">喜び</label>
+							<div class="col-sm-2">
+								<input type="text" class="form-control" id="dia_joy" readonly>
+							</div>
+							<label class="col-sm-2 control-label" for="dia_fear">恐れ</label>
+							<div class="col-sm-2">
+								<input type="text" class="form-control" id="dia_fear" readonly>
+							</div>
 						</div>
-						<label class="col-sm-2 control-label" for="dia_joy">喜び</label>
-						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_joy" readonly>
-						</div>
-						<label class="col-sm-2 control-label" for="dia_fear">恐れ</label>
-						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_fear" readonly>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="dia_disgust">嫌悪</label>
+							<div class="col-sm-2">
+								<input type="text" class="form-control" id="dia_disgust" readonly>
+							</div>
+							<label class="col-sm-2 control-label" for="dia_anger">怒り</label>
+							<div class="col-sm-2">
+								<input type="text" class="form-control" id="dia_anger" readonly>
+							</div>
+							<label class="col-sm-2 control-label" for="dia_checked">チェック</label>
+							<div class="col-sm-2">
+								<input type="text" class="form-control" id="dia_checked" readonly>
+							</div>
 						</div>
 					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_disgust">嫌悪</label>
-						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_disgust" readonly>
-						</div>
-						<label class="col-sm-2 control-label" for="dia_anger">怒り</label>
-						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_anger" readonly>
-						</div>
-						<label class="col-sm-2 control-label" for="dia_checked">チェック</label>
-						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_checked" readonly>
-						</div>
-					</div>
-					--}}
 				</form>
 			</div>
 			<input type="hidden" id="_token" name="_token" value="{{ csrf_token() }}">

@@ -116,6 +116,8 @@ function modal_mod(index){
 	document.getElementById('dia_checked').value  = dbvalue[index]["checked"];
 	document.getElementById('dia_opinion').innerHTML  = dbvalue[index]["opinion"];
 
+	document.getElementById("disp").style.display="none";
+
 	var myChart = new Chart(ctx, {
 		type: 'bar',
 		data: {
