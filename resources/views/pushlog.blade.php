@@ -102,16 +102,20 @@ Lineプッシュログ
 							</div>
 						</div>
 						@foreach($codes as $code)
-						<div class="form-group">
-							@foreach($code as $value)
-							@if($value['code2'] == 0)
-							<label class="col-sm-2 control-label" id="optionlabel{{$value['code1']}}" for="option{{$value['code1']}}">{{$value['meisho']}}</label>
-							<div class="col-sm-2">
-									<input type="text" class="form-control" id="option{{$value['code1']}}" readonly>
-							@endif
-							@endforeach
+							<div class="form-group">
+								@foreach($code as $value)
+								@if($value['code2'] == 0)
+								<label class="col-sm-2 control-label" id="optionlabel{{$value['code1']}}" for="option{{$value['code1']}}">{{$value['meisho']}}</label>
+								<div class="col-sm-2">
+									<select class="form-control" id="option{{$value['code1']}}" onChange="optionChange()">
+										<option value="0" selected>すべて</option>
+								@else
+										<option value="{{$value['code2']}}">{{$value['meisho']}}</option>
+								@endif
+								@endforeach
+									</select>
+								</div>
 							</div>
-						</div>
 						@endforeach
 					</form>
 				</div>

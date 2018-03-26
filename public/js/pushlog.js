@@ -91,12 +91,28 @@ function drow() {
 }
 
 function detailwin(value){
-	//console.log(meishovalue[0].length);
-
 	document.getElementById("btn_modal").click();
 	for (var i = 0; i < dbvalue.length; i++){
 		if(dbvalue[i]["no"] == value){
 			modal_mod(i);
+		}
+	}
+}
+
+
+//オプションチェンジ
+function optionChange(){
+	taishocount();
+}
+
+function taishoDisabled(bl){
+	/*document.getElementById('age_kara').disabled = bl;
+	document.getElementById('age_made').disabled = bl;
+	document.getElementById('sex').disabled = bl;
+	*/
+	for(var i = 1; i < 11; i++){
+		if(document.getElementById('option'+i)){
+			document.getElementById('option'+i).disabled = bl;
 		}
 	}
 }
