@@ -64,34 +64,28 @@ class LineBotController
 			default:
 				error_log("★★★★★★★★★★★★type★★★★★★★★★★★★★".$type);
 		}
-
-		//ユーザーID取得
-		$userID = $this->jsonRequest->{"events"}[0]->{"source"}->{"userId"};
-
-
 	}
 
 	public function textMessage(){
-		error_log("★★★★★★★★★★★★textMessage★★★★★★★★★★★★★");
 		//メッセージ取得
 		$text = $this->jsonRequest->{"events"}[0]->{"message"}->{"text"};
+		//ユーザーID取得
+		$userID = $this->jsonRequest->{"events"}[0]->{"source"}->{"userId"};
 
 		$functions = Code::where('citycode', '00000')->where('code1', (int)13)->orderBy('code2', 'ASC')->get();
-		error_log("★★★★★★★★★★★★count★★★★★★★★★★★★★".count($functions));
 		$usefunction = Parameter::select('usefunction')->where('citycode', $this->citycode)->first();
 		$unknownMess = Message::select('message')->where('citycode', $this->citycode)->where('id', 2)->first();
 		for ($i =0; $i < count($functions); $i++){
-			error_log("★★★★★★★★★★★★meisho★★★★★★★★★★★★★".$functions[$i]->meisho);
 			if($functions[$i]->meisho == $text){
-				error_log("★★★★★★★★★★★★code2★★★★★★★★★★★★★".$functions[$i]->code2);
 				switch ($functions[$i]->code2) {
 					//属性登録
 					case 1:
-						error_log("★★★★★★★★★★★★usefunction★★★★★★★★★★★★★".substr($usefunction->usefunction,$i,1));
 						if(substr($usefunction->usefunction,$i,1) == 1){
+							$mess = Message::select('message')->where('citycode', $this->citycode)->where('id', 3)->first();
+							$messurl = $mess->message.(empty($_SERVER["HTTPS"]) ? "http://" : "https://").$_SERVER["HTTP_HOST"]."/attribute/".$this->citycode."/1/".$userID;
 							$response_format_text = [
 									"type" => "text",
-									"text" => "属性登録"
+									"text" => $messurl
 							];
 							$this->linesend($response_format_text);
 						}else{
