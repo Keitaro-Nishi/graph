@@ -75,11 +75,11 @@ class LineBotController
 		error_log("★★★★★★★★★★★★textMessage★★★★★★★★★★★★★");
 		//メッセージ取得
 		$text = $this->jsonRequest->{"events"}[0]->{"message"}->{"text"};
-		error_log("★★★★★★★★★★★★text★★★★★★★★★★★★★".$text);
 
 		$functions = Code::where('citycode', '00000')->where('code1', (int)13)->orderBy('code2', 'ASC')->get();
+		error_log("★★★★★★★★★★★★count★★★★★★★★★★★★★".count($functions));
 		$usefunction = Parameter::select('usefunction')->where('citycode', $this->citycode)->first();
-		$unknownMess = Message::select('message')->where('citycode', $citycode)->where('id', 2)->first();
+		$unknownMess = Message::select('message')->where('citycode', $this->citycode)->where('id', 2)->first();
 		for ($i =0; $i < count($functions); $i++){
 			error_log("★★★★★★★★★★★★meisho★★★★★★★★★★★★★".$functions[$i]->meisho);
 			if($functions[$i]->meisho == $text){
