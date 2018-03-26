@@ -113,9 +113,9 @@
 			</div>
 			<input type="hidden" id="_token" name="_token" value="{{ csrf_token() }}">
 			<div align="center">
-			<div class="chart-container" style="position: relative; height:8vh; width:20vw">
-				<canvas id="myChart"></canvas>
-			</div>
+				<div class="chart-container" style="position: relative; height:15vh; width:40vw">
+					<canvas id="myChart"></canvas>
+				</div>
 			</div>
 			<br><br><br><br>
 			<div class="modal-footer">
