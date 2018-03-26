@@ -113,7 +113,7 @@
 			</div>
 			<input type="hidden" id="_token" name="_token" value="{{ csrf_token() }}">
 			<div align="center">
-				<div class="chart-container" style="position: relative; height:10vh; width:30vw">
+				<div class="chart-container" style="position: relative; height:8vh; width:25vw">
 					<canvas id="myChart"></canvas>
 				</div>
 			</div>
