@@ -35,6 +35,7 @@ Lineプッシュログ
 
 
 <input id="pushlog" type= "hidden" value = '{{ $pushlogvalue }}'>
+<input id="meisho" type= "hidden" value = '{{ $meishovalue }}'>
 <input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
 
 <div class="container" align="center">

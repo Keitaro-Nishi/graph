@@ -126,10 +126,7 @@ class PushlogController
 					array_push($meisholist, $meisho);
 				}
 
-				//array_push($meisholist, $meisho);
 				array_push($meisholists, $meisholist);
-
-
 
 				$target = $pushlogdata->target;
 				$typedata = $pushlogdata->type;
@@ -184,6 +181,7 @@ class PushlogController
 		}
 
 		$pushlogvalue= json_encode($pushlogs);
+		$meishovalue= json_encode($meisholists);
 
 		for ($i = 1; $i <= 10; $i++) {
 			$count = Code::where('citycode', $cityCD)->where('code1', $i)->where('code2', '>', 0)->count();
@@ -193,10 +191,8 @@ class PushlogController
 			}
 		}
 
-		error_log("●●●●●");
-		error_log(print_r($meisholists,true));
 
-		return view('pushlog',compact('pushlogs','pushlogvalue','codes'));
+		return view('pushlog',compact('pushlogs','pushlogvalue','codes','meishovalue'));
 	}
 
 
