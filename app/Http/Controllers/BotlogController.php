@@ -18,7 +18,7 @@ class BotlogController
 				$citycode = $botlogdata->citycode;
 				$no = $botlogdata->no;
 				$timedata = date_create($botlogdata->time);
-				$time = date_format($timedata , 'Y-m-d H:i:s');
+				$time = date_format($timedata , 'Y/m/d H:i:s');
 				$sender = $botlogdata->sender;
 				$type = $botlogdata->type;
 				$userid = $botlogdata->userid;
@@ -42,7 +42,7 @@ class BotlogController
 				$citycode = $botlogdata->citycode;
 				$no = $botlogdata->no;
 				$timedata = date_create($botlogdata->time);
-				$time = date_format($timedata , 'Y-m-d H:i:s');
+				$time = date_format($timedata , 'Y/m/d H:i:s');
 				$sender = $botlogdata->sender;
 				$type = $botlogdata->type;
 				$userid = $botlogdata->userid;
@@ -61,6 +61,9 @@ class BotlogController
 				array_push($botlogs, $botloglist);
 			}
 		}
+
+		$result = Botlog::whrer('time')-> groupBy('time')-> orderBy ('time', 'ASC')-> count();
+
 		$botlogvalue= json_encode($botlogs);
 		return view('botlog',compact('botlogs','botlogvalue'));
 	}
@@ -69,7 +72,6 @@ class BotlogController
 		if ($this->requestall ["param"] == "update") {
 			return $this->update ();
 		} elseif ($this->requestall ["param"] == "delete") {
-			error_log("???????????????????");
 			return $this->delete ();
 		} else {
 			return \Response::json ( [
@@ -80,12 +82,6 @@ class BotlogController
 	public function delete(){
 		$input = $this->requestall;
 		Botlog::destroy($input["nos"]);
-		/*
-		 $nos = $input ["nos"];
-		 foreach ( $nos as $no ) {
-		 DB::table('botlog')->where('no',$no)->delete();
-		 }
-		 */
 		return \Response::json(['status' => 'OK']);
 	}
 }
