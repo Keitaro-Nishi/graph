@@ -120,7 +120,8 @@ class PushlogController
 						$meisho = $meishovalues->meisho;
 					}
 
-					array_push($meisholist, $meisho);
+					$meisholist[] = $meisho;
+					//array_push($meisholist, $meisho);
 				}
 
 				array_push($meisholists, $meisholist);
