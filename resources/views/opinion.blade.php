@@ -115,6 +115,7 @@
 			<div class="chart-container" style="position: relative; height:8vh; width:20vw">
 				<canvas id="myChart"></canvas>
 			</div>
+			<br><br><br><br>
 			<div class="modal-footer">
 				<button id="sback" type="button" class="btn btn-default" onclick="shosai_back()">＜＜前へ</button>
 				<button id="snext" type="button" class="btn btn-default" onclick="shosai_next()">次へ＞＞</button>
