@@ -20,7 +20,7 @@ class PushlogController
 		$pushloglist= array();
 		$pushlogs= array();
 		$codes = array();
-		$meisholist = array();
+		//$meisholist = array();
 		$meisholists = array();
 
 
@@ -113,6 +113,8 @@ class PushlogController
 
 				for ($i = 1; $i <= 10; $i++) {
 
+					$meisholist = array();
+
 					if($paramlist[$i-1] == 0){
 						$meisho = "すべて";
 
@@ -121,10 +123,10 @@ class PushlogController
 						$meisho = $meishovalues->meisho;
 					}
 
-
+					array_push($meisholist, $meisho);
 				}
 
-				array_push($meisholist, $meisho);
+				//array_push($meisholist, $meisho);
 				array_push($meisholists, $meisholist);
 
 
