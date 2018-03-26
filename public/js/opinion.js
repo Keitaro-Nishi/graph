@@ -126,8 +126,9 @@ function modal_mod(index){
 				backgroundColor: "rgba(153,255,51,0.4)"
 			}]
 		},
-		/*
 		options: {
+			/*
+		}
 			legend: {
 				display: false
 			},
