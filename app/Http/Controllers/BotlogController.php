@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 use App\Botlog;
 use App\Logindata;
 
@@ -64,8 +65,8 @@ class BotlogController {
 			}
 		}
 		$today = Carbon::now ();
-		$result = Logindata::where ( 'time', $today )->count ();
-		error_log ( "?????????????" . $today . "???????????????" );
+		$yyy = date_format ( $today, 'Y/m/d' );
+		error_log ( "?????????????" . $yyy . "???????????????" );
 
 		$botlogvalue = json_encode ( $botlogs );
 		return view ( 'botlog', compact ( 'botlogs', 'botlogvalue' ) );
