@@ -20,7 +20,7 @@ class PushlogController
 		$pushloglist= array();
 		$pushlogs= array();
 		$codes = array();
-		$paramlists = array();
+		//$paramlists = array();
 
 		if($cityCD == "00000"){
 			$pushlogdatas = Pushlog::orderBy('time', 'DESC')->get();
@@ -106,19 +106,17 @@ class PushlogController
 				$param9 = $pushlogdata->param9;
 				$param10 = $pushlogdata->para10;
 
-				$paramlists= [
+				$paramlist = array($param1,$param2,$param3,$param4,$param5,$param6,$param7,$param8,$param9,$param10);
 
-						'param1' =>$param1,
-						'param2'=>$param2,
-						'param3'=>$param3,
-						'param4'=>$param4,
-						'param5'=>$param5,
-						'param6'=>$param6,
-						'param7'=>$param7,
-						'param8'=>$param8,
-						'param9'=>$param9,
-						'param10'=>$param10,
-				];
+				error_log("☆☆☆☆☆☆");
+				error_log(print_r($paramlist,true));
+				/*
+				for ($i = 1; $i <= 10; $i++) {
+
+					$meishovalues = Code::select('meisho')->where('citycode', $cityCD)->where('code1', $i)->where('code2', $i)->orderBy('code2', 'ASC')->get();
+
+				}*/
+
 
 				$target = $pushlogdata->target;
 				$typedata = $pushlogdata->type;
