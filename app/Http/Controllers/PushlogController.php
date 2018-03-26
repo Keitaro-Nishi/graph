@@ -111,11 +111,14 @@ class PushlogController
 
 				for ($i = 1; $i <= 10; $i++) {
 
+					error_log("☆☆☆☆☆");
+					error_log($paramlist[$i-1]);
 					$meishovalues = Code::select('meisho')->where('citycode', $cityCD)->where('code1', $i)->where('code2', $paramlist[$i-1])->orderBy('code2', 'ASC')->get();
-					foreach($meishovalues as $meishovalue){
+					/*foreach($meishovalues as $meishovalue){
 						$meisho = $meishovalue->meisho;
 						error_log($meisho);
 					}
+					*/
 				}
 
 
