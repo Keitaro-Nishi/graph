@@ -122,7 +122,6 @@ function modal_mod(index){
 		data: {
 			labels: ['悲しみ', '喜び', '恐れ', '嫌悪', '怒り'],
 			datasets: [{
-				label: '感情',
 				data: [dbvalue[index]["sadness"],dbvalue[index]["joy"],dbvalue[index]["fear"],dbvalue[index]["disgust"],dbvalue[index]["anger"]],
 				backgroundColor: "rgba(153,255,51,0.4)"
 			}]
