@@ -7,8 +7,7 @@ var meishovalue = [];
 
 pushlog = document.getElementById('pushlog').value;
 dbvalue = JSON.parse(pushlog);
-meisho = document.getElementById('meisho').value;
-meishovalue = JSON.parse(meisho);
+
 
 $(function() {
 
