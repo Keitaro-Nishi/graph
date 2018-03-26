@@ -2,6 +2,8 @@
 namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Libs\Watson;
+use App\Userinfo;
 use App\Parameter;
 use App\Message;
 use App\Code;
@@ -83,17 +85,9 @@ class LineBotController
 						if(substr($usefunction->usefunction,$i,1) == 1){
 							$mess = Message::select('message')->where('citycode', $this->citycode)->where('id', 3)->first();
 							$messurl = $mess->message.(empty($_SERVER["HTTPS"]) ? "http://" : "https://").$_SERVER["HTTP_HOST"]."/attribute/".$this->citycode."/1/".$userID;
-							$response_format_text = [
-									"type" => "text",
-									"text" => $messurl
-							];
-							$this->linesend($response_format_text);
+							$this->linesendtext($messurl);
 						}else{
-							$response_format_text = [
-									"type" => "text",
-									"text" => $unknownMess->message
-							];
-							$this->linesend($response_format_text);
+							$this->linesendtext($unknownMess->message);
 						}
 						return;
 					//検診相談
@@ -133,6 +127,20 @@ class LineBotController
 
 	public function locationMessage(){
 
+	}
+
+	public function linesendtext($text){
+		$userID = $this->jsonRequest->{"events"}[0]->{"source"}->{"userId"};
+		$lang = Userinfo::select('language')->where('citycode', $this->citycode)->where('userid', $userID)->where('sender', (int)1)->first();
+		if($lang->language == "02"){
+			$watson = new Watson;
+			$text= $watson->callLT($citycode,"ja","en",$text);
+		}
+		$response_format_text = [
+				"type" => "text",
+				"text" => $text
+		];
+		$this->linesend($response_format_text);
 	}
 
 	public function linesend ($response_format_text){
