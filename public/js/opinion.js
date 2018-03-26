@@ -126,6 +126,7 @@ function modal_mod(index){
 				backgroundColor: "rgba(153,255,51,0.4)"
 			}]
 		},
+		/*
 		options: {
 			legend: {
 				display: false
@@ -133,6 +134,7 @@ function modal_mod(index){
 			responsive: false,
 			maintainAspectRatio: true,
 		},
+		*/
 	});
 
 	if(index == 0){
