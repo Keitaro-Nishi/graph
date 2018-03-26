@@ -21,6 +21,8 @@ class PushlogController
 		$pushlogs= array();
 		$codes = array();
 		$meisholist = array();
+		$meisholists = array();
+
 
 		if($cityCD == "00000"){
 			$pushlogdatas = Pushlog::orderBy('time', 'DESC')->get();
@@ -121,8 +123,9 @@ class PushlogController
 					array_push($meisholist, $meisho);
 				}
 
-				error_log("●●●●●");
-				error_log(print_r($meisholist,true));
+				array_push($meisholists, $meisholist);
+
+
 
 				$target = $pushlogdata->target;
 				$typedata = $pushlogdata->type;
@@ -185,6 +188,9 @@ class PushlogController
 				array_push($codes, json_decode($records,true));
 			}
 		}
+
+		error_log("●●●●●");
+		error_log(print_r($meisholists,true));
 
 		return view('pushlog',compact('pushlogs','pushlogvalue','codes'));
 	}
