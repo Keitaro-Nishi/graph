@@ -18,7 +18,7 @@ $(function() {
 		columnSelection : false,
 		formatters: {
 			"details": function($column, $row) {
-				return "<input type='button' class='btn btn-default' value='対象情報' onclick='detailwin("  + $row.no + ")'> ";
+				return "<input type='button' class='btn btn-default' value='対象情報' onclick='detailwin("  + $row.no + $row.param1 + $row.param2 + $row.param3 + $row.param4 + $row.param5 + $row.param6 + $row.param7 + $row.param8 + $row.param9 + $row.param10 + ")'> ";
 			}
 		}
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
@@ -90,7 +90,9 @@ function drow() {
 	});
 }
 
-function detailwin(value){
+function detailwin(value,param1,param2,param3,param4,param5,param6,param7,param8,param9,param10){
+	alert(param1);
+	alert(param10);
 	document.getElementById("btn_modal").click();
 	for (var i = 0; i < dbvalue.length; i++){
 		if(dbvalue[i]["no"] == value){
@@ -106,10 +108,6 @@ function optionChange(){
 }
 
 function taishoDisabled(bl){
-	/*document.getElementById('age_kara').disabled = bl;
-	document.getElementById('age_made').disabled = bl;
-	document.getElementById('sex').disabled = bl;
-	*/
 	for(var i = 1; i < 11; i++){
 		if(document.getElementById('option'+i)){
 			document.getElementById('option'+i).disabled = bl;
