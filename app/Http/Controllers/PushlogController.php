@@ -94,6 +94,31 @@ class PushlogController
 				$agek = $pushlogdata->agek;
 				$agem = $pushlogdata->agem;
 				$sexdata = $pushlogdata->sex;
+				$param1 = $pushlogdata->param1;
+				$param2 = $pushlogdata->param2;
+				$param3 = $pushlogdata->param3;
+				$param4 = $pushlogdata->param4;
+				$param5 = $pushlogdata->param5;
+				$param6 = $pushlogdata->param6;
+				$param7 = $pushlogdata->param7;
+				$param8 = $pushlogdata->param8;
+				$param9 = $pushlogdata->param9;
+				$param10 = $pushlogdata->para10;
+
+				$paramlist= [
+
+						'1'=>$param1,
+						'2'=>$param2,
+						'3'=>$param3,
+						'4'=>$param4,
+						'5'=>$param5,
+						'6'=>$param6,
+						'7'=>$param7,
+						'8'=>$param8,
+						'9'=>$param9,
+						'10'=>$param10,
+				];
+
 				$target = $pushlogdata->target;
 				$typedata = $pushlogdata->type;
 				$contents = $pushlogdata->contents;
@@ -142,6 +167,14 @@ class PushlogController
 				];
 
 				array_push($pushlogs, $pushloglist);
+
+				for ($i = 1; $i <= 10; $i++) {
+						$meishovalue = Code::select('meisho')->where('citycode', $cityCD)->where('code1', $i)->where('code2',paramlist['$i'])->orderBy('code2', 'ASC')->get();
+						error_log("☆☆☆☆☆☆☆");
+						error_log($meishovalue);
+						//array_push($meishovalues, $meishovalue);
+				}
+
 			}
 		}
 
