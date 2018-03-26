@@ -115,13 +115,14 @@ class PushlogController
 
 					if($paramlist[$i-1] == 0){
 						$meisho = "すべて";
+						array_push($meisholist, $meisho);
 					}else{
 						$meishovalues = Code::select('meisho')->where('citycode', $cityCD)->where('code1', $i)->where('code2', $paramlist[$i-1])->orderBy('code2', 'ASC')->first();
 						$meisho = $meishovalues->meisho;
+						array_push($meisholist, $meisho);
 					}
 
-					$meisholist[] = $meisho;
-					//array_push($meisholist, $meisho);
+					//$meisholist[] = $meisho;
 				}
 
 				array_push($meisholists, $meisholist);
