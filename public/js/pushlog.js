@@ -1,13 +1,15 @@
 var rowIds = [];
 var pushlog = [];
 var dbvalue = [];
-var meisho = [];
-var meishovalue = [];
+//var meisho = [];
+//var meishovalue = [];
 
 pushlog = document.getElementById('pushlog').value;
 dbvalue = JSON.parse(pushlog);
 
-function int() {
+//function int() {
+
+$(function() {
 
 	$("#grid-basic").bootgrid({
 		selection : true,
@@ -34,7 +36,7 @@ function int() {
 
 	taishoDisabled(true);
 
-}
+});
 
 function drow() {
 	if(rowIds.length == 0){
