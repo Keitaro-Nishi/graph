@@ -19,7 +19,7 @@ $(function() {
 		columnSelection : false,
 		formatters: {
 			"details": function($column, $row) {
-				return "<input type='button' class='btn btn-default' value='対象情報' onclick='detailwin("  + $row.no + ",\"" + $row.param1 + "\"," + $row.param2 + ")'> ";
+				return "<input type='button' class='btn btn-default' value='対象情報' onclick='detailwin("  + $row.no + ",\"" + $row.param1 + "\"," + $row.param2 + "\"," + $row.param3 + ")'> ";
 			}
 		}
 	}).on("selected.rs.jquery.bootgrid", function(e, rows) {
@@ -93,7 +93,7 @@ function drow() {
 }
 
 //function detailwin(value,param1,param2,param3,param4,param5,param6,param7,param8,param9,param10){
-function detailwin(value,param1,param2){
+function detailwin(value,param1,param2,param3){
 	alert(param1);
 	document.getElementById("btn_modal").click();
 	for (var i = 0; i < dbvalue.length; i++){
