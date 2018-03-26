@@ -101,11 +101,12 @@ function detailwin(value){
 }
 
 function modal_mod(index){
-	document.getElementById('dia_number').value  = dbvalue[index]["target"];
-	document.getElementById('dia_register').value = dbvalue[index]["info"];
-	document.getElementById('dia_age').value  = dbvalue[index]["age"];
-	document.getElementById('dia_sex').value  = dbvalue[index]["sex"];
 	for(var i = 1; i < 11; i++){
+		document.getElementById('dia_number').value  = dbvalue[index]["target"];
+		document.getElementById('dia_register').value = dbvalue[index]["info"];
+		document.getElementById('dia_age').value  = dbvalue[index]["age"];
+		document.getElementById('dia_sex').value  = dbvalue[index]["sex"];
+
 		document.getElementById('option'+i).value = meishovalue[i-1][i-1]
 	}
 }
