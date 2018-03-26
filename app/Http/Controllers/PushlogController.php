@@ -20,6 +20,7 @@ class PushlogController
 		$pushloglist= array();
 		$pushlogs= array();
 		$codes = array();
+		$paramlist = array();
 
 		if($cityCD == "00000"){
 			$pushlogdatas = Pushlog::orderBy('time', 'DESC')->get();
