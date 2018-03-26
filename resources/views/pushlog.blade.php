@@ -82,9 +82,9 @@ Lineプッシュログ
 						</div>
 						@foreach($codes as $code)
 						<div class="form-group">
-							<label class="col-sm-2 control-label" for="test">{{$code['meisho']}}</label>
+							<label class="col-sm-2 control-label" for="test">{{$code->meisho}}</label>
 							<div class="col-sm-2">
-								<input type="text" class="form-control" id="{{$code['code1']}}" readonly>
+								<input type="text" class="form-control" id="test" readonly>
 							</div>
 						</div>
 						@endforeach
