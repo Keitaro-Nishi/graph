@@ -20,9 +20,11 @@ class LineBotController
 		//ユーザーID取得
 		$userID = $jsonObj->{"events"}[0]->{"source"}->{"userId"};
 
+		error_log("★★★★★★★★★★★★eventType★★★★★★★★★★★★★".$eventType);
+
 		//友達追加時の処理
 		if($eventType == "follow"){
-			$mess = Parameter::select('message')->where('citycode', $citycode)->where('id', 1)->first();
+			$mess = Message::select('message')->where('citycode', $citycode)->where('id', 1)->first();
 			$response_format_text = [
 					"type" => "text",
 					"text" => $mess->message
