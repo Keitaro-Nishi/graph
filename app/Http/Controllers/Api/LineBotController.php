@@ -8,10 +8,15 @@ class LineBotController
 {
 	public function callback(Request $request,$citycode)
 	{
+
+		error_log("★★★★★★★★★★★★citycode★★★★★★★★★★★★★".$citycode);
+
 		$jsonObj = json_decode($request->getContent());
 
 		$type = $jsonObj->{"events"}[0]->{"message"}->{"type"};
 		$eventType = $jsonObj->{"events"}[0]->{"type"};
+
+		error_log("★★★★★★★★★★★★type★★★★★★★★★★★★★".$type);
 		//メッセージ取得
 		$text = $jsonObj->{"events"}[0]->{"message"}->{"text"};
 
