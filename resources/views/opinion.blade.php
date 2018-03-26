@@ -112,7 +112,7 @@
 				</form>
 			</div>
 			<input type="hidden" id="_token" name="_token" value="{{ csrf_token() }}">
-			<div class="chart-container" style="position: relative; height:8vh; width:20vw">
+			<div align="center" class="chart-container" style="position: relative; height:8vh; width:20vw">
 				<canvas id="myChart"></canvas>
 			</div>
 			<br><br><br><br>
