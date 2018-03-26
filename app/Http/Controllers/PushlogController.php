@@ -104,7 +104,7 @@ class PushlogController
 				$param7 = $pushlogdata->param7;
 				$param8 = $pushlogdata->param8;
 				$param9 = $pushlogdata->param9;
-				$param10 = $pushlogdata->para10;
+				$param10 = $pushlogdata->param10;
 
 				$paramlist = array($param1,$param2,$param3,$param4,$param5,$param6,$param7,$param8,$param9,$param10);
 
