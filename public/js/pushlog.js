@@ -100,7 +100,6 @@ function detailwin(value){
 	for (var i = 0; i < dbvalue.length; i++){
 		if(dbvalue[i]["no"] == value){
 			modal_mod(i);
-			modal_others();
 		}
 	}
 }
