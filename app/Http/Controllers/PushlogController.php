@@ -118,7 +118,7 @@ class PushlogController
 						$meisho = $meishovalues->meisho;
 					}
 
-					$meisholist = $meisholist + $meisho;
+					array_push($meisholist, $meisho);
 				}
 
 				error_log("●●●●●");
