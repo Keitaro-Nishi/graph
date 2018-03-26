@@ -20,15 +20,24 @@
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/jquery.bootgrid.js') }}"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
 
 </head>
 <body>
 	<div id="app">
 		<nav class="navbar navbar-default navbar-static-top">
 			<div class="container">
-				<div class="navbar-header"></div>
+				<div class="navbar-header">
+					<!-- Collapsed Hamburger -->
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
+						<span class="sr-only">Toggle Navigation</span>
+						<span class="icon-bar"></span>
+					</button>
+					<!-- Branding Image -->
+					<a class="navbar-brand" href="{{ url('/home') }}">
+						<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+					</a>
+				</div>
 			</div>
 		</nav>
 		@yield('content')
