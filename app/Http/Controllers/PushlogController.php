@@ -40,9 +40,8 @@ class PushlogController
 				$sender = $senders->name;
 
 
-				if($typedata == 1){
-					$type = "テキスト";
-				}
+				$typevalue = Code::select('meisho')->where('citycode',"00000")->where('code1',15)->where('code2',$typedata)->first();
+				$type = $typevalue->meisho;
 
 				if($infodata == 0){
 					$info = "すべて";
@@ -102,8 +101,8 @@ class PushlogController
 				$senders = User::select('name')->where('citycode',$cityCD)->where('userid',$senderdata)->first();
 				$sender = $senders->name;
 
-				$types = Code::select('meisho')->where('citycode',"00000")->where('code1',15)->where('code2',$typedata)->first();
-				$type = $types->meisho;
+				$typevalue = Code::select('meisho')->where('citycode',"00000")->where('code1',15)->where('code2',$typedata)->first();
+				$type = $typevalue->meisho;
 
 				if($infodata == 0){
 					$info = "すべて";
