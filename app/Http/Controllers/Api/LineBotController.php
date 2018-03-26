@@ -7,8 +7,6 @@ class LineBotController
 {
 	public function callback(Request $request,$citycode)
 	{
-		error_log("★★★★★★★★★★★★★★LineStart★★★★★★★★★★★★★★★");
-		error_log("★★★★★★★★★★★★★★citycode★★★★★★★★★★★★★★★".$citycode);
 		$jsonObj = json_decode($request->getContent());
 
 		$type = $jsonObj->{"events"}[0]->{"message"}->{"type"};
@@ -21,7 +19,8 @@ class LineBotController
 		//ユーザーID取得
 		$userID = $jsonObj->{"events"}[0]->{"source"}->{"userId"};
 
-
+		error_log("★★★★★★★★★★★★★★text★★★★★★★★★★★★★★★".$text);
+		error_log("★★★★★★★★★★★★★★replyToken★★★★★★★★★★★★★★★".$replyToken);
 
 
 		$line_cat = Parameter::select('line_cat')->where('citycode', $citycode)->first();
