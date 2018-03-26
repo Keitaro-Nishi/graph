@@ -1,8 +1,7 @@
 var rowIds = [];
 var pushlog = [];
 var dbvalue = [];
-//var meisho = [];
-//var meishovalue = [];
+
 
 pushlog = document.getElementById('pushlog').value;
 dbvalue = JSON.parse(pushlog);
