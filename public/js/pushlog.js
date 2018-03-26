@@ -90,6 +90,8 @@ function drow() {
 }
 
 function detailwin(value){
+	console.log(meishovalue.length);
+
 	document.getElementById("btn_modal").click();
 	for (var i = 0; i < dbvalue.length; i++){
 		if(dbvalue[i]["no"] == value){
