@@ -10,8 +10,8 @@
 	<thead>
 		<tr>
 			<th data-column-id="no" data-type="numeric" data-identifier="true" data-width="4%"data-visible="false">NO</th>
-			<th data-column-id="userid" data-width="10%">ユーザーID</th>
-			<th data-column-id="time" data-width="10%">日時</th>
+			<th data-column-id="userid" data-width="8%">ユーザーID</th>
+			<th data-column-id="time" data-width="12%">日時</th>
 			<th data-column-id="contents" data-width="35%">質問内容</th>
 			<th data-column-id="returns" data-width="35%">回答内容</th>
 			<th data-column-id='detail' data-width='6%' data-formatter='details' data-sortable='false'></th>
