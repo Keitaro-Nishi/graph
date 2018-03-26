@@ -108,16 +108,16 @@ class PushlogController
 
 				$paramlist= [
 
-						1 =>$param1,
-						'2'=>$param2,
-						'3'=>$param3,
-						'4'=>$param4,
-						'5'=>$param5,
-						'6'=>$param6,
-						'7'=>$param7,
-						'8'=>$param8,
-						'9'=>$param9,
-						'10'=>$param10,
+						'param1' =>$param1,
+						'param2'=>$param2,
+						'param3'=>$param3,
+						'param4'=>$param4,
+						'param5'=>$param5,
+						'param6'=>$param6,
+						'param7'=>$param7,
+						'param8'=>$param8,
+						'param9'=>$param9,
+						'param10'=>$param10,
 				];
 
 				$target = $pushlogdata->target;
@@ -168,15 +168,6 @@ class PushlogController
 				];
 
 				array_push($pushlogs, $pushloglist);
-
-				for ($i = 1; $i <= 10; $i++) {
-						$meishovalues = Code::select('meisho')->where('citycode', $cityCD)->where('code1', $i)->where('code2',paramlist[$i])->orderBy('code2', 'ASC')->get();
-						foreach($meishovalues as $meishovalue){
-							$meisho = $meishovalue->meisho;
-							error_log("☆☆☆☆☆☆☆");
-							error_log($meisho);
-						}
-				}
 
 			}
 		}
