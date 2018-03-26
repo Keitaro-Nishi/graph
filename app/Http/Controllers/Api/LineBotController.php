@@ -37,7 +37,8 @@ class LineBotController
 	}
 
 	public function followEvent (){
-		$mess = Message::select('message')->where('citycode', $citycode)->where('id', 1)->first();
+		error_log("★★★★★★★★★★★★followEvent★★★★★★★★★★★★★");
+		$mess = Message::select('message')->where('citycode', $this->citycode)->where('id', 1)->first();
 		$response_format_text = [
 				"type" => "text",
 				"text" => $mess->message
@@ -46,6 +47,7 @@ class LineBotController
 	}
 
 	public function messageEvent(){
+		error_log("★★★★★★★★★★★★messageEvent★★★★★★★★★★★★★");
 		$type = $this->jsonRequest->{"events"}[0]->{"message"}->{"type"};
 
 		switch ($type) {
