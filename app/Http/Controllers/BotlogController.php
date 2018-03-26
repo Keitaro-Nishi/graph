@@ -62,7 +62,7 @@ class BotlogController
 			}
 		}
 
-		$result = Botlog::whrer('time')-> groupBy('time')-> orderBy ('time', 'ASC')-> count();
+		//$result = Botlog::whrer('time')-> groupBy('time')-> orderBy ('time', 'ASC')-> count();
 
 		$botlogvalue= json_encode($botlogs);
 		return view('botlog',compact('botlogs','botlogvalue'));
