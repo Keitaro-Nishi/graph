@@ -18,7 +18,7 @@ class OpinionController
 				$id = $opiniondata->id;
 				$userid = $opiniondata->userid;
 				$timedata = date_create($opiniondata->time);
-				$time = date_format($timedata , 'Y-m-d H:i:s');
+				$time = date_format($timedata , 'Y/m/d H:i:s');
 				$opinion = $opiniondata->opinion;
 				$sadness = $opiniondata->sadness;
 				$joy = $opiniondata->joy;
@@ -48,7 +48,7 @@ class OpinionController
 				$id = $opiniondata->id;
 				$userid = $opiniondata->userid;
 				$timedata = date_create($opiniondata->time);
-				$time = date_format($timedata , 'Y-m-d H:i:s');
+				$time = date_format($timedata , 'Y/m/d H:i:s');
 				$opinion = $opiniondata->opinion;
 				$sadness = $opiniondata->sadness;
 				$joy = $opiniondata->joy;
