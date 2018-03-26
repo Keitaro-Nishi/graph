@@ -14,21 +14,9 @@ class LineBotController
 
 		$jsonObj = json_decode($request->getContent());
 
-
-		$type = $jsonObj->{"events"}[0]->{"message"}->{"type"};
 		$eventType = $jsonObj->{"events"}[0]->{"type"};
-
-		error_log("★★★★★★★★★★★★type★★★★★★★★★★★★★".$type);
-		//メッセージ取得
-		$text = $jsonObj->{"events"}[0]->{"message"}->{"text"};
-
 		//ReplyToken取得
 		$replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
-		//ユーザーID取得
-		$userID = $jsonObj->{"events"}[0]->{"source"}->{"userId"};
-
-		error_log("★★★★★★★★★★★★replyToken★★★★★★★★★★★★★".$replyToken);
-		error_log("★★★★★★★★★★★★eventType★★★★★★★★★★★★★".$eventType);
 
 		//友達追加時の処理
 		if($eventType == "follow"){
@@ -40,6 +28,18 @@ class LineBotController
 			$this->linesend($citycode,$replyToken,$response_format_text);
 			return;
 		}
+
+		error_log("★★★★★★★★★★★★type★★★★★★★★★★★★★".$type);
+		$type = $jsonObj->{"events"}[0]->{"message"}->{"type"};
+		//メッセージ取得
+		$text = $jsonObj->{"events"}[0]->{"message"}->{"text"};
+		//ユーザーID取得
+		$userID = $jsonObj->{"events"}[0]->{"source"}->{"userId"};
+
+		error_log("★★★★★★★★★★★★replyToken★★★★★★★★★★★★★".$replyToken);
+		error_log("★★★★★★★★★★★★eventType★★★★★★★★★★★★★".$eventType);
+
+
 
 	}
 
