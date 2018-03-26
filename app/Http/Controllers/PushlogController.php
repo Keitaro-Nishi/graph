@@ -151,7 +151,7 @@ class PushlogController
 			$count = Code::where('citycode', $cityCD)->where('code1', $i)->where('code2', '>', 0)->count();
 			if($count > 0){
 				//$records = Code::select('code1','code2','meisho')->where('citycode', $cityCD)->where('code1', $i)->orderBy('code2', 'ASC')->get();
-				$records = Code::select('meisho')->where('citycode', $cityCD)->where('code1', $i)->where('code2', 0)->orderBy('code2', 'ASC')->get();
+				$records = Code::select('code1','meisho')->where('citycode', $cityCD)->where('code1', $i)->where('code2', 0)->orderBy('code2', 'ASC')->get();
 				array_push($codes, json_decode($records,true));
 			}
 		}

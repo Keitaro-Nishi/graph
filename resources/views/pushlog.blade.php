@@ -80,6 +80,14 @@ Lineプッシュログ
 								<input type="text" class="form-control" id="dia_sex" readonly>
 							</div>
 						</div>
+						@foreach($codes as $code)
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="{{$code['code1']}}">{{$code['meisho']}}</label>
+							<div class="col-sm-2">
+								<input type="text" class="form-control" id="{{$code['code1']}}" readonly>
+							</div>
+						</div>
+						@endforeach
 					</form>
 				</div>
 
