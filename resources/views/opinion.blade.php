@@ -80,34 +80,34 @@
 						</div>
 					</div>
 					<div id="disp">
-					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_sadness">悲しみ</label>
-						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_sadness" readonly>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="dia_sadness">悲しみ</label>
+							<div class="col-sm-2">
+								<input type="text" class="form-control" id="dia_sadness" readonly>
+							</div>
+							<label class="col-sm-2 control-label" for="dia_joy">喜び</label>
+							<div class="col-sm-2">
+								<input type="text" class="form-control" id="dia_joy" readonly>
+							</div>
+							<label class="col-sm-2 control-label" for="dia_fear">恐れ</label>
+							<div class="col-sm-2">
+								<input type="text" class="form-control" id="dia_fear" readonly>
+							</div>
 						</div>
-						<label class="col-sm-2 control-label" for="dia_joy">喜び</label>
-						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_joy" readonly>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="dia_disgust">嫌悪</label>
+							<div class="col-sm-2">
+								<input type="text" class="form-control" id="dia_disgust" readonly>
+							</div>
+							<label class="col-sm-2 control-label" for="dia_anger">怒り</label>
+							<div class="col-sm-2">
+								<input type="text" class="form-control" id="dia_anger" readonly>
+							</div>
+							<label class="col-sm-2 control-label" for="dia_checked">チェック</label>
+							<div class="col-sm-2">
+								<input type="text" class="form-control" id="dia_checked" readonly>
+							</div>
 						</div>
-						<label class="col-sm-2 control-label" for="dia_fear">恐れ</label>
-						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_fear" readonly>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_disgust">嫌悪</label>
-						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_disgust" readonly>
-						</div>
-						<label class="col-sm-2 control-label" for="dia_anger">怒り</label>
-						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_anger" readonly>
-						</div>
-						<label class="col-sm-2 control-label" for="dia_checked">チェック</label>
-						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_checked" readonly>
-						</div>
-					</div>
 					</div>
 				</form>
 			</div>
@@ -115,7 +115,7 @@
 			<div>
 				<canvas id="myChart"></canvas>
 			</div>
-			<div class="modal-footer">
+			<div class="modal-footer" width="200" height="150">
 				<button id="sback" type="button" class="btn btn-default" onclick="shosai_back()">＜＜前へ</button>
 				<button id="snext" type="button" class="btn btn-default" onclick="shosai_next()">次へ＞＞</button>
 				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
