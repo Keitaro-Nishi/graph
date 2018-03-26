@@ -110,23 +110,19 @@ class PushlogController
 
 				$paramlist = array($param1,$param2,$param3,$param4,$param5,$param6,$param7,$param8,$param9,$param10);
 
+				/*
 				$meisholist = array();
-
 				for ($i = 1; $i <= 10; $i++) {
-
-
 					if($paramlist[$i-1] == 0){
 						$meisho = "すべて";
-
 					}else{
 						$meishovalues = Code::select('meisho')->where('citycode', $cityCD)->where('code1', $i)->where('code2', $paramlist[$i-1])->orderBy('code2', 'ASC')->first();
 						$meisho = $meishovalues->meisho;
 					}
-
 					array_push($meisholist, $meisho);
 				}
-
 				array_push($meisholists, $meisholist);
+				*/
 
 				$target = $pushlogdata->target;
 				$typedata = $pushlogdata->type;
@@ -169,6 +165,16 @@ class PushlogController
 						'info'=>$info,
 						'age'=>$age,
 						'sex'=>$sex,
+						'param1'=>$param1,
+						'param2'=>$param2,
+						'param3'=>$param3,
+						'param4'=>$param4,
+						'param5'=>$param5,
+						'param6'=>$param6,
+						'param7'=>$param7,
+						'param8'=>$param8,
+						'param9'=>$param9,
+						'param10'=>$param10,
 						'target'=>$target." 人",
 						'type'=>$type,
 						'contents'=>$contents,
@@ -181,7 +187,6 @@ class PushlogController
 		}
 
 		$pushlogvalue= json_encode($pushlogs);
-		$meishovalue= json_encode($meisholists);
 
 		for ($i = 1; $i <= 10; $i++) {
 			$count = Code::where('citycode', $cityCD)->where('code1', $i)->where('code2', '>', 0)->count();
@@ -192,7 +197,7 @@ class PushlogController
 		}
 
 
-		return view('pushlog',compact('pushlogs','pushlogvalue','codes','meishovalue'));
+		return view('pushlog',compact('pushlogs','pushlogvalue','codes'));
 	}
 
 

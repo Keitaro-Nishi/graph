@@ -10,6 +10,16 @@ Lineプッシュログ
 	<thead>
 		<tr>
 			<th data-column-id="no" data-type="numeric" data-identifier="true" data-width="4%"data-visible="false">NO</th>
+			<th data-column-id="param1" data-visible="false"></th>
+			<th data-column-id="param2" data-visible="false"></th>
+			<th data-column-id="param3" data-visible="false"></th>
+			<th data-column-id="param4" data-visible="false"></th>
+			<th data-column-id="param5" data-visible="false"></th>
+			<th data-column-id="param6" data-visible="false"></th>
+			<th data-column-id="param7" data-visible="false"></th>
+			<th data-column-id="param8" data-visible="false"></th>
+			<th data-column-id="param9" data-visible="false"></th>
+			<th data-column-id="param10" data-visible="false"></th>
 			<th data-column-id="time" data-width="10%">日時</th>
 			<th data-column-id="target" data-width="10%">対象人数</th>
 			<th data-column-id="type" data-width="10%">タイプ</th>
@@ -22,6 +32,16 @@ Lineプッシュログ
 		@foreach($pushlogs as $pushlog)
 		<tr>
 			<td>{{$pushlog['no']}}</td>
+			<td>{{$pushlog['param1']}}</td>
+			<td>{{$pushlog['param2']}}</td>
+			<td>{{$pushlog['param3']}}</td>
+			<td>{{$pushlog['param4']}}</td>
+			<td>{{$pushlog['param5']}}</td>
+			<td>{{$pushlog['param6']}}</td>
+			<td>{{$pushlog['param7']}}</td>
+			<td>{{$pushlog['param8']}}</td>
+			<td>{{$pushlog['param9']}}</td>
+			<td>{{$pushlog['param10']}}</td>
 			<td>{{$pushlog['time']}}</td>
 			<td>{{$pushlog['target']}}</td>
 			<td>{{$pushlog['type']}}</td>
@@ -35,7 +55,7 @@ Lineプッシュログ
 
 
 <input id="pushlog" type= "hidden" value = '{{ $pushlogvalue }}'>
-<input id="meisho" type= "hidden" value = '{{ $meishovalue }}'>
+
 <input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
 
 <div class="container" align="center">
