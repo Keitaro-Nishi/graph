@@ -126,12 +126,12 @@ function modal_mod(index){
 				backgroundColor: "rgba(153,255,51,0.4)"
 			}]
 		},
-		options: { responsive: false },
 		options: {
 			legend: {
 				display: false
-			}
-		}
+			},
+			responsive: false
+		},
 	});
 
 	if(index == 0){
