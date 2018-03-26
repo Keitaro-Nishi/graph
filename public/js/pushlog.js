@@ -34,6 +34,10 @@ $(function() {
 			});
 		}
 	});
+
+	for(var i = 1; i < 11; i++){
+		document.getElementById('option'+i).value = meishovalue[i-1][i-1];
+	}
 });
 
 function drow() {
@@ -108,8 +112,3 @@ function modal_mod(index){
 		document.getElementById('dia_sex').value  = dbvalue[index]["sex"];
 }
 
-function modal_others(){
-	for(var i = 1; i < 11; i++){
-		document.getElementById('option'+i).value = meishovalue[i-1][i-1];
-	}
-}
