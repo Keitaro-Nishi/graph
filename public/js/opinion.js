@@ -127,14 +127,13 @@ function modal_mod(index){
 			}]
 		},
 		options: {
-			/*
-		}
 			legend: {
 				display: false
 			},
-		*/
+		/*
 			responsive: false,
 			maintainAspectRatio: true,
+			*/
 		},
 	});
 
