@@ -11,7 +11,7 @@
 		<div class="panel-body">
 			<form class="form-horizontal">
 				<form action="" method="post">
-					<input type="text" name="date_from" id="date_from" readonly="readonly">から
+					<input type="text" name="date_from" id="date_from" readonly>から
 					<input type="text" name="date_to" id="date_to" />まで
 				</form>
 				<button id="open" type="button" class="btn btn-default" onclick="open()">表示</button>
