@@ -150,13 +150,14 @@ class LineBotController
 		$resmess = str_replace("\\n","\n",$resmess);
 		$conversation_node = $json["context"]["system"]["dialog_stack"][0]["dialog_node"];
 		$userID = $this->jsonRequest->{"events"}[0]->{"source"}->{"userId"};
+		$tdate = Carbon::now();
 		error_log("★★★★★★★★★★★★conversation_node★★★★★★★★★★★★★".$conversation_node);
 		$save_value = [
 				'citycode' => $this->$citycode,
 				'userid' => $userID,
 				'conversationid' => $conversation_id,
 				'dnode' => $conversation_node,
-				'time' => Carbon::now()
+				'time' => $tdate
 		];
 
 		$count = Cvsdata::where('citycode', $this->$citycode)->where('userid', $userID)->count();
