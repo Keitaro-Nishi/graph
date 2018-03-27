@@ -139,8 +139,8 @@ class LineBotController
 		error_log("★★★★★★★★★★★★time★★★★★★★★★★★★★".$userinfo->time);
 		if($userinfo){
 			//10分経過でリセット
-			$btime = new DateTime($userinfo->time);
-			$tdate = new DateTime(Carbon::now());
+			$btime = new \DateTime($userinfo->time);
+			$tdate = new \DateTime(Carbon::now());
 			error_log("★★★★★★★★★★★★btime★★★★★★★★★★★★★".$btime->format('YmdHis'));
 			error_log("★★★★★★★★★★★★tdate★★★★★★★★★★★★★".$tdate->format('YmdHis'));
 			$timelag = $tdate->format('YmdHis') - $btime->format('YmdHis');
