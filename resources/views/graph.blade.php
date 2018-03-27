@@ -14,7 +14,7 @@
 					<input type="text" name="date_from" id="date_from" readonly="readonly">から
 					<input type="text" name="date_to" id="date_to" />まで
 				</form>
-				{{-- <button id="open" type="button" class="btn btn-default" onclick="open()">表示</button> --}}
+				<button id="open" type="button" class="btn btn-default" onclick="open()">表示</button>
 				<div class="container" id="graph1">
 					<div>
 						<canvas id="myChart"></canvas>
