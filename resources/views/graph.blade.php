@@ -5,6 +5,11 @@
 @stop
 
 @section('content')
+<style type="text/css">
+.container {
+	display: flex;
+}
+</style>
 <div class="container">
 	<div class="panel panel-default">
 		<div class="panel-heading">比較</div>
@@ -29,8 +34,7 @@
 		</div>
 	</div>
 </div>
-<input id="_token" type="hidden" name="_token"
-	value="{{ csrf_token() }}">
+<input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
 <script type="text/javascript" src="js/graph.js"></script>
 <script>
 init();
