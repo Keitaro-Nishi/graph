@@ -7,6 +7,7 @@
 	<br>
 	<br>
 		<button onclick="location.href='/botlog'" class="homebutton" type="submit">チャットボットログ</button>
+		<button onclick="location.href='/logview'" class="homebutton" type="submit">フォトログ</button>
 		<br>
 		<br>
 		<br>
