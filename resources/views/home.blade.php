@@ -6,7 +6,7 @@
 	<br>
 	<br>
 	<br>
-		<button onclick="location.href='/botlog'" class="button5" type="submit">チャットボットログ</button>
+		<button onclick="location.href='/botlog'" class="btn" type="submit">チャットボットログ</button>
 		<br>
 		<br>
 		<br>
