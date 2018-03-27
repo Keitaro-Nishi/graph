@@ -47,6 +47,6 @@ function init() {
 	});
 }
 function open(){
-	date_from = document.getElementById('date_from').value;
+	var date_from = document.getElementById('date_from').value;
 	console.log(date_from);
 }
