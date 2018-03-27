@@ -223,7 +223,7 @@ class LineBotController
 		if($genreB[0] == 0){
 			$resmess = "お探しの施設はありませんでした。";
 		}else{
-			$result = Genre::select('meisho')->where('citycode', $this->citycode)->where('gid1',$genreB[0])->where('gid2',$genreB[0])->first();
+			$result = Genre::select('meisho')->where('citycode', $this->citycode)->where('gid1',$genreB[0])->where('gid2',$genreB[1])->first();
 			$resmess = "『".$result->meisho."』について周辺検索します。位置情報を送信してください。";
 			$tdate = Carbon::now();
 			$save_value = [
