@@ -110,7 +110,7 @@ class LineBotController
 							$mess = Message::select('message')->where('citycode', $this->citycode)->where('id', 5)->first();
 							$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$parameter->cvs_ws_id1."/message?version=2017-04-21";
 							$this->callCvs($url,"初回");
-							$this->linesendtext($mess);
+							$this->linesendtext($mess->message);
 						}else{
 							$this->linesendtext($unknownMess->message);
 						}
@@ -150,17 +150,17 @@ class LineBotController
 		$conversation_node = $json["context"]["system"]["dialog_stack"][0]["dialog_node"];
 		$userID = $this->jsonRequest->{"events"}[0]->{"source"}->{"userId"};
 		$save_value = [
-				'citycode' => $this-$citycode,
+				'citycode' => $this->$citycode,
 				'userid' => $userID,
 				'conversationid' => $conversation_id,
 				'dnode' => $conversation_node,
 				'time' => Carbon::now()
 		];
 
-		$count = Cvsdata::where('citycode', $citycode)->where('userid', $userid)->count();
+		$count = Cvsdata::where('citycode', $this->$citycode)->where('userid', $userid)->count();
 
 		if($count > 0){
-			$result = DB::table('cvsdata')->where('citycode', $citycode)->where('userid', $userid)->update($save_value);
+			$result = DB::table('cvsdata')->where('citycode', $this->$citycode)->where('userid', $userid)->update($save_value);
 		}else{
 			$result = DB::table('cvsdata')->insert($save_value);
 		}
