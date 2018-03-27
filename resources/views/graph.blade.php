@@ -29,15 +29,11 @@
 					<input type="text" name="date_to" id="date_to" />まで
 				</form>
 				<button id="open" type="button" class="btn btn-default">表示</button>
-				<div class="demo2">
 				<div class="container" style="position:relative; height:400px; width:400px">
-					<div class="demo2-1">
+					<div>
 						<canvas id="myChart1"></canvas>
-					</div>
-					<div class="demo2-2">
 						<canvas id="myChart2"></canvas>
 					</div>
-				</div>
 				</div>
 			</form>
 		</div>
