@@ -292,9 +292,11 @@ class LineBotController
 	public function linesendtext($text){
 		$userID = $this->jsonRequest->{"events"}[0]->{"source"}->{"userId"};
 		$lang = Userinfo::select('language')->where('citycode', $this->citycode)->where('userid', $userID)->where('sender', (int)1)->first();
-		if($lang->language == "02"){
-			$watson = new Watson;
-			$text= $watson->callLT($this->citycode,"ja","en",$text);
+		if($lang){
+			if($lang->language == "02"){
+				$watson = new Watson;
+				$text= $watson->callLT($this->citycode,"ja","en",$text);
+			}
 		}
 		$response_format_text = [
 				"type" => "text",
