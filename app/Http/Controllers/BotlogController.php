@@ -14,40 +14,22 @@ class BotlogController
 		$botlogs= array();
 		if($cityCD == "00000"){
 			$botlogdatas = Botlog::all();
-			foreach($botlogdatas as $botlogdata){
-				$citycode = $botlogdata->citycode;
-				$no = $botlogdata->no;
-				$timedata = date_create($botlogdata->time);
-				$time = date_format($timedata , 'Y/m/d H:i:s');
-				$sender = $botlogdata->sender;
-				$type = $botlogdata->type;
-				$userid = $botlogdata->userid;
-				$contents = $botlogdata->contents;
-				$return = $botlogdata->return;
-				$botloglist= [
-						'citycode'=>$citycode,
-						'no'=>$no,
-						'time'=>$time,
-						'sender'=>$sender,
-						'type'=>$type,
-						'userid'=>$userid,
-						'contents'=>$contents,
-						'return'=>$return,
-				];
-				array_push($botlogs, $botloglist);
-			}
 		}else{
 			$botlogdatas= Botlog::where('citycode', $cityCD)->get();
+		}
+
 			foreach($botlogdatas as $botlogdata){
+
 				$citycode = $botlogdata->citycode;
 				$no = $botlogdata->no;
 				$timedata = date_create($botlogdata->time);
-				$time = date_format($timedata , 'Y/m/d H:i:s');
+				$time = date_format($timedata , 'Y-m-d H:i:s');
 				$sender = $botlogdata->sender;
 				$type = $botlogdata->type;
 				$userid = $botlogdata->userid;
 				$contents = $botlogdata->contents;
 				$return = $botlogdata->return;
+
 				$botloglist= [
 						'citycode'=>$citycode,
 						'no'=>$no,
@@ -58,15 +40,14 @@ class BotlogController
 						'contents'=>$contents,
 						'return'=>$return,
 				];
+
 				array_push($botlogs, $botloglist);
 			}
-		}
-
-		//$result = Botlog::whrer('time')-> groupBy('time')-> orderBy ('time', 'ASC')-> count();
 
 		$botlogvalue= json_encode($botlogs);
 		return view('botlog',compact('botlogs','botlogvalue'));
 	}
+
 	public function request() {
 		$this->requestall = \Request::all ();
 		if ($this->requestall ["param"] == "update") {
@@ -79,9 +60,11 @@ class BotlogController
 			] );
 		}
 	}
+
 	public function delete(){
 		$input = $this->requestall;
 		Botlog::destroy($input["nos"]);
 		return \Response::json(['status' => 'OK']);
+
 	}
 }

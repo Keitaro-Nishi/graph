@@ -118,6 +118,7 @@
 				</div>
 				<br><br><br><br><br><br>
 			</div>
+
 			<div class="modal-footer">
 				<button id="sback" type="button" class="btn btn-default" onclick="shosai_back()">＜＜前へ</button>
 				<button id="snext" type="button" class="btn btn-default" onclick="shosai_next()">次へ＞＞</button>

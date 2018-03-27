@@ -21,6 +21,8 @@ Route::middleware(['auth'])->group(function () {
 
 	Route::get ( '/home', 'HomeController@index' )->name ( 'home' );
 
+	Route::get ( '/graphtest', 'GraphtestController@index' )->name ( 'graphtest' );
+
 	//Route::get ( '/users', 'UserController@index' )->name ( 'users' )->middleware('role');
 	//Route::post ( '/users', 'UserController@request' )->middleware('role');
 	Route::get ( '/users', 'UserController@index' )->name ( 'users' );
