@@ -18,7 +18,6 @@
   width: 300px;
   float: left;
 }
-
 </style>
 <div class="container">
 	<div class="panel panel-default">
