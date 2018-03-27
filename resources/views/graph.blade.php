@@ -1,4 +1,8 @@
-@extends('layouts.app') @section('title') 利用状況グラフ @stop
+@extends('layouts.app')
+
+@section('title')
+利用状況グラフ
+@stop
 
 @section('content')
 <div class="container">
