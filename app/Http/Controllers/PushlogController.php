@@ -108,21 +108,7 @@ class PushlogController
 				$param9 = $pushlogdata->param9;
 				$param10 = $pushlogdata->param10;
 
-				$paramlist = array($param1,$param2,$param3,$param4,$param5,$param6,$param7,$param8,$param9,$param10);
 
-				/*
-				$meisholist = array();
-				for ($i = 1; $i <= 10; $i++) {
-					if($paramlist[$i-1] == 0){
-						$meisho = "すべて";
-					}else{
-						$meishovalues = Code::select('meisho')->where('citycode', $cityCD)->where('code1', $i)->where('code2', $paramlist[$i-1])->orderBy('code2', 'ASC')->first();
-						$meisho = $meishovalues->meisho;
-					}
-					array_push($meisholist, $meisho);
-				}
-				array_push($meisholists, $meisholist);
-				*/
 
 				$target = $pushlogdata->target;
 				$typedata = $pushlogdata->type;
@@ -186,7 +172,6 @@ class PushlogController
 			}
 		}
 
-		//$pushlogvalue= json_encode($pushlogs);
 
 		for ($i = 1; $i <= 10; $i++) {
 			$count = Code::where('citycode', $cityCD)->where('code1', $i)->where('code2', '>', 0)->count();

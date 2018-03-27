@@ -29,7 +29,6 @@ function init() {
 		}
 	});
 
-	//taishoDisabled(true);
 }
 
 
@@ -96,15 +95,6 @@ function detailwin(value){
 
 }
 
-/*
-function taishoDisabled(bl){
-	for(var i = 1; i < 11; i++){
-		if(document.getElementById('option'+i)){
-			document.getElementById('option'+i).disabled = bl;
-		}
-	}
-}
-*/
 
 function modal_mod(index){
 		document.getElementById('dia_number').value  = pushlogs[index]["target"];
