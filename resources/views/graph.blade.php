@@ -28,7 +28,7 @@
 	</div>
 </div>
 <input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
-<script type="text/javascript" src="js/graph.js"></script>
+src="{{ asset('js/graph.js') }}">
 <script>
 init();
 </script>
