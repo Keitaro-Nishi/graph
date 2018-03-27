@@ -76,6 +76,15 @@ Route::middleware(['auth'])->group(function () {
 	Route::get ( '/pushlog', 'PushlogController@index')->name('pushlog');
 	Route::post ( '/pushlog', 'PushlogController@request');
 
+	Route::get ( '/event', 'EventController@index' )->name ( 'event' );
+	Route::post ( '/event','EventController@request');
+
+	Route::get ( '/eventint', 'EventintController@index' )->name ( 'eventint' );
+	Route::post ( '/eventint', 'EventintController@request' );
+
+	Route::get ( '/eventent', 'EvententController@index' )->name ( 'eventent' );
+	Route::post ( '/eventent', 'EvententController@request' );
+
 });
 	Route::get ( '/attribute/{citycode?}/{sender?}/{id?}', 'AttributeController@index')->name('attribute');
 	Route::post ( '/attribute/{citycode?}/{sender?}/{id?}', 'AttributeController@request');
