@@ -32,4 +32,7 @@
 <input id="_token" type="hidden" name="_token"
 	value="{{ csrf_token() }}">
 <script type="text/javascript" src="js/graph.js"></script>
+<script>
+init();
+</script>
 @endsection

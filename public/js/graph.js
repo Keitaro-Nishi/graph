@@ -1,4 +1,4 @@
-$(function() {
+function init() {
 	$('#date_from').datepicker({
 		dateFormat: 'yy/mm/dd',//年月日の並びを変更
 	});
@@ -23,7 +23,7 @@ $(function() {
 			legend: {
 				display: false
 			}
-		},
+		}
 	});
 	var ctx = document.getElementById("myChart2").getContext('2d');
 	var myChart = new Chart(ctx, {
@@ -43,9 +43,9 @@ $(function() {
 			legend: {
 				display: false
 			}
-		});
+		}
 	});
-});
+}
 /*
 function open(){
 	var ctx = document.getElementById("myChart").getContext('2d');
