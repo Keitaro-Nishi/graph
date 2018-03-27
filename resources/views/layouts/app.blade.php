@@ -32,6 +32,7 @@
 <script src="//www.promisejs.org/polyfills/promise-6.1.0.min.js"></script>
 <script src="//npmcdn.com/vue@2.0.5/dist/vue.min.js"></script>
 <script src="//unpkg.com/botui/build/botui.min.js"></script>
+
 <!-- Chart.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
 
