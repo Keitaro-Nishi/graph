@@ -75,14 +75,14 @@ class LineBotController
 		$userID = $this->jsonRequest->{"events"}[0]->{"source"}->{"userId"};
 
 		$functions = Code::where('citycode', '00000')->where('code1', (int)13)->orderBy('code2', 'ASC')->get();
-		$usefunction = Parameter::select('usefunction')->where('citycode', $this->citycode)->first();
+		$parameter = Parameter::where('citycode', $this->citycode)->first();
 		$unknownMess = Message::select('message')->where('citycode', $this->citycode)->where('id', 2)->first();
 		for ($i =0; $i < count($functions); $i++){
 			if($functions[$i]->meisho == $text){
 				switch ($functions[$i]->code2) {
 					//属性登録
 					case 1:
-						if(substr($usefunction->usefunction,$i,1) == 1){
+						if(substr($parameter->usefunction,$i,1) == 1){
 							$mess = Message::select('message')->where('citycode', $this->citycode)->where('id', 3)->first();
 							$messurl = $mess->message.(empty($_SERVER["HTTPS"]) ? "http://" : "https://").$_SERVER["HTTP_HOST"]."/attribute/".$this->citycode."/1/".$userID;
 							$this->linesendtext($messurl);
@@ -104,7 +104,15 @@ class LineBotController
 						return;
 					//周辺施設検索
 					case 5:
-						$this->locationMessage();
+						if(substr($parameter->usefunction,$i,1) == 1){
+							$data = array('input' => array("text" => "初回発話"));
+							$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$parameter->cvs_ws_id1."/message?version=2017-04-21";
+							$watson = new Watson;
+							$mess = $watson->callcvsPost($this->citycode,$url,$data);
+							$this->linesendtext($mess);
+						}else{
+							$this->linesendtext($unknownMess->message);
+						}
 						return;
 					//市政へのご意見
 					case 6:
