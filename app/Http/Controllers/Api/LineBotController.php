@@ -136,6 +136,7 @@ class LineBotController
 		//メニュー選択済み
 		$userinfo = Userinfo::where('citycode', $this->citycode)->where('userid', $userID)->where('sender', (int)1)->first();
 		$modeflg = false;
+		error_log("★★★★★★★★★★★★time★★★★★★★★★★★★★".$userinfo->time);
 		if($userinfo){
 			//10分経過でリセット
 			$btime = new DateTime($userinfo->time);
