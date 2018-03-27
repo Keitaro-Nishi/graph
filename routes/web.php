@@ -14,9 +14,7 @@ Route::get ( '/', function () {
 	return redirect ( '/login' );
 } );
 
-Route::get ( '/graph', function () {
-	return redirect ( '/graph' );
-} );
+Route::get ( '/graph', 'HomeController@index' )->name ( 'graph' );
 
 Auth::routes ();
 
