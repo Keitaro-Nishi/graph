@@ -151,11 +151,14 @@ class LineBotController
 			return;
 		}
 
+		error_log("★★★★★★★★★★★★userinfo->sposi★★★★★★★★★★★★★".$userinfo->sposi);
+
 		//メニューによる振り分け
 		switch ($userinfo->sposi) {
 			//属性登録
 			case 1:
-
+				$mess = Message::select('message')->where('citycode', $this->citycode)->where('id', 6)->first();
+				$this->linesendtext($mess->message);
 				return;
 			//検診相談
 			case 2:
