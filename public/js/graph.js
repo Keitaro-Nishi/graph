@@ -1,4 +1,5 @@
 $(function() {
+	document.getElementById('graph1').style.display="none";
 	$('#date_from').datepicker({
 	    dateFormat: 'yy/mm/dd',//年月日の並びを変更
 	});
@@ -8,6 +9,7 @@ $(function() {
 });
 
 function open(){
+	document.getElementById('graph1').style.display = 'block';
 	var ctx = document.getElementById("myChart").getContext('2d');
 	var myChart = new Chart(ctx, {
 	  type: 'doughnut',
