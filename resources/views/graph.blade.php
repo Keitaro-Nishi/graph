@@ -12,8 +12,8 @@
 			</form>
 		</div>
 	</div>
-	<input id="_token" type="hidden" name="_token"
-		value="{{ csrf_token() }}">
-	<script type="text/javascript" src="js/graph.js"></script>
 </div>
+<input id="_token" type="hidden" name="_token"
+	value="{{ csrf_token() }}">
+<script type="text/javascript" src="js/graph.js"></script>
 @endsection
