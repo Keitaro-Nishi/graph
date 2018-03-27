@@ -21,10 +21,11 @@ class PushlogController
 		$pushlogs= array();
 		$codes = array();
 
-
-
 		if($cityCD == "00000"){
 			$pushlogdatas = Pushlog::orderBy('time', 'DESC')->get();
+		}else{
+			$pushlogdatas= Pushlog::where('citycode', $cityCD)->orderBy('time', 'DESC')->get();
+		}
 
 			foreach($pushlogdatas as $pushlogdata){
 
@@ -104,92 +105,6 @@ class PushlogController
 
 				array_push($pushlogs, $pushloglist);
 			}
-		}else{
-
-			$pushlogdatas= Pushlog::where('citycode', $cityCD)->orderBy('time', 'DESC')->get();
-			foreach($pushlogdatas as $pushlogdata){
-
-				$no = $pushlogdata->no;
-				$timedata = date_create($pushlogdata->time);
-				$time = date_format($timedata , 'Y-m-d H:i:s');
-				$infodata = $pushlogdata->info;
-				$agek = $pushlogdata->agek;
-				$agem = $pushlogdata->agem;
-				$sexdata = $pushlogdata->sex;
-				$param1 = $pushlogdata->param1;
-				$param2 = $pushlogdata->param2;
-				$param3 = $pushlogdata->param3;
-				$param4 = $pushlogdata->param4;
-				$param5 = $pushlogdata->param5;
-				$param6 = $pushlogdata->param6;
-				$param7 = $pushlogdata->param7;
-				$param8 = $pushlogdata->param8;
-				$param9 = $pushlogdata->param9;
-				$param10 = $pushlogdata->param10;
-
-
-
-				$target = $pushlogdata->target;
-				$typedata = $pushlogdata->type;
-				$contents = $pushlogdata->contents;
-				$senderdata = $pushlogdata->sender;
-				$senders = User::select('name')->where('citycode',$cityCD)->where('userid',$senderdata)->first();
-				$sender = $senders->name;
-
-				$typevalue = Code::select('meisho')->where('citycode',"00000")->where('code1',15)->where('code2',$typedata)->first();
-				$type = $typevalue->meisho;
-
-				if($infodata == 0){
-					$info = "すべて";
-				}elseif($infodata == 1){
-					$info = "登録あり";
-				}elseif($infodata == 2){
-					$info = "登録なし";
-				}
-
-				if($sexdata == 0){
-					$sex = "すべて";
-				}elseif($sexdata== 1){
-					$sex = "男性";
-				}elseif($sexdata== 2){
-					$sex = "女性";
-				}
-
-				if($agek == 999 or $agem == 999){
-					$age = "すべて";
-				}elseif($agek == $agem){
-					$age = $agek."歳";
-				}else{
-					$age = $agek."歳 ～ ".$agem."歳";
-				}
-
-				$pushloglist= [
-
-						'no'=>$no,
-						'time'=>$time,
-						'info'=>$info,
-						'age'=>$age,
-						'sex'=>$sex,
-						'param1'=>$param1,
-						'param2'=>$param2,
-						'param3'=>$param3,
-						'param4'=>$param4,
-						'param5'=>$param5,
-						'param6'=>$param6,
-						'param7'=>$param7,
-						'param8'=>$param8,
-						'param9'=>$param9,
-						'param10'=>$param10,
-						'target'=>$target." 人",
-						'type'=>$type,
-						'contents'=>$contents,
-						'sender'=>$sender,
-				];
-
-				array_push($pushlogs, $pushloglist);
-
-			}
-		}
 
 
 		for ($i = 1; $i <= 10; $i++) {
@@ -199,7 +114,6 @@ class PushlogController
 				array_push($codes, json_decode($records,true));
 			}
 		}
-
 
 		return view('pushlog',compact('pushlogs','codes'));
 	}
