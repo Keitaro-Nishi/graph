@@ -5,12 +5,6 @@
 @stop
 
 @section('content')
-<style>
-.chart {
-    position: relative;
-    float: left;
-}
-</style>
 <div class="container">
 	<div class="panel panel-default">
 		<div class="panel-heading">比較</div>
