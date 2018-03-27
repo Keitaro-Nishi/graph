@@ -21,7 +21,7 @@
 		<br>
 		<br>
 		<br>
-		<button onclick="location.href='/webbot'" class="homebutton" type="submit">チャットボット(WEB)</button>
+		<button onclick="location.href='/webbot'" class="homebutton" type="submit">チャットボット WEB </button>
 		<button onclick="location.href='/logview'" class="homebutton" type="submit">セッション情報</button>
 		<button onclick="location.href='/codemanage'" class="homebutton" type="submit">コード管理</button>
 		<button onclick="location.href='/parameter'" class="homebutton" type="submit">市町村パラメタ</button>

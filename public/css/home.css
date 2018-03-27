@@ -1,24 +1,72 @@
-.homebutton{
-    display: inline-block;
-    text-decoration: none;
-    color: #FFF;
-    width: 150px;
-    height: 150px;
-    line-height: 120px;
-    border-radius: 50%;
-    text-align: center;
-    outline: none;
-    vertical-align: middle;
-    overflow: hidden;
-    background-image: -webkit-linear-gradient(45deg, #709dff 0%, #91fdb7 100%);
-    background-image: linear-gradient(45deg, #709dff 0%, #91fdb7 100%);
-    transition: .4s;
+a.homebutton{
+  display: block;
+  text-decoration:none;
+  position: relative;
+  width: 172px;
+  height: 172px;
 }
-
-.homebutton:active{
-   -ms-transform: translateY(2px);
-    -webkit-transform: translateY(2px);
-    transform: translateY(2px);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
-    border-bottom: none;
+a.homebutton:before{
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: -25px;
+  border-radius: 10px;
+  box-shadow: inset 1px 1px 2px rgba(255,255,255,0.5), inset 0 -1px 3px rgba(0,0,0,0.2);
+  width: 20px;
+  height: 20px;
+  background: #acd373;
+  z-index: 10;
+}
+a.homebutton div{
+  position: absolute;
+  top: 0;
+  border-radius: 90px 0 90px 0px / 90px 0 90px 0px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1), inset 0 0 40px 15px #fff;
+  position: absolute;
+  height: 172px;
+  width: 172px;
+  display: block;
+  border: 10px solid #d1eaac;
+  background: #e1f1c9;
+  color: #acd373;
+  -webkit-transform-origin: 97% 0;
+  transform-origin: 97% 0;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+a.homebutton:hover div{
+  -webkit-transform: rotate(65deg);
+  transform: rotate(65deg);
+  z-index: 5;
+}
+a.homebutton div i{
+  position: absolute;
+  top: 35%;
+  left: 0;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+}
+a.homebutton div span{
+  position: absolute;
+  top: 65%;
+  left: 0;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+}
+a.homebutton p{
+  color: #fff;
+  font-weight: bold;
+  line-height: 1.3;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.1);
+  width: 112px;
+  height: 96px;
+  padding: 60px 30px 20px;
+  background: #bfe289;
+  border: 10px solid #fff;
+  border-radius: 90px 0 90px 0px / 90px 0 90px 0px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
