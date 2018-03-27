@@ -9,6 +9,7 @@ use App\Parameter;
 use App\Message;
 use App\Code;
 use App\Cvsdata;
+use App\Genre;
 class LineBotController
 {
 
@@ -123,10 +124,6 @@ class LineBotController
 					case 6:
 						$this->locationMessage();
 						return;
-					//周辺施設検索
-					case 5:
-						$this->locationMessage();
-						return;
 					default:
 						break;
 				}
@@ -136,15 +133,14 @@ class LineBotController
 		//メニュー選択済み
 		$userinfo = Userinfo::where('citycode', $this->citycode)->where('userid', $userID)->where('sender', (int)1)->first();
 		$modeflg = false;
-		error_log("★★★★★★★★★★★★time★★★★★★★★★★★★★".$userinfo->time);
 		if($userinfo){
 			//10分経過でリセット
 			$btime = new \DateTime($userinfo->time);
 			$tdate = new \DateTime(Carbon::now());
-			error_log("★★★★★★★★★★★★btime★★★★★★★★★★★★★".$btime->format('YmdHis'));
-			error_log("★★★★★★★★★★★★tdate★★★★★★★★★★★★★".$tdate->format('YmdHis'));
 			$timelag = $tdate->format('YmdHis') - $btime->format('YmdHis');
-			error_log("★★★★★★★★★★★★timelag★★★★★★★★★★★★★".$timelag);
+			if($timelag > 1000){
+				$modeflg = true;
+			}
 		}else{
 			$modeflg = true;
 		}
@@ -153,6 +149,40 @@ class LineBotController
 			$mess = Message::select('message')->where('citycode', $this->citycode)->where('id', 6)->first();
 			$this->linesendtext($mess->message);
 			return;
+		}
+
+		//メニューによる振り分け
+		switch ($userinfo->sposi) {
+			//属性登録
+			case 1:
+
+				return;
+			//検診相談
+			case 2:
+
+				return;
+			//問い合わせ
+			case 3:
+
+				return;
+			//ごみの分別
+			case 4:
+
+				return;
+			//周辺施設検索
+			case 5:
+
+				return;
+			//市政へのご意見
+			case 6:
+
+				return;
+			//周辺施設検索
+			case 5:
+				$this->shisetu($parameter->cvs_ws_id1);
+				return;
+			default:
+				break;
 		}
 	}
 
@@ -164,8 +194,47 @@ class LineBotController
 
 	}
 
+	//周辺施設検索
+	public function shisetu($wsid){
+		error_log("★★★★★★★★★★★★周辺施設検索★★★★★★★★★★★★★");
+		//メッセージ取得
+		$text = $this->jsonRequest->{"events"}[0]->{"message"}->{"text"};
+		//ユーザーID取得
+		$userID = $this->jsonRequest->{"events"}[0]->{"source"}->{"userId"};
+
+		$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$wsid."/message?version=2017-04-21";
+		//改行コードを取り除く
+		$text= str_replace("\n","",$text);
+		$data = array('input' => array("text" => $text));
+
+		$cvsdata = Cvsdata::where('citycode', $this->citycode)->where('userid', $userID)->first();
+		$data["context"] = array("conversation_id" => $cvsdata->conversationid,
+				"system" => array("dialog_stack" => array(array("dialog_node" => $cvsdata->dnode)),
+						"dialog_turn_counter" => 1,
+						"dialog_request_counter" => 1));
+		$watson = new Watson;
+		$jsonString = $watson->callcvsPost($this->citycode,$url,$data);
+		$json = json_decode($jsonString, true);
+
+		$genre = $json["output"]["text"][0];
+		error_log("★★★★★★★★★★★★genre★★★★★★★★★★★★★".$genre);
+		$genreB = explode(".", $genre);
+		if($genreB[0] == 0){
+			$resmess = "お探しの施設はありませんでした。";
+		}else{
+			$result = Genre::select('meisho')->where('citycode', $this->citycode)->where('gid1',$genreB[0])->where('gid2',$genreB[0])->first();
+			$resmess = "『".$result->meisho."』について周辺検索します。位置情報を送信してください。";
+			$tdate = Carbon::now();
+			$save_value = [
+					'search' => $genre,
+					'time' => $tdate
+			];
+			$result = DB::table('userinfo')->where('citycode', $this->citycode)->where('userid', $userID)->update($save_value);
+		}
+		$this->linesendtext($resmess);
+	}
+
 	public function callCvs($url,$text){
-		error_log("★★★★★★★★★★★★callCvs★★★★★★★★★★★★★");
 		$data = array('input' => array("text" => $text));
 		$watson = new Watson;
 		$jsonString = $watson->callcvsPost($this->citycode,$url,$data);
@@ -177,7 +246,6 @@ class LineBotController
 		$conversation_node = $json["context"]["system"]["dialog_stack"][0]["dialog_node"];
 		$userID = $this->jsonRequest->{"events"}[0]->{"source"}->{"userId"};
 		$tdate = Carbon::now();
-		error_log("★★★★★★★★★★★★conversation_node★★★★★★★★★★★★★".$conversation_node);
 		$save_value = [
 				'citycode' => $this->citycode,
 				'userid' => $userID,
@@ -187,7 +255,6 @@ class LineBotController
 		];
 
 		$count = Cvsdata::where('citycode', $this->citycode)->where('userid', $userID)->count();
-		error_log("★★★★★★★★★★★★count★★★★★★★★★★★★★".$count);
 
 		if($count > 0){
 			$result = DB::table('cvsdata')->where('citycode', $this->citycode)->where('userid', $userID)->update($save_value);
@@ -198,11 +265,9 @@ class LineBotController
 	}
 
 	public function userinfoUpdate($mode){
-		error_log("★★★★★★★★★★★★userinfoUpdate★★★★★★★★★★★★★");
 		$userID = $this->jsonRequest->{"events"}[0]->{"source"}->{"userId"};
 		$tdate = Carbon::now();
 		$count = Userinfo::where('citycode', $this->citycode)->where('userid', $userID)->where('sender', (int)1)->count();
-		error_log("★★★★★★★★★★★★count★★★★★★★★★★★★★".$count);
 		if($count > 0){
 			$save_value = [
 					'sposi' => $mode,
