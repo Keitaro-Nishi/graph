@@ -3,12 +3,8 @@ var pushlog = [];
 var dbvalue = [];
 
 
-//pushlog = document.getElementById('pushlog').value;
-//dbvalue = JSON.parse(pushlog);
 
 function init() {
-
-//$(function() {
 
 	$("#grid-basic").bootgrid({
 		selection : true,
@@ -33,10 +29,10 @@ function init() {
 		}
 	});
 
-	taishoDisabled(true);
+	//taishoDisabled(true);
 
 }
-//});
+
 
 function drow() {
 	if(rowIds.length == 0){
@@ -99,10 +95,9 @@ function detailwin(value){
 		}
 	}
 
-
 }
 
-
+/*
 function taishoDisabled(bl){
 	for(var i = 1; i < 11; i++){
 		if(document.getElementById('option'+i)){
@@ -110,14 +105,9 @@ function taishoDisabled(bl){
 		}
 	}
 }
+*/
 
 function modal_mod(index){
-		/*document.getElementById('dia_number').value  = dbvalue[index]["target"];
-		document.getElementById('dia_register').value = dbvalue[index]["info"];
-		document.getElementById('dia_age').value  = dbvalue[index]["age"];
-		document.getElementById('dia_sex').value  = dbvalue[index]["sex"];
-		*/
-
 		document.getElementById('dia_number').value  = pushlogs[index]["target"];
 		document.getElementById('dia_register').value = pushlogs[index]["info"];
 		document.getElementById('dia_age').value  = pushlogs[index]["age"];
@@ -126,6 +116,7 @@ function modal_mod(index){
 		for(var i = 1; i < 11; i++){
 			if(document.getElementById('option'+i)){
 				document.getElementById('option'+i).value = pushlogs[index]["param"+i];
+				document.getElementById('option'+i).disabled = true;
 			}
 		}
 }
