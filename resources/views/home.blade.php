@@ -25,7 +25,6 @@
 		<br>
 		<br>
 		@if (Auth::user()->role == 0 or Auth::user()->role == 1)
-		<button onclick="location.href='/logview'" class="homebutton" type="submit">セッション情報</button>
 		<button onclick="location.href='/codemanage'" class="homebutton" type="submit">コード管理</button>
 		<button onclick="location.href='/parameter'" class="homebutton" type="submit">市町村パラメタ</button>
 		@endif
