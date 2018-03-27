@@ -133,7 +133,9 @@ class LineBotController
 		//メニュー選択済み
 		$userinfo = Userinfo::where('citycode', $this->citycode)->where('userid', $userID)->where('sender', (int)1)->first();
 		$modeflg = false;
-		if($userinfo){
+		if(!$userinfo){
+			$modeflg = true;
+		}else{
 			//10分経過でリセット
 			$btime = new \DateTime($userinfo->time);
 			$tdate = new \DateTime(Carbon::now());
@@ -141,8 +143,6 @@ class LineBotController
 			if($timelag > 1000){
 				$modeflg = true;
 			}
-		}else{
-			$modeflg = true;
 		}
 
 		if($modeflg){
@@ -174,15 +174,11 @@ class LineBotController
 				return;
 			//周辺施設検索
 			case 5:
-
+				$this->shisetu($parameter->cvs_ws_id1);
 				return;
 			//市政へのご意見
 			case 6:
 
-				return;
-			//周辺施設検索
-			case 5:
-				$this->shisetu($parameter->cvs_ws_id1);
 				return;
 			default:
 				break;
