@@ -79,6 +79,8 @@ class LineBotController
 		$functions = Code::where('citycode', '00000')->where('code1', (int)13)->orderBy('code2', 'ASC')->get();
 		$parameter = Parameter::where('citycode', $this->citycode)->first();
 		$unknownMess = Message::select('message')->where('citycode', $this->citycode)->where('id', 2)->first();
+
+		//メニュー選択
 		for ($i =0; $i < count($functions); $i++){
 			if($functions[$i]->meisho == $text){
 				switch ($functions[$i]->code2) {
@@ -129,6 +131,27 @@ class LineBotController
 						break;
 				}
 			}
+		}
+
+		//メニュー選択済み
+		$userinfo = Userinfo::where('citycode', $this->citycode)->where('userid', $userID)->where('sender', (int)1)->first();
+		$modeflg = false;
+		if($userinfo){
+			//10分経過でリセット
+			$btime = new DateTime($userinfo->time);
+			$tdate = new DateTime(Carbon::now());
+			error_log("★★★★★★★★★★★★btime★★★★★★★★★★★★★".$btime->format('YmdHis'));
+			error_log("★★★★★★★★★★★★tdate★★★★★★★★★★★★★".$tdate->format('YmdHis'));
+			$timelag = $tdate->format('YmdHis') - $btime->format('YmdHis');
+			error_log("★★★★★★★★★★★★timelag★★★★★★★★★★★★★".$timelag);
+		}else{
+			$modeflg = true;
+		}
+
+		if($modeflg){
+			$mess = Message::select('message')->where('citycode', $this->citycode)->where('id', 6)->first();
+			$this->linesendtext($mess->message);
+			return;
 		}
 	}
 
