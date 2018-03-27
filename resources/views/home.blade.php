@@ -9,4 +9,5 @@
 	  </div>
 	  <p></p>
 	</a>
+	</div>
 @endsection
