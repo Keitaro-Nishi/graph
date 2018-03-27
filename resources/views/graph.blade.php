@@ -9,7 +9,6 @@
 .chart {
     position: relative;
     float: left;
-    margin-right: 20px;
 }
 </style>
 <div class="container">
@@ -27,7 +26,7 @@
 						<canvas id="myChart1"></canvas>
 					</div>
 					<div class="chart">
-						<canvas id="myChart1"></canvas>
+						<canvas id="myChart2"></canvas>
 					</div>
 				</div>
 			</form>
