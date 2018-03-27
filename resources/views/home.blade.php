@@ -2,7 +2,7 @@
 
 @section('content')
 	<div align="center">
-	<a href="#" class="homebutton" onclick="location.href='/botlog'">
+	<a href="/botlog" class="homebutton">
 	  <div>
 	    <i class="fa fa-github-alt"></i>
 	    <span>ログ参照</span>
