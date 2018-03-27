@@ -5,6 +5,10 @@
 @stop
 
 @section('content')
+<style>
+.circle {
+	display: inline;
+</style>
 <div class="container">
 	<div class="panel panel-default">
 		<div class="panel-heading">比較</div>
@@ -17,8 +21,8 @@
 				<button id="open" type="button" class="btn btn-default">表示</button>
 				<div class="container" style="position:relative; height:400px; width:400px">
 					<div>
-						<canvas id="myChart1"></canvas>
-						<canvas id="myChart2"></canvas>
+						<canvas class="circle" id="myChart1"></canvas>
+						<canvas class="circle" id="myChart2"></canvas>
 					</div>
 				</div>
 			</form>
