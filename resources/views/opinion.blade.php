@@ -5,19 +5,18 @@
 @stop
 
 @section('content')
-<table id="grid-basic"
-	class="table table-condensed table-hover table-striped">
+<table id="grid-basic" class="table table-condensed table-hover table-striped">
 	<thead>
 		<tr>
 			<th data-column-id='id' data-type='numeric' data-identifier='true' data-width='3%' data-visible="false"></th>
-			<th data-column-id='userid' data-width='7%'>ユーザーID</th>
-			<th data-column-id='time'  data-width='10%'>日時</th>
+			<th data-column-id='userid' data-width='9%'>ユーザーID</th>
+			<th data-column-id='time'  data-width='13%'>日時</th>
 			<th data-column-id='opinion'  data-width='30%'>ご意見</th>
-			<th data-column-id='sadness' data-type='numeric' data-width='9%'>悲しみ</th>
-			<th data-column-id='joy' data-type='numeric' data-width='9%'>喜び</th>
-			<th data-column-id='fear' data-type='numeric' data-width='9%'>恐れ</th>
-			<th data-column-id='disgust' data-type='numeric' data-width='9%'>嫌悪</th>
-			<th data-column-id='anger' data-type='numeric' data-width='9%'>怒り</th>
+			<th data-column-id='sadness' data-type='numeric' data-width='7%'>悲しみ</th>
+			<th data-column-id='joy' data-type='numeric' data-width='7%'>喜び</th>
+			<th data-column-id='fear' data-type='numeric' data-width='7%'>恐れ</th>
+			<th data-column-id='disgust' data-type='numeric' data-width='7%'>嫌悪</th>
+			<th data-column-id='anger' data-type='numeric' data-width='7%'>怒り</th>
 			<th data-column-id='checked'  data-width='5%'>チェック</th>
 			<th data-column-id='detail'  data-width='5%' data-formatter='details' data-sortable='false'></th>
 		</tr>
@@ -80,40 +79,46 @@
 							<textarea class="form-control" id="dia_opinion" rows='5' readonly></textarea>
 						</div>
 					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_sadness">悲しみ</label>
-						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_sadness" readonly>
+					<div id="disp">
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="dia_sadness">悲しみ</label>
+							<div class="col-sm-2">
+								<input type="text" class="form-control" id="dia_sadness" readonly>
+							</div>
+							<label class="col-sm-2 control-label" for="dia_joy">喜び</label>
+							<div class="col-sm-2">
+								<input type="text" class="form-control" id="dia_joy" readonly>
+							</div>
+							<label class="col-sm-2 control-label" for="dia_fear">恐れ</label>
+							<div class="col-sm-2">
+								<input type="text" class="form-control" id="dia_fear" readonly>
+							</div>
 						</div>
-						<label class="col-sm-2 control-label" for="dia_joy">喜び</label>
-						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_joy" readonly>
-						</div>
-						<label class="col-sm-2 control-label" for="dia_fear">恐れ</label>
-						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_fear" readonly>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label" for="dia_disgust">嫌悪</label>
-						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_disgust" readonly>
-						</div>
-						<label class="col-sm-2 control-label" for="dia_anger">怒り</label>
-						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_anger" readonly>
-						</div>
-						<label class="col-sm-2 control-label" for="dia_checked">チェック</label>
-						<div class="col-sm-2">
-							<input type="text" class="form-control" id="dia_checked" readonly>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="dia_disgust">嫌悪</label>
+							<div class="col-sm-2">
+								<input type="text" class="form-control" id="dia_disgust" readonly>
+							</div>
+							<label class="col-sm-2 control-label" for="dia_anger">怒り</label>
+							<div class="col-sm-2">
+								<input type="text" class="form-control" id="dia_anger" readonly>
+							</div>
+							<label class="col-sm-2 control-label" for="dia_checked">チェック</label>
+							<div class="col-sm-2">
+								<input type="text" class="form-control" id="dia_checked" readonly>
+							</div>
 						</div>
 					</div>
 				</form>
+				<input type="hidden" id="_token" name="_token" value="{{ csrf_token() }}">
+				<div align="center">
+					<div class="chart-container" style="position:relative; height:120px; width:540px">
+						<canvas id="myChart"></canvas>
+					</div>
+				</div>
+				<br><br><br><br><br><br>
 			</div>
-			<input type="hidden" id="_token" name="_token" value="{{ csrf_token() }}">
-			<div>
-			<canvas id="myChart"></canvas>
-			</div>
+
 			<div class="modal-footer">
 				<button id="sback" type="button" class="btn btn-default" onclick="shosai_back()">＜＜前へ</button>
 				<button id="snext" type="button" class="btn btn-default" onclick="shosai_next()">次へ＞＞</button>

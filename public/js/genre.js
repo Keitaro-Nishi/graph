@@ -142,7 +142,6 @@ function bchange(){
 	}
 }
 
-
 function modwin(no,gid1,_gid2,g1,g2){
 	document.getElementById('modal-label').innerHTML  = "ジャンル修正";
 	initmodal();
@@ -166,7 +165,6 @@ function modwin(no,gid1,_gid2,g1,g2){
 	}
 	document.getElementById("btn_modal").click();
 }
-
 
 function initmodal(){
 	document.getElementById('dia_bunrui').value = 1;
@@ -246,5 +244,3 @@ function intent(){
 function entity(){
 	window.location.href = "./genreent";
 }
-
-
