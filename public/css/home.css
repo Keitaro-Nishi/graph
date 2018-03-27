@@ -1,11 +1,11 @@
-a.homebutton{
+.homebutton{
   display: block;
   text-decoration:none;
   position: relative;
   width: 172px;
   height: 172px;
 }
-a.homebutton:before{
+.homebutton:before{
   content: "";
   position: absolute;
   top: -10px;
@@ -17,7 +17,7 @@ a.homebutton:before{
   background: #acd373;
   z-index: 10;
 }
-a.homebutton div{
+.homebutton div{
   position: absolute;
   top: 0;
   border-radius: 90px 0 90px 0px / 90px 0 90px 0px;
@@ -34,12 +34,12 @@ a.homebutton div{
   -webkit-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out;
 }
-a.homebutton:hover div{
+.homebutton:hover div{
   -webkit-transform: rotate(65deg);
   transform: rotate(65deg);
   z-index: 5;
 }
-a.homebutton div i{
+.homebutton div i{
   position: absolute;
   top: 35%;
   left: 0;
@@ -48,7 +48,7 @@ a.homebutton div i{
   text-align: center;
   width: 100%;
 }
-a.homebutton div span{
+.homebutton div span{
   position: absolute;
   top: 65%;
   left: 0;
@@ -57,7 +57,7 @@ a.homebutton div span{
   text-align: center;
   width: 100%;
 }
-a.homebutton p{
+.homebutton p{
   color: #fff;
   font-weight: bold;
   line-height: 1.3;
