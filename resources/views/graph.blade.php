@@ -2,42 +2,28 @@
 
 @section('title')
 利用状況グラフ
- @stop
+@stop
 
 @section('content')
 <style>
-.chart {
-    position: relative;
-    float: left;
-    margin-right: 20px;
+.panel{
+  width: 800px;
+  margin: 0 auto;
+
+  padding: 10px;
+  overflow: hidden;
 }
-.chart .count {
-    position: absolute;
-    border-radius: 50%;
-    top: 24px;
-    left: 24px;
-    height: 152px;
-    width: 152px;
+.demo2-1{
+  width: 300px;
+  float: left;
+
+}
+.demo2-2{
+  width: 300px;
+  float: left;
+
 }
 
-.chart em,
-.chart span {
-    font-family: Arial;
-    font-weight: bold;
-    width: 100%;
-    text-align: center;
-}
-.chart em {
-    display: block;
-    font-size: 50px;
-    font-style: normal;
-    line-height: 150px;
-}
-.chart .caption {
-    position: absolute;
-    top: 50px;
-    left: 40px;
-}
 </style>
 <div class="container">
 	<div class="panel panel-default">
@@ -49,26 +35,17 @@
 					<input type="text" name="date_to" id="date_to" />まで
 				</form>
 				<button id="open" type="button" class="btn btn-default">表示</button>
-				<div class="container" style="position: relative; height: 400px; width: 400px">
-					<div class="chart">
-						<canvas id="myChart" width="200" height="200"></canvas>
-						<div class="count">
-							<em>性別比</em>
-						</div>
-					</div>
-					<div class="chart" id="chart2">
-						<canvas id="myChart2" width="200" height="200"></canvas>
-						<div class="count">
-							<em>年齢比</em>
-						</div>
+				<div class="container" style="position:relative; height:400px; width:400px">
+					<div>
+						<canvas class="demo2-1" id="myChart1"></canvas>
+						<canvas class="demo2-2" id="myChart2"></canvas>
 					</div>
 				</div>
 			</form>
 		</div>
 	</div>
 </div>
-<input id="_token" type="hidden" name="_token"
-	value="{{ csrf_token() }}">
+<input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
 <script type="text/javascript" src="js/graph.js"></script>
 <script>
 init();
