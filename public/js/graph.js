@@ -1,5 +1,5 @@
 $(function() {
-	document.getElementById('graph1').style.display="none";
+	document.getElementById('myChart').style.display="none";
 	$('#date_from').datepicker({
 	    dateFormat: 'yy/mm/dd',//年月日の並びを変更
 	});
@@ -28,5 +28,5 @@ function open(){
 	    }]
 	  }
 	});
-	document.getElementById('graph1').style.display = 'block';
+	document.getElementById('myChart').style.display = 'block';
 }
