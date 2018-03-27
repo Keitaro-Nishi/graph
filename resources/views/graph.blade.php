@@ -27,7 +27,7 @@
 		</div>
 	</div>
 </div>
-<button id="hjk" type="button" class="btn btn-default" onclick="open()">表示</button>
+<button id="hjk" type="button" class="btn btn-default" onclick="console.log(date_from)">表示</button>
 <input id="_token" type="hidden" name="_token" value="{{ csrf_token() }}">
 <script src="{{ asset('js/graph.js') }}"></script>
 <script>
