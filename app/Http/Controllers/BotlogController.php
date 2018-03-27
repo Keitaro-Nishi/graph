@@ -1,28 +1,23 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Botlog;
-
 class BotlogController
 {
-
 	public function index(Request $request)
 	{
-
 		$cityCD = Auth::user()->citycode;
 		$botloglist= array();
 		$botlogs= array();
-
 		if($cityCD == "00000"){
 			$botlogdatas = Botlog::all();
 		}else{
 			$botlogdatas= Botlog::where('citycode', $cityCD)->get();
 		}
+
 			foreach($botlogdatas as $botlogdata){
 
 				$citycode = $botlogdata->citycode;

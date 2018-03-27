@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+ホーム
+@stop
+
 @section('content')
 	<div align="center">
 	<br>
