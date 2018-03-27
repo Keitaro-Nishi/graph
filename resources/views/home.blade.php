@@ -5,8 +5,8 @@
 	<a href="#" class="homebutton" onclick="location.href='/botlog'">
 	  <div>
 	    <i class="fa fa-github-alt"></i>
-	    <span>BUTTON</span>
+	    <span>ログ参照</span>
 	  </div>
-	  <p>Enter text here</p>
+	  <p></p>
 	</a>
 @endsection
