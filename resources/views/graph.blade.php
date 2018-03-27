@@ -6,17 +6,10 @@
 
 @section('content')
 <style>
-.demo2{
-  width: 800px;
-  margin: 0 auto;
-}
-.demo2-1{
-  width: 300px;
-  float: left;
-}
-.demo2-2{
-  width: 300px;
-  float: left;
+.chart {
+    position: relative;
+    float: left;
+    margin-right: 20px;
 }
 </style>
 <div class="container">
@@ -30,9 +23,11 @@
 				</form>
 				<button id="open" type="button" class="btn btn-default">表示</button>
 				<div class="container" style="position:relative; height:400px; width:400px">
-					<div>
+					<div class="chart">
 						<canvas id="myChart1"></canvas>
-						<canvas id="myChart2"></canvas>
+					</div>
+					<div class="chart">
+						<canvas id="myChart1"></canvas>
 					</div>
 				</div>
 			</form>
