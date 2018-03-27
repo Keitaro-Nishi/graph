@@ -153,7 +153,7 @@ class LineBotController
 		$tdate = Carbon::now();
 		error_log("★★★★★★★★★★★★conversation_node★★★★★★★★★★★★★".$conversation_node);
 		$save_value = [
-				'citycode' => $this->$citycode,
+				'citycode' => $this->citycode,
 				'userid' => $userID,
 				'conversationid' => $conversation_id,
 				'dnode' => $conversation_node,
