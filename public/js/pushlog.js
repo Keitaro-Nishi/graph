@@ -3,10 +3,8 @@ var pushlog = [];
 var dbvalue = [];
 
 
-pushlog = document.getElementById('pushlog').value;
-dbvalue = JSON.parse(pushlog);
 
-$(function() {
+function init() {
 
 	$("#grid-basic").bootgrid({
 		selection : true,
@@ -30,7 +28,9 @@ $(function() {
 			});
 		}
 	});
-});
+
+}
+
 
 function drow() {
 	if(rowIds.length == 0){
@@ -87,16 +87,26 @@ function drow() {
 
 function detailwin(value){
 	document.getElementById("btn_modal").click();
-	for (var i = 0; i < dbvalue.length; i++){
-		if(dbvalue[i]["no"] == value){
+	for (var i = 0; i < pushlogs.length; i++){
+		if(pushlogs[i]["no"] == value){
 			modal_mod(i);
 		}
 	}
+
 }
 
+
 function modal_mod(index){
-	document.getElementById('dia_number').value  = dbvalue[index]["target"];
-	document.getElementById('dia_register').value = dbvalue[index]["info"];
-	document.getElementById('dia_age').value  = dbvalue[index]["age"];
-	document.getElementById('dia_sex').value  = dbvalue[index]["sex"];
+		document.getElementById('dia_number').value  = pushlogs[index]["target"];
+		document.getElementById('dia_register').value = pushlogs[index]["info"];
+		document.getElementById('dia_age').value  = pushlogs[index]["age"];
+		document.getElementById('dia_sex').value  = pushlogs[index]["sex"];
+
+		for(var i = 1; i < 11; i++){
+			if(document.getElementById('option'+i)){
+				document.getElementById('option'+i).value = pushlogs[index]["param"+i];
+				document.getElementById('option'+i).disabled = true;
+			}
+		}
 }
+

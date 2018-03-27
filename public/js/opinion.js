@@ -135,6 +135,7 @@ function modal_mod(index){
 		},
 	});
 
+
 	if(index == 0){
 		document.getElementById("sback").disabled = "true";
 	}else{

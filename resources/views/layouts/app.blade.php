@@ -22,6 +22,7 @@
 <link href="{{ asset('css/jquery.bootgrid.css') }}" rel="stylesheet">
 <link href="{{ asset('css/botui.min.css') }}" rel="stylesheet">
 <link href="{{ asset('css/botui-theme-default.css') }}" rel="stylesheet">
+<link href="{{ asset('css/home.css') }}" rel="stylesheet">
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
@@ -34,6 +35,8 @@
 <script src="//unpkg.com/botui/build/botui.min.js"></script>
 <!-- Chart.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
+
+
 
 </head>
 <body>
@@ -77,13 +80,11 @@
 								<li><a href="{{ route('facility') }}">施設情報</a></li>
 								<li><a href="{{ route('genre') }}">施設ジャンル</a></li>
 								<li><a href="{{ route('opinion') }}">ご意見ログ</a></li>
-								<li><a href="{{ route('register') }}">属性情報</a></li>
 								<li><a href="{{ route('linepush') }}">LINEプッシュ通知</a></li>
 								<li><a href="{{ route('pushlog') }}">LINEプッシュログ</a></li>
 								<li><a href="{{ route('messagemanage') }}">メッセージ管理</a></li>
-								<li><a href="{{ route('webbot') }}">チャットボット(WEB)</a></li>
+								<li><a href="{{ route('webbot') }}">チャットボット WEB</a></li>
 								@if (Auth::user()->role == 0 or Auth::user()->role == 1)
-								<li><a href="{{ route('register') }}">セッション情報</a></li>
 								<li><a href="{{ route('codemanage') }}">コード管理</a></li>
 								<li><a href="{{ route('parameter') }}">市町村パラメタ</a></li>
 								@endif
