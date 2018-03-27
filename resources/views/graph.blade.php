@@ -5,21 +5,6 @@
 @stop
 
 @section('content')
-<style>
-.panel{
-  width: 800px;
-  margin: 0 auto;
-}
-.demo2-1{
-  width: 300px;
-  float: left;
-}
-.demo2-2{
-  width: 300px;
-  float: left;
-}
-
-</style>
 <div class="container">
 	<div class="panel panel-default">
 		<div class="panel-heading">比較</div>
