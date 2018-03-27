@@ -6,19 +6,27 @@
 	<br>
 	<br>
 	<br>
-		<button onclick="location.href='/botlog'" class="homebutton" type="submit">チャットボットログ</button>
-		<button onclick="location.href='/logview'" class="homebutton" type="submit">フォトログ</button>
+		<button onclick="location.href='/botlog'" class="homebutton" type="submit">ログ参照</button>
+		<button onclick="location.href='/logimage'" class="homebutton" type="submit">画像ログ参照</button>
+		<button onclick="location.href='/facility'" class="homebutton" type="submit">施設情報</button>
+		<button onclick="location.href='/genre'" class="homebutton" type="submit">施設ジャンル</button>
 		<br>
 		<br>
 		<br>
-		<button onclick="location.href='/logview'" class="button5" type="submit">フォトログ</button>
+		<button onclick="location.href='/opinion'" class="homebutton" type="submit">ご意見ログ</button>
+		<button onclick="location.href='/logview'" class="homebutton" type="submit">属性情報</button>
+		<button onclick="location.href='/linepush'" class="homebutton" type="submit">LINEプッシュ通知</button>
+		<button onclick="location.href='/pushlog'" class="homebutton" type="submit">LINEプッシュログ</button>
+		<button onclick="location.href='/messagemanager'" class="homebutton" type="submit">メッセージ管理</button>
 		<br>
 		<br>
 		<br>
-		<button onclick="location.href='/logview'" class="button5" type="submit">ランキング</button>
+		<button onclick="location.href='/webbot'" class="homebutton" type="submit">チャットボット(WEB)</button>
+		<button onclick="location.href='/logview'" class="homebutton" type="submit">セッション情報</button>
+		<button onclick="location.href='/codemanage'" class="homebutton" type="submit">コード管理</button>
+		<button onclick="location.href='/parameter'" class="homebutton" type="submit">市町村パラメタ</button>
 		<br>
 		<br>
 		<br>
-		<button onclick="location.href='/Account'" class="button5 chrome Safari" type="submit">アカウント管理</button>
 	</div>
 @endsection
