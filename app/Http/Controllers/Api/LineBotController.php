@@ -130,10 +130,12 @@ class LineBotController
 			}
 		}
 
+		error_log("★★★★★★★★★★★★textMessage1★★★★★★★★★★★★★");
 		//メニュー選択済み
 		$userinfo = Userinfo::where('citycode', $this->citycode)->where('userid', $userID)->where('sender', (int)1)->first();
 		$modeflg = false;
 		if(!$userinfo){
+			error_log("★★★★★★★★★★★★ユーザーデータなし★★★★★★★★★★★★★");
 			$modeflg = true;
 		}else{
 			//10分経過でリセット
