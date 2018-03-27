@@ -157,10 +157,10 @@ class LineBotController
 				'time' => Carbon::now()
 		];
 
-		$count = Cvsdata::where('citycode', $this->$citycode)->where('userid', $userid)->count();
+		$count = Cvsdata::where('citycode', $this->$citycode)->where('userid', $userID)->count();
 
 		if($count > 0){
-			$result = DB::table('cvsdata')->where('citycode', $this->$citycode)->where('userid', $userid)->update($save_value);
+			$result = DB::table('cvsdata')->where('citycode', $this->$citycode)->where('userid', $userID)->update($save_value);
 		}else{
 			$result = DB::table('cvsdata')->insert($save_value);
 		}
