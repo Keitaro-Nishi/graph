@@ -46,7 +46,7 @@ function init() {
 		}
 	});
 }
-function open(){
+function open() {
 	//var date_from = document.getElementById('date_from').value;
 	alert("aaaaaaaa");
 }
