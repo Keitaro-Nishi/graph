@@ -139,6 +139,7 @@ class LineBotController
 	}
 
 	public function callCvs($url,$text){
+		error_log("★★★★★★★★★★★★callCvs★★★★★★★★★★★★★");
 		$data = array('input' => array("text" => $text));
 		$watson = new Watson;
 		$jsonString = $watson->callcvsPost($this->citycode,$url,$data);
@@ -149,6 +150,7 @@ class LineBotController
 		$resmess = str_replace("\\n","\n",$resmess);
 		$conversation_node = $json["context"]["system"]["dialog_stack"][0]["dialog_node"];
 		$userID = $this->jsonRequest->{"events"}[0]->{"source"}->{"userId"};
+		error_log("★★★★★★★★★★★★conversation_node★★★★★★★★★★★★★".$conversation_node);
 		$save_value = [
 				'citycode' => $this->$citycode,
 				'userid' => $userID,
@@ -158,6 +160,7 @@ class LineBotController
 		];
 
 		$count = Cvsdata::where('citycode', $this->$citycode)->where('userid', $userID)->count();
+		error_log("★★★★★★★★★★★★count★★★★★★★★★★★★★".$count);
 
 		if($count > 0){
 			$result = DB::table('cvsdata')->where('citycode', $this->$citycode)->where('userid', $userID)->update($save_value);
