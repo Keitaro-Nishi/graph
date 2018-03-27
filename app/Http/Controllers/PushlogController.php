@@ -20,8 +20,7 @@ class PushlogController
 		$pushloglist= array();
 		$pushlogs= array();
 		$codes = array();
-		//$meisholist = array();
-		$meisholists = array();
+
 
 
 		if($cityCD == "00000"){
