@@ -174,9 +174,11 @@ class LineBotController
 	}
 
 	public function userinfoUpdate($mode){
+		error_log("★★★★★★★★★★★★callCvs★★★★★★★★★★★★★");
 		$userID = $this->jsonRequest->{"events"}[0]->{"source"}->{"userId"};
 		$tdate = Carbon::now();
 		$count = Userinfo::where('citycode', $this->citycode)->where('userid', $userID)->where('sender', (int)1)->count();
+		error_log("★★★★★★★★★★★★count★★★★★★★★★★★★★".$count);
 		if($count > 0){
 			$save_value = [
 					'sposi' => $mode,
