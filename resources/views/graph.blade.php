@@ -9,19 +9,14 @@
 .panel{
   width: 800px;
   margin: 0 auto;
-
-  padding: 10px;
-  overflow: hidden;
 }
 .demo2-1{
   width: 300px;
   float: left;
-
 }
 .demo2-2{
   width: 300px;
   float: left;
-
 }
 
 </style>
@@ -36,9 +31,11 @@
 				</form>
 				<button id="open" type="button" class="btn btn-default">表示</button>
 				<div class="container" style="position:relative; height:400px; width:400px">
-					<div>
-						<canvas class="demo2-1" id="myChart1"></canvas>
-						<canvas class="demo2-2" id="myChart2"></canvas>
+					<div class="demo2-1">
+						<canvas id="myChart1"></canvas>
+					</div>
+					<div class="demo2-2">
+						<canvas id="myChart2"></canvas>
 					</div>
 				</div>
 			</form>
