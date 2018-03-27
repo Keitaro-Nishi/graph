@@ -14,36 +14,35 @@ a.homebutton:before{
   box-shadow: inset 1px 1px 2px rgba(255,255,255,0.5), inset 0 -1px 3px rgba(0,0,0,0.2);
   width: 20px;
   height: 20px;
-  background: #acd373;
+  background: #ffc833;
   z-index: 10;
 }
 a.homebutton div{
   position: absolute;
   top: 0;
-  border-radius: 90px 0 90px 0px / 90px 0 90px 0px;
   box-shadow: 0 0 5px rgba(0,0,0,0.1), inset 0 0 40px 15px #fff;
   position: absolute;
   height: 172px;
   width: 172px;
   display: block;
-  border: 10px solid #d1eaac;
-  background: #e1f1c9;
-  color: #acd373;
+  border: 10px solid #ffd800;
+  background: #fff4b5;
+  color: #ffd119;
   -webkit-transform-origin: 97% 0;
   transform-origin: 97% 0;
   -webkit-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out;
 }
 a.homebutton:hover div{
-  -webkit-transform: rotate(70deg);
-  transform: rotate(70deg);
+ -webkit-transform: rotate(75deg);
+  transform: rotate(75deg);
   z-index: 5;
 }
 a.homebutton div span{
-  position: absolute;
+   position: absolute;
   top: 65%;
   left: 0;
-  font-size: 20px;
+  font-size: 14px;
   font-weight: bold;
   text-align: center;
   width: 100%;
@@ -56,8 +55,7 @@ a.homebutton p{
   width: 112px;
   height: 96px;
   padding: 60px 30px 20px;
-  background: #bfe289;
+  background: #ffc833;
   border: 10px solid #fff;
-  border-radius: 90px 0 90px 0px / 90px 0 90px 0px;
   box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
