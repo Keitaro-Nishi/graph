@@ -82,7 +82,7 @@
 								<li><a href="{{ route('linepush') }}">LINEプッシュ通知</a></li>
 								<li><a href="{{ route('pushlog') }}">LINEプッシュログ</a></li>
 								<li><a href="{{ route('messagemanage') }}">メッセージ管理</a></li>
-								<li><a href="{{ route('webbot') }}">チャットボット(WEB)</a></li>
+								<li><a href="{{ route('webbot') }}">チャットボット WEB</a></li>
 								@if (Auth::user()->role == 0 or Auth::user()->role == 1)
 								<li><a href="{{ route('register') }}">セッション情報</a></li>
 								<li><a href="{{ route('codemanage') }}">コード管理</a></li>
