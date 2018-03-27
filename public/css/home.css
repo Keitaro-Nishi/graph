@@ -35,8 +35,8 @@ a.homebutton div{
   transition: all 0.5s ease-out;
 }
 a.homebutton:hover div{
-  -webkit-transform: rotate(65deg);
-  transform: rotate(65deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
   z-index: 5;
 }
 a.homebutton div i{
