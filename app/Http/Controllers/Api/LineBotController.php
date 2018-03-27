@@ -84,6 +84,7 @@ class LineBotController
 				switch ($functions[$i]->code2) {
 					//属性登録
 					case 1:
+						$this->userinfoUpdate(1);
 						if(substr($parameter->usefunction,$i,1) == 1){
 							$mess = Message::select('message')->where('citycode', $this->citycode)->where('id', 3)->first();
 							$messurl = $mess->message.(empty($_SERVER["HTTPS"]) ? "http://" : "https://").$_SERVER["HTTP_HOST"]."/attribute/".$this->citycode."/1/".$userID;
@@ -91,7 +92,6 @@ class LineBotController
 						}else{
 							$this->linesendtext($unknownMess->message);
 						}
-						$this->userinfoUpdate(1);
 						return;
 					//検診相談
 					case 2:
@@ -107,6 +107,7 @@ class LineBotController
 						return;
 					//周辺施設検索
 					case 5:
+						$this->userinfoUpdate(5);
 						if(substr($parameter->usefunction,$i,1) == 1){
 							$mess = Message::select('message')->where('citycode', $this->citycode)->where('id', 5)->first();
 							$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$parameter->cvs_ws_id1."/message?version=2017-04-21";
@@ -115,7 +116,6 @@ class LineBotController
 						}else{
 							$this->linesendtext($unknownMess->message);
 						}
-						$this->userinfoUpdate(5);
 						return;
 					//市政へのご意見
 					case 6:
@@ -174,7 +174,7 @@ class LineBotController
 	}
 
 	public function userinfoUpdate($mode){
-		error_log("★★★★★★★★★★★★callCvs★★★★★★★★★★★★★");
+		error_log("★★★★★★★★★★★★userinfoUpdate★★★★★★★★★★★★★");
 		$userID = $this->jsonRequest->{"events"}[0]->{"source"}->{"userId"};
 		$tdate = Carbon::now();
 		$count = Userinfo::where('citycode', $this->citycode)->where('userid', $userID)->where('sender', (int)1)->count();
