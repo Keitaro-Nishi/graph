@@ -91,6 +91,7 @@ class LineBotController
 						}else{
 							$this->linesendtext($unknownMess->message);
 						}
+						$this->userinfoUpdate(1);
 						return;
 					//検診相談
 					case 2:
@@ -114,6 +115,7 @@ class LineBotController
 						}else{
 							$this->linesendtext($unknownMess->message);
 						}
+						$this->userinfoUpdate(5);
 						return;
 					//市政へのご意見
 					case 6:
@@ -169,6 +171,29 @@ class LineBotController
 			$result = DB::table('cvsdata')->insert($save_value);
 		}
 		return $resmess;
+	}
+
+	public function userinfoUpdate($mode){
+		$userID = $this->jsonRequest->{"events"}[0]->{"source"}->{"userId"};
+		$tdate = Carbon::now();
+		$count = Userinfo::where('citycode', $this->citycode)->where('userid', $userID)->where('sender', (int)1)->count();
+		if($count > 0){
+			$save_value = [
+					'sposi' => $mode,
+					'time' => $tdate
+			];
+			$result = DB::table('userinfo')->where('citycode', $this->citycode)->where('userid', $userID)->update($save_value);
+		}else{
+			$save_value = [
+					'citycode' => $this->citycode,
+					'userid' => $userID,
+					'sex' => (int)0,
+					'age' => (int)999,
+					'sposi' => $mode,
+					'time' => $tdate
+			];
+			$result = DB::table('userinfo')->insert($save_value);
+		}
 	}
 
 	public function linesendtext($text){
