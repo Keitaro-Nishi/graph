@@ -18,13 +18,15 @@
 		<button onclick="location.href='/linepush'" class="homebutton" type="submit">LINEプッシュ通知</button>
 		<button onclick="location.href='/pushlog'" class="homebutton" type="submit">LINEプッシュログ</button>
 		<button onclick="location.href='/messagemanager'" class="homebutton" type="submit">メッセージ管理</button>
-		<br>
-		<br>
-		<br>
 		<button onclick="location.href='/webbot'" class="homebutton" type="submit">チャットボット WEB </button>
+		<br>
+		<br>
+		<br>
+		@if (Auth::user()->role == 0 or Auth::user()->role == 1)
 		<button onclick="location.href='/logview'" class="homebutton" type="submit">セッション情報</button>
 		<button onclick="location.href='/codemanage'" class="homebutton" type="submit">コード管理</button>
 		<button onclick="location.href='/parameter'" class="homebutton" type="submit">市町村パラメタ</button>
+		@endif
 		<br>
 		<br>
 		<br>
