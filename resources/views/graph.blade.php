@@ -7,7 +7,8 @@
 		<div class="panel-body">
 			<form class="form-horizontal">
 				<form action="" method="post">
-					<input type="text" name="date" id="date" readonly="readonly">
+					from <input type="text" name="date_from" id="date_from" readonly="readonly">
+					to <input type="text" name="date_to" id="date_to" />
 				</form>
 			</form>
 		</div>
