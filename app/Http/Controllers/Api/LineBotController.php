@@ -2,11 +2,13 @@
 namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 use App\Libs\Watson;
 use App\Userinfo;
 use App\Parameter;
 use App\Message;
 use App\Code;
+use App\Cvsdata;
 class LineBotController
 {
 
@@ -105,10 +107,9 @@ class LineBotController
 					//周辺施設検索
 					case 5:
 						if(substr($parameter->usefunction,$i,1) == 1){
-							$data = array('input' => array("text" => "初回発話"));
+							$mess = Message::select('message')->where('citycode', $this->citycode)->where('id', 5)->first();
 							$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$parameter->cvs_ws_id1."/message?version=2017-04-21";
-							$watson = new Watson;
-							$mess = $watson->callcvsPost($this->citycode,$url,$data);
+							$this->callCvs($url,"初回");
 							$this->linesendtext($mess);
 						}else{
 							$this->linesendtext($unknownMess->message);
@@ -135,6 +136,35 @@ class LineBotController
 
 	public function locationMessage(){
 
+	}
+
+	public function callCvs($url,$text){
+		$data = array('input' => array("text" => $text));
+		$watson = new Watson;
+		$jsonString = $watson->callcvsPost($this->citycode,$url,$data);
+		$json = json_decode($jsonString, true);
+		$conversation_id = $json["context"]["conversation_id"];
+		$resmess= $json["output"]["text"][0];
+		//改行コードを置き換え
+		$resmess = str_replace("\\n","\n",$resmess);
+		$conversation_node = $json["context"]["system"]["dialog_stack"][0]["dialog_node"];
+		$userID = $this->jsonRequest->{"events"}[0]->{"source"}->{"userId"};
+		$save_value = [
+				'citycode' => $this-$citycode,
+				'userid' => $userID,
+				'conversationid' => $conversation_id,
+				'dnode' => $conversation_node,
+				'time' => Carbon::now()
+		];
+
+		$count = Cvsdata::where('citycode', $citycode)->where('userid', $userid)->count();
+
+		if($count > 0){
+			$result = DB::table('cvsdata')->where('citycode', $citycode)->where('userid', $userid)->update($save_value);
+		}else{
+			$result = DB::table('cvsdata')->insert($save_value);
+		}
+		return $resmess;
 	}
 
 	public function linesendtext($text){
