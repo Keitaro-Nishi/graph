@@ -112,8 +112,8 @@ class EventController
 		$input = $this->requestall;
 		$uiKbn = $input["uiKbn"];
 		$bunrui = $input["bunrui"];
-		$date = $input["date"];
-		$time = $input["time"];
+		//$date = $input["date"];
+		//$time = $input["time"];
 		$meisho = $input["meisho"];
 		$gid1 = $input["gid1"];
 		$gid2 = $input["gid2"];

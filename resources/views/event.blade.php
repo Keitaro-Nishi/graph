@@ -11,11 +11,11 @@
 		<tr>
 			   <th data-column-id='no' data-identifier='true' data-width='3%' data-visible="false"></th>
 			   <th data-column-id='citycode' data-width='20%' data-visible="false"></th>
-			   <th data-column-id='date' data-width='10%' >日付</th>
-			   <th data-column-id='time' data-width='10%' >時間</th>
 			   <th data-column-id='bunrui' data-width='5%' >分類</th>
                <th data-column-id='g1' data-width='15%' >大分類名称</th>
                <th data-column-id='g2' data-width='15%' >小分類名称</th>
+               <th data-column-id='date' data-width='10%' >日付</th>
+			   <th data-column-id='time' data-width='10%' >時間</th>
                <th data-column-id='gid1' data-width='5%'>分類ID1</th>
                <th data-column-id='gid2' data-width='5%'>分類ID2</th>
                <th data-column-id='mod'  data-width='7%' data-formatter='mods' data-sortable='false'></th>
@@ -26,8 +26,6 @@
 		<tr>
 			<td>{{$genrelist['gid1'].".".$genrelist['gid2']}}</td>
 			<td>{{$genrelist['citycode']}}</td>
-			<td>{{$genrelist['date']}}</td>
-			<td>{{$genrelist['time']}}</td>
 			@if($genrelist['bunrui'] == 1)
 			<td>大分類</td>
 			@else
@@ -35,6 +33,8 @@
 			@endif
 			<td>{{$genrelist['daibunrui']}}</td>
 			<td>{{$genrelist['shoubunrui']}}</td>
+			<td>{{$genrelist['date']}}</td>
+			<td>{{$genrelist['time']}}</td>
 			<td>{{$genrelist['gid1']}}</td>
 			<td>{{$genrelist['gid2']}}</td>
 		</tr>
