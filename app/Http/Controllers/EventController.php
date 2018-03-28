@@ -49,7 +49,7 @@ class EventController
 			];
 			array_push($genrelists, $genrelist);
 		}
-		return view('genre',compact('genrelists','j1values'));
+		return view('event',compact('genrelists','j1values'));
 	}
 	public  function request(){
 		$this->requestall = \Request::all();
