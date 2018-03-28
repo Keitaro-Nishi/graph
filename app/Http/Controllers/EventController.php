@@ -109,11 +109,13 @@ class EventController
 		$cityCD = Auth::user()->citycode;
 		$workspace = Parameter::select('cvs_ws_id4')->where('citycode', $cityCD)->first();
 		$workspace_id = $workspace->cvs_ws_id4;
+
+		error_log("☆☆☆☆☆☆");
+		error_log($workspace_id);
+
 		$input = $this->requestall;
 		$uiKbn = $input["uiKbn"];
 		$bunrui = $input["bunrui"];
-		//$date = $input["date"];
-		//$time = $input["time"];
 		$meisho = $input["meisho"];
 		$gid1 = $input["gid1"];
 		$gid2 = $input["gid2"];
@@ -153,7 +155,7 @@ class EventController
 					}else{
 						$gid1 = $gid1data->gid1+1;
 					}
-					DB::table('event')->insert(['citycode'=> $cityCD,'bunrui' =>$bunrui,'date' =>$date,'time' =>$time,'gid1' => $gid1,'gid2' =>0,'gid3' =>0,'meisho' =>$meisho]);
+					DB::table('event')->insert(['citycode'=> $cityCD,'bunrui' =>$bunrui,'gid1' => $gid1,'gid2' =>0,'gid3' =>0,'meisho' =>$meisho]);
 					//CVSデータ作成
 					//Intents
 					$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/intents?version=2017-05-26";
@@ -190,7 +192,7 @@ class EventController
 					//小分類
 					$gid2data= Event::select('gid2')->where('citycode', $cityCD)->where('gid1',$gid1)->orderBy('gid2', 'DESC')->first();
 					$gid2 = $gid2data->gid2 + 1;
-					DB::table('event')->insert(['citycode'=> $cityCD,'bunrui' => $bunrui,'date'=> $date,'time'=> $time,'gid1' => $gid1,'gid2' => $gid2,'gid3' =>0,'meisho' => $meisho]);
+					DB::table('event')->insert(['citycode'=> $cityCD,'bunrui' => $bunrui,'gid1' => $gid1,'gid2' => $gid2,'gid3' =>0,'meisho' => $meisho]);
 					//CVSデータ作成
 					//ENTITIES
 					$url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace_id."/entities/".$gid1."/values?version=2017-05-26";
