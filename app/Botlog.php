@@ -26,6 +26,7 @@ class Botlog extends Model
     ];
 
     protected $primaryKey ='no';
-    public $incrementing = FALSE;
+    //public $incrementing = FALSE;
     protected $table = 'botlog';
+    public $timestamps = false;
 }

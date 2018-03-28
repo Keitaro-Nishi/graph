@@ -10,11 +10,21 @@ use App\Message;
 use App\Code;
 use App\Cvsdata;
 use App\Genre;
+use App\Botlog;
+
 class LineBotController
 {
 
 	private $citycode;
 	private $jsonRequest;
+
+	const SENDER = 1;
+	const TYPE_ZOKUSEITOROKU = 1;
+	const TYPE_KENSINSODAN = 2;
+	const TYPE_TOIAWASE = 3;
+	const TYPE_GOMI = 4;
+	const TYPE_SISETUKENSAKU = 5;
+	const TYPE_SISEIIKEN = 6;
 
 	public function callback(Request $request,$citycode)
 	{
@@ -86,7 +96,7 @@ class LineBotController
 			if($functions[$i]->meisho == $text){
 				switch ($functions[$i]->code2) {
 					//属性登録
-					case 1:
+					case TYPE_ZOKUSEITOROKU:
 						$this->userinfoUpdate(1);
 						if(substr($parameter->usefunction,$i,1) == 1){
 							$mess = Message::select('message')->where('citycode', $this->citycode)->where('id', 3)->first();
@@ -97,19 +107,19 @@ class LineBotController
 						}
 						return;
 					//検診相談
-					case 2:
+					case TYPE_KENSINSODAN:
 						$this->imageMessage();
 						return;
 					//問い合わせ
-					case 3:
+					case TYPE_TOIAWASE:
 						$this->locationMessage();
 						return;
 					//ごみの分別
-					case 4:
+					case TYPE_GOMI:
 						$this->locationMessage();
 						return;
 					//周辺施設検索
-					case 5:
+					case TYPE_SISETUKENSAKU:
 						$this->userinfoUpdate(5);
 						if(substr($parameter->usefunction,$i,1) == 1){
 							$mess = Message::select('message')->where('citycode', $this->citycode)->where('id', 5)->first();
@@ -121,7 +131,7 @@ class LineBotController
 						}
 						return;
 					//市政へのご意見
-					case 6:
+					case TYPE_SISEIIKEN:
 						$this->locationMessage();
 						return;
 					default:
@@ -132,7 +142,7 @@ class LineBotController
 
 		error_log("★★★★★★★★★★★★textMessage1★★★★★★★★★★★★★");
 		//メニュー選択済み
-		$userinfo = Userinfo::where('citycode', $this->citycode)->where('userid', $userID)->where('sender', (int)1)->first();
+		$userinfo = Userinfo::where('citycode', $this->citycode)->where('userid', $userID)->where('sender', SENDER)->first();
 		$modeflg = false;
 		if(!$userinfo){
 			error_log("★★★★★★★★★★★★ユーザーデータなし★★★★★★★★★★★★★");
@@ -158,28 +168,28 @@ class LineBotController
 		//メニューによる振り分け
 		switch ($userinfo->sposi) {
 			//属性登録
-			case 1:
+			case TYPE_ZOKUSEITOROKU:
 				$mess = Message::select('message')->where('citycode', $this->citycode)->where('id', 6)->first();
 				$this->linesendtext($mess->message);
 				return;
 			//検診相談
-			case 2:
+			case TYPE_KENSINSODAN:
 
 				return;
 			//問い合わせ
-			case 3:
+			case TYPE_TOIAWASE:
 
 				return;
 			//ごみの分別
-			case 4:
+			case TYPE_GOMI:
 
 				return;
 			//周辺施設検索
-			case 5:
+			case TYPE_SISETUKENSAKU:
 				$this->shisetu($parameter->cvs_ws_id1);
 				return;
 			//市政へのご意見
-			case 6:
+			case TYPE_SISEIIKEN:
 
 				return;
 			default:
@@ -193,6 +203,18 @@ class LineBotController
 
 	public function locationMessage(){
 
+	}
+
+	public function writeLog($type,$return){
+		$botlog = new Botlog();
+		$botlog->citycode = $this->citycode;
+		$botlog->time = Carbon::now();
+		$botlog->sender = SENDER;
+		$botlog->type = $type;
+		$botlog->userid = $this->jsonRequest->{"events"}[0]->{"source"}->{"userId"};
+		$botlog->contents = $this->jsonRequest->{"events"}[0]->{"message"}->{"text"};
+		$botlog->return = $return;
+		$botlog->save();
 	}
 
 	//周辺施設検索
@@ -232,9 +254,11 @@ class LineBotController
 			];
 			$result = DB::table('userinfo')->where('citycode', $this->citycode)->where('userid', $userID)->update($save_value);
 		}
-		$this->linesendtext($resmess);
+		$ress = $this->linesendtext($resmess);
+		$this->writeLog(TYPE_SISETUKENSAKU,$ress);
 	}
 
+	//Conversation呼び出し
 	public function callCvs($url,$text){
 		$data = array('input' => array("text" => $text));
 		$watson = new Watson;
@@ -268,7 +292,7 @@ class LineBotController
 	public function userinfoUpdate($mode){
 		$userID = $this->jsonRequest->{"events"}[0]->{"source"}->{"userId"};
 		$tdate = Carbon::now();
-		$count = Userinfo::where('citycode', $this->citycode)->where('userid', $userID)->where('sender', (int)1)->count();
+		$count = Userinfo::where('citycode', $this->citycode)->where('userid', $userID)->where('sender', SENDER)->count();
 		if($count > 0){
 			$save_value = [
 					'sposi' => $mode,
@@ -278,7 +302,7 @@ class LineBotController
 		}else{
 			$save_value = [
 					'citycode' => $this->citycode,
-					'sender' => (int)1,
+					'sender' => SENDER,
 					'userid' => $userID,
 					'sex' => (int)0,
 					'age' => (int)999,
@@ -291,7 +315,7 @@ class LineBotController
 
 	public function linesendtext($text){
 		$userID = $this->jsonRequest->{"events"}[0]->{"source"}->{"userId"};
-		$lang = Userinfo::select('language')->where('citycode', $this->citycode)->where('userid', $userID)->where('sender', (int)1)->first();
+		$lang = Userinfo::select('language')->where('citycode', $this->citycode)->where('userid', $userID)->where('sender', SENDER)->first();
 		if($lang){
 			if($lang->language == "02"){
 				$watson = new Watson;
@@ -303,6 +327,7 @@ class LineBotController
 				"text" => $text
 		];
 		$this->linesend($response_format_text);
+		return $text;
 	}
 
 	public function linesend ($response_format_text){
