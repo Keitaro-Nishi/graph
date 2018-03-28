@@ -64,8 +64,8 @@ class EventController
 	public function delete()
 	{
 		$cityCD = Auth::user()->citycode;
-		$workspace = Parameter::select('cvs_ws_id1')->where('citycode', $cityCD)->first();
-		$workspace_id = $workspace->cvs_ws_id1;
+		$workspace = Parameter::select('cvs_ws_id4')->where('citycode', $cityCD)->first();
+		$workspace_id = $workspace->cvs_ws_id4;
 		$input = $this->requestall;
 		$idsdata = $input["ids"];
 		$watson = new Watson;
@@ -107,8 +107,8 @@ class EventController
 	public function update()
 	{
 		$cityCD = Auth::user()->citycode;
-		$workspace = Parameter::select('cvs_ws_id1')->where('citycode', $cityCD)->first();
-		$workspace_id = $workspace->cvs_ws_id1;
+		$workspace = Parameter::select('cvs_ws_id4')->where('citycode', $cityCD)->first();
+		$workspace_id = $workspace->cvs_ws_id4;
 		$input = $this->requestall;
 		$uiKbn = $input["uiKbn"];
 		$bunrui = $input["bunrui"];
