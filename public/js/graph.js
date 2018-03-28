@@ -5,6 +5,10 @@ function init() {
 	$('#date_to').datepicker({
 		dateFormat: 'yy/mm/dd',//年月日の並びを変更
 	});
+
+	$("#date_from").datepicker("getDate");
+	console.log(#date_from);
+
 	var ctx = document.getElementById("myChart1").getContext('2d');
 	var myChart = new Chart(ctx, {
 		type: 'doughnut',
