@@ -235,3 +235,11 @@ function update(){
     });
 
 }
+
+function intent(){
+	window.location.href = "./eventint";
+}
+
+function entity(){
+	window.location.href = "./eventent";
+}
